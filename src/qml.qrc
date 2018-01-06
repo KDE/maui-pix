@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>view_models/PixViewer.qml</file>
+        <file>view_models/PixGrid.qml</file>
+        <file>widgets/Viewer.qml</file>
+        <file>widgets/TagsView.qml</file>
+        <file>widgets/GalleryView.qml</file>
+        <file>widgets/EditTools.qml</file>
+        <file>widgets/AlbumsView.qml</file>
     </qresource>
 </RCC>
