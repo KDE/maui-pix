@@ -1,12 +1,17 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>view_models/PixViewer.qml</file>
         <file>view_models/PixGrid.qml</file>
-        <file>widgets/Viewer.qml</file>
         <file>widgets/TagsView.qml</file>
         <file>widgets/GalleryView.qml</file>
         <file>widgets/EditTools.qml</file>
         <file>widgets/AlbumsView.qml</file>
+        <file>utils/Icon.qml</file>
+        <file>utils/Icons.js</file>
+        <file>utils/materialdesignicons-webfont.ttf</file>
+        <file>widgets/PixsBar.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>widgets/PixsViewer.qml</file>
+        <file>widgets/SettingsView.qml</file>
     </qresource>
 </RCC>

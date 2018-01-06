@@ -1,98 +1,80 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-import org.kde.kirigami 2.0 as Kirigami
 
-Kirigami.ApplicationWindow
+import "widgets"
+
+ApplicationWindow
 {
     id: root
+    visible: true
+    width: 400
+    height: 500
+    title: qsTr("Pixs")
 
-    property int defaultColumnWidth: Kirigami.Units.gridUnit * 13
-    property int columnWidth: defaultColumnWidth
+    property int currentView : 0
 
-    pageStack.defaultColumnWidth: columnWidth
-    pageStack.initialPage: [firstPageComponent, secondPageComponent]
 
-    MouseArea
+    footer: PixsBar
     {
-        id: dragHandle
+        id: toolBar
+        visible: true
+        size: 24
 
-        visible: pageStack.wideMode
+        currentIndex: currentView
 
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
+        onGalleryViewClicked: currentView = 0
+        onAlbumsViewClicked: currentView = 1
+        onTagsViewClicked: currentView = 2
+        onSettingsViewClicked: currentView = 3
+    }
 
-        x: columnWidth - (width / 2)
-        width: Kirigami.Units.devicePixelRatio * 2
-
-        property int dragRange: (Kirigami.Units.gridUnit * 5)
-        property int _lastX: -1
-
-        cursorShape: Qt.SplitHCursor
-
-        onPressed: _lastX = mouseX
-
-        onPositionChanged:
+    StackView
+    {
+        id: stackView
+        anchors.fill: parent
+        initialItem: SwipeView
         {
-            if (mouse.x > _lastX)
+            id: swipeView
+            width: parent.width
+            height: parent.height
+
+            currentIndex: currentView
+
+            onCurrentIndexChanged:
             {
-                columnWidth = Math.min((defaultColumnWidth + dragRange),
-                    columnWidth + (mouse.x - _lastX));
-            } else if (mouse.x < _lastX)
+                currentView = currentIndex
+            }
+
+            GalleryView
             {
-                columnWidth = Math.max((defaultColumnWidth - dragRange),
-                    columnWidth - (_lastX - mouse.x));
+
+            }
+
+            AlbumsView
+            {
+
+            }
+
+            TagsView
+            {
+
+            }
+
+            SettingsView
+            {
+
+            }
+
+
+        }
+
+        Component
+        {
+            id: viewer
+            PixsViewer
+            {
+
             }
         }
-
-        Rectangle
-        {
-            anchors.fill: parent
-
-            color: "blue"
-        }
-    }
-
-    Component
-    {
-        id: firstPageComponent
-
-        Kirigami.Page
-        {
-            id: firstPage
-
-            background: Rectangle { color: "red" }
-        }
-    }
-
-    Component
-    {
-        id: secondPageComponent
-
-        SwipeView
-        {
-            id: secondPage
-clip: true
-            background: Rectangle { color: "green" }
-
-            currentIndex: 1
-                anchors.fill: parent
-
-                Item {
-                    id: firstPage
-                    Label
-                    {
-                        text: "hahaha"
-                    }
-                }
-                Item {
-                    id: thirdPage
-                    Label
-                    {
-                        text: "jajaja"
-                    }
-                }
-        }
-
-
     }
 }

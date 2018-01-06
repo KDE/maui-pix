@@ -1,13 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QFontDatabase>
 
 int main(int argc, char *argv[])
 {
-#if defined(Q_OS_WIN)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-#endif
 
     QGuiApplication app(argc, argv);
+
+    QFontDatabase::addApplicationFont(":/utils/materialdesignicons-webfont.ttf");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
