@@ -7,9 +7,9 @@ import "../utils"
 
 ToolBar
 {
-    property string accentColor : "#75ff75"
-    property string textColor : "#ffffff"
-    property string backgroundColor : "#31363b"    
+    property string accentColor : "#03A9F4"
+    property string textColor : UTI.foregroundColor()
+    property string backgroundColor : UTI.backgroundColor()
     property int size
 
     property int currentIndex : 0
@@ -17,6 +17,7 @@ ToolBar
     signal galleryViewClicked()
     signal albumsViewClicked()
     signal tagsViewClicked()
+    signal foldersViewClicked()
     signal settingsViewClicked()
 
 
@@ -34,14 +35,41 @@ ToolBar
 
         Row
         {
-            anchors.centerIn: parent
+            Layout.alignment: Qt.AlignLeft
+
+            ToolButton
+            {
+                id: viewerView
+
+                Icon
+                {
+                    id: viewerIcon
+                    text: MdiFont.Icon.image
+                    color: currentIndex === 4? accentColor : textColor
+                    iconSize: size
+
+                }
+
+                onClicked: settingsViewClicked()
+
+                hoverEnabled: true
+                ToolTip.delay: 1000
+                ToolTip.timeout: 5000
+                ToolTip.visible: hovered
+                ToolTip.text: qsTr("Settings")
+            }
+        }
+
+        Row
+        {
+            Layout.alignment: Qt.AlignCenter
 
             ToolButton
             {
                 id: galleryBtn
                 Icon
                 {
-                    text: MdiFont.Icon.image
+                    text: MdiFont.Icon.imageFilterFrames
                     color: currentIndex === 0? accentColor : textColor
                     iconSize: size
                 }
@@ -57,12 +85,33 @@ ToolBar
 
             ToolButton
             {
+                id: foldersView
+
+                Icon
+                {
+                    id: foldersIcon
+                    text: MdiFont.Icon.folderMultipleImage
+                    color: currentIndex === 1? accentColor : textColor
+                    iconSize: size
+
+                }
+
+                onClicked: foldersViewClicked()
+                hoverEnabled: true
+                ToolTip.delay: 1000
+                ToolTip.timeout: 5000
+                ToolTip.visible: hovered
+                ToolTip.text: qsTr("Tags")
+            }
+
+            ToolButton
+            {
                 id: albumsView
                 Icon
                 {
                     id: albumsIcon
-                    text: MdiFont.Icon.burstMode
-                    color: currentIndex === 1? accentColor : textColor
+                    text: MdiFont.Icon.imageMultiple
+                    color: currentIndex === 2? accentColor : textColor
                     iconSize: size
 
                 }
@@ -76,15 +125,17 @@ ToolBar
                 ToolTip.text: qsTr("Albums")
             }
 
+
+
             ToolButton
             {
                 id: tagsView
 
                 Icon
                 {
-                    id: artistsIcon
-                    text: MdiFont.Icon.tagFaces
-                    color: currentIndex === 2? accentColor : textColor
+                    id: tagsIcon
+                    text: MdiFont.Icon.tag
+                    color: currentIndex === 3? accentColor : textColor
                     iconSize: size
 
                 }
@@ -96,7 +147,11 @@ ToolBar
                 ToolTip.visible: hovered
                 ToolTip.text: qsTr("Tags")
             }
+        }
 
+        Row
+        {
+            Layout.alignment: Qt.AlignRight
 
             ToolButton
             {
@@ -105,8 +160,8 @@ ToolBar
                 Icon
                 {
                     id: settingsIcon
-                    text: MdiFont.Icon.settings
-                    color: currentIndex === 3? accentColor : textColor
+                    text: MdiFont.Icon.dotsVertical
+                    color: currentIndex === 4? accentColor : textColor
                     iconSize: size
 
                 }

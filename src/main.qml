@@ -15,7 +15,7 @@ ApplicationWindow
     property int currentView : 0
 
 
-    footer: PixsBar
+    header: PixsBar
     {
         id: toolBar
         visible: true
@@ -27,6 +27,13 @@ ApplicationWindow
         onAlbumsViewClicked: currentView = 1
         onTagsViewClicked: currentView = 2
         onSettingsViewClicked: currentView = 3
+    }
+
+    Rectangle
+    {
+        anchors.fill: parent
+        color: UTI.altColor()
+        z: -999
     }
 
     StackView

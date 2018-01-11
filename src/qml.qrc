@@ -13,5 +13,7 @@
         <file>qtquickcontrols2.conf</file>
         <file>widgets/PixsViewer.qml</file>
         <file>widgets/SettingsView.qml</file>
+        <file>db/script.sql</file>
+        <file>widgets/FoldersView.qml</file>
     </qresource>
 </RCC>
