@@ -38,6 +38,8 @@ public:
     /*useful tools*/
 
     PIX::DB_LIST getDBData(const QString &queryTxt);
+    QVariantList getDBDataQML(const QString &queryTxt);
+
     bool execQuery(const QString &queryTxt);
 
     QSqlQuery getQuery(const QString &queryTxt);

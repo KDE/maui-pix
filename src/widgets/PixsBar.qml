@@ -7,13 +7,14 @@ import "../utils"
 
 ToolBar
 {
-    property string accentColor : "#03A9F4"
-    property string textColor : UTI.foregroundColor()
-    property string backgroundColor : UTI.backgroundColor()
+    property string accentColor : pix.pixColor()
+    property string textColor : pix.foregroundColor()
+    property string backgroundColor : pix.backgroundColor()
     property int size
 
     property int currentIndex : 0
 
+    signal viewerViewClicked()
     signal galleryViewClicked()
     signal albumsViewClicked()
     signal tagsViewClicked()
@@ -45,12 +46,12 @@ ToolBar
                 {
                     id: viewerIcon
                     text: MdiFont.Icon.image
-                    color: currentIndex === 4? accentColor : textColor
+                    color: currentIndex === 0? accentColor : textColor
                     iconSize: size
 
                 }
 
-                onClicked: settingsViewClicked()
+                onClicked: viewerViewClicked()
 
                 hoverEnabled: true
                 ToolTip.delay: 1000
@@ -70,7 +71,7 @@ ToolBar
                 Icon
                 {
                     text: MdiFont.Icon.imageFilterFrames
-                    color: currentIndex === 0? accentColor : textColor
+                    color: currentIndex === 1? accentColor : textColor
                     iconSize: size
                 }
 
@@ -91,7 +92,7 @@ ToolBar
                 {
                     id: foldersIcon
                     text: MdiFont.Icon.folderMultipleImage
-                    color: currentIndex === 1? accentColor : textColor
+                    color: currentIndex === 2? accentColor : textColor
                     iconSize: size
 
                 }
@@ -111,7 +112,7 @@ ToolBar
                 {
                     id: albumsIcon
                     text: MdiFont.Icon.imageMultiple
-                    color: currentIndex === 2? accentColor : textColor
+                    color: currentIndex === 3? accentColor : textColor
                     iconSize: size
 
                 }
@@ -135,7 +136,7 @@ ToolBar
                 {
                     id: tagsIcon
                     text: MdiFont.Icon.tag
-                    color: currentIndex === 3? accentColor : textColor
+                    color: currentIndex === 4? accentColor : textColor
                     iconSize: size
 
                 }
@@ -161,7 +162,7 @@ ToolBar
                 {
                     id: settingsIcon
                     text: MdiFont.Icon.dotsVertical
-                    color: currentIndex === 4? accentColor : textColor
+                    color: currentIndex === 5? accentColor : textColor
                     iconSize: size
 
                 }

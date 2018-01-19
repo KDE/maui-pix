@@ -4,7 +4,7 @@
 #include <QThread>
 #include <QObject>
 #include <QDirIterator>
-
+#include <QFileInfo>
 #include "collectionDB.h"
 
 class FileLoader : public QObject
@@ -18,7 +18,7 @@ public:
         qRegisterMetaType<PIX::TABLE>("PIX::TABLE");
         qRegisterMetaType<QMap<PIX::TABLE, bool>>("QMap<PIX::TABLE,bool>");
 
-        this->con = new CollectionDB("fileLoader", this);
+        this->con = new CollectionDB(this);
         this->moveToThread(&t);
         t.start();
     }
@@ -88,8 +88,8 @@ public slots:
                             {PIX::KEY::FAV, "0"},
                             {PIX::KEY::RATE, "0"},
                             {PIX::KEY::COLOR, ""},
-                            {PIX::KEY::SOURCES_URL,sourceUrl},
-                            {PIX::KEY::PIC_DATE, info.birthTime().toString()}
+                            {PIX::KEY::SOURCES_URL, sourceUrl},
+                            {PIX::KEY::PIC_DATE, info.created().toString()}
                         };
 
                         this->con->addPic(trackMap);

@@ -23,16 +23,18 @@ ApplicationWindow
 
         currentIndex: currentView
 
-        onGalleryViewClicked: currentView = 0
-        onAlbumsViewClicked: currentView = 1
-        onTagsViewClicked: currentView = 2
-        onSettingsViewClicked: currentView = 3
+        onViewerViewClicked: currentView = 0
+        onGalleryViewClicked: currentView = 1
+        onFoldersViewClicked: currentView = 2
+        onAlbumsViewClicked: currentView = 3
+        onTagsViewClicked: currentView = 4
+        onSettingsViewClicked: {}
     }
 
     Rectangle
     {
         anchors.fill: parent
-        color: UTI.altColor()
+        color: pix.altColor()
         z: -999
     }
 
@@ -51,6 +53,11 @@ ApplicationWindow
             onCurrentIndexChanged:
             {
                 currentView = currentIndex
+            }
+
+            PixsViewer
+            {
+
             }
 
             GalleryView

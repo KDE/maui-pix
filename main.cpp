@@ -2,9 +2,8 @@
 #include <QQmlApplicationEngine>
 #include <QFontDatabase>
 #include <QQmlContext>
-
+#include <QQuickStyle>
 #include "src/utils/pix.h"
-#include "src/utils/utils.h"
 
 //#ifdef Q_OS_ANDROID
 //#include "./3rdparty/kirigami/src/kirigamiplugin.h"
@@ -26,10 +25,7 @@ int main(int argc, char *argv[])
     auto context = engine.rootContext();
 
     Pix pix;
-    context->setContextProperty("PIX", &pix);
-    Utils util;
-    context->setContextProperty("UTI", &util);
-
+    context->setContextProperty("pix", &pix);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())

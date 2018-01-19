@@ -20,7 +20,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp \
-    src/utils/utils.cpp \
     src/db/collectionDB.cpp \
     src/utils/pix.cpp
 
@@ -47,6 +46,5 @@ DISTFILES += \
 
 HEADERS += \
     src/utils/pix.h \
-    src/utils/utils.h \
     src/db/collectionDB.h \
     src/db/fileloader.h

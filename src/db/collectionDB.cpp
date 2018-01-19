@@ -268,6 +268,33 @@ DB_LIST CollectionDB::getDBData(const QString &queryTxt)
 }
 
 
+QVariantList CollectionDB::getDBDataQML(const QString &queryTxt)
+{
+    QVariantList mapList;
+
+    auto query = this->getQuery(queryTxt);
+
+    if(query.exec())
+    {
+        while(query.next())
+        {
+            QVariantMap data;
+            for(auto key : KEYMAP.keys())
+                if(query.record().indexOf(KEYMAP[key])>-1)
+                    data[KEYMAP[key]] = query.value(KEYMAP[key]).toString();
+
+            mapList<< data;
+        }
+
+    }else qDebug()<< query.lastError()<< query.lastQuery();
+
+    return mapList;
+}
+
+
+
+
+
 QSqlQuery CollectionDB::getQuery(const QString &queryTxt)
 {
     QSqlQuery query(queryTxt, this->m_db);
