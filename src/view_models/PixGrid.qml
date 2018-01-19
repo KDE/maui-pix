@@ -19,7 +19,7 @@ Pane
     width: 500
     height: 400
 
-    background: Rectangle
+    Rectangle
     {
         anchors.fill: parent
         color: pix.altColor()
@@ -36,7 +36,7 @@ Pane
         visible: grid.count === 0
         message: "No pics..."
     }
-
+    ListModel {id: gridModel}
     GridView
     {
         id: grid
@@ -44,8 +44,7 @@ Pane
         //        width: Math.min(model.count, Math.floor(parent.width/cellWidth))*cellWidth
         width: parent.width
         height: parent.height
-
-        anchors.horizontalCenter: parent.horizontalCenter
+//        anchors.horizontalCenter: parent.horizontalCenter
 
         cellWidth: picSize + picSpacing
         cellHeight: picSize + picSpacing
@@ -60,7 +59,7 @@ Pane
         snapMode: GridView.SnapToRow
         //        flow: GridView.FlowTopToBottom
         //        maximumFlickVelocity: albumSize*8
-        ListModel {id: gridModel}
+
         model: gridModel
 
         highlight: Rectangle

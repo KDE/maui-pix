@@ -12,9 +12,16 @@ Image
 
     width: picSize
     height: picSize
-
+    cache: false
+    antialiasing: true
     fillMode: Image.PreserveAspectFit
     source: (url && url.length>0)? "file://"+encodeURIComponent(url) : "qrc:/../assets/face.png"
+
+    Rectangle {
+        id: border; color: 'white'; anchors.centerIn: parent; antialiasing: true
+        width: img.paintedWidth + 6; height: img.paintedHeight + 6
+        z: -999
+    }
 
     MouseArea
     {
