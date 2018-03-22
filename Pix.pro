@@ -1,9 +1,9 @@
 QT += qml quick quickcontrols2 sql widgets
 
-#android:
-#{
-#    include(3rdparty/kirigami/kirigami.pri)
-#}
+android:
+{
+    include(3rdparty/kirigami/kirigami.pri)
+}
 
 
 CONFIG += c++11
@@ -39,10 +39,8 @@ SUBDIRS += \
     src/Pixs.pro
 
 RESOURCES += \
-    src/qml.qrc
-
-DISTFILES += \
-    src/qtquickcontrols2.conf \
+    src/qml.qrc \
+    kirigami-icons.qrc
 
 HEADERS += \
     src/utils/pix.h \

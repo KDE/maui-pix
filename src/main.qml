@@ -1,10 +1,12 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-//import org.kde.kirigami 2.0 as Kirigami
+import QtQuick.Layouts 1.3
+import org.kde.kirigami 2.0 as Kirigami
 
 import "widgets"
+import "view_models"
 
-ApplicationWindow
+Kirigami.ApplicationWindow
 {
     id: root
     visible: true
@@ -13,35 +15,46 @@ ApplicationWindow
     title: qsTr("Pixs")
 
     property int currentView : 0
+    property int columnWidth: 32
+
+    pageStack.defaultColumnWidth: columnWidth
+    pageStack.initialPage: [sidebar, stackView]
+    pageStack.separatorVisible: pageStack.wideMode
+
+    property string backgroundColor: Kirigami.Theme.backgroundColor
+    property string textColor: Kirigami.Theme.textColor
+    property string highlightColor: Kirigami.Theme.highlightColor
+    property string highlightedTextColor: Kirigami.Theme.highlightedTextColor
+    property string buttonBackgroundColor: Kirigami.Theme.buttonBackgroundColor
+    property string viewBackgroundColor: Kirigami.Theme.viewBackgroundColor
+
+    //    header: PixsBar
+    //    {
+    //        id: toolBar
+    //        visible: true
+    //        size: 24
+
+    //        currentIndex: currentView
+
+    //        onViewerViewClicked: currentView = 0
+    //        onGalleryViewClicked: currentView = 1
+    //        onFoldersViewClicked: currentView = 2
+    //        onAlbumsViewClicked: currentView = 3
+    //        onTagsViewClicked: currentView = 4
+    //        onSettingsViewClicked: {}
+    //    }
 
 
-    header: PixsBar
+
+    SideBar
     {
-        id: toolBar
-        visible: true
-        size: 24
-
-        currentIndex: currentView
-
-        onViewerViewClicked: currentView = 0
-        onGalleryViewClicked: currentView = 1
-        onFoldersViewClicked: currentView = 2
-        onAlbumsViewClicked: currentView = 3
-        onTagsViewClicked: currentView = 4
-        onSettingsViewClicked: {}
+        id: sidebar
     }
 
-    Rectangle
-    {
-        anchors.fill: parent
-        color: pix.altColor()
-        z: -999
-    }
 
     StackView
     {
         id: stackView
-        anchors.fill: parent
         initialItem: SwipeView
         {
             id: swipeView
@@ -90,5 +103,8 @@ ApplicationWindow
 
             }
         }
+
+
     }
+
 }

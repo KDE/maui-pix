@@ -20,5 +20,7 @@
         <file>../assets/face.png</file>
         <file>../assets/Babe.notifyrc</file>
         <file>db/Query.js</file>
+        <file>view_models/SideBar.qml</file>
+        <file>view_models/PixButton.qml</file>
     </qresource>
 </RCC>

@@ -5,9 +5,9 @@
 #include <QQuickStyle>
 #include "src/utils/pix.h"
 
-//#ifdef Q_OS_ANDROID
-//#include "./3rdparty/kirigami/src/kirigamiplugin.h"
-//#endif
+#ifdef Q_OS_ANDROID
+#include "./3rdparty/kirigami/src/kirigamiplugin.h"
+#endif
 
 int main(int argc, char *argv[])
 {
@@ -17,12 +17,13 @@ int main(int argc, char *argv[])
 
     QFontDatabase::addApplicationFont(":/utils/materialdesignicons-webfont.ttf");
 
-    //    #ifdef Q_OS_ANDROID
-    //        KirigamiPlugin::getInstance().registerTypes();
-    //    #endif
+#ifdef Q_OS_ANDROID
+    KirigamiPlugin::getInstance().registerTypes();
+#endif
 
     QQmlApplicationEngine engine;
     auto context = engine.rootContext();
+            QQuickStyle::setStyle("qqc2-desktop-style");
 
     Pix pix;
     context->setContextProperty("pix", &pix);
