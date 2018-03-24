@@ -33,7 +33,13 @@ class DB : public QObject
         /*basic public actions*/
         void prepareCollectionDB() const;
 
+        /* utils*/
+        bool checkExistance(const QString &tableName, const QString &searchId, const QString &search);
+
+
     protected:
+        QSqlQuery getQuery(const QString &queryTxt);
+
         bool insert(const QString &tableName, const QVariantMap &insertData);
         bool update(const QString &tableName, const PIX::DB &updateData, const QVariantMap &where);
         bool update(const QString &table, const QString &column, const QVariant &newValue, const QVariant &op, const QString &id);

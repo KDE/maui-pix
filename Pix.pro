@@ -21,7 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     src/db/collectionDB.cpp \
-    src/utils/pix.cpp \
+    src/pix.cpp \
     src/db/db.cpp \
     src/db/dbactions.cpp
 
@@ -45,7 +45,7 @@ RESOURCES += \
     kirigami-icons.qrc
 
 HEADERS += \
-    src/utils/pix.h \
+    src/pix.h \
     src/db/collectionDB.h \
     src/db/fileloader.h \
     src/db/db.h \

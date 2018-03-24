@@ -11,16 +11,15 @@
 #include <QSettings>
 #include <QDirIterator>
 #include <QVariantList>
-
+#include "db/dbactions.h"
 
 using namespace std;
 
 
-class CollectionDB;
 class FileLoader;
 class QFileSystemWatcher;
 
-class Pix : public QObject
+class Pix : public DBActions
 {
     Q_OBJECT
 
@@ -51,15 +50,9 @@ public:
 
 
 private:
-    CollectionDB *con;
     FileLoader *fileLoader;
-    QStringList dirs;
-    QFileSystemWatcher *watcher;
 
     void populateDB(const QString &path);
-    void collectionWatcher();
-    void addToWatcher(QStringList paths);
-    void handleDirectoryChanged(const QString &dir);    
 
 signals:
     void refreshTables(QVariantMap tables);
