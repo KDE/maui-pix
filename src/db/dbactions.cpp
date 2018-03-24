@@ -1,6 +1,11 @@
 #include "dbactions.h"
 
-DBActions::DBActions()
+DBActions::DBActions(QObject *parent) : DB(parent)
+{
+
+}
+
+DBActions::~DBActions()
 {
 
 }

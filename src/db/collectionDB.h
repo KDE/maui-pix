@@ -13,7 +13,7 @@
 #include <QDir>
 #include <QVariantMap>
 
-#include "../utils/pix.h"
+#include "../utils/pic.h"
 
 enum sourceTypes
 {
