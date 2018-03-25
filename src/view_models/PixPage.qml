@@ -18,18 +18,11 @@ Page
 
     property alias content : pageContent.children
 
-    property alias holder : holder
 
     signal exit();
 
     clip: true
 
-    PixHolder
-    {
-        id: holder
-        visible: grid.count === 0
-        message: "No pics..."
-    }
 
     ColumnLayout
     {
@@ -108,12 +101,17 @@ Page
         }
 
 
-        Column
-        {
-            id: pageContent
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
+
+            Column
+            {
+                id: pageContent
+                Layout.margins: contentMargins
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+            }
+
+
+
 
     }
 

@@ -26,8 +26,6 @@ PixPage
         }
     ]
 
-
-
     content: GridView
     {
         id: grid
@@ -53,13 +51,6 @@ PixPage
 
         model: ListModel {id: gridModel}
 
-        highlight: Rectangle
-        {
-            width: picSize
-            height: picSize
-            color: "pink"
-            radius: 5
-        }
 
         highlightFollowsCurrentItem: true
 

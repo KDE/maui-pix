@@ -14,9 +14,7 @@ using namespace PIX;
 
 Pix::Pix(QObject *parent) : DBActions(parent)
 {
-    qDebug() << "Getting collectionDB info from: " << PIX::CollectionDBPath;
     qDebug() << "Getting settings info from: " << PIX::SettingPath;
-    qDebug() << "Getting artwork files from: " << PIX::CachePath;
 
     //    if(!PIX::fileExists(notifyDir+"/Pix.notifyrc"))
     //    {
@@ -26,12 +24,6 @@ Pix::Pix(QObject *parent) : DBActions(parent)
     //        if(knotify.copy(notifyDir+"/Pix.notifyrc"))
     //            qDebug()<<"the knotify file got copied";
     //    }
-
-
-    QDir cachePath_dir(PIX::CachePath);
-
-    if (!cachePath_dir.exists())
-        cachePath_dir.mkpath(".");
 
 
     this->fileLoader = new FileLoader;
@@ -68,10 +60,6 @@ QVariantList Pix::getList(const QStringList &urls)
     return mapList;
 }
 
-QVariantList Pix::get(const QString &queryTxt)
-{
-    return this->getDBDataQML(queryTxt);
-}
 
 bool Pix::run(const QString &query)
 {
@@ -223,5 +211,6 @@ QVariantMap Pix::getParentDir(const QString &path)
         return {{"url", path}, {"name", QFileInfo(path).dir().dirName()}};
 
 }
+
 
 

@@ -3,7 +3,7 @@
 #include <QFontDatabase>
 #include <QQmlContext>
 #include <QQuickStyle>
-#include "src/utils/pix.h"
+#include "src/pix.h"
 
 #ifdef Q_OS_ANDROID
 #include "./3rdparty/kirigami/src/kirigamiplugin.h"

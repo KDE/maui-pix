@@ -4,6 +4,13 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.0 as Kirigami
 
 import "widgets"
+import "widgets/views/Albums"
+import "widgets/views/Folders"
+import "widgets/views/Gallery"
+import "widgets/views/Settings"
+import "widgets/views/Tags"
+import "widgets/views/Viewer"
+
 import "view_models"
 
 Kirigami.ApplicationWindow
@@ -86,7 +93,7 @@ Kirigami.ApplicationWindow
                 currentView = currentIndex
             }
 
-            PixsViewer
+            PixViewer
             {
 
             }
@@ -94,6 +101,11 @@ Kirigami.ApplicationWindow
             GalleryView
             {
 
+            }
+
+            FoldersView
+            {
+                id: foldersView
             }
 
             AlbumsView
@@ -113,16 +125,8 @@ Kirigami.ApplicationWindow
 
         }
 
-        Component
-        {
-            id: viewer
-            PixsViewer
-            {
-
-            }
-        }
-
-
     }
+
+    Component.onCompleted: foldersView.populate()
 
 }

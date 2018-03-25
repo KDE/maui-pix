@@ -2,7 +2,9 @@
 
 DBActions::DBActions(QObject *parent) : DB(parent)
 {
+    qDebug() << "Getting collectionDB info from: " << PIX::CollectionDBPath;
 
+    qDebug()<< "Starting DBActions";
 }
 
 DBActions::~DBActions()
@@ -33,7 +35,7 @@ PIX::DB_LIST DBActions::getDBData(const QString &queryTxt)
     return mapList;
 }
 
-QVariantList DBActions::getDBDataQML(const QString &queryTxt)
+QVariantList DBActions::get(const QString &queryTxt)
 {
     QVariantList mapList;
 
@@ -101,5 +103,22 @@ void DBActions::addPic(const PIX::DB &img)
     {
         qDebug()<< "Failed to insert async";
     }
+
+}
+
+QVariantList DBActions::getFolders()
+{
+    QVariantList res;
+    auto data = this->getDBData("select * from sources");
+
+    for(auto i : data)
+    {
+        QVariantMap map;
+        map.insert(PIX::KEYMAP[PIX::KEY::URL], i[PIX::KEY::URL]);
+        map.insert("folder", QFileInfo(i[PIX::KEY::URL]).baseName());
+        res << map;
+}
+    qDebug()<< res;
+    return res;
 
 }

@@ -2,19 +2,13 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>view_models/PixGrid.qml</file>
-        <file>widgets/TagsView.qml</file>
-        <file>widgets/GalleryView.qml</file>
         <file>widgets/EditTools.qml</file>
-        <file>widgets/AlbumsView.qml</file>
         <file>utils/Icon.qml</file>
         <file>utils/Icons.js</file>
         <file>utils/materialdesignicons-webfont.ttf</file>
         <file>widgets/PixsBar.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>widgets/PixsViewer.qml</file>
-        <file>widgets/SettingsView.qml</file>
         <file>db/script.sql</file>
-        <file>widgets/FoldersView.qml</file>
         <file>view_models/PixPic.qml</file>
         <file>view_models/PixHolder.qml</file>
         <file>../assets/face.png</file>
@@ -23,5 +17,13 @@
         <file>view_models/SideBar.qml</file>
         <file>view_models/PixButton.qml</file>
         <file>view_models/PixPage.qml</file>
+        <file>widgets/views/Folders/FoldersView.qml</file>
+        <file>widgets/views/Gallery/GalleryView.qml</file>
+        <file>widgets/views/Tags/TagsView.qml</file>
+        <file>widgets/views/Albums/AlbumsView.qml</file>
+        <file>widgets/views/Viewer/PixViewer.qml</file>
+        <file>widgets/views/Settings/SettingsView.qml</file>
+        <file>widgets/views/Folders/FoldersGrid.qml</file>
+        <file>widgets/views/Folders/FoldersDelegate.qml</file>
     </qresource>
 </RCC>
