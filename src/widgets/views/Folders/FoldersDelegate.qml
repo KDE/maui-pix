@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
+import QtQuick.Layouts 1.3
 import "../../../view_models"
+import org.kde.kirigami 2.2 as Kirigami
 
 ItemDelegate
 {
@@ -9,17 +11,31 @@ ItemDelegate
     height: folderSize*2
     width: folderSize*2
 
-    PixButton
+    ColumnLayout
     {
-        anchors.centerIn: parent
-        iconSize: folderSize
-        iconName: "folder"
-        text: folder
-        display: AbstractButton.TextUnderIcon
-        flat: true
-        height: parent.height
-        width: parent.width
+        anchors.fill: parent
 
+        Kirigami.Icon
+        {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignCenter
 
+            source: "folder"
+
+            height: folderSize
+
+        }
+
+        Label
+        {
+             text: folder
+             width: parent.width
+             Layout.fillWidth: true
+             horizontalAlignment: Qt.AlignHCenter
+             elide: Qt.ElideRight
+        }
     }
+
+
 }
