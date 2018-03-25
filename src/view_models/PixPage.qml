@@ -73,6 +73,8 @@ Page
                     id: headerbarActionsLeft
                     Layout.alignment : Qt.AlignLeft
                     Layout.leftMargin: headerbarExit ? 0 : contentMargins
+                    spacing: contentMargins
+
                 }
 
                 Label
@@ -93,6 +95,7 @@ Page
                 Row
                 {
                     id: headerbarActionsRight
+                    spacing: contentMargins
                     Layout.alignment : Qt.AlignRight
                     Layout.rightMargin: contentMargins
                 }

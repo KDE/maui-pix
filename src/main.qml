@@ -38,6 +38,7 @@ Kirigami.ApplicationWindow
 
 
     /*UI PROPS*/
+
     readonly property int contentMargins: isMobile ? 8 : 10
     readonly property int defaultFontSize: Kirigami.Theme.defaultFont.pointSize
     readonly property var fontSizes: ({
@@ -56,7 +57,7 @@ Kirigami.ApplicationWindow
     property string viewBackgroundColor: Kirigami.Theme.viewBackgroundColor
     property string altColor: Kirigami.Theme.complementaryBackgroundColor
 
-
+    property int iconSize : Kirigami.Units.iconSizes.medium
 
     header: PixsBar
     {

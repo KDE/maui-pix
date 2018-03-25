@@ -20,12 +20,36 @@ ToolBar
     signal foldersViewClicked()
     signal searchViewClicked()
 
+    signal menuClicked()
 
     id: pixBar
 
     RowLayout
     {
         anchors.fill: parent
+
+        Item
+        {
+            Layout.alignment: Qt.AlignLeft
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            PixButton
+            {
+                anchors.centerIn: parent
+
+                iconName: "application-menu"
+                onClicked: menuClicked()
+
+                hoverEnabled: !isMobile
+                ToolTip.delay: 1000
+                ToolTip.timeout: 5000
+                ToolTip.visible: hovered
+                ToolTip.text: qsTr("Menu")
+            }
+        }
+
+        Item { Layout.fillWidth: true }
 
         Item
         {
@@ -49,8 +73,6 @@ ToolBar
                 ToolTip.text: qsTr("Viewer")
             }
         }
-
-        Item { Layout.fillWidth: true }
 
         Item
         {

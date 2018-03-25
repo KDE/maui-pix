@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>view_models/PixGrid.qml</file>
-        <file>widgets/EditTools.qml</file>
         <file>utils/Icon.qml</file>
         <file>utils/Icons.js</file>
         <file>utils/materialdesignicons-webfont.ttf</file>
@@ -25,5 +24,8 @@
         <file>widgets/views/Settings/SettingsView.qml</file>
         <file>widgets/views/Folders/FoldersGrid.qml</file>
         <file>widgets/views/Folders/FoldersDelegate.qml</file>
+        <file>widgets/views/Viewer/EditTools.qml</file>
+        <file>widgets/views/Viewer/Viewer.qml</file>
+        <file>../assets/f76477106.jpg</file>
     </qresource>
 </RCC>

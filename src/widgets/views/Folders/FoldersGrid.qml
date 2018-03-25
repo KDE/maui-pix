@@ -9,8 +9,8 @@ GridView
 clip: true
 height: parent.height
 width: parent.width
-    cellHeight: folderSize
-    cellWidth: folderSize
+    cellHeight: gridSize+contentMargins
+    cellWidth: gridSize+contentMargins
 
     focus: true
 
