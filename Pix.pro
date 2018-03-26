@@ -1,10 +1,21 @@
 QT += qml quick quickcontrols2 sql widgets
 
-android:
-{
-    include(3rdparty/kirigami/kirigami.pri)
-}
+linux:unix:!android {
 
+    message(Building for Linux KDE)
+    include(kde/KDE.pri)
+
+} else:android {
+
+    message(Building helpers for Android)
+
+    include(3rdparty/kirigami/kirigami.pri)
+
+    RESOURCES += kirigami-icons.qrc
+
+} else {
+    message("Unknown configuration")
+}
 
 CONFIG += c++11
 
@@ -37,11 +48,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 
 SUBDIRS += \
-    src/Pixs.pro
+    src/Pixs.pro \
 
 RESOURCES += \
     src/qml.qrc \
-    kirigami-icons.qrc
 
 HEADERS += \
     src/pix.h \

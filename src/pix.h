@@ -29,15 +29,8 @@ class Pix : public DBActions
         Q_INVOKABLE QVariantList getList(const QStringList &urls);
         Q_INVOKABLE bool run(const QString &query);
 
-
-        Q_INVOKABLE static QString backgroundColor();
-        Q_INVOKABLE static QString foregroundColor();
-        Q_INVOKABLE static QString hightlightColor();
-        Q_INVOKABLE static QString midColor();
-        Q_INVOKABLE static QString altColor();
         Q_INVOKABLE static QString pixColor();
 
-        Q_INVOKABLE static bool isMobile();
         Q_INVOKABLE static int screenGeometry(QString &side);
         Q_INVOKABLE static int cursorPos(QString &axis);
 
@@ -46,6 +39,7 @@ class Pix : public DBActions
         Q_INVOKABLE static QVariantList getDirs(const QString &pathUrl);
         Q_INVOKABLE static QVariantMap getParentDir(const QString &path);
 
+        Q_INVOKABLE static QVariantList openWith(const QString &url);
 
     private:
         FileLoader *fileLoader;

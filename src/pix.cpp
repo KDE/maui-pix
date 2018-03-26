@@ -10,6 +10,11 @@
 #include <QWidget>
 #include <QColor>
 
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+#include "kde/notify.h"
+#include "kde/kde.h"
+#endif
+
 using namespace PIX;
 
 Pix::Pix(QObject *parent) : DBActions(parent)
@@ -77,75 +82,11 @@ void Pix::populateDB(const QString &path)
     fileLoader->requestPath(newPath);
 }
 
-QString Pix::backgroundColor()
-{
-#if defined(Q_OS_ANDROID)
-    return "#31363b";
-#elif defined(Q_OS_LINUX)
-    QWidget widget;
-    return widget.palette().color(QPalette::Background).name();
-#elif defined(Q_OS_WIN32)
-    return "#31363b";
-#endif
-}
-
-QString Pix::foregroundColor()
-{
-#if defined(Q_OS_ANDROID)
-    return "#FFF";
-#elif defined(Q_OS_LINUX)
-    QWidget widget;
-    return widget.palette().color(QPalette::Text).name();
-#elif defined(Q_OS_WIN32)
-    return "#FFF";
-#endif
-}
-
-QString Pix::hightlightColor()
-{
-#if defined(Q_OS_ANDROID)
-    return "";
-#elif defined(Q_OS_LINUX)
-    QWidget widget;
-    return widget.palette().color(QPalette::Highlight).name();
-#elif defined(Q_OS_WIN32)
-    return "";
-#endif
-}
-
-QString Pix::midColor()
-{
-#if defined(Q_OS_ANDROID)
-    return "#31363b";
-#elif defined(Q_OS_LINUX)
-    QWidget widget;
-    return widget.palette().color(QPalette::Midlight).name();
-#elif defined(Q_OS_WIN32)
-    return "#31363b";
-#endif
-}
-
-QString Pix::altColor()
-{
-#if defined(Q_OS_ANDROID)
-    return "#232629";
-#elif defined(Q_OS_LINUX)
-    QWidget widget;
-    return widget.palette().color(QPalette::Base).name();
-#elif defined(Q_OS_WIN32)
-    return "#232629";
-#endif
-}
-
 QString Pix::pixColor()
 {
     return "#03A9F4";
 }
 
-bool Pix::isMobile()
-{
-    return PIX::isMobile();
-}
 
 int Pix::screenGeometry(QString &side)
 {
@@ -210,6 +151,15 @@ QVariantMap Pix::getParentDir(const QString &path)
     else
         return {{"url", path}, {"name", QFileInfo(path).dir().dirName()}};
 
+}
+
+QVariantList Pix::openWith(const QString &url)
+{
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+    return KDE::mimeApps(url);
+#elif defined (Q_OS_ANDROID)
+    return QVariantList();
+#endif
 }
 
 
