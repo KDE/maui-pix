@@ -10,11 +10,10 @@ PixPage
     property int picSpacing: 50
     property int picRadius : 4
 
-    property alias gridModel: gridModel
     property alias grid: grid
 
     /*signals*/
-    signal picClicked(var pic)
+    signal picClicked(int index)
 
     headerbarTitle: gridModel.count+" "+qsTr("images")
 
@@ -83,7 +82,7 @@ PixPage
                 target: delegate
                 onClicked:
                 {
-                    picClicked(grid.model.get(index))
+                    picClicked(index)
                     grid.currentIndex = index
                 }
             }

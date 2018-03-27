@@ -17,8 +17,17 @@ PixGrid
     {
         var map = pix.get(Q.Query.allPics)
         for(var i in map)
-            gridModel.append(map[i])
+            grid.model.append(map[i])
     }
 
-    onPicClicked: VIEWER.view(pic)
+    onPicClicked: openPic(index)
+
+    function openPic(index)
+    {
+        var data = []
+        for(var i = 0; i < grid.model.count; i++)
+            data.push(grid.model.get(i))
+
+        VIEWER.view(data, index)
+    }
 }

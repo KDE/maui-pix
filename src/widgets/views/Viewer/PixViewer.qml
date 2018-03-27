@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../../../view_models"
+import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 
 PixPage
 {
@@ -9,7 +10,8 @@ PixPage
     property alias viewer : viewer
 
     property var currentPic : ({})
-
+    property var picContext : []
+    property int currentPicIndex : 0
 
     headerbarTitle: currentPic.title || ""
     headerbarExit: false
@@ -89,6 +91,8 @@ PixPage
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
                     ToolTip.text: qsTr("Previous")
+
+                    onClicked: VIEWER.previous()
                 }
             }
 
@@ -129,6 +133,8 @@ PixPage
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
                     ToolTip.text: qsTr("Next")
+
+                    onClicked: VIEWER.next()
                 }
             }
 
@@ -144,7 +150,6 @@ PixPage
                 PixButton
                 {
                     anchors.centerIn: parent
-
 
                     iconName: "view-fullscreen"
 
@@ -168,7 +173,7 @@ PixPage
 
     content: Viewer
     {
-    id: viewer
+        id: viewer
     }
 
 }
