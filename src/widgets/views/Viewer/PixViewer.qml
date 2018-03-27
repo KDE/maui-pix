@@ -3,11 +3,15 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../../../view_models"
 
-
 PixPage
 {
 
-    headerbarTitle: "drawing.jpg"
+    property alias viewer : viewer
+
+    property var currentPic : ({})
+
+
+    headerbarTitle: currentPic.title || ""
     headerbarExit: false
     headerBarRight: [
 
@@ -39,6 +43,7 @@ PixPage
     footer: ToolBar
     {
         position: ToolBar.Footer
+
         RowLayout
         {
             anchors.fill: parent
@@ -60,6 +65,8 @@ PixPage
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
                     ToolTip.text: qsTr("Share")
+
+                    onClicked: pix.openWith(currentPic.url)
                 }
             }
 
@@ -152,9 +159,16 @@ PixPage
         }
     }
 
+    PixHolder
+    {
+        message: "<h2>No Pic!</h2><p>Select or open an image from yuor gallery</p>"
+        emoji: "qrc:/img/assets/face-hug.png"
+        visible: Object.keys(currentPic).length === 0
+    }
+
     content: Viewer
     {
-
+    id: viewer
     }
 
 }

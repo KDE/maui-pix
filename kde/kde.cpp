@@ -27,6 +27,7 @@ static QVariantMap createActionItem(const QString &label, const QString &actionI
 
 QVariantList KDE::mimeApps(const QUrl &url)
 {
+    qDebug()<<"trying to get mimes";
     QVariantList list;
 
     if (url.isValid())

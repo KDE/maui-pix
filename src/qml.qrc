@@ -10,8 +10,6 @@
         <file>db/script.sql</file>
         <file>view_models/PixPic.qml</file>
         <file>view_models/PixHolder.qml</file>
-        <file>../assets/face.png</file>
-        <file>../assets/Babe.notifyrc</file>
         <file>db/Query.js</file>
         <file>view_models/SideBar.qml</file>
         <file>view_models/PixButton.qml</file>
@@ -26,6 +24,6 @@
         <file>widgets/views/Folders/FoldersDelegate.qml</file>
         <file>widgets/views/Viewer/EditTools.qml</file>
         <file>widgets/views/Viewer/Viewer.qml</file>
-        <file>../assets/f76477106.jpg</file>
+        <file>widgets/views/Viewer/Viewer.js</file>
     </qresource>
 </RCC>

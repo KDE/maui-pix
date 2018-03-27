@@ -52,6 +52,7 @@ SUBDIRS += \
 
 RESOURCES += \
     src/qml.qrc \
+    assets.qrc
 
 HEADERS += \
     src/pix.h \

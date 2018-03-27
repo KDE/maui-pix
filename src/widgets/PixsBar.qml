@@ -9,7 +9,7 @@ import "../view_models"
 ToolBar
 {
     property string accentColor : pix.pixColor()
-    property string textColor : pix.foregroundColor()
+    property string textColor : textColor
 
     property int currentIndex : 0
 

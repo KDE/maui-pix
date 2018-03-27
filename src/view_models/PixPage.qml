@@ -22,7 +22,7 @@ Page
     signal exit();
 
     clip: true
-
+    padding: 0
 
     ColumnLayout
     {
@@ -105,13 +105,13 @@ Page
 
 
 
-            Column
-            {
-                id: pageContent
-                Layout.margins: contentMargins
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-            }
+        Column
+        {
+            id: pageContent
+            Layout.margins: contentMargins
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
 
 
 

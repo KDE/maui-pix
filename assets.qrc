@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>assets/face.png</file>
+        <file>assets/Babe.notifyrc</file>
+        <file>assets/face-sleeping.png</file>
+        <file>assets/face-hug.png</file>
+    </qresource>
+</RCC>

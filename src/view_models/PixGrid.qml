@@ -14,7 +14,7 @@ PixPage
     property alias grid: grid
 
     /*signals*/
-    signal picClicked(string url)
+    signal picClicked(var pic)
 
     headerbarTitle: gridModel.count+" "+qsTr("images")
 
@@ -53,7 +53,12 @@ PixPage
 
 
         highlightFollowsCurrentItem: true
-
+        highlight: Rectangle
+        {
+            width: picSize + picSpacing
+            height: picSize + picSpacing
+            color: highlightColor
+        }
 
         onWidthChanged:
         {
@@ -76,10 +81,9 @@ PixPage
             Connections
             {
                 target: delegate
-                onPicClicked:
+                onClicked:
                 {
-                    var url = grid.model.get(index).url
-                    gridPage.picClicked(url)
+                    picClicked(grid.model.get(index))
                     grid.currentIndex = index
                 }
             }

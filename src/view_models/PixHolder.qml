@@ -8,21 +8,23 @@ Item
     property string emoji
     property string message
     clip: true
-
+    property color color : textColor
+    focus: true
     anchors.fill: parent
 
     GridLayout
     {
-        id: placeHolder
+        id:placeHolder
         anchors.fill: parent
+
         columns: 1
         rows: 2
 
         Rectangle
         {
 
-            width:parent.width
-            height: parent.height
+            anchors.fill: parent
+
             Layout.row: 1
             color: "transparent"
 
@@ -31,8 +33,8 @@ Item
                 id: imageHolder
 
                 anchors.centerIn: parent
-                width: 48
-                height: 48
+                width: 40
+                height: 40
                 source: emoji? emoji : "qrc:/../assets/face.png"
                 horizontalAlignment: Qt.AlignHCenter
 
@@ -46,6 +48,7 @@ Item
                 saturation: -1
                 lightness: 0.3
             }
+
             Label
             {
                 id: textHolder
@@ -53,11 +56,14 @@ Item
                 anchors.top: imageHolder.bottom
                 opacity: 0.3
                 text: message ? qsTr(message) : qsTr("Nothing here...")
+                font.pointSize: fontSizes.default
+
                 padding: 10
                 font.bold: true
+                textFormat: Text.RichText
                 horizontalAlignment: Qt.AlignHCenter
                 elide: Text.ElideRight
-                color: pix.foregroundColor()
+                color: textColor
             }
         }
     }

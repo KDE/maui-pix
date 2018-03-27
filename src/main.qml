@@ -44,7 +44,7 @@ Kirigami.ApplicationWindow
     readonly property var fontSizes: ({
                                           tiny: defaultFontSize - 2,
                                           small: defaultFontSize -1,
-                                          standar: defaultFontSize,
+                                          default: defaultFontSize,
                                           big: defaultFontSize + 1,
                                           large: defaultFontSize + 2
                                       })
@@ -75,54 +75,45 @@ Kirigami.ApplicationWindow
     }
 
 
-    StackView
+    SwipeView
     {
-        id: stackView
-        clip: true
+        id: swipeView
         anchors.fill: parent
 
-        initialItem: SwipeView
+        currentIndex: currentView
+
+        onCurrentIndexChanged:
         {
-            id: swipeView
-            width: parent.width
-            height: parent.height
+            currentView = currentIndex
+        }
 
-            currentIndex: currentView
+        PixViewer
+        {
+            id: pixViewer
+        }
 
-            onCurrentIndexChanged:
-            {
-                currentView = currentIndex
-            }
+        GalleryView
+        {
 
-            PixViewer
-            {
+        }
 
-            }
+        FoldersView
+        {
+            id: foldersView
+        }
 
-            GalleryView
-            {
+        AlbumsView
+        {
 
-            }
+        }
 
-            FoldersView
-            {
-                id: foldersView
-            }
+        TagsView
+        {
 
-            AlbumsView
-            {
+        }
 
-            }
-
-            TagsView
-            {
-
-            }
-
-            SettingsView
-            {
-
-            }
+        SettingsView
+        {
 
         }
 
