@@ -22,5 +22,6 @@
         <file>db/Query.js</file>
         <file>view_models/SideBar.qml</file>
         <file>view_models/PixButton.qml</file>
+        <file>view_models/PixPage.qml</file>
     </qresource>
 </RCC>

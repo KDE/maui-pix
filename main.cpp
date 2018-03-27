@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     auto context = engine.rootContext();
-            QQuickStyle::setStyle("qqc2-desktop-style");
+    QQuickStyle::setStyle("nomad");
 
     Pix pix;
     context->setContextProperty("pix", &pix);

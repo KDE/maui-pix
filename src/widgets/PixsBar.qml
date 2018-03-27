@@ -3,14 +3,13 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../utils/Icons.js" as MdiFont
 import "../utils"
+import "../view_models"
 
 
 ToolBar
 {
     property string accentColor : pix.pixColor()
     property string textColor : pix.foregroundColor()
-    property string backgroundColor : pix.backgroundColor()
-    property int size
 
     property int currentIndex : 0
 
@@ -19,163 +18,159 @@ ToolBar
     signal albumsViewClicked()
     signal tagsViewClicked()
     signal foldersViewClicked()
-    signal settingsViewClicked()
+    signal searchViewClicked()
 
 
     id: pixBar
-
-    Rectangle
-    {
-        anchors.fill: parent
-        color: backgroundColor
-    }
 
     RowLayout
     {
         anchors.fill: parent
 
-        Row
+        Item
         {
             Layout.alignment: Qt.AlignLeft
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-            ToolButton
+            PixButton
             {
                 id: viewerView
+                anchors.centerIn: parent
+                iconColor: currentIndex === views.viewer? accentColor : textColor
 
-                Icon
-                {
-                    id: viewerIcon
-                    text: MdiFont.Icon.image
-                    color: currentIndex === 0? accentColor : textColor
-                    iconSize: size
-
-                }
-
+                iconName: "view-preview"
                 onClicked: viewerViewClicked()
 
-                hoverEnabled: true
+                hoverEnabled: !isMobile
                 ToolTip.delay: 1000
                 ToolTip.timeout: 5000
                 ToolTip.visible: hovered
-                ToolTip.text: qsTr("Settings")
+                ToolTip.text: qsTr("Viewer")
             }
         }
 
-        Row
-        {
-            Layout.alignment: Qt.AlignCenter
+        Item { Layout.fillWidth: true }
 
-            ToolButton
+        Item
+        {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            PixButton
             {
                 id: galleryBtn
-                Icon
-                {
-                    text: MdiFont.Icon.imageFilterFrames
-                    color: currentIndex === 1? accentColor : textColor
-                    iconSize: size
-                }
+                anchors.centerIn: parent
 
+                iconColor: currentIndex === views.gallery? accentColor : textColor
+
+                iconName: "image-frames"
                 onClicked: galleryViewClicked()
 
-                hoverEnabled: true
+                hoverEnabled: !isMobile
                 ToolTip.delay: 1000
                 ToolTip.timeout: 5000
                 ToolTip.visible: hovered
                 ToolTip.text: qsTr("Gallery")
             }
+        }
 
-            ToolButton
+        Item
+        {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            PixButton
             {
                 id: foldersView
+                anchors.centerIn: parent
 
-                Icon
-                {
-                    id: foldersIcon
-                    text: MdiFont.Icon.folderMultipleImage
-                    color: currentIndex === 2? accentColor : textColor
-                    iconSize: size
+                iconColor: currentIndex === views.folders? accentColor : textColor
 
-                }
-
+                iconName: "image-folder-view"
                 onClicked: foldersViewClicked()
-                hoverEnabled: true
+
+                hoverEnabled: !isMobile
                 ToolTip.delay: 1000
                 ToolTip.timeout: 5000
                 ToolTip.visible: hovered
-                ToolTip.text: qsTr("Tags")
+                ToolTip.text: qsTr("Folders")
             }
+        }
 
-            ToolButton
+        Item
+        {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            PixButton
             {
                 id: albumsView
-                Icon
-                {
-                    id: albumsIcon
-                    text: MdiFont.Icon.imageMultiple
-                    color: currentIndex === 3? accentColor : textColor
-                    iconSize: size
+                anchors.centerIn: parent
 
-                }
+                iconColor: currentIndex === views.albums? accentColor : textColor
 
+                iconName: "image-multiple"
                 onClicked: albumsViewClicked()
 
-                hoverEnabled: true
+                hoverEnabled: !isMobile
                 ToolTip.delay: 1000
                 ToolTip.timeout: 5000
                 ToolTip.visible: hovered
                 ToolTip.text: qsTr("Albums")
             }
+        }
 
+        Item
+        {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-
-            ToolButton
+            PixButton
             {
                 id: tagsView
+                anchors.centerIn: parent
 
-                Icon
-                {
-                    id: tagsIcon
-                    text: MdiFont.Icon.tag
-                    color: currentIndex === 4? accentColor : textColor
-                    iconSize: size
+                iconColor: currentIndex === views.tags? accentColor : textColor
 
-                }
-
+                iconName: "tag"
                 onClicked: tagsViewClicked()
-                hoverEnabled: true
+
+                hoverEnabled: !isMobile
                 ToolTip.delay: 1000
                 ToolTip.timeout: 5000
                 ToolTip.visible: hovered
                 ToolTip.text: qsTr("Tags")
             }
         }
+        Item { Layout.fillWidth: true }
 
-        Row
+        Item
         {
             Layout.alignment: Qt.AlignRight
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-            ToolButton
+
+            PixButton
             {
-                id: settingsView
+                id: searchView
+                anchors.centerIn: parent
 
-                Icon
-                {
-                    id: settingsIcon
-                    text: MdiFont.Icon.dotsVertical
-                    color: currentIndex === 5? accentColor : textColor
-                    iconSize: size
+                iconColor: currentIndex === views.search? accentColor : textColor
 
-                }
+                iconName: "edit-find"
+                onClicked: searchViewClicked()
 
-                onClicked: settingsViewClicked()
-
-                hoverEnabled: true
+                hoverEnabled: !isMobile
                 ToolTip.delay: 1000
                 ToolTip.timeout: 5000
                 ToolTip.visible: hovered
-                ToolTip.text: qsTr("Settings")
+                ToolTip.text: qsTr("Search")
             }
         }
+
+
     }
 }
 

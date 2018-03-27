@@ -1,13 +1,13 @@
 import QtQuick.Controls 2.2
 import QtQuick 2.9
 
-Pane
+PixPage
 {
     id: gridPage
 
     /*props*/
     property int picSize : 150
-    property int picSpacing: 20
+    property int picSpacing: 50
     property int picRadius : 4
 
     property alias gridModel: gridModel
@@ -16,40 +16,30 @@ Pane
     /*signals*/
     signal picClicked(string url)
 
-    width: 500
-    height: 400
+    headerbarTitle: gridModel.count+" "+qsTr("images")
 
-    Rectangle
-    {
-        anchors.fill: parent
-        color: pix.altColor()
-        z: -999
-    }
+    headerBarRight: [
+        PixButton
+        {
+            id: menuBtn
+            iconName: "overflow-menu"
+        }
+    ]
 
-    function clearGrid()
-    {
-        gridModel.clear()
-    }
 
-    PixHolder
-    {
-        visible: grid.count === 0
-        message: "No pics..."
-    }
-    ListModel {id: gridModel}
-    GridView
+
+    content: GridView
     {
         id: grid
-
+        clip: true
         //        width: Math.min(model.count, Math.floor(parent.width/cellWidth))*cellWidth
         width: parent.width
         height: parent.height
-//        anchors.horizontalCenter: parent.horizontalCenter
+        //        anchors.horizontalCenter: parent.horizontalCenter
 
         cellWidth: picSize + picSpacing
         cellHeight: picSize + picSpacing
 
-        highlightFollowsCurrentItem: false
 
         focus: true
         boundsBehavior: Flickable.StopAtBounds
@@ -60,16 +50,19 @@ Pane
         //        flow: GridView.FlowTopToBottom
         //        maximumFlickVelocity: albumSize*8
 
-        model: gridModel
+
+        model: ListModel {id: gridModel}
 
         highlight: Rectangle
         {
-            id: highlight
             width: picSize
             height: picSize
-            color: pix.hightlightColor()
-            radius: 2
+            color: "pink"
+            radius: 5
         }
+
+        highlightFollowsCurrentItem: true
+
 
         onWidthChanged:
         {
@@ -101,7 +94,12 @@ Pane
             }
         }
 
-        ScrollBar.vertical: ScrollBar{ visible: !pix.isMobile()}
+        ScrollBar.vertical: ScrollBar{ visible: !isMobile}
+    }
+
+    function clearGrid()
+    {
+        gridModel.clear()
     }
 
 }

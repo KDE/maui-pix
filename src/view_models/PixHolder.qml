@@ -13,10 +13,8 @@ Item
 
     GridLayout
     {
-        id:placeHolder
-
-        width: parent.width
-        height: parent.height
+        id: placeHolder
+        anchors.fill: parent
         columns: 1
         rows: 2
 

@@ -14,12 +14,32 @@ Kirigami.ApplicationWindow
     height: 500
     title: qsTr("Pixs")
 
-    property int currentView : 0
-    property int columnWidth: 32
+    /*READONLY PROPS*/
 
-    pageStack.defaultColumnWidth: columnWidth
-    pageStack.initialPage: [sidebar, stackView]
-    pageStack.separatorVisible: pageStack.wideMode
+    readonly property bool isMobile : Kirigami.Settings.isMobile
+    readonly property var views : ({
+                                       viewer: 0,
+                                       gallery: 1,
+                                       folders: 2,
+                                       albums: 3,
+                                       tags: 4,
+                                       search: 5
+                                   })
+    /*PROPS*/
+
+    property int currentView : views.gallery
+
+
+    /*UI PROPS*/
+    readonly property int contentMargins: isMobile ? 8 : 10
+    readonly property int defaultFontSize: Kirigami.Theme.defaultFont.pointSize
+    readonly property var fontSizes: ({
+                                          tiny: defaultFontSize - 2,
+                                          small: defaultFontSize -1,
+                                          standar: defaultFontSize,
+                                          big: defaultFontSize + 1,
+                                          large: defaultFontSize + 2
+                                      })
 
     property string backgroundColor: Kirigami.Theme.backgroundColor
     property string textColor: Kirigami.Theme.textColor
@@ -27,34 +47,32 @@ Kirigami.ApplicationWindow
     property string highlightedTextColor: Kirigami.Theme.highlightedTextColor
     property string buttonBackgroundColor: Kirigami.Theme.buttonBackgroundColor
     property string viewBackgroundColor: Kirigami.Theme.viewBackgroundColor
-
-    //    header: PixsBar
-    //    {
-    //        id: toolBar
-    //        visible: true
-    //        size: 24
-
-    //        currentIndex: currentView
-
-    //        onViewerViewClicked: currentView = 0
-    //        onGalleryViewClicked: currentView = 1
-    //        onFoldersViewClicked: currentView = 2
-    //        onAlbumsViewClicked: currentView = 3
-    //        onTagsViewClicked: currentView = 4
-    //        onSettingsViewClicked: {}
-    //    }
+    property string altColor: Kirigami.Theme.complementaryBackgroundColor
 
 
 
-    SideBar
+    header: PixsBar
     {
-        id: sidebar
+        id: toolBar
+        visible: true
+
+        currentIndex: currentView
+
+        onViewerViewClicked: currentView = 0
+        onGalleryViewClicked: currentView = 1
+        onFoldersViewClicked: currentView = 2
+        onAlbumsViewClicked: currentView = 3
+        onTagsViewClicked: currentView = 4
+        onSearchViewClicked: {}
     }
 
 
     StackView
     {
         id: stackView
+        clip: true
+        anchors.fill: parent
+
         initialItem: SwipeView
         {
             id: swipeView

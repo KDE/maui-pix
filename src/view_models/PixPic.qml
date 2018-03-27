@@ -1,35 +1,33 @@
 import QtQuick 2.9
-import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.2
 
-Image
+ItemDelegate
 {
-    id: img
-
+    height: picSize
+    width: picSize
     signal picClicked(int index)
     property int picSize : 150
     property int picRadius : 2
 
-    width: picSize
-    height: picSize
-    cache: false
-    antialiasing: true
-    fillMode: Image.PreserveAspectFit
-    source: (url && url.length>0)? "file://"+encodeURIComponent(url) : "qrc:/../assets/face.png"
 
-    Rectangle {
-        id: border; color: 'white'; anchors.centerIn: parent; antialiasing: true
-        width: img.paintedWidth + 6; height: img.paintedHeight + 6
-        z: -999
-    }
 
-    MouseArea
+    Image
     {
-        anchors.fill: parent
-        onClicked:
-        {
-            parent.GridView.view.currentIndex = index
-            img.picClicked(index)
-        }
+        id: img
+anchors.centerIn: parent
+        height: picSize-contentMargins
+        width: picSize-contentMargins
+        sourceSize.height: picSize-contentMargins
+        sourceSize.width: picSize-contentMargins
+        cache: false
+        antialiasing: true
+        fillMode: Image.PreserveAspectCrop
+        source: (url && url.length>0)? "file://"+encodeURIComponent(url) : "qrc:/../assets/face.png"
+        asynchronous: true
+        verticalAlignment: Qt.AlignVCenter
+
     }
+
+
+
 }
