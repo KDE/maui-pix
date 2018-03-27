@@ -13,10 +13,18 @@ ToolButton
     readonly property string defaultColor :  textColor
     property bool anim : false
 
-    icon.name: iconName
-    icon.width: iconSize
-    icon.height: iconSize
-    icon.color: iconColor
+    Kirigami.Icon
+    {
+        id: pixIcon
+        anchors.centerIn: parent
+        width: iconSize
+        height: iconSize
+        visible: true
+        color: iconColor
+        source: iconName
+        isMask: true
+    }
+
 
     onClicked: if(anim) animIcon.running = true
 
@@ -29,7 +37,7 @@ ToolButton
         id: animIcon
         PropertyAnimation
         {
-            target: babeButton
+            target: pixIcon
             property: "color"
             easing.type: Easing.InOutQuad
             from: pix.pixColor()

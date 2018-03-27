@@ -28,10 +28,10 @@ class FileLoader : public DBActions
             this->t.wait();
         }
 
-        void requestPath(QString path)
+        void requestPath(QStringList paths)
         {
-            qDebug()<<"FROM file loader"<< path;
-            this->queue << path;
+            qDebug()<<"FROM file loader"<< paths;
+            this->queue << paths;
             for(auto url : this->queue)
             {
                 if(!go)

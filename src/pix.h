@@ -44,11 +44,10 @@ class Pix : public DBActions
     private:
         FileLoader *fileLoader;
 
-        void populateDB(const QString &path);
+        void populateDB(const QStringList &paths);
 
     signals:
         void refreshTables(QVariantMap tables);
-        void populate(QString path);
 
 };
 

@@ -59,6 +59,16 @@ Kirigami.ApplicationWindow
 
     property int iconSize : Kirigami.Units.iconSizes.medium
 
+    overlay.modal: Rectangle {
+        color: isMobile ? darkColor : "transparent"
+        opacity: 0.5
+        height: root.height
+    }
+
+    overlay.modeless: Rectangle {
+        color: "transparent"
+    }
+
     header: PixsBar
     {
         id: toolBar

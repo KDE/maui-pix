@@ -4,11 +4,20 @@ import "../../../view_models"
 
 PixPage
 {
+    headerbarExit: false
+    headerbarTitle: qsTr("Folders")
 
     content: FoldersGrid
     {
         id: folderGrid
+
+        onFolderClicked:
+        {
+            headerbarTitle = folderGrid.model.get(index).folder
+        }
     }
+
+
 
     function populate()
     {

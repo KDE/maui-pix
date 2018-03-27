@@ -15,7 +15,7 @@ static QVariantMap createActionItem(const QString &label, const QString &actionI
 {
     QVariantMap map;
 
-    map["text"] = label;
+    map["serviceLabel"] = label;
     map["actionId"] = actionId;
 
     if (argument.isValid()) {
@@ -43,7 +43,7 @@ QVariantList KDE::mimeApps(const QUrl &url)
             {
                 const QString text = service->name().replace('&', "&&");
                 QVariantMap item = createActionItem(text, "_kicker_fileItem_openWith", service->entryPath());
-                item["icon"] = service->icon();
+                item["serviceIcon"] = service->icon();
 
                 list << item;
             }
@@ -51,7 +51,6 @@ QVariantList KDE::mimeApps(const QUrl &url)
 
         list << createActionItem(i18n("Properties"), "_kicker_fileItem_properties");
 
-        qDebug()<<list;
         return list;
     } else return list;
 }

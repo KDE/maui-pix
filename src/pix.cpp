@@ -33,7 +33,6 @@ Pix::Pix(QObject *parent) : DBActions(parent)
 
     this->fileLoader = new FileLoader;
 
-    connect(this, &Pix::populate, this, &Pix::populateDB);
 
     connect(this->fileLoader, &FileLoader::finished,[this]()
     {
@@ -42,7 +41,7 @@ Pix::Pix(QObject *parent) : DBActions(parent)
                             {PIX::TABLEMAP[TABLE::IMAGES], true}});
     });
 
-    emit this->populate(PIX::PicturesPath);
+    this->populateDB({PIX::PicturesPath, PIX::DownloadsPath});
 }
 
 Pix::~Pix()
@@ -71,15 +70,21 @@ bool Pix::run(const QString &query)
     return this->execQuery(query);
 }
 
-void Pix::populateDB(const QString &path)
+void Pix::populateDB(const QStringList &paths)
 {
     qDebug() << "Function Name: " << Q_FUNC_INFO
-             << "new path for database action: " << path;
-    auto newPath = path;
+             << "new path for database action: " << paths;
+    QStringList newPaths;
 
-    if(path.startsWith("file://"))
-        newPath = newPath.replace("file://", "");
-    fileLoader->requestPath(newPath);
+    for(auto &path : newPaths)
+    {
+        if(path.startsWith("file://"))
+            path.replace("file://", "");
+
+        newPaths<<path;
+    }
+
+    fileLoader->requestPath(newPaths);
 }
 
 QString Pix::pixColor()

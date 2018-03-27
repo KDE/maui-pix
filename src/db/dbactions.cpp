@@ -133,7 +133,6 @@ QVariantList DBActions::getFolders()
         map.insert("folder", QFileInfo(i[PIX::KEY::URL]).baseName());
         res << map;
 }
-    qDebug()<< res;
     return res;
 
 }

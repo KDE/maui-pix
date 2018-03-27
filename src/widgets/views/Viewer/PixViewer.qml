@@ -3,6 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
+import "../../dialogs/share"
 
 PixPage
 {
@@ -15,6 +16,7 @@ PixPage
 
     headerbarTitle: currentPic.title || ""
     headerbarExit: false
+    headerbarVisible: !holder.visible
     headerBarRight: [
 
         PixButton
@@ -24,7 +26,7 @@ PixPage
 
         PixButton
         {
-            iconName: "documentinfo"
+            iconName: "overflow-menu"
         }
 
     ]
@@ -44,6 +46,8 @@ PixPage
 
     footer: ToolBar
     {
+        id: footerToolbar
+        visible: !holder.visible
         position: ToolBar.Footer
 
         RowLayout
@@ -68,7 +72,7 @@ PixPage
                     ToolTip.visible: hovered
                     ToolTip.text: qsTr("Share")
 
-                    onClicked: pix.openWith(currentPic.url)
+                    onClicked: shareDialog.open()
                 }
             }
 
@@ -171,9 +175,26 @@ PixPage
 
     PixHolder
     {
+        id: holder
         message: "<h2>No Pic!</h2><p>Select or open an image from yuor gallery</p>"
         emoji: "qrc:/img/assets/face-hug.png"
         visible: Object.keys(currentPic).length === 0
+    }
+
+    ShareDialog
+    {
+        id: shareDialog
+    }
+
+    Rectangle
+    {
+        id: shadow
+       width: parent.width
+       height: parent.height - headerBar.height
+       y: headerBar.height
+        color: textColor
+        opacity: 0.6
+        visible: shareDialog.opened
     }
 
     content: Viewer

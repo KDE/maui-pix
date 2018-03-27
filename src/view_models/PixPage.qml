@@ -15,7 +15,7 @@ Page
 
     property alias headerBarRight : headerbarActionsRight.children
     property alias headerBarLeft : headerbarActionsLeft.children
-
+    property alias headerBar : header
     property alias content : pageContent.children
 
 

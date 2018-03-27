@@ -19,11 +19,13 @@ int main(int argc, char *argv[])
 
 #ifdef Q_OS_ANDROID
     KirigamiPlugin::getInstance().registerTypes();
+#else
+//    if(QQuickStyle::availableStyles().contains("nomad"))
+//        QQuickStyle::setStyle("nomad");
 #endif
 
     QQmlApplicationEngine engine;
     auto context = engine.rootContext();
-    QQuickStyle::setStyle("nomad");
 
     Pix pix;
     context->setContextProperty("pix", &pix);

@@ -6,6 +6,9 @@ GridView
 {
     id: folderGridRoot
     property int gridSize : 64
+
+    signal folderClicked(int index)
+
     clip: true
     height: parent.height
     width: parent.width
@@ -23,7 +26,14 @@ GridView
 
     delegate: FoldersDelegate
     {
+        id: delegate
         folderSize : 32
+
+        Connections
+        {
+            target: delegate
+            onClicked: folderClicked(index)
+        }
     }
 
 

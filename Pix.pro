@@ -9,6 +9,7 @@ linux:unix:!android {
 
     message(Building helpers for Android)
 
+    include(android/Android.pri)
     include(3rdparty/kirigami/kirigami.pri)
 
     RESOURCES += kirigami-icons.qrc
@@ -60,3 +61,6 @@ HEADERS += \
     src/db/db.h \
     src/db/dbactions.h \
     src/utils/pic.h
+
+DISTFILES += \
+    android/Android.pri

@@ -1,15 +1,15 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import "../../../view_models"
 import org.kde.kirigami 2.2 as Kirigami
 
 ItemDelegate
 {
-    property int folderSize : 32
+    property int iconSize : 48
+    property string labelColor: GridView.isCurrentItem ? highlightedTextColor : textColor
 
-    height: folderSize*2
-    width: folderSize*2
+    height: 64
+    width: 64
 
     background: Rectangle
     {
@@ -25,21 +25,23 @@ ItemDelegate
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
-            source: "folder"
+            source: serviceIcon
             isMask: false
 
-            height: folderSize
+            height: iconSize
+            width: iconSize
 
         }
 
         Label
         {
-            text: folder
+            text: serviceLabel
             width: parent.width
             Layout.fillWidth: true
             horizontalAlignment: Qt.AlignHCenter
             elide: Qt.ElideRight
             font.pointSize: fontSizes.default
+            color: labelColor
         }
     }
 
