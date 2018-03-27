@@ -106,6 +106,21 @@ void DBActions::addPic(const PIX::DB &img)
 
 }
 
+bool DBActions::favPic(const QString &url, const bool &fav )
+{
+    PIX::DB favedPic = {{PIX::KEY::FAV, fav ? "1" : "0"}};
+    return this->update(PIX::TABLEMAP[PIX::TABLE::IMAGES], favedPic, QVariantMap({{PIX::KEYMAP[PIX::KEY::URL], url}}) );
+}
+
+bool DBActions::isFav(const QString &url)
+{
+    auto data = this->getDBData(QString("select * from images where url = '%1'").arg(url));
+
+    if (data.isEmpty()) return false;
+
+    return data.first()[PIX::KEY::FAV] == "1" ? true : false;
+}
+
 QVariantList DBActions::getFolders()
 {
     QVariantList res;

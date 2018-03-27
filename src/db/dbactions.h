@@ -17,6 +17,10 @@ class DBActions : public DB
 
         void addPic(const PIX::DB &img);
 
+        /* actions on model */
+        Q_INVOKABLE bool favPic(const QString &url, const bool &fav);
+        Q_INVOKABLE bool isFav(const QString &url);
+
         /* utils */
         Q_INVOKABLE QVariantList getFolders();
         Q_INVOKABLE QVariantList get(const QString &queryTxt);

@@ -11,6 +11,11 @@ ItemDelegate
     height: folderSize*2
     width: folderSize*2
 
+    background: Rectangle
+    {
+        color: "transparent"
+    }
+
     ColumnLayout
     {
         anchors.fill: parent

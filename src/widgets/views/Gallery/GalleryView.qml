@@ -28,6 +28,6 @@ PixGrid
         for(var i = 0; i < grid.model.count; i++)
             data.push(grid.model.get(i))
 
-        VIEWER.view(data, index)
+        VIEWER.open(data, index)
     }
 }

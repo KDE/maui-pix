@@ -6,9 +6,9 @@ GridView
 {
     id: folderGridRoot
     property int gridSize : 64
-clip: true
-height: parent.height
-width: parent.width
+    clip: true
+    height: parent.height
+    width: parent.width
     cellHeight: gridSize+contentMargins
     cellWidth: gridSize+contentMargins
 

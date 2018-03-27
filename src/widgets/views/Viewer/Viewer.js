@@ -1,17 +1,22 @@
-function view(model, index)
+function open(model, index)
 {
-    console.log(model.length, index)
     pixViewer.currentPicIndex = index
     pixViewer.picContext = model
-    console.log(pixViewer.picContext.length, pixViewer.currentPicIndex)
-    pixViewer.currentPic = pixViewer.picContext[pixViewer.currentPicIndex]
-    console.log(model[7].url)
+
+    view(pixViewer.currentPicIndex)
+
     if(currentView !== views.viewer)
         currentView = views.viewer
 
 }
 
-function fullscreen()
+function view(index)
+{
+    pixViewer.currentPic = pixViewer.picContext[index]
+    pixViewer.currentPicFav = pix.isFav(pixViewer.currentPic.url)
+}
+
+function fullscreen(state)
 {
 
 }
@@ -25,7 +30,7 @@ function next()
         else
             pixViewer.currentPicIndex = 0
 
-        pixViewer.currentPic = pixViewer.picContext[pixViewer.currentPicIndex]
+        view(pixViewer.currentPicIndex)
     }
 }
 
@@ -38,12 +43,14 @@ function previous()
         else
             pixViewer.currentPicIndex = pixViewer.picContext.length-1
 
-        pixViewer.currentPic = pixViewer.picContext[pixViewer.currentPicIndex]
+        view(pixViewer.currentPicIndex)
     }
 }
 
 function fav(url)
 {
-
+    var faved = pix.isFav(url);
+    if(pix.favPic(url, !faved))
+        return !faved
 }
 

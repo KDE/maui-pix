@@ -8,7 +8,7 @@ PixPage
 {
 
     property alias viewer : viewer
-
+    property bool currentPicFav: false
     property var currentPic : ({})
     property var picContext : []
     property int currentPicIndex : 0
@@ -104,15 +104,20 @@ PixPage
 
                 PixButton
                 {
+                    id: favIcon
                     anchors.centerIn: parent
 
                     iconName: "love"
-
+                    iconColor: currentPicFav? pix.pixColor() : textColor
                     hoverEnabled: !isMobile
                     ToolTip.delay: 1000
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
                     ToolTip.text: qsTr("Fav")
+
+                    onClicked: currentPicFav = VIEWER.fav(currentPic.url)
+
+
                 }
             }
 
