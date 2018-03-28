@@ -31,16 +31,10 @@ class FileLoader : public DBActions
         void requestPath(QStringList paths)
         {
             qDebug()<<"FROM file loader"<< paths;
-            this->queue << paths;
-            for(auto url : this->queue)
-            {
-                if(!go)
-                {
-                    this->go = true;
-                    QMetaObject::invokeMethod(this, "getPics", Q_ARG(QString, url));
-                    this->queue.removeOne(url);
-                }
-            }
+
+            this->go = true;
+            QMetaObject::invokeMethod(this, "getPics", Q_ARG(QStringList, paths));
+
         }
 
         void nextTrack()
@@ -50,23 +44,23 @@ class FileLoader : public DBActions
 
     public slots:
 
-        void getPics(QString path)
+        void getPics(QStringList paths)
         {
             qDebug()<<"GETTING TRACKS FROM SETTINGS";
 
             QStringList urls;
 
-            if (QFileInfo(path).isDir())
-            {
-                QDirIterator it(path, PIX::formats, QDir::Files, QDirIterator::Subdirectories);
-                while (it.hasNext()) urls<<it.next();
+            for(auto path : paths)
+                if (QFileInfo(path).isDir())
+                {
+                    QDirIterator it(path, PIX::formats, QDir::Files, QDirIterator::Subdirectories);
+                    while (it.hasNext()) urls<<it.next();
 
-            } else if (QFileInfo(path).isFile()) urls<<path;
+                } else if (QFileInfo(path).isFile()) urls<<path;
 
-
+            int newPics = 0;
             if(urls.size()>0)
             {
-                int newTracks = 0;
                 for(auto url : urls)
                 {
                     if(go)
@@ -87,27 +81,27 @@ class FileLoader : public DBActions
                                 {PIX::KEY::RATE, "0"},
                                 {PIX::KEY::COLOR, ""},
                                 {PIX::KEY::SOURCES_URL, sourceUrl},
-                                {PIX::KEY::PIC_DATE, info.created().toString()}
+                                {PIX::KEY::PIC_DATE, info.created().toString()},
+                                {PIX::KEY::FORMAT, format}
                             };
 
                             this->addPic(trackMap);
-                            newTracks++;
-
+                            newPics++;
                         }
                     }else break;
                 }
 
-                emit collectionSize(newTracks);
+                emit collectionSize(newPics);
             }
 
             this->t.msleep(100);
-            emit this->finished();
+            emit this->finished(newPics);
             this->go = false;
         }
 
     signals:
         void trackReady(PIX::DB track);
-        void finished();
+        void finished(int size);
         void collectionSize(int size);
 
     private:

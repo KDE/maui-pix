@@ -29,10 +29,8 @@ PixPage
     {
         id: grid
         clip: true
-        //        width: Math.min(model.count, Math.floor(parent.width/cellWidth))*cellWidth
         width: parent.width
         height: parent.height
-        //        anchors.horizontalCenter: parent.horizontalCenter
 
         cellWidth: picSize + picSpacing
         cellHeight: picSize + picSpacing
@@ -88,10 +86,10 @@ PixPage
             }
         }
 
-        ScrollBar.vertical: ScrollBar{ visible: !isMobile}
+        ScrollBar.vertical: ScrollBar{ visible: true}
     }
 
-    function clearGrid()
+    function clear()
     {
         gridModel.clear()
     }

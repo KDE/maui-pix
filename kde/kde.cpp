@@ -3,6 +3,7 @@
 #include <KMimeTypeTrader>
 #include <KLocalizedString>
 #include <QDebug>
+#include <KRun>
 
 KDE::KDE(QObject *parent) : QObject(parent)
 {
@@ -44,6 +45,7 @@ QVariantList KDE::mimeApps(const QUrl &url)
                 const QString text = service->name().replace('&', "&&");
                 QVariantMap item = createActionItem(text, "_kicker_fileItem_openWith", service->entryPath());
                 item["serviceIcon"] = service->icon();
+                item["serviceExec"] = service->exec();
 
                 list << item;
             }
@@ -53,4 +55,10 @@ QVariantList KDE::mimeApps(const QUrl &url)
 
         return list;
     } else return list;
+}
+
+void KDE::openWithApp(const QString &exec, const QString &url)
+{
+    KService service(exec);
+    KRun::runApplication(service,{url}, nullptr);
 }

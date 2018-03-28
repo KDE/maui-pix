@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
+
 GridView
 {
     id: folderGridRoot
@@ -10,9 +11,11 @@ GridView
     signal folderClicked(int index)
 
     clip: true
-    height: parent.height
+
     width: parent.width
-    cellHeight: gridSize+contentMargins
+    height: parent.height
+
+    cellHeight: gridSize+(contentMargins*2)
     cellWidth: gridSize+contentMargins
 
     focus: true
@@ -36,5 +39,6 @@ GridView
         }
     }
 
+    ScrollBar.vertical: ScrollBar{ visible: true}
 
 }

@@ -24,10 +24,16 @@ int main(int argc, char *argv[])
 //        QQuickStyle::setStyle("nomad");
 #endif
 
-    QQmlApplicationEngine engine;
-    auto context = engine.rootContext();
+      Pix pix;
 
-    Pix pix;
+    QQmlApplicationEngine engine;
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
+    {
+        qDebug()<<"FINISHED LOADING QML APP";
+        pix.refreshCollection();
+    });
+
+    auto context = engine.rootContext();  
     context->setContextProperty("pix", &pix);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

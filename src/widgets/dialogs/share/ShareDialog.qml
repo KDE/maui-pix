@@ -5,6 +5,9 @@ import "../../../view_models"
 
 PixPopup
 {
+
+    property string picUrl : ""
+
     padding: contentMargins
     width: 260
     height: 230

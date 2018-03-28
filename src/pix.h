@@ -26,6 +26,8 @@ class Pix : public DBActions
         explicit Pix(QObject* parent = nullptr);
         ~Pix();
 
+        Q_INVOKABLE void refreshCollection();
+
         Q_INVOKABLE QVariantList getList(const QStringList &urls);
         Q_INVOKABLE bool run(const QString &query);
 
@@ -40,6 +42,7 @@ class Pix : public DBActions
         Q_INVOKABLE static QVariantMap getParentDir(const QString &path);
 
         Q_INVOKABLE static QVariantList openWith(const QString &url);
+        Q_INVOKABLE static void runApplication(const QString &exec, const QString &url);
 
     private:
         FileLoader *fileLoader;
@@ -47,7 +50,7 @@ class Pix : public DBActions
         void populateDB(const QStringList &paths);
 
     signals:
-        void refreshTables(QVariantMap tables);
+        void refreshViews(QVariantMap tables);
 
 };
 

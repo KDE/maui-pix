@@ -34,19 +34,23 @@ Pix::Pix(QObject *parent) : DBActions(parent)
     this->fileLoader = new FileLoader;
 
 
-    connect(this->fileLoader, &FileLoader::finished,[this]()
+    connect(this->fileLoader, &FileLoader::finished,[this](int size)
     {
-        emit refreshTables({{PIX::TABLEMAP[TABLE::ALBUMS], true},
-                            {PIX::TABLEMAP[TABLE::TAGS], true},
-                            {PIX::TABLEMAP[TABLE::IMAGES], true}});
+            emit refreshViews({{PIX::TABLEMAP[TABLE::ALBUMS], true},
+                               {PIX::TABLEMAP[TABLE::TAGS], true},
+                               {PIX::TABLEMAP[TABLE::IMAGES], true}});
     });
 
-    this->populateDB({PIX::PicturesPath, PIX::DownloadsPath});
 }
 
 Pix::~Pix()
 {
     delete this->fileLoader;
+}
+
+void Pix::refreshCollection()
+{
+    this->populateDB({PIX::PicturesPath, PIX::DownloadsPath});
 }
 
 QVariantList Pix::getList(const QStringList &urls)
@@ -76,12 +80,15 @@ void Pix::populateDB(const QStringList &paths)
              << "new path for database action: " << paths;
     QStringList newPaths;
 
-    for(auto &path : newPaths)
+    for(auto path : paths)
     {
         if(path.startsWith("file://"))
-            path.replace("file://", "");
 
-        newPaths<<path;
+            newPaths << path.replace("file://", "");
+        else
+            newPaths<<path;
+
+        qDebug()<<"paths to scan"<<newPaths;
     }
 
     fileLoader->requestPath(newPaths);
@@ -164,6 +171,14 @@ QVariantList Pix::openWith(const QString &url)
     return KDE::mimeApps(url);
 #elif defined (Q_OS_ANDROID)
     return QVariantList();
+#endif
+}
+
+void Pix::runApplication(const QString &exec, const QString &url)
+{
+    qDebug()<<"RUN:"<<exec<<url;
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+    return KDE::openWithApp(exec, url);
 #endif
 }
 

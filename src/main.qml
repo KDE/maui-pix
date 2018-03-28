@@ -13,6 +13,8 @@ import "widgets/views/Viewer"
 
 import "view_models"
 
+import "widgets/views/Pix.js" as PIX
+
 Kirigami.ApplicationWindow
 {
     id: root
@@ -104,7 +106,7 @@ Kirigami.ApplicationWindow
 
         GalleryView
         {
-
+            id: galleryView
         }
 
         FoldersView
@@ -129,6 +131,11 @@ Kirigami.ApplicationWindow
 
     }
 
-    Component.onCompleted: foldersView.populate()
+    Connections
+    {
+        target: pix
+
+        onRefreshViews: PIX.refreshViews()
+    }
 
 }

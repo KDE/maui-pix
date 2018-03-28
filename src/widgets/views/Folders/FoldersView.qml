@@ -4,20 +4,37 @@ import "../../../view_models"
 
 PixPage
 {
-    headerbarExit: false
+    headerbarExit: stackView.currentItem === picsView
+    headerbarExitIcon: "go-previous"
     headerbarTitle: qsTr("Folders")
 
-    content: FoldersGrid
-    {
-        id: folderGrid
+    onExit: stackView.pop(folderGrid)
 
-        onFolderClicked:
+    content: StackView
+    {
+        id: stackView
+
+        initialItem: FoldersGrid
         {
-            headerbarTitle = folderGrid.model.get(index).folder
+            id: folderGrid
+
+            onFolderClicked:
+            {
+                headerbarTitle = folderGrid.model.get(index).folder
+                picsView.clear()
+                picsView.populate(folderGrid.model.get(index).url)
+                if(stackView.currentItem === folderGrid)
+                    stackView.push(picsView)
+            }
+        }
+
+        PicsView
+        {
+            id: picsView
+            headerbarVisible: false
+
         }
     }
-
-
 
     function populate()
     {
@@ -27,4 +44,10 @@ PixPage
                 folderGrid.model.append(folders[i])
 
     }
+
+    function clear()
+    {
+        folderGrid.model.clear()
+    }
+
 }

@@ -103,8 +103,6 @@ Page
 
         }
 
-
-
         Column
         {
             id: pageContent

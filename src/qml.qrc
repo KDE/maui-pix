@@ -29,5 +29,6 @@
         <file>widgets/dialogs/share/ShareDialog.qml</file>
         <file>widgets/dialogs/share/ShareGrid.qml</file>
         <file>widgets/dialogs/share/ShareDelegate.qml</file>
+        <file>widgets/views/Pix.js</file>
     </qresource>
 </RCC>

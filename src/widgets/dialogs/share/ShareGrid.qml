@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.3
 GridView
 {
     property int gridSize : 64
-
     clip: true
 
     width: Math.min(model.count, Math.floor(parent.width/cellWidth))*cellWidth
@@ -42,6 +41,9 @@ GridView
             onClicked:
             {
                 currentIndex = index
+                var obj = gridModel.get(index)
+                pix.runApplication(obj.actionArgument, picUrl)
+                shareDialog.close()
             }
         }
     }

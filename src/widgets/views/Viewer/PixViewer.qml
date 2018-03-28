@@ -72,7 +72,11 @@ PixPage
                     ToolTip.visible: hovered
                     ToolTip.text: qsTr("Share")
 
-                    onClicked: shareDialog.open()
+                    onClicked:
+                    {
+                        shareDialog.picUrl = currentPic.url
+                        shareDialog.open()
+                    }
                 }
             }
 
@@ -120,7 +124,6 @@ PixPage
                     ToolTip.text: qsTr("Fav")
 
                     onClicked: currentPicFav = VIEWER.fav(currentPic.url)
-
 
                 }
             }
@@ -189,9 +192,9 @@ PixPage
     Rectangle
     {
         id: shadow
-       width: parent.width
-       height: parent.height - headerBar.height
-       y: headerBar.height
+        width: parent.width
+        height: parent.height - headerBar.height
+        y: headerBar.height
         color: textColor
         opacity: 0.6
         visible: shareDialog.opened

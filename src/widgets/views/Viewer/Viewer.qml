@@ -7,5 +7,4 @@ Image {
     width: parent.width
     source: "file://"+currentPic.url
     fillMode: Image.PreserveAspectFit
-
 }
