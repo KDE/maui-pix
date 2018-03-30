@@ -4,5 +4,6 @@
         <file>assets/Babe.notifyrc</file>
         <file>assets/face-sleeping.png</file>
         <file>assets/face-hug.png</file>
+        <file>assets/pix.png</file>
     </qresource>
 </RCC>
