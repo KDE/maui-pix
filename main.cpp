@@ -1,8 +1,8 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
-#include <QFontDatabase>
 #include <QQmlContext>
 #include <QQuickStyle>
+#include <QIcon>
 #include "src/pix.h"
 
 #ifdef Q_OS_ANDROID
@@ -14,17 +14,19 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);
-
-    QFontDatabase::addApplicationFont(":/utils/materialdesignicons-webfont.ttf");
+    app.setApplicationName(PIX::App);
+    app.setApplicationVersion(PIX::version);
+    app.setApplicationDisplayName(PIX::App);
+    app.setWindowIcon(QIcon(":/img/assets/pix.png"));
 
 #ifdef Q_OS_ANDROID
     KirigamiPlugin::getInstance().registerTypes();
-#else
+//#else
 //    if(QQuickStyle::availableStyles().contains("nomad"))
 //        QQuickStyle::setStyle("nomad");
 #endif
 
-      Pix pix;
+    Pix pix;
 
     QQmlApplicationEngine engine;
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
@@ -33,7 +35,7 @@ int main(int argc, char *argv[])
         pix.refreshCollection();
     });
 
-    auto context = engine.rootContext();  
+    auto context = engine.rootContext();
     context->setContextProperty("pix", &pix);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

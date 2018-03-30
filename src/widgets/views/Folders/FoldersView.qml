@@ -13,6 +13,8 @@ PixPage
     content: StackView
     {
         id: stackView
+        height: parent.height
+        width: parent.width
 
         initialItem: FoldersGrid
         {

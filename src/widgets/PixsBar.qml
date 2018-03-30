@@ -8,6 +8,8 @@ import "../view_models"
 
 ToolBar
 {
+    position: ToolBar.Header
+
     property string accentColor : pix.pixColor()
     property string textColor : textColor
 
@@ -191,8 +193,6 @@ ToolBar
                 ToolTip.text: qsTr("Search")
             }
         }
-
-
     }
 }
 
