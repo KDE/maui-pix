@@ -86,6 +86,9 @@ Kirigami.ApplicationWindow
         onSearchViewClicked: {}
     }
 
+    footer: PixFooter
+    {
+    }
 
     SwipeView
     {

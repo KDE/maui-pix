@@ -3,12 +3,16 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
+import "../../../widgets/custom/TagBar"
 import "../../dialogs/share"
 
 PixPage
 {
 
     property alias viewer : viewer
+    property alias holder : holder
+    property alias tagBar : tagBar
+
     property bool currentPicFav: false
     property var currentPic : ({})
     property var picContext : []
@@ -44,136 +48,9 @@ PixPage
         }
     ]
 
-    footer: ToolBar
+    footer: TagBar
     {
-        id: footerToolbar
-        visible: !holder.visible
-        position: ToolBar.Footer
-
-        RowLayout
-        {
-            anchors.fill: parent
-
-            Item
-            {
-                Layout.alignment: Qt.AlignLeft
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                PixButton
-                {
-                    anchors.centerIn: parent
-
-                    iconName: "document-share"
-
-                    hoverEnabled: !isMobile
-                    ToolTip.delay: 1000
-                    ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Share")
-
-                    onClicked:
-                    {
-                        shareDialog.picUrl = currentPic.url
-                        shareDialog.open()
-                    }
-                }
-            }
-
-            Item { Layout.fillWidth: true }
-
-            Item
-            {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                Layout.maximumWidth: iconSize*2
-
-                PixButton
-                {
-                    anchors.centerIn: parent
-
-                    iconName: "go-previous"
-
-                    hoverEnabled: !isMobile
-                    ToolTip.delay: 1000
-                    ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Previous")
-
-                    onClicked: VIEWER.previous()
-                }
-            }
-
-            Item
-            {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                Layout.maximumWidth: iconSize*2
-
-                PixButton
-                {
-                    id: favIcon
-                    anchors.centerIn: parent
-
-                    iconName: "love"
-                    iconColor: currentPicFav? pix.pixColor() : textColor
-                    hoverEnabled: !isMobile
-                    ToolTip.delay: 1000
-                    ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Fav")
-
-                    onClicked: currentPicFav = VIEWER.fav(currentPic.url)
-
-                }
-            }
-
-            Item
-            {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                Layout.maximumWidth: iconSize*2
-
-                PixButton
-                {
-                    anchors.centerIn: parent
-
-                    iconName: "go-next"
-
-                    hoverEnabled: !isMobile
-                    ToolTip.delay: 1000
-                    ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Next")
-
-                    onClicked: VIEWER.next()
-                }
-            }
-
-            Item { Layout.fillWidth: true }
-
-            Item
-            {
-                Layout.alignment: Qt.AlignRight
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-
-                PixButton
-                {
-                    anchors.centerIn: parent
-
-                    iconName: "view-fullscreen"
-
-                    hoverEnabled: !isMobile
-                    ToolTip.delay: 1000
-                    ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Fullscreen")
-                }
-            }
-
-        }
+        id: tagBar
     }
 
     PixHolder
@@ -184,21 +61,16 @@ PixPage
         visible: Object.keys(currentPic).length === 0
     }
 
-    ShareDialog
-    {
-        id: shareDialog
-    }
-
-    Rectangle
-    {
-        id: shadow
-        width: parent.width
-        height: parent.height - headerBar.height
-        y: headerBar.height
-        color: textColor
-        opacity: 0.6
-        visible: shareDialog.opened
-    }
+//    Rectangle
+//    {
+//        id: shadow
+//        width: parent.width
+//        height: parent.height - headerBar.height
+//        y: headerBar.height
+//        color: textColor
+//        opacity: 0.6
+//        visible: shareDialog.opened
+//    }
 
     content: Viewer
     {

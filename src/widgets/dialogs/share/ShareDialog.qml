@@ -5,17 +5,18 @@ import "../../../view_models"
 
 PixPopup
 {
-
     property string picUrl : ""
 
     padding: contentMargins
-    width: 260
+    maxWidth: (shareGrid.cellWidth*3)+(contentMargins*3)
     height: 230
     parent: parent
 
     ColumnLayout
     {
         anchors.fill: parent
+        height: parent.height
+        width:parent.width
 
         Label
         {
@@ -35,6 +36,7 @@ PixPopup
             id: shareGrid
             Layout.fillHeight: true
             Layout.fillWidth: true
+            width: parent.width
         }
     }
 
@@ -47,7 +49,7 @@ PixPopup
 
         if(services.length>0)
             for(var i in services)
-              shareGrid.model.append(services[i])
+                shareGrid.model.append(services[i])
 
     }
 }

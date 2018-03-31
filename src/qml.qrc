@@ -30,5 +30,12 @@
         <file>widgets/dialogs/share/ShareGrid.qml</file>
         <file>widgets/dialogs/share/ShareDelegate.qml</file>
         <file>widgets/views/Pix.js</file>
+        <file>widgets/PixFooter.qml</file>
+        <file>widgets/custom/TagBar/TagBar.qml</file>
+        <file>widgets/custom/TagBar/TagDelegate.qml</file>
+        <file>widgets/custom/TagBar/TagList.qml</file>
+        <file>widgets/dialogs/Tags/TagsDialog.qml</file>
+        <file>widgets/dialogs/Tags/TagsList.qml</file>
+        <file>view_models/PixDelegate.qml</file>
     </qresource>
 </RCC>

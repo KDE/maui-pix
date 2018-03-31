@@ -121,6 +121,26 @@ bool DBActions::isFav(const QString &url)
     return data.first()[PIX::KEY::FAV] == "1" ? true : false;
 }
 
+bool DBActions::picTag(const QString &tag, const QString &url)
+{
+    QVariantMap tagMap
+    {
+        {PIX::KEYMAP[PIX::KEY::TAG], tag}
+    };
+
+    if(this->insert(PIX::TABLEMAP[PIX::TABLE::TAGS], tagMap))
+    {
+        QVariantMap taggedPic
+        {
+            {PIX::KEYMAP[PIX::KEY::URL], url},
+            {PIX::KEYMAP[PIX::KEY::TAG], tag}
+        };
+        return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], taggedPic);
+    }
+
+    return false;
+}
+
 QVariantList DBActions::getFolders()
 {
     QVariantList res;
@@ -132,7 +152,7 @@ QVariantList DBActions::getFolders()
         map.insert(PIX::KEYMAP[PIX::KEY::URL], i[PIX::KEY::URL]);
         map.insert("folder", QFileInfo(i[PIX::KEY::URL]).baseName());
         res << map;
-}
+    }
     return res;
 
 }

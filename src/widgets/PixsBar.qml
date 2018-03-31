@@ -35,6 +35,7 @@ ToolBar
             Layout.alignment: Qt.AlignLeft
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: 44
 
             PixButton
             {
@@ -58,6 +59,7 @@ ToolBar
             Layout.alignment: Qt.AlignLeft
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: 44
 
             PixButton
             {
@@ -80,6 +82,7 @@ ToolBar
         {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: 44
 
             PixButton
             {
@@ -88,7 +91,7 @@ ToolBar
 
                 iconColor: currentIndex === views.gallery? accentColor : textColor
 
-                iconName: "image-frames"
+                iconName: "image-multiple"
                 onClicked: galleryViewClicked()
 
                 hoverEnabled: !isMobile
@@ -103,6 +106,7 @@ ToolBar
         {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: 44
 
             PixButton
             {
@@ -126,6 +130,7 @@ ToolBar
         {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: 44
 
             PixButton
             {
@@ -134,7 +139,7 @@ ToolBar
 
                 iconColor: currentIndex === views.albums? accentColor : textColor
 
-                iconName: "image-multiple"
+                iconName: "image-frames"
                 onClicked: albumsViewClicked()
 
                 hoverEnabled: !isMobile
@@ -149,6 +154,7 @@ ToolBar
         {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: 44
 
             PixButton
             {
@@ -174,6 +180,7 @@ ToolBar
             Layout.alignment: Qt.AlignRight
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: 44
 
 
             PixButton

@@ -12,7 +12,7 @@ GridView
 
     anchors.horizontalCenter: parent.horizontalCenter
     cellHeight: gridSize+(contentMargins*2)
-    cellWidth: gridSize+(contentMargins*2)
+    cellWidth: gridSize+gridSize
 
     focus: true
 

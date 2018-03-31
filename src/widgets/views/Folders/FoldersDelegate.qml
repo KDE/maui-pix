@@ -9,7 +9,7 @@ ItemDelegate
     property int folderSize : 32
 
     height: folderSize*2
-    width: folderSize*2
+    width: folderSize*3
 
     background: Rectangle
     {

@@ -9,7 +9,7 @@ ItemDelegate
     property string labelColor: GridView.isCurrentItem ? highlightedTextColor : textColor
 
     height: 64
-    width: 64
+    width: 100
 
     background: Rectangle
     {

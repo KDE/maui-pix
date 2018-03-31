@@ -16,7 +16,7 @@ GridView
     height: parent.height
 
     cellHeight: gridSize+(contentMargins*2)
-    cellWidth: gridSize+contentMargins
+    cellWidth: gridSize+gridSize
 
     focus: true
 

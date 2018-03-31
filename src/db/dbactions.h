@@ -21,6 +21,9 @@ class DBActions : public DB
         Q_INVOKABLE bool favPic(const QString &url, const bool &fav);
         Q_INVOKABLE bool isFav(const QString &url);
 
+        Q_INVOKABLE bool picTag(const QString &tag, const QString &url);
+
+
         /* utils */
         Q_INVOKABLE QVariantList getFolders();
         Q_INVOKABLE QVariantList get(const QString &queryTxt);
