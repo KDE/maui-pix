@@ -4,5 +4,7 @@ var Query = {
     picLikeUrl_ : "select * from images where url like \"%1%\" ",
 
     picTags_ : "select * from images_tags where url = \"%1\"",
-    allTags : "select * from tags"
+    allTags : "select * from tags",
+
+    allAlbums : "select * from albums"
 }

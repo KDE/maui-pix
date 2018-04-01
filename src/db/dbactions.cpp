@@ -121,6 +121,11 @@ bool DBActions::isFav(const QString &url)
     return data.first()[PIX::KEY::FAV] == "1" ? true : false;
 }
 
+bool DBActions::addTag(const QString &tag)
+{
+
+}
+
 bool DBActions::picTag(const QString &tag, const QString &url)
 {
     QVariantMap tagMap
@@ -142,6 +147,17 @@ bool DBActions::removePicTag(const QString &tag, const QString &url)
 {
     PIX::DB tagMap {{PIX::KEY::URL, url}, {PIX::KEY::TAG, tag}};
     return this->remove(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], tagMap);
+}
+
+bool DBActions::addAlbum(const QString &album)
+{
+    QVariantMap albumMap
+    {
+        {PIX::KEYMAP[PIX::KEY::ALBUM], album},
+        {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}
+    };
+
+    this->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS], albumMap);
 }
 
 QVariantList DBActions::getFolders()

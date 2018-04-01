@@ -5,7 +5,7 @@
         <file>assets/face-sleeping.png</file>
         <file>assets/face-hug.png</file>
         <file>assets/pix.png</file>
-        <file>assets/tag.png</file>
         <file>assets/tag.svg</file>
+        <file>assets/album_bg_normal.png</file>
     </qresource>
 </RCC>
