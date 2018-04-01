@@ -37,8 +37,10 @@ PixPopup
 
     function addAlbum()
     {
-        if (pix.addAlbum(albumText.text))
-            albumCreated(albumText.text)
+        if(!pix.checkExistance("albums", "album", albumText.text))
+            if (pix.addAlbum(albumText.text))
+                albumCreated(albumText.text)
+
         albumText.clear()
         close()
     }

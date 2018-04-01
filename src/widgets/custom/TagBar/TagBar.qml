@@ -9,7 +9,8 @@ Item
 
     property alias tagsList : tagsList
 
-
+    signal addClicked()
+    signal tagRemovedClicked(int index)
 
     RowLayout
     {
@@ -20,11 +21,7 @@ Item
 
             iconName: "list-add"
 
-            onClicked:
-            {
-                tagsDialog.picUrl = pixViewer.currentPic.url
-                tagsDialog.open()
-            }
+            onClicked: addClicked()
         }
 
         TagList
@@ -35,18 +32,7 @@ Item
             Layout.fillHeight: true
             Layout.fillWidth: true
 
-            onTagRemoved: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
-                              tagsList.model.remove(index)
-
-            Label
-            {
-                height: parent.height
-                width: parent.width
-                text: qsTr("Add tags...")
-                opacity: 0.5
-                visible: tagsList.count === 0
-                font.pointSize: fontSizes.default
-            }
+            onTagRemoved: tagRemovedClicked(index)
         }
     }
 }

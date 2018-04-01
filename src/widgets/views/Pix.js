@@ -8,7 +8,12 @@ function refreshViews()
     albumsView.populate()
 }
 
-function addTag(tag, url)
+function addTagToPic(tag, url)
 {
      return pix.picTag(tag, url)
+}
+
+function addTagToAlbum(tag, url)
+{
+     return pix.albumTag(tag, url)
 }

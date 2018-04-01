@@ -1,4 +1,6 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.2
+
 import "../../../db/Query.js" as Q
 
 ListView
@@ -7,6 +9,16 @@ ListView
     clip: true
     spacing: contentMargins
     signal tagRemoved(int index)
+
+    Label
+    {
+        height: parent.height
+        width: parent.width
+        text: qsTr("Add tags...")
+        opacity: 0.7
+        visible: count === 0
+        font.pointSize: fontSizes.default
+    }
 
     model: ListModel{}
 
@@ -21,12 +33,10 @@ ListView
         }
     }
 
-    function populate(url)
+    function populate(query)
     {
-        console.log("trying ot get tag for ", Q.Query.picTags_.arg(url))
-
         model.clear()
-        var tags = pix.get(Q.Query.picTags_.arg(url))
+        var tags = pix.get(query)
 
         if(tags.length > 0)
             for(var i in tags)

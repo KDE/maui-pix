@@ -10,11 +10,15 @@ PixPopup
 {
     padding: contentMargins*2
 
-    property string picUrl : ""
+    property string url : ""
 
     onOpened: populate()
 
+    signal albumTagged(string tag)
     signal picTagged(string tag)
+    signal tagsAdded(var tags)
+
+    property bool forAlbum : false
 
     ColumnLayout
     {
@@ -71,28 +75,43 @@ PixPopup
             }
         }
 
-
-
         Button
         {
             text: qsTr("Add")
             Layout.alignment: Qt.AlignRight
-            onClicked: addTags(picUrl)
+            onClicked: setTags()
         }
     }
 
-    function addTags(url)
+    function setTags()
     {
         var tags = []
 
         for(var i = 0; i < tagListComposer.model.count; i++)
             tags.push(tagListComposer.model.get(i))
 
+        tagsAdded(tags)
+    }
+
+    function addTagsToPic(url, tags)
+    {
         if(tags.length > 0)
-            for(i in tags)
+            for(var i in tags)
             {
-               if(PIX.addTag(tags[i].tag, picUrl))
+               if(PIX.addTagToPic(tags[i].tag, url))
                     picTagged(tags[i].tag)
+            }
+
+        close()
+    }
+
+    function addTagsToAlbum(url, tags)
+    {
+        if(tags.length > 0)
+            for(var i in tags)
+            {
+               if(PIX.addTagToAlbum(tags[i].tag, url))
+                    albumTagged(tags[i].tag)
             }
 
         close()
@@ -107,6 +126,8 @@ PixPopup
             for(var i in tags)
                 tagsList.model.append(tags[i])
 
-        tagListComposer.populate(picUrl)
+
+        tagListComposer.populate(forAlbum ? Q.Query.albumTags_.arg(url) :
+                                            Q.Query.picTags_.arg(url))
     }
 }

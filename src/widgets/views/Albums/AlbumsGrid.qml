@@ -6,7 +6,9 @@ import QtQuick.Layouts 1.3
 GridView
 {
     id: albumsGridRoot
+
     property int gridSize : 64
+    property string currentAlbum : ""
 
     signal albumClicked(int index)
 

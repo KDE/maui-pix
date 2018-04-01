@@ -63,6 +63,8 @@ namespace PIX
         ALBUMS,
         IMAGES_TAGS,
         IMAGES_ALBUMS,
+        ALBUMS_TAGS,
+        IMAGES_NOTES,
         ALL,
         NONE
     };
@@ -74,6 +76,8 @@ namespace PIX
         {TABLE::IMAGES,"images"},
         {TABLE::IMAGES_TAGS,"images_tags"},
         {TABLE::IMAGES_ALBUMS,"images_albums"},
+        {TABLE::ALBUMS_TAGS,"albums_tags"},
+        {TABLE::IMAGES_NOTES,"images_notes"},
         {TABLE::TAGS,"tags"}
     };
 

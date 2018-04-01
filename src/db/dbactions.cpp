@@ -142,10 +142,27 @@ bool DBActions::picTag(const QString &tag, const QString &url)
     return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], taggedPic);
 }
 
+bool DBActions::albumTag(const QString &tag, const QString &album)
+{
+    this->addTag(tag);
+    QVariantMap taggedAlbum
+    {
+        {PIX::KEYMAP[PIX::KEY::ALBUM], album},
+        {PIX::KEYMAP[PIX::KEY::TAG], tag}
+    };
+    return this->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS_TAGS], taggedAlbum);
+}
+
 bool DBActions::removePicTag(const QString &tag, const QString &url)
 {
     PIX::DB tagMap {{PIX::KEY::URL, url}, {PIX::KEY::TAG, tag}};
     return this->remove(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], tagMap);
+}
+
+bool DBActions::removeAlbumTag(const QString &tag, const QString &album)
+{
+    PIX::DB tagMap {{PIX::KEY::TAG, tag}, {PIX::KEY::ALBUM, album}};
+    return this->remove(PIX::TABLEMAP[PIX::TABLE::ALBUMS_TAGS], tagMap);
 }
 
 bool DBActions::addAlbum(const QString &album)

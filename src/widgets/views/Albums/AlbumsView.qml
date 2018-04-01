@@ -5,6 +5,9 @@ import "../../../db/Query.js" as Q
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 
 import "../../dialogs/Albums"
+import "../../../widgets/custom/TagBar"
+import "../../dialogs/Tags"
+
 
 PixPage
 {
@@ -12,13 +15,9 @@ PixPage
 
     headerbarExit: stackView.currentItem === picsView
     headerbarExitIcon: "go-previous"
-    headerbarTitle: stackView.currentItem === picsView ? "undefined" : albumGrid.count+qsTr(" Albums")
+    headerbarTitle: stackView.currentItem === picsView ? albumGrid.currentAlbum : albumGrid.count+qsTr(" Albums")
 
-    onExit:
-    {
-        stackView.pop(albumGrid)
-        headerbarTitle = "Albums"
-    }
+    onExit: stackView.pop(albumGrid)
 
     headerBarRight: [
 
@@ -38,6 +37,34 @@ PixPage
             onClicked: newAlbumDialog.open()
         }
     ]
+
+    footer: ToolBar
+    {
+        id: footerBar
+        position: ToolBar.Footer
+        visible: false
+        TagBar
+        {
+            id: tagBar
+            anchors.fill: parent
+            onAddClicked:
+            {
+                tagsDialog.url = albumGrid.currentAlbum
+                tagsDialog.open()
+            }
+
+            onTagRemovedClicked: if(pix.removeAlbumTag(tagsList.model.get(index).tag, albumGrid.currentAlbum))
+                              tagsList.model.remove(index)
+        }
+    }
+
+    TagsDialog
+    {
+        id: tagsDialog
+        forAlbum: true
+        onTagsAdded: addTagsToAlbum(url, tags)
+        onAlbumTagged: tagBar.tagsList.model.insert(0, {"tag": tag})
+    }
 
     NewAlbumDialog
     {
@@ -95,8 +122,10 @@ PixPage
 
     function filter(album)
     {
-        headerbarTitle = album
+        albumGrid.currentAlbum = album
         picsView.clear()
+        tagBar.tagsList.model.clear()
+        footerBar.visible = false
 
         switch(album)
         {
@@ -107,9 +136,11 @@ PixPage
             populateAlbum(Q.Query.recentPics)
             break
         default:
-            populateAlbum(Q.Query.albumPics_.arg(album))
-            break
+            populateAlbum(Q.Query.allAlbumPics_.arg(album))
 
+            footerBar.visible = true
+            tagBar.tagsList.populate(Q.Query.albumTags_.arg(album))
+            break
         }
     }
 

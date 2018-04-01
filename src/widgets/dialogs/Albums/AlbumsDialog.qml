@@ -52,7 +52,8 @@ PixPopup
 
     function addToAlbum(album)
     {
-        if(pix.picAlbum(album, picUrl))
+        var albumExists = pix.checkExistance("albums", "album", album)
+        if(pix.picAlbum(album, picUrl) && !albumExists)
             albumsView.albumsGrid.model.append({album : album})
         close()
     }

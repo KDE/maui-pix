@@ -59,13 +59,21 @@ PixPage
         {
             id: tagBar
             anchors.fill: parent
+            onAddClicked:
+            {
+                tagsDialog.url = currentPic.url
+                tagsDialog.open()
+            }
+            onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
+                              tagsList.model.remove(index)
         }
     }
 
     TagsDialog
     {
         id: tagsDialog
-
+        forAlbum: false
+        onTagsAdded: addTagsToPic(url, tags)
         onPicTagged: tagBar.tagsList.model.insert(0, {"tag": tag})
     }
 
