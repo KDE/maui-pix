@@ -6,5 +6,6 @@ var Query = {
     picTags_ : "select * from images_tags where url = \"%1\"",
     allTags : "select * from tags",
 
-    allAlbums : "select * from albums"
+    allAlbums : "select * from albums order by strftime(\"%s\", addDate) desc",
+    albumPics_ : "select i.* from images_albums ia inner join images i on i.url = ia.url where ia.album = \"%1\" order by strftime(\"%s\", ia.addDate) desc"
 }

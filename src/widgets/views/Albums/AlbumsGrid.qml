@@ -30,9 +30,6 @@ GridView
 
         ListElement{album: "Favs"}
         ListElement{album: "Recent"}
-        ListElement{album: "albums"}
-        ListElement{album: "albums"}
-        ListElement{album: "albums"}
     }
 
     highlightFollowsCurrentItem: true

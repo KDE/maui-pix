@@ -123,18 +123,17 @@ bool DBActions::isFav(const QString &url)
 
 bool DBActions::addTag(const QString &tag)
 {
-
-}
-
-bool DBActions::picTag(const QString &tag, const QString &url)
-{
     QVariantMap tagMap
     {
         {PIX::KEYMAP[PIX::KEY::TAG], tag}
     };
 
     this->insert(PIX::TABLEMAP[PIX::TABLE::TAGS], tagMap);
+}
 
+bool DBActions::picTag(const QString &tag, const QString &url)
+{
+    this->addTag(tag);
     QVariantMap taggedPic
     {
         {PIX::KEYMAP[PIX::KEY::URL], url},
@@ -158,6 +157,19 @@ bool DBActions::addAlbum(const QString &album)
     };
 
     this->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS], albumMap);
+}
+
+bool DBActions::picAlbum(const QString &album, const QString &url)
+{
+    qDebug()<<"Trying to add to album"<<album<<url;
+    this->addAlbum(album);
+    QVariantMap albumPic
+    {
+        {PIX::KEYMAP[PIX::KEY::URL], url},
+        {PIX::KEYMAP[PIX::KEY::ALBUM], album},
+        {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}
+    };
+    return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_ALBUMS], albumPic);
 }
 
 QVariantList DBActions::getFolders()

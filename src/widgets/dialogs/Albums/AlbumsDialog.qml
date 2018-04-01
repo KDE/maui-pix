@@ -27,86 +27,43 @@ PixPopup
             Layout.fillWidth: true
             width: parent.width
             height: parent.height
-
-            onTagClicked:
-            {
-                tagListComposer.model.insert(0, {tag: albumsList.model.get(index).album})
-            }
         }
 
         TextField
         {
-            id: tagText
+            id: albumText
             Layout.fillWidth: true
 
-            placeholderText: "Tags..."
+            placeholderText: "New album..."
             onAccepted:
             {
-                var tags = tagText.text.split(",")
-                for(var i in tags)
-                {
-                    var tag = tags[i].trim()
-                    if(!pix.checkExistance("tags", "tag", tag))
-                    {
-                        albumsList.model.insert(0, {tag: tag})
-                        tagListComposer.model.insert(0, {tag: tag})
-                    }
-                }
-
+               albumsList.model.insert(0, {album: albumText.text})
                 clear()
             }
         }
-
-
-        TagList
-        {
-            id: tagListComposer
-            Layout.fillWidth: true
-            height: 64
-            width: parent.width
-            onTagRemoved:
-            {
-                pix.removePicTag(model.get(index).tag, pixViewer.currentPic.url)
-                tagListComposer.model.remove(index)
-            }
-        }
-
-
 
         Button
         {
             text: qsTr("Add")
             Layout.alignment: Qt.AlignRight
-            onClicked: addTags(picUrl)
+            onClicked: addToAlbum(albumsList.model.get(albumsList.currentIndex).album)
         }
     }
 
-    function addTags(url)
+    function addToAlbum(album)
     {
-        var tags = []
-
-        for(var i = 0; i < tagListComposer.model.count; i++)
-            tags.push(tagListComposer.model.get(i))
-
-        if(tags.length > 0)
-            for(i in tags)
-            {
-               if(PIX.addTag(tags[i].tag, picUrl))
-                    picTagged(tags[i].tag)
-            }
-
+        if(pix.picAlbum(album, picUrl))
+            albumsView.albumsGrid.model.append({album : album})
         close()
     }
 
     function populate()
     {
-        tagsList.model.clear()
-        var tags = pix.get(Q.Query.allTags)
+        albumsList.model.clear()
+        var albums = pix.get(Q.Query.allAlbums)
 
-        if(tags.length > 0)
-            for(var i in tags)
-                tagsList.model.append(tags[i])
-
-        tagListComposer.populate(picUrl)
+        if(albums.length > 0)
+            for(var i in albums)
+                albumsList.model.append(albums[i])
     }
 }

@@ -26,6 +26,8 @@ class DBActions : public DB
         Q_INVOKABLE bool removePicTag(const QString &tag, const QString &url);
 
         Q_INVOKABLE bool addAlbum(const QString &album);
+        Q_INVOKABLE bool picAlbum(const QString &album, const QString &url);
+
 
 
         /* utils */

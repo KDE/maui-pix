@@ -119,7 +119,7 @@ Kirigami.ApplicationWindow
 
         AlbumsView
         {
-
+            id: albumsView
         }
 
         TagsView

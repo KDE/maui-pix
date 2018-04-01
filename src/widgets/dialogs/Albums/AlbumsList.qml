@@ -4,14 +4,14 @@ import "../../../view_models"
 
 ListView
 {
-    id: tagListRoot
+    id: albumsListRoot
 
-    signal tagClicked(int index)
+    signal albumClicked(int index)
 
     highlight: Rectangle
     {
-        width: tagListRoot.width
-        height: tagListRoot.currentItem.height
+        width: albumsListRoot.width
+        height: albumsListRoot.currentItem.height
         color: highlightColor
     }
 
@@ -23,15 +23,15 @@ ListView
     delegate: PixDelegate
     {
         id: delegate
-        label: tag
+        label: album
 
         Connections
         {
             target: delegate
             onClicked:
             {
-                tagListRoot.currentIndex = index
-                tagClicked(index)
+                albumsListRoot.currentIndex = index
+                albumClicked(index)
             }
         }
     }

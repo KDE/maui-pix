@@ -6,6 +6,7 @@ import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../../../widgets/custom/TagBar"
 import "../../dialogs/share"
 import "../../dialogs/Tags"
+import "../../dialogs/Albums"
 
 PixPage
 {
@@ -27,6 +28,7 @@ PixPage
         PixButton
         {
             iconName: "edit-rename"
+
         },
 
         PixButton
@@ -37,6 +39,16 @@ PixPage
     ]
 
     headerBarLeft: [
+
+        PixButton
+        {
+            iconName: "document-save-as"
+            onClicked:
+            {
+                albumsDialog.picUrl = currentPic.url
+                albumsDialog.open()
+            }
+        },
 
         PixButton
         {
@@ -60,6 +72,11 @@ PixPage
         id: tagsDialog
 
         onPicTagged: tagBar.tagsList.model.insert(0, {"tag": tag})
+    }
+
+    AlbumsDialog
+    {
+        id: albumsDialog
     }
 
     PixHolder

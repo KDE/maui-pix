@@ -5,6 +5,7 @@ function refreshViews()
 
     galleryView.populate()
     foldersView.populate()
+    albumsView.populate()
 }
 
 function addTag(tag, url)

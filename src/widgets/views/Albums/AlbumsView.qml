@@ -6,11 +6,17 @@ import "../../dialogs/Albums"
 
 PixPage
 {
+    property alias albumsGrid : albumGrid
+
     headerbarExit: stackView.currentItem === picsView
     headerbarExitIcon: "go-previous"
     headerbarTitle: albumGrid.count+qsTr(" Albums")
 
-    onExit: stackView.pop(albumGrid)
+    onExit:
+    {
+        stackView.pop(albumGrid)
+        headerbarTitle: albumGrid.count+qsTr(" Albums")
+    }
 
     headerBarRight: [
 
@@ -26,6 +32,7 @@ PixPage
         PixButton
         {
             iconName: "list-add"
+            visible: stackView.currentItem === albumGrid
             onClicked: newAlbumDialog.open()
         }
     ]
@@ -46,14 +53,7 @@ PixPage
         {
             id: albumGrid
 
-            onAlbumClicked:
-            {
-                headerbarTitle = model.get(index).album
-                picsView.clear()
-                //                picsView.populate(model.get(index).url)
-                //                if(stackView.currentItem === folderGrid)
-                //                    stackView.push(picsView)
-            }
+            onAlbumClicked: populateAlbum(model.get(index).album)
         }
 
         PixGrid
@@ -66,7 +66,7 @@ PixPage
 
     function populate()
     {
-        var albums = pix.get(Q.Query.allAlbums())
+        var albums = pix.get(Q.Query.allAlbums)
         if(albums.length > 0)
             for(var i in albums)
                 albumGrid.model.append(albums[i])
@@ -78,9 +78,19 @@ PixPage
         albumGrid.model.clear()
     }
 
-    function addAlbum()
+    function populateAlbum(album)
     {
+        headerbarTitle = album
+        picsView.clear()
 
+        var pics = pix.get(Q.Query.albumPics_.arg(album))
+
+        if(pics.length > 0)
+            for(var i in pics)
+                picsView.grid.model.append(pics[i])
+
+        if(stackView.currentItem === albumGrid)
+            stackView.push(picsView)
     }
 
 }
