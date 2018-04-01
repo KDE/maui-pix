@@ -107,7 +107,7 @@ Kirigami.ApplicationWindow
     {
         id: swipeView
         anchors.fill: parent
-
+        interactive: isMobile
         currentIndex: currentView
 
         onCurrentIndexChanged: currentView = currentIndex

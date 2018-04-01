@@ -7,7 +7,7 @@ GridView
 {
     id: albumsGridRoot
 
-    property int gridSize : 64
+    property int gridSize : 80
     property string currentAlbum : ""
 
     signal albumClicked(int index)
@@ -39,7 +39,7 @@ GridView
     delegate: AlbumDelegate
     {
         id: delegate
-        albumSize : 48
+        albumSize : 64
 
         Connections
         {

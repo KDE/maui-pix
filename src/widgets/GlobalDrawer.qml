@@ -18,5 +18,39 @@ Kirigami.GlobalDrawer
 
     bannerImageSource: "qrc:/img/assets/banner.png"
 
+    actions: [
+        Kirigami.Action
+        {
+            text: "Settings..."
+            iconName: "view-media-config"
+        },
+
+        Kirigami.Action
+        {
+            text: "Collection..."
+            iconName: "database-index"
+
+            Kirigami.Action
+            {
+                text: "Rescan..."
+            }
+
+            Kirigami.Action
+            {
+                text: "Refresh..."
+                iconName: "view-refresh"
+            }
+
+        },
+
+
+        Kirigami.Action
+        {
+            text: "About..."
+            iconName: "help-about"
+        }
+
+    ]
+
 
 }
