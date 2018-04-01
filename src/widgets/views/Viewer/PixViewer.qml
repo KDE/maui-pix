@@ -59,7 +59,7 @@ PixPage
     footer: ToolBar
     {
         position: ToolBar.Footer
-
+        visible: !holder.visible
         TagBar
         {
             id: tagBar
@@ -82,7 +82,7 @@ PixPage
     PixHolder
     {
         id: holder
-        message: "<h2>No Pic!</h2><p>Select or open an image from yuor gallery</p>"
+        message: "<h2>No Pic!</h2><p>Open an image from your collection</p>"
         emoji: "qrc:/img/assets/face-hug.png"
         visible: Object.keys(currentPic).length === 0
     }

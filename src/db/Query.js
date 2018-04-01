@@ -7,5 +7,10 @@ var Query = {
     allTags : "select * from tags",
 
     allAlbums : "select * from albums order by strftime(\"%s\", addDate) desc",
-    albumPics_ : "select i.* from images_albums ia inner join images i on i.url = ia.url where ia.album = \"%1\" order by strftime(\"%s\", ia.addDate) desc"
+    albumPics_ : "select i.* from images_albums ia inner join images i on i.url = ia.url where ia.album = \"%1\" order by strftime(\"%s\", ia.addDate) desc",
+
+    favPics: "select * from images where fav = 1",
+    recentPics: "select * from images order by strftime(\"%s\", addDate) desc limit 50"
+
+
 }

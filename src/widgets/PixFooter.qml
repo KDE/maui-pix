@@ -3,17 +3,11 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../view_models"
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
-import "dialogs/share"
 ToolBar
 {
     id: footerToolbar
     visible: !pixViewer.holder.visible && currentView === views.viewer
     position: ToolBar.Footer
-
-    ShareDialog
-    {
-        id: shareDialog
-    }
 
     RowLayout
     {

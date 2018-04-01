@@ -50,7 +50,7 @@ Pix::~Pix()
 
 void Pix::refreshCollection()
 {
-    this->populateDB({PIX::PicturesPath, PIX::DownloadsPath});
+    this->populateDB({PIX::PicturesPath, PIX::DownloadsPath, PIX::DocumentsPath});
 }
 
 QVariantList Pix::getList(const QStringList &urls)

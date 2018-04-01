@@ -2,6 +2,8 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import "../../../view_models"
 import "../../../db/Query.js" as Q
+import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
+
 import "../../dialogs/Albums"
 
 PixPage
@@ -10,12 +12,12 @@ PixPage
 
     headerbarExit: stackView.currentItem === picsView
     headerbarExitIcon: "go-previous"
-    headerbarTitle: albumGrid.count+qsTr(" Albums")
+    headerbarTitle: stackView.currentItem === picsView ? "undefined" : albumGrid.count+qsTr(" Albums")
 
     onExit:
     {
         stackView.pop(albumGrid)
-        headerbarTitle: albumGrid.count+qsTr(" Albums")
+        headerbarTitle = "Albums"
     }
 
     headerBarRight: [
@@ -53,13 +55,26 @@ PixPage
         {
             id: albumGrid
 
-            onAlbumClicked: populateAlbum(model.get(index).album)
+            onAlbumClicked: filter(model.get(index).album)
         }
 
         PixGrid
         {
             id: picsView
             headerbarVisible: false
+            onPicClicked: openPic(index)
+
+            holder.message: "<h2>No Pics!</h2><p>This albums is empty</p>"
+            holder.emoji: "qrc:/img/assets/face-sleeping.png"
+
+            function openPic(index)
+            {
+                var data = []
+                for(var i = 0; i < grid.model.count; i++)
+                    data.push(grid.model.get(i))
+
+                VIEWER.open(data, index)
+            }
 
         }
     }
@@ -78,12 +93,29 @@ PixPage
         albumGrid.model.clear()
     }
 
-    function populateAlbum(album)
+    function filter(album)
     {
         headerbarTitle = album
         picsView.clear()
 
-        var pics = pix.get(Q.Query.albumPics_.arg(album))
+        switch(album)
+        {
+        case "Favs":
+            populateAlbum(Q.Query.favPics)
+            break
+        case "Recent":
+            populateAlbum(Q.Query.recentPics)
+            break
+        default:
+            populateAlbum(Q.Query.albumPics_.arg(album))
+            break
+
+        }
+    }
+
+    function populateAlbum(query)
+    {
+        var pics = pix.get(query)
 
         if(pics.length > 0)
             for(var i in pics)

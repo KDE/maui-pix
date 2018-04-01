@@ -11,9 +11,18 @@ PixPage
     property int picRadius : 4
 
     property alias grid: grid
+    property alias holder: holder
 
     /*signals*/
     signal picClicked(int index)
+
+    PixHolder
+    {
+        id: holder
+        message: "<h2>No Pics!</h2><p>There's not images in here</p>"
+        emoji: "qrc:/img/assets/face-hug.png"
+        visible: grid.count === 0
+    }
 
     headerbarTitle: gridModel.count+" "+qsTr("images")
 

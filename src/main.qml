@@ -12,6 +12,7 @@ import "widgets/views/Tags"
 import "widgets/views/Viewer"
 
 import "view_models"
+import "widgets/dialogs/share"
 
 import "widgets/views/Pix.js" as PIX
 
@@ -88,6 +89,11 @@ Kirigami.ApplicationWindow
 
     footer: PixFooter
     {
+    }
+
+    ShareDialog
+    {
+        id: shareDialog
     }
 
     SwipeView

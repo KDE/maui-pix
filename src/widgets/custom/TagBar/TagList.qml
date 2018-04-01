@@ -8,7 +8,7 @@ ListView
     spacing: contentMargins
     signal tagRemoved(int index)
 
-    model: ListModel{ ListElement{tag: "test"}}
+    model: ListModel{}
 
     delegate: TagDelegate
     {

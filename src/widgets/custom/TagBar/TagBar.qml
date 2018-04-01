@@ -3,12 +3,13 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../../../view_models"
 
-Rectangle
+Item
 {
-    color: "transparent"
     clip : true
 
     property alias tagsList : tagsList
+
+
 
     RowLayout
     {
@@ -36,6 +37,16 @@ Rectangle
 
             onTagRemoved: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
                               tagsList.model.remove(index)
+
+            Label
+            {
+                height: parent.height
+                width: parent.width
+                text: qsTr("Add tags...")
+                opacity: 0.5
+                visible: tagsList.count === 0
+                font.pointSize: fontSizes.default
+            }
         }
     }
 }

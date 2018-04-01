@@ -143,6 +143,7 @@ namespace PIX
 
     const QString PicturesPath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
     const QString DownloadsPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+    const QString DocumentsPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
     const QString HomePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
     const QString SettingPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)+"/pix/";
     const QString CollectionDBPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/pix/";
