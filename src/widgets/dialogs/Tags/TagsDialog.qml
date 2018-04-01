@@ -4,11 +4,11 @@ import QtQuick.Layouts 1.3
 import "../../../view_models"
 import "../../custom/TagBar"
 import "../../../db/Query.js" as Q
+import "../../views/Pix.js" as PIX
 
 PixPopup
 {
     padding: contentMargins*2
-    width: 200
 
     property string picUrl : ""
 
@@ -76,6 +76,7 @@ PixPopup
         Button
         {
             text: qsTr("Add")
+            Layout.alignment: Qt.AlignRight
             onClicked: addTags(picUrl)
         }
     }
@@ -90,7 +91,7 @@ PixPopup
         if(tags.length > 0)
             for(i in tags)
             {
-                if(pix.picTag(tags[i].tag, url))
+               if(PIX.addTag(tags[i].tag, picUrl))
                     picTagged(tags[i].tag)
             }
 

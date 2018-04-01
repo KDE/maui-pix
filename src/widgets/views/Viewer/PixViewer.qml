@@ -59,7 +59,7 @@ PixPage
     {
         id: tagsDialog
 
-        onPicTagged: tagBar.tagsList.model.append({"tag": tag})
+        onPicTagged: tagBar.tagsList.model.insert(0, {"tag": tag})
     }
 
     PixHolder

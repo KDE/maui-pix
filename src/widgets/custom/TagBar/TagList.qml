@@ -5,7 +5,7 @@ ListView
 {
     orientation: ListView.Horizontal
     clip: true
-
+    spacing: contentMargins
     signal tagRemoved(int index)
 
     model: ListModel{ ListElement{tag: "test"}}

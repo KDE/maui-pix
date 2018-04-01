@@ -1,3 +1,6 @@
+.import "../Pix.js" as PIX
+
+
 function open(model, index)
 {
     pixViewer.currentPicIndex = index
@@ -52,7 +55,23 @@ function previous()
 function fav(url)
 {
     var faved = pix.isFav(url);
+
+    if(!faved)
+    {
+        if(PIX.addTag("fav", pixViewer.currentPic.url))
+            pixViewer.tagBar.tagsList.model.insert(0, {"tag": "fav"})
+    }else
+    {
+        if(pix.removePicTag("fav", pixViewer.currentPic.url))
+            pixViewer.tagBar.tagsList.populate(pixViewer.currentPic.url)
+
+    }
+
+
     if(pix.favPic(url, !faved))
         return !faved
 }
+
+
+
 
