@@ -2,19 +2,13 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../../../view_models"
-import "../../dialogs/Tags"
-import "../../../db/Query.js" as Q
 
-ToolBar
+Rectangle
 {
-    position: ToolBar.Footer
+    color: "transparent"
     clip : true
-    TagsDialog
-    {
-        id: tagsDialog
 
-        onPicTagged: tagsList.model.append({"tag": tag})
-    }
+    property alias tagsList : tagsList
 
     RowLayout
     {
@@ -30,7 +24,6 @@ ToolBar
                 tagsDialog.picUrl = pixViewer.currentPic.url
                 tagsDialog.open()
             }
-
         }
 
         TagList
@@ -40,19 +33,9 @@ ToolBar
             Layout.alignment: Qt.AlignCenter
             Layout.fillHeight: true
             Layout.fillWidth: true
+
+            onTagRemoved: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
+                              tagsList.model.remove(index)
         }
-    }
-
-    function populate(url)
-    {
-        console.log("trying ot get tag for ", Q.Query.picTags_.arg(url))
-
-        tagsList.model.clear()
-        var tags = pix.get(Q.Query.picTags_.arg(url))
-
-        if(tags.length > 0)
-            for(var i in tags)
-                tagsList.model.append(tags[i])
-
     }
 }

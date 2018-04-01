@@ -180,7 +180,32 @@ bool DB::update(const QString &table, const QString &column, const QVariant &new
     return query.exec();
 }
 
-bool DB::remove()
+bool DB::remove(const QString &tableName, const PIX::DB &removeData)
 {
-    return false;
+    if (tableName.isEmpty())
+    {
+        qDebug()<<QStringLiteral("Fatal error on removing! The table name is empty!");
+        return false;
+
+    } else if (removeData.isEmpty())
+    {
+        qDebug()<<QStringLiteral("Fatal error on insert! The removeData is empty!");
+        return false;
+    }
+
+    QString strValues;
+        auto i = 0;
+    for (auto key : removeData.keys())
+    {
+        strValues.append(QString("%1 = \"%2\"").arg(PIX::KEYMAP[key], removeData[key]));
+        i++;
+
+        if(removeData.keys().size() > 1 && i<removeData.keys().size())
+            strValues.append(" AND ");
+    }
+
+    QString sqlQueryString = "DELETE FROM " + tableName + " WHERE " + strValues;
+    qDebug()<< sqlQueryString;
+
+    return this->getQuery(sqlQueryString).exec();
 }

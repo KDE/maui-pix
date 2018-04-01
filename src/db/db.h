@@ -34,7 +34,7 @@ class DB : public QObject
         void prepareCollectionDB() const;
 
         /* utils*/
-        bool checkExistance(const QString &tableName, const QString &searchId, const QString &search);
+        Q_INVOKABLE bool checkExistance(const QString &tableName, const QString &searchId, const QString &search);
 
 
     protected:
@@ -43,7 +43,7 @@ class DB : public QObject
         bool insert(const QString &tableName, const QVariantMap &insertData);
         bool update(const QString &tableName, const PIX::DB &updateData, const QVariantMap &where);
         bool update(const QString &table, const QString &column, const QVariant &newValue, const QVariant &op, const QString &id);
-        bool remove();
+        bool remove(const QString &tableName, const PIX::DB &removeData);
 
     signals:
 

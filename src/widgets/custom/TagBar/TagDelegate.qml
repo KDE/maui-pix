@@ -10,6 +10,8 @@ ItemDelegate
     property int tagWidth: 100
     property int tagHeight: 24
 
+    signal removeTag(int index)
+
     height: tagHeight
     width: tagWidth
 
@@ -45,6 +47,7 @@ ItemDelegate
             iconName: "window-close"
             iconSize: 16
             Layout.fillHeight: true
+            onClicked: removeTag(index)
 
         }
     }

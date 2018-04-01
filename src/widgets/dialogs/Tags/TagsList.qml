@@ -5,6 +5,9 @@ import "../../../view_models"
 ListView
 {
     id: tagListRoot
+
+    signal tagClicked(int index)
+
     highlight: Rectangle
     {
         width: tagListRoot.width
@@ -28,6 +31,7 @@ ListView
             onClicked:
             {
                 tagListRoot.currentIndex = index
+                tagClicked(index)
             }
         }
     }

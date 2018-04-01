@@ -22,6 +22,7 @@ class DBActions : public DB
         Q_INVOKABLE bool isFav(const QString &url);
 
         Q_INVOKABLE bool picTag(const QString &tag, const QString &url);
+        Q_INVOKABLE bool removePicTag(const QString &tag, const QString &url);
 
 
         /* utils */

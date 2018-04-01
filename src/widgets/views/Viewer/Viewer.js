@@ -14,7 +14,8 @@ function view(index)
 {
     pixViewer.currentPic = pixViewer.picContext[index]
     pixViewer.currentPicFav = pix.isFav(pixViewer.currentPic.url)
-    pixViewer.tagBar.populate(pixViewer.currentPic.url)
+    pixViewer.tagBar.tagsList.populate(pixViewer.currentPic.url)
+    root.title = pixViewer.currentPic.title
 }
 
 function fullscreen(state)

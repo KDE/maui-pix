@@ -5,6 +5,7 @@ import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../../../widgets/custom/TagBar"
 import "../../dialogs/share"
+import "../../dialogs/Tags"
 
 PixPage
 {
@@ -39,18 +40,26 @@ PixPage
 
         PixButton
         {
-            iconName: "document-save-as"
-        },
-
-        PixButton
-        {
             iconName: "draw-text"
         }
     ]
 
-    footer: TagBar
+    footer: ToolBar
     {
-        id: tagBar
+        position: ToolBar.Footer
+
+        TagBar
+        {
+            id: tagBar
+            anchors.fill: parent
+        }
+    }
+
+    TagsDialog
+    {
+        id: tagsDialog
+
+        onPicTagged: tagBar.tagsList.model.append({"tag": tag})
     }
 
     PixHolder
@@ -61,16 +70,16 @@ PixPage
         visible: Object.keys(currentPic).length === 0
     }
 
-//    Rectangle
-//    {
-//        id: shadow
-//        width: parent.width
-//        height: parent.height - headerBar.height
-//        y: headerBar.height
-//        color: textColor
-//        opacity: 0.6
-//        visible: shareDialog.opened
-//    }
+    //    Rectangle
+    //    {
+    //        id: shadow
+    //        width: parent.width
+    //        height: parent.height - headerBar.height
+    //        y: headerBar.height
+    //        color: textColor
+    //        opacity: 0.6
+    //        visible: shareDialog.opened
+    //    }
 
     content: Viewer
     {

@@ -128,17 +128,20 @@ bool DBActions::picTag(const QString &tag, const QString &url)
         {PIX::KEYMAP[PIX::KEY::TAG], tag}
     };
 
-    if(this->insert(PIX::TABLEMAP[PIX::TABLE::TAGS], tagMap))
-    {
-        QVariantMap taggedPic
-        {
-            {PIX::KEYMAP[PIX::KEY::URL], url},
-            {PIX::KEYMAP[PIX::KEY::TAG], tag}
-        };
-        return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], taggedPic);
-    }
+    this->insert(PIX::TABLEMAP[PIX::TABLE::TAGS], tagMap);
 
-    return false;
+    QVariantMap taggedPic
+    {
+        {PIX::KEYMAP[PIX::KEY::URL], url},
+        {PIX::KEYMAP[PIX::KEY::TAG], tag}
+    };
+    return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], taggedPic);
+}
+
+bool DBActions::removePicTag(const QString &tag, const QString &url)
+{
+    PIX::DB tagMap {{PIX::KEY::URL, url}, {PIX::KEY::TAG, tag}};
+    return this->remove(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], tagMap);
 }
 
 QVariantList DBActions::getFolders()
