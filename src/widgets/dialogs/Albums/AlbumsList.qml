@@ -19,6 +19,14 @@ ListView
     interactive: true
     highlightFollowsCurrentItem: true
 
+    PixHolder
+    {
+        id: holder
+        message: "<h2>No Albums!</h2><p>Start creating new albums</p>"
+        emoji: "qrc:/img/assets/face.png"
+        visible: count === 0
+    }
+
     model: ListModel{}
     delegate: PixDelegate
     {

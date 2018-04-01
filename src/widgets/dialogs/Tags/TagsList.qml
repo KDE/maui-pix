@@ -19,6 +19,14 @@ ListView
     interactive: true
     highlightFollowsCurrentItem: true
 
+    PixHolder
+    {
+        id: holder
+        message: "<h2>No Tags!</h2><p>Start tagging your pics</p>"
+        emoji: "qrc:/img/assets/face.png"
+        visible: count === 0
+    }
+
     model: ListModel{}
     delegate: PixDelegate
     {

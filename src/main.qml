@@ -61,6 +61,7 @@ Kirigami.ApplicationWindow
     property string altColor: Kirigami.Theme.complementaryBackgroundColor
 
     property int iconSize : Kirigami.Units.iconSizes.medium
+    property int rowHeigh : 32
 
     overlay.modal: Rectangle {
         color: isMobile ? darkColor : "transparent"
@@ -70,6 +71,11 @@ Kirigami.ApplicationWindow
 
     overlay.modeless: Rectangle {
         color: "transparent"
+    }
+
+    globalDrawer: GlobalDrawer
+    {
+        id: globalDrawer
     }
 
     header: PixsBar
@@ -85,6 +91,7 @@ Kirigami.ApplicationWindow
         onAlbumsViewClicked: currentView = 3
         onTagsViewClicked: currentView = 4
         onSearchViewClicked: {}
+        onMenuClicked: globalDrawer.open()
     }
 
     footer: PixFooter
@@ -103,10 +110,8 @@ Kirigami.ApplicationWindow
 
         currentIndex: currentView
 
-        onCurrentIndexChanged:
-        {
-            currentView = currentIndex
-        }
+        onCurrentIndexChanged: currentView = currentIndex
+
 
         PixViewer
         {

@@ -42,5 +42,6 @@
         <file>widgets/dialogs/Albums/AlbumsDialog.qml</file>
         <file>widgets/dialogs/Albums/AlbumsList.qml</file>
         <file>widgets/dialogs/Albums/NewAlbumDialog.qml</file>
+        <file>widgets/GlobalDrawer.qml</file>
     </qresource>
 </RCC>

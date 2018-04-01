@@ -48,11 +48,6 @@ PixPage
                 albumsDialog.picUrl = currentPic.url
                 albumsDialog.open()
             }
-        },
-
-        PixButton
-        {
-            iconName: "draw-text"
         }
     ]
 

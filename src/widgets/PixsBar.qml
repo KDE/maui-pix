@@ -44,6 +44,8 @@ ToolBar
                 iconName: "application-menu"
                 onClicked: menuClicked()
 
+                iconColor: globalDrawer.visible ? accentColor : textColor
+
                 hoverEnabled: !isMobile
                 ToolTip.delay: 1000
                 ToolTip.timeout: 5000

@@ -6,7 +6,7 @@ import org.kde.kirigami 2.2 as Kirigami
 ItemDelegate
 {
     width: parent.width
-    height: 22
+    height: rowHeigh
 
     property bool isSection : false
     property bool boldLabel : false
