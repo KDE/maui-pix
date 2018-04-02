@@ -110,8 +110,8 @@ PixPage
         {
             id: galleryRoll
             anchors.bottom: parent.bottom
+            onPicClicked: VIEWER.view(index)
         }
 
     }
-
 }

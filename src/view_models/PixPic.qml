@@ -7,6 +7,9 @@ ItemDelegate
     property int picSize : 150
     property int picRadius : 2
     property bool showLabel : true
+    property bool showIndicator : false
+    property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
+
     height: picSize
     width: picSize
 
@@ -28,11 +31,23 @@ ItemDelegate
             sourceSize.width: picSize-contentMargins
             cache: true
             antialiasing: true
+            smooth: true
             fillMode: Image.PreserveAspectCrop
             source: (url && url.length>0)?
                         "file://"+encodeURIComponent(url) :
                         "qrc:/../assets/face.png"
             asynchronous: true
+
+            Rectangle
+            {
+                anchors.bottom: parent.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                visible: showIndicator
+                color: indicatorColor
+                height: 12
+                width: 12
+                radius: Math.min(width, height)
+            }
 
         }
         Label
