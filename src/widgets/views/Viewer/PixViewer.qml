@@ -14,6 +14,7 @@ PixPage
     property alias viewer : viewer
     property alias holder : holder
     property alias tagBar : tagBar
+    property alias roll : galleryRoll
 
     property bool currentPicFav: false
     property var currentPic : ({})
@@ -104,6 +105,13 @@ PixPage
     content: Viewer
     {
         id: viewer
+
+        GalleryRoll
+        {
+            id: galleryRoll
+            anchors.bottom: parent.bottom
+        }
+
     }
 
 }

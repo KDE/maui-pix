@@ -6,7 +6,7 @@ ItemDelegate
 {  
     property int picSize : 150
     property int picRadius : 2
-
+    property bool showLabel : true
     height: picSize
     width: picSize
 
@@ -38,6 +38,7 @@ ItemDelegate
         Label
         {
             text: title
+            visible: showLabel
             width: parent.width
             Layout.fillWidth: true
             horizontalAlignment: Qt.AlignHCenter

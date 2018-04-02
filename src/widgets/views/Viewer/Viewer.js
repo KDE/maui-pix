@@ -6,6 +6,7 @@ function open(model, index)
 {
     pixViewer.currentPicIndex = index
     pixViewer.picContext = model
+    pixViewer.roll.populate(pixViewer.picContext)
 
     view(pixViewer.currentPicIndex)
 
