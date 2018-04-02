@@ -35,6 +35,7 @@ PixPage
         PixButton
         {
             iconName: "overflow-menu"
+            onClicked: viewerMenu.popup()
         }
 
     ]
@@ -54,6 +55,7 @@ PixPage
 
     footer: ToolBar
     {
+        id: footerToolbar
         position: ToolBar.Footer
         visible: !holder.visible
         TagBar
@@ -83,6 +85,11 @@ PixPage
         id: albumsDialog
     }
 
+    ViewerMenu
+    {
+        id: viewerMenu
+    }
+
     PixHolder
     {
         id: holder
@@ -105,6 +112,12 @@ PixPage
     content: Viewer
     {
         id: viewer
+
+        MouseArea
+        {
+            anchors.fill: parent
+            onEntered: galleryRoll.visible = !galleryRoll.visible
+        }
 
         GalleryRoll
         {
