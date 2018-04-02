@@ -61,7 +61,7 @@ function fav(url)
 
     if(!faved)
     {
-        if(PIX.addTag("fav", pixViewer.currentPic.url))
+        if(PIX.addTagToPic("fav", pixViewer.currentPic.url))
             pixViewer.tagBar.tagsList.model.insert(0, {"tag": "fav"})
     }else
     {
