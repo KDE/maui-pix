@@ -73,7 +73,7 @@ class FileLoader : public DBActions
                             auto sourceUrl = info.dir().path();
 
 
-                            PIX::DB trackMap =
+                            PIX::DB picMap =
                             {
                                 {PIX::KEY::URL, url},
                                 {PIX::KEY::TITLE, title},
@@ -85,7 +85,7 @@ class FileLoader : public DBActions
                                 {PIX::KEY::FORMAT, format}
                             };
 
-                            this->addPic(trackMap);
+                            this->addPic(picMap);
                             newPics++;
                         }
                     }else break;

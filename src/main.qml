@@ -15,6 +15,7 @@ import "view_models"
 import "widgets/dialogs/share"
 
 import "widgets/views/Pix.js" as PIX
+import "widgets/views/Viewer/Viewer.js" as VIEWER
 
 Kirigami.ApplicationWindow
 {
@@ -150,6 +151,7 @@ Kirigami.ApplicationWindow
         target: pix
 
         onRefreshViews: PIX.refreshViews()
+        onViewPics: VIEWER.open(pics, 0)
     }
 
 }

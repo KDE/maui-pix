@@ -48,6 +48,35 @@ Pix::~Pix()
     delete this->fileLoader;
 }
 
+void Pix::openPics(const QStringList &pics)
+{
+    QVariantList data;
+
+    for(auto url : pics)
+    {
+        QFileInfo info(url);
+        auto title = info.baseName();
+        auto format = info.suffix();
+        auto sourceUrl = info.dir().path();
+
+        QVariantMap picMap =
+        {
+            {PIX::KEYMAP[PIX::KEY::URL], url},
+            {PIX::KEYMAP[PIX::KEY::TITLE], title},
+            {PIX::KEYMAP[PIX::KEY::FAV], "0"},
+            {PIX::KEYMAP[PIX::KEY::RATE], "0"},
+            {PIX::KEYMAP[PIX::KEY::COLOR], ""},
+            {PIX::KEYMAP[PIX::KEY::SOURCES_URL], sourceUrl},
+            {PIX::KEYMAP[PIX::KEY::PIC_DATE], info.created().toString()},
+            {PIX::KEYMAP[PIX::KEY::FORMAT], format}
+        };
+
+        data << picMap;
+    }
+
+    emit viewPics(data);
+}
+
 void Pix::refreshCollection()
 {
     this->populateDB({PIX::PicturesPath, PIX::DownloadsPath, PIX::DocumentsPath});

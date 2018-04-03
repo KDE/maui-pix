@@ -20,37 +20,40 @@ class FileLoader;
 
 class Pix : public DBActions
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        explicit Pix(QObject* parent = nullptr);
-        ~Pix();
+public:
+    explicit Pix(QObject* parent = nullptr);
+    ~Pix();
 
-        Q_INVOKABLE void refreshCollection();
+    Q_INVOKABLE void openPics(const QStringList &pics);
 
-        Q_INVOKABLE QVariantList getList(const QStringList &urls);
-        Q_INVOKABLE bool run(const QString &query);
+    Q_INVOKABLE void refreshCollection();
 
-        Q_INVOKABLE static QString pixColor();
+    Q_INVOKABLE QVariantList getList(const QStringList &urls);
+    Q_INVOKABLE bool run(const QString &query);
 
-        Q_INVOKABLE static int screenGeometry(QString &side);
-        Q_INVOKABLE static int cursorPos(QString &axis);
+    Q_INVOKABLE static QString pixColor();
 
-        Q_INVOKABLE static QString homeDir();
+    Q_INVOKABLE static int screenGeometry(QString &side);
+    Q_INVOKABLE static int cursorPos(QString &axis);
 
-        Q_INVOKABLE static QVariantList getDirs(const QString &pathUrl);
-        Q_INVOKABLE static QVariantMap getParentDir(const QString &path);
+    Q_INVOKABLE static QString homeDir();
 
-        Q_INVOKABLE static QVariantList openWith(const QString &url);
-        Q_INVOKABLE static void runApplication(const QString &exec, const QString &url);
+    Q_INVOKABLE static QVariantList getDirs(const QString &pathUrl);
+    Q_INVOKABLE static QVariantMap getParentDir(const QString &path);
 
-    private:
-        FileLoader *fileLoader;
+    Q_INVOKABLE static QVariantList openWith(const QString &url);
+    Q_INVOKABLE static void runApplication(const QString &exec, const QString &url);
 
-        void populateDB(const QStringList &paths);
+private:
+    FileLoader *fileLoader;
 
-    signals:
-        void refreshViews(QVariantMap tables);
+    void populateDB(const QStringList &paths);
+
+signals:
+    void refreshViews(QVariantMap tables);
+    void viewPics(QVariantList pics);
 
 };
 
