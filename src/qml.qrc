@@ -46,5 +46,8 @@
         <file>widgets/views/Viewer/GalleryRoll.qml</file>
         <file>view_models/PixMenu.qml</file>
         <file>widgets/views/Viewer/ViewerMenu.qml</file>
+        <file>widgets/views/Tags/TagsSidebar.qml</file>
+        <file>widgets/views/Viewer/ConfigurationDialog.qml</file>
+        <file>view_models/PixDialog.qml</file>
     </qresource>
 </RCC>

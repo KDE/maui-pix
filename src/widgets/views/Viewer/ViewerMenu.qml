@@ -14,16 +14,13 @@ PixMenu
         id: viewerMenuLayout
         MenuItem
         {
-            text: qsTr(footerToolbar.visible ? "Hide Tag bar":
-                                               "Show Tag bar")
-            onTriggered: footerToolbar.visible = !footerToolbar.visible
-        }
-
-        MenuItem
-        {
-            text: qsTr(galleryRoll.visible ? "Pin Roll bar":
-                                               "UnPin Roll bar")
-            onTriggered: galleryRoll.visible = !galleryRoll.visible
+            text: qsTr(tagBarVisible ? "Hide Tag bar" :
+                                       "Show Tag bar")
+            onTriggered:
+            {
+                tagBarVisible = !tagBarVisible
+                pix.saveSettings("TAGBAR", tagBarVisible, "PIX")
+            }
         }
 
         Kirigami.Separator{ width: parent.width; height: 1}
@@ -31,7 +28,11 @@ PixMenu
         MenuItem
         {
             text: "Configurations..."
-            onTriggered: {close()}
+            onTriggered:
+            {
+                viewerConf.open()
+                close()
+            }
         }
 
         Kirigami.Separator{ width: parent.width; height: 1}

@@ -34,6 +34,8 @@ public:
     Q_INVOKABLE bool run(const QString &query);
 
     Q_INVOKABLE static QString pixColor();
+    Q_INVOKABLE static void saveSettings(const QString &key, const QVariant &value, const QString &group);
+    Q_INVOKABLE static QVariant loadSettings(const QString &key, const QString &group, const QVariant &defaultValue);
 
     Q_INVOKABLE static int screenGeometry(QString &side);
     Q_INVOKABLE static int cursorPos(QString &axis);

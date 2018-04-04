@@ -21,6 +21,17 @@ PixPage
     property var picContext : []
     property int currentPicIndex : 0
 
+    property bool tagBarVisible : pix.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
+    property string viewerBackgroundColor : pix.loadSettings("VIEWER_BG_COLOR", "PIX", backgroundColor)
+
+
+    Rectangle
+    {
+        anchors.fill: parent
+        z: -1
+        color: viewerBackgroundColor
+    }
+
     headerbarTitle: currentPic.title || ""
     headerbarExit: false
     headerbarVisible: !holder.visible
@@ -50,17 +61,32 @@ PixPage
                 albumsDialog.picUrl = currentPic.url
                 albumsDialog.open()
             }
+        },
+        PixButton
+        {
+            iconName: "object-rotate-left"
+            onClicked: viewer.rotateLeft()
+
+        },
+
+        PixButton
+        {
+            iconName: "object-rotate-right"
+            onClicked: viewer.rotateRight()
+
         }
+
     ]
 
     footer: ToolBar
     {
         id: footerToolbar
         position: ToolBar.Footer
-        visible: !holder.visible
+        visible: !holder.visible && tagBarVisible
         TagBar
         {
             id: tagBar
+            visible: parent.visible
             anchors.fill: parent
             onAddClicked:
             {
@@ -68,7 +94,7 @@ PixPage
                 tagsDialog.open()
             }
             onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
-                              tagsList.model.remove(index)
+                                     tagsList.model.remove(index)
         }
     }
 
@@ -88,6 +114,11 @@ PixPage
     ViewerMenu
     {
         id: viewerMenu
+    }
+
+    ConfigurationDialog
+    {
+        id : viewerConf
     }
 
     PixHolder
@@ -112,16 +143,13 @@ PixPage
     content: Viewer
     {
         id: viewer
-
-        MouseArea
-        {
-            anchors.fill: parent
-            onEntered: galleryRoll.visible = !galleryRoll.visible
-        }
+        height: parent.height
+        width: parent.width
 
         GalleryRoll
         {
             id: galleryRoll
+            visible: !holder.visible
             anchors.bottom: parent.bottom
             onPicClicked: VIEWER.view(index)
         }

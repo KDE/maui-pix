@@ -34,7 +34,7 @@ GridView
         ListElement{album: "Recent"}
     }
 
-    highlightFollowsCurrentItem: true
+    highlightMoveDuration: 0
 
     delegate: AlbumDelegate
     {

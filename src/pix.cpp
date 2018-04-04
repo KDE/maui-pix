@@ -128,6 +128,16 @@ QString Pix::pixColor()
     return "#03A9F4";
 }
 
+void Pix::saveSettings(const QString &key, const QVariant &value, const QString &group)
+{
+    PIX::saveSettings(key, value, group);
+
+}
+
+QVariant Pix::loadSettings(const QString &key, const QString &group, const QVariant &defaultValue)
+{
+    return PIX::loadSettings(key, group, defaultValue);
+}
 
 int Pix::screenGeometry(QString &side)
 {

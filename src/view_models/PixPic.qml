@@ -26,7 +26,8 @@ ItemDelegate
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
-
+            horizontalAlignment: Qt.AlignHCenter
+            verticalAlignment: Qt.AlignVCenter
             sourceSize.height: picSize-contentMargins
             sourceSize.width: picSize-contentMargins
             cache: true

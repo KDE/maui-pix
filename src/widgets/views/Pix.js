@@ -2,10 +2,12 @@ function refreshViews()
 {
     galleryView.clear()
     foldersView.clear()
+    tagsView.clear()
 
     galleryView.populate()
     foldersView.populate()
     albumsView.populate()
+    tagsView.populate()
 }
 
 function addTagToPic(tag, url)

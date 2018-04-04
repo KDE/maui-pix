@@ -7,7 +7,7 @@ Page
 {
 
     property int toolbarHeight: 48
-
+    property int pageMargins : contentMargins
     property bool headerbarVisible : true
     property bool headerbarExit : true
     property string headerbarExitIcon : "dialog-close"
@@ -89,7 +89,7 @@ Page
         Column
         {
             id: pageContent
-            Layout.margins: contentMargins
+            Layout.margins: pageMargins
             Layout.fillHeight: true
             Layout.fillWidth: true
         }

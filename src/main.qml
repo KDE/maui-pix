@@ -136,7 +136,7 @@ Kirigami.ApplicationWindow
 
         TagsView
         {
-
+            id: tagsView
         }
 
         SettingsView

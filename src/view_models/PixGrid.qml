@@ -57,7 +57,7 @@ PixPage
 
         model: ListModel {id: gridModel}
 
-
+        highlightMoveDuration: 0
         highlightFollowsCurrentItem: true
         highlight: Rectangle
         {

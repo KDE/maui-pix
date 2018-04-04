@@ -72,6 +72,7 @@ Item
 
     function position(index)
     {
+        rollList.currentIndex = index
         rollList.positionViewAtIndex(index, ListView.Center)
     }
 
