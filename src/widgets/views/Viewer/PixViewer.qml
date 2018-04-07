@@ -23,6 +23,7 @@ PixPage
 
     property bool tagBarVisible : pix.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
     property string viewerBackgroundColor : pix.loadSettings("VIEWER_BG_COLOR", "PIX", backgroundColor)
+    property string viewerForegroundColor : pix.loadSettings("VIEWER_FG_COLOR", "PIX", textColor)
 
 
     Rectangle
@@ -127,6 +128,7 @@ PixPage
         message: "<h2>No Pic!</h2><p>Open an image from your collection</p>"
         emoji: "qrc:/img/assets/face-hug.png"
         visible: Object.keys(currentPic).length === 0
+        foregroundColor: viewerForegroundColor
     }
 
     //    Rectangle

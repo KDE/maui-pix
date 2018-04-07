@@ -25,6 +25,16 @@ Kirigami.PageRow
         headerbarExit: !wideMode
         headerbarExitIcon: "arrow-left"
         onExit: if(!wideMode) currentIndex = 0
+        onPicClicked: openPic(index)
+    }
+
+    function openPic(index)
+    {
+        var data = []
+        for(var i = 0; i < grid.model.count; i++)
+            data.push(grid.model.get(i))
+
+        VIEWER.open(data, index)
     }
 
     function populate()
@@ -37,8 +47,18 @@ Kirigami.PageRow
 
     }
 
-    function populateGrid()
+    function populateGrid(tag)
     {
+        if(!wideMode && currentIndex === 0)
+            currentIndex = 1
+
+
+        tagsGrid.grid.model.clear()
+        var tags = pix.get(Q.Query.tagPics_.arg(tag))
+
+        if(tags.length > 0)
+            for(var i in tags)
+                tagsGrid.grid.model.append(tags[i])
 
     }
 

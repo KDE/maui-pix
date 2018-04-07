@@ -43,7 +43,18 @@ PixPage
 
         delegate: PixDelegate
         {
+            id: delegate
             label: tag
+
+            Connections
+            {
+                target: delegate
+                onClicked:
+                {
+                    tagsList.currentIndex = index
+                    populateGrid(tagsList.model.get(index).tag)
+                }
+            }
         }
     }
 }
