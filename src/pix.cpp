@@ -29,6 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QPalette>
 #include <QWidget>
 #include <QColor>
+#include <QDesktopServices>
 
 #if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
 #include "kde/notify.h"
@@ -256,12 +257,20 @@ bool Pix::sendToDevice(const QString &name, const QString &id, const QString &ur
 #endif
 }
 
-bool Pix::removeFile(const QString &name, const QString &url)
+bool Pix::removeFile(const QString &url)
 {
     QFile file(url);
     if(!file.exists()) return false;
 
-    return file.remove();
+    if(file.remove())
+        return removePic(url);
+
+    return false;
+}
+
+void Pix::showInFolder(const QString &url)
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(url).dir().absolutePath()));
 }
 
 

@@ -40,6 +40,7 @@ PixPage
 
     function populate()
     {
+        clear()
         var folders = pix.getFolders()
         if(folders.length > 0)
             for(var i in folders)

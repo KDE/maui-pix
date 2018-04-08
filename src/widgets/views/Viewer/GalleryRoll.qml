@@ -36,7 +36,7 @@ Item
 
         orientation: ListView.Horizontal
         clip: true
-        spacing: 4
+        spacing: 2
 
         focus: true
         interactive: true
@@ -47,7 +47,7 @@ Item
         {
             id: delegate
             picSize: rollPicSize
-            picRadius: 6
+            picRadius: 0
             showLabel: false
             showIndicator: true
 

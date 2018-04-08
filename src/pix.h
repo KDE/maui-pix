@@ -74,7 +74,9 @@ public:
 
 
     /*File actions*/
-    Q_INVOKABLE static bool removeFile(const QString &name, const QString &url);
+    Q_INVOKABLE bool removeFile(const QString &url);
+    Q_INVOKABLE void showInFolder(const QString &url);
+
 
 
 private:

@@ -39,6 +39,7 @@ Kirigami.PageRow
 
     function populate()
     {
+        tagsSidebar.list.model.clear()
         var tags = pix.get(Q.Query.allTags)
 
         if(tags.length > 0)

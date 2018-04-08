@@ -64,6 +64,7 @@ PixPage
             width: picSize + picSpacing
             height: picSize + picSpacing
             color: highlightColor
+            radius: 4
         }
 
         onWidthChanged:
@@ -83,7 +84,7 @@ PixPage
             id: delegate
 
             picSize : gridPage.picSize
-
+            picRadius : 4
             Connections
             {
                 target: delegate

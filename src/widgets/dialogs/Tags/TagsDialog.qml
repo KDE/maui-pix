@@ -60,7 +60,6 @@ PixDialog
                         tagListComposer.model.insert(0, {tag: tag})
                     }
                 }
-
                 clear()
             }
         }
@@ -111,6 +110,7 @@ PixDialog
                 if(PIX.addTagToPic(tags[i].tag, url))
                     picTagged(tags[i].tag, url)
 
+            tagsView.populate()
         }
 
         close()

@@ -16,6 +16,7 @@ PixGrid
 
     function populate()
     {
+        clear()
         var map = pix.get(Q.Query.allPics)
         for(var i in map)
             grid.model.append(map[i])

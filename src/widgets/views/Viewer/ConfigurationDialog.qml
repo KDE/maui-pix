@@ -13,9 +13,9 @@ PixDialog
 
     GridLayout
     {
-        anchors.fill: parent
+        width: parent.width*0.9
+        anchors.centerIn: parent
         rowSpacing: contentMargins
-
         rows: 3
         columns: 2
 

@@ -12,6 +12,7 @@ PixMenu
     signal shareClicked(string url)
     signal addClicked(string url)
     signal tagsClicked(string url)
+    signal showFolderClicked(string url)
 
     Column
     {
@@ -59,6 +60,16 @@ PixMenu
             onTriggered:
             {
                 removeClicked(picUrl)
+                close()
+            }
+        }
+
+        MenuItem
+        {
+            text: qsTr("Show in folder...")
+            onTriggered:
+            {
+                showFolderClicked(picUrl)
                 close()
             }
         }

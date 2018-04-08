@@ -1,9 +1,5 @@
 function refreshViews()
 {
-    galleryView.clear()
-    foldersView.clear()
-    tagsView.clear()
-
     galleryView.populate()
     foldersView.populate()
     albumsView.populate()
@@ -12,15 +8,16 @@ function refreshViews()
 
 function addTagToPic(tag, url)
 {
-     return pix.picTag(tag, url)
+    return pix.picTag(tag, url)
 }
 
 function addTagToAlbum(tag, url)
 {
-     return pix.albumTag(tag, url)
+    return pix.albumTag(tag, url)
 }
 
 function removePic(url)
 {
-
+    if(pix.removeFile(url))
+        refreshViews()
 }

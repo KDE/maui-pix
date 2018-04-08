@@ -35,8 +35,9 @@ class DBActions : public DB
 
         bool execQuery(const QString &queryTxt);
 
-        void insertPic(const PIX::DB &img);
+        bool insertPic(const PIX::DB &img);
         Q_INVOKABLE bool addPic(const QString &url);
+        Q_INVOKABLE bool removePic(const QString &url);
 
         /* actions on model */
         Q_INVOKABLE bool favPic(const QString &url, const bool &fav);

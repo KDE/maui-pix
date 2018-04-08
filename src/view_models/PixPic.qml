@@ -1,11 +1,12 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
 
 ItemDelegate
 {  
     property int picSize : 150
-    property int picRadius : 2
+    property int picRadius : 0
     property bool showLabel : true
     property bool showIndicator : false
     property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
@@ -36,6 +37,7 @@ ItemDelegate
         anchors.fill: parent
         Image
         {
+            id: img
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
@@ -61,6 +63,23 @@ ItemDelegate
                 height: 12
                 width: 12
                 radius: Math.min(width, height)
+            }
+
+            layer.enabled: picRadius > 0
+            layer.effect: OpacityMask
+            {
+                maskSource: Item
+                {
+                    width: img.sourceSize.width
+                    height: img.sourceSize.height
+                    Rectangle
+                    {
+                        anchors.centerIn: parent
+                        width: img.adapt ? img.sourceSize.width : Math.min(img.sourceSize.width, img.sourceSize.height)
+                        height: img.adapt ? img.sourceSize.height : width
+                        radius: picRadius
+                    }
+                }
             }
 
         }

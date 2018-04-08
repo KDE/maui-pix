@@ -84,11 +84,9 @@ bool DBActions::execQuery(const QString &queryTxt)
     return query.exec();
 }
 
-void DBActions::insertPic(const PIX::DB &img)
+bool DBActions::insertPic(const PIX::DB &img)
 {
-    auto query = this->getQuery("PRAGMA synchronous=OFF");
-    if(query.exec())
-    {
+
         auto url = img[PIX::KEY::URL];
         auto title = img[PIX::KEY::TITLE];
         auto rate = img[PIX::KEY::RATE];
@@ -97,7 +95,6 @@ void DBActions::insertPic(const PIX::DB &img)
         auto addDate = img[PIX::KEY::ADD_DATE];
         auto sourceUrl = img[PIX::KEY::SOURCES_URL];
         auto picDate = img[PIX::KEY::PIC_DATE];
-        auto note = img[PIX::KEY::NOTE];
         auto place = img[PIX::KEY::PLACE];
         auto format = img[PIX::KEY::FORMAT];
 
@@ -115,14 +112,9 @@ void DBActions::insertPic(const PIX::DB &img)
                             {PIX::KEYMAP[PIX::KEY::COLOR], color},
                             {PIX::KEYMAP[PIX::KEY::FORMAT], format},
                             {PIX::KEYMAP[PIX::KEY::PIC_DATE], picDate},
-                            {PIX::KEYMAP[PIX::KEY::NOTE], note},
                             {PIX::KEYMAP[PIX::KEY::PLACE], place},
                             {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}};
-        insert(PIX::TABLEMAP[PIX::TABLE::IMAGES], imgMap);
-    }else
-    {
-        qDebug()<< "Failed to insert async";
-    }
+        return insert(PIX::TABLEMAP[PIX::TABLE::IMAGES], imgMap);
 
 }
 
@@ -134,7 +126,6 @@ bool DBActions::addPic(const QString &url)
         auto title = info.baseName();
         auto format = info.suffix();
         auto sourceUrl = info.dir().path();
-
 
         PIX::DB picMap =
         {
@@ -148,8 +139,28 @@ bool DBActions::addPic(const QString &url)
             {PIX::KEY::FORMAT, format}
         };
 
-        this->insertPic(picMap);
+        return this->insertPic(picMap);
     }
+}
+
+bool DBActions::removePic(const QString &url)
+{
+    auto queryTxt = QString("DELETE FROM images WHERE url =  \"%1\"").arg(url);
+    auto query = this->getQuery(queryTxt);
+    if(query.exec())
+    {
+        queryTxt = QString("DELETE FROM images_tags WHERE url =  \"%1\"").arg(url);
+        this->getQuery(queryTxt).exec();
+
+        queryTxt = QString("DELETE FROM images_albums WHERE url =  \"%1\"").arg(url);
+        this->getQuery(queryTxt).exec();
+
+        queryTxt = QString("DELETE FROM images_notes WHERE url =  \"%1\"").arg(url);
+        this->getQuery(queryTxt).exec();
+
+        return true;
+    }
+    return false;
 }
 
 bool DBActions::favPic(const QString &url, const bool &fav )

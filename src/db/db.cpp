@@ -57,6 +57,8 @@ void DB::openDB(const QString &name)
         if(!this->m_db.open())
             qDebug()<<"ERROR OPENING DB"<<this->m_db.lastError().text()<<m_db.connectionName();
     }
+    auto query = this->getQuery("PRAGMA synchronous=OFF");
+    query.exec();
 }
 
 void DB::prepareCollectionDB() const

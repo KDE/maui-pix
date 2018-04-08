@@ -174,6 +174,7 @@ Kirigami.ApplicationWindow
         onShareClicked: shareDialog.show(url)
         onAddClicked: albumsDialog.show(url)
         onTagsClicked: tagsDialog.show(url)
+        onShowFolderClicked: pix.showInFolder(url)
     }
 
     ShareDialog
