@@ -1,10 +1,18 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import QtGraphicalEffects 1.0
+
 import "../../"
 
 Item
 {
     property bool autoSaveTransformation : false
+    property real picContrast : 0
+    property real picBrightness : 0
+    property real picSaturation : 0
+    property real picHue : 0
+    property real picLightness : 0
+
     clip: true
 
     Image
@@ -30,6 +38,23 @@ Item
 
             onClicked: if(!isMobile && mouse.button === Qt.RightButton)
                            picMenu.show(currentPic.url)
+        }
+
+        BrightnessContrast
+        {
+            anchors.fill: pic
+            source: pic
+            brightness: picBrightness
+            contrast: picContrast
+        }
+
+        HueSaturation
+        {
+            anchors.fill: pic
+            source: pic
+            hue: picHue
+            saturation: picSaturation
+            lightness: picLightness
         }
     }
 
