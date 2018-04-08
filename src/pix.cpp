@@ -253,7 +253,14 @@ QVariantList Pix::getDevices()
 bool Pix::sendToDevice(const QString &name, const QString &id, const QString &url)
 {
 #if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
-    return KdeConnect::sendToDevice(name, id, url) ? true : false;
+    return KdeConnect::sendToDevice(name, id, url);
+#endif
+}
+
+void Pix::attachToEmail(const QString &url)
+{
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+    KDE::attachEmail(url);
 #endif
 }
 

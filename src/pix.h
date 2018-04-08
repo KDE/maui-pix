@@ -72,6 +72,7 @@ public:
     Q_INVOKABLE static QVariantList getDevices();
     Q_INVOKABLE static bool sendToDevice(const QString &name, const QString &id, const QString &url);
 
+    Q_INVOKABLE static void attachToEmail(const QString &url);
 
     /*File actions*/
     Q_INVOKABLE bool removeFile(const QString &url);

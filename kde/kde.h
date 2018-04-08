@@ -32,6 +32,7 @@ class KDE : public QObject
         explicit KDE(QObject *parent = nullptr);
         static QVariantList mimeApps(const QUrl &url);
         static void openWithApp(const QString &exec, const QString &url);
+        static void attachEmail(const QString &url);
     signals:
 
     public slots:

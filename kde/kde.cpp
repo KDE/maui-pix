@@ -21,9 +21,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "kde.h"
 #include <KService>
 #include <KMimeTypeTrader>
+#include <KToolInvocation>
 #include <KLocalizedString>
 #include <QDebug>
 #include <KRun>
+#include <QFileInfo>
 
 KDE::KDE(QObject *parent) : QObject(parent)
 {
@@ -39,9 +41,9 @@ static QVariantMap createActionItem(const QString &label, const QString &actionI
     map["serviceLabel"] = label;
     map["actionId"] = actionId;
 
-    if (argument.isValid()) {
+    if (argument.isValid())
         map["actionArgument"] = argument;
-    }
+
 
     return map;
 }
@@ -58,8 +60,7 @@ QVariantList KDE::mimeApps(const QUrl &url)
 
         KService::List services = KMimeTypeTrader::self()->query(fileItem->mimetype(), "Application");
 
-        if (!services.isEmpty())
-        {
+        if (!services.isEmpty())        
             foreach (const KService::Ptr service, services)
             {
                 const QString text = service->name().replace('&', "&&");
@@ -69,7 +70,7 @@ QVariantList KDE::mimeApps(const QUrl &url)
 
                 list << item;
             }
-        }
+
 
         list << createActionItem(i18n("Properties"), "_kicker_fileItem_properties");
 
@@ -81,4 +82,14 @@ void KDE::openWithApp(const QString &exec, const QString &url)
 {
     KService service(exec);
     KRun::runApplication(service,{url}, nullptr);
+}
+
+void KDE::attachEmail(const QString &url)
+{
+    qDebug()<< "invoking email"<< url;
+    QFileInfo file(url);
+
+    KToolInvocation::invokeMailer("", "", "", file.baseName(), "Sent from Pix", "", {url});
+//    QDesktopServices::openUrl(QUrl("mailto:?subject=test&body=test&attachment;="
+//    + url));
 }

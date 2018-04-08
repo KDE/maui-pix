@@ -56,6 +56,8 @@ PixPopup
         var services = pix.openWith(picUrl)
         var devices = pix.getDevices()
 
+        shareGrid.model.append({serviceIcon: "internet-mail", serviceLabel: "eMail", email: true})
+
         if(devices.length > 0)
             for(var i in devices)
             {
@@ -76,6 +78,8 @@ PixPopup
 
         if(obj.serviceKey)
             pix.sendToDevice(obj.serviceLabel, obj.serviceKey, picUrl)
+        else if(obj.email)
+            pix.attachToEmail(picUrl)
         else
             pix.runApplication(obj.actionArgument, picUrl)
 
