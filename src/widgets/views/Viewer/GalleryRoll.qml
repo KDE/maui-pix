@@ -23,7 +23,8 @@ Item
         z:-1
         color: Kirigami.Theme.complementaryBackgroundColor
         radius: 4
-        opacity: 0.7
+        opacity: 0.8
+        border.color: "black"
     }
 
     ListView

@@ -81,6 +81,7 @@ Kirigami.ApplicationWindow
     property string buttonBackgroundColor: Kirigami.Theme.buttonBackgroundColor
     property string viewBackgroundColor: Kirigami.Theme.viewBackgroundColor
     property string altColor: Kirigami.Theme.complementaryBackgroundColor
+    property string pixColor : pix.pixColor()
 
     property int iconSize : Kirigami.Units.iconSizes.medium
     property int rowHeigh : 32
@@ -118,6 +119,7 @@ Kirigami.ApplicationWindow
 
     footer: PixFooter
     {
+        id: pixFooter
     }
 
     ShareDialog

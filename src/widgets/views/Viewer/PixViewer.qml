@@ -41,6 +41,8 @@ PixPage
         PixButton
         {
             iconName: "edit-rename"
+            iconColor: editTools.visible ? pixColor : textColor
+            onClicked: editTools.visible ? editTools.close() : editTools.open()
 
         },
 
@@ -62,21 +64,7 @@ PixPage
                 albumsDialog.picUrl = currentPic.url
                 albumsDialog.open()
             }
-        },
-        PixButton
-        {
-            iconName: "object-rotate-left"
-            onClicked: viewer.rotateLeft()
-
-        },
-
-        PixButton
-        {
-            iconName: "object-rotate-right"
-            onClicked: viewer.rotateRight()
-
         }
-
     ]
 
     footer: ToolBar
@@ -129,6 +117,16 @@ PixPage
         emoji: "qrc:/img/assets/face-hug.png"
         visible: Object.keys(currentPic).length === 0
         foregroundColor: viewerForegroundColor
+    }
+
+    EditTools
+    {
+        id: editTools
+        width: parent.width * 0.4
+
+        height: parent.height - headerBar.height - pixFooter.height - toolBar.height
+        y: headerBar.height + pixFooter.height
+
     }
 
     //    Rectangle

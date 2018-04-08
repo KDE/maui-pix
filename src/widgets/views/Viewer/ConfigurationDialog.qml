@@ -16,7 +16,7 @@ PixDialog
         anchors.fill: parent
         rowSpacing: contentMargins
 
-        rows: 1
+        rows: 3
         columns: 2
 
         Label
