@@ -19,7 +19,7 @@ Drawer
         {
             anchors.fill: parent
 
-spacing: contentMargins
+            spacing: contentMargins
             ToolBar
             {
                 width: parent.width

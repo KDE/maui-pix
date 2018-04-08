@@ -96,11 +96,18 @@ PixPopup
     function addTagsToPic(url, tags)
     {
         if(tags.length > 0)
+        {
+            if(!pix.checkExistance("images", "url", url))
+                if(!pix.addPic(url))
+                    return
+
             for(var i in tags)
             {
-               if(PIX.addTagToPic(tags[i].tag, url))
+
+                if(PIX.addTagToPic(tags[i].tag, url))
                     picTagged(tags[i].tag)
             }
+        }
 
         close()
     }
@@ -110,7 +117,7 @@ PixPopup
         if(tags.length > 0)
             for(var i in tags)
             {
-               if(PIX.addTagToAlbum(tags[i].tag, url))
+                if(PIX.addTagToAlbum(tags[i].tag, url))
                     albumTagged(tags[i].tag)
             }
 

@@ -57,6 +57,10 @@ function previous()
 
 function fav(url)
 {
+    if(!pix.checkExistance("images", "url", url))
+        if(!pix.addPic(url))
+            return
+
     var faved = pix.isFav(url);
 
     if(!faved)

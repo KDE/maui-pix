@@ -153,6 +153,5 @@ PixPage
             anchors.bottom: parent.bottom
             onPicClicked: VIEWER.view(index)
         }
-
     }
 }

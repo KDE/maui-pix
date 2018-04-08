@@ -84,7 +84,7 @@ bool DBActions::execQuery(const QString &queryTxt)
     return query.exec();
 }
 
-void DBActions::addPic(const PIX::DB &img)
+void DBActions::insertPic(const PIX::DB &img)
 {
     auto query = this->getQuery("PRAGMA synchronous=OFF");
     if(query.exec())
@@ -124,6 +124,32 @@ void DBActions::addPic(const PIX::DB &img)
         qDebug()<< "Failed to insert async";
     }
 
+}
+
+bool DBActions::addPic(const QString &url)
+{
+    if(!this->checkExistance(PIX::TABLEMAP[PIX::TABLE::IMAGES], PIX::KEYMAP[PIX::KEY::URL],url))
+    {
+        QFileInfo info(url);
+        auto title = info.baseName();
+        auto format = info.suffix();
+        auto sourceUrl = info.dir().path();
+
+
+        PIX::DB picMap =
+        {
+            {PIX::KEY::URL, url},
+            {PIX::KEY::TITLE, title},
+            {PIX::KEY::FAV, "0"},
+            {PIX::KEY::RATE, "0"},
+            {PIX::KEY::COLOR, ""},
+            {PIX::KEY::SOURCES_URL, sourceUrl},
+            {PIX::KEY::PIC_DATE, info.created().toString()},
+            {PIX::KEY::FORMAT, format}
+        };
+
+        this->insertPic(picMap);
+    }
 }
 
 bool DBActions::favPic(const QString &url, const bool &fav )
