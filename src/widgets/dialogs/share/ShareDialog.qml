@@ -37,6 +37,7 @@ PixPopup
             Layout.fillHeight: true
             Layout.fillWidth: true
             width: parent.width
+            onServiceClicked: triggerService(index)
         }
     }
 
@@ -45,11 +46,34 @@ PixPopup
 
     function populate()
     {
+        shareGrid.model.clear()
         var services = pix.openWith(pixViewer.currentPic.url)
+        var devices = pix.getDevices()
 
-        if(services.length>0)
-            for(var i in services)
+        if(devices.length > 0)
+            for(var i in devices)
+            {
+                devices[i].serviceIcon = "smartphone"
+                shareGrid.model.append(devices[i])
+
+            }
+
+        if(services.length > 0)
+            for(i in services)
                 shareGrid.model.append(services[i])
 
     }
+
+    function triggerService(index)
+    {
+        var obj = shareGrid.model.get(index)
+
+        if(obj.serviceKey)
+            pix.sendToDevice(obj.serviceLabel, obj.serviceKey, picUrl)
+        else
+            pix.runApplication(obj.actionArgument, picUrl)
+
+        shareDialog.close()
+    }
 }
+

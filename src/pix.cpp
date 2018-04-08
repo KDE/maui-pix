@@ -32,6 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
 #include "kde/notify.h"
+#include "kde/kdeconnect.h"
 #include "kde/kde.h"
 #endif
 
@@ -240,6 +241,21 @@ void Pix::runApplication(const QString &exec, const QString &url)
     return KDE::openWithApp(exec, url);
 #endif
 }
+
+QVariantList Pix::getDevices()
+{
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+    return  KdeConnect::getDevices();
+#endif
+}
+
+bool Pix::sendToDevice(const QString &name, const QString &id, const QString &url)
+{
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+    return KdeConnect::sendToDevice(name, id, url) ? true : false;
+#endif
+}
+
 
 
 

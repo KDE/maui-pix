@@ -6,6 +6,7 @@ GridView
 {
     property int gridSize : 64
     clip: true
+    signal serviceClicked(int index)
 
     width: Math.min(model.count, Math.floor(parent.width/cellWidth))*cellWidth
     height: parent.height
@@ -41,9 +42,7 @@ GridView
             onClicked:
             {
                 currentIndex = index
-                var obj = gridModel.get(index)
-                pix.runApplication(obj.actionArgument, picUrl)
-                shareDialog.close()
+                serviceClicked(index)
             }
         }
     }

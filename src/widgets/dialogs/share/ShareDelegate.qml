@@ -44,6 +44,4 @@ ItemDelegate
             color: labelColor
         }
     }
-
-
 }

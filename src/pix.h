@@ -63,10 +63,15 @@ public:
     Q_INVOKABLE static QString homeDir();
 
     Q_INVOKABLE static QVariantList getDirs(const QString &pathUrl);
-    Q_INVOKABLE static QVariantMap getParentDir(const QString &path);
+    Q_INVOKABLE static QVariantMap getParentDir(const QString &path);   
 
+    /*KDE*/
     Q_INVOKABLE static QVariantList openWith(const QString &url);
     Q_INVOKABLE static void runApplication(const QString &exec, const QString &url);
+
+    Q_INVOKABLE static QVariantList getDevices();
+    Q_INVOKABLE static bool sendToDevice(const QString &name, const QString &id, const QString &url);
+
 
 private:
     FileLoader *fileLoader;
