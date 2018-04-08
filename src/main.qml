@@ -34,6 +34,8 @@ import "widgets/views/Viewer"
 
 import "view_models"
 import "widgets/dialogs/share"
+import "widgets/dialogs/Albums"
+import "widgets/dialogs/Tags"
 
 import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
@@ -122,11 +124,6 @@ Kirigami.ApplicationWindow
         id: pixFooter
     }
 
-    ShareDialog
-    {
-        id: shareDialog
-    }
-
     SwipeView
     {
         id: swipeView
@@ -169,6 +166,33 @@ Kirigami.ApplicationWindow
 
     }
 
+    PicMenu
+    {
+        id: picMenu
+        onFavClicked: VIEWER.fav(url)
+        onRemoveClicked: PIX.removePic(url)
+        onShareClicked: shareDialog.show(url)
+        onAddClicked: albumsDialog.show(url)
+        onTagsClicked: tagsDialog.show(url)
+    }
+
+    ShareDialog
+    {
+        id: shareDialog
+    }
+
+    AlbumsDialog
+    {
+        id: albumsDialog
+    }
+
+    TagsDialog
+    {
+        id: tagsDialog
+        forAlbum: false
+        onTagsAdded: addTagsToPic(url, tags)
+    }
+
     Connections
     {
         target: pix
@@ -176,5 +200,4 @@ Kirigami.ApplicationWindow
         onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.open(pics, 0)
     }
-
 }

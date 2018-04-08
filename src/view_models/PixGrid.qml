@@ -92,6 +92,7 @@ PixPage
                     picClicked(index)
                     grid.currentIndex = index
                 }
+                onRightClicked: picMenu.show(gridModel.get(index).url)
             }
         }
 

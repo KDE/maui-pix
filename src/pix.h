@@ -73,6 +73,10 @@ public:
     Q_INVOKABLE static bool sendToDevice(const QString &name, const QString &id, const QString &url);
 
 
+    /*File actions*/
+    Q_INVOKABLE static bool removeFile(const QString &name, const QString &url);
+
+
 private:
     FileLoader *fileLoader;
 

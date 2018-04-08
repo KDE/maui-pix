@@ -19,3 +19,8 @@ function addTagToAlbum(tag, url)
 {
      return pix.albumTag(tag, url)
 }
+
+function removePic(url)
+{
+
+}

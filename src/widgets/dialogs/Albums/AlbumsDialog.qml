@@ -6,15 +6,17 @@ import "../../custom/TagBar"
 import "../../../db/Query.js" as Q
 import "../../views/Pix.js" as PIX
 
-PixPopup
+PixDialog
 {
-    padding: contentMargins*2
 
     property string picUrl : ""
+    signal picTagged(string tag)
+
+    standardButtons: Dialog.Save | Dialog.Cancel
 
     onOpened: populate()
+    onAccepted: addToAlbum(albumsList.model.get(albumsList.currentIndex).album)
 
-    signal picTagged(string tag)
 
     ColumnLayout
     {
@@ -33,7 +35,8 @@ PixPopup
         {
             id: albumText
             Layout.fillWidth: true
-
+            Layout.leftMargin: contentMargins
+            Layout.rightMargin: contentMargins
             placeholderText: "New album..."
             onAccepted:
             {
@@ -41,13 +44,12 @@ PixPopup
                 clear()
             }
         }
+    }
 
-        Button
-        {
-            text: qsTr("Add")
-            Layout.alignment: Qt.AlignRight
-            onClicked: addToAlbum(albumsList.model.get(albumsList.currentIndex).album)
-        }
+    function show(url)
+    {
+        albumsDialog.picUrl = url
+        albumsDialog.open()
     }
 
     function addToAlbum(album)

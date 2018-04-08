@@ -5,6 +5,7 @@ import "../../../view_models"
 ListView
 {
     id: tagListRoot
+    clip: true
 
     signal tagClicked(int index)
 

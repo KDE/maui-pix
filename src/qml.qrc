@@ -49,5 +49,6 @@
         <file>widgets/views/Tags/TagsSidebar.qml</file>
         <file>widgets/views/Viewer/ConfigurationDialog.qml</file>
         <file>view_models/PixDialog.qml</file>
+        <file>widgets/PicMenu.qml</file>
     </qresource>
 </RCC>

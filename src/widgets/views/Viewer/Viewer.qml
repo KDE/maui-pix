@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import "../../"
 
 Item
 {
@@ -20,15 +21,21 @@ Item
         MouseArea
         {
             anchors.fill: parent
+            acceptedButtons:  Qt.LeftButton | Qt.RightButton
+
             onEntered: galleryRoll.visible = !galleryRoll.visible
+            onPressAndHold: picMenu.show(currentPic.url)
 
             onWheel: wheel.angleDelta.y > 0 ? zoomIn() : zoomOut()
+
+            onClicked: if(!isMobile && mouse.button === Qt.RightButton)
+                           picMenu.show(currentPic.url)
         }
     }
 
     function zoomIn()
     {
-         pic.height = pic.height + 50
+        pic.height = pic.height + 50
     }
 
     function zoomOut()

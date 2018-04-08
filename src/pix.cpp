@@ -256,6 +256,14 @@ bool Pix::sendToDevice(const QString &name, const QString &id, const QString &ur
 #endif
 }
 
+bool Pix::removeFile(const QString &name, const QString &url)
+{
+    QFile file(url);
+    if(!file.exists()) return false;
+
+    return file.remove();
+}
+
 
 
 

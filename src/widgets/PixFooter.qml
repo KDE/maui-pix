@@ -31,11 +31,7 @@ ToolBar
                 ToolTip.visible: hovered
                 ToolTip.text: qsTr("Share")
 
-                onClicked:
-                {
-                    shareDialog.picUrl = pixViewer.currentPic.url
-                    shareDialog.open()
-                }
+                onClicked: shareDialog.show(pixViewer.currentPic.url)
             }
         }
 

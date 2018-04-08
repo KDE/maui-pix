@@ -10,12 +10,25 @@ ItemDelegate
     property bool showIndicator : false
     property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
 
+    signal rightClicked();
+
     height: picSize
     width: picSize
 
     background: Rectangle
     {
         color: "transparent"
+    }
+
+    MouseArea
+    {
+        anchors.fill: parent
+        acceptedButtons:  Qt.RightButton
+        onClicked:
+        {
+            if(!isMobile && mouse.button === Qt.RightButton)
+                rightClicked()
+        }
     }
 
     ColumnLayout

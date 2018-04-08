@@ -6,19 +6,22 @@ import "../../custom/TagBar"
 import "../../../db/Query.js" as Q
 import "../../views/Pix.js" as PIX
 
-PixPopup
+PixDialog
 {
-    padding: contentMargins*2
+    property string picUrl : ""
+    property bool forAlbum : false
+    clip: true
+    signal albumTagged(string tag, string url)
+    signal picTagged(string tag, string url)
+    signal tagsAdded(var tags, string url)
 
-    property string url : ""
 
+    standardButtons: Dialog.Save | Dialog.Cancel
+
+    onAccepted: setTags()
+    onRejected: close()
     onOpened: populate()
 
-    signal albumTagged(string tag)
-    signal picTagged(string tag)
-    signal tagsAdded(var tags)
-
-    property bool forAlbum : false
 
     ColumnLayout
     {
@@ -42,7 +45,8 @@ PixPopup
         {
             id: tagText
             Layout.fillWidth: true
-
+            Layout.leftMargin: contentMargins
+            Layout.rightMargin: contentMargins
             placeholderText: "Tags..."
             onAccepted:
             {
@@ -66,6 +70,9 @@ PixPopup
         {
             id: tagListComposer
             Layout.fillWidth: true
+            Layout.leftMargin: contentMargins
+            Layout.rightMargin: contentMargins
+
             height: 64
             width: parent.width
             onTagRemoved:
@@ -74,13 +81,12 @@ PixPopup
                 tagListComposer.model.remove(index)
             }
         }
+    }
 
-        Button
-        {
-            text: qsTr("Add")
-            Layout.alignment: Qt.AlignRight
-            onClicked: setTags()
-        }
+    function show(url)
+    {
+        picUrl = url
+        open()
     }
 
     function setTags()
@@ -90,7 +96,7 @@ PixPopup
         for(var i = 0; i < tagListComposer.model.count; i++)
             tags.push(tagListComposer.model.get(i))
 
-        tagsAdded(tags)
+        tagsAdded(tags, picUrl)
     }
 
     function addTagsToPic(url, tags)
@@ -102,11 +108,9 @@ PixPopup
                     return
 
             for(var i in tags)
-            {
-
                 if(PIX.addTagToPic(tags[i].tag, url))
-                    picTagged(tags[i].tag)
-            }
+                    picTagged(tags[i].tag, url)
+
         }
 
         close()
@@ -118,7 +122,7 @@ PixPopup
             for(var i in tags)
             {
                 if(PIX.addTagToAlbum(tags[i].tag, url))
-                    albumTagged(tags[i].tag)
+                    albumTagged(tags[i].tag, picUrl)
             }
 
         close()
@@ -134,7 +138,7 @@ PixPopup
                 tagsList.model.append(tags[i])
 
 
-        tagListComposer.populate(forAlbum ? Q.Query.albumTags_.arg(url) :
-                                            Q.Query.picTags_.arg(url))
+        tagListComposer.populate(forAlbum ? Q.Query.albumTags_.arg(picUrl) :
+                                            Q.Query.picTags_.arg(picUrl))
     }
 }

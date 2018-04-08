@@ -4,9 +4,6 @@ import QtQuick.Layouts 1.3
 import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../../../widgets/custom/TagBar"
-import "../../dialogs/share"
-import "../../dialogs/Tags"
-import "../../dialogs/Albums"
 
 PixPage
 {
@@ -59,11 +56,7 @@ PixPage
         PixButton
         {
             iconName: "document-save-as"
-            onClicked:
-            {
-                albumsDialog.picUrl = currentPic.url
-                albumsDialog.open()
-            }
+            onClicked: albumsDialog.show(currentPic.url)
         }
     ]
 
@@ -77,27 +70,17 @@ PixPage
             id: tagBar
             visible: parent.visible
             anchors.fill: parent
-            onAddClicked:
-            {
-                tagsDialog.url = currentPic.url
-                tagsDialog.open()
-            }
+            onAddClicked: tagsDialog.show(currentPic.url)
             onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
                                      tagsList.model.remove(index)
         }
     }
 
-    TagsDialog
+    Connections
     {
-        id: tagsDialog
-        forAlbum: false
-        onTagsAdded: addTagsToPic(url, tags)
-        onPicTagged: tagBar.tagsList.model.insert(0, {"tag": tag})
-    }
-
-    AlbumsDialog
-    {
-        id: albumsDialog
+        target: tagsDialog
+        onPicTagged: if(currentView === views.viewer)
+                         tagBar.tagsList.model.insert(0, {"tag": tag})
     }
 
     ViewerMenu

@@ -44,10 +44,16 @@ PixPopup
 
     onOpened: populate()
 
+    function show(url)
+    {
+        picUrl = url
+        open()
+    }
+
     function populate()
     {
         shareGrid.model.clear()
-        var services = pix.openWith(pixViewer.currentPic.url)
+        var services = pix.openWith(picUrl)
         var devices = pix.getDevices()
 
         if(devices.length > 0)
