@@ -47,11 +47,7 @@ PixPage
         {
             id: tagBar
             anchors.fill: parent
-            onAddClicked:
-            {
-                tagsDialog.url = albumGrid.currentAlbum
-                tagsDialog.open()
-            }
+            onAddClicked: tagsDialog.show(albumGrid.currentAlbum)
 
             onTagRemovedClicked: if(pix.removeAlbumTag(tagsList.model.get(index).tag, albumGrid.currentAlbum))
                               tagsList.model.remove(index)

@@ -46,7 +46,7 @@ ItemDelegate
             verticalAlignment: Qt.AlignVCenter
             sourceSize.height: picSize-contentMargins
             sourceSize.width: picSize-contentMargins
-            cache: true
+            cache: false
             antialiasing: true
             smooth: true
             fillMode: Image.PreserveAspectCrop
