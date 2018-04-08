@@ -113,18 +113,21 @@ ToolBar
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-
             PixButton
             {
                 anchors.centerIn: parent
 
-                iconName: "view-fullscreen"
+                iconName: fullScreen? "window-close" : "view-fullscreen"
 
                 hoverEnabled: !isMobile
                 ToolTip.delay: 1000
                 ToolTip.timeout: 5000
                 ToolTip.visible: hovered
                 ToolTip.text: qsTr("Fullscreen")
+
+                onClicked: fullScreen = !fullScreen
+
+
             }
         }
 

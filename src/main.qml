@@ -47,6 +47,7 @@ Kirigami.ApplicationWindow
     width: 400
     height: 500
     title: qsTr("Pixs")
+    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 
     /*READONLY PROPS*/
 
@@ -62,7 +63,7 @@ Kirigami.ApplicationWindow
     /*PROPS*/
 
     property int currentView : views.gallery
-
+    property bool fullScreen : false
 
     /*UI PROPS*/
 

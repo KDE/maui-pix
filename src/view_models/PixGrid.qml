@@ -90,9 +90,14 @@ PixPage
                 target: delegate
                 onClicked:
                 {
-                    picClicked(index)
                     grid.currentIndex = index
                 }
+                onDoubleClicked:
+                {
+                    picClicked(index)
+
+                }
+
                 onRightClicked: picMenu.show(gridModel.get(index).url)
             }
         }

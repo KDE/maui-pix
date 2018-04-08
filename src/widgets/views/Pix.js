@@ -21,3 +21,4 @@ function removePic(url)
     if(pix.removeFile(url))
         refreshViews()
 }
+

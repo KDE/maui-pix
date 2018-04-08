@@ -10,6 +10,7 @@ ItemDelegate
     property bool showLabel : true
     property bool showIndicator : false
     property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
+    property color labelColor : GridView.isCurrentItem ? highlightedTextColor : textColor
 
     signal rightClicked();
 
@@ -92,6 +93,7 @@ ItemDelegate
             horizontalAlignment: Qt.AlignHCenter
             elide: Qt.ElideRight
             font.pointSize: fontSizes.default
+            color: labelColor
         }
     }
 }
