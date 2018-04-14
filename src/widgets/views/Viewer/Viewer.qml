@@ -40,22 +40,22 @@ Item
                            picMenu.show(currentPic.url)
         }
 
-        BrightnessContrast
-        {
-            anchors.fill: pic
-            source: pic
-            brightness: picBrightness
-            contrast: picContrast
-        }
+//        BrightnessContrast
+//        {
+//            anchors.fill: pic
+//            source: pic
+//            brightness: picBrightness
+//            contrast: picContrast
+//        }
 
-        HueSaturation
-        {
-            anchors.fill: pic
-            source: pic
-            hue: picHue
-            saturation: picSaturation
-            lightness: picLightness
-        }
+//        HueSaturation
+//        {
+//            anchors.fill: pic
+//            source: pic
+//            hue: picHue
+//            saturation: picSaturation
+//            lightness: picLightness
+//        }
     }
 
     function zoomIn()

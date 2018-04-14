@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import "../../../view_models"
 import "../../../db/Query.js" as Q
-import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 
 import "../../dialogs/Albums"
 import "../../../widgets/custom/TagBar"
@@ -85,20 +84,8 @@ PixPage
         {
             id: picsView
             headerbarVisible: false
-            onPicClicked: openPic(index)
-
             holder.message: "<h2>No Pics!</h2><p>This albums is empty</p>"
             holder.emoji: "qrc:/img/assets/face-sleeping.png"
-
-            function openPic(index)
-            {
-                var data = []
-                for(var i = 0; i < grid.model.count; i++)
-                    data.push(grid.model.get(i))
-
-                VIEWER.open(data, index)
-            }
-
         }
     }
 

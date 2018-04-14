@@ -1,5 +1,6 @@
 import QtQuick.Controls 2.2
 import QtQuick 2.9
+import "../widgets/views/Viewer/Viewer.js" as VIEWER
 
 PixPage
 {
@@ -94,7 +95,9 @@ PixPage
                 }
                 onDoubleClicked:
                 {
-                    picClicked(index)
+                    //picClicked(index)
+                    console.log("pic clicked")
+                    openPic(index)
 
                 }
 
@@ -110,4 +113,12 @@ PixPage
         gridModel.clear()
     }
 
+    function openPic(index)
+    {
+        var data = []
+        for(var i = 0; i < grid.model.count; i++)
+            data.push(grid.model.get(i))
+
+        VIEWER.open(data, index)
+    }
 }
