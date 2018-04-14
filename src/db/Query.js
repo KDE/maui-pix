@@ -13,7 +13,7 @@ var Query = {
     albumPics_ : "select i.* from images_albums ia inner join images i on i.url = ia.url where ia.album = \"%1\" order by strftime(\"%s\", ia.addDate) desc",
     albumPicsTags_ : "select i.* from images i  inner join images_tags it on it.url = i.url inner join albums_tags at on at.tag = it.tag where at.album = \"%1\"",
     favPics: "select * from images where fav = 1",
-    recentPics: "select * from images order by strftime(\"%s\", addDate) desc limit 50"
+    recentPics: "select * from images order by strftime(\"%s\", addDate) desc limit 50",
 
-
+    searchFor_: "select * from images where title like \"%%1%\" or url like \"%%1%\" union select distinct i.* from images i inner join images_tags it on it.url = i.url where it.tag like \"%%1%\" collate nocase limit 1000"
 }

@@ -31,6 +31,7 @@ import "widgets/views/Gallery"
 import "widgets/views/Settings"
 import "widgets/views/Tags"
 import "widgets/views/Viewer"
+import "widgets/views/Search"
 
 import "view_models"
 import "widgets/dialogs/share"
@@ -87,7 +88,7 @@ Kirigami.ApplicationWindow
     property string pixColor : pix.pixColor()
 
     property int iconSize : Kirigami.Units.iconSizes.medium
-    property int rowHeigh : 32
+    property int rowHeight : 32
 
     overlay.modal: Rectangle {
         color: isMobile ? darkColor : "transparent"
@@ -111,12 +112,12 @@ Kirigami.ApplicationWindow
 
         currentIndex: currentView
 
-        onViewerViewClicked: currentView = 0
-        onGalleryViewClicked: currentView = 1
-        onFoldersViewClicked: currentView = 2
-        onAlbumsViewClicked: currentView = 3
-        onTagsViewClicked: currentView = 4
-        onSearchViewClicked: {}
+        onViewerViewClicked: currentView = views.viewer
+        onGalleryViewClicked: currentView = views.gallery
+        onFoldersViewClicked: currentView = views.folders
+        onAlbumsViewClicked: currentView = views.albums
+        onTagsViewClicked: currentView = views.tags
+        onSearchViewClicked: currentView =  views.search
         onMenuClicked: globalDrawer.open()
     }
 
@@ -160,9 +161,9 @@ Kirigami.ApplicationWindow
             id: tagsView
         }
 
-        SettingsView
+        SearchView
         {
-
+            id: searchView
         }
 
     }

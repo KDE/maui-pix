@@ -18,6 +18,7 @@ ToolBar
             Layout.alignment: Qt.AlignLeft
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: 44
 
             PixButton
             {
@@ -112,6 +113,7 @@ ToolBar
             Layout.alignment: Qt.AlignRight
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: 44
 
             PixButton
             {
@@ -126,8 +128,6 @@ ToolBar
                 ToolTip.text: qsTr("Fullscreen")
 
                 onClicked: fullScreen = !fullScreen
-
-
             }
         }
 

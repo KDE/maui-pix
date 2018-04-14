@@ -87,34 +87,34 @@ bool DBActions::execQuery(const QString &queryTxt)
 bool DBActions::insertPic(const PIX::DB &img)
 {
 
-        auto url = img[PIX::KEY::URL];
-        auto title = img[PIX::KEY::TITLE];
-        auto rate = img[PIX::KEY::RATE];
-        auto fav = img[PIX::KEY::FAV];
-        auto color = img[PIX::KEY::COLOR];
-        auto addDate = img[PIX::KEY::ADD_DATE];
-        auto sourceUrl = img[PIX::KEY::SOURCES_URL];
-        auto picDate = img[PIX::KEY::PIC_DATE];
-        auto place = img[PIX::KEY::PLACE];
-        auto format = img[PIX::KEY::FORMAT];
+    auto url = img[PIX::KEY::URL];
+    auto title = img[PIX::KEY::TITLE];
+    auto rate = img[PIX::KEY::RATE];
+    auto fav = img[PIX::KEY::FAV];
+    auto color = img[PIX::KEY::COLOR];
+    auto addDate = img[PIX::KEY::ADD_DATE];
+    auto sourceUrl = img[PIX::KEY::SOURCES_URL];
+    auto picDate = img[PIX::KEY::PIC_DATE];
+    auto place = img[PIX::KEY::PLACE];
+    auto format = img[PIX::KEY::FORMAT];
 
-        qDebug()<< "writting to db: "<<title<<url;
-        /* first needs to insert album and artist*/
-        QVariantMap sourceMap {{PIX::KEYMAP[PIX::KEY::URL],sourceUrl}};
-        insert(PIX::TABLEMAP[PIX::TABLE::SOURCES], sourceMap);
+    qDebug()<< "writting to db: "<<title<<url;
+    /* first needs to insert album and artist*/
+    QVariantMap sourceMap {{PIX::KEYMAP[PIX::KEY::URL],sourceUrl}};
+    insert(PIX::TABLEMAP[PIX::TABLE::SOURCES], sourceMap);
 
 
-        QVariantMap imgMap {{PIX::KEYMAP[PIX::KEY::URL], url},
-                            {PIX::KEYMAP[PIX::KEY::SOURCES_URL], sourceUrl},
-                            {PIX::KEYMAP[PIX::KEY::TITLE], title},
-                            {PIX::KEYMAP[PIX::KEY::RATE], rate},
-                            {PIX::KEYMAP[PIX::KEY::FAV], fav},
-                            {PIX::KEYMAP[PIX::KEY::COLOR], color},
-                            {PIX::KEYMAP[PIX::KEY::FORMAT], format},
-                            {PIX::KEYMAP[PIX::KEY::PIC_DATE], picDate},
-                            {PIX::KEYMAP[PIX::KEY::PLACE], place},
-                            {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}};
-        return insert(PIX::TABLEMAP[PIX::TABLE::IMAGES], imgMap);
+    QVariantMap imgMap {{PIX::KEYMAP[PIX::KEY::URL], url},
+                        {PIX::KEYMAP[PIX::KEY::SOURCES_URL], sourceUrl},
+                        {PIX::KEYMAP[PIX::KEY::TITLE], title},
+                        {PIX::KEYMAP[PIX::KEY::RATE], rate},
+                        {PIX::KEYMAP[PIX::KEY::FAV], fav},
+                        {PIX::KEYMAP[PIX::KEY::COLOR], color},
+                        {PIX::KEYMAP[PIX::KEY::FORMAT], format},
+                        {PIX::KEYMAP[PIX::KEY::PIC_DATE], picDate},
+                        {PIX::KEYMAP[PIX::KEY::PLACE], place},
+                        {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}};
+    return insert(PIX::TABLEMAP[PIX::TABLE::IMAGES], imgMap);
 
 }
 
@@ -244,6 +244,15 @@ bool DBActions::picAlbum(const QString &album, const QString &url)
         {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}
     };
     return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_ALBUMS], albumPic);
+}
+
+QVariantList DBActions::searchFor(const QStringList &queries, const QString &queryTxt)
+{
+    QVariantList res;
+    for(auto query : queries)
+        res << get(PIX::getQuery("searchFor_").arg(query));
+
+    return res;
 }
 
 QVariantList DBActions::getFolders()
