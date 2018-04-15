@@ -2,8 +2,6 @@ android {
 
 QT += androidextras webview
 
-RESOURCES += android.qrc/
-
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/
 }
 
