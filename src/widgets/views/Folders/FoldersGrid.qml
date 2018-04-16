@@ -7,7 +7,6 @@ GridView
 {
     id: folderGridRoot
     property int gridSize : 64
-
     signal folderClicked(int index)
 
     clip: true
@@ -16,7 +15,7 @@ GridView
     height: parent.height
 
     cellHeight: gridSize+(contentMargins*2)
-    cellWidth: gridSize+gridSize
+    cellWidth: gridSize*2
 
     focus: true
 
@@ -37,6 +36,18 @@ GridView
             target: delegate
             onClicked: folderClicked(index)
         }
+    }
+
+    onWidthChanged:
+    {
+        var amount = parseInt(width/(gridSize*2),10)
+        var leftSpace = parseInt(width-(amount*(gridSize*2)), 10)
+        var size = parseInt((gridSize*2)+(parseInt(leftSpace/amount, 10)), 10)
+
+        size = size > gridSize*2 ? size : gridSize*2
+
+        cellWidth = size
+        //            grid.cellHeight = size
     }
 
     ScrollBar.vertical: ScrollBar{ visible: true}
