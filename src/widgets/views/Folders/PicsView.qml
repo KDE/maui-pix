@@ -28,8 +28,8 @@ import "../../../view_models"
 
 PixGrid
 {
-    picSize: Math.sqrt(root.width*root.height)*0.25
-    picRadius: 2
+//    picSize: Math.sqrt(root.width*root.height)*0.25
+//    picRadius: 2
 
     function populate(url)
     {

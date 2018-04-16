@@ -14,6 +14,8 @@ ListView
     {
         height: parent.height
         width: parent.width
+        verticalAlignment: Qt.AlignVCenter
+        horizontalAlignment: Qt.AlignHCenter
         text: qsTr("Add tags...")
         opacity: 0.7
         visible: count === 0

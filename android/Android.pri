@@ -1,9 +1,18 @@
-android {
-
 QT += androidextras webview
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/
-}
+
 
 RESOURCES += \
-    $$PWD/android.qrc
+    $$PWD/android.qrc \
+    $$PWD/../kirigami-icons.qrc
+
+HEADERS += \
+    $$PWD/android.h
+
+SOURCES += \
+    $$PWD/android.cpp
+
+DISTFILES += \
+    $$PWD/src/MyService.java \
+    $$PWD/src/SendIntent.java

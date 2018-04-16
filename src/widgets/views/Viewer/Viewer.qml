@@ -21,7 +21,7 @@ Item
         anchors.centerIn: parent
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
-        height: parent.height
+        width: parent.width
         source: "file://"+currentPic.url
         fillMode: Image.PreserveAspectFit
         cache: true
@@ -60,22 +60,22 @@ Item
 
     function zoomIn()
     {
-        pic.height = pic.height + 50
+        pic.width = pic.width + 50
     }
 
     function zoomOut()
     {
-        pic.height = pic.height - 50
+        pic.width = pic.width - 50
     }
 
     function fit()
     {
-        pic.height = pic.sourceSize.height
+        pic.width = pic.sourceSize.width
     }
 
     function fill()
     {
-        pic.height = parent.height
+        pic.width = parent.width
     }
 
     function rotateLeft()

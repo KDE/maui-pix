@@ -7,9 +7,9 @@ PixPage
     id: gridPage
 
     /*props*/
-    property int picSize : 150
-    property int picSpacing: 50
-    property int picRadius : 4
+    property int itemSize : isMobile ? 80 : 150
+    property int itemSpacing: isMobile ? 10 : 50
+    property int itemRadius : 4
 
     property alias grid: grid
     property alias holder: holder
@@ -42,8 +42,8 @@ PixPage
         width: parent.width
         height: parent.height
 
-        cellWidth: picSize + picSpacing
-        cellHeight: picSize + picSpacing
+        cellWidth: itemSize + itemSpacing
+        cellHeight: itemSize + itemSpacing
 
 
         focus: true
@@ -62,19 +62,19 @@ PixPage
         highlightFollowsCurrentItem: true
         highlight: Rectangle
         {
-            width: picSize + picSpacing
-            height: picSize + picSpacing
+            width: itemSize + itemSpacing
+            height: itemSize + itemSpacing
             color: highlightColor
             radius: 4
         }
 
         onWidthChanged:
         {
-            var amount = parseInt(grid.width/(picSize + picSpacing),10)
-            var leftSpace = parseInt(grid.width-(amount*(picSize + picSpacing)), 10)
-            var size = parseInt((picSize + picSpacing)+(parseInt(leftSpace/amount, 10)), 10)
+            var amount = parseInt(grid.width/(itemSize + itemSpacing),10)
+            var leftSpace = parseInt(grid.width-(amount*(itemSize + itemSpacing)), 10)
+            var size = parseInt((itemSize + itemSpacing)+(parseInt(leftSpace/amount, 10)), 10)
 
-            size = size > picSize + picSpacing ? size : picSize + picSpacing
+            size = size > itemSize + itemSpacing ? size : itemSize + itemSpacing
 
             grid.cellWidth = size
             //            grid.cellHeight = size
@@ -84,22 +84,24 @@ PixPage
         {
             id: delegate
 
-            picSize : gridPage.picSize
-            picRadius : 4
+            picSize : itemSize
+            picRadius : itemRadius
             Connections
             {
                 target: delegate
                 onClicked:
                 {
                     grid.currentIndex = index
+                    if(isMobile)
+                        openPic(index)
                 }
                 onDoubleClicked:
                 {
                     //picClicked(index)
-                    console.log("pic clicked")
-                    openPic(index)
-
+                    if(!isMobile)
+                        openPic(index)
                 }
+                onPressAndHold: picMenu.show(gridModel.get(index).url)
 
                 onRightClicked: picMenu.show(gridModel.get(index).url)
             }

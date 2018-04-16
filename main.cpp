@@ -29,6 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef Q_OS_ANDROID
 #include "./3rdparty/kirigami/src/kirigamiplugin.h"
+#include "android/android.h"
 #endif
 
 QStringList getFolderImages(const QString &path)
@@ -85,14 +86,6 @@ int main(int argc, char *argv[])
     if(!args.isEmpty())
         pics = openFiles(args);
 
-
-#ifdef Q_OS_ANDROID
-    KirigamiPlugin::getInstance().registerTypes();
-    //#else
-    //    if(QQuickStyle::availableStyles().contains("nomad"))
-    //        QQuickStyle::setStyle("nomad");
-#endif
-
     Pix pix;
 
     QQmlApplicationEngine engine;
@@ -106,6 +99,15 @@ int main(int argc, char *argv[])
 
     auto context = engine.rootContext();
     context->setContextProperty("pix", &pix);
+
+#ifdef Q_OS_ANDROID
+    KirigamiPlugin::getInstance().registerTypes();
+    Android android;
+    context->setContextProperty("android", &android);
+    //#else
+    //    if(QQuickStyle::availableStyles().contains("nomad"))
+    //        QQuickStyle::setStyle("nomad");
+#endif
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())

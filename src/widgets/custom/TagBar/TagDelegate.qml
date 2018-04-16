@@ -21,34 +21,49 @@ ItemDelegate
     {
         source: "qrc:/img/assets/tag.svg"
         sourceSize.width: tagWidth
+        sourceSize.height: tagHeight
         width: tagWidth
+        height: tagHeight
     }
 
     RowLayout
     {
         anchors.fill: parent
 
-        Label
+        Item
         {
-            id: tagLabel
-            text: tag
-            height: parent.height
+            Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.leftMargin: contentMargins*2
-            verticalAlignment: Qt.AlignVCenter
-            horizontalAlignment: Qt.AlignHCenter
-            elide: Qt.ElideRight
-            font.pointSize: fontSizes.small
+            Label
+            {
+                id: tagLabel
+                text: tag
+                height: parent.height
+                width: parent.width
+                anchors.centerIn: parent
+                verticalAlignment: Qt.AlignVCenter
+                horizontalAlignment: Qt.AlignHCenter
+                elide: Qt.ElideRight
+                font.pointSize: fontSizes.small
+            }
         }
 
-        PixButton
+        Item
         {
-            iconName: "window-close"
-            iconSize: 16
             Layout.fillHeight: true
-            onClicked: removeTag(index)
+            width: 16
+            Layout.maximumWidth: 16
+            Layout.margins: 5
+            PixButton
+            {
+                anchors.centerIn: parent
 
+                iconName: "window-close"
+                iconSize: 16
+                onClicked: removeTag(index)
+
+            }
         }
+
     }
 }

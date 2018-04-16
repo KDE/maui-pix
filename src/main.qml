@@ -23,7 +23,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.0 as Kirigami
-
+import QtQuick.Controls.Material 2.1
+import QtQuick.Window 2.0
 import "widgets"
 import "widgets/views/Albums"
 import "widgets/views/Folders"
@@ -45,10 +46,17 @@ Kirigami.ApplicationWindow
 {
     id: root
     visible: true
-    width: 400
-    height: 500
-    title: qsTr("Pixs")
+    title: qsTr("Pix")
+    width: Screen.width * (isMobile ? 1 : 0.5)
+//    height: Screen.height * (isMobile ? 1 : 0.4)
     visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
+
+    /* FOR MATERIAL*/
+    Material.theme: Material.Light
+    Material.accent: pixColor
+    Material.background: viewBackgroundColor
+    Material.primary: backgroundColor
+    Material.foreground: textColor
 
     /*READONLY PROPS*/
 
@@ -90,8 +98,13 @@ Kirigami.ApplicationWindow
     property int iconSize : Kirigami.Units.iconSizes.medium
     property int rowHeight : 32
 
+//    pageStack.defaultColumnWidth: 400
+//    pageStack.initialPage: [mainPage]
+//    pageStack.interactive: isMobile
+//    pageStack.separatorVisible: pageStack.wideMode
+
     overlay.modal: Rectangle {
-        color: isMobile ? darkColor : "transparent"
+        color: isMobile ? altColor : "transparent"
         opacity: 0.5
         height: root.height
     }
@@ -125,47 +138,53 @@ Kirigami.ApplicationWindow
     {
         id: pixFooter
     }
-
-    SwipeView
+    Page
     {
-        id: swipeView
+        id: mainPage
         anchors.fill: parent
-        interactive: isMobile
-        currentIndex: currentView
-
-        onCurrentIndexChanged: currentView = currentIndex
-
-
-        PixViewer
+        clip: true
+        SwipeView
         {
-            id: pixViewer
-        }
+            id: swipeView
+            width: parent.width
+            height: parent.height
+            interactive: isMobile
+            currentIndex: currentView
 
-        GalleryView
-        {
-            id: galleryView
-        }
+            onCurrentIndexChanged: currentView = currentIndex
 
-        FoldersView
-        {
-            id: foldersView
-        }
 
-        AlbumsView
-        {
-            id: albumsView
-        }
+            PixViewer
+            {
+                id: pixViewer
+            }
 
-        TagsView
-        {
-            id: tagsView
-        }
+            GalleryView
+            {
+                id: galleryView
+            }
 
-        SearchView
-        {
-            id: searchView
-        }
+            FoldersView
+            {
+                id: foldersView
+            }
 
+            AlbumsView
+            {
+                id: albumsView
+            }
+
+            TagsView
+            {
+                id: tagsView
+            }
+
+            SearchView
+            {
+                id: searchView
+            }
+
+        }
     }
 
     PicMenu
@@ -173,7 +192,7 @@ Kirigami.ApplicationWindow
         id: picMenu
         onFavClicked: VIEWER.fav(url)
         onRemoveClicked: PIX.removePic(url)
-        onShareClicked: shareDialog.show(url)
+        onShareClicked: isMobile ? android.shareDialog(url) : shareDialog.show(url)
         onAddClicked: albumsDialog.show(url)
         onTagsClicked: tagsDialog.show(url)
         onShowFolderClicked: pix.showInFolder(url)
@@ -203,4 +222,6 @@ Kirigami.ApplicationWindow
         onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.open(pics, 0)
     }
+
+    Component.onCompleted: if(isMobile) android.statusbarColor(backgroundColor, textColor)
 }

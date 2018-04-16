@@ -24,8 +24,6 @@ linux:unix:!android {
     include(android/Android.pri)
     include(3rdparty/kirigami/kirigami.pri)
 
-    RESOURCES += kirigami-icons.qrc
-
 } else {
     message("Unknown configuration")
 }
