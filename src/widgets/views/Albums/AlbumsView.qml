@@ -41,6 +41,7 @@ Page
     {
         id: newAlbumDialog
         onAlbumCreated: albumGrid.model.append({"album": album})
+
     }
 
     StackView

@@ -15,8 +15,6 @@ PixPage
     property alias grid: grid
     property alias holder: holder
 
-    property bool selectionMode : false
-
     /*signals*/
     signal picClicked(int index)
 
@@ -34,8 +32,8 @@ PixPage
 
         MenuItem
         {
-            text: qsTr(selectionMode ? "Selection OFF" : "Selection ON")
-            onTriggered: selectionMode = !selectionMode
+            text: qsTr(selectionBox.selectionMode ? "Selection OFF" : "Selection ON")
+            onTriggered: selectionBox.selectionMode  = !selectionBox.selectionMode
         }
     }
 
@@ -112,7 +110,7 @@ PixPage
                 {
                     grid.currentIndex = index
 
-                    if(selectionMode)
+                    if(selectionBox.selectionMode)
                         selectionBox.append(gridModel.get(index))
                     else if(isMobile)
                         openPic(index)

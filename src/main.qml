@@ -204,7 +204,8 @@ Kirigami.ApplicationWindow
                 Layout.fillWidth : true
                 Layout.leftMargin: contentMargins*2
                 Layout.rightMargin: contentMargins*2
-                Layout.bottomMargin: contentMargins*2
+                Layout.bottomMargin: contentMargins
+                Layout.topMargin: contentMargins
                 visible: selectionList.count > 0 && currentView !== views.viewer
             }
         }

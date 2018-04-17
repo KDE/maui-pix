@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.3
 GridView
 {
     id: folderGridRoot
-    property int gridSize : 64
+    property int gridSize : 48
     signal folderClicked(int index)
 
     clip: true
@@ -14,7 +14,7 @@ GridView
     width: parent.width
     height: parent.height
 
-    cellHeight: gridSize+(contentMargins*2)
+    cellHeight: gridSize*2
     cellWidth: gridSize*2
 
     focus: true

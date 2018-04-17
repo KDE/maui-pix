@@ -230,7 +230,7 @@ bool DBActions::addAlbum(const QString &album)
         {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}
     };
 
-    this->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS], albumMap);
+    return this->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS], albumMap);
 }
 
 bool DBActions::picAlbum(const QString &album, const QString &url)
@@ -258,7 +258,7 @@ QVariantList DBActions::searchFor(const QStringList &queries, const QString &que
 QVariantList DBActions::getFolders()
 {
     QVariantList res;
-    auto data = this->getDBData("select * from sources");
+    auto data = this->getDBData("select * from sources order by url asc");
 
     for(auto i : data)
     {

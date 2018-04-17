@@ -7,8 +7,10 @@ import "../../../view_models"
 Item
 {
     property alias selectionList : selectionList
-    property var selectedPaths : []
     property alias anim : anim
+
+    property bool selectionMode : false
+    property var selectedPaths : []
     property int barHeight : 64
     property color animColor : "black"
 
