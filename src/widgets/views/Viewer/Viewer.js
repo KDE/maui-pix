@@ -18,6 +18,7 @@ function open(model, index)
 function view(index)
 {
     pixViewer.currentPic = pixViewer.picContext[index]
+    pixViewer.currentPicIndex = index
     pixViewer.currentPicFav = pix.isFav(pixViewer.currentPic.url)
     pixViewer.tagBar.tagsList.populate(Q.Query.picTags_.arg(pixViewer.currentPic.url))
     root.title = pixViewer.currentPic.title

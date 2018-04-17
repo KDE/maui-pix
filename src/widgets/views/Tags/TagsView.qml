@@ -23,7 +23,7 @@ Kirigami.PageRow
     {
         id: tagsGrid
         headerbarExit: !wideMode
-        headerbarExitIcon: "arrow-left"
+        headerbarExitIcon: "go-previous"
         onExit: if(!wideMode) currentIndex = 0
     }
 
