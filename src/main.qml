@@ -39,6 +39,8 @@ import "widgets/dialogs/share"
 import "widgets/dialogs/Albums"
 import "widgets/dialogs/Tags"
 
+import "widgets/custom/SelectionBox"
+
 import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
 
@@ -48,7 +50,7 @@ Kirigami.ApplicationWindow
     visible: true
     title: qsTr("Pix")
     width: Screen.width * (isMobile ? 1 : 0.5)
-//    height: Screen.height * (isMobile ? 1 : 0.4)
+    //    height: Screen.height * (isMobile ? 1 : 0.4)
     visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 
     /* FOR MATERIAL*/
@@ -95,13 +97,18 @@ Kirigami.ApplicationWindow
     property string altColor: Kirigami.Theme.complementaryBackgroundColor
     property string pixColor : pix.pixColor()
 
-    property int iconSize : Kirigami.Units.iconSizes.medium
+    property int iconSize : iconSizes.medium
+    property var iconSizes : ({
+                                  small :  16,
+                                  medium : 22,
+                                  large:  48,
+                              })
     property int rowHeight : 32
 
-//    pageStack.defaultColumnWidth: 400
-//    pageStack.initialPage: [mainPage]
-//    pageStack.interactive: isMobile
-//    pageStack.separatorVisible: pageStack.wideMode
+    //    pageStack.defaultColumnWidth: 400
+    //    pageStack.initialPage: [mainPage]
+    //    pageStack.interactive: isMobile
+    //    pageStack.separatorVisible: pageStack.wideMode
 
     overlay.modal: Rectangle {
         color: isMobile ? altColor : "transparent"
@@ -143,48 +150,66 @@ Kirigami.ApplicationWindow
         id: mainPage
         anchors.fill: parent
         clip: true
-        SwipeView
+
+        ColumnLayout
         {
-            id: swipeView
-            width: parent.width
-            height: parent.height
-            interactive: isMobile
-            currentIndex: currentView
+            anchors.fill : parent
 
-            onCurrentIndexChanged: currentView = currentIndex
-
-
-            PixViewer
+            SwipeView
             {
-                id: pixViewer
+                id: swipeView
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                interactive: isMobile
+                currentIndex: currentView
+
+                onCurrentIndexChanged: currentView = currentIndex
+
+
+                PixViewer
+                {
+                    id: pixViewer
+                }
+
+                GalleryView
+                {
+                    id: galleryView
+                }
+
+                FoldersView
+                {
+                    id: foldersView
+                }
+
+                AlbumsView
+                {
+                    id: albumsView
+                }
+
+                TagsView
+                {
+                    id: tagsView
+                }
+
+                SearchView
+                {
+                    id: searchView
+                }
+
             }
 
-            GalleryView
+            SelectionBox
             {
-                id: galleryView
+                id: selectionBox
+                Layout.fillWidth : true
+                Layout.leftMargin: contentMargins*2
+                Layout.rightMargin: contentMargins*2
+                Layout.bottomMargin: contentMargins*2
+                visible: selectionList.count > 0 && currentView !== views.viewer
             }
-
-            FoldersView
-            {
-                id: foldersView
-            }
-
-            AlbumsView
-            {
-                id: albumsView
-            }
-
-            TagsView
-            {
-                id: tagsView
-            }
-
-            SearchView
-            {
-                id: searchView
-            }
-
         }
+
+
     }
 
     PicMenu

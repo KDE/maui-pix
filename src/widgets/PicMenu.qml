@@ -7,6 +7,8 @@ PixMenu
 {
     property string picUrl : ""
     property bool isFav : false
+    property bool isMultiple: false
+
     signal favClicked(string url)
     signal removeClicked(string url)
     signal shareClicked(string url)
@@ -15,7 +17,8 @@ PixMenu
     signal showFolderClicked(string url)
 
     Column
-    {
+    {       
+
         MenuItem
         {
             text: qsTr(isFav ? "UnFav it": "Fav it")
@@ -67,6 +70,7 @@ PixMenu
         MenuItem
         {
             text: qsTr("Show in folder...")
+            enabled: !isMultiple
             onTriggered:
             {
                 showFolderClicked(picUrl)
@@ -79,7 +83,15 @@ PixMenu
     function show(url)
     {
         picUrl = url
+        isMultiple = false
         isFav = pix.isFav(picUrl)
+        popup()
+    }
+
+    function showMultiple()
+    {
+        picUrl = ""
+        isMultiple = true
         popup()
     }
 }

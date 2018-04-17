@@ -8,34 +8,10 @@ import "../../../widgets/custom/TagBar"
 import "../../dialogs/Tags"
 
 
-PixPage
+Page
 {
     property alias albumsGrid : albumGrid
 
-    headerbarExit: stackView.currentItem === picsView
-    headerbarExitIcon: "go-previous"
-    headerbarTitle: stackView.currentItem === picsView ? albumGrid.currentAlbum : albumGrid.count+qsTr(" Albums")
-
-    onExit: stackView.pop(albumGrid)
-
-    headerBarRight: [
-
-        PixButton
-        {
-            iconName: "overflow-menu"
-        }
-
-    ]
-
-    headerBarLeft: [
-
-        PixButton
-        {
-            iconName: "list-add"
-            visible: stackView.currentItem === albumGrid
-            onClicked: newAlbumDialog.open()
-        }
-    ]
 
     footer: ToolBar
     {
@@ -49,7 +25,7 @@ PixPage
             onAddClicked: tagsDialog.show(albumGrid.currentAlbum)
 
             onTagRemovedClicked: if(pix.removeAlbumTag(tagsList.model.get(index).tag, albumGrid.currentAlbum))
-                              tagsList.model.remove(index)
+                                     tagsList.model.remove(index)
         }
     }
 
@@ -67,25 +43,57 @@ PixPage
         onAlbumCreated: albumGrid.model.append({"album": album})
     }
 
-    content: StackView
+    StackView
     {
         id: stackView
         height: parent.height
         width: parent.width
 
-        initialItem: AlbumsGrid
+        initialItem: PixPage
         {
-            id: albumGrid
+            id: albumsPage
+            headerbarTitle: albumGrid.count+qsTr(" Albums")
+            headerbarExit: false
 
-            onAlbumClicked: filter(model.get(index).album)
+            headerBarRight: [
+
+                PixButton
+                {
+                    iconName: "overflow-menu"
+                }
+
+            ]
+
+            headerBarLeft: [
+
+                PixButton
+                {
+                    iconName: "list-add"
+                    onClicked: newAlbumDialog.open()
+                }
+            ]
+
+            content: AlbumsGrid
+            {
+                id: albumGrid
+                height: parent.height
+                width: parent.width
+                onAlbumClicked: filter(model.get(index).album)
+            }
         }
 
         PixGrid
         {
             id: picsView
-            headerbarVisible: false
+            headerbarVisible: true
             holder.message: "<h2>No Pics!</h2><p>This albums is empty</p>"
             holder.emoji: "qrc:/img/assets/face-sleeping.png"
+
+            headerbarExit: stackView.currentItem === picsView
+            headerbarExitIcon: "go-previous"
+            headerbarTitle: albumGrid.currentAlbum
+
+            onExit: stackView.pop(albumsPage)
         }
     }
 
@@ -135,7 +143,7 @@ PixPage
             for(var i in pics)
                 picsView.grid.model.append(pics[i])
 
-        if(stackView.currentItem === albumGrid)
+        if(stackView.currentItem === albumsPage)
             stackView.push(picsView)
     }
 

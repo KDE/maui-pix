@@ -44,7 +44,6 @@ Page
                 {
                     id: exitBtn
                     Layout.alignment : Qt.AlignLeft
-                    Layout.leftMargin: contentMargins
                     visible: headerbarExit
                     anim : true
                     iconName : headerbarExitIcon
@@ -55,7 +54,6 @@ Page
                 {
                     id: headerbarActionsLeft
                     Layout.alignment : Qt.AlignLeft
-                    Layout.leftMargin: headerbarExit ? 0 : contentMargins
                     spacing: contentMargins
 
                 }
@@ -80,7 +78,6 @@ Page
                     id: headerbarActionsRight
                     spacing: contentMargins
                     Layout.alignment : Qt.AlignRight
-                    Layout.rightMargin: contentMargins
                 }
             }
 

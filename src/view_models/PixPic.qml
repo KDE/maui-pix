@@ -9,13 +9,27 @@ ItemDelegate
     property int picRadius : 0
     property bool showLabel : true
     property bool showIndicator : false
+
     property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
-    property color labelColor : GridView.isCurrentItem ? highlightedTextColor : textColor
+
+    property color labelColor : (GridView.isCurrentItem || (keepEmblemOverlay && emblemAdded)) && !hovered && showSelectionBackground? highlightedTextColor : textColor
+    property color hightlightedColor : GridView.isCurrentItem || hovered || (keepEmblemOverlay && emblemAdded) ? highlightColor : "transparent"
+
+    property bool showSelectionBackground : true
+
+    property bool emblemAdded : false
+    property bool keepEmblemOverlay : false
+
 
     signal rightClicked();
+    signal emblemClicked();
+
 
     height: picSize
     width: picSize
+
+    hoverEnabled: !isMobile
+    focus: true
 
     background: Rectangle
     {
@@ -33,9 +47,27 @@ ItemDelegate
         }
     }
 
+    PixButton
+    {
+        id: emblem
+        iconSize:  iconSizes.medium
+        iconName: (keepEmblemOverlay && emblemAdded) ? "emblem-remove" : "emblem-added"
+        visible: parent.hovered /*|| (keepEmblemOverlay && emblemAdded)*/
+        kirigamiIcon.isMask: false
+        z: 999
+        anchors.top: parent.top
+        anchors.left: parent.left
+        onClicked:
+        {
+            emblemAdded = !emblemAdded
+            emblemClicked(index)
+        }
+    }
+
     ColumnLayout
     {
         anchors.fill: parent
+
         Image
         {
             id: img
@@ -94,6 +126,16 @@ ItemDelegate
             elide: Qt.ElideRight
             font.pointSize: fontSizes.default
             color: labelColor
+
+            Rectangle
+            {
+                visible: parent.visible && showSelectionBackground
+                anchors.fill: parent
+                z: -1
+                radius: 3
+                color: hightlightedColor
+                opacity: hovered ? 0.25 : 1
+            }
         }
     }
 }

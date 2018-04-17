@@ -1,4 +1,5 @@
 import QtQuick.Controls 2.2
+import QtQuick.Layouts 1.3
 import QtQuick 2.9
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 
@@ -14,6 +15,8 @@ PixPage
     property alias grid: grid
     property alias holder: holder
 
+    property bool selectionMode : false
+
     /*signals*/
     signal picClicked(int index)
 
@@ -25,6 +28,17 @@ PixPage
         visible: grid.count === 0
     }
 
+    PixMenu
+    {
+        id:gridMenu
+
+        MenuItem
+        {
+            text: qsTr(selectionMode ? "Selection OFF" : "Selection ON")
+            onTriggered: selectionMode = !selectionMode
+        }
+    }
+
     headerbarTitle: gridModel.count+" "+qsTr("images")
 
     headerBarRight: [
@@ -32,15 +46,20 @@ PixPage
         {
             id: menuBtn
             iconName: "overflow-menu"
+            onClicked: gridMenu.popup()
         }
     ]
 
     content: GridView
     {
         id: grid
-        clip: true
         width: parent.width
         height: parent.height
+
+        clip: true
+
+        Layout.fillWidth: true
+        Layout.fillHeight: true
 
         cellWidth: itemSize + itemSpacing
         cellHeight: itemSize + itemSpacing
@@ -58,15 +77,15 @@ PixPage
 
         model: ListModel {id: gridModel}
 
-        highlightMoveDuration: 0
-        highlightFollowsCurrentItem: true
-        highlight: Rectangle
-        {
-            width: itemSize + itemSpacing
-            height: itemSize + itemSpacing
-            color: highlightColor
-            radius: 4
-        }
+        //        highlightMoveDuration: 0
+        //        highlightFollowsCurrentItem: true
+        //        highlight: Rectangle
+        //        {
+        //            width: itemSize + itemSpacing
+        //            height: itemSize + itemSpacing
+        //            color: highlightColor
+        //            radius: 4
+        //        }
 
         onWidthChanged:
         {
@@ -92,7 +111,10 @@ PixPage
                 onClicked:
                 {
                     grid.currentIndex = index
-                    if(isMobile)
+
+                    if(selectionMode)
+                        selectionBox.append(gridModel.get(index))
+                    else if(isMobile)
                         openPic(index)
                 }
                 onDoubleClicked:
@@ -100,10 +122,15 @@ PixPage
                     //picClicked(index)
                     if(!isMobile)
                         openPic(index)
+//                    else
+//                        selectionBox.append(gridModel.get(index))
+
                 }
+
                 onPressAndHold: picMenu.show(gridModel.get(index).url)
 
                 onRightClicked: picMenu.show(gridModel.get(index).url)
+                onEmblemClicked: selectionBox.append(gridModel.get(index))
             }
         }
 

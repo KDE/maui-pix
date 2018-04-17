@@ -18,7 +18,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-#include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
@@ -28,8 +27,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "src/pix.h"
 
 #ifdef Q_OS_ANDROID
+#include <QGuiApplication>
 #include "./3rdparty/kirigami/src/kirigamiplugin.h"
 #include "android/android.h"
+#else
+#include <QApplication>
 #endif
 
 QStringList getFolderImages(const QString &path)
@@ -67,7 +69,12 @@ int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
+#ifdef Q_OS_ANDROID
+    QGuiApplication app(argc, argv);
+#else
     QApplication app(argc, argv);
+#endif
+
     app.setApplicationName(PIX::App);
     app.setApplicationVersion(PIX::version);
     app.setApplicationDisplayName(PIX::App);

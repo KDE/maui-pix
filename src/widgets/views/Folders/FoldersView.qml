@@ -2,39 +2,41 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import "../../../view_models"
 
-PixPage
+Page
 {
-    headerbarExit: stackView.currentItem === picsView
-    headerbarExitIcon: "go-previous"
-    headerbarTitle: qsTr("Folders")
-
-    onExit: stackView.pop(folderGrid)
-
-    content: StackView
+    StackView
     {
         id: stackView
         height: parent.height
         width: parent.width
 
-        initialItem: FoldersGrid
+        initialItem: PixPage
         {
-            id: folderGrid
-
-            onFolderClicked:
+            id: foldersPage
+            headerbarTitle: qsTr("Folders")
+            headerbarExit: false
+            content: FoldersGrid
             {
-                headerbarTitle = folderGrid.model.get(index).folder
-                picsView.clear()
-                picsView.populate(folderGrid.model.get(index).url)
-                if(stackView.currentItem === folderGrid)
-                    stackView.push(picsView)
+                id: folderGrid
+
+                onFolderClicked:
+                {
+                    picsView.headerbarTitle = folderGrid.model.get(index).folder
+                    picsView.clear()
+                    picsView.populate(folderGrid.model.get(index).url)
+                    if(stackView.currentItem === foldersPage)
+                        stackView.push(picsView)
+                }
             }
         }
 
         PicsView
         {
             id: picsView
-            headerbarVisible: false
-
+            headerbarVisible: true
+            headerbarExit: stackView.currentItem === picsView
+            headerbarExitIcon: "go-previous"
+            onExit: stackView.pop(foldersPage)
         }
     }
 

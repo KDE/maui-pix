@@ -6,6 +6,8 @@ ToolButton
 {
     id: babeButton
 
+    property alias kirigamiIcon : pixIcon
+
     property string iconName
     property int iconSize : 22
     property color iconColor: textColor
