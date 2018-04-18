@@ -88,15 +88,15 @@ Item
             {
                 id: delegate
                 anchors.verticalCenter: parent.verticalCenter
-//                height: barHeight
-//                width: barHeight + space.big
+                //                height: barHeight
+                //                width: barHeight + space.big
                 picSize: barHeight-space.small
                 showLabel: false
                 emblemAdded: true
                 keepEmblemOverlay: true
                 showSelectionBackground: false
                 labelColor: "white"
-//                showTooltip: true
+                //                showTooltip: true
                 Connections
                 {
                     target: delegate
@@ -147,6 +147,8 @@ Item
 
     function clearSelection()
     {
+        if(selectionMode)
+            selectionMode = false
         selectedPaths = []
         selectionList.model.clear()
     }
@@ -154,8 +156,7 @@ Item
     function removeSelection(index)
     {
         var item = selectionList.model.get(index)
-
-        var indexof = selectedPaths.indexOf(item.path)
+        var indexof = selectedPaths.indexOf(item.url)
         if (indexof !== -1)
         {
             selectedPaths.splice(index, 1)
@@ -166,15 +167,20 @@ Item
 
     function append(item)
     {
-        for(var i = 0; i < selectionList.count ; i++ )
-            if(selectionList.model.get(i).url === item.url)
-            {
-                selectionList.model.remove(i)
-                return
-            }
+        if(selectedPaths.indexOf(item.url)<0)
+        {
+            selectedPaths.push(item.url)
 
-        selectionList.model.append(item)
-        selectionList.positionViewAtEnd()
+            for(var i = 0; i < selectionList.count ; i++ )
+                if(selectionList.model.get(i).url === item.url)
+                {
+                    selectionList.model.remove(i)
+                    return
+                }
+
+            selectionList.model.append(item)
+            selectionList.positionViewAtEnd()
+        }
     }
 
     function animate(color)

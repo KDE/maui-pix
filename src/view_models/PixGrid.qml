@@ -8,8 +8,8 @@ PixPage
     id: gridPage
 
     /*props*/
-    property int itemSize : iconSizes.huge
-    property int itemSpacing: space.huge
+    property int itemSize : isMobile ? iconSizes.huge : iconSizes.enormous
+    property int itemSpacing: isMobile ? space.medium : space.big
     property int itemRadius : itemSize*0.05
 
     property alias grid: grid
@@ -28,12 +28,22 @@ PixPage
 
     PixMenu
     {
-        id:gridMenu
+        id: gridMenu
 
         MenuItem
         {
             text: qsTr(selectionBox.selectionMode ? "Selection OFF" : "Selection ON")
             onTriggered: selectionBox.selectionMode  = !selectionBox.selectionMode
+        }
+
+        MenuItem
+        {
+            text: qsTr(selectionBox.selectionMode ? "Select all" : "UnSelect all")
+        }
+
+        MenuItem
+        {
+            text: qsTr("Sort...")
         }
     }
 
@@ -44,7 +54,7 @@ PixPage
         {
             id: menuBtn
             iconName: "overflow-menu"
-            onClicked: gridMenu.popup()
+            onClicked: isMobile? gridMenu.open() : gridMenu.popup()
         }
     ]
 

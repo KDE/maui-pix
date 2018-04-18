@@ -18,9 +18,7 @@ Item
         PixButton
         {
             Layout.alignment: Qt.AlignLeft
-
             iconName: "list-add"
-
             onClicked: addClicked()
         }
 

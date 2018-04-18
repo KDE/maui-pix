@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import org.kde.kirigami 2.0 as Kirigami
+
 import "../../../view_models"
 import "../../custom/TagBar"
 import "../../../db/Query.js" as Q
@@ -8,10 +10,10 @@ import "../../views/Pix.js" as PIX
 
 PixPopup
 {
-    padding: contentMargins*2
+    padding: contentMargins
     parent: parent
-    maxWidth: 200
-    height: 120
+    maxWidth: Kirigami.Units.gridUnit*8
+    height: Kirigami.Units.gridUnit*6
     signal albumCreated(string album)
 
     ColumnLayout

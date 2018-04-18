@@ -3,8 +3,8 @@ import QtQuick.Controls 2.2
 
 Dialog
 {
-    width: parent.width * 0.5
-    height: parent.height*0.5
+    width: parent.width * (isMobile ? 0.7 : 0.5)
+    height: parent.height * (isMobile ? 0.7 : 0.5)
 
     x: (parent.width - width) / 2
     y: (parent.height - height) / 2
@@ -13,5 +13,5 @@ Dialog
     modal: true
 
     margins: 1
-    padding: 2
+    padding: space.tiny*0.5
 }

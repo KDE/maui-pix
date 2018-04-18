@@ -11,6 +11,7 @@ ItemDelegate
     property color labelColor : GridView.isCurrentItem  && !hovered ? highlightedTextColor : textColor
 
     hoverEnabled: !isMobile
+    focus: true
 
     background: Rectangle
     {
@@ -19,14 +20,15 @@ ItemDelegate
 
     ColumnLayout
     {
-        height: parent.height * 0.8
-        width: parent.width * 0.9
-        spacing: space.medium
+        anchors.fill: parent
+        spacing: space.small
 
         Item
         {
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.maximumHeight: folderSize
+            Layout.alignment: Qt.AlignCenter
 
             Kirigami.Icon
             {
@@ -38,29 +40,32 @@ ItemDelegate
             }
         }
 
-
-
-        Label
+        Item
         {
-            text: folder
-            width: parent.width
             Layout.fillWidth: true
-            horizontalAlignment: Qt.AlignHCenter
-            elide: Qt.ElideRight
-            font.pointSize: fontSizes.default
-            color: labelColor
+            Layout.alignment: Qt.AlignTop
 
-            Rectangle
+            Label
             {
-                visible: parent.visible
-                anchors.fill: parent
-                z: -1
-                radius: 3
-                color: hightlightedColor
-                opacity: hovered ? 0.25 : 1
+                text: folder
+                width: parent.width *0.8
+                anchors.centerIn: parent
+                verticalAlignment: Qt.AlignVCenter
+                horizontalAlignment: Qt.AlignHCenter
+                elide: Qt.ElideRight
+                font.pointSize: fontSizes.default
+                color: labelColor
+
+                Rectangle
+                {
+                    visible: parent.visible
+                    anchors.fill: parent
+                    z: -1
+                    radius: folderSize*0.05
+                    color: hightlightedColor
+                    opacity: hovered ? 0.25 : 1
+                }
             }
         }
     }
-
-
 }

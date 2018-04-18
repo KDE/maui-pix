@@ -8,7 +8,7 @@ GridView
     id: folderGridRoot
 
     property int itemSize : iconSizes.large
-    property int itemSpacing: space.enormus
+    property int itemSpacing: itemSize*0.5 + space.small
 
     signal folderClicked(int index)
 
@@ -18,7 +18,7 @@ GridView
     height: parent.height
 
     cellWidth: itemSize + itemSpacing
-    cellHeight: itemSize + (itemSpacing)
+    cellHeight: itemSize + itemSpacing
 
     focus: true
 

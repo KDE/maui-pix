@@ -2,13 +2,12 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-
 GridView
 {
     id: albumsGridRoot
 
     property int itemSize : iconSizes.huge
-    property int itemSpacing: space.huge
+    property int itemSpacing: itemSize*0.5 + space.small
 
     property string currentAlbum : ""
 
@@ -20,7 +19,7 @@ GridView
     height: parent.height
 
     cellWidth: itemSize + itemSpacing
-    cellHeight: itemSize + itemSpacing*2
+    cellHeight: itemSize + itemSpacing
 
     focus: true
 
@@ -42,6 +41,7 @@ GridView
     {
         id: delegate
         albumSize : itemSize
+
         width: cellWidth
         height: cellHeight
         Connections
@@ -56,5 +56,4 @@ GridView
     }
 
     ScrollBar.vertical: ScrollBar{ visible: true}
-
 }

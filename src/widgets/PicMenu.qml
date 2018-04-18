@@ -17,7 +17,7 @@ PixMenu
     signal showFolderClicked(string url)
 
     Column
-    {       
+    {
 
         MenuItem
         {
@@ -85,13 +85,15 @@ PixMenu
         picUrl = url
         isMultiple = false
         isFav = pix.isFav(picUrl)
-        popup()
+        if(isMobile) open()
+        else popup()
     }
 
     function showMultiple()
     {
         picUrl = ""
         isMultiple = true
-        popup()
+        if(isMobile) open()
+        else popup()
     }
 }

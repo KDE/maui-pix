@@ -32,7 +32,7 @@ ToolBar
                 ToolTip.visible: hovered
                 ToolTip.text: qsTr("Share")
 
-                onClicked: isMobile ? android.shareDialog(pixViewer.currentPic.url) :
+                onClicked: isAndroid ? android.shareDialog(pixViewer.currentPic.url) :
                                       shareDialog.show(pixViewer.currentPic.url)
             }
         }

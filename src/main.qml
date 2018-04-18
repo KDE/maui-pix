@@ -87,14 +87,14 @@ Kirigami.ApplicationWindow
 
     readonly property real factor : Kirigami.Units.gridUnit * (isMobile ? 0.2 : 0.2)
 
-    readonly property int contentMargins: space.tiny * factor
+    readonly property int contentMargins: space.medium
     readonly property int defaultFontSize: Kirigami.Theme.defaultFont.pointSize
     readonly property var fontSizes: ({
-                                          tiny: defaultFontSize - 2,
-                                          small: defaultFontSize - 1,
+                                          tiny: defaultFontSize - (defaultFontSize*0.01),
+                                          small: defaultFontSize - (defaultFontSize*0.005),
                                           default: defaultFontSize,
-                                          big: defaultFontSize + 1,
-                                          large: defaultFontSize + 2
+                                          big: defaultFontSize + (defaultFontSize*0.005),
+                                          large: defaultFontSize + (defaultFontSize*0.01)
                                       })
 
     readonly property var space : ({
@@ -130,7 +130,7 @@ Kirigami.ApplicationWindow
 
                                        })
 
-    property int rowHeight : defaultFontSize + space.large
+    property int rowHeight : (defaultFontSize*2) + space.big
 
     /***************************************************/
     /**************************************************/
@@ -154,8 +154,8 @@ Kirigami.ApplicationWindow
     /*************************************************/
 
     overlay.modal: Rectangle {
-        color: isMobile ? altColor : "transparent"
-        opacity: 0.5
+        color: altColor
+        opacity: 0.2
         height: root.height
     }
 
@@ -252,8 +252,6 @@ Kirigami.ApplicationWindow
                 visible: selectionList.count > 0 && currentView !== views.viewer
             }
         }
-
-
     }
 
     PicMenu
@@ -261,7 +259,7 @@ Kirigami.ApplicationWindow
         id: picMenu
         onFavClicked: VIEWER.fav(url)
         onRemoveClicked: PIX.removePic(url)
-        onShareClicked: isMobile ? android.shareDialog(url) : shareDialog.show(url)
+        onShareClicked: isAndroid ? android.shareDialog(url) : shareDialog.show(url)
         onAddClicked: albumsDialog.show(url)
         onTagsClicked: tagsDialog.show(url)
         onShowFolderClicked: pix.showInFolder(url)
@@ -292,5 +290,5 @@ Kirigami.ApplicationWindow
         onViewPics: VIEWER.open(pics, 0)
     }
 
-    Component.onCompleted: if(isMobile) android.statusbarColor(backgroundColor, textColor)
+    Component.onCompleted: if(isAndroid) android.statusbarColor(backgroundColor, textColor)
 }

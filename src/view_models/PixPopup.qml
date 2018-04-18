@@ -5,8 +5,8 @@ import QtQuick.Controls.Material 2.1
 
 Popup
 {
-    property int maxWidth : 200
-    property int maxHeight : 200
+    property int maxWidth : Kirigami.Units.gridUnit*6
+    property int maxHeight : Kirigami.Units.gridUnit*6
 
     parent: ApplicationWindow.overlay
 

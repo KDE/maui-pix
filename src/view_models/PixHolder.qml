@@ -33,8 +33,8 @@ Item
                 id: imageHolder
 
                 anchors.centerIn: parent
-                width: 40
-                height: 40
+                width: iconSizes.large
+                height: iconSizes.large
                 source: emoji? emoji : "qrc:/../assets/face.png"
                 horizontalAlignment: Qt.AlignHCenter
 
@@ -56,9 +56,9 @@ Item
                 anchors.top: imageHolder.bottom
                 opacity: 0.3
                 text: message ? qsTr(message) : qsTr("Nothing here...")
-                font.pointSize: fontSizes.default
+                font.pointSize: fontSizes.small
 
-                padding: 10
+                padding: space.medium
                 font.bold: true
                 textFormat: Text.RichText
                 horizontalAlignment: Qt.AlignHCenter
