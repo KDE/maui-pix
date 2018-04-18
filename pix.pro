@@ -1,6 +1,5 @@
 QT += qml 
 QT += quick 
-QT += quickcontrols2 
 QT += sql 
 QT += widgets
 
