@@ -8,8 +8,8 @@ Item
 {
     property alias rollList : rollList
 
-    property int rollHeight : 54
-    property int rollPicSize : rollHeight-6
+    property int rollHeight : iconSizes.large
+    property int rollPicSize : rollHeight-space.tiny
 
     signal picClicked(int index)
 
@@ -36,7 +36,7 @@ Item
 
         orientation: ListView.Horizontal
         clip: true
-        spacing: 2
+        spacing: space.tiny
 
         focus: true
         interactive: true
@@ -76,6 +76,5 @@ Item
         rollList.currentIndex = index
         rollList.positionViewAtIndex(index, ListView.Center)
     }
-
 
 }

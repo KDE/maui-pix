@@ -6,7 +6,10 @@ import QtQuick.Layouts 1.3
 GridView
 {
     id: folderGridRoot
-    property int gridSize : 48
+
+    property int itemSize : iconSizes.large
+    property int itemSpacing: space.enormus
+
     signal folderClicked(int index)
 
     clip: true
@@ -14,8 +17,8 @@ GridView
     width: parent.width
     height: parent.height
 
-    cellHeight: gridSize*2
-    cellWidth: gridSize*2
+    cellWidth: itemSize + itemSpacing
+    cellHeight: itemSize + (itemSpacing)
 
     focus: true
 
@@ -29,22 +32,29 @@ GridView
     delegate: FoldersDelegate
     {
         id: delegate
-        folderSize : 32
+        folderSize : itemSize
+
+        width: cellWidth
+        height: cellHeight
 
         Connections
         {
             target: delegate
-            onClicked: folderClicked(index)
+            onClicked:
+            {
+                folderGridRoot.currentIndex = index
+                folderClicked(index)
+            }
         }
     }
 
     onWidthChanged:
     {
-        var amount = parseInt(width/(gridSize*2),10)
-        var leftSpace = parseInt(width-(amount*(gridSize*2)), 10)
-        var size = parseInt((gridSize*2)+(parseInt(leftSpace/amount, 10)), 10)
+        var amount = parseInt(width/(itemSize + itemSpacing),10)
+        var leftSpace = parseInt(width-(amount*(itemSize + itemSpacing)), 10)
+        var size = parseInt((itemSize + itemSpacing)+(parseInt(leftSpace/amount, 10)), 10)
 
-        size = size > gridSize*2 ? size : gridSize*2
+        size = size > itemSize + itemSpacing ? size : itemSize + itemSpacing
 
         cellWidth = size
         //            grid.cellHeight = size

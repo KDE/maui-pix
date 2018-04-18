@@ -8,9 +8,9 @@ PixPage
     id: gridPage
 
     /*props*/
-    property int itemSize : isMobile ? 80 : 150
-    property int itemSpacing: isMobile ? 10 : 50
-    property int itemRadius : 4
+    property int itemSize : iconSizes.huge
+    property int itemSpacing: space.huge
+    property int itemRadius : itemSize*0.05
 
     property alias grid: grid
     property alias holder: holder

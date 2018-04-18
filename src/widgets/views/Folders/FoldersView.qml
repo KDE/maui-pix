@@ -4,7 +4,6 @@ import "../../../view_models"
 
 Page
 {
-    topPadding: contentMargins
     StackView
     {
         id: stackView
@@ -16,6 +15,8 @@ Page
             id: foldersPage
             headerbarVisible: false
             headerbarExit: false
+            topPadding: contentMargins
+
             content: FoldersGrid
             {
                 id: folderGrid

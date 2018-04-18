@@ -7,8 +7,8 @@ ItemDelegate
 {
     clip: true
 
-    property int tagWidth: 100
-    property int tagHeight: 24
+    property int tagWidth: iconSizes.medium*4
+    property int tagHeight: iconSizes.medium
 
     signal removeTag(int index)
 
@@ -34,6 +34,7 @@ ItemDelegate
         {
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.leftMargin: tagWidth *0.2
             Label
             {
                 id: tagLabel
@@ -51,15 +52,15 @@ ItemDelegate
         Item
         {
             Layout.fillHeight: true
-            width: 16
-            Layout.maximumWidth: 16
-            Layout.margins: 5
+            width: iconSizes.small
+            Layout.maximumWidth: iconSizes.small
+            Layout.margins: space.small
             PixButton
             {
                 anchors.centerIn: parent
 
                 iconName: "window-close"
-                iconSize: 16
+                size: iconSizes.small
                 onClicked: removeTag(index)
 
             }

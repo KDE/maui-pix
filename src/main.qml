@@ -63,6 +63,7 @@ Kirigami.ApplicationWindow
     /*READONLY PROPS*/
 
     readonly property bool isMobile : Kirigami.Settings.isMobile
+    readonly property bool isAndroid : pix.isAndroid();
     readonly property var views : ({
                                        viewer: 0,
                                        gallery: 1,
@@ -76,17 +77,68 @@ Kirigami.ApplicationWindow
     property int currentView : views.gallery
     property bool fullScreen : false
 
-    /*UI PROPS*/
 
-    readonly property int contentMargins: isMobile ? 8 : 10
+    /***************************************************/
+    /******************** UI UNITS ********************/
+    /*************************************************/
+
+    property int iconSize : iconSizes.medium
+
+
+    readonly property real factor : Kirigami.Units.gridUnit * (isMobile ? 0.2 : 0.2)
+
+    readonly property int contentMargins: space.tiny * factor
     readonly property int defaultFontSize: Kirigami.Theme.defaultFont.pointSize
     readonly property var fontSizes: ({
                                           tiny: defaultFontSize - 2,
-                                          small: defaultFontSize -1,
+                                          small: defaultFontSize - 1,
                                           default: defaultFontSize,
                                           big: defaultFontSize + 1,
                                           large: defaultFontSize + 2
                                       })
+
+    readonly property var space : ({
+                                       tiny: Kirigami.Units.smallSpacing,
+                                       small: Kirigami.Units.smallSpacing*2,
+                                       medium: Kirigami.Units.largeSpacing,
+                                       big: Kirigami.Units.largeSpacing*2,
+                                       large: Kirigami.Units.largeSpacing*3,
+                                       huge: Kirigami.Units.largeSpacing*4,
+                                       enormus: Kirigami.Units.largeSpacing*5
+                                   })
+
+    readonly property var iconSizes : ({
+                                           tiny : Kirigami.Units.iconSizes.small*0.5,
+
+                                           small :  (isMobile ? Kirigami.Units.iconSizes.small*0.5:
+                                                                Kirigami.Units.iconSizes.small),
+
+                                           medium : (isMobile ? Kirigami.Units.iconSizes.small :
+                                                                Kirigami.Units.iconSizes.smallMedium),
+
+                                           big:  (isMobile ? Kirigami.Units.iconSizes.smallMedium :
+                                                             Kirigami.Units.iconSizes.medium),
+
+                                           large: (isMobile ? Kirigami.Units.iconSizes.medium :
+                                                              Kirigami.Units.iconSizes.large),
+
+                                           huge: (isMobile ? Kirigami.Units.iconSizes.large :
+                                                              Kirigami.Units.iconSizes.huge),
+
+                                           enormous: (isMobile ? Kirigami.Units.iconSizes.huge :
+                                                              Kirigami.Units.iconSizes.enormous)
+
+                                       })
+
+    property int rowHeight : defaultFontSize + space.large
+
+    /***************************************************/
+    /**************************************************/
+    /*************************************************/
+
+    /***************************************************/
+    /******************** UI COLORS *******************/
+    /*************************************************/
 
     property string backgroundColor: Kirigami.Theme.backgroundColor
     property string textColor: Kirigami.Theme.textColor
@@ -97,18 +149,9 @@ Kirigami.ApplicationWindow
     property string altColor: Kirigami.Theme.complementaryBackgroundColor
     property string pixColor : pix.pixColor()
 
-    property int iconSize : iconSizes.medium
-    property var iconSizes : ({
-                                  small :  16,
-                                  medium : 22,
-                                  large:  48,
-                              })
-    property int rowHeight : 32
-
-    //    pageStack.defaultColumnWidth: 400
-    //    pageStack.initialPage: [mainPage]
-    //    pageStack.interactive: isMobile
-    //    pageStack.separatorVisible: pageStack.wideMode
+    /***************************************************/
+    /**************************************************/
+    /*************************************************/
 
     overlay.modal: Rectangle {
         color: isMobile ? altColor : "transparent"
@@ -138,7 +181,7 @@ Kirigami.ApplicationWindow
         onAlbumsViewClicked: currentView = views.albums
         onTagsViewClicked: currentView = views.tags
         onSearchViewClicked: currentView =  views.search
-        onMenuClicked: globalDrawer.open()
+        onMenuClicked: globalDrawer.visible ? globalDrawer.close() : globalDrawer.open()
     }
 
     footer: PixFooter

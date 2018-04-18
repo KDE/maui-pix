@@ -9,7 +9,7 @@ ToolButton
     property alias kirigamiIcon : pixIcon
 
     property string iconName
-    property int iconSize : 22
+    property int size : iconSize
     property color iconColor: textColor
     readonly property string defaultColor :  textColor
     property bool anim : false
@@ -18,8 +18,8 @@ ToolButton
     {
         id: pixIcon
         anchors.centerIn: parent
-        width: iconSize
-        height: iconSize
+        width: size
+        height: size
         visible: true
         color: iconColor
         source: iconName

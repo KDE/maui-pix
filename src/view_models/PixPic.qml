@@ -5,7 +5,7 @@ import QtGraphicalEffects 1.0
 
 ItemDelegate
 {  
-    property int picSize : 150
+    property int picSize : iconSizes.enormous
     property int picRadius : 0
     property bool showLabel : true
     property bool showIndicator : false
@@ -23,7 +23,6 @@ ItemDelegate
 
     signal rightClicked();
     signal emblemClicked();
-
 
     height: picSize
     width: picSize
@@ -50,9 +49,9 @@ ItemDelegate
     PixButton
     {
         id: emblem
-        iconSize:  iconSizes.medium
+        size:  iconSizes.medium
         iconName: (keepEmblemOverlay && emblemAdded) ? "emblem-remove" : "emblem-added"
-        visible: parent.hovered /*|| (keepEmblemOverlay && emblemAdded)*/
+        visible: parent.hovered || (keepEmblemOverlay && emblemAdded)
         kirigamiIcon.isMask: false
         z: 999
         anchors.top: parent.top
@@ -76,8 +75,8 @@ ItemDelegate
             Layout.alignment: Qt.AlignCenter
             horizontalAlignment: Qt.AlignHCenter
             verticalAlignment: Qt.AlignVCenter
-            sourceSize.height: picSize-contentMargins
-            sourceSize.width: picSize-contentMargins
+            sourceSize.height: picSize
+            sourceSize.width: picSize
             cache: false
             antialiasing: true
             smooth: true
@@ -93,8 +92,8 @@ ItemDelegate
                 anchors.horizontalCenter: parent.horizontalCenter
                 visible: showIndicator
                 color: indicatorColor
-                height: 12
-                width: 12
+                height: iconSizes.small
+                width: iconSizes.small
                 radius: Math.min(width, height)
             }
 

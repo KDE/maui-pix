@@ -1,6 +1,7 @@
 QT += qml 
 QT += quick 
-QT += sql 
+QT += quickcontrols2
+QT += sql
 QT += widgets
 
 CONFIG += ordered

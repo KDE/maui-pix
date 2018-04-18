@@ -70,6 +70,11 @@ Pix::~Pix()
     delete this->fileLoader;
 }
 
+bool Pix::isAndroid()
+{
+    return PIX::isAndroid();
+}
+
 void Pix::openPics(const QStringList &pics)
 {
     QVariantList data;

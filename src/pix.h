@@ -46,6 +46,9 @@ public:
     explicit Pix(QObject* parent = nullptr);
     ~Pix();
 
+    /*UTILS*/
+    Q_INVOKABLE bool isAndroid();
+
     Q_INVOKABLE void openPics(const QStringList &pics);
 
     Q_INVOKABLE void refreshCollection();

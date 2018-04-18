@@ -7,7 +7,9 @@ GridView
 {
     id: albumsGridRoot
 
-    property int gridSize : 80
+    property int itemSize : iconSizes.huge
+    property int itemSpacing: space.huge
+
     property string currentAlbum : ""
 
     signal albumClicked(int index)
@@ -17,8 +19,8 @@ GridView
     width: parent.width
     height: parent.height
 
-    cellHeight: gridSize*2
-    cellWidth: gridSize*2
+    cellWidth: itemSize + itemSpacing
+    cellHeight: itemSize + itemSpacing*2
 
     focus: true
 
@@ -39,12 +41,17 @@ GridView
     delegate: AlbumDelegate
     {
         id: delegate
-        albumSize : 64
-
+        albumSize : itemSize
+        width: cellWidth
+        height: cellHeight
         Connections
         {
             target: delegate
-            onClicked: albumClicked(index)
+            onClicked:
+            {
+                albumsGridRoot.currentIndex = index
+                albumClicked(index)
+            }
         }
     }
 

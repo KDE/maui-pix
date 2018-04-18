@@ -11,8 +11,6 @@ PixGrid
 
     headerbarExit: false
     visible: true
-//    picSize: Math.sqrt(root.width*root.height)*0.25
-//    picRadius: 2
 
     function populate()
     {

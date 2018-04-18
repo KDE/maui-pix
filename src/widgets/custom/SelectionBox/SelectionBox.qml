@@ -11,7 +11,7 @@ Item
 
     property bool selectionMode : false
     property var selectedPaths : []
-    property int barHeight : 64
+    property int barHeight : iconSizes.large
     property color animColor : "black"
 
     height: barHeight
@@ -23,7 +23,7 @@ Item
         anchors.fill: parent
         z:-1
         color: Kirigami.Theme.complementaryBackgroundColor
-        radius: 4
+        radius: barHeight*0.08
         opacity: 0.6
         border.color: "black"
 
@@ -47,8 +47,8 @@ Item
         anchors.fill: parent
         Rectangle
         {
-            height: 22
-            width: 22
+            height: iconSizes.medium
+            width: iconSizes.medium
             radius: Math.min(width, height)
             color: Kirigami.Theme.complementaryBackgroundColor
 
@@ -60,7 +60,7 @@ Item
                 anchors.centerIn: parent
                 iconName: "window-close"
                 iconColor: "white"
-                iconSize: 16
+                size: iconSizes.small
                 flat: true
                 onClicked: clearSelection()
             }
@@ -77,7 +77,7 @@ Item
 
             orientation: ListView.Horizontal
             clip: true
-            spacing: 10
+            spacing: space.small
 
             focus: true
             interactive: true
@@ -88,8 +88,9 @@ Item
             {
                 id: delegate
                 anchors.verticalCenter: parent.verticalCenter
-                height: 48
-                picSize: 48
+//                height: barHeight
+//                width: barHeight + space.big
+                picSize: barHeight-space.small
                 showLabel: false
                 emblemAdded: true
                 keepEmblemOverlay: true
@@ -109,7 +110,7 @@ Item
             Layout.alignment: Qt.AlignRight
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.maximumWidth: 44
+            Layout.maximumWidth: iconSize
             PixButton
             {
                 anchors.centerIn: parent
@@ -121,8 +122,8 @@ Item
 
         Rectangle
         {
-            height: 22
-            width: 22
+            height: iconSizes.medium
+            width: iconSizes.medium
             radius: Math.min(width, height)
             color: highlightColor
 
