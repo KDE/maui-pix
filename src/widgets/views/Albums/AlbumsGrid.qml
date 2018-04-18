@@ -55,5 +55,17 @@ GridView
         }
     }
 
+    onWidthChanged:
+    {
+        var amount = parseInt(width/(itemSize + itemSpacing),10)
+        var leftSpace = parseInt(width-(amount*(itemSize + itemSpacing)), 10)
+        var size = parseInt((itemSize + itemSpacing)+(parseInt(leftSpace/amount, 10)), 10)
+
+        size = size > itemSize + itemSpacing ? size : itemSize + itemSpacing
+
+        cellWidth = size
+        //            grid.cellHeight = size
+    }
+
     ScrollBar.vertical: ScrollBar{ visible: true}
 }

@@ -154,7 +154,7 @@ Kirigami.ApplicationWindow
     /*************************************************/
 
     overlay.modal: Rectangle {
-        color: altColor
+        color: isAndroid ? altColor : "transparent"
         opacity: 0.2
         height: root.height
     }
