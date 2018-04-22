@@ -23,7 +23,7 @@ Item
         anchors.fill: parent
         z:-1
         color: Kirigami.Theme.complementaryBackgroundColor
-        radius: barHeight*0.08
+        radius: Kirigami.Units.devicePixelRatio * 3
         opacity: 0.6
         border.color: "black"
 
