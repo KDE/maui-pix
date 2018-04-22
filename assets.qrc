@@ -8,5 +8,6 @@
         <file>assets/tag.svg</file>
         <file>assets/album_bg_normal.png</file>
         <file>assets/banner.png</file>
+        <file>assets/album.svg</file>
     </qresource>
 </RCC>

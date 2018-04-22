@@ -7,7 +7,7 @@ GridView
     id: albumsGridRoot
 
     property int itemSize : iconSizes.huge
-    property int itemSpacing: itemSize*0.5 + space.small
+    property int itemSpacing: itemSize * 0.5 + (isMobile ? space.big : space.large)
 
     property string currentAlbum : ""
 
@@ -43,7 +43,8 @@ GridView
         albumSize : itemSize
 
         width: cellWidth
-        height: cellHeight
+        height: cellHeight * 0.9
+
         Connections
         {
             target: delegate

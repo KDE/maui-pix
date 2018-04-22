@@ -32,7 +32,7 @@ ItemDelegate
             Image
             {
                 anchors.centerIn: parent
-                source: "qrc:/img/assets/album_bg_normal.png"
+                source: "qrc:/img/assets/album.svg"
 
                 height: albumSize
                 sourceSize.height: albumSize
@@ -47,12 +47,15 @@ ItemDelegate
         Item
         {
             Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.maximumHeight: parent.height * 0.3
             Layout.alignment: Qt.AlignTop
 
             Label
             {
                 text: album
-                width: parent.width *0.8
+                width: parent.width * 0.8
+                height: parent.height
                 anchors.centerIn: parent
                 verticalAlignment: Qt.AlignVCenter
                 horizontalAlignment: Qt.AlignHCenter

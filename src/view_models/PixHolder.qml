@@ -56,7 +56,7 @@ Item
                 anchors.top: imageHolder.bottom
                 opacity: 0.3
                 text: message ? qsTr(message) : qsTr("Nothing here...")
-                font.pointSize: fontSizes.small
+                font.pointSize: fontSizes.default
 
                 padding: space.medium
                 font.bold: true

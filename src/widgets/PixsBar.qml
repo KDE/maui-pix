@@ -10,7 +10,6 @@ ToolBar
     position: ToolBar.Header
 
     property string accentColor : pix.pixColor()
-    property string textColor : textColor
 
     property int currentIndex : 0
 
