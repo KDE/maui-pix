@@ -2,15 +2,16 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick 2.9
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
+import org.kde.kirigami 2.0 as Kirigami
 
 PixPage
 {
     id: gridPage
 
     /*props*/
-    property int itemSize : isMobile ? iconSizes.huge : iconSizes.enormous
+    property int itemSize : isMobile ? iconSizes.huge * 1.5 : iconSizes.enormous
     property int itemSpacing: isMobile ? space.medium : space.big
-    property int itemRadius : itemSize*0.05
+    property int itemRadius : Kirigami.Units.devicePixelRatio * 6
 
     property alias grid: grid
     property alias holder: holder

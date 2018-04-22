@@ -43,12 +43,14 @@ ItemDelegate
         Item
         {
             Layout.fillWidth: true
+            Layout.fillHeight: true
             Layout.alignment: Qt.AlignTop
 
             Label
             {
                 text: folder
-                width: parent.width *0.8
+                width: parent.width * 0.8
+                height: parent.height * 0.8
                 anchors.centerIn: parent
                 verticalAlignment: Qt.AlignVCenter
                 horizontalAlignment: Qt.AlignHCenter

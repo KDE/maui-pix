@@ -8,7 +8,7 @@ GridView
     id: folderGridRoot
 
     property int itemSize : iconSizes.large
-    property int itemSpacing: itemSize*0.5 + space.small
+    property int itemSpacing: itemSize * 0.5 + (isMobile ? space.small : space.big)
 
     signal folderClicked(int index)
 
@@ -35,7 +35,7 @@ GridView
         folderSize : itemSize
 
         width: cellWidth
-        height: cellHeight
+        height: cellHeight * 0.9
 
         Connections
         {

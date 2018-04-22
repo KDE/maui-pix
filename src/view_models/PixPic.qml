@@ -122,7 +122,7 @@ ItemDelegate
         {
             Layout.fillHeight: showLabel
             Layout.fillWidth: true
-            Layout.maximumHeight: !showLabel ? 0 : parent.height * 0.3
+            Layout.maximumHeight: !showLabel ? 0 : parent.height * (isMobile? 0.5 : 0.3)
 
             Label
             {
