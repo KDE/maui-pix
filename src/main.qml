@@ -25,6 +25,7 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.0 as Kirigami
 import QtQuick.Controls.Material 2.1
 import QtQuick.Window 2.0
+
 import "widgets"
 import "widgets/views/Albums"
 import "widgets/views/Folders"
@@ -90,11 +91,22 @@ Kirigami.ApplicationWindow
     readonly property int contentMargins: space.medium
     readonly property int defaultFontSize: Kirigami.Theme.defaultFont.pointSize
     readonly property var fontSizes: ({
-                                          tiny: defaultFontSize - (defaultFontSize*0.01),
-                                          small: defaultFontSize - (defaultFontSize*0.005),
-                                          default: defaultFontSize,
-                                          big: defaultFontSize + (defaultFontSize*0.005),
-                                          large: defaultFontSize + (defaultFontSize*0.01)
+                                          tiny: defaultFontSize * 0.4,
+
+                                          small: (isMobile ? defaultFontSize * 0.4 :
+                                                            defaultFontSize * 0.6),
+
+                                          medium: (isMobile ? defaultFontSize * 0.6 :
+                                                             defaultFontSize * 0.8),
+
+                                          default: (isMobile ? defaultFontSize * 0.8 :
+                                                              defaultFontSize),
+
+                                          big: (isMobile ? defaultFontSize :
+                                                          defaultFontSize * 1.2),
+
+                                          large: (isMobile ? defaultFontSize * 1.2 :
+                                                            defaultFontSize * 1.4)
                                       })
 
     readonly property var space : ({
@@ -130,11 +142,14 @@ Kirigami.ApplicationWindow
 
                                        })
 
-    property int rowHeight : (defaultFontSize*2) + space.big
+    readonly property int rowHeight : (defaultFontSize*2) + space.big
 
     /***************************************************/
     /**************************************************/
     /*************************************************/
+
+    property bool wideMode: root.width > Kirigami.Units.gridUnit * 40
+
 
     /***************************************************/
     /******************** UI COLORS *******************/
@@ -248,7 +263,7 @@ Kirigami.ApplicationWindow
                 Layout.leftMargin: contentMargins*2
                 Layout.rightMargin: contentMargins*2
                 Layout.bottomMargin: contentMargins
-                Layout.topMargin: contentMargins
+                Layout.topMargin: space.small
                 visible: selectionList.count > 0 && currentView !== views.viewer
             }
         }

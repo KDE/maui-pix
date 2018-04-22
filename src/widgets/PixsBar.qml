@@ -60,14 +60,14 @@ ToolBar
             Layout.alignment: Qt.AlignLeft
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.maximumWidth: iconSize*2
+            Layout.maximumWidth: viewerView.implicitWidth * 1.3
 
             PixButton
             {
                 id: viewerView
                 anchors.centerIn: parent
+                text: qsTr("Viewer")
                 iconColor: currentIndex === views.viewer? accentColor : textColor
-
                 iconName: "view-preview"
                 onClicked: viewerViewClicked()
 
@@ -83,13 +83,13 @@ ToolBar
         {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.maximumWidth: iconSize*2
+            Layout.maximumWidth: galleryBtn.implicitWidth * 1.3
 
             PixButton
             {
                 id: galleryBtn
                 anchors.centerIn: parent
-
+                text: qsTr("Gallery")
                 iconColor: currentIndex === views.gallery? accentColor : textColor
 
                 iconName: "image-multiple"
@@ -107,13 +107,13 @@ ToolBar
         {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.maximumWidth: iconSize*2
+            Layout.maximumWidth: foldersView.implicitWidth * 1.3
 
             PixButton
             {
                 id: foldersView
                 anchors.centerIn: parent
-
+                text: qsTr("Folders")
                 iconColor: currentIndex === views.folders? accentColor : textColor
 
                 iconName: "image-folder-view"
@@ -131,13 +131,13 @@ ToolBar
         {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.maximumWidth: iconSize*2
+            Layout.maximumWidth: albumsView.implicitWidth * 1.3
 
             PixButton
             {
                 id: albumsView
                 anchors.centerIn: parent
-
+                text: qsTr("Albums")
                 iconColor: currentIndex === views.albums? accentColor : textColor
 
                 iconName: "image-frames"
@@ -155,13 +155,13 @@ ToolBar
         {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.maximumWidth: iconSize*2
+            Layout.maximumWidth: tagsView.implicitWidth * 1.3
 
             PixButton
             {
                 id: tagsView
                 anchors.centerIn: parent
-
+                text: qsTr("Tags")
                 iconColor: currentIndex === views.tags? accentColor : textColor
 
                 iconName: "tag"

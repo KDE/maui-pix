@@ -52,7 +52,7 @@ ItemDelegate
         size:  iconSizes.medium
         iconName: (keepEmblemOverlay && emblemAdded) ? "emblem-remove" : "emblem-added"
         visible: parent.hovered || (keepEmblemOverlay && emblemAdded)
-        kirigamiIcon.isMask: false
+        isMask: false
         z: 999
         anchors.top: parent.top
         anchors.left: parent.left
