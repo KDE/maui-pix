@@ -88,9 +88,10 @@ Item
             {
                 id: delegate
                 anchors.verticalCenter: parent.verticalCenter
-                //                height: barHeight
-                //                width: barHeight + space.big
-                picSize: barHeight-space.small
+                height: barHeight
+                width: barHeight + space.medium
+                fit: true
+                picSize: barHeight
                 showLabel: false
                 emblemAdded: true
                 keepEmblemOverlay: true

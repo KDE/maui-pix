@@ -124,6 +124,7 @@ PixPage
 
             picSize : itemSize
             picRadius : itemRadius
+            fit: fitPreviews
 
             height: grid.cellHeight * 0.9
             width: grid.cellWidth * 0.8

@@ -9,7 +9,7 @@ ItemDelegate
     property int picRadius : 0
     property bool showLabel : true
     property bool showIndicator : false
-
+    property bool fit : false
     property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
 
     property color labelColor : (GridView.isCurrentItem || (keepEmblemOverlay && emblemAdded)) && !hovered && showSelectionBackground? highlightedTextColor : textColor
@@ -82,7 +82,7 @@ ItemDelegate
                 cache: false
                 antialiasing: true
                 smooth: true
-                fillMode: fitPreviews ? Image.PreserveAspectFit : Image.PreserveAspectCrop
+                fillMode: fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
                 source: (url && url.length>0)?
                             "file://"+encodeURIComponent(url) :
                             "qrc:/../assets/face.png"
@@ -120,9 +120,10 @@ ItemDelegate
 
         Item
         {
-            Layout.fillHeight: true
+            Layout.fillHeight: showLabel
             Layout.fillWidth: true
-            Layout.maximumHeight: parent.height * 0.3
+            Layout.maximumHeight: !showLabel ? 0 : parent.height * 0.3
+
             Label
             {
                 text: title

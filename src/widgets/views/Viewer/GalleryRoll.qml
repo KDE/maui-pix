@@ -47,6 +47,10 @@ Item
         {
             id: delegate
             picSize: rollPicSize
+
+            height: rollPicSize
+            width: rollPicSize
+
             picRadius: 0
             showLabel: false
             showIndicator: true
