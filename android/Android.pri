@@ -11,7 +11,10 @@ HEADERS += \
     $$PWD/android.h
 
 SOURCES += \
-    $$PWD/android.cpp
+    $$PWD/android.cpp \
+
+RESOURCES += \
+    $$PWD/../icons.qrc
 
 DISTFILES += \
     $$PWD/src/MyService.java \

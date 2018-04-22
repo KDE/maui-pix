@@ -23,6 +23,7 @@ linux:unix:!android {
 
     include(android/Android.pri)
     include(3rdparty/kirigami/kirigami.pri)
+    DEFINES += STATIC_KIRIGAMI
 
 } else {
     message("Unknown configuration")
@@ -57,7 +58,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     src/qml.qrc \
-    assets.qrc
+    assets.qrc \
+
 
 HEADERS += \
     src/pix.h \
@@ -66,11 +68,3 @@ HEADERS += \
     src/db/dbactions.h \
     src/utils/pic.h
 
-DISTFILES += \
-    android/AndroidManifest.xml \
-    android/gradle/wrapper/gradle-wrapper.jar \
-    android/gradlew \
-    android/res/values/libs.xml \
-    android/build.gradle \
-    android/gradle/wrapper/gradle-wrapper.properties \
-    android/gradlew.bat

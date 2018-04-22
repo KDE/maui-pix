@@ -28,10 +28,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
-#include "./3rdparty/kirigami/src/kirigamiplugin.h"
+#include <QIcon>
 #include "android/android.h"
 #else
 #include <QApplication>
+#endif
+
+#ifdef STATIC_KIRIGAMI
+#include "./3rdparty/kirigami/src/kirigamiplugin.h"
 #endif
 
 QStringList getFolderImages(const QString &path)
@@ -107,13 +111,14 @@ int main(int argc, char *argv[])
     auto context = engine.rootContext();
     context->setContextProperty("pix", &pix);
 
-#ifdef Q_OS_ANDROID
+#ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();
+#endif
+
+#ifdef Q_OS_ANDROID
+    QIcon::setThemeName("Luv");
     Android android;
     context->setContextProperty("android", &android);
-    //#else
-    //    if(QQuickStyle::availableStyles().contains("nomad"))
-    //        QQuickStyle::setStyle("nomad");
 #endif
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
