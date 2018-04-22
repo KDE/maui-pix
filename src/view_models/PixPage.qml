@@ -34,6 +34,7 @@ Page
             id: header
             Layout.fillWidth: true
             visible: headerbarVisible
+            height: headerbarVisible ? implicitHeight : 0
 
             RowLayout
             {

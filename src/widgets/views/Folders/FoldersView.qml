@@ -15,7 +15,6 @@ Page
             id: foldersPage
             headerbarVisible: false
             headerbarExit: false
-            topPadding: contentMargins
 
             content: FoldersGrid
             {

@@ -24,9 +24,6 @@ ItemDelegate
     signal rightClicked();
     signal emblemClicked();
 
-    height: picSize
-    width: picSize
-
     hoverEnabled: !isMobile
     focus: true
 
@@ -67,73 +64,87 @@ ItemDelegate
     {
         anchors.fill: parent
 
-        Image
+        Item
         {
-            id: img
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
-            horizontalAlignment: Qt.AlignHCenter
-            verticalAlignment: Qt.AlignVCenter
-            sourceSize.height: picSize
-            sourceSize.width: picSize
-            cache: false
-            antialiasing: true
-            smooth: true
-            fillMode: Image.PreserveAspectCrop
-            source: (url && url.length>0)?
-                        "file://"+encodeURIComponent(url) :
-                        "qrc:/../assets/face.png"
-            asynchronous: true
 
-            Rectangle
+            Image
             {
-                anchors.bottom: parent.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-                visible: showIndicator
-                color: indicatorColor
-                height: iconSizes.small
-                width: iconSizes.small
-                radius: Math.min(width, height)
-            }
+                id: img
+                anchors.fill: parent
+                anchors.centerIn: parent
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                sourceSize.height: picSize
+                sourceSize.width: picSize
+                cache: false
+                antialiasing: true
+                smooth: true
+                fillMode: fitPreviews ? Image.PreserveAspectFit : Image.PreserveAspectCrop
+                source: (url && url.length>0)?
+                            "file://"+encodeURIComponent(url) :
+                            "qrc:/../assets/face.png"
+                asynchronous: true
 
-            layer.enabled: picRadius > 0
-            layer.effect: OpacityMask
-            {
-                maskSource: Item
+                Rectangle
                 {
-                    width: img.sourceSize.width
-                    height: img.sourceSize.height
-                    Rectangle
+                    anchors.bottom: parent.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    visible: showIndicator
+                    color: indicatorColor
+                    height: iconSizes.small
+                    width: iconSizes.small
+                    radius: Math.min(width, height)
+                }
+
+                layer.enabled: picRadius > 0
+                layer.effect: OpacityMask
+                {
+                    maskSource: Item
                     {
-                        anchors.centerIn: parent
-                        width: img.adapt ? img.sourceSize.width : Math.min(img.sourceSize.width, img.sourceSize.height)
-                        height: img.adapt ? img.sourceSize.height : width
-                        radius: picRadius
+                        width: img.sourceSize.width
+                        height: img.sourceSize.height
+                        Rectangle
+                        {
+                            anchors.centerIn: parent
+                            width: img.adapt ? img.sourceSize.width : Math.min(img.sourceSize.width, img.sourceSize.height)
+                            height: img.adapt ? img.sourceSize.height : width
+                            radius: picRadius
+                        }
                     }
                 }
             }
-
         }
-        Label
-        {
-            text: title
-            visible: showLabel
-            width: parent.width
-            Layout.fillWidth: true
-            horizontalAlignment: Qt.AlignHCenter
-            elide: Qt.ElideRight
-            font.pointSize: fontSizes.default
-            color: labelColor
 
-            Rectangle
+        Item
+        {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.maximumHeight: parent.height * 0.3
+            Label
             {
-                visible: parent.visible && showSelectionBackground
-                anchors.fill: parent
-                z: -1
-                radius: 3
-                color: hightlightedColor
-                opacity: hovered ? 0.25 : 1
+                text: title
+                visible: showLabel
+                width: parent.width
+                height: parent.height * 0.8
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                elide: Qt.ElideRight
+                wrapMode: Text.Wrap
+                font.pointSize: fontSizes.default
+                color: labelColor
+
+                Rectangle
+                {
+                    visible: parent.visible && showSelectionBackground
+                    anchors.fill: parent
+                    z: -1
+                    radius: 3
+                    color: hightlightedColor
+                    opacity: hovered ? 0.25 : 1
+                }
             }
         }
     }

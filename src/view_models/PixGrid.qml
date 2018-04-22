@@ -45,6 +45,17 @@ PixPage
         {
             text: qsTr("Sort...")
         }
+
+        MenuItem
+        {
+            text: qsTr(fitPreviews ?  "Crop previews" : "Fit previews")
+            onTriggered:
+            {
+                fitPreviews = !fitPreviews
+
+                pix.saveSettings("PREVIEWS_FIT", fitPreviews, "PIX")
+            }
+        }
     }
 
     headerbarTitle: gridModel.count+" "+qsTr("images")
@@ -113,6 +124,10 @@ PixPage
 
             picSize : itemSize
             picRadius : itemRadius
+
+            height: grid.cellHeight * 0.9
+            width: grid.cellWidth * 0.8
+
             Connections
             {
                 target: delegate
@@ -130,8 +145,8 @@ PixPage
                     //picClicked(index)
                     if(!isMobile)
                         openPic(index)
-//                    else
-//                        selectionBox.append(gridModel.get(index))
+                    //                    else
+                    //                        selectionBox.append(gridModel.get(index))
 
                 }
 

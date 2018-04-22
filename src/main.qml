@@ -77,6 +77,7 @@ Kirigami.ApplicationWindow
 
     property int currentView : views.gallery
     property bool fullScreen : false
+    property bool fitPreviews : pix.loadSettings("PREVIEWS_FIT", "PIX", false) === "false" ?  false : true
 
 
     /***************************************************/
