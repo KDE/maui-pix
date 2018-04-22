@@ -45,7 +45,7 @@ ItemDelegate
                 verticalAlignment: Qt.AlignVCenter
                 horizontalAlignment: Qt.AlignHCenter
                 elide: Qt.ElideRight
-                font.pointSize: fontSizes.small
+                font.pointSize: fontSizes.medium
             }
         }
 
