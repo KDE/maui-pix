@@ -48,6 +48,7 @@ class DBActions : public DB
         Q_INVOKABLE bool albumTag(const QString &tag, const QString &album);
         Q_INVOKABLE bool removePicTag(const QString &tag, const QString &url);
         Q_INVOKABLE bool removeAlbumTag(const QString &tag, const QString &album);
+        Q_INVOKABLE bool cleanTags();
 
         Q_INVOKABLE bool addAlbum(const QString &album);
         Q_INVOKABLE bool picAlbum(const QString &album, const QString &url);
@@ -58,7 +59,8 @@ class DBActions : public DB
         Q_INVOKABLE QVariantList getFolders();
         Q_INVOKABLE QVariantList get(const QString &queryTxt);
 
-
+signals:
+        void tagAdded(QString tag);
 };
 
 #endif // DBACTIONS_H

@@ -204,6 +204,7 @@ Kirigami.ApplicationWindow
     {
         id: pixFooter
     }
+
     Page
     {
         id: mainPage
@@ -223,7 +224,6 @@ Kirigami.ApplicationWindow
                 currentIndex: currentView
 
                 onCurrentIndexChanged: currentView = currentIndex
-
 
                 PixViewer
                 {

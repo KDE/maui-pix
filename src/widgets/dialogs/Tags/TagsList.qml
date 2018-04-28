@@ -9,6 +9,7 @@ ListView
 
     signal tagClicked(int index)
 
+
     highlight: Rectangle
     {
         width: tagListRoot.width
@@ -19,6 +20,7 @@ ListView
     focus: true
     interactive: true
     highlightFollowsCurrentItem: true
+    highlightMoveDuration: 0
 
     PixHolder
     {

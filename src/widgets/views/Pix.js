@@ -1,3 +1,5 @@
+.import "../../db/Query.js" as Q
+
 function refreshViews()
 {
     galleryView.populate()
@@ -22,3 +24,17 @@ function removePic(url)
         refreshViews()
 }
 
+function addTagsToPic(tags, url)
+{
+    for(var i in tags)
+        addTagToPic(tags[i], url)
+}
+
+function updatePicTags(tags, url)
+{
+    var oldTags = pix.get(Q.Query.picTags_.arg(pixViewer.currentPic.url))
+    for(var i in oldTags)
+        pix.removePicTag(oldTags[i].tag, url)
+
+    addTagsToPic(tags, url)
+}

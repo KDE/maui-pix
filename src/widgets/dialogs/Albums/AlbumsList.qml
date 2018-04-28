@@ -18,6 +18,7 @@ ListView
     focus: true
     interactive: true
     highlightFollowsCurrentItem: true
+    highlightMoveDuration: 0
 
     PixHolder
     {

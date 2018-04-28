@@ -14,6 +14,12 @@ Kirigami.PageRow
     defaultColumnWidth: Kirigami.Units.gridUnit * 15
     interactive: false
 
+    Connections
+    {
+        target: pix
+        onTagAdded: tagsSidebar.list.model.insert(tagsSidebar.list.count, {"tag": tag})
+    }
+
     TagsSidebar
     {
         id: tagsSidebar

@@ -3,6 +3,8 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
+import "../../../widgets/views/Pix.js" as PIX
+import "../../../db/Query.js" as Q
 import "../../../widgets/custom/TagBar"
 
 PixPage
@@ -67,11 +69,17 @@ PixPage
         TagBar
         {
             id: tagBar
+            allowEditMode: true
             visible: parent.visible
             anchors.fill: parent
             onAddClicked: tagsDialog.show(currentPic.url)
             onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
                                      tagsList.model.remove(index)
+            onTagsEdited:
+            {
+                PIX.updatePicTags(tags, pixViewer.currentPic.url)
+                tagsList.populate(Q.Query.picTags_.arg(pixViewer.currentPic.url))
+            }
         }
     }
 
@@ -135,5 +143,5 @@ PixPage
             anchors.bottom: parent.bottom
             onPicClicked: VIEWER.view(index)
         }
-    }    
+    }
 }

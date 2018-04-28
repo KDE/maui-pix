@@ -4,16 +4,18 @@ import QtQuick.Layouts 1.3
 
 GridView
 {
-    property int gridSize : 64
+    id: grid
     clip: true
     signal serviceClicked(int index)
 
-    width: Math.min(model.count, Math.floor(parent.width/cellWidth))*cellWidth
+    property int itemSize : isMobile ? iconSizes.huge * 1.5 : iconSizes.big
+    property int itemSpacing: isMobile ? space.medium : space.huge
+
+    width: parent.width
     height: parent.height
 
-    anchors.horizontalCenter: parent.horizontalCenter
-    cellHeight: gridSize+(contentMargins*2)
-    cellWidth: gridSize+gridSize
+    cellWidth: itemSize + itemSpacing
+    cellHeight: itemSize + itemSpacing
 
     focus: true
 
@@ -34,7 +36,10 @@ GridView
     delegate: ShareDelegate
     {
         id: delegate
-        iconSize : 32
+        iconSize : itemSize
+
+        height: grid.cellHeight
+        width: grid.cellWidth * 0.8
 
         Connections
         {
@@ -46,4 +51,17 @@ GridView
             }
         }
     }
+
+    onWidthChanged:
+    {
+        var amount = parseInt(grid.width/(itemSize + itemSpacing),10)
+        var leftSpace = parseInt(grid.width-(amount*(itemSize + itemSpacing)), 10)
+        var size = parseInt((itemSize + itemSpacing)+(parseInt(leftSpace/amount, 10)), 10)
+
+        size = size > itemSize + itemSpacing ? size : itemSize + itemSpacing
+
+        grid.cellWidth = size
+        //            grid.cellHeight = size
+    }
+
 }

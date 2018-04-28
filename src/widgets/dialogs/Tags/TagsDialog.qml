@@ -109,8 +109,6 @@ PixDialog
             for(var i in tags)
                 if(PIX.addTagToPic(tags[i].tag, url))
                     picTagged(tags[i].tag, url)
-
-            tagsView.populate()
         }
 
         close()

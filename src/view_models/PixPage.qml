@@ -55,8 +55,7 @@ Page
                 {
                     id: headerbarActionsLeft
                     Layout.alignment : Qt.AlignLeft
-                    spacing: contentMargins
-
+                    spacing: space.small
                 }
 
                 Label
@@ -77,11 +76,10 @@ Page
                 Row
                 {
                     id: headerbarActionsRight
-                    spacing: contentMargins
+                    spacing: space.small
                     Layout.alignment : Qt.AlignRight
                 }
             }
-
         }
 
         Column
@@ -91,10 +89,5 @@ Page
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
-
-
-
-
     }
-
 }

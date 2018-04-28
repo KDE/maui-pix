@@ -142,6 +142,13 @@ Item
                 color: highlightedTextColor
                 text: selectionList.count
             }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked: selectionList.model.clear()
+
+            }
         }
 
     }

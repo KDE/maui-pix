@@ -5,11 +5,8 @@ import org.kde.kirigami 2.2 as Kirigami
 
 ItemDelegate
 {
-    property int iconSize : 48
+    property int iconSize : iconSizes.big
     property string labelColor: GridView.isCurrentItem ? highlightedTextColor : textColor
-
-    height: 64
-    width: 100
 
     background: Rectangle
     {
@@ -20,28 +17,38 @@ ItemDelegate
     {
         anchors.fill: parent
 
-        Kirigami.Icon
+        Item
         {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignCenter
-            source: serviceIcon
-            isMask: false
 
-            height: iconSize
-            width: iconSize
+            Kirigami.Icon
+            {
+                anchors.centerIn: parent
+                source: serviceIcon
+                isMask: false
 
+                height: iconSize
+                width: iconSize
+
+            }
         }
 
-        Label
+        Item
         {
-            text: serviceLabel
-            width: parent.width
+            Layout.fillHeight: true
             Layout.fillWidth: true
-            horizontalAlignment: Qt.AlignHCenter
-            elide: Qt.ElideRight
-            font.pointSize: fontSizes.default
-            color: labelColor
+            Label
+            {
+                text: serviceLabel
+                width: parent.width
+                height: parent.height * 0.8
+                horizontalAlignment: Qt.AlignHCenter
+                elide: Qt.ElideRight
+                wrapMode: Text.Wrap
+                font.pointSize: fontSizes.default
+                color: labelColor
+            }
         }
     }
 }

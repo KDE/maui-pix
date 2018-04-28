@@ -8,8 +8,8 @@ PixPopup
     property string picUrl : ""
 
     padding: contentMargins
-    maxWidth: (shareGrid.cellWidth*3)+(contentMargins*3)
-    height: 230
+    maxWidth: parent.width / 2
+    height: parent.height * 0.3
     parent: parent
 
     ColumnLayout

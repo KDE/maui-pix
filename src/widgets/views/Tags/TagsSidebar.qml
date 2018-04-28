@@ -9,6 +9,7 @@ PixPage
     pageMargins : 0
     headerbarExit: false
     headerbarTitle: qsTr("Tags");
+    clip: true
 
     headerBarLeft: PixButton
     {
@@ -23,6 +24,7 @@ PixPage
     content: ListView
     {
         id: tagsList
+        clip: true
 
         height: parent.height
         width: parent.width

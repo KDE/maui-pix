@@ -185,18 +185,30 @@ bool DBActions::addTag(const QString &tag)
         {PIX::KEYMAP[PIX::KEY::TAG], tag}
     };
 
-    this->insert(PIX::TABLEMAP[PIX::TABLE::TAGS], tagMap);
+    if(this->insert(PIX::TABLEMAP[PIX::TABLE::TAGS], tagMap))
+    {
+        emit tagAdded(tag);
+        return true;
+    }
+
+    return false;
 }
 
 bool DBActions::picTag(const QString &tag, const QString &url)
 {
-    this->addTag(tag);
-    QVariantMap taggedPic
+    if(!tag.isEmpty() && tag.length() >0 && PIX::fileExists(url))
     {
-        {PIX::KEYMAP[PIX::KEY::URL], url},
-        {PIX::KEYMAP[PIX::KEY::TAG], tag}
-    };
-    return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], taggedPic);
+        auto myTag = tag.trimmed();
+        this->addTag(myTag);
+        QVariantMap taggedPic
+        {
+            {PIX::KEYMAP[PIX::KEY::URL], url},
+            {PIX::KEYMAP[PIX::KEY::TAG], myTag}
+        };
+        return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], taggedPic);
+    }
+
+    return false;
 }
 
 bool DBActions::albumTag(const QString &tag, const QString &album)
@@ -220,6 +232,11 @@ bool DBActions::removeAlbumTag(const QString &tag, const QString &album)
 {
     PIX::DB tagMap {{PIX::KEY::TAG, tag}, {PIX::KEY::ALBUM, album}};
     return this->remove(PIX::TABLEMAP[PIX::TABLE::ALBUMS_TAGS], tagMap);
+}
+
+bool DBActions::cleanTags()
+{
+    return false;
 }
 
 bool DBActions::addAlbum(const QString &album)
