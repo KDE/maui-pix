@@ -30,9 +30,6 @@ GridView
     model: ListModel
     {
         id: gridModel
-
-        ListElement{album: "Favs"}
-        ListElement{album: "Recent"}
     }
 
     highlightMoveDuration: 0
@@ -65,7 +62,6 @@ GridView
         size = size > itemSize + itemSpacing ? size : itemSize + itemSpacing
 
         cellWidth = size
-        //            grid.cellHeight = size
     }
 
     ScrollBar.vertical: ScrollBar{ visible: true}

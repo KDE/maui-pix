@@ -20,6 +20,7 @@ ItemDelegate
     ColumnLayout
     {
         anchors.fill: parent
+        anchors.centerIn: parent
         spacing: space.small
 
         Item
@@ -75,6 +76,4 @@ ItemDelegate
             }
         }
     }
-
-
 }

@@ -1,45 +1,49 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import "../../../view_models"
+import org.kde.kirigami 2.2 as Kirigami
 
-Page
+Kirigami.PageRow
 {
-    StackView
+    id: foldersPageRoot
+    separatorVisible: foldersPageRoot.wideMode
+    initialPage: [foldersPage, picsView]
+    defaultColumnWidth: parent.width
+    interactive: foldersPageRoot.currentIndex  === 1
+    clip: true
+
+    PixPage
     {
-        id: stackView
-        height: parent.height
-        width: parent.width
+        id: foldersPage
+        anchors.fill: parent
 
-        initialItem: PixPage
+        headerbarVisible: false
+        headerbarExit: false
+
+        content: FoldersGrid
         {
-            id: foldersPage
-            headerbarVisible: false
-            headerbarExit: false
+            id: folderGrid
 
-            content: FoldersGrid
+            onFolderClicked:
             {
-                id: folderGrid
-
-                onFolderClicked:
-                {
-                    folderGrid.currentIndex = index
-                    picsView.headerbarTitle = folderGrid.model.get(index).folder
-                    picsView.clear()
-                    picsView.populate(folderGrid.model.get(index).url)
-                    if(stackView.currentItem === foldersPage)
-                        stackView.push(picsView)
-                }
+                folderGrid.currentIndex = index
+                picsView.headerbarTitle = folderGrid.model.get(index).folder
+                picsView.clear()
+                picsView.populate(folderGrid.model.get(index).url)
+                foldersPageRoot.currentIndex = 1
             }
         }
+    }
 
-        PicsView
-        {
-            id: picsView
-            headerbarVisible: true
-            headerbarExit: stackView.currentItem === picsView
-            headerbarExitIcon: "go-previous"
-            onExit: stackView.pop(foldersPage)
-        }
+    PicsView
+    {
+        id: picsView
+        anchors.fill: parent
+
+        headerbarVisible: true
+        headerbarExit: foldersPageRoot.currentIndex === 1
+        headerbarExitIcon: "go-previous"
+        onExit: foldersPageRoot.currentIndex = 0
     }
 
     function populate()

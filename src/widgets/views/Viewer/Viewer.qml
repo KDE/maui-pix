@@ -54,10 +54,7 @@ Item
         viewerList.model.clear()
         if(pics.length > 0)
             for(var i in pics)
-            {
-                console.log("Appending to viewer", pics[i].url)
                 viewerList.model.append(pics[i])
 
-            }
     }
 }

@@ -10,6 +10,7 @@ ItemDelegate
     property bool showLabel : true
     property bool showIndicator : false
     property bool fit : false
+
     property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
 
     property color labelColor : (GridView.isCurrentItem || (keepEmblemOverlay && emblemAdded)) && !hovered && showSelectionBackground? highlightedTextColor : textColor
@@ -69,6 +70,7 @@ ItemDelegate
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
+
 
             Image
             {

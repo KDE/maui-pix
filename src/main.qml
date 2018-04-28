@@ -51,7 +51,7 @@ Kirigami.ApplicationWindow
     visible: true
     title: qsTr("Pix")
     width: Screen.width * (isMobile ? 1 : 0.5)
-    //    height: Screen.height * (isMobile ? 1 : 0.4)
+    height: Screen.height * (isMobile ? 1 : 0.4)
     visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 
     /* FOR MATERIAL*/
@@ -92,23 +92,23 @@ Kirigami.ApplicationWindow
     readonly property int contentMargins: space.medium
     readonly property int defaultFontSize: Kirigami.Theme.defaultFont.pointSize
     readonly property var fontSizes: ({
-                                        tiny: defaultFontSize * 0.7,
+                                          tiny: defaultFontSize * 0.7,
 
-                                        small: (isMobile ? defaultFontSize * 0.7 :
-                                                            defaultFontSize * 0.8),
+                                          small: (isMobile ? defaultFontSize * 0.7 :
+                                                             defaultFontSize * 0.8),
 
-                                        medium: (isMobile ? defaultFontSize * 0.8 :
-                                                            defaultFontSize * 0.9),
+                                          medium: (isMobile ? defaultFontSize * 0.8 :
+                                                              defaultFontSize * 0.9),
 
-                                        default: (isMobile ? defaultFontSize * 0.9 :
-                                                            defaultFontSize),
+                                          default: (isMobile ? defaultFontSize * 0.9 :
+                                                               defaultFontSize),
 
-                                        big: (isMobile ? defaultFontSize :
-                                                        defaultFontSize * 1.1),
+                                          big: (isMobile ? defaultFontSize :
+                                                           defaultFontSize * 1.1),
 
-                                        large: (isMobile ? defaultFontSize * 1.1 :
-                                                            defaultFontSize * 1.2)
-                                    })
+                                          large: (isMobile ? defaultFontSize * 1.1 :
+                                                             defaultFontSize * 1.2)
+                                      })
 
     readonly property var space : ({
                                        tiny: Kirigami.Units.smallSpacing,
@@ -136,10 +136,10 @@ Kirigami.ApplicationWindow
                                                               Kirigami.Units.iconSizes.large),
 
                                            huge: (isMobile ? Kirigami.Units.iconSizes.large :
-                                                              Kirigami.Units.iconSizes.huge),
+                                                             Kirigami.Units.iconSizes.huge),
 
                                            enormous: (isMobile ? Kirigami.Units.iconSizes.huge :
-                                                              Kirigami.Units.iconSizes.enormous)
+                                                                 Kirigami.Units.iconSizes.enormous)
 
                                        })
 

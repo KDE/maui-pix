@@ -1,5 +1,8 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
+
+import org.kde.kirigami 2.2 as Kirigami
+
 import "../../../view_models"
 import "../../../db/Query.js" as Q
 
@@ -8,26 +11,16 @@ import "../../../widgets/custom/TagBar"
 import "../../dialogs/Tags"
 
 
-Page
+Kirigami.PageRow
 {
+    id: albumsPageRoot
     property alias albumsGrid : albumGrid
 
-
-    footer: ToolBar
-    {
-        id: footerBar
-        position: ToolBar.Footer
-        visible: false
-        TagBar
-        {
-            id: tagBar
-            anchors.fill: parent
-            onAddClicked: tagsDialog.show(albumGrid.currentAlbum)
-
-            onTagRemovedClicked: if(pix.removeAlbumTag(tagsList.model.get(index).tag, albumGrid.currentAlbum))
-                                     tagsList.model.remove(index)
-        }
-    }
+    separatorVisible: albumsPageRoot.wideMode
+    initialPage: [albumsPage, picsView]
+    defaultColumnWidth: parent.width
+    interactive: albumsPageRoot.currentIndex  === 1
+    clip: true
 
     TagsDialog
     {
@@ -41,66 +34,73 @@ Page
     {
         id: newAlbumDialog
         onAlbumCreated: albumGrid.model.append({"album": album})
-
     }
 
-    StackView
+    PixPage
     {
-        id: stackView
-        height: parent.height
-        width: parent.width
+        id: albumsPage
+        anchors.fill: parent
+        headerbarTitle: albumGrid.count+qsTr(" Albums")
+        headerbarExit: false
 
-        initialItem: PixPage
+        headerBarRight:  PixButton
         {
-            id: albumsPage
-            headerbarTitle: albumGrid.count+qsTr(" Albums")
-            headerbarExit: false
+            iconName: "overflow-menu"
+        }
 
-            headerBarRight: [
+        headerBarLeft: PixButton
+        {
+            iconName: "list-add"
+            onClicked: newAlbumDialog.open()
+        }
 
-                PixButton
-                {
-                    iconName: "overflow-menu"
-                }
+        content: AlbumsGrid
+        {
+            id: albumGrid
+            height: parent.height
+            width: parent.width
+            onAlbumClicked: filter(model.get(index).album)
+        }
+    }
 
-            ]
+    PixGrid
+    {
+        id: picsView
+        anchors.fill: parent
 
-            headerBarLeft: [
+        headerbarVisible: true
+        holder.message: "<h2>No Pics!</h2><p>This albums is empty</p>"
+        holder.emoji: "qrc:/img/assets/face-sleeping.png"
 
-                PixButton
-                {
-                    iconName: "list-add"
-                    onClicked: newAlbumDialog.open()
-                }
-            ]
+        headerbarExit: albumsPageRoot.currentIndex === 1
+        headerbarExitIcon: "go-previous"
+        headerbarTitle: albumGrid.currentAlbum
 
-            content: AlbumsGrid
+        onExit: albumsPageRoot.currentIndex = 0
+
+        footer: ToolBar
+        {
+            id: footerBar
+            position: ToolBar.Footer
+            visible: false
+            TagBar
             {
-                id: albumGrid
-                height: parent.height
-                width: parent.width
-                onAlbumClicked: filter(model.get(index).album)
+                id: tagBar
+                anchors.fill: parent
+                onAddClicked: tagsDialog.show(albumGrid.currentAlbum)
+
+                onTagRemovedClicked: if(pix.removeAlbumTag(tagsList.model.get(index).tag, albumGrid.currentAlbum))
+                                         tagsList.model.remove(index)
             }
         }
 
-        PixGrid
-        {
-            id: picsView
-            headerbarVisible: true
-            holder.message: "<h2>No Pics!</h2><p>This albums is empty</p>"
-            holder.emoji: "qrc:/img/assets/face-sleeping.png"
-
-            headerbarExit: stackView.currentItem === picsView
-            headerbarExitIcon: "go-previous"
-            headerbarTitle: albumGrid.currentAlbum
-
-            onExit: stackView.pop(albumsPage)
-        }
     }
 
     function populate()
     {
-        var albums = pix.get(Q.Query.allAlbums)
+        var albums = [{album: "Favs"}, {album: "Recent"}]
+        albums.push(pix.get(Q.Query.allAlbums))
+
         if(albums.length > 0)
             for(var i in albums)
                 albumGrid.model.append(albums[i])
@@ -138,14 +138,13 @@ Page
 
     function populateAlbum(query)
     {
+        albumsPageRoot.currentIndex = 1
         var pics = pix.get(query)
 
         if(pics.length > 0)
             for(var i in pics)
                 picsView.grid.model.append(pics[i])
 
-        if(stackView.currentItem === albumsPage)
-            stackView.push(picsView)
     }
 
 }
