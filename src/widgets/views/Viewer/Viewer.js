@@ -4,11 +4,9 @@
 
 function open(model, index)
 {
-    pixViewer.currentPicIndex = index
-    pixViewer.picContext = model
-    pixViewer.roll.populate(pixViewer.picContext)
-
-    view(pixViewer.currentPicIndex)
+    pixViewer.roll.populate(model)
+    pixViewer.viewer.populate(model)
+    view(index)
 
     if(currentView !== views.viewer)
         currentView = views.viewer
@@ -17,12 +15,15 @@ function open(model, index)
 
 function view(index)
 {
-    pixViewer.currentPic = pixViewer.picContext[index]
     pixViewer.currentPicIndex = index
+
+    pixViewer.currentPic = pixViewer.viewer.list.model.get(pixViewer.currentPicIndex)
+
     pixViewer.currentPicFav = pix.isFav(pixViewer.currentPic.url)
     pixViewer.tagBar.tagsList.populate(Q.Query.picTags_.arg(pixViewer.currentPic.url))
     root.title = pixViewer.currentPic.title
-    pixViewer.roll.position(index)
+
+    pixViewer.roll.position(pixViewer.currentPicIndex)
 }
 
 function fullscreen(state)
@@ -32,9 +33,9 @@ function fullscreen(state)
 
 function next()
 {
-    if(pixViewer.picContext && pixViewer.picContext.length > 0)
+    if(pixViewer.viewer.list.count > 0)
     {
-        if(pixViewer.currentPicIndex < pixViewer.picContext.length)
+        if(pixViewer.currentPicIndex < pixViewer.viewer.list.count)
             pixViewer.currentPicIndex++
         else
             pixViewer.currentPicIndex = 0
@@ -45,12 +46,12 @@ function next()
 
 function previous()
 {
-    if(pixViewer.picContext && pixViewer.picContext.length > 0)
+    if(pixViewer.viewer.list.count > 0)
     {
         if(pixViewer.currentPicIndex > 0)
             pixViewer.currentPicIndex--
         else
-            pixViewer.currentPicIndex = pixViewer.picContext.length-1
+            pixViewer.currentPicIndex = pixViewer.viewer.list.count-1
 
         view(pixViewer.currentPicIndex)
     }

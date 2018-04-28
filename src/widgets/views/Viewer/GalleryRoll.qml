@@ -33,10 +33,10 @@ Item
         width: parent.width* 0.9
         height: parent.height * 0.9
         anchors.centerIn: parent
-
+        currentIndex: currentPicIndex
         orientation: ListView.Horizontal
         clip: true
-        spacing: space.tiny
+        spacing: space.small
 
         focus: true
         interactive: true
@@ -47,9 +47,9 @@ Item
         {
             id: delegate
             picSize: rollPicSize
-
             height: rollPicSize
             width: rollPicSize
+            anchors.verticalCenter: parent.verticalCenter
 
             picRadius: 0
             showLabel: false

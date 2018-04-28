@@ -1,8 +1,8 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-import QtGraphicalEffects 1.0
 
 import "../../"
+import "Viewer.js" as VIEWER
 
 Item
 {
@@ -13,79 +13,51 @@ Item
     property real picHue : 0
     property real picLightness : 0
 
+    property alias list : viewerList
     clip: true
 
-    Image
+    ListView
     {
-        id: pic
-        anchors.centerIn: parent
-        horizontalAlignment: Qt.AlignHCenter
-        verticalAlignment: Qt.AlignVCenter
+        id: viewerList
+        height: parent.height
         width: parent.width
-        source: "file://"+currentPic.url
-        fillMode: Image.PreserveAspectFit
-        cache: true
-        asynchronous: true
-        MouseArea
+        orientation: ListView.Horizontal
+        currentIndex: currentPicIndex
+        clip: true
+        focus: true
+        interactive: true
+        highlightFollowsCurrentItem: true
+        highlightMoveDuration: 0
+        snapMode: ListView.SnapOneItem
+
+        onMovementEnded:
         {
-            anchors.fill: parent
-            acceptedButtons:  Qt.LeftButton | Qt.RightButton
-
-            onEntered: galleryRoll.visible = !galleryRoll.visible
-            onPressAndHold: picMenu.show(currentPic.url)
-
-            onWheel: wheel.angleDelta.y > 0 ? zoomIn() : zoomOut()
-
-            onClicked: if(!isMobile && mouse.button === Qt.RightButton)
-                           picMenu.show(currentPic.url)
+            var index = indexAt(contentX, contentY)
+            if(index !== currentPicIndex)
+                VIEWER.view(index)
         }
 
-//        BrightnessContrast
-//        {
-//            anchors.fill: pic
-//            source: pic
-//            brightness: picBrightness
-//            contrast: picContrast
-//        }
+        model : ListModel{}
 
-//        HueSaturation
-//        {
-//            anchors.fill: pic
-//            source: pic
-//            hue: picHue
-//            saturation: picSaturation
-//            lightness: picLightness
-//        }
+        delegate: ViewerDelegate
+        {
+            id: delegate
+            itemHeight: viewerList.height
+            itemWidth: viewerList.width
+
+        }
     }
 
-    function zoomIn()
-    {
-        pic.width = pic.width + 50
-    }
 
-    function zoomOut()
+    function populate(pics)
     {
-        pic.width = pic.width - 50
-    }
+        viewerList.model.clear()
+        if(pics.length > 0)
+            for(var i in pics)
+            {
+                console.log("Appending to viewer", pics[i].url)
+                viewerList.model.append(pics[i])
 
-    function fit()
-    {
-        pic.width = pic.sourceSize.width
-    }
-
-    function fill()
-    {
-        pic.width = parent.width
-    }
-
-    function rotateLeft()
-    {
-        pic.rotation = pic.rotation - 90
-    }
-
-    function rotateRight()
-    {
-        pic.rotation = pic.rotation + 90
-
+            }
     }
 }

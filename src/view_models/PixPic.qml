@@ -85,7 +85,7 @@ ItemDelegate
                 fillMode: fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
                 source: (url && url.length>0)?
                             "file://"+encodeURIComponent(url) :
-                            "qrc:/../assets/face.png"
+                            "qrc:/img/assets/image-x-generic.svg"
                 asynchronous: true
 
                 Rectangle
@@ -123,11 +123,11 @@ ItemDelegate
             Layout.fillHeight: showLabel
             Layout.fillWidth: true
             Layout.maximumHeight: !showLabel ? 0 : parent.height * (isMobile? 0.5 : 0.3)
+            visible: showLabel
 
             Label
             {
                 text: title
-                visible: showLabel
                 width: parent.width
                 height: parent.height * 0.8
                 horizontalAlignment: Qt.AlignHCenter

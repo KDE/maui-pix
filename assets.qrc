@@ -9,5 +9,7 @@
         <file>assets/album_bg_normal.png</file>
         <file>assets/banner.png</file>
         <file>assets/album.svg</file>
+        <file>assets/image-x-generic.svg</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
