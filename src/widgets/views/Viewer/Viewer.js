@@ -32,10 +32,6 @@ function setCurrentPicTags()
     pixViewer.tagBar.tagsList.populate(Q.Query.picTags_.arg(pixViewer.currentPic.url))
 }
 
-function fullscreen(state)
-{
-
-}
 
 function next()
 {

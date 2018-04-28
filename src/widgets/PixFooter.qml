@@ -128,9 +128,14 @@ ToolBar
                 ToolTip.visible: hovered
                 ToolTip.text: qsTr("Fullscreen")
 
-                onClicked: fullScreen = !fullScreen
+                onClicked: goFullScreen()
             }
         }
+    }
 
+
+    function goFullScreen()
+    {
+        fullScreen = !fullScreen
     }
 }

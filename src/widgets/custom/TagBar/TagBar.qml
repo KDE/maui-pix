@@ -52,7 +52,6 @@ Item
                         propagateComposedEvents: true
                         onClicked: if(allowEditMode) goEditMode()
                     }
-
                 }
             }
         }
@@ -71,7 +70,7 @@ Item
                 {
                     Layout.fillHeight: true
                     Layout.fillWidth:true
-                    Layout.margins: space.big
+//                    Layout.margins: space.big
                     TextInput
                     {
                         id: editTagsEntry

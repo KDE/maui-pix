@@ -28,12 +28,12 @@ PixPage
     {
         anchors.fill: parent
         z: -1
-        color: viewerBackgroundColor
+        color: fullScreen ? "black" : viewerBackgroundColor
     }
 
     headerbarTitle: currentPic.title || ""
     headerbarExit: false
-    headerbarVisible: !holder.visible
+    headerbarVisible: !holder.visible && !fullScreen
     headerBarRight: [
 
         PixButton
@@ -65,7 +65,7 @@ PixPage
     {
         id: footerToolbar
         position: ToolBar.Footer
-        visible: !holder.visible && tagBarVisible
+        visible: !holder.visible && tagBarVisible && !fullScreen
         TagBar
         {
             id: tagBar

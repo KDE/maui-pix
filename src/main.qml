@@ -187,7 +187,7 @@ Kirigami.ApplicationWindow
     header: PixsBar
     {
         id: toolBar
-        visible: true
+        visible: !fullScreen
 
         currentIndex: currentView
 
