@@ -8,7 +8,7 @@ GridView
     clip: true
     signal serviceClicked(int index)
 
-    property int itemSize : isMobile ? iconSizes.huge * 1.5 : iconSizes.big
+    property int itemSize : isMobile ? iconSizes.big : iconSizes.big
     property int itemSpacing: isMobile ? space.medium : space.huge
 
     width: parent.width

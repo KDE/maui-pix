@@ -7,12 +7,13 @@ import "../../../db/Query.js" as Q
 
 Kirigami.PageRow
 {
+    id: tagsPageRoot
     clip: true
 
     separatorVisible: wideMode
     initialPage: [tagsSidebar, tagsGrid]
     defaultColumnWidth: Kirigami.Units.gridUnit * 15
-    interactive: false
+    interactive: currentIndex === 1
 
     Connections
     {
