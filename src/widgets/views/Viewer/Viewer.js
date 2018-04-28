@@ -20,10 +20,16 @@ function view(index)
     pixViewer.currentPic = pixViewer.viewer.list.model.get(pixViewer.currentPicIndex)
 
     pixViewer.currentPicFav = pix.isFav(pixViewer.currentPic.url)
-    pixViewer.tagBar.tagsList.populate(Q.Query.picTags_.arg(pixViewer.currentPic.url))
+    setCurrentPicTags()
+
     root.title = pixViewer.currentPic.title
 
     pixViewer.roll.position(pixViewer.currentPicIndex)
+}
+
+function setCurrentPicTags()
+{
+    pixViewer.tagBar.tagsList.populate(Q.Query.picTags_.arg(pixViewer.currentPic.url))
 }
 
 function fullscreen(state)

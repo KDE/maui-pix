@@ -62,7 +62,7 @@ Item
                 iconColor: "white"
                 size: iconSizes.small
                 flat: true
-                onClicked: clearSelection()
+                onClicked: removeSelection()
             }
         }
 
@@ -101,7 +101,7 @@ Item
                 Connections
                 {
                     target: delegate
-                    onEmblemClicked: removeSelection(index)
+                    onEmblemClicked: removeItem(index)
                 }
             }
         }
@@ -146,22 +146,28 @@ Item
             MouseArea
             {
                 anchors.fill: parent
-                onClicked: selectionList.model.clear()
+                onClicked: cleanSelection()
 
             }
         }
 
     }
 
-    function clearSelection()
+    function cleanSelection()
     {
-        if(selectionMode)
-            selectionMode = false
+        selectionList.model.clear()
         selectedPaths = []
         selectionList.model.clear()
     }
 
-    function removeSelection(index)
+    function removeSelection()
+    {
+        if(selectionMode)
+            selectionMode = false
+        cleanSelection()
+    }
+
+    function removeItem(index)
     {
         var item = selectionList.model.get(index)
         var indexof = selectedPaths.indexOf(item.url)

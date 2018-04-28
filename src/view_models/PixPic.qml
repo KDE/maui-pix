@@ -10,6 +10,7 @@ ItemDelegate
     property bool showLabel : true
     property bool showIndicator : false
     property bool fit : false
+    property bool isHovered :  hovered
 
     property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
 
@@ -47,9 +48,10 @@ ItemDelegate
     PixButton
     {
         id: emblem
+
         size:  iconSizes.medium
         iconName: (keepEmblemOverlay && emblemAdded) ? "emblem-remove" : "emblem-added"
-        visible: parent.hovered || (keepEmblemOverlay && emblemAdded)
+        visible: isHovered || (keepEmblemOverlay && emblemAdded)
         isMask: false
         z: 999
         anchors.top: parent.top

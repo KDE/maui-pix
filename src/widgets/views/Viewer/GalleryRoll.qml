@@ -63,6 +63,9 @@ Item
                     rollList.currentIndex = index
                     picClicked(index)
                 }
+
+                onPressAndHold: picMenu.show(rollList.model.get(index).url)
+                onRightClicked: picMenu.show(rollList.model.get(index).url)
             }
         }
     }

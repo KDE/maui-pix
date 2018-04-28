@@ -87,7 +87,7 @@ PixPage
     {
         target: tagsDialog
         onPicTagged: if(currentView === views.viewer)
-                         tagBar.tagsList.model.insert(0, {"tag": tag})
+                         VIEWER.setCurrentPicTags()
     }
 
     ViewerMenu
