@@ -84,7 +84,6 @@ PixPage
         cellWidth: itemSize + itemSpacing
         cellHeight: itemSize + itemSpacing
 
-
         focus: true
         boundsBehavior: Flickable.StopAtBounds
 
