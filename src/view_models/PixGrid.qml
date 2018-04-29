@@ -12,6 +12,7 @@ PixPage
     property int itemSize : isMobile ? iconSizes.huge * 1.5 : iconSizes.enormous
     property int itemSpacing: isMobile ? space.medium : space.big
     property int itemRadius : Kirigami.Units.devicePixelRatio * 6
+    property bool showLabels : pix.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
 
     property alias grid: grid
     property alias holder: holder
@@ -53,8 +54,17 @@ PixPage
             onTriggered:
             {
                 fitPreviews = !fitPreviews
+                pix.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
+            }
+        }
 
-                pix.saveSettings("PREVIEWS_FIT", fitPreviews, "PIX")
+        MenuItem
+        {
+            text: qsTr(showLabels ? "Hide labels" : "Show labels")
+            onTriggered:
+            {
+                showLabels = !showLabels
+                pix.saveSettings("SHOW_LABELS", showLabels, "GRID")
             }
         }
     }
@@ -125,7 +135,7 @@ PixPage
             picSize : itemSize
             picRadius : itemRadius
             fit: fitPreviews
-
+            showLabel: gridPage.showLabels
             height: grid.cellHeight * 0.9
             width: grid.cellWidth * 0.8
 

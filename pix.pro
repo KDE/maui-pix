@@ -13,12 +13,10 @@ TEMPLATE = app
 DESTDIR = $$OUT_PWD/../
 
 linux:unix:!android {
-
     message(Building for Linux KDE)
     include(kde/KDE.pri)
 
 } else:android {
-
     message(Building helpers for Android)
 
     include(android/Android.pri)
@@ -67,4 +65,3 @@ HEADERS += \
     src/db/db.h \
     src/db/dbactions.h \
     src/utils/pic.h
-

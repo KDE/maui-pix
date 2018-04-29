@@ -73,7 +73,6 @@ ItemDelegate
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
 
-
             Image
             {
                 id: img
