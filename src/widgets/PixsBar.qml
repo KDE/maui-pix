@@ -52,31 +52,12 @@ ToolBar
             }
         }
 
-        Item { Layout.fillWidth: true }
-
         Item
         {
-            Layout.alignment: Qt.AlignLeft
             Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.maximumWidth: viewerView.implicitWidth * 1.3
-
-            PixButton
-            {
-                id: viewerView
-                anchors.centerIn: parent
-                text: qsTr("Viewer")
-                iconColor: currentIndex === views.viewer? accentColor : textColor
-                iconName: "view-preview"
-                onClicked: viewerViewClicked()
-
-                hoverEnabled: !isMobile
-                ToolTip.delay: 1000
-                ToolTip.timeout: 5000
-                ToolTip.visible: hovered
-                ToolTip.text: qsTr("Viewer")
-            }
+            Layout.minimumWidth: 0
         }
+
 
         Item
         {
@@ -173,7 +154,12 @@ ToolBar
                 ToolTip.text: qsTr("Tags")
             }
         }
-        Item { Layout.fillWidth: true }
+
+        Item
+        {
+            Layout.fillWidth: true
+            Layout.minimumWidth: 0
+        }
 
         Item
         {
