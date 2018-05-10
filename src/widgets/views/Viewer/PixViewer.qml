@@ -114,7 +114,7 @@ PixPage
         id: editTools
         width: parent.width * 0.4
 
-        height: parent.height - headerBar.height - pixFooter.height - toolBar.height
+        height: parent.height - headerBar.height - pixFooter.height - headBar.height
         y: headerBar.height + pixFooter.height
 
     }

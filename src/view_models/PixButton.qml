@@ -20,7 +20,7 @@ ToolButton
     icon.width:  size
     icon.height:  size
     icon.color: !isMask  ?  "transparent" : (down ? highlightColor : (iconColor || defaultColor))
-    display: wideMode ? AbstractButton.TextBesideIcon : AbstractButton.IconOnly
+    display: isWide ? AbstractButton.TextBesideIcon : AbstractButton.IconOnly
 
     onClicked: if(anim) animIcon.running = true
 

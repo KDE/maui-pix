@@ -1,141 +1,33 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import "../view_models"
+import org.kde.maui 1.0 as Maui
+
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
-ToolBar
+
+Row
 {
+    spacing: space.medium
     id: footerToolbar
-    visible: !pixViewer.holder.visible && currentView === views.viewer
-    position: ToolBar.Footer
 
-    RowLayout
+
+    Maui.ToolButton
     {
-        anchors.fill: parent
-
-        Item
-        {
-            Layout.alignment: Qt.AlignLeft
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.maximumWidth: iconSize * 2
-
-            PixButton
-            {
-                anchors.centerIn: parent
-
-                iconName: "document-share"
-
-                hoverEnabled: !isMobile
-                ToolTip.delay: 1000
-                ToolTip.timeout: 5000
-                ToolTip.visible: hovered
-                ToolTip.text: qsTr("Share")
-
-                onClicked: isAndroid ? android.shareDialog(pixViewer.currentPic.url) :
-                                      shareDialog.show(pixViewer.currentPic.url)
-            }
-        }
-
-        Item { Layout.fillWidth: true }
-
-        Item
-        {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.maximumWidth: iconSize*2
-
-            PixButton
-            {
-                anchors.centerIn: parent
-
-                iconName: "go-previous"
-
-                hoverEnabled: !isMobile
-                ToolTip.delay: 1000
-                ToolTip.timeout: 5000
-                ToolTip.visible: hovered
-                ToolTip.text: qsTr("Previous")
-
-                onClicked: VIEWER.previous()
-            }
-        }
-
-        Item
-        {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.maximumWidth: iconSize*2
-
-            PixButton
-            {
-                id: favIcon
-                anchors.centerIn: parent
-
-                iconName: "love"
-                iconColor: pixViewer.currentPicFav? pix.pixColor() : textColor
-                hoverEnabled: !isMobile
-                ToolTip.delay: 1000
-                ToolTip.timeout: 5000
-                ToolTip.visible: hovered
-                ToolTip.text: qsTr("Fav")
-
-                onClicked: pixViewer.currentPicFav = VIEWER.fav(pixViewer.currentPic.url)
-
-            }
-        }
-
-        Item
-        {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.maximumWidth: iconSize*2
-
-            PixButton
-            {
-                anchors.centerIn: parent
-
-                iconName: "go-next"
-
-                hoverEnabled: !isMobile
-                ToolTip.delay: 1000
-                ToolTip.timeout: 5000
-                ToolTip.visible: hovered
-                ToolTip.text: qsTr("Next")
-
-                onClicked: VIEWER.next()
-            }
-        }
-
-        Item { Layout.fillWidth: true }
-
-        Item
-        {
-            Layout.alignment: Qt.AlignRight
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.maximumWidth: iconSize * 2
-
-            PixButton
-            {
-                anchors.centerIn: parent
-
-                iconName: fullScreen? "window-close" : "view-fullscreen"
-
-                hoverEnabled: !isMobile
-                ToolTip.delay: 1000
-                ToolTip.timeout: 5000
-                ToolTip.visible: hovered
-                ToolTip.text: qsTr("Fullscreen")
-
-                onClicked: goFullScreen()
-            }
-        }
+        iconName: "go-previous"
+        onClicked: VIEWER.previous()
     }
 
-
-    function goFullScreen()
+    Maui.ToolButton
     {
-        fullScreen = !fullScreen
+        id: favIcon
+        iconName: "love"
+        iconColor: pixViewer.currentPicFav? pix.pixColor() : textColor
+        onClicked: pixViewer.currentPicFav = VIEWER.fav(pixViewer.currentPic.url)
+    }
+
+    Maui.ToolButton
+    {
+        iconName: "go-next"
+        onClicked: VIEWER.next()
     }
 }

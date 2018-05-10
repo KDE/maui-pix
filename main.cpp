@@ -38,6 +38,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "./3rdparty/kirigami/src/kirigamiplugin.h"
 #endif
 
+#include "mauikit/src/mauikit.h"
+
 QStringList getFolderImages(const QString &path)
 {
     QStringList urls;
@@ -119,6 +121,10 @@ int main(int argc, char *argv[])
     QIcon::setThemeName("Luv");
     Android android;
     context->setContextProperty("android", &android);
+#endif
+
+#ifdef MAUI_APP
+    MauiKit::getInstance().registerTypes();
 #endif
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
