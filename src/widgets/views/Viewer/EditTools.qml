@@ -1,7 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import "../../../view_models"
+import org.kde.maui 1.0 as Maui
 
 Drawer
 {
@@ -35,7 +35,7 @@ Drawer
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
-                        PixButton
+                        Maui.ToolButton
                         {
                             anchors.centerIn: parent
                             iconName: "object-rotate-left"
@@ -49,7 +49,7 @@ Drawer
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
-                        PixButton
+                        Maui.ToolButton
                         {
                             anchors.centerIn: parent
                             iconName: "object-rotate-right"
@@ -85,6 +85,7 @@ Drawer
 
                     text: qsTr("Contrast")
                 }
+
                 Slider
                 {
                     id: contrastSlider

@@ -31,12 +31,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QColor>
 #include <QDesktopServices>
 
-#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
-#include "kde/notify.h"
-#include "kde/kdeconnect.h"
-#include "kde/kde.h"
-#endif
-
 using namespace PIX;
 
 Pix::Pix(QObject *parent) : DBActions(parent)
@@ -229,44 +223,6 @@ QVariantMap Pix::getParentDir(const QString &path)
     else
         return {{"url", path}, {"name", QFileInfo(path).dir().dirName()}};
 
-}
-
-QVariantList Pix::openWith(const QString &url)
-{
-#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
-    return KDE::mimeApps(url);
-#elif defined (Q_OS_ANDROID)
-    return QVariantList();
-#endif
-}
-
-void Pix::runApplication(const QString &exec, const QString &url)
-{
-    qDebug()<<"RUN:"<<exec<<url;
-#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
-    return KDE::openWithApp(exec, url);
-#endif
-}
-
-QVariantList Pix::getDevices()
-{
-#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
-    return  KdeConnect::getDevices();
-#endif
-}
-
-bool Pix::sendToDevice(const QString &name, const QString &id, const QString &url)
-{
-#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
-    return KdeConnect::sendToDevice(name, id, url);
-#endif
-}
-
-void Pix::attachToEmail(const QString &url)
-{
-#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
-    KDE::attachEmail(url);
-#endif
 }
 
 bool Pix::removeFile(const QString &url)

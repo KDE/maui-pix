@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.0 as Kirigami
+import org.kde.maui 1.0 as Maui
 import "../../../view_models"
 
 Item
@@ -22,7 +23,7 @@ Item
         id: bg
         anchors.fill: parent
         z:-1
-        color: Kirigami.Theme.complementaryBackgroundColor
+        color: altColor
         radius: Kirigami.Units.devicePixelRatio * 3
         opacity: 0.6
         border.color: "black"
@@ -55,7 +56,7 @@ Item
             anchors.verticalCenter: parent.top
             anchors.horizontalCenter: parent.left
 
-            PixButton
+            Maui.ToolButton
             {
                 anchors.centerIn: parent
                 iconName: "window-close"
@@ -112,11 +113,12 @@ Item
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.maximumWidth: iconSize
-            PixButton
+
+            Maui.ToolButton
             {
                 anchors.centerIn: parent
                 iconName: "overflow-menu"
-                iconColor: "white"
+                iconColor: altColorText
                 onClicked: picMenu.showMultiple()
             }
         }

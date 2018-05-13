@@ -37,7 +37,6 @@ import "widgets/views/Viewer"
 import "widgets/views/Search"
 
 import "view_models"
-import "widgets/dialogs/share"
 import "widgets/dialogs/Albums"
 import "widgets/dialogs/Tags"
 
@@ -183,13 +182,13 @@ Maui.ApplicationWindow
         id: picMenu
         onFavClicked: VIEWER.fav(url)
         onRemoveClicked: PIX.removePic(url)
-        onShareClicked: isAndroid ? android.shareDialog(url) : shareDialog.show(url)
+        onShareClicked: isAndroid ? Maui.Android.shareDialog(url) : shareDialog.show(url)
         onAddClicked: albumsDialog.show(url)
         onTagsClicked: tagsDialog.show(url)
         onShowFolderClicked: pix.showInFolder(url)
     }
 
-    ShareDialog
+    Maui.ShareDialog
     {
         id: shareDialog
     }
@@ -213,6 +212,4 @@ Maui.ApplicationWindow
         onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.open(pics, 0)
     }
-
-    Component.onCompleted: if(isAndroid) android.statusbarColor(backgroundColor, textColor)
 }

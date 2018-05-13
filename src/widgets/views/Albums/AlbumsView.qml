@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 
 import org.kde.kirigami 2.2 as Kirigami
+import org.kde.maui 1.0 as Maui
 
 import "../../../view_models"
 import "../../../db/Query.js" as Q
@@ -36,25 +37,25 @@ Kirigami.PageRow
         onAlbumCreated: albumGrid.model.append({"album": album})
     }
 
-    PixPage
+    Maui.Page
     {
         id: albumsPage
         anchors.fill: parent
-        headerbarTitle: albumGrid.count+qsTr(" Albums")
-        headerbarExit: false
+        headBarTitle: albumGrid.count+qsTr(" Albums")
+        headBarExit: false
 
-        headerBarRight:  PixButton
+        headBar.rightContent:  Maui.ToolButton
         {
             iconName: "overflow-menu"
         }
 
-        headerBarLeft: PixButton
+        headBar.leftContent: Maui.ToolButton
         {
             iconName: "list-add"
             onClicked: newAlbumDialog.open()
         }
 
-        content: AlbumsGrid
+        contentData: AlbumsGrid
         {
             id: albumGrid
             height: parent.height
@@ -68,13 +69,13 @@ Kirigami.PageRow
         id: picsView
         anchors.fill: parent
 
-        headerbarVisible: true
+        headBarVisible: true
         holder.message: "<h2>No Pics!</h2><p>This albums is empty</p>"
         holder.emoji: "qrc:/img/assets/face-sleeping.png"
 
-        headerbarExit: albumsPageRoot.currentIndex === 1
-        headerbarExitIcon: "go-previous"
-        headerbarTitle: albumGrid.currentAlbum
+        headBarExit: albumsPageRoot.currentIndex === 1
+        headBarExitIcon: "go-previous"
+        headBarTitle: albumGrid.currentAlbum
 
         onExit: albumsPageRoot.currentIndex = 0
 

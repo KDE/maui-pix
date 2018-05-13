@@ -7,12 +7,6 @@ RESOURCES += \
     $$PWD/android.qrc \
     $$PWD/../kirigami-icons.qrc
 
-HEADERS += \
-    $$PWD/android.h
-
-SOURCES += \
-    $$PWD/android.cpp \
-
 RESOURCES += \
     $$PWD/../icons.qrc
 

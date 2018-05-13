@@ -9,7 +9,7 @@ PixGrid
 {
     id: galleryViewRoot
 
-    headerbarExit: false
+    headBarExit: false
     visible: true
 
     function populate()

@@ -10,8 +10,6 @@
         <file>view_models/PixPic.qml</file>
         <file>view_models/PixHolder.qml</file>
         <file>db/Query.js</file>
-        <file>view_models/SideBar.qml</file>
-        <file>view_models/PixButton.qml</file>
         <file>view_models/PixPage.qml</file>
         <file>widgets/views/Folders/FoldersView.qml</file>
         <file>widgets/views/Gallery/GalleryView.qml</file>
@@ -26,9 +24,6 @@
         <file>widgets/views/Viewer/Viewer.js</file>
         <file>widgets/views/Folders/PicsView.qml</file>
         <file>view_models/PixPopup.qml</file>
-        <file>widgets/dialogs/share/ShareDialog.qml</file>
-        <file>widgets/dialogs/share/ShareGrid.qml</file>
-        <file>widgets/dialogs/share/ShareDelegate.qml</file>
         <file>widgets/views/Pix.js</file>
         <file>widgets/PixFooter.qml</file>
         <file>widgets/custom/TagBar/TagBar.qml</file>

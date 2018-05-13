@@ -3,56 +3,51 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../../../view_models"
 import "../../../db/Query.js" as Q
-Page
+import org.kde.maui 1.0 as Maui
+
+
+Maui.Page
 {
+    headBarExitIcon: "edit-clear"
+    headBarTitle: searchResults.grid.count + qsTr(" results")
+    headBarVisible: true
+
     contentData: PixGrid
     {
         id: searchResults
         height: parent.height
         width: parent.width
-        headerbarExitIcon: "edit-clear"
-        headerbarTitle: searchResults.grid.count + qsTr(" results")
+        headBarVisible: false
+
         holder.message: "<h2>No results!</h2><p>Try with another query</p>"
         holder.emoji: "qrc:/img/assets/face-sleeping.png"
 
     }
 
-    footer: ToolBar
+    footBar.leftContent:  Maui.ToolButton
     {
-        position: ToolBar.Footer
+        iconName: "view-filter"
+    }
 
-        RowLayout
-        {
-            anchors.fill: parent
-            PixButton
-            {
-                iconName: "view-filter"
-                Layout.alignment: Qt.AlignLeft
-            }
+    footBar.middleContent:  TextField
+    {
+        id: searchInput
+        placeholderText: qsTr("Search...")
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment:  Text.AlignVCenter
+        selectByMouse: !isMobile
+        focus: true
+        wrapMode: TextEdit.Wrap
+        selectionColor: highlightColor
+        selectedTextColor: highlightedTextColor
+        onAccepted: runSearch(searchInput.text)
+    }
 
-            TextField
-            {
-                id: searchInput
-                placeholderText: qsTr("Search...")
-                Layout.fillWidth: true
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment:  Text.AlignVCenter
-                selectByMouse: !isMobile
-                focus: true
-                wrapMode: TextEdit.Wrap
-                selectionColor: highlightColor
-                selectedTextColor: highlightedTextColor
-                onAccepted: runSearch(searchInput.text)
-
-            }
-
-            PixButton
-            {
-                iconName: "edit-clear"
-                Layout.alignment: Qt.AlignRight
-                onClicked: searchInput.clear()
-            }
-        }
+    footBar.rightContent : Maui.ToolButton
+    {
+        iconName: "edit-clear"
+        Layout.alignment: Qt.AlignRight
+        onClicked: searchInput.clear()
     }
 
     function runSearch(query)
@@ -61,7 +56,7 @@ Page
         if(query)
         {
             console.log(query)
-            searchResults.headerbarTitle = query
+            headBarTitle = query
 
             var queries = query.split(",")
             for(var i in queries)

@@ -27,7 +27,7 @@ Kirigami.PageRow
             onFolderClicked:
             {
                 folderGrid.currentIndex = index
-                picsView.headerbarTitle = folderGrid.model.get(index).folder
+                picsView.headBarTitle = folderGrid.model.get(index).folder
                 picsView.clear()
                 picsView.populate(folderGrid.model.get(index).url)
                 foldersPageRoot.currentIndex = 1
@@ -40,9 +40,9 @@ Kirigami.PageRow
         id: picsView
         anchors.fill: parent
 
-        headerbarVisible: true
-        headerbarExit: foldersPageRoot.currentIndex === 1
-        headerbarExitIcon: "go-previous"
+        headBarVisible: true
+        headBarExit: foldersPageRoot.currentIndex === 1
+        headBarExitIcon: "go-previous"
         onExit: foldersPageRoot.currentIndex = 0
     }
 

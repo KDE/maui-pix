@@ -29,7 +29,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
 #include <QIcon>
-#include "android/android.h"
 #else
 #include <QApplication>
 #endif
@@ -120,7 +119,6 @@ int main(int argc, char *argv[])
 #ifdef Q_OS_ANDROID
     QIcon::setThemeName("Luv");
     Android android;
-    context->setContextProperty("android", &android);
 #endif
 
 #ifdef MAUI_APP

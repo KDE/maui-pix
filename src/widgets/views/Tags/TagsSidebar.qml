@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import "../../../view_models"
+import org.kde.maui 1.0 as Maui
 
 
 PixPage
@@ -11,12 +12,12 @@ PixPage
     headerbarTitle: qsTr("Tags");
     clip: true
 
-    headerBarLeft: PixButton
+    headerBarLeft: Maui.ToolButton
     {
         iconName: "list-add"
     }
 
-    headerBarRight: PixButton
+    headerBarRight: Maui.ToolButton
     {
         iconName: "list-remove"
     }

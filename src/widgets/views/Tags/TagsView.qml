@@ -29,8 +29,8 @@ Kirigami.PageRow
     PixGrid
     {
         id: tagsGrid
-        headerbarExit: !wideMode
-        headerbarExitIcon: "go-previous"
+        headBarExit: !wideMode
+        headBarExitIcon: "go-previous"
         onExit: if(!wideMode) currentIndex = 0
     }
 

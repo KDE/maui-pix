@@ -1,8 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import "../../../view_models"
-
+import org.kde.maui 1.0 as Maui
 Item
 {
     clip : true
@@ -30,7 +29,7 @@ Item
                 anchors.fill: parent
                 spacing: 0
 
-                PixButton
+                Maui.ToolButton
                 {
                     Layout.alignment: Qt.AlignLeft
                     iconName: "list-add"
@@ -89,7 +88,7 @@ Item
                     }
                 }
 
-                PixButton
+                Maui.ToolButton
                 {
                     Layout.alignment: Qt.AlignLeft
                     iconName: "checkbox"

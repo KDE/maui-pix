@@ -3,8 +3,9 @@ import QtQuick.Layouts 1.3
 import QtQuick 2.9
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import org.kde.kirigami 2.0 as Kirigami
+import org.kde.maui 1.0 as Maui
 
-PixPage
+Maui.Page
 {
     id: gridPage
 
@@ -69,27 +70,22 @@ PixPage
         }
     }
 
-    headerbarTitle: gridModel.count+" "+qsTr("images")
+    headBarTitle: gridModel.count+" "+qsTr("images")
 
-    headerBarRight: [
-        PixButton
-        {
-            id: menuBtn
-            iconName: "overflow-menu"
-            onClicked: isMobile? gridMenu.open() : gridMenu.popup()
-        }
-    ]
+    headBar.rightContent: Maui.ToolButton
+    {
+        id: menuBtn
+        iconName: "overflow-menu"
+        onClicked: isMobile? gridMenu.open() : gridMenu.popup()
+    }
 
-    content: GridView
+    contentData: GridView
     {
         id: grid
         width: parent.width
         height: parent.height
 
         clip: true
-
-        Layout.fillWidth: true
-        Layout.fillHeight: true
 
         cellWidth: itemSize + itemSpacing
         cellHeight: itemSize + itemSpacing
