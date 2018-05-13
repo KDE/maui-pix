@@ -7,7 +7,7 @@ Row
 {
     spacing: space.medium
 
-    property string accentColor : pix.pixColor()
+    property string accentColor : highlightColor
 
     signal viewerViewClicked()
     signal galleryViewClicked()

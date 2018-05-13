@@ -17,12 +17,30 @@ Row
         onClicked: VIEWER.previous()
     }
 
-    Maui.ToolButton
+    Maui.PieButton
     {
         id: favIcon
-        iconName: "love"
-        iconColor: pixViewer.currentPicFav? pix.pixColor() : textColor
-        onClicked: pixViewer.currentPicFav = VIEWER.fav(pixViewer.currentPic.url)
+        iconName: "list-add"
+
+        model: ListModel
+        {
+            ListElement {iconName: "tag"; btn: "tag"}
+            ListElement {iconName: "love"; btn:"love"}
+            ListElement {iconName: "image-frames"; btn: "album"}
+        }
+
+        onItemClicked:
+        {
+            console.log(item.btn)
+            if(item.btn === "love")
+                pixViewer.currentPicFav = VIEWER.fav(pixViewer.currentPic.url)
+
+            if(item.btn === "tag")
+                tagsDialog.show(pixViewer.currentPic.url)
+
+            if(item.btn === "album")
+                albumsDialog.show(pixViewer.currentPic.url)
+        }
     }
 
     Maui.ToolButton

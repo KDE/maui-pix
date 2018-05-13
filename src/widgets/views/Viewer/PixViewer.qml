@@ -7,7 +7,9 @@ import "../../../widgets/views/Pix.js" as PIX
 import "../../../db/Query.js" as Q
 import "../../../widgets/custom/TagBar"
 
-PixPage
+import org.kde.maui 1.0 as Maui
+
+Maui.Page
 {
 
     property alias viewer : viewer
@@ -31,20 +33,21 @@ PixPage
         color: fullScreen ? "black" : viewerBackgroundColor
     }
 
-    headerbarTitle: currentPic.title || ""
-    headerbarExit: false
-    headerbarVisible: !holder.visible && !fullScreen
-    headerBarRight: [
 
-        PixButton
+    headBarTitle: currentPic.title || ""
+    headBarExit: false
+    headBarVisible: !holder.visible && !fullScreen
+    headBar.rightContent: [
+
+        Maui.ToolButton
         {
             iconName: "edit-rename"
-            iconColor: editTools.visible ? pixColor : textColor
+            iconColor: editTools.visible ? highlightColor : textColor
             onClicked: editTools.visible ? editTools.close() : editTools.open()
 
         },
 
-        PixButton
+        Maui.ToolButton
         {
             iconName: "overflow-menu"
             onClicked: viewerMenu.popup()
@@ -52,34 +55,28 @@ PixPage
 
     ]
 
-    headerBarLeft: [
-
-        PixButton
-        {
-            iconName: "document-save-as"
-            onClicked: albumsDialog.show(currentPic.url)
-        }
-    ]
-
-    footer: ToolBar
+    headBar.leftContent: Maui.ToolButton
     {
-        id: footerToolbar
-        position: ToolBar.Footer
-        visible: !holder.visible && tagBarVisible && !fullScreen
-        TagBar
+        iconName: "document-save-as"
+        onClicked: albumsDialog.show(currentPic.url)
+    }
+
+    footBar.visible: !holder.visible && tagBarVisible && !fullScreen
+
+    footBar.middleContent: TagBar
+    {
+        id: tagBar
+        width: footBar.width
+        height: footBar.height
+
+        allowEditMode: true
+        onAddClicked: tagsDialog.show(currentPic.url)
+        onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
+                                 tagsList.model.remove(index)
+        onTagsEdited:
         {
-            id: tagBar
-            allowEditMode: true
-            visible: parent.visible
-            anchors.fill: parent
-            onAddClicked: tagsDialog.show(currentPic.url)
-            onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
-                                     tagsList.model.remove(index)
-            onTagsEdited:
-            {
-                PIX.updatePicTags(tags, pixViewer.currentPic.url)
-                tagsList.populate(Q.Query.picTags_.arg(pixViewer.currentPic.url))
-            }
+            PIX.updatePicTags(tags, pixViewer.currentPic.url)
+            tagsList.populate(Q.Query.picTags_.arg(pixViewer.currentPic.url))
         }
     }
 
@@ -114,8 +111,8 @@ PixPage
         id: editTools
         width: parent.width * 0.4
 
-        height: parent.height - headerBar.height - pixFooter.height - headBar.height
-        y: headerBar.height + pixFooter.height
+        height: parent.height - headBar.height - pixFooter.height - headBar.height
+        y: headBar.height + pixFooter.height
 
     }
 
@@ -130,7 +127,7 @@ PixPage
     //        visible: shareDialog.opened
     //    }
 
-    content: Viewer
+    contentData: Viewer
     {
         id: viewer
         height: parent.height

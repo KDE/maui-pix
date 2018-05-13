@@ -45,7 +45,7 @@ Popup
         NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; duration: 150 }
     }
 
-    Material.accent: pix.pixColor()
+    Material.accent: highlightColor
     Material.background: backgroundColor
     Material.primary: backgroundColor
     Material.foreground: textColor

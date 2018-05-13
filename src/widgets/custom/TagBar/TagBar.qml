@@ -19,17 +19,17 @@ Item
     RowLayout
     {
         anchors.fill: parent
-
+        spacing: 0
         Item
         {
             Layout.fillHeight: true
             Layout.fillWidth: true
             visible: !editMode
-
-
             RowLayout
             {
                 anchors.fill: parent
+                spacing: 0
+
                 PixButton
                 {
                     Layout.alignment: Qt.AlignLeft
@@ -65,12 +65,12 @@ Item
             RowLayout
             {
                 anchors.fill: parent
-
+                spacing: 0
                 Item
                 {
                     Layout.fillHeight: true
                     Layout.fillWidth:true
-//                    Layout.margins: space.big
+                    //                    Layout.margins: space.big
                     TextInput
                     {
                         id: editTagsEntry

@@ -16,6 +16,7 @@ Item
     property alias list : viewerList
     clip: true
     focus: true
+
     ListView
     {
         id: viewerList
