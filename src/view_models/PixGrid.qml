@@ -65,6 +65,7 @@ Maui.Page
             onTriggered:
             {
                 showLabels = !showLabels
+                model = gridModel
                 pix.saveSettings("SHOW_LABELS", showLabels, "GRID")
             }
         }
@@ -174,7 +175,6 @@ Maui.Page
 
     function openPic(index)
     {
-
         VIEWER.open(grid.model, index)
     }
 }
