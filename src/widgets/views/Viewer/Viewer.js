@@ -4,8 +4,9 @@
 
 function open(model, index)
 {
-    pixViewer.roll.populate(model)
-    pixViewer.viewer.populate(model)
+    pixViewer.roll.rollList.model = model
+    pixViewer.viewer.list.model = model
+
     view(index)
 
     if(currentView !== views.viewer)

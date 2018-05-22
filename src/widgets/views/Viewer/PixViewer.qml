@@ -111,8 +111,8 @@ Maui.Page
         id: editTools
         width: parent.width * 0.4
 
-        height: parent.height - headBar.height - pixFooter.height - headBar.height
-        y: headBar.height + pixFooter.height
+        height: parent.height - root.headBar.height - root.footBar.height - pixViewer.headBar.height
+        y: pixViewer.headBar.height + root.footBar.height
 
     }
 

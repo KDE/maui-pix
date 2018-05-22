@@ -3,48 +3,31 @@ import "../../../view_models"
 import org.kde.maui 1.0 as Maui
 
 
-PixPage
+Maui.Page
 {
-
     property alias list : tagsList
-    pageMargins : 0
-    headerbarExit: false
-    headerbarTitle: qsTr("Tags");
+    margins:0
+    headBarExit: false
+    headBarTitle: qsTr("Tags");
     clip: true
 
-    headerBarLeft: Maui.ToolButton
+    headBar.leftContent: Maui.ToolButton
     {
         iconName: "list-add"
     }
 
-    headerBarRight: Maui.ToolButton
+    headBar.rightContent: Maui.ToolButton
     {
         iconName: "list-remove"
     }
 
-    content: ListView
+    Maui.SideBar
     {
         id: tagsList
-        clip: true
 
         height: parent.height
         width: parent.width
-        focus: true
-
-        highlightMoveDuration: 0
-        highlightFollowsCurrentItem: true
-
-        highlight: Rectangle
-        {
-            width: tagsList.width
-            height: tagsList.currentItem.height
-            color: highlightColor
-        }
-
-
-        model: ListModel{}
-
-        delegate: PixDelegate
+        delegate: Maui.ListDelegate
         {
             id: delegate
             label: tag

@@ -54,6 +54,7 @@ Item
             picRadius: 0
             showLabel: false
             showIndicator: true
+            showEmblem: false
 
             Connections
             {

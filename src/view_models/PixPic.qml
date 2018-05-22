@@ -10,6 +10,7 @@ ItemDelegate
     property int picRadius : 0
     property bool showLabel : true
     property bool showIndicator : false
+    property bool showEmblem:  true
     property bool fit : false
     property bool isHovered :  hovered
 
@@ -52,7 +53,7 @@ ItemDelegate
 
         size:  iconSizes.medium
         iconName: (keepEmblemOverlay && emblemAdded) ? "emblem-remove" : "emblem-added"
-        visible: isHovered || (keepEmblemOverlay && emblemAdded)
+        visible: (isHovered || (keepEmblemOverlay && emblemAdded)) && showEmblem
         isMask: false
         z: 999
         anchors.top: parent.top

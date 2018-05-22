@@ -3,66 +3,51 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import org.kde.maui 1.0 as Maui
 
-Drawer
+Maui.Drawer
 {
     modal: false
     edge: Qt.RightEdge
     spacing: 0
-    ScrollView
+    bg: viewer
+
+    ColumnLayout
     {
         anchors.fill: parent
-        clip: true
-        contentWidth: parent.width
-        contentHeight: parent.height
+        spacing: contentMargins
 
-        Column
+        Maui.ToolBar
         {
-            anchors.fill: parent
+            Layout.fillWidth: true
 
-            spacing: contentMargins
-            ToolBar
-            {
-                width: parent.width
-                position: ToolBar.Header
-                RowLayout
+            width: parent.width
+            position: ToolBar.Header
+
+            middleContent: [
+                Maui.ToolButton
                 {
-                    anchors.fill: parent
-                    anchors.centerIn: parent
-
-                    Item
-                    {
-                        Layout.alignment: Qt.AlignLeft
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-
-                        Maui.ToolButton
-                        {
-                            anchors.centerIn: parent
-                            iconName: "object-rotate-left"
-                            onClicked: viewer.rotateLeft()
-                        }
-                    }
-
-                    Item
-                    {
-                        Layout.alignment: Qt.AlignLeft
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-
-                        Maui.ToolButton
-                        {
-                            anchors.centerIn: parent
-                            iconName: "object-rotate-right"
-                            onClicked: viewer.rotateRight()
-                        }
-                    }
+                    iconName: "object-rotate-left"
+                    onClicked: viewer.list.currentItem.rotateLeft()
                 }
-            }
+                ,
+                Maui.ToolButton
+                {
+                    iconName: "object-rotate-right"
+                    onClicked: viewer.list.currentItem.rotateRight()
+                }
+            ]
+        }
+
+        ScrollView
+        {
+            clip: true
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.margins: contentMargins
 
             GridLayout
             {
-                width: parent.width* 0.9
-                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width
+                height: parent.height
                 rows: 11
                 columns: 1
                 columnSpacing: contentMargins

@@ -174,10 +174,7 @@ Maui.Page
 
     function openPic(index)
     {
-        var data = []
-        for(var i = 0; i < grid.model.count; i++)
-            data.push(grid.model.get(i))
 
-        VIEWER.open(data, index)
+        VIEWER.open(grid.model, index)
     }
 }

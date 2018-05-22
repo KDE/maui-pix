@@ -70,7 +70,8 @@ ItemDelegate
 
     function zoomOut()
     {
-        pic.width = pic.width - 50
+        pic.width = pic.width - 50 > 100 ? pic.width - 50 :
+                                           pic.width
     }
 
     function fit()

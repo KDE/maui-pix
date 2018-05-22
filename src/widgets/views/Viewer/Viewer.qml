@@ -58,4 +58,5 @@ Item
                 viewerList.model.append(pics[i])
 
     }
+
 }
