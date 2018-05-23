@@ -52,7 +52,6 @@ Maui.Page
             iconName: "overflow-menu"
             onClicked: viewerMenu.popup()
         }
-
     ]
 
     headBar.leftContent: Maui.ToolButton

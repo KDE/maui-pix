@@ -70,10 +70,17 @@ QVariantList DBActions::get(const QString &queryTxt)
                 if(query.record().indexOf(PIX::KEYMAP[key])>-1)
                     data[PIX::KEYMAP[key]] = query.value(PIX::KEYMAP[key]).toString();
 
-            if(PIX::fileExists(data[PIX::KEYMAP[PIX::KEY::URL]].toString()))
+            auto url =data[PIX::KEYMAP[PIX::KEY::URL]].toString();
+
+            if(!url.isEmpty())
+            {
+                if(PIX::fileExists(url))
+                    mapList<< data;
+                else
+                    removePic(data[PIX::KEYMAP[PIX::KEY::URL]].toString());
+            }else
                 mapList<< data;
-            else
-                removePic(data[PIX::KEYMAP[PIX::KEY::URL]].toString());
+
         }
 
     }else qDebug()<< query.lastError()<< query.lastQuery();

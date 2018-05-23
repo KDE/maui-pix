@@ -11,6 +11,7 @@ Row
 
     Maui.ToolButton
     {
+        visible: !pixViewer.holder.visible
         iconColor: currentView === views.viewer? accentColor : textColor
         iconName: "image"
         onClicked: currentView = views.viewer

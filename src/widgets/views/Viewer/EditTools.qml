@@ -39,6 +39,7 @@ Maui.Drawer
 
         ScrollView
         {
+            id: scrollView
             clip: true
             Layout.fillHeight: true
             Layout.fillWidth: true
@@ -46,8 +47,8 @@ Maui.Drawer
 
             GridLayout
             {
-                width: parent.width
-                height: parent.height
+                width: scrollView.availableWidth
+                height: scrollView.availableHeight
                 rows: 11
                 columns: 1
                 columnSpacing: contentMargins
@@ -60,6 +61,8 @@ Maui.Drawer
                     width: parent.width
                     text: qsTr("Color")
                     font.pointSize: fontSizes.big
+                    font.weight: Font.Bold
+                    font.bold: true
                 }
 
                 Label
