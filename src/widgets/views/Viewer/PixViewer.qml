@@ -97,13 +97,13 @@ Maui.Page
         id : viewerConf
     }
 
-    PixHolder
+    Maui.Holder
     {
         id: holder
         message: "<h2>No Pic!</h2><p>Open an image from your collection</p>"
         emoji: "qrc:/img/assets/face-hug.png"
         visible: viewer.list.count === 0
-        foregroundColor: viewerForegroundColor
+        fgColor: viewerForegroundColor
     }
 
     EditTools

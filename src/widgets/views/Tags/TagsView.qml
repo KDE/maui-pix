@@ -15,6 +15,8 @@ Kirigami.PageRow
     defaultColumnWidth: Kirigami.Units.gridUnit * 15
     interactive: currentIndex === 1
 
+    property string currentTag : ""
+
     Connections
     {
         target: pix

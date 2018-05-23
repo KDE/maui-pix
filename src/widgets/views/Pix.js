@@ -21,7 +21,26 @@ function addTagToAlbum(tag, url)
 function removePic(url)
 {
     if(pix.removeFile(url))
-        refreshViews()
+    {
+        switch(currentView)
+        {
+        case views.gallery :
+            galleryView.populate()
+            break
+        case views.folders:
+            foldersView.picsView.populate(foldersView.currentFolder)
+            break
+        case views.albums:
+            albumsView.filter(albumsView.albumsGrid.currentAlbum)
+            break
+        case views.tags:
+            tagsView.populateGrid(tagsView.currentTag)
+            break
+        case views.search:
+            searchView.runSearch(searchView.currentQuery)
+
+        }
+    }
 }
 
 function addTagsToPic(tags, url)

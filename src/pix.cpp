@@ -103,22 +103,6 @@ void Pix::refreshCollection()
     this->populateDB({PIX::PicturesPath, PIX::DownloadsPath, PIX::DocumentsPath});
 }
 
-QVariantList Pix::getList(const QStringList &urls)
-{
-    QVariantList mapList;
-
-    for(auto url : urls)
-    {
-        auto queryTxt = QString("SELECT * FROM %1 WHERE %2 = \"%3\"").arg(TABLEMAP[TABLE::IMAGES],
-                KEYMAP[KEY::URL], url);
-
-        mapList << this->get(queryTxt);
-    }
-
-    return mapList;
-}
-
-
 bool Pix::run(const QString &query)
 {
     return this->execQuery(query);
@@ -144,11 +128,6 @@ void Pix::populateDB(const QStringList &paths)
     fileLoader->requestPath(newPaths);
 }
 
-QString Pix::pixColor()
-{
-    return "#03A9F4";
-}
-
 void Pix::saveSettings(const QString &key, const QVariant &value, const QString &group)
 {
     PIX::saveSettings(key, value, group);
@@ -158,71 +137,6 @@ void Pix::saveSettings(const QString &key, const QVariant &value, const QString 
 QVariant Pix::loadSettings(const QString &key, const QString &group, const QVariant &defaultValue)
 {
     return PIX::loadSettings(key, group, defaultValue);
-}
-
-int Pix::screenGeometry(QString &side)
-{
-    side = side.toLower();
-    auto geo = QApplication::desktop()->screenGeometry();
-
-    if(side == "width")
-        return geo.width();
-    else if(side == "height")
-        return geo.height();
-    else return 0;
-}
-
-int Pix::cursorPos(QString &axis)
-{
-    axis = axis.toLower();
-    auto pos = QCursor::pos();
-    if(axis == "x")
-        return pos.x();
-    else if(axis == "y")
-        return pos.y();
-    else return 0;
-}
-
-QString Pix::homeDir()
-{
-    return PIX::PicturesPath;
-}
-
-QVariantList Pix::getDirs(const QString &pathUrl)
-{
-    auto path = pathUrl;
-    if(path.startsWith("file://"))
-        path.replace("file://", "");
-    qDebug()<<"DIRECTRORY"<<path;
-    QVariantList paths;
-
-    if (QFileInfo(path).isDir())
-    {
-        QDirIterator it(path, QDir::Dirs, QDirIterator::NoIteratorFlags);
-        while (it.hasNext())
-        {
-            auto url = it.next();
-            auto name = QDir(url).dirName();
-            qDebug()<<name<<url;
-            QVariantMap map = { {"url", url }, {"name", name} };
-            paths << map;
-        }
-    }
-
-    return paths;
-}
-
-QVariantMap Pix::getParentDir(const QString &path)
-{
-    auto dir = QDir(path);
-    dir.cdUp();
-    auto dirPath = dir.absolutePath();
-
-    if(dir.isReadable() && !dir.isRoot() && dir.exists())
-        return {{"url", dirPath}, {"name", dir.dirName()}};
-    else
-        return {{"url", path}, {"name", QFileInfo(path).dir().dirName()}};
-
 }
 
 bool Pix::removeFile(const QString &url)

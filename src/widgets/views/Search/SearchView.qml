@@ -8,6 +8,8 @@ import org.kde.maui 1.0 as Maui
 
 Maui.Page
 {
+    property string currentQuery : ""
+
     headBarExitIcon: "edit-clear"
     headBarTitle: searchResults.grid.count + qsTr(" results")
     headBarVisible: true
@@ -55,8 +57,7 @@ Maui.Page
         searchResults.clear()
         if(query)
         {
-            console.log(query)
-            headBarTitle = query
+            currentQuery = query
 
             var queries = query.split(",")
             for(var i in queries)
@@ -66,7 +67,6 @@ Maui.Page
 
     function populate(data)
     {
-
         if(data.length > 0)
             for(var i in data)
                 searchResults.grid.model.append(data[i])

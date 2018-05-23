@@ -38,7 +38,8 @@ Maui.Page
                 onClicked:
                 {
                     tagsList.currentIndex = index
-                    populateGrid(tagsList.model.get(index).tag)
+                    currentTag = tagsList.model.get(index).tag
+                    populateGrid(currentTag)
                 }
             }
         }

@@ -87,12 +87,6 @@ Maui.ApplicationWindow
     headBar.middleContent: PixsBar
     {
         visible: !fullScreen
-
-        onViewerViewClicked: currentView = views.viewer
-        onGalleryViewClicked: currentView = views.gallery
-        onFoldersViewClicked: currentView = views.folders
-        onAlbumsViewClicked: currentView = views.albums
-        onTagsViewClicked: currentView = views.tags
     }
 
     footBar.leftContent: Maui.ToolButton

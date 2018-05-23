@@ -53,26 +53,14 @@ public:
 
     Q_INVOKABLE void refreshCollection();
 
-    Q_INVOKABLE QVariantList getList(const QStringList &urls);
     Q_INVOKABLE bool run(const QString &query);
 
-    Q_INVOKABLE static QString pixColor();
     Q_INVOKABLE static void saveSettings(const QString &key, const QVariant &value, const QString &group);
     Q_INVOKABLE static QVariant loadSettings(const QString &key, const QString &group, const QVariant &defaultValue);
-
-    Q_INVOKABLE static int screenGeometry(QString &side);
-    Q_INVOKABLE static int cursorPos(QString &axis);
-
-    Q_INVOKABLE static QString homeDir();
-
-    Q_INVOKABLE static QVariantList getDirs(const QString &pathUrl);
-    Q_INVOKABLE static QVariantMap getParentDir(const QString &path);   
 
     /*File actions*/
     Q_INVOKABLE bool removeFile(const QString &url);
     Q_INVOKABLE void showInFolder(const QString &url);
-
-
 
 private:
     FileLoader *fileLoader;

@@ -9,12 +9,13 @@ Row
 
     property string accentColor : highlightColor
 
-    signal viewerViewClicked()
-    signal galleryViewClicked()
-    signal albumsViewClicked()
-    signal tagsViewClicked()
-    signal foldersViewClicked()
-    signal searchViewClicked()
+    Maui.ToolButton
+    {
+        iconColor: currentView === views.viewer? accentColor : textColor
+        iconName: "image"
+        onClicked: currentView = views.viewer
+    }
+
 
     Maui.ToolButton
     {
@@ -23,7 +24,7 @@ Row
         text: qsTr("Gallery")
         iconColor: currentView === views.gallery? accentColor : textColor
         iconName: "image-multiple"
-        onClicked: galleryViewClicked()
+        onClicked: currentView = views.gallery
     }
 
     Maui.ToolButton
@@ -33,7 +34,7 @@ Row
         text: qsTr("Folders")
         iconColor: currentView === views.folders? accentColor : textColor
         iconName: "image-folder-view"
-        onClicked: foldersViewClicked()
+        onClicked: currentView = views.folders
     }
 
     Maui.ToolButton
@@ -43,7 +44,7 @@ Row
         text: qsTr("Albums")
         iconColor: currentView === views.albums? accentColor : textColor
         iconName: "image-frames"
-        onClicked: albumsViewClicked()
+        onClicked: currentView = views.albums
     }
 
     Maui.ToolButton
@@ -53,7 +54,7 @@ Row
         text: qsTr("Tags")
         iconColor: currentView === views.tags? accentColor : textColor
         iconName: "tag"
-        onClicked: tagsViewClicked()
+        onClicked: currentView = views.tags
     }
 }
 

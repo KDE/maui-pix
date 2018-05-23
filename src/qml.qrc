@@ -8,7 +8,6 @@
         <file>widgets/PixsBar.qml</file>
         <file>db/script.sql</file>
         <file>view_models/PixPic.qml</file>
-        <file>view_models/PixHolder.qml</file>
         <file>db/Query.js</file>
         <file>view_models/PixPage.qml</file>
         <file>widgets/views/Folders/FoldersView.qml</file>

@@ -12,6 +12,9 @@ Kirigami.PageRow
     interactive: foldersPageRoot.currentIndex  === 1
     clip: true
 
+    property string currentFolder : ""
+    property alias picsView : picsView
+
     PixPage
     {
         id: foldersPage
@@ -29,7 +32,8 @@ Kirigami.PageRow
                 folderGrid.currentIndex = index
                 picsView.headBarTitle = folderGrid.model.get(index).folder
                 picsView.clear()
-                picsView.populate(folderGrid.model.get(index).url)
+                currentFolder = folderGrid.model.get(index).url
+                picsView.populate(currentFolder)
                 foldersPageRoot.currentIndex = 1
             }
         }

@@ -28,6 +28,7 @@ PixMenu
                 close()
             }
         }
+
         MenuItem
         {
             text: qsTr("Add to...")
@@ -57,6 +58,7 @@ PixMenu
                 close()
             }
         }
+
         MenuItem
         {
             text: qsTr("Remove...")

@@ -21,7 +21,7 @@ Maui.Page
     /*signals*/
     signal picClicked(int index)
 
-    PixHolder
+    Maui.Holder
     {
         id: holder
         message: "<h2>No Pics!</h2><p>There's not images in here</p>"
