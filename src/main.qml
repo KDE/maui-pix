@@ -92,7 +92,7 @@ Maui.ApplicationWindow
     footBar.leftContent: Maui.ToolButton
     {
         iconName: "document-share"
-        onClicked: isAndroid ? android.shareDialog(pixViewer.currentPic.url) :
+        onClicked: isAndroid ? Maui.Android.shareDialog(pixViewer.currentPic.url) :
                                shareDialog.show(pixViewer.currentPic.url)
     }
 

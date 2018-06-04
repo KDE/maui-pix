@@ -118,7 +118,6 @@ int main(int argc, char *argv[])
 
 #ifdef Q_OS_ANDROID
     QIcon::setThemeName("Luv");
-    Android android;
 #endif
 
 #ifdef MAUI_APP

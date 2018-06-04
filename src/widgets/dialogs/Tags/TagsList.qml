@@ -32,7 +32,7 @@ ListView
     }
 
     model: ListModel{}
-    delegate: PixDelegate
+    delegate: Maui.ListDelegate
     {
         id: delegate
         label: tag

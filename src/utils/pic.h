@@ -134,7 +134,6 @@ static const DB KEYMAP =
     {KEY::FAV, "fav"},
     {KEY::COLOR, "color"},
     {KEY::NOTE, "note"},
-    {KEY::ADD_DATE, "addDate"},
     {KEY::PIC_DATE, "picDate"},
     {KEY::PLACE, "place"},
     {KEY::FORMAT, "format"},
@@ -142,30 +141,6 @@ static const DB KEYMAP =
     {KEY::TAG, "tag"}
 };
 
-enum class AlbumSizeHint : uint
-{
-    BIG_ALBUM = 200,
-    MEDIUM_ALBUM = 120,
-    SMALL_ALBUM = 80
-};
-
-inline QString getNameFromLocation(const QString &str)
-{
-    QString ret;
-    int index = 0;
-
-    for(int i = str.size() - 1; i >= 0; i--)
-        if(str[i] == '/')
-        {
-            index = i + 1;
-            i = -1;
-        }
-
-    for(; index < str.size(); index++)
-        ret.push_back(str[index]);
-
-    return ret;
-}
 
 const QString PicturesPath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
 const QString DownloadsPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);

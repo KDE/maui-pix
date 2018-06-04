@@ -108,10 +108,8 @@ Maui.Page
     EditTools
     {
         id: editTools
-        width: parent.width * 0.4
-
         height: parent.height - root.headBar.height - root.footBar.height - pixViewer.headBar.height
-        y: pixViewer.headBar.height + root.footBar.height
+        y: isMobile ? pixViewer.headBar.height : pixViewer.headBar.height + root.footBar.height
 
     }
 
