@@ -23,6 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QObject>
 #include "db.h"
+#include "tagging.h"
+
 
 class DBActions : public DB
 {
@@ -58,6 +60,9 @@ class DBActions : public DB
         /* utils */
         Q_INVOKABLE QVariantList getFolders();
         Q_INVOKABLE QVariantList get(const QString &queryTxt);
+
+private:
+        Tagging tag;
 
 signals:
         void tagAdded(QString tag);

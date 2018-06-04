@@ -31,7 +31,6 @@ Row
 
         onItemClicked:
         {
-            console.log(item.btn)
             if(item.btn === "love")
                 pixViewer.currentPicFav = VIEWER.fav(pixViewer.currentPic.url)
 

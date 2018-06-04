@@ -38,6 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #include "mauikit/src/mauikit.h"
+#include "tagging.h"
 
 QStringList getFolderImages(const QString &path)
 {
@@ -99,6 +100,7 @@ int main(int argc, char *argv[])
         pics = openFiles(args);
 
     Pix pix;
+    Tagging tag;
 
     QQmlApplicationEngine engine;
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
@@ -111,6 +113,7 @@ int main(int argc, char *argv[])
 
     auto context = engine.rootContext();
     context->setContextProperty("pix", &pix);
+    context->setContextProperty("tag", &tag);
 
 #ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();

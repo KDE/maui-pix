@@ -96,7 +96,6 @@ bool DBActions::execQuery(const QString &queryTxt)
 
 bool DBActions::insertPic(const PIX::DB &img)
 {
-
     auto url = img[PIX::KEY::URL];
     auto title = img[PIX::KEY::TITLE];
     auto rate = img[PIX::KEY::RATE];
@@ -190,12 +189,7 @@ bool DBActions::isFav(const QString &url)
 
 bool DBActions::addTag(const QString &tag)
 {
-    QVariantMap tagMap
-    {
-        {PIX::KEYMAP[PIX::KEY::TAG], tag}
-    };
-
-    if(this->insert(PIX::TABLEMAP[PIX::TABLE::TAGS], tagMap))
+    if (this->tag.tag(tag))
     {
         emit tagAdded(tag);
         return true;
@@ -206,16 +200,10 @@ bool DBActions::addTag(const QString &tag)
 
 bool DBActions::picTag(const QString &tag, const QString &url)
 {
-    if(!tag.isEmpty() && tag.length() >0 && PIX::fileExists(url))
+    if(!tag.isEmpty() && PIX::fileExists(url))
     {
         auto myTag = tag.trimmed();
-        this->addTag(myTag);
-        QVariantMap taggedPic
-        {
-            {PIX::KEYMAP[PIX::KEY::URL], url},
-            {PIX::KEYMAP[PIX::KEY::TAG], myTag}
-        };
-        return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], taggedPic);
+        return this->tag.tagUrl(url,myTag);
     }
 
     return false;
