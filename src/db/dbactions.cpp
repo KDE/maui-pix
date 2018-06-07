@@ -25,6 +25,8 @@ DBActions::DBActions(QObject *parent) : DB(parent)
     qDebug() << "Getting collectionDB info from: " << PIX::CollectionDBPath;
 
     qDebug()<< "Starting DBActions";
+
+   this->tag = new Tagging(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
 }
 
 DBActions::~DBActions()
@@ -189,7 +191,7 @@ bool DBActions::isFav(const QString &url)
 
 bool DBActions::addTag(const QString &tag)
 {
-    if (this->tag.tag(tag))
+    if (this->tag->tag(tag))
     {
         emit tagAdded(tag);
         return true;
@@ -203,7 +205,7 @@ bool DBActions::picTag(const QString &tag, const QString &url)
     if(!tag.isEmpty() && PIX::fileExists(url))
     {
         auto myTag = tag.trimmed();
-        return this->tag.tagUrl(url,myTag);
+        return this->tag->tagUrl(url,myTag);
     }
 
     return false;

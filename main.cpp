@@ -100,7 +100,6 @@ int main(int argc, char *argv[])
         pics = openFiles(args);
 
     Pix pix;
-    Tagging tag;
 
     QQmlApplicationEngine engine;
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
@@ -113,7 +112,6 @@ int main(int argc, char *argv[])
 
     auto context = engine.rootContext();
     context->setContextProperty("pix", &pix);
-    context->setContextProperty("tag", &tag);
 
 #ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();

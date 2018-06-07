@@ -152,6 +152,7 @@ const QString CachePath = QStandardPaths::writableLocation(QStandardPaths::Gener
 const QString NotifyDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
 const QString App = "Pix";
 const QString version = "1.0";
+const QString comment = "Gallery image viewer";
 const QString DBName = "collection.db";
 
 const QStringList MoodColors = {"#F0FF01","#01FF5B","#3DAEFD","#B401FF","#E91E63"};

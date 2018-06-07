@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QObject>
 #include "db.h"
 #include "tagging.h"
-
+#include "../utils/pic.h"
 
 class DBActions : public DB
 {
@@ -62,7 +62,7 @@ class DBActions : public DB
         Q_INVOKABLE QVariantList get(const QString &queryTxt);
 
 private:
-        Tagging tag;
+        Tagging *tag;
 
 signals:
         void tagAdded(QString tag);
