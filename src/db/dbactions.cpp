@@ -26,7 +26,7 @@ DBActions::DBActions(QObject *parent) : DB(parent)
 
     qDebug()<< "Starting DBActions";
 
-   this->tag = new Tagging(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
+   this->tag = Tagging::getInstance(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
 }
 
 DBActions::~DBActions()
@@ -205,7 +205,7 @@ bool DBActions::picTag(const QString &tag, const QString &url)
     if(!tag.isEmpty() && PIX::fileExists(url))
     {
         auto myTag = tag.trimmed();
-        return this->tag->tagUrl(url,myTag);
+        return this->tag->tagUrl(url, myTag);
     }
 
     return false;
@@ -214,12 +214,8 @@ bool DBActions::picTag(const QString &tag, const QString &url)
 bool DBActions::albumTag(const QString &tag, const QString &album)
 {
     this->addTag(tag);
-    QVariantMap taggedAlbum
-    {
-        {PIX::KEYMAP[PIX::KEY::ALBUM], album},
-        {PIX::KEYMAP[PIX::KEY::TAG], tag}
-    };
-    return this->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS_TAGS], taggedAlbum);
+
+    return this->tag->tagAbstract(tag, PIX::KEYMAP[PIX::KEY::ALBUM], album);
 }
 
 bool DBActions::removePicTag(const QString &tag, const QString &url)

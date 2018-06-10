@@ -50,8 +50,8 @@ Maui.ApplicationWindow
     id: root
     title: qsTr("Pix")
 
-    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
-
+//    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
+//    altToolBars: true
 
     /*READONLY PROPS*/
     readonly property var views : ({
