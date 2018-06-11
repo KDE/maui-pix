@@ -123,24 +123,26 @@ Kirigami.PageRow
         switch(album)
         {
         case "Favs":
-            populateAlbum(Q.Query.favPics)
+            populateAlbum(pix.get(Q.Query.favPics))
             break
         case "Recent":
-            populateAlbum(Q.Query.recentPics)
+            populateAlbum(pix.get(Q.Query.recentPics))
             break
         default:
-            populateAlbum(Q.Query.allAlbumPics_.arg(album))
+            populateAlbum(pix.get(Q.Query.albumPics_.arg(album)))
+            var tags = tag.getAbstractTags("album", album, true)
+            for(var i in tags)
+                populateAlbum(tag.getUrls(tags[i].tag))
 
             footerBar.visible = true
-            tagBar.tagsList.populate(tag.getAbstractTags("album", album, true))
+            tagBar.tagsList.populate(tags)
             break
         }
     }
 
-    function populateAlbum(query)
+    function populateAlbum(pics)
     {
         albumsPageRoot.currentIndex = 1
-        var pics = pix.get(query)
 
         if(pics.length > 0)
             for(var i in pics)

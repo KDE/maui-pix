@@ -53,12 +53,12 @@ PixDialog
                 var tags = tagText.text.split(",")
                 for(var i in tags)
                 {
-                    var tag = tags[i].trim()
-                    if(!tag.tagExists(tag, true))
-                    {
-                        tagsList.model.insert(0, {tag: tag})
-                        tagListComposer.model.insert(0, {tag: tag})
-                    }
+                    var myTag = tags[i].trim()
+                    if(!tag.tagExists(myTag, true))
+                        tagsList.model.insert(0, {tag: myTag})
+
+                    tagListComposer.model.insert(0, {tag: myTag})
+
                 }
                 clear()
             }

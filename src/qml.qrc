@@ -47,5 +47,6 @@
         <file>widgets/views/Search/SearchView.qml</file>
         <file>widgets/custom/SelectionBox/SelectionBox.qml</file>
         <file>widgets/views/Viewer/ViewerDelegate.qml</file>
+        <file>widgets/dialogs/Tags/NewTagDialog.qml</file>
     </qresource>
 </RCC>
