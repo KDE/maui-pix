@@ -54,7 +54,7 @@ PixDialog
                 for(var i in tags)
                 {
                     var tag = tags[i].trim()
-                    if(!pix.checkExistance("tags", "tag", tag))
+                    if(!tag.tagExists(tag, true))
                     {
                         tagsList.model.insert(0, {tag: tag})
                         tagListComposer.model.insert(0, {tag: tag})
@@ -129,14 +129,14 @@ PixDialog
     function populate()
     {
         tagsList.model.clear()
-        var tags = pix.get(Q.Query.allTags)
+        var tags = tag.getUrlsTags()
 
         if(tags.length > 0)
             for(var i in tags)
                 tagsList.model.append(tags[i])
 
 
-        tagListComposer.populate(forAlbum ? Q.Query.albumTags_.arg(picUrl) :
-                                            Q.Query.picTags_.arg(picUrl))
+        tagListComposer.populate(forAlbum ? tag.getAbstractTags("album", picUrl, true) :
+                                            tag.getUrlTags(picUrl, true))
     }
 }

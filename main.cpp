@@ -112,6 +112,7 @@ int main(int argc, char *argv[])
 
     auto context = engine.rootContext();
     context->setContextProperty("pix", &pix);
+    context->setContextProperty("tag", pix.tag);
 
 #ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();

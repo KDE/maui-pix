@@ -34,11 +34,9 @@ ListView
         }
     }
 
-    function populate(query)
+    function populate(tags)
     {
         model.clear()
-        var tags = pix.get(query)
-
         if(tags.length > 0)
             for(var i in tags)
                 model.append(tags[i])

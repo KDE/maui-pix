@@ -132,7 +132,7 @@ Kirigami.PageRow
             populateAlbum(Q.Query.allAlbumPics_.arg(album))
 
             footerBar.visible = true
-            tagBar.tagsList.populate(Q.Query.albumTags_.arg(album))
+            tagBar.tagsList.populate(tag.getAbstractTags("album", album, true))
             break
         }
     }

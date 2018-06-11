@@ -28,44 +28,45 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class DBActions : public DB
 {
-        Q_OBJECT
-    public:
-        explicit DBActions(QObject *parent = nullptr);
-        ~DBActions();
+    Q_OBJECT
+public:
+    explicit DBActions(QObject *parent = nullptr);
+    ~DBActions();
 
-        PIX::DB_LIST getDBData(const QString &queryTxt);
+    Tagging *tag;
 
-        bool execQuery(const QString &queryTxt);
+    PIX::DB_LIST getDBData(const QString &queryTxt);
 
-        bool insertPic(const PIX::DB &img);
-        Q_INVOKABLE bool addPic(const QString &url);
-        Q_INVOKABLE bool removePic(const QString &url);
+    bool execQuery(const QString &queryTxt);
 
-        /* actions on model */
-        Q_INVOKABLE bool favPic(const QString &url, const bool &fav);
-        Q_INVOKABLE bool isFav(const QString &url);
+    bool insertPic(const PIX::DB &img);
+    Q_INVOKABLE bool addPic(const QString &url);
+    Q_INVOKABLE bool removePic(const QString &url);
 
-        Q_INVOKABLE bool addTag(const QString &tag);
-        Q_INVOKABLE bool picTag(const QString &tag, const QString &url);
-        Q_INVOKABLE bool albumTag(const QString &tag, const QString &album);
-        Q_INVOKABLE bool removePicTag(const QString &tag, const QString &url);
-        Q_INVOKABLE bool removeAlbumTag(const QString &tag, const QString &album);
-        Q_INVOKABLE bool cleanTags();
+    /* actions on model */
+    Q_INVOKABLE bool favPic(const QString &url, const bool &fav);
+    Q_INVOKABLE bool isFav(const QString &url);
 
-        Q_INVOKABLE bool addAlbum(const QString &album);
-        Q_INVOKABLE bool picAlbum(const QString &album, const QString &url);
+    Q_INVOKABLE bool addTag(const QString &tag);
+    Q_INVOKABLE bool picTag(const QString &tag, const QString &url);
+    Q_INVOKABLE bool albumTag(const QString &tag, const QString &album);
+    Q_INVOKABLE bool removePicTag(const QString &tag, const QString &url);
+    Q_INVOKABLE bool removeAlbumTag(const QString &tag, const QString &album);
+    Q_INVOKABLE bool cleanTags();
+
+    Q_INVOKABLE bool addAlbum(const QString &album);
+    Q_INVOKABLE bool picAlbum(const QString &album, const QString &url);
 
 
-        Q_INVOKABLE QVariantList searchFor(const QStringList &queries, const QString &queryTxt);
-        /* utils */
-        Q_INVOKABLE QVariantList getFolders();
-        Q_INVOKABLE QVariantList get(const QString &queryTxt);
+    Q_INVOKABLE QVariantList searchFor(const QStringList &queries, const QString &queryTxt);
+    /* utils */
+    Q_INVOKABLE QVariantList getFolders();
+    Q_INVOKABLE QVariantList get(const QString &queryTxt);
 
 private:
-        Tagging *tag;
 
 signals:
-        void tagAdded(QString tag);
+    void tagAdded(QString tag);
 };
 
 #endif // DBACTIONS_H

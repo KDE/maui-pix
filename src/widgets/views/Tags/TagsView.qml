@@ -39,7 +39,7 @@ Kirigami.PageRow
     function populate()
     {
         tagsSidebar.list.model.clear()
-        var tags = pix.get(Q.Query.allTags)
+        var tags = tag.getUrlsTags(true)
 
         if(tags.length > 0)
             for(var i in tags)
@@ -47,14 +47,14 @@ Kirigami.PageRow
 
     }
 
-    function populateGrid(tag)
+    function populateGrid(myTag)
     {
         if(!wideMode && currentIndex === 0)
             currentIndex = 1
 
 
         tagsGrid.grid.model.clear()
-        var tags = pix.get(Q.Query.tagPics_.arg(tag))
+        var tags = tag.getUrls(myTag);
 
         if(tags.length > 0)
             for(var i in tags)
