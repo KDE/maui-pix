@@ -83,6 +83,14 @@ Maui.ApplicationWindow
     onSearchButtonClicked: currentView =  views.search
 
     menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
+    menuDrawer.actions: [
+        Kirigami.Action
+        {
+            text: "Sources"
+            iconName: "love"
+            onTriggered: fmDialog.show()
+        }
+    ]
 
     headBar.middleContent: PixsBar
     {
@@ -197,6 +205,14 @@ Maui.ApplicationWindow
         id: tagsDialog
         forAlbum: false
         onTagsAdded: addTagsToPic(url, tags)
+    }
+
+    Maui.FileDialog
+    {
+        id: fmDialog
+        multipleSelection: true
+
+        onSelectionReady: console.log(paths)
     }
 
     Connections
