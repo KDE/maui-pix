@@ -210,7 +210,8 @@ Maui.ApplicationWindow
     Maui.FileDialog
     {
         id: fmDialog
-        multipleSelection: true
+        multipleSelection: false
+        onlyDirs: true
 
         onSelectionReady: console.log(paths)
     }
