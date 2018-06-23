@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
+import org.kde.maui 1.0 as Maui
 import "../view_models"
 
 PixMenu
@@ -79,6 +80,22 @@ PixMenu
                 close()
             }
         }
+
+        MenuItem
+        {
+            text: qsTr("Save to...")
+            onTriggered:
+            {
+                var pic = picUrl
+                fmDialog.show(function(paths)
+                {
+                    for(var i in paths)
+                        Maui.FM.copy([pic], paths[i])
+
+                });
+                close()
+            }
+        }
     }
 
 
@@ -98,4 +115,6 @@ PixMenu
         if(isMobile) open()
         else popup()
     }
+
+
 }

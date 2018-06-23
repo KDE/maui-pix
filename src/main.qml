@@ -212,8 +212,6 @@ Maui.ApplicationWindow
         id: fmDialog
         multipleSelection: false
         onlyDirs: true
-
-        onSelectionReady: console.log(paths)
     }
 
     Connections
