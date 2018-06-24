@@ -50,12 +50,11 @@ Kirigami.PageRow
     function populate()
     {
         tagsSidebar.list.model.clear()
-        var tags = tag.getUrlsTags(false)
+        var tags = tag.getUrlsTags(true)
 
         if(tags.length > 0)
             for(var i in tags)
                 append(tags[i])
-
 
     }
 
@@ -63,7 +62,6 @@ Kirigami.PageRow
     {
         if(!wideMode && currentIndex === 0)
             currentIndex = 1
-
 
         tagsGrid.grid.model.clear()
         var tags = tag.getUrls(myTag);

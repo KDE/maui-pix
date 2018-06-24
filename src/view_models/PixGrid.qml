@@ -158,10 +158,22 @@ Maui.Page
 
                 }
 
-                onPressAndHold: picMenu.show(gridModel.get(index).url)
+                onPressAndHold:
+                {
+                    grid.currentIndex = index
+                    picMenu.show(gridModel.get(index).url)
+                }
 
-                onRightClicked: picMenu.show(gridModel.get(index).url)
-                onEmblemClicked: selectionBox.append(gridModel.get(index))
+                onRightClicked:
+                {
+                    grid.currentIndex = index
+                    picMenu.show(gridModel.get(index).url)
+                }
+                onEmblemClicked:
+                {
+                    grid.currentIndex = index
+                    selectionBox.append(gridModel.get(index))
+                }
             }
         }
 
