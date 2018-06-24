@@ -200,16 +200,7 @@ bool DBActions::addTag(const QString &tag)
     return false;
 }
 
-bool DBActions::picTag(const QString &tag, const QString &url)
-{
-    if(!tag.isEmpty() && PIX::fileExists(url))
-    {
-        auto myTag = tag.trimmed();
-        return this->tag->tagUrl(url, myTag);
-    }
 
-    return false;
-}
 
 bool DBActions::albumTag(const QString &tag, const QString &album)
 {

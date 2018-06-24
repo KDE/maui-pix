@@ -10,7 +10,7 @@ function refreshViews()
 
 function addTagToPic(tag, url)
 {
-    return pix.picTag(tag, url)
+    return tag.tagUrl(tag, url)
 }
 
 function addTagToAlbum(tag, url)
@@ -51,9 +51,5 @@ function addTagsToPic(tags, url)
 
 function updatePicTags(tags, url)
 {
-    var oldTags = pix.get(Q.Query.picTags_.arg(pixViewer.currentPic.url))
-    for(var i in oldTags)
-        pix.removePicTag(oldTags[i].tag, url)
-
-    addTagsToPic(tags, url)
+    tag.updateUrlTags(url, tags)
 }

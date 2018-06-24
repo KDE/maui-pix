@@ -48,7 +48,6 @@ public:
     Q_INVOKABLE bool isFav(const QString &url);
 
     Q_INVOKABLE bool addTag(const QString &tag);
-    Q_INVOKABLE bool picTag(const QString &tag, const QString &url);
     Q_INVOKABLE bool albumTag(const QString &tag, const QString &album);
     Q_INVOKABLE bool removePicTag(const QString &tag, const QString &url);
     Q_INVOKABLE bool removeAlbumTag(const QString &tag, const QString &album);

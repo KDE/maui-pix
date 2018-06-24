@@ -75,7 +75,7 @@ Maui.Page
         onTagsEdited:
         {
             PIX.updatePicTags(tags, pixViewer.currentPic.url)
-            tagsList.populate(Q.Query.picTags_.arg(pixViewer.currentPic.url))
+            tagsList.populate(tag.getUrlTags(pixViewer.currentPic.url))
         }
     }
 
