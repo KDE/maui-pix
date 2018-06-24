@@ -8,9 +8,9 @@ function refreshViews()
     tagsView.populate()
 }
 
-function addTagToPic(tag, url)
+function addTagToPic(myTag, url)
 {
-    return tag.tagUrl(tag, url)
+    return tag.tagUrl(url, myTag)
 }
 
 function addTagToAlbum(tag, url)

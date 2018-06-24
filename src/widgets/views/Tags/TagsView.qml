@@ -2,6 +2,8 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.2 as Kirigami
+import org.kde.maui 1.0 as Maui
+
 import "../../../view_models"
 import "../../../db/Query.js" as Q
 
@@ -23,6 +25,15 @@ Kirigami.PageRow
         onTagAdded: tagsSidebar.list.model.insert(tagsSidebar.list.count, {"tag": tag})
     }
 
+    Maui.NewDialog
+    {
+        id: newTagDialog
+        title: qsTr("New tag...")
+        onFinished:
+        {
+            tag.tag(text)
+        }
+    }
     TagsSidebar
     {
         id: tagsSidebar
@@ -39,11 +50,12 @@ Kirigami.PageRow
     function populate()
     {
         tagsSidebar.list.model.clear()
-        var tags = tag.getUrlsTags(true)
+        var tags = tag.getUrlsTags(false)
 
         if(tags.length > 0)
             for(var i in tags)
-                tagsSidebar.list.model.append(tags[i])
+                append(tags[i])
+
 
     }
 
@@ -66,6 +78,11 @@ Kirigami.PageRow
     {
         tagsSidebar.list.model.clear()
         tagsGrid.grid.model.clear()
+    }
+
+    function append(myTag)
+    {
+        tagsSidebar.list.model.append(myTag)
     }
 
 }

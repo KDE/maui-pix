@@ -14,6 +14,7 @@ Maui.Page
     headBar.leftContent: Maui.ToolButton
     {
         iconName: "list-add"
+        onClicked: newTagDialog.open()
     }
 
     headBar.rightContent: Maui.ToolButton

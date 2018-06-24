@@ -221,4 +221,10 @@ Maui.ApplicationWindow
         onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.open(pics, 0)
     }
+
+    Connections
+    {
+        target: tag
+        onTagged: tagsView.populate()
+    }
 }

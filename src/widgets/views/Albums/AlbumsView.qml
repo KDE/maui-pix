@@ -31,10 +31,11 @@ Kirigami.PageRow
         onAlbumTagged: tagBar.tagsList.model.insert(0, {"tag": tag})
     }
 
-    NewAlbumDialog
+    Maui.NewDialog
     {
         id: newAlbumDialog
-        onAlbumCreated: albumGrid.model.append({"album": album})
+        title: qsTr("New album...")
+        onFinished: addAlbum(text)
     }
 
     Maui.Page
@@ -150,4 +151,11 @@ Kirigami.PageRow
 
     }
 
+    function addAlbum(album)
+    {
+        if(!pix.checkExistance("albums", "album", album))
+            if (pix.addAlbum(album))
+                albumGrid.model.append({"album": album})
+
+    }
 }

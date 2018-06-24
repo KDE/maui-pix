@@ -35,7 +35,6 @@
         <file>widgets/views/Albums/AlbumDelegate.qml</file>
         <file>widgets/dialogs/Albums/AlbumsDialog.qml</file>
         <file>widgets/dialogs/Albums/AlbumsList.qml</file>
-        <file>widgets/dialogs/Albums/NewAlbumDialog.qml</file>
         <file>widgets/GlobalDrawer.qml</file>
         <file>widgets/views/Viewer/GalleryRoll.qml</file>
         <file>view_models/PixMenu.qml</file>
@@ -47,6 +46,5 @@
         <file>widgets/views/Search/SearchView.qml</file>
         <file>widgets/custom/SelectionBox/SelectionBox.qml</file>
         <file>widgets/views/Viewer/ViewerDelegate.qml</file>
-        <file>widgets/dialogs/Tags/NewTagDialog.qml</file>
     </qresource>
 </RCC>
