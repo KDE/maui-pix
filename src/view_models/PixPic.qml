@@ -51,7 +51,7 @@ ItemDelegate
     {
         id: emblem
 
-        size:  iconSizes.medium
+        size: iconSizes.medium
         iconName: (keepEmblemOverlay && emblemAdded) ? "emblem-remove" : "emblem-added"
         visible: (isHovered || (keepEmblemOverlay && emblemAdded)) && showEmblem
         isMask: false
