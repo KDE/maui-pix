@@ -2,9 +2,9 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../../../view_models"
-import "../../custom/TagBar"
 import "../../../db/Query.js" as Q
 import "../../views/Pix.js" as PIX
+import org.kde.maui 1.0 as Maui
 
 PixDialog
 {
@@ -65,7 +65,7 @@ PixDialog
         }
 
 
-        TagList
+        Maui.TagList
         {
             id: tagListComposer
             Layout.fillWidth: true

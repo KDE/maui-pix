@@ -8,7 +8,6 @@ import "../../../view_models"
 import "../../../db/Query.js" as Q
 
 import "../../dialogs/Albums"
-import "../../../widgets/custom/TagBar"
 import "../../dialogs/Tags"
 
 
@@ -80,16 +79,16 @@ Kirigami.PageRow
 
         onExit: albumsPageRoot.currentIndex = 0
 
-        footer: ToolBar
+        footer: Maui.ToolBar
         {
             id: footerBar
             position: ToolBar.Footer
             visible: false
-            TagBar
+            Maui.TagsBar
             {
                 id: tagBar
                 anchors.fill: parent
-                onAddClicked: tagsDialog.show(albumGrid.currentAlbum)
+                onAddClicked: albumsPageRoot.tagsDialog.show(albumGrid.currentAlbum)
 
                 onTagRemovedClicked: if(pix.removeAlbumTag(tagsList.model.get(index).tag, albumGrid.currentAlbum))
                                          tagsList.model.remove(index)

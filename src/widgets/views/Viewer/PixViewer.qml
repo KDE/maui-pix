@@ -5,7 +5,6 @@ import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../../../widgets/views/Pix.js" as PIX
 import "../../../db/Query.js" as Q
-import "../../../widgets/custom/TagBar"
 
 import org.kde.maui 1.0 as Maui
 
@@ -60,9 +59,10 @@ Maui.Page
         onClicked: albumsDialog.show(currentPic.url)
     }
 
+    footBar.margins: 0
     footBar.visible: !holder.visible && tagBarVisible && !fullScreen
 
-    footBar.middleContent: TagBar
+    footBar.middleContent: Maui.TagsBar
     {
         id: tagBar
         width: footBar.width

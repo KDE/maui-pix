@@ -121,6 +121,14 @@ ItemDelegate
                     }
                 }
             }
+
+            Rectangle
+            {
+                anchors.fill: parent
+                color: hovered ? "#333" : "transparent"
+                opacity: hovered ?  0.3 : 0
+                radius: picRadius
+            }
         }
 
         Item
@@ -154,4 +162,6 @@ ItemDelegate
             }
         }
     }
+
+
 }

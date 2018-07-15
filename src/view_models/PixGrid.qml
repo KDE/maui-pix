@@ -55,6 +55,8 @@ Maui.Page
             onTriggered:
             {
                 fitPreviews = !fitPreviews
+                grid.model = gridModel
+
                 pix.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
             }
         }
@@ -65,7 +67,7 @@ Maui.Page
             onTriggered:
             {
                 showLabels = !showLabels
-                model = gridModel
+                grid.model = gridModel
                 pix.saveSettings("SHOW_LABELS", showLabels, "GRID")
             }
         }

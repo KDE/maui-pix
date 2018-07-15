@@ -30,7 +30,7 @@ function view(index)
 
 function setCurrentPicTags()
 {
-    pixViewer.tagBar.tagsList.populate(tag.getUrlTags(pixViewer.currentPic.url))
+    pixViewer.tagBar.populate(tag.getUrlTags(pixViewer.currentPic.url))
 }
 
 
