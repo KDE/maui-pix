@@ -13,10 +13,12 @@ TEMPLATE = app
 DESTDIR = $$OUT_PWD/../
 
 linux:unix:!android {
-    message(Building for Linux KDE)
-} else:android {
-    message(Building helpers for Android)
 
+    message(Building for Linux KDE)
+
+} else:android {
+
+    message(Building helpers for Android)
     include(android/Android.pri)
     include(3rdparty/kirigami/kirigami.pri)
     DEFINES += STATIC_KIRIGAMI

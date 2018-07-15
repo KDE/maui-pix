@@ -24,13 +24,8 @@ Maui.Page
     property string viewerBackgroundColor : pix.loadSettings("VIEWER_BG_COLOR", "PIX", backgroundColor)
     property string viewerForegroundColor : pix.loadSettings("VIEWER_FG_COLOR", "PIX", textColor)
 
+    margins: 0
 
-    Rectangle
-    {
-        anchors.fill: parent
-        z: -1
-        color: fullScreen ? "black" : viewerBackgroundColor
-    }
 
 
     headBarTitle: currentPic.title || ""

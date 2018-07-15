@@ -4,7 +4,7 @@ import QtQuick.Controls 2.2
 import "../../"
 import "Viewer.js" as VIEWER
 
-Item
+Pane
 {
     property bool autoSaveTransformation : false
     property real picContrast : 0

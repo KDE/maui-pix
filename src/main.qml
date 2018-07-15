@@ -92,10 +92,9 @@ Maui.ApplicationWindow
         }
     ]
 
-    headBar.middleContent: PixsBar
-    {
-        visible: !fullScreen
-    }
+    headBar.visible: !fullScreen
+
+    headBar.middleContent: PixsBar {}
 
     footBar.leftContent: Maui.ToolButton
     {
