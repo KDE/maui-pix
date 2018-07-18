@@ -50,6 +50,8 @@ Maui.ApplicationWindow
     id: root
     title: qsTr("Pix")
 
+    floatingBar: false
+
 //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 //    altToolBars: true
 

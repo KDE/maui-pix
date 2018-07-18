@@ -53,3 +53,11 @@ function updatePicTags(tags, url)
 {
     tag.updateUrlTags(url, tags)
 }
+
+function searchFor(query)
+{
+    if(currentView !== views.search)
+        currentView = views.search
+
+    searchView.runSearch(query)
+}

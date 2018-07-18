@@ -64,6 +64,7 @@ Maui.Page
         height: footBar.height
 
         allowEditMode: true
+        onTagClicked: PIX.searchFor(tag)
         onAddClicked: tagsDialog.show(currentPic.url)
         onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
                                  tagsList.model.remove(index)

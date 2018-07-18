@@ -61,7 +61,12 @@ Maui.Page
 
             var queries = query.split(",")
             for(var i in queries)
-                populate(pix.get(Q.Query.searchFor_.arg(queries[i])))
+            {
+                var res =[]
+                res.push(pix.get(Q.Query.searchFor_.arg(queries[i])))
+                res.push(tag.getUrls(query, true))
+                populate(res)
+            }
         }
     }
 
