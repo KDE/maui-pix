@@ -22,7 +22,17 @@ Kirigami.PageRow
         anchors.fill: parent
 
         headBarVisible: false
-//        margins: space.huge
+
+        Maui.Holder
+        {
+            id: holder
+            holder.emoji: "qrc:/img/assets/RedPlanet.png"
+            isMask: false
+            title : "No Folders!"
+            body: "Add new image sources"
+            emojiSize: iconSizes.huge
+            visible: folderGrid.count === 0
+        }
 
         FoldersGrid
         {
