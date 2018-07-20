@@ -26,7 +26,7 @@ Kirigami.PageRow
         Maui.Holder
         {
             id: holder
-            holder.emoji: "qrc:/img/assets/RedPlanet.png"
+            emoji: "qrc:/img/assets/RedPlanet.png"
             isMask: false
             title : "No Folders!"
             body: "Add new image sources"
