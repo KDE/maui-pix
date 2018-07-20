@@ -50,7 +50,7 @@ Maui.ApplicationWindow
     id: root
     title: qsTr("Pix")
 
-    floatingBar: false
+    floatingBar: true
 
 //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 //    altToolBars: true
@@ -77,6 +77,9 @@ Maui.ApplicationWindow
 
     highlightColor : "#00abaa"
     altColor : "#545c6e"
+    accentColor: altColor
+    altColorText: "#fafafa"
+    bgColor: pixViewer.viewerBackgroundColor
 
     /***************************************************/
     /**************************************************/
@@ -101,6 +104,8 @@ Maui.ApplicationWindow
     footBar.leftContent: Maui.ToolButton
     {
         iconName: "document-share"
+        iconColor: altColorText
+
         onClicked: isAndroid ? Maui.Android.shareDialog(pixViewer.currentPic.url) :
                                shareDialog.show(pixViewer.currentPic.url)
     }
@@ -114,6 +119,8 @@ Maui.ApplicationWindow
     footBar.rightContent : Maui.ToolButton
     {
         iconName: fullScreen? "window-close" : "view-fullscreen"
+        iconColor: altColorText
+
         onClicked: fullScreen = !fullScreen
 
     }

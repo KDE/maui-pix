@@ -14,6 +14,7 @@ Row
     Maui.ToolButton
     {
         iconName: "go-previous"
+        iconColor: altColorText
         onClicked: VIEWER.previous()
     }
 
@@ -21,6 +22,7 @@ Row
     {
         id: favIcon
         iconName: "list-add"
+        iconColor: altColorText
 
         model: ListModel
         {
@@ -45,6 +47,8 @@ Row
     Maui.ToolButton
     {
         iconName: "go-next"
+        iconColor: altColorText
+
         onClicked: VIEWER.next()
     }
 }

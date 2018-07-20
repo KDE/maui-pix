@@ -21,10 +21,10 @@ Item
     {
         anchors.fill: parent
         z:-1
-        color: Kirigami.Theme.complementaryBackgroundColor
-        radius: Kirigami.Units.devicePixelRatio * 3
+        color: altColor
+        radius: unit * 3
         opacity: 0.8
-        border.color: "black"
+        border.color: Qt.darker(color, 1.5)
     }
 
     ListView

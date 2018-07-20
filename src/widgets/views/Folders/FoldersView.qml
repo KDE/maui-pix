@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import "../../../view_models"
 import org.kde.kirigami 2.2 as Kirigami
+import org.kde.maui 1.0 as Maui
 
 Kirigami.PageRow
 {
@@ -15,15 +16,15 @@ Kirigami.PageRow
     property string currentFolder : ""
     property alias picsView : picsView
 
-    PixPage
+    Maui.Page
     {
         id: foldersPage
         anchors.fill: parent
 
-        headerbarVisible: false
-        headerbarExit: false
+        headBarVisible: false
+        margins: space.huge
 
-        content: FoldersGrid
+        FoldersGrid
         {
             id: folderGrid
 
