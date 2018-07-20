@@ -21,8 +21,11 @@ Maui.Page
         width: parent.width
         headBarVisible: false
 
-        holder.message: "<h2>No results!</h2><p>Try with another query</p>"
-        holder.emoji: "qrc:/img/assets/face-sleeping.png"
+        holder.emoji: "qrc:/img/assets/BugSearch.png"
+        holder.isMask: false
+        holder.title : "No Results!"
+        holder.body: "Try with another query"
+        holder.emojiSize: iconSizes.huge
 
     }
 
