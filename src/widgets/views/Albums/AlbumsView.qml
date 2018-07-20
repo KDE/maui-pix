@@ -6,6 +6,7 @@ import org.kde.maui 1.0 as Maui
 
 import "../../../view_models"
 import "../../../db/Query.js" as Q
+import "../../views/Pix.js" as PIX
 
 import "../../dialogs/Albums"
 import "../../dialogs/Tags"
@@ -26,8 +27,7 @@ Kirigami.PageRow
     {
         id: tagsDialog
         forAlbum: true
-        onTagsAdded: addTagsToAlbum(url, tags)
-        onAlbumTagged: tagBar.tagsList.model.insert(0, {"tag": tag})
+        onTagsAdded: addTagsToAlbum(albumGrid.currentAlbum, tags)
     }
 
     Maui.NewDialog
@@ -70,8 +70,12 @@ Kirigami.PageRow
         anchors.fill: parent
 
         headBarVisible: true
-        holder.message: "<h2>No Pics!</h2><p>This albums is empty</p>"
-        holder.emoji: "qrc:/img/assets/face-sleeping.png"
+
+        holder.title: "No Pics!"
+        holder.body: "This album is empty"
+        holder.isMask: false
+        holder.emojiSize: iconSizes.huge
+        holder.emoji: "qrc:/img/assets/MoonSki.png"
 
         headBarExit: albumsPageRoot.currentIndex === 1
         headBarExitIcon: "go-previous"
@@ -79,21 +83,18 @@ Kirigami.PageRow
 
         onExit: albumsPageRoot.currentIndex = 0
 
-        footer: Maui.ToolBar
+        footer: Maui.TagsBar
         {
-            id: footerBar
-            position: ToolBar.Footer
-            visible: false
-            Maui.TagsBar
-            {
-                id: tagBar
-                anchors.fill: parent
-                onAddClicked: albumsPageRoot.tagsDialog.show(albumGrid.currentAlbum)
+            id: tagBar
+            width: picsView.width
+            allowEditMode: true
+            onAddClicked: tagsDialog.show(albumGrid.currentAlbum)
+            onTagsEdited: addTagsToAlbum(albumGrid.currentAlbum, tags)
 
-                onTagRemovedClicked: if(pix.removeAlbumTag(tagsList.model.get(index).tag, albumGrid.currentAlbum))
-                                         tagsList.model.remove(index)
-            }
+            onTagRemovedClicked: if(pix.removeAlbumTag(tagsList.model.get(index).tag, albumGrid.currentAlbum))
+                                     tagsList.model.remove(index)
         }
+
 
     }
 
@@ -118,7 +119,7 @@ Kirigami.PageRow
         albumGrid.currentAlbum = album
         picsView.clear()
         tagBar.tagsList.model.clear()
-        footerBar.visible = false
+        tagBar.visible = false
 
         switch(album)
         {
@@ -134,7 +135,7 @@ Kirigami.PageRow
             for(var i in tags)
                 populateAlbum(tag.getUrls(tags[i].tag))
 
-            footerBar.visible = true
+            tagBar.visible = true
             tagBar.tagsList.populate(tags)
             break
         }
@@ -155,6 +156,15 @@ Kirigami.PageRow
         if(!pix.checkExistance("albums", "album", album))
             if (pix.addAlbum(album))
                 albumGrid.model.append({"album": album})
+
+    }
+
+    function addTagsToAlbum(album, tags)
+    {
+        if(tags.length > 0)
+            for(var i in tags)
+                if(PIX.addTagToAlbum(tags[i], album))
+                    tagBar.append({"tag": tags[i]})
 
     }
 }

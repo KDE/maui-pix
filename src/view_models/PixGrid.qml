@@ -23,9 +23,7 @@ Maui.Page
 
     Maui.Holder
     {
-        id: holder
-        message: "<h2>No Pics!</h2><p>There's not images in here</p>"
-        emoji: "qrc:/img/assets/face-hug.png"
+        id: holder        
         visible: grid.count === 0
     }
 

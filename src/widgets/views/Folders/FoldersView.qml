@@ -31,9 +31,9 @@ Kirigami.PageRow
             onFolderClicked:
             {
                 folderGrid.currentIndex = index
-                picsView.headBarTitle = folderGrid.model.get(index).folder
+                picsView.headBarTitle = folderGrid.model.get(index).label
                 picsView.clear()
-                currentFolder = folderGrid.model.get(index).url
+                currentFolder = folderGrid.model.get(index).path
                 picsView.populate(currentFolder)
                 foldersPageRoot.currentIndex = 1
             }
@@ -49,6 +49,12 @@ Kirigami.PageRow
         headBarExit: foldersPageRoot.currentIndex === 1
         headBarExitIcon: "go-previous"
         onExit: foldersPageRoot.currentIndex = 0
+
+        holder.emoji: "qrc:/img/assets/Electricity.png"
+        holder.isMask: false
+        holder.title : "Folder is empty!"
+        holder.body: "There's not images on this folder"
+        holder.emojiSize: iconSizes.huge
     }
 
     function populate()

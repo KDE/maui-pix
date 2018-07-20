@@ -1,15 +1,18 @@
 <RCC>
     <qresource prefix="/img">
-        <file>assets/face.png</file>
         <file>assets/Babe.notifyrc</file>
-        <file>assets/face-sleeping.png</file>
-        <file>assets/face-hug.png</file>
         <file>assets/pix.png</file>
-        <file>assets/tag.svg</file>
-        <file>assets/album_bg_normal.png</file>
         <file>assets/banner.png</file>
         <file>assets/album.svg</file>
         <file>assets/image-x-generic.svg</file>
+        <file>assets/ElectricPlug.png</file>
+        <file>assets/Bread.png</file>
+        <file>assets/Electricity.png</file>
+        <file>assets/MoonSki.png</file>
+        <file>assets/SunSki.png</file>
+        <file>assets/RedPlanet.png</file>
+        <file>assets/Rainbow.png</file>
+        <file>assets/BugSearch.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

@@ -45,6 +45,11 @@ Kirigami.PageRow
         headBarExit: !wideMode
         headBarExitIcon: "go-previous"
         onExit: if(!wideMode) currentIndex = 0
+        holder.title: "No Pics!"
+        holder.body: "There's no pics associated with the tag"
+        holder.isMask: false
+        holder.emojiSize: iconSizes.huge
+        holder.emoji: "qrc:/img/assets/Bread.png"
     }
 
     function populate()

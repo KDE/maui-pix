@@ -26,7 +26,7 @@ DBActions::DBActions(QObject *parent) : DB(parent)
 
     qDebug()<< "Starting DBActions";
 
-   this->tag = Tagging::getInstance(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
+    this->tag = Tagging::getInstance(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
 }
 
 DBActions::~DBActions()
@@ -264,13 +264,18 @@ QVariantList DBActions::getFolders()
     QVariantList res;
     auto data = this->getDBData("select * from sources order by url asc");
 
+    /*Data model keys for to be used on MauiKit Icondelegate component */
     for(auto i : data)
     {
-        QVariantMap map;
-        map.insert(PIX::KEYMAP[PIX::KEY::URL], i[PIX::KEY::URL]);
-        map.insert("folder", QFileInfo(i[PIX::KEY::URL]).baseName());
-        res << map;
-    }
-    return res;
+        res << QVariantMap  {
+        {PIX::KEYMAP[PIX::KEY::URL], i[PIX::KEY::URL]},
+        {"label", QFileInfo(i[PIX::KEY::URL]).baseName()},
+        {"mime", "inode/directory"},
+        {"icon", "folder"},
+        {"path", i[PIX::KEY::URL]}
+
+    };
+}
+return res;
 
 }

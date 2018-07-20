@@ -26,8 +26,6 @@ Maui.Page
 
     margins: 0
 
-
-
     headBarTitle: currentPic.title || ""
     headBarExit: false
     headBarVisible: !holder.visible && !fullScreen
@@ -54,26 +52,6 @@ Maui.Page
         onClicked: albumsDialog.show(currentPic.url)
     }
 
-    footBar.margins: 0
-    footBar.visible: !holder.visible && tagBarVisible && !fullScreen
-
-    footBar.middleContent: Maui.TagsBar
-    {
-        id: tagBar
-        width: footBar.width
-        height: footBar.height
-
-        allowEditMode: true
-        onTagClicked: PIX.searchFor(tag)
-        onAddClicked: tagsDialog.show(currentPic.url)
-        onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
-                                 tagsList.model.remove(index)
-        onTagsEdited:
-        {
-            PIX.updatePicTags(tags, pixViewer.currentPic.url)
-            VIEWER.setCurrentPicTags()
-        }
-    }
 
     Connections
     {
@@ -120,18 +98,42 @@ Maui.Page
     //        visible: shareDialog.opened
     //    }
 
-    contentData: Viewer
+    contentData: ColumnLayout
     {
-        id: viewer
+        spacing: 0
         height: parent.height
         width: parent.width
-
-        GalleryRoll
+        Viewer
         {
-            id: galleryRoll
-            visible: !holder.visible
-            anchors.bottom: parent.bottom
-            onPicClicked: VIEWER.view(index)
+            id: viewer
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            GalleryRoll
+            {
+                id: galleryRoll
+                visible: !holder.visible
+                anchors.bottom: parent.bottom
+                onPicClicked: VIEWER.view(index)
+            }
         }
+        Maui.TagsBar
+        {
+            id: tagBar
+            visible: !holder.visible && tagBarVisible && !fullScreen
+            Layout.fillWidth: true
+            bgColor: viewerBackgroundColor
+            allowEditMode: true
+            onTagClicked: PIX.searchFor(tag)
+            onAddClicked: tagsDialog.show(currentPic.url)
+            onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
+                                     tagsList.model.remove(index)
+            onTagsEdited:
+            {
+                PIX.updatePicTags(tags, pixViewer.currentPic.url)
+                VIEWER.setCurrentPicTags()
+            }
+        }
+
     }
 }

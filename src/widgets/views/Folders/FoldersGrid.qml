@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-
+import org.kde.maui 1.0 as Maui
 
 GridView
 {
@@ -29,13 +29,16 @@ GridView
     model: ListModel {id: gridModel}
     highlightFollowsCurrentItem: true
 
-    delegate: FoldersDelegate
+    delegate: Maui.IconDelegate
     {
         id: delegate
         folderSize : itemSize
+        showTooltip: true
 
-        width: cellWidth
+        width: cellWidth * 0.9
         height: cellHeight * 0.9
+
+        showEmblem: false
 
         Connections
         {

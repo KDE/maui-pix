@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import "../../../view_models"
 import "../../../db/Query.js" as Q
 import "../../views/Pix.js" as PIX
+
 import org.kde.maui 1.0 as Maui
 
 PixDialog
@@ -11,10 +12,8 @@ PixDialog
     property string picUrl : ""
     property bool forAlbum : false
     clip: true
-    signal albumTagged(string tag, string url)
     signal picTagged(string tag, string url)
     signal tagsAdded(var tags, string url)
-
 
     standardButtons: Dialog.Save | Dialog.Cancel
 
@@ -93,7 +92,7 @@ PixDialog
         var tags = []
 
         for(var i = 0; i < tagListComposer.model.count; i++)
-            tags.push(tagListComposer.model.get(i))
+            tags.push(tagListComposer.model.get(i).tag)
 
         tagsAdded(tags, picUrl)
     }
@@ -107,21 +106,9 @@ PixDialog
                     return
 
             for(var i in tags)
-                if(PIX.addTagToPic(tags[i].tag, url))
-                    picTagged(tags[i].tag, url)
+                if(PIX.addTagToPic(tags[i], url))
+                    picTagged(tags[i], url)
         }
-
-        close()
-    }
-
-    function addTagsToAlbum(url, tags)
-    {
-        if(tags.length > 0)
-            for(var i in tags)
-            {
-                if(PIX.addTagToAlbum(tags[i].tag, url))
-                    albumTagged(tags[i].tag, picUrl)
-            }
 
         close()
     }
