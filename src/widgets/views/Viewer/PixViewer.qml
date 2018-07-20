@@ -10,7 +10,7 @@ import org.kde.maui 1.0 as Maui
 
 Maui.Page
 {
-
+    id: control
     property alias viewer : viewer
     property alias holder : holder
     property alias tagBar : tagBar
@@ -70,19 +70,10 @@ Maui.Page
         id : viewerConf
     }
 
-    Maui.Holder
-    {
-        id: holder
-        message: "<h2>No Pic!</h2><p>Open an image from your collection</p>"
-        emoji: "qrc:/img/assets/face-hug.png"
-        visible: viewer.list.count === 0
-        fgColor: viewerForegroundColor
-    }
-
     EditTools
     {
         id: editTools
-        height: parent.height - root.headBar.height - root.footBar.height - pixViewer.headBar.height
+        height: control.height
         y: isMobile ? pixViewer.headBar.height : pixViewer.headBar.height + root.footBar.height
 
     }
@@ -103,11 +94,24 @@ Maui.Page
         spacing: 0
         height: parent.height
         width: parent.width
+
         Viewer
         {
             id: viewer
             Layout.fillHeight: true
             Layout.fillWidth: true
+
+            Maui.Holder
+            {
+                id: holder
+                emoji: "qrc:/img/assets/Rainbow.png"
+                isMask: false
+                title : "No Pic!"
+                body: "Open an image from your collection"
+                emojiSize: iconSizes.huge
+                visible: viewer.list.count === 0
+                fgColor: viewerForegroundColor
+            }
 
             GalleryRoll
             {
@@ -117,6 +121,7 @@ Maui.Page
                 onPicClicked: VIEWER.view(index)
             }
         }
+
         Maui.TagsBar
         {
             id: tagBar

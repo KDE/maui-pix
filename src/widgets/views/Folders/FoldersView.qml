@@ -22,7 +22,7 @@ Kirigami.PageRow
         anchors.fill: parent
 
         headBarVisible: false
-        margins: space.huge
+//        margins: space.huge
 
         FoldersGrid
         {
