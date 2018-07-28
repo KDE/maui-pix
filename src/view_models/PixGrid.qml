@@ -80,7 +80,7 @@ Maui.Page
         onClicked: isMobile? gridMenu.open() : gridMenu.popup()
     }
 
-    contentData: GridView
+    GridView
     {
         id: grid
         width: parent.width

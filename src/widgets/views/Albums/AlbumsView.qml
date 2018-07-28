@@ -43,19 +43,25 @@ Kirigami.PageRow
         anchors.fill: parent
         headBarTitle: albumGrid.count+qsTr(" Albums")
         headBarExit: false
+        floatingBar: true
+        footBarOverlap: true
+        allowRiseContent: false
+        footBarAligment: Qt.AlignRight
+        footBarMargins: space.huge
 
         headBar.rightContent:  Maui.ToolButton
         {
             iconName: "overflow-menu"
         }
 
-        headBar.leftContent: Maui.ToolButton
+        footBar.middleContent: Maui.ToolButton
         {
             iconName: "list-add"
             onClicked: newAlbumDialog.open()
+            iconColor: altColorText
         }
 
-        contentData: AlbumsGrid
+        AlbumsGrid
         {
             id: albumGrid
             height: parent.height
