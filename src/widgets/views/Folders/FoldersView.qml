@@ -34,13 +34,13 @@ Kirigami.PageRow
             visible: folderGrid.count === 0
         }
 
-        FoldersGrid
+        Maui.GridBrowser
         {
             id: folderGrid
+            showEmblem: false
 
-            onFolderClicked:
+            onItemClicked:
             {
-                folderGrid.currentIndex = index
                 picsView.headBarTitle = folderGrid.model.get(index).label
                 picsView.clear()
                 currentFolder = folderGrid.model.get(index).path

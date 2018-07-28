@@ -15,7 +15,6 @@
         <file>widgets/views/Albums/AlbumsView.qml</file>
         <file>widgets/views/Viewer/PixViewer.qml</file>
         <file>widgets/views/Settings/SettingsView.qml</file>
-        <file>widgets/views/Folders/FoldersGrid.qml</file>
         <file>widgets/views/Viewer/EditTools.qml</file>
         <file>widgets/views/Viewer/Viewer.qml</file>
         <file>widgets/views/Viewer/Viewer.js</file>
