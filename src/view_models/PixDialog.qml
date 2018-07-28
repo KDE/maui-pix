@@ -11,7 +11,7 @@ Dialog
     parent: ApplicationWindow.overlay
 
     modal: true
-
+clip: true
     margins: 1
     padding: space.tiny*0.5
 }

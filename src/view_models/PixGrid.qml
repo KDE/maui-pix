@@ -34,13 +34,13 @@ Maui.Page
 
         MenuItem
         {
-            text: qsTr(selectionBox.selectionMode ? "Selection OFF" : "Selection ON")
-            onTriggered: selectionBox.selectionMode  = !selectionBox.selectionMode
+            text: qsTr(selectionMode ? "Selection OFF" : "Selection ON")
+            onTriggered: selectionMode  = !selectionMode
         }
 
         MenuItem
         {
-            text: qsTr(selectionBox.selectionMode ? "Select all" : "UnSelect all")
+            text: qsTr(selectionMode ? "Select all" : "UnSelect all")
         }
 
         MenuItem
@@ -174,7 +174,15 @@ Maui.Page
                 onEmblemClicked:
                 {
                     grid.currentIndex = index
-                    selectionBox.append(gridModel.get(index))
+                    var item = gridModel.get(index)
+                    selectionBox.append({
+                                            path: item.url,
+                                            thumbnail: item.url,
+                                            mime: "image",
+                                            tooltip: item.title,
+                                            label: item.title
+
+                                        })
                 }
             }
         }

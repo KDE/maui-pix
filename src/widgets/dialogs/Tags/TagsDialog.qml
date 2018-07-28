@@ -9,11 +9,11 @@ import org.kde.maui 1.0 as Maui
 
 PixDialog
 {
-    property string picUrl : ""
+    property var picUrls : []
     property bool forAlbum : false
     clip: true
     signal picTagged(string tag, string url)
-    signal tagsAdded(var tags, string url)
+    signal tagsAdded(var tags, var urls)
 
     standardButtons: Dialog.Save | Dialog.Cancel
 
@@ -81,9 +81,9 @@ PixDialog
         }
     }
 
-    function show(url)
+    function show(urls)
     {
-        picUrl = url
+        picUrls = urls
         open()
     }
 
@@ -94,22 +94,26 @@ PixDialog
         for(var i = 0; i < tagListComposer.model.count; i++)
             tags.push(tagListComposer.model.get(i).tag)
 
-        tagsAdded(tags, picUrl)
+        tagsAdded(tags, picUrls)
     }
 
-    function addTagsToPic(url, tags)
+    function addTagsToPic(urls, tags)
     {
-        if(tags.length > 0)
+        for(var j in urls)
         {
-            if(!pix.checkExistance("images", "url", url))
-                if(!pix.addPic(url))
-                    return
+            var url = urls[j]
+            if(tags.length > 0)
+            {
+                if(!pix.checkExistance("images", "url", url))
+                    if(!pix.addPic(url))
+                        return
 
-            for(var i in tags)
-                if(PIX.addTagToPic(tags[i], url))
-                    picTagged(tags[i], url)
+                for(var i in tags)
+                    if(PIX.addTagToPic(tags[i], url))
+                        picTagged(tags[i], url)
+            }
+
         }
-
         close()
     }
 
@@ -123,7 +127,8 @@ PixDialog
                 tagsList.model.append(tags[i])
 
 
-        tagListComposer.populate(forAlbum ? tag.getAbstractTags("album", picUrl, true) :
-                                            tag.getUrlTags(picUrl, true))
+        if(picUrls.length === 1)
+            tagListComposer.populate(forAlbum ? tag.getAbstractTags("album", picUrl, true) :
+                                                tag.getUrlTags(picUrl, true))
     }
 }

@@ -6,16 +6,16 @@ import "../view_models"
 
 PixMenu
 {
-    property string picUrl : ""
+    property var paths : []
     property bool isFav : false
     property bool isMultiple: false
 
-    signal favClicked(string url)
-    signal removeClicked(string url)
-    signal shareClicked(string url)
-    signal addClicked(string url)
-    signal tagsClicked(string url)
-    signal showFolderClicked(string url)
+    signal favClicked(var urls)
+    signal removeClicked(var urls)
+    signal shareClicked(var urls)
+    signal addClicked(var urls)
+    signal tagsClicked(var urls)
+    signal showFolderClicked(var urls)
 
     Column
     {
@@ -25,7 +25,7 @@ PixMenu
             text: qsTr(isFav ? "UnFav it": "Fav it")
             onTriggered:
             {
-                favClicked(picUrl)
+                favClicked(paths)
                 close()
             }
         }
@@ -35,7 +35,7 @@ PixMenu
             text: qsTr("Add to...")
             onTriggered:
             {
-                addClicked(picUrl)
+                addClicked(paths)
                 close()
             }
         }
@@ -45,7 +45,7 @@ PixMenu
             text: qsTr("Tags...")
             onTriggered:
             {
-                tagsClicked(picUrl)
+                tagsClicked(paths)
                 close()
             }
         }
@@ -55,7 +55,7 @@ PixMenu
             text: qsTr("Share...")
             onTriggered:
             {
-                shareClicked(picUrl)
+                shareClicked(paths)
                 close()
             }
         }
@@ -65,7 +65,7 @@ PixMenu
             text: qsTr("Remove...")
             onTriggered:
             {
-                removeClicked(picUrl)
+                removeClicked(paths)
                 close()
             }
         }
@@ -76,7 +76,7 @@ PixMenu
             enabled: !isMultiple
             onTriggered:
             {
-                showFolderClicked(picUrl)
+                showFolderClicked(paths)
                 close()
             }
         }
@@ -101,16 +101,16 @@ PixMenu
 
     function show(url)
     {
-        picUrl = url
+        paths = [url]
         isMultiple = false
-        isFav = pix.isFav(picUrl)
+        isFav = pix.isFav(url)
         if(isMobile) open()
         else popup()
     }
 
-    function showMultiple()
+    function showMultiple(urls)
     {
-        picUrl = ""
+        paths = urls
         isMultiple = true
         if(isMobile) open()
         else popup()

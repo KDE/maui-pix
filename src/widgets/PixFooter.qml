@@ -34,7 +34,7 @@ Row
         onItemClicked:
         {
             if(item.btn === "love")
-                pixViewer.currentPicFav = VIEWER.fav(pixViewer.currentPic.url)
+                pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
 
             if(item.btn === "tag")
                 tagsDialog.show(pixViewer.currentPic.url)

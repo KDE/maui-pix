@@ -37,7 +37,6 @@
         <file>view_models/PixDialog.qml</file>
         <file>widgets/PicMenu.qml</file>
         <file>widgets/views/Search/SearchView.qml</file>
-        <file>widgets/custom/SelectionBox/SelectionBox.qml</file>
         <file>widgets/views/Viewer/ViewerDelegate.qml</file>
     </qresource>
 </RCC>

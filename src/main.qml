@@ -40,8 +40,6 @@ import "view_models"
 import "widgets/dialogs/Albums"
 import "widgets/dialogs/Tags"
 
-import "widgets/custom/SelectionBox"
-
 import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
 
@@ -68,6 +66,9 @@ Maui.ApplicationWindow
 
     property int currentView : views.gallery
     property bool fullScreen : false
+
+    property bool selectionMode : false
+
 
     /***************************************************/
     /******************** UI COLORS *******************/
@@ -172,28 +173,30 @@ Maui.ApplicationWindow
 
         }
 
-        SelectionBox
+        Maui.SelectionBar
         {
             id: selectionBox
             Layout.fillWidth : true
-            Layout.leftMargin: contentMargins*2
-            Layout.rightMargin: contentMargins*2
-            Layout.bottomMargin: contentMargins
+            Layout.leftMargin: space.big
+            Layout.rightMargin: space.big
+            Layout.bottomMargin: space.big
             Layout.topMargin: space.small
             visible: selectionList.count > 0 && currentView !== views.viewer
+            onIconClicked: picMenu.showMultiple(selectedPaths)
+            onExitClicked: clear()
+
         }
     }
-
 
     PicMenu
     {
         id: picMenu
-        onFavClicked: VIEWER.fav(url)
-        onRemoveClicked: PIX.removePic(url)
-        onShareClicked: isAndroid ? Maui.Android.shareDialog(url) : shareDialog.show(url)
-        onAddClicked: albumsDialog.show(url)
-        onTagsClicked: tagsDialog.show(url)
-        onShowFolderClicked: pix.showInFolder(url)
+        onFavClicked: VIEWER.fav(urls)
+        onRemoveClicked: PIX.removePic(urls)
+        onShareClicked: isAndroid ? Maui.Android.shareDialog(urls) : shareDialog.show(urls)
+        onAddClicked: albumsDialog.show(urls)
+        onTagsClicked: tagsDialog.show(urls)
+        onShowFolderClicked: pix.showInFolder(urls)
     }
 
     Maui.ShareDialog
@@ -210,7 +213,7 @@ Maui.ApplicationWindow
     {
         id: tagsDialog
         forAlbum: false
-        onTagsAdded: addTagsToPic(url, tags)
+        onTagsAdded: addTagsToPic(urls, tags)
     }
 
     Maui.FileDialog

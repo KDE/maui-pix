@@ -7,8 +7,7 @@ import "../../views/Pix.js" as PIX
 
 PixDialog
 {
-
-    property string picUrl : ""
+    property var picUrls : []
     signal picTagged(string tag)
 
     standardButtons: Dialog.Save | Dialog.Cancel
@@ -39,23 +38,26 @@ PixDialog
             placeholderText: "New album..."
             onAccepted:
             {
-               albumsList.model.insert(0, {album: albumText.text})
+                albumsList.model.insert(0, {album: albumText.text})
                 clear()
             }
         }
     }
 
-    function show(url)
+    function show(urls)
     {
-        albumsDialog.picUrl = url
+        albumsDialog.picUrls = urls
         albumsDialog.open()
     }
 
     function addToAlbum(album)
     {
         var albumExists = pix.checkExistance("albums", "album", album)
-        if(pix.picAlbum(album, picUrl) && !albumExists)
-            albumsView.albumsGrid.model.append({album : album})
+        for(var i in picUrls)
+        {
+            if(pix.picAlbum(album, picUrls[i]) && !albumExists)
+                albumsView.albumsGrid.model.append({album : album})
+        }
         close()
     }
 

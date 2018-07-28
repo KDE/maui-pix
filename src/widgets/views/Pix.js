@@ -18,27 +18,32 @@ function addTagToAlbum(tag, url)
     return pix.albumTag(tag, url)
 }
 
-function removePic(url)
+function removePic(urls)
 {
-    if(pix.removeFile(url))
+    for(var i in urls)
     {
-        switch(currentView)
-        {
-        case views.gallery :
-            galleryView.populate()
-            break
-        case views.folders:
-            foldersView.picsView.populate(foldersView.currentFolder)
-            break
-        case views.albums:
-            albumsView.filter(albumsView.albumsGrid.currentAlbum)
-            break
-        case views.tags:
-            tagsView.populateGrid(tagsView.currentTag)
-            break
-        case views.search:
-            searchView.runSearch(searchView.currentQuery)
+        var url = urls[i]
 
+        if(pix.removeFile(url))
+        {
+            switch(currentView)
+            {
+            case views.gallery :
+                galleryView.populate()
+                break
+            case views.folders:
+                foldersView.picsView.populate(foldersView.currentFolder)
+                break
+            case views.albums:
+                albumsView.filter(albumsView.albumsGrid.currentAlbum)
+                break
+            case views.tags:
+                tagsView.populateGrid(tagsView.currentTag)
+                break
+            case views.search:
+                searchView.runSearch(searchView.currentQuery)
+
+            }
         }
     }
 }

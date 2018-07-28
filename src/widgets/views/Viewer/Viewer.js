@@ -60,28 +60,33 @@ function previous()
     }
 }
 
-function fav(url)
+function fav(urls)
 {
-    if(!pix.checkExistance("images", "url", url))
-        if(!pix.addPic(url))
-            return
-
-    var faved = pix.isFav(url);
-
-    if(!faved)
+    for(var i in urls)
     {
-        if(PIX.addTagToPic("fav", pixViewer.currentPic.url))
-            pixViewer.tagBar.tagsList.model.insert(0, {"tag": "fav"})
-    }else
-    {
-        if(pix.removePicTag("fav", pixViewer.currentPic.url))
-            pixViewer.tagBar.tagsList.populate(pixViewer.currentPic.url)
+        var url = urls[i]
 
+        if(!pix.checkExistance("images", "url", url))
+            if(!pix.addPic(url))
+                return
+
+        var faved = pix.isFav(url);
+
+        //        if(!faved)
+        //        {
+        //            if(PIX.addTagToPic("fav", pixViewer.currentPic.url))
+        //                pixViewer.tagBar.tagsList.model.insert(0, {"tag": "fav"})
+        //        }else
+        //        {
+        //            if(pix.removePicTag("fav", pixViewer.currentPic.url))
+        //                pixViewer.tagBar.tagsList.populate(pixViewer.currentPic.url)
+
+        //        }
+
+        if(pix.favPic(url, !faved))
+            if(urls.length === 1)
+                return !faved
     }
-
-
-    if(pix.favPic(url, !faved))
-        return !faved
 }
 
 
