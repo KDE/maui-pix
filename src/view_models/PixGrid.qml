@@ -14,6 +14,7 @@ Maui.Page
     property int itemSpacing: isMobile ? space.medium : space.big
     property int itemRadius : Kirigami.Units.devicePixelRatio * 6
     property bool showLabels : pix.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
+    property bool fitPreviews : pix.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
 
     property alias grid: grid
     property alias holder: holder
@@ -66,6 +67,7 @@ Maui.Page
             {
                 showLabels = !showLabels
                 grid.model = gridModel
+
                 pix.saveSettings("SHOW_LABELS", showLabels, "GRID")
             }
         }

@@ -131,7 +131,6 @@ void Pix::populateDB(const QStringList &paths)
 void Pix::saveSettings(const QString &key, const QVariant &value, const QString &group)
 {
     PIX::saveSettings(key, value, group);
-
 }
 
 QVariant Pix::loadSettings(const QString &key, const QString &group, const QVariant &defaultValue)
