@@ -52,9 +52,9 @@ Pix::Pix(QObject *parent) : DBActions(parent)
 
     connect(this->fileLoader, &FileLoader::finished,[this](int size)
     {
-            emit refreshViews({{PIX::TABLEMAP[TABLE::ALBUMS], true},
-                               {PIX::TABLEMAP[TABLE::TAGS], true},
-                               {PIX::TABLEMAP[TABLE::IMAGES], true}});
+        emit refreshViews({{PIX::TABLEMAP[TABLE::ALBUMS], true},
+                           {PIX::TABLEMAP[TABLE::TAGS], true},
+                           {PIX::TABLEMAP[TABLE::IMAGES], true}});
     });
 
 }
@@ -149,9 +149,10 @@ bool Pix::removeFile(const QString &url)
     return false;
 }
 
-void Pix::showInFolder(const QString &url)
+void Pix::showInFolder(const QStringList &urls)
 {
-    QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(url).dir().absolutePath()));
+    for(auto url : urls)
+        QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(url).dir().absolutePath()));
 }
 
 

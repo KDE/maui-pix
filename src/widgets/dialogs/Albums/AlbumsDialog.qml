@@ -15,7 +15,6 @@ PixDialog
     onOpened: populate()
     onAccepted: addToAlbum(albumsList.model.get(albumsList.currentIndex).album)
 
-
     ColumnLayout
     {
         anchors.fill: parent

@@ -60,7 +60,7 @@ public:
 
     /*File actions*/
     Q_INVOKABLE bool removeFile(const QString &url);
-    Q_INVOKABLE void showInFolder(const QString &url);
+    Q_INVOKABLE void showInFolder(const QStringList &urls);
 
 private:
     FileLoader *fileLoader;
