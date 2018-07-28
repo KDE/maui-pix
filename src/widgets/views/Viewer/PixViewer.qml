@@ -73,8 +73,6 @@ Maui.Page
     EditTools
     {
         id: editTools
-        height: control.height
-        y: isMobile ? pixViewer.headBar.height : pixViewer.headBar.height + root.footBar.height
 
     }
 
@@ -89,7 +87,7 @@ Maui.Page
     //        visible: shareDialog.opened
     //    }
 
-    contentData: ColumnLayout
+    ColumnLayout
     {
         spacing: 0
         height: parent.height

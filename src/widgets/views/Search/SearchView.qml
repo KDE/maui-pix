@@ -14,7 +14,7 @@ Maui.Page
     headBarTitle: searchResults.grid.count + qsTr(" results")
     headBarVisible: true
 
-    contentData: PixGrid
+    PixGrid
     {
         id: searchResults
         height: parent.height
