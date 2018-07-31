@@ -24,7 +24,6 @@ ItemDelegate
     property bool emblemAdded : false
     property bool keepEmblemOverlay : false
 
-
     signal rightClicked();
     signal emblemClicked();
 
