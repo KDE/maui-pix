@@ -67,3 +67,5 @@ HEADERS += \
     src/db/db.h \
     src/db/dbactions.h \
     src/utils/pic.h
+
+include(install.pri)
