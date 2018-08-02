@@ -132,7 +132,7 @@ bool DBActions::insertPic(const PIX::DB &img)
 
 bool DBActions::addPic(const QString &url)
 {
-    if(!this->checkExistance(PIX::TABLEMAP[PIX::TABLE::IMAGES], PIX::KEYMAP[PIX::KEY::URL],url))
+    if(!this->checkExistance(PIX::TABLEMAP[PIX::TABLE::IMAGES], PIX::KEYMAP[PIX::KEY::URL], url))
     {
         QFileInfo info(url);
         auto title = info.baseName();
@@ -147,12 +147,14 @@ bool DBActions::addPic(const QString &url)
             {PIX::KEY::RATE, "0"},
             {PIX::KEY::COLOR, ""},
             {PIX::KEY::SOURCES_URL, sourceUrl},
-            {PIX::KEY::PIC_DATE, info.created().toString()},
+            {PIX::KEY::PIC_DATE, info.birthTime().toString()},
             {PIX::KEY::FORMAT, format}
         };
 
         return this->insertPic(picMap);
     }
+
+    return false;
 }
 
 bool DBActions::removePic(const QString &url)
@@ -200,8 +202,6 @@ bool DBActions::addTag(const QString &tag)
 
     return false;
 }
-
-
 
 bool DBActions::albumTag(const QString &tag, const QString &album)
 {
@@ -276,7 +276,6 @@ QVariantList DBActions::getFolders()
         //        {"mime", "inode/directory"},
         //        {"icon", "folder"},
         //        {"path", i[PIX::KEY::URL]}
-
         //    };
     }
     return res;

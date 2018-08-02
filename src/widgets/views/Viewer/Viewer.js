@@ -4,14 +4,23 @@
 
 function open(model, index)
 {
-    pixViewer.roll.rollList.model = model
     pixViewer.viewer.list.model = model
+    pixViewer.roll.rollList.model = pixViewer.viewer.list.model
 
     view(index)
 
     if(currentView !== views.viewer)
         currentView = views.viewer
 
+}
+
+function openExternalPics(pics, index)
+{
+    pixViewer.viewer.populate(pics)
+    pixViewer.roll.rollList.model = pixViewer.viewer.list.model
+    view(index)
+    if(currentView !== views.viewer)
+        currentView = views.viewer
 }
 
 function view(index)

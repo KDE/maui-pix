@@ -53,7 +53,6 @@ public:
 
         this->go = true;
         QMetaObject::invokeMethod(this, "getPics", Q_ARG(QStringList, paths));
-
     }
 
     void nextTrack()
@@ -65,7 +64,7 @@ public slots:
 
     void getPics(QStringList paths)
     {
-        qDebug()<<"GETTING TRACKS FROM SETTINGS";
+        qDebug()<<"GETTING IMAGES";
 
         QStringList urls;
 
@@ -73,12 +72,16 @@ public slots:
             if (QFileInfo(path).isDir())
             {
                 QDirIterator it(path, PIX::formats, QDir::Files, QDirIterator::Subdirectories);
-                while (it.hasNext()) urls<<it.next();
 
-            } else if (QFileInfo(path).isFile()) urls<<path;
+                while (it.hasNext())
+                    urls << it.next();
+
+            }else if (QFileInfo(path).isFile())
+                urls << path;
 
         int newPics = 0;
-        if(urls.size()>0)
+
+        if(urls.size() > 0)
         {
             for(auto url : urls)
             {
@@ -92,6 +95,7 @@ public slots:
         }
 
         this->t.msleep(100);
+
         emit this->finished(newPics);
         this->go = false;
     }

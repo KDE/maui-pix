@@ -52,9 +52,12 @@ Pix::Pix(QObject *parent) : DBActions(parent)
 
     connect(this->fileLoader, &FileLoader::finished,[this](int size)
     {
-        emit refreshViews({{PIX::TABLEMAP[TABLE::ALBUMS], true},
-                           {PIX::TABLEMAP[TABLE::TAGS], true},
-                           {PIX::TABLEMAP[TABLE::IMAGES], true}});
+        Q_UNUSED(size);
+        emit refreshViews({
+                              {PIX::TABLEMAP[TABLE::ALBUMS], true},
+                              {PIX::TABLEMAP[TABLE::TAGS], true},
+                              {PIX::TABLEMAP[TABLE::IMAGES], true}
+                          });
     });
 
 }
@@ -88,7 +91,7 @@ void Pix::openPics(const QStringList &pics)
             {PIX::KEYMAP[PIX::KEY::RATE], "0"},
             {PIX::KEYMAP[PIX::KEY::COLOR], ""},
             {PIX::KEYMAP[PIX::KEY::SOURCES_URL], sourceUrl},
-            {PIX::KEYMAP[PIX::KEY::PIC_DATE], info.created().toString()},
+            {PIX::KEYMAP[PIX::KEY::PIC_DATE], info.birthTime().toString()},
             {PIX::KEYMAP[PIX::KEY::FORMAT], format}
         };
 
@@ -115,15 +118,12 @@ void Pix::populateDB(const QStringList &paths)
     QStringList newPaths;
 
     for(auto path : paths)
-    {
         if(path.startsWith("file://"))
-
             newPaths << path.replace("file://", "");
         else
-            newPaths<<path;
+            newPaths << path;
 
-        qDebug()<<"paths to scan"<<newPaths;
-    }
+    qDebug()<<"paths to scan"<<newPaths;
 
     fileLoader->requestPath(newPaths);
 }

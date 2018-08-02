@@ -229,7 +229,7 @@ Maui.ApplicationWindow
         target: pix
 
         onRefreshViews: PIX.refreshViews()
-        onViewPics: VIEWER.open(pics, 0)
+        onViewPics: VIEWER.openExternalPics(pics, 0)
     }
 
     Connections

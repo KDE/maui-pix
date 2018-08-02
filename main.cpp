@@ -67,6 +67,8 @@ QStringList openFiles(const QStringList &files)
         urls.insert(0, QString(files.first()));
     }
 
+    qDebug()<<"TRYING TO OPEN FILES<<" << urls;
+
     return urls;
 }
 
