@@ -131,6 +131,7 @@ Maui.ApplicationWindow
     {
         id: mainPage
         anchors.fill: parent
+
         SwipeView
         {
             id: swipeView

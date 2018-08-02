@@ -66,3 +66,15 @@ function searchFor(query)
 
     searchView.runSearch(query)
 }
+
+function selectItem(item)
+{
+    selectionBox.append({
+                            path: item.url,
+                            label: item.title,
+                            mime: "image",
+                            thumbnail: item.url,
+                            tooltip: item.title
+
+                        })
+}

@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
 #include "dbactions.h"
+#include "fm.h"
 
 DBActions::DBActions(QObject *parent) : DB(parent)
 {
@@ -267,15 +268,17 @@ QVariantList DBActions::getFolders()
     /*Data model keys for to be used on MauiKit Icondelegate component */
     for(auto i : data)
     {
-        res << QVariantMap  {
-        {PIX::KEYMAP[PIX::KEY::URL], i[PIX::KEY::URL]},
-        {"label", QFileInfo(i[PIX::KEY::URL]).baseName()},
-        {"mime", "inode/directory"},
-        {"icon", "folder"},
-        {"path", i[PIX::KEY::URL]}
+        res << FM::getDirInfo(i[PIX::KEY::URL], FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::PLACES]);
 
-    };
-}
-return res;
+        //               QVariantMap  {
+        //        {PIX::KEYMAP[PIX::KEY::URL], i[PIX::KEY::URL]},
+        //        {"label", QFileInfo(i[PIX::KEY::URL]).baseName()},
+        //        {"mime", "inode/directory"},
+        //        {"icon", "folder"},
+        //        {"path", i[PIX::KEY::URL]}
+
+        //    };
+    }
+    return res;
 
 }

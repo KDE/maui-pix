@@ -2,6 +2,7 @@ var Query = {
 
     allPics : "select * from images order by strftime(\"%s\", addDate) desc",
     picLikeUrl_ : "select * from images where url like \"%1%\" order by strftime(\"%s\", addDate) desc",
+    picUrl_ : "select * from images where url = \"%1\"",
 
     albumTags_ : "select * from albums_tags where album = \"%1\"",
     picTags_ : "select * from images_tags where url = \"%1\"",

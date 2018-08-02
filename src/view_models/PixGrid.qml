@@ -2,6 +2,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick 2.9
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
+import "../widgets/views/Pix.js" as PIX
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.maui 1.0 as Maui
 
@@ -145,8 +146,8 @@ Maui.Page
                 {
                     grid.currentIndex = index
 
-                    if(selectionBox.selectionMode)
-                        selectionBox.append(gridModel.get(index))
+                    if(selectionMode)
+                        PIX.selectItem(gridModel.get(index))
                     else if(isMobile)
                         openPic(index)
                 }
