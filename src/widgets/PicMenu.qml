@@ -20,97 +20,94 @@ PixMenu
     signal tagsClicked(var urls)
     signal showFolderClicked(var urls)
 
-    Column
+
+    MenuItem
     {
-
-        MenuItem
+        text: qsTr(isFav ? "UnFav it": "Fav it")
+        onTriggered:
         {
-            text: qsTr(isFav ? "UnFav it": "Fav it")
-            onTriggered:
-            {
-                favClicked(paths)
-                close()
-            }
+            favClicked(paths)
+            close()
         }
+    }
 
-        MenuItem
+    MenuItem
+    {
+        text: qsTr("Add to...")
+        onTriggered:
         {
-            text: qsTr("Add to...")
-            onTriggered:
-            {
-                addClicked(paths)
-                close()
-            }
+            addClicked(paths)
+            close()
         }
+    }
 
-        MenuItem
+    MenuItem
+    {
+        text: qsTr("Tags...")
+        onTriggered:
         {
-            text: qsTr("Tags...")
-            onTriggered:
-            {
-                tagsClicked(paths)
-                close()
-            }
+            tagsClicked(paths)
+            close()
         }
+    }
 
-        MenuItem
+    MenuItem
+    {
+        text: qsTr("Share...")
+        onTriggered:
         {
-            text: qsTr("Share...")
-            onTriggered:
-            {
-                shareClicked(paths)
-                close()
-            }
+            shareClicked(paths)
+            close()
         }
+    }
 
-        MenuItem
+    MenuItem
+    {
+        text: qsTr("Remove...")
+        onTriggered:
         {
-            text: qsTr("Remove...")
-            onTriggered:
-            {
-                removeClicked(paths)
-                close()
-            }
+            removeClicked(paths)
+            close()
         }
+    }
 
-        MenuItem
+    MenuItem
+    {
+        text: qsTr("Show in folder...")
+        enabled: !isMultiple
+        onTriggered:
         {
-            text: qsTr("Show in folder...")
-            enabled: !isMultiple
-            onTriggered:
-            {
-                showFolderClicked(paths)
-                close()
-            }
+            showFolderClicked(paths)
+            close()
         }
+    }
 
-        MenuItem
+    MenuItem
+    {
+        text: qsTr("Save to...")
+        onTriggered:
         {
-            text: qsTr("Save to...")
-            onTriggered:
-            {
-                var pic = picUrl
-                fmDialog.show(function(paths)
-                {
-                    for(var i in paths)
-                        Maui.FM.copy([pic], paths[i])
-
-                });
-                close()
-            }
-        }
-
-        MenuItem
-        {
-            enabled: !isMultiple
-            text: qsTr("Select")
-            onTriggered:
+            var pic = picUrl
+            fmDialog.show(function(paths)
             {
                 for(var i in paths)
-                    PIX.selectItem(pix.get(Q.Query.picUrl_.arg(paths[i]))[i])
+                    Maui.FM.copy([pic], paths[i])
 
-                control.close()
-            }
+            });
+            close()
+        }
+    }
+
+    MenuItem
+    {
+        enabled: !isMultiple
+        text: qsTr("Select")
+        onTriggered:
+        {
+            for(var i in paths)
+                PIX.selectItem(pix.get(Q.Query.picUrl_.arg(paths[i]))[i])
+
+            control.close()
         }
     }
 
