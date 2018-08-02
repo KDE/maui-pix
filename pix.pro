@@ -4,13 +4,11 @@ QT += quickcontrols2
 QT += sql
 QT += widgets
 
-CONFIG += ordered
-CONFIG += c++11
-
 TARGET = pix
 TEMPLATE = app
 
-DESTDIR = $$OUT_PWD/../
+CONFIG += ordered
+CONFIG += c++11
 
 linux:unix:!android {
 
