@@ -48,7 +48,6 @@ Maui.ApplicationWindow
     id: root
     title: qsTr("Pix")
 
-    floatingBar: true
 
 //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 //    altToolBars: true
@@ -99,32 +98,6 @@ Maui.ApplicationWindow
     headBar.visible: !fullScreen
 
     headBar.middleContent: PixsBar {}
-
-    footBar.leftContent: Maui.ToolButton
-    {
-        iconName: "document-share"
-        iconColor: altColorText
-
-        onClicked: isAndroid ? Maui.Android.shareDialog(pixViewer.currentPic.url) :
-                               shareDialog.show(pixViewer.currentPic.url)
-    }
-
-    footBar.middleContent: PixFooter
-    {
-        id: pixFooter
-
-    }
-
-    footBar.rightContent : Maui.ToolButton
-    {
-        iconName: fullScreen? "window-close" : "view-fullscreen"
-        iconColor: altColorText
-
-        onClicked: fullScreen = !fullScreen
-
-    }
-
-    footBar.visible: !pixViewer.holder.visible && currentView === views.viewer
 
 
     ColumnLayout
@@ -236,5 +209,11 @@ Maui.ApplicationWindow
     {
         target: tag
         onTagged: tagsView.populate()
+    }
+
+    Component.onCompleted:
+    {
+        if(isAndroid)
+            switchColorScheme(colorScheme.Dark)
     }
 }

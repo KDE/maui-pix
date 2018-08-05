@@ -5,6 +5,7 @@ import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../../../widgets/views/Pix.js" as PIX
 import "../../../db/Query.js" as Q
+import "../.."
 
 import org.kde.maui 1.0 as Maui
 
@@ -25,10 +26,17 @@ Maui.Page
     property string viewerForegroundColor : pix.loadSettings("VIEWER_FG_COLOR", "PIX", textColor)
 
     margins: 0
+    floatingBar: true
 
     headBarTitle: currentPic.title || ""
     headBarExit: false
     headBarVisible: !holder.visible && !fullScreen
+
+    background: Rectangle
+    {
+        color: viewerBackgroundColor
+    }
+
     headBar.rightContent: [
 
         Maui.ToolButton
@@ -52,6 +60,28 @@ Maui.Page
         onClicked: albumsDialog.show(currentPic.url)
     }
 
+    footBar.leftContent: Maui.ToolButton
+    {
+        iconName: "document-share"
+        iconColor: altColorText
+
+        onClicked: isAndroid ? Maui.Android.shareDialog(pixViewer.currentPic.url) :
+                               shareDialog.show(pixViewer.currentPic.url)
+    }
+
+    footBar.middleContent: PixFooter
+    {
+        id: pixFooter
+    }
+
+    footBar.rightContent : Maui.ToolButton
+    {
+        iconName: fullScreen? "window-close" : "view-fullscreen"
+        iconColor: altColorText
+
+        onClicked: fullScreen = !fullScreen
+
+    }
 
     Connections
     {

@@ -46,9 +46,11 @@ QStringList getFolderImages(const QString &path)
     if (QFileInfo(path).isDir())
     {
         QDirIterator it(path, PIX::formats, QDir::Files, QDirIterator::Subdirectories);
-        while (it.hasNext()) urls<<it.next();
+        while (it.hasNext())
+            urls << it.next();
 
-    } else if (QFileInfo(path).isFile()) urls<<path;
+    }else if (QFileInfo(path).isFile())
+        urls << path;
 
     return urls;
 }
@@ -66,8 +68,6 @@ QStringList openFiles(const QStringList &files)
         urls.removeOne(QString(files.first()));
         urls.insert(0, QString(files.first()));
     }
-
-    qDebug()<<"TRYING TO OPEN FILES<<" << urls;
 
     return urls;
 }
@@ -105,7 +105,6 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
     {
-        qDebug()<<"FINISHED LOADING QML APP";
         pix.refreshCollection();
         if(!pics.isEmpty())
             pix.openPics(pics);
