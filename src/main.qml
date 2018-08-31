@@ -85,7 +85,7 @@ Maui.ApplicationWindow
 
     onSearchButtonClicked: currentView =  views.search
 
-    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
+//    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
     menuDrawer.actions: [
         Kirigami.Action
         {
@@ -211,9 +211,9 @@ Maui.ApplicationWindow
         onTagged: tagsView.populate()
     }
 
-    Component.onCompleted:
-    {
-        if(isAndroid)
-            switchColorScheme(colorScheme.Dark)
-    }
+//    Component.onCompleted:
+//    {
+//        if(isAndroid)
+//            switchColorScheme(colorScheme.Dark)
+//    }
 }

@@ -1,4 +1,4 @@
-QT += androidextras webview
+QT += androidextras
 
 RESOURCES += \
     $$PWD/android.qrc \

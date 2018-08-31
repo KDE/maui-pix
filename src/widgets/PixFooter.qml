@@ -15,40 +15,47 @@ Row
     {
         iconName: "go-previous"
         iconColor: altColorText
-        onClicked: VIEWER.previous()
+        onClicked: VIEWER.previous()       
     }
 
-    Maui.PieButton
+    Maui.ToolButton
     {
-        id: favIcon
-        iconName: "list-add"
+        iconName: "love"
         iconColor: altColorText
-
-        model: ListModel
-        {
-            ListElement {iconName: "tag"; btn: "tag"}
-            ListElement {iconName: "love"; btn:"love"}
-            ListElement {iconName: "image-frames"; btn: "album"}
-        }
-
-        onItemClicked:
-        {
-            if(item.btn === "love")
-                pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
-
-            if(item.btn === "tag")
-                tagsDialog.show(pixViewer.currentPic.url)
-
-            if(item.btn === "album")
-                albumsDialog.show(pixViewer.currentPic.url)
-        }
+        onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
     }
+
+//    Maui.PieButton
+//    {
+//        id: favIcon
+//        iconName: "list-add"
+//        iconColor: altColorText
+
+//        model: ListModel
+//        {
+//            ListElement {iconName: "tag"; btn: "tag"}
+//            ListElement {iconName: "love"; btn:"love"}
+//            ListElement {iconName: "image-frames"; btn: "album"}
+//        }
+
+//        onItemClicked:
+//        {
+//            if(item.btn === "love")
+//                pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
+
+//            if(item.btn === "tag")
+//                tagsDialog.show(pixViewer.currentPic.url)
+
+//            if(item.btn === "album")
+//                albumsDialog.show(pixViewer.currentPic.url)
+//        }
+//    }
 
     Maui.ToolButton
     {
         iconName: "go-next"
         iconColor: altColorText
-
         onClicked: VIEWER.next()
     }
+
 }

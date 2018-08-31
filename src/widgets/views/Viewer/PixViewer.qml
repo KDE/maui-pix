@@ -27,38 +27,40 @@ Maui.Page
 
     margins: 0
     floatingBar: true
-
-    headBarTitle: currentPic.title || ""
-    headBarExit: false
-    headBarVisible: !holder.visible && !fullScreen
+    headBarVisible: false
 
     background: Rectangle
     {
         color: viewerBackgroundColor
     }
 
-    headBar.rightContent: [
+   Rectangle
+   {
+       height: toolBarHeightAlt
+       width: parent.width *0.7
+       color: altColor
+       radius: unit* 4
+       visible: isMobile
+       opacity: 0.7
+       z: 999
+       anchors
+       {
+           top: parent.top
+           horizontalCenter: parent.horizontalCenter
+           margins: space.big
+       }
 
-        Maui.ToolButton
-        {
-            iconName: "edit-rename"
-            iconColor: editTools.visible ? highlightColor : textColor
-            onClicked: editTools.visible ? editTools.close() : editTools.open()
-
-        },
-
-        Maui.ToolButton
-        {
-            iconName: "overflow-menu"
-            onClicked: viewerMenu.popup()
-        }
-    ]
-
-    headBar.leftContent: Maui.ToolButton
-    {
-        iconName: "document-save-as"
-        onClicked: albumsDialog.show(currentPic.url)
-    }
+       Label
+       {
+           height: parent.height
+           width: parent.width
+           horizontalAlignment: Qt.AlignHCenter
+            verticalAlignment: Qt.AlignVCenter
+           color: altColorText
+           elide: Text.ElideRight
+           text: currentPic.title
+       }
+   }
 
     footBar.leftContent: Maui.ToolButton
     {
@@ -74,13 +76,20 @@ Maui.Page
         id: pixFooter
     }
 
-    footBar.rightContent : Maui.ToolButton
+//    footBar.rightContent : Maui.ToolButton
+//    {
+//        iconName: fullScreen? "window-close" : "view-fullscreen"
+//        iconColor: altColorText
+
+//        onClicked: fullScreen = !fullScreen
+
+//    }
+
+    footBar.rightContent :   Maui.ToolButton
     {
-        iconName: fullScreen? "window-close" : "view-fullscreen"
+        iconName: "document-save-as"
         iconColor: altColorText
-
-        onClicked: fullScreen = !fullScreen
-
+        onClicked: editTools.visible ? editTools.close() : editTools.open()
     }
 
     Connections
