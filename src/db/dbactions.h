@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QObject>
 #include "db.h"
-#include "tagging.h"
+#include <MauiKit/tagging.h>
 #include "../utils/pic.h"
 
 class DBActions : public DB

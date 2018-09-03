@@ -1,7 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
-import org.kde.maui 1.0 as Maui
+import org.kde.mauikit 1.0 as Maui
 import "../db/Query.js" as Q
 import "../widgets/views/Pix.js" as PIX
 import "../view_models"

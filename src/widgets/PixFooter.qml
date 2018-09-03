@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import org.kde.maui 1.0 as Maui
+import org.kde.mauikit 1.0 as Maui
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 

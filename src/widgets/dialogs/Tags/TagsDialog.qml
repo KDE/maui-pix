@@ -5,7 +5,7 @@ import "../../../view_models"
 import "../../../db/Query.js" as Q
 import "../../views/Pix.js" as PIX
 
-import org.kde.maui 1.0 as Maui
+import org.kde.mauikit 1.0 as Maui
 
 PixDialog
 {
