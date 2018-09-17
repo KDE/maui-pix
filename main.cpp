@@ -35,9 +35,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef STATIC_KIRIGAMI
 #include "./3rdparty/kirigami/src/kirigamiplugin.h"
-#include "./mauikit/src/mauikit.h"
 #endif
 
+#ifdef STATIC_MAUIKIT
+#include "./mauikit/src/mauikit.h"
+#endif
 
 QStringList getFolderImages(const QString &path)
 {

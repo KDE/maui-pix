@@ -19,7 +19,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
 #include "dbactions.h"
+
+#ifdef STATIC_MAUIKIT
+#include "fm.h"
+#else
 #include <MauiKit/fm.h>
+#endif
+
 
 DBActions::DBActions(QObject *parent) : DB(parent)
 {

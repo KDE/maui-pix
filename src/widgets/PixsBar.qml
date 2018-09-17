@@ -12,7 +12,7 @@ Row
     Maui.ToolButton
     {
         visible: !pixViewer.holder.visible
-        iconColor: currentView === views.viewer? accentColor : textColor
+        iconColor: currentView === views.viewer? accentColor : headBarFGColor
         iconName: "image"
         onClicked: currentView = views.viewer
     }
@@ -20,40 +20,32 @@ Row
 
     Maui.ToolButton
     {
-        display: root.isWide ? ToolButton.TextBesideIcon : ToolButton.IconOnly
-
         text: qsTr("Gallery")
-        iconColor: currentView === views.gallery? accentColor : textColor
+        iconColor: currentView === views.gallery? accentColor : headBarFGColor
         iconName: "image-multiple"
         onClicked: currentView = views.gallery
     }
 
     Maui.ToolButton
     {
-        display: root.isWide ? ToolButton.TextBesideIcon : ToolButton.IconOnly
-
         text: qsTr("Folders")
-        iconColor: currentView === views.folders? accentColor : textColor
+        iconColor: currentView === views.folders? accentColor : headBarFGColor
         iconName: "image-folder-view"
         onClicked: currentView = views.folders
     }
 
     Maui.ToolButton
     {
-        display: root.isWide ? ToolButton.TextBesideIcon : ToolButton.IconOnly
-
         text: qsTr("Albums")
-        iconColor: currentView === views.albums? accentColor : textColor
+        iconColor: currentView === views.albums? accentColor : headBarFGColor
         iconName: "image-frames"
         onClicked: currentView = views.albums
     }
 
     Maui.ToolButton
     {
-        display: root.isWide ? ToolButton.TextBesideIcon : ToolButton.IconOnly
-
         text: qsTr("Tags")
-        iconColor: currentView === views.tags? accentColor : textColor
+        iconColor: currentView === views.tags? accentColor : headBarFGColor
         iconName: "tag"
         onClicked: currentView = views.tags
     }

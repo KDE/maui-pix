@@ -26,7 +26,6 @@ Maui.Page
     property string viewerForegroundColor : pix.loadSettings("VIEWER_FG_COLOR", "PIX", textColor)
 
     margins: 0
-    floatingBar: true
     headBarVisible: false
 
     background: Rectangle
@@ -62,35 +61,6 @@ Maui.Page
        }
    }
 
-    footBar.leftContent: Maui.ToolButton
-    {
-        iconName: "document-share"
-        iconColor: altColorText
-
-        onClicked: isAndroid ? Maui.Android.shareDialog(pixViewer.currentPic.url) :
-                               shareDialog.show(pixViewer.currentPic.url)
-    }
-
-    footBar.middleContent: PixFooter
-    {
-        id: pixFooter
-    }
-
-//    footBar.rightContent : Maui.ToolButton
-//    {
-//        iconName: fullScreen? "window-close" : "view-fullscreen"
-//        iconColor: altColorText
-
-//        onClicked: fullScreen = !fullScreen
-
-//    }
-
-    footBar.rightContent :   Maui.ToolButton
-    {
-        iconName: "document-save-as"
-        iconColor: altColorText
-        onClicked: editTools.visible ? editTools.close() : editTools.open()
-    }
 
     Connections
     {
@@ -137,6 +107,40 @@ Maui.Page
             id: viewer
             Layout.fillHeight: true
             Layout.fillWidth: true
+
+            floatingBar: true
+            headBarVisible: false
+
+            footBar.leftContent: Maui.ToolButton
+            {
+                iconName: "document-share"
+                iconColor: altColorText
+
+                onClicked: isAndroid ? Maui.Android.shareDialog(pixViewer.currentPic.url) :
+                                       shareDialog.show(pixViewer.currentPic.url)
+            }
+
+            footBar.middleContent: PixFooter
+            {
+                id: pixFooter
+            }
+
+        //    footBar.rightContent : Maui.ToolButton
+        //    {
+        //        iconName: fullScreen? "window-close" : "view-fullscreen"
+        //        iconColor: altColorText
+
+        //        onClicked: fullScreen = !fullScreen
+
+        //    }
+
+            footBar.rightContent : Maui.ToolButton
+            {
+                iconName: "document-save-as"
+                iconColor: altColorText
+                onClicked: editTools.visible ? editTools.close() : editTools.open()
+            }
+
 
             Maui.Holder
             {

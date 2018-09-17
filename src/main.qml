@@ -49,8 +49,8 @@ Maui.ApplicationWindow
     title: qsTr("Pix")
 
 
-//    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
-//    altToolBars: true
+    //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
+    //    altToolBars: true
 
     /*READONLY PROPS*/
     readonly property var views : ({
@@ -75,9 +75,14 @@ Maui.ApplicationWindow
 
     highlightColor : "#00abaa"
     altColor : "#545c6e"
-    accentColor: altColor
+    accentColor: "#2e2f30"
     altColorText: "#fafafa"
+    colorSchemeName: "pix"
     bgColor: pixViewer.viewerBackgroundColor
+    headBarBGColor: currentView === views.viewer ? accentColor : Maui.Style.backgroundColor
+    headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
+    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : Maui.Style.backgroundColor
+    textColor: headBarFGColor
 
     /***************************************************/
     /**************************************************/
@@ -85,7 +90,7 @@ Maui.ApplicationWindow
 
     onSearchButtonClicked: currentView =  views.search
 
-//    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
+    //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
     menuDrawer.actions: [
         Kirigami.Action
         {
@@ -211,9 +216,9 @@ Maui.ApplicationWindow
         onTagged: tagsView.populate()
     }
 
-//    Component.onCompleted:
-//    {
-//        if(isAndroid)
-//            switchColorScheme(colorScheme.Dark)
-//    }
+    //    Component.onCompleted:
+    //    {
+    //        if(isAndroid)
+    //            switchColorScheme(colorScheme.Dark)
+    //    }
 }
