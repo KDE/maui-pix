@@ -11,12 +11,12 @@ Row
 
     Maui.ToolButton
     {
+        text: qsTr("Viewer")
         visible: !pixViewer.holder.visible
         iconColor: currentView === views.viewer? accentColor : headBarFGColor
         iconName: "image"
         onClicked: currentView = views.viewer
     }
-
 
     Maui.ToolButton
     {

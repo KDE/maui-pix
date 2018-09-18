@@ -21,7 +21,7 @@ Item
     {
         anchors.fill: parent
         z:-1
-        color: altColor
+        color: accentColor
         radius: unit * 3
         opacity: 0.8
         border.color: Qt.darker(color, 1.5)
