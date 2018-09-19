@@ -48,7 +48,6 @@ Maui.ApplicationWindow
     id: root
     title: qsTr("Pix")
 
-
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
     //    altToolBars: true
 
@@ -214,10 +213,4 @@ Maui.ApplicationWindow
         target: tag
         onTagged: tagsView.populate()
     }
-
-    //    Component.onCompleted:
-    //    {
-    //        if(isAndroid)
-    //            switchColorScheme(colorScheme.Dark)
-    //    }
 }
