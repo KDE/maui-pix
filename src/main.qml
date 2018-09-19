@@ -68,22 +68,21 @@ Maui.ApplicationWindow
 
     property bool selectionMode : false
 
-
     /***************************************************/
     /******************** UI COLORS *******************/
     /*************************************************/
 
-    highlightColor : "#00abaa"
-    altColor : "#2e2f30" // "#545c6e"
-    accentColor: altColor
-    altColorText: "#fafafa"
-    colorSchemeName: "pix"
-    bgColor: pixViewer.viewerBackgroundColor
-    headBarBGColor: currentView === views.viewer ? accentColor : Maui.Style.backgroundColor
-    headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
-    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : Maui.Style.backgroundColor
-    viewBackgroundColor: currentView === views.viewer ? backgroundColor : Maui.Style.backgroundColor
-    textColor: headBarFGColor
+//    highlightColor : "#00abaa"
+//    altColor : "#2e2f30" // "#545c6e"
+//    accentColor: altColor
+//    altColorText: "#fafafa"
+//    colorSchemeName: "pix"
+//    bgColor: pixViewer.viewerBackgroundColor
+//    headBarBGColor: currentView === views.viewer ? accentColor : Maui.Style.backgroundColor
+//    headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
+//    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : Maui.Style.backgroundColor
+//    viewBackgroundColor: currentView === views.viewer ? backgroundColor : Maui.Style.viewBackgroundColor
+//    textColor: headBarFGColor
 
     /***************************************************/
     /**************************************************/

@@ -118,11 +118,10 @@ int main(int argc, char *argv[])
 
 #ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();
-    MauiKit::getInstance().registerTypes();
 #endif
 
-#ifdef Q_OS_ANDROID
-    QIcon::setThemeName("Luv");
+#ifdef STATIC_MAUIKIT
+    MauiKit::getInstance().registerTypes();
 #endif
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

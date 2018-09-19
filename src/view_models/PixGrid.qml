@@ -76,13 +76,34 @@ Maui.Page
 
     headBarTitle: gridModel.count+" "+qsTr("images")
 
-    headBar.rightContent: Maui.ToolButton
+    headBar.rightContent:[
+
+
+        Maui.ToolButton
+        {
+            iconName: "edit-select"
+            onClicked: selectionMode = !selectionMode
+            iconColor: selectionMode ? highlightColor : textColor
+        },
+        Maui.ToolButton
     {
         id: menuBtn
         iconName: "overflow-menu"
         onClicked: isMobile? gridMenu.open() : gridMenu.popup()
     }
-
+    ]
+    headBar.leftContent: [
+        Maui.ToolButton
+        {
+            iconName: "view-sort"
+        },
+        Maui.ToolButton
+        {
+            iconName: "image-frame"
+            onClicked: fitPreviews = !fitPreviews
+            iconColor: !fitPreviews ? highlightColor : textColor
+        }
+    ]
     GridView
     {
         id: grid
