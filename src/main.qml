@@ -50,7 +50,8 @@ Maui.ApplicationWindow
 
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
     //    altToolBars: true
-
+    about.appDescription: qsTr("Pix is an image gallery manager made for Maui. Pix is a convergent and multiplatform app that works under Android and GNU Linux distros.")
+    about.appIcon: "qrc:/img/assets/pix.svg"
     /*READONLY PROPS*/
     readonly property var views : ({
                                        viewer: 0,
@@ -102,8 +103,7 @@ Maui.ApplicationWindow
     headBar.visible: !fullScreen
 
     headBar.middleContent: PixsBar {}
-
-    ColumnLayout
+    content: ColumnLayout
     {
         id: mainPage
         anchors.fill: parent

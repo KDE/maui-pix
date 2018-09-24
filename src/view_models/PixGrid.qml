@@ -22,10 +22,14 @@ Maui.Page
 
     /*signals*/
     signal picClicked(int index)
+    floatingBar: true
+    footBarOverlap: true
+
+    onItemSizeChanged: refreshGrid()
 
     Maui.Holder
     {
-        id: holder        
+        id: holder
         visible: grid.count === 0
     }
 
@@ -84,13 +88,14 @@ Maui.Page
             iconName: "edit-select"
             onClicked: selectionMode = !selectionMode
             iconColor: selectionMode ? highlightColor : textColor
+
         },
         Maui.ToolButton
-    {
-        id: menuBtn
-        iconName: "overflow-menu"
-        onClicked: isMobile? gridMenu.open() : gridMenu.popup()
-    }
+        {
+            id: menuBtn
+            iconName: "overflow-menu"
+            onClicked: isMobile? gridMenu.open() : gridMenu.popup()
+        }
     ]
     headBar.leftContent: [
         Maui.ToolButton
@@ -102,6 +107,23 @@ Maui.Page
             iconName: "image-frame"
             onClicked: fitPreviews = !fitPreviews
             iconColor: !fitPreviews ? highlightColor : textColor
+        }
+    ]
+
+    footBar.middleContent: [
+        Maui.ToolButton
+        {
+            iconName: "list-add"
+            iconColor: altColorText
+            onClicked: zoomIn()
+
+        },
+        Maui.ToolButton
+        {
+            iconName: "list-remove"
+            iconColor: altColorText
+            onClicked: zoomOut()
+
         }
     ]
     GridView
@@ -139,13 +161,7 @@ Maui.Page
 
         onWidthChanged:
         {
-            var amount = parseInt(grid.width/(itemSize + itemSpacing),10)
-            var leftSpace = parseInt(grid.width-(amount*(itemSize + itemSpacing)), 10)
-            var size = parseInt((itemSize + itemSpacing)+(parseInt(leftSpace/amount, 10)), 10)
-
-            size = size > itemSize + itemSpacing ? size : itemSize + itemSpacing
-
-            grid.cellWidth = size
+            refreshGrid()
             //            grid.cellHeight = size
         }
 
@@ -221,4 +237,27 @@ Maui.Page
     {
         VIEWER.open(grid.model, index)
     }
+
+    function zoomIn()
+    {
+        itemSize = itemSize + 20
+    }
+
+    function zoomOut()
+    {
+        itemSize = itemSize - 20
+
+    }
+
+    function refreshGrid()
+    {
+        var amount = parseInt(grid.width/(itemSize + itemSpacing),10)
+        var leftSpace = parseInt(grid.width-(amount*(itemSize + itemSpacing)), 10)
+        var size = parseInt((itemSize + itemSpacing)+(parseInt(leftSpace/amount, 10)), 10)
+
+        size = size > itemSize + itemSpacing ? size : itemSize + itemSpacing
+
+        grid.cellWidth = size
+    }
+
 }

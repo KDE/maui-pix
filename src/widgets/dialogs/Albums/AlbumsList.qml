@@ -24,8 +24,11 @@ ListView
     Maui.Holder
     {
         id: holder
-        message: "<h2>No Albums!</h2><p>Start creating new albums</p>"
-        emoji: "qrc:/img/assets/face.png"
+        emoji: "qrc:/img/assets/RedPlanet.png"
+        isMask: false
+        title : "No albums!"
+        body: "Start creating new albums"
+        emojiSize: iconSizes.huge
         visible: count === 0
     }
 

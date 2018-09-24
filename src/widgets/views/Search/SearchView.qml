@@ -34,17 +34,12 @@ Maui.Page
         iconName: "view-filter"
     }
 
-    footBar.middleContent:  TextField
+    footBar.middleContent:  Maui.TextField
     {
         id: searchInput
         placeholderText: qsTr("Search...")
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment:  Text.AlignVCenter
-        selectByMouse: !isMobile
-        focus: true
-        wrapMode: TextEdit.Wrap
-        selectionColor: highlightColor
-        selectedTextColor: highlightedTextColor
+        width: footBar.middleLayout.width * 0.9
+
         onAccepted: runSearch(searchInput.text)
     }
 

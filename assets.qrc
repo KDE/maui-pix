@@ -13,6 +13,7 @@
         <file>assets/RedPlanet.png</file>
         <file>assets/Rainbow.png</file>
         <file>assets/BugSearch.png</file>
+        <file>assets/pix.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

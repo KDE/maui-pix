@@ -26,9 +26,12 @@ ListView
     Maui.Holder
     {
         id: holder
-        message: "<h2>No Tags!</h2><p>Start tagging your pics</p>"
-        emoji: "qrc:/img/assets/face.png"
+        emoji: "qrc:/img/assets/Electricity.png"
         visible: count === 0
+        isMask: false
+        title : "No tags!"
+        body: "Start tagging your pics"
+        emojiSize: iconSizes.huge
     }
 
     model: ListModel{}

@@ -4,13 +4,14 @@ import QtQuick.Layouts 1.3
 import "../../../view_models"
 import "../../../db/Query.js" as Q
 import "../../views/Pix.js" as PIX
+import org.kde.mauikit 1.0 as Maui
 
-PixDialog
+Maui.Dialog
 {
     property var picUrls : []
     signal picTagged(string tag)
 
-    standardButtons: Dialog.Save | Dialog.Cancel
+     maxHeight: unit * 500
 
     onOpened: populate()
     onAccepted: addToAlbum(albumsList.model.get(albumsList.currentIndex).album)
@@ -19,21 +20,18 @@ PixDialog
     {
         anchors.fill: parent
 
+
         AlbumsList
         {
             id: albumsList
             Layout.fillHeight: true
             Layout.fillWidth: true
-            width: parent.width
-            height: parent.height
         }
 
-        TextField
+        Maui.TextField
         {
             id: albumText
             Layout.fillWidth: true
-            Layout.leftMargin: contentMargins
-            Layout.rightMargin: contentMargins
             placeholderText: "New album..."
             onAccepted:
             {

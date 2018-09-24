@@ -33,7 +33,8 @@ Kirigami.PageRow
     Maui.NewDialog
     {
         id: newAlbumDialog
-        title: qsTr("New album...")
+        title: qsTr("New album")
+        message: qsTr("Create a new album to organize your images. You can sync tags with different albums.")
         onFinished: addAlbum(text)
     }
 
@@ -159,9 +160,10 @@ Kirigami.PageRow
 
     function addAlbum(album)
     {
-        if(!pix.checkExistance("albums", "album", album))
-            if (pix.addAlbum(album))
-                albumGrid.model.append({"album": album})
+        if(album.length > 0)
+            if(!pix.checkExistance("albums", "album", album))
+                if (pix.addAlbum(album))
+                    albumGrid.model.append({"album": album})
 
     }
 

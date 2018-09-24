@@ -28,7 +28,7 @@ Kirigami.PageRow
     Maui.NewDialog
     {
         id: newTagDialog
-        title: qsTr("New tag...")
+        title: qsTr("New tag")
         onFinished:
         {
             tag.tag(text)

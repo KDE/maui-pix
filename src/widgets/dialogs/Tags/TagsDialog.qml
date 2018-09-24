@@ -7,7 +7,7 @@ import "../../views/Pix.js" as PIX
 
 import org.kde.mauikit 1.0 as Maui
 
-PixDialog
+Maui.Dialog
 {
     property var picUrls : []
     property bool forAlbum : false
@@ -15,38 +15,40 @@ PixDialog
     signal picTagged(string tag, string url)
     signal tagsAdded(var tags, var urls)
 
-    standardButtons: Dialog.Save | Dialog.Cancel
+    maxHeight: unit * 500
 
     onAccepted: setTags()
     onRejected: close()
     onOpened: populate()
 
-
     ColumnLayout
     {
         anchors.fill: parent
 
-        TagsList
+        Item
         {
-            id: tagsList
             Layout.fillHeight: true
             Layout.fillWidth: true
-            width: parent.width
-            height: parent.height
-
-            onTagClicked:
+            TagsList
             {
-                tagListComposer.model.insert(0, {tag: tagsList.model.get(index).tag})
+                id: tagsList
+
+                width: parent.width
+                height: parent.height
+                onTagClicked:
+                {
+                    tagListComposer.model.insert(0, {tag: tagsList.model.get(index).tag})
+                }
             }
+
         }
 
-        TextField
+
+        Maui.TextField
         {
             id: tagText
             Layout.fillWidth: true
-            Layout.leftMargin: contentMargins
-            Layout.rightMargin: contentMargins
-            placeholderText: "Tags..."
+            placeholderText: "New tags..."
             onAccepted:
             {
                 var tags = tagText.text.split(",")
@@ -128,7 +130,7 @@ PixDialog
 
 
         if(picUrls.length === 1)
-            tagListComposer.populate(forAlbum ? tag.getAbstractTags("album", picUrl, true) :
-                                                tag.getUrlTags(picUrl, true))
+            tagListComposer.populate(forAlbum ? tag.getAbstractTags("album", picUrls[0], true) :
+                                                tag.getUrlTags(picUrls[0], true))
     }
 }
