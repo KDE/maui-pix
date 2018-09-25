@@ -23,6 +23,12 @@ Kirigami.PageRow
 
         headBarVisible: false
 
+        footBar.middleContent: Maui.TextField
+        {
+            width: footBar.middleLayout.width * 0.7
+            placeholderText: qsTr("Filter folder...")
+        }
+
         Maui.Holder
         {
             id: holder
@@ -37,6 +43,7 @@ Kirigami.PageRow
         Maui.GridBrowser
         {
             id: folderGrid
+            anchors.fill: parent
             showEmblem: false
 
             onItemClicked:

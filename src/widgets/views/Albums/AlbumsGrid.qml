@@ -1,38 +1,30 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import org.kde.mauikit 1.0 as Maui
 
-GridView
+Maui.GridView
 {
     id: albumsGridRoot
-
-    property int itemSize : iconSizes.huge
-    property int itemSpacing: itemSize * 0.5 + (isMobile ? space.big : space.large)
-
-    property string currentAlbum : ""
-
-    signal albumClicked(int index)
-
-    clip: true
 
     width: parent.width
     height: parent.height
 
-    cellWidth: itemSize + itemSpacing
-    cellHeight: itemSize + itemSpacing
+    property string currentAlbum : ""
+    signal albumClicked(int index)
 
-    focus: true
+    adaptContent: true
 
-    boundsBehavior: Flickable.StopAtBounds
-    flickableDirection: Flickable.AutoFlickDirection
-    snapMode: GridView.SnapToRow
+    itemSize : iconSizes.huge
+    spacing: itemSize * 0.5 + (isMobile ? space.big : space.large)
+
+    cellWidth: itemSize + spacing
+    cellHeight: itemSize +spacing
 
     model: ListModel
     {
         id: gridModel
     }
-
-    highlightMoveDuration: 0
 
     delegate: AlbumDelegate
     {
@@ -51,18 +43,5 @@ GridView
                 albumClicked(index)
             }
         }
-    }
-
-    onWidthChanged:
-    {
-        var amount = parseInt(width/(itemSize + itemSpacing),10)
-        var leftSpace = parseInt(width-(amount*(itemSize + itemSpacing)), 10)
-        var size = parseInt((itemSize + itemSpacing)+(parseInt(leftSpace/amount, 10)), 10)
-
-        size = size > itemSize + itemSpacing ? size : itemSize + itemSpacing
-
-        cellWidth = size
-    }
-
-    ScrollBar.vertical: ScrollBar{ visible: true}
+    }   
 }

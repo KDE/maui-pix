@@ -25,8 +25,6 @@ Maui.Page
     floatingBar: true
     footBarOverlap: true
 
-    onItemSizeChanged: refreshGrid()
-
     Maui.Holder
     {
         id: holder
@@ -110,6 +108,7 @@ Maui.Page
         }
     ]
 
+    footBar.visible: !holder.visible
     footBar.middleContent: [
         Maui.ToolButton
         {
@@ -126,25 +125,17 @@ Maui.Page
 
         }
     ]
-    GridView
+
+    Maui.GridView
     {
         id: grid
-        width: parent.width
         height: parent.height
-
-        clip: true
-
-        cellWidth: itemSize + itemSpacing
-        cellHeight: itemSize + itemSpacing
-
-        focus: true
-        boundsBehavior: Flickable.StopAtBounds
-
-        flickableDirection: Flickable.AutoFlickDirection
-
-        snapMode: GridView.SnapToRow
-        //        flow: GridView.FlowTopToBottom
-        //        maximumFlickVelocity: albumSize*8
+        width: parent.width
+        adaptContent: true
+        itemSize: gridPage.itemSize
+        spacing: itemSpacing
+        cellWidth: itemSize
+        cellHeight: itemSize
 
 
         model: ListModel {id: gridModel}
@@ -158,12 +149,6 @@ Maui.Page
         //            color: highlightColor
         //            radius: 4
         //        }
-
-        onWidthChanged:
-        {
-            refreshGrid()
-            //            grid.cellHeight = size
-        }
 
         delegate: PixPic
         {
@@ -224,8 +209,6 @@ Maui.Page
                 }
             }
         }
-
-        ScrollBar.vertical: ScrollBar{ visible: true}
     }
 
     function clear()
@@ -241,23 +224,18 @@ Maui.Page
     function zoomIn()
     {
         itemSize = itemSize + 20
+        refreshGrid()
     }
 
     function zoomOut()
     {
         itemSize = itemSize - 20
-
+        refreshGrid()
     }
 
     function refreshGrid()
     {
-        var amount = parseInt(grid.width/(itemSize + itemSpacing),10)
-        var leftSpace = parseInt(grid.width-(amount*(itemSize + itemSpacing)), 10)
-        var size = parseInt((itemSize + itemSpacing)+(parseInt(leftSpace/amount, 10)), 10)
-
-        size = size > itemSize + itemSpacing ? size : itemSize + itemSpacing
-
-        grid.cellWidth = size
+        grid.adaptGrid()
     }
 
 }
