@@ -111,6 +111,9 @@ Maui.Page
             floatingBar: true
             headBarVisible: false
 
+            footBar.colorScheme.backgroundColor: accentColor
+            footBar.colorScheme.textColor: altColorText
+
             footBar.leftContent: Maui.ToolButton
             {
                 iconName: "document-share"

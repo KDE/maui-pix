@@ -35,6 +35,6 @@ PixGrid
     {
         var map = pix.get(Q.Query.picLikeUrl_.arg(url))
         for(var i in map)
-            grid.model.append(map[i])
+            model.append(map[i])
     }
 }

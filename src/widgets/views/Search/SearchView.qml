@@ -72,6 +72,6 @@ Maui.Page
     {
         if(data.length > 0)
             for(var i in data)
-                searchResults.grid.model.append(data[i])
+                searchResults.model.append(data[i])
     }
 }

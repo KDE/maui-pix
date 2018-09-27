@@ -5,7 +5,7 @@ import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../widgets/views/Pix.js" as PIX
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.mauikit 1.0 as Maui
-
+    import QtQml.Models 2.1
 Maui.Page
 {
     id: gridPage
@@ -16,7 +16,7 @@ Maui.Page
     property int itemRadius : Kirigami.Units.devicePixelRatio * 6
     property bool showLabels : pix.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
     property bool fitPreviews : pix.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
-
+    property alias model: gridModel
     property alias grid: grid
     property alias holder: holder
 
@@ -57,7 +57,7 @@ Maui.Page
             onTriggered:
             {
                 fitPreviews = !fitPreviews
-                grid.model = gridModel
+                //model = gridModel
 
                 pix.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
             }
@@ -69,7 +69,7 @@ Maui.Page
             onTriggered:
             {
                 showLabels = !showLabels
-                grid.model = gridModel
+//                model = gridModel
 
                 pix.saveSettings("SHOW_LABELS", showLabels, "GRID")
             }
@@ -108,6 +108,8 @@ Maui.Page
         }
     ]
 
+    footBar.colorScheme.backgroundColor: accentColor
+    footBar.colorScheme.textColor: altColorText
     footBar.visible: !holder.visible
     footBar.middleContent: [
         Maui.ToolButton
@@ -126,31 +128,37 @@ Maui.Page
         }
     ]
 
-    Maui.GridView
+
+    ListModel {id: gridModel}
+    DelegateModel
     {
-        id: grid
-        height: parent.height
-        width: parent.width
-        adaptContent: true
-        itemSize: gridPage.itemSize
-        spacing: itemSpacing
-        cellWidth: itemSize
-        cellHeight: itemSize
+        id: displayDelegateModel
+        delegate: gridDelegate
+        model: gridModel
 
+        groups: [
+            DelegateModelGroup {
+                includeByDefault: true
+                name: "label"
+            }
+        ]
+        filterOnGroup: "label"
+        //        Component.onCompleted: {
+        //                var rowCount = folderModel.count;
+        //                items.remove(0,rowCount);
+        //                for( var i = 0;i < rowCount;i++ ) {
+        //                    var entry = folderModel.get(i);
+        //                    if(entry.role_display !== undefined) {
+        //                        items.insert(entry, "displayField");
+        //                    }
+        //                }
+        //            }
+    }
+    Component
+    {
+        id: gridDelegate
 
-        model: ListModel {id: gridModel}
-
-        //        highlightMoveDuration: 0
-        //        highlightFollowsCurrentItem: true
-        //        highlight: Rectangle
-        //        {
-        //            width: itemSize + itemSpacing
-        //            height: itemSize + itemSpacing
-        //            color: highlightColor
-        //            radius: 4
-        //        }
-
-        delegate: PixPic
+        PixPic
         {
             id: delegate
 
@@ -211,6 +219,30 @@ Maui.Page
         }
     }
 
+    Maui.GridView
+    {
+        id: grid
+        height: parent.height
+        width: parent.width
+        adaptContent: true
+        itemSize: gridPage.itemSize
+        spacing: itemSpacing
+        cellWidth: itemSize
+        cellHeight: itemSize
+
+        //        highlightMoveDuration: 0
+        //        highlightFollowsCurrentItem: true
+        //        highlight: Rectangle
+        //        {
+        //            width: itemSize + itemSpacing
+        //            height: itemSize + itemSpacing
+        //            color: highlightColor
+        //            radius: 4
+        //        }
+
+        model: displayDelegateModel
+    }
+
     function clear()
     {
         gridModel.clear()
@@ -218,7 +250,7 @@ Maui.Page
 
     function openPic(index)
     {
-        VIEWER.open(grid.model, index)
+        VIEWER.open(model, index)
     }
 
     function zoomIn()

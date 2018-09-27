@@ -154,7 +154,7 @@ Kirigami.PageRow
 
         if(pics.length > 0)
             for(var i in pics)
-                picsView.grid.model.append(pics[i])
+                picsView.model.append(pics[i])
 
     }
 
