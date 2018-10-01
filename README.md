@@ -41,16 +41,11 @@ chiguitar@unal.edu.co
 
 ## Screenshots
 
-![](https://github.com/milohr/pix/blob/master/screenshots/Screenshot_20180401_211748.png)
+![](https://github.com/milohr/pix/blob/master/screenshots/view1.png)
 
-![](https://github.com/milohr/pix/blob/master/screenshots/Screenshot_20180401_211739.png)
+![](https://github.com/milohr/pix/blob/master/screenshots/view2.png)
 
-![](https://github.com/milohr/pix/blob/master/screenshots/Screenshot_20180401_212225.png)
+![](https://github.com/milohr/pix/blob/master/screenshots/view3.png)
 
-![](https://github.com/milohr/pix/blob/master/screenshots/Screenshot_20180401_212154.png)
+![](https://github.com/milohr/pix/blob/master/screenshots/view4.png)
 
-![](https://github.com/milohr/pix/blob/master/screenshots/Screenshot_20180401_212138.png)
-
-![](https://github.com/milohr/pix/blob/master/screenshots/Screenshot_20180401_212054.png)
-
-![](https://github.com/milohr/pix/blob/master/screenshots/Screenshot_20180401_212033.png)
