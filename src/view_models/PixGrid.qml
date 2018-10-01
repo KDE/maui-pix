@@ -114,14 +114,14 @@ Maui.Page
     footBar.middleContent: [
         Maui.ToolButton
         {
-            iconName: "list-add"
+            iconName: "zoom-in"
             iconColor: altColorText
             onClicked: zoomIn()
 
         },
         Maui.ToolButton
         {
-            iconName: "list-remove"
+            iconName: "zoom-out"
             iconColor: altColorText
             onClicked: zoomOut()
 

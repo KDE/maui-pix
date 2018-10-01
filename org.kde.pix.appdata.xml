@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.pix.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LGPL-3.0</project_license>
+  <name>Pix</name>
+  <name xml:lang="ca">Pix</name>
+  <name xml:lang="ca-valencia">Pix</name>
+  <name xml:lang="fr">Pix</name>
+  <name xml:lang="nl">Pix</name>
+  <name xml:lang="pt">Pix</name>
+  <name xml:lang="sk">Pix</name>
+  <name xml:lang="sv">Pix</name>
+  <name xml:lang="uk">Pix</name>
+  <name xml:lang="x-test">xxPixxx</name>
+  <summary>Play your music collection</summary>
+  <summary xml:lang="ca">Reprodueix la vostra col·lecció de música</summary>
+  <summary xml:lang="ca-valencia">Reprodueix la vostra col·lecció de música</summary>
+  <summary xml:lang="fr">Jouez votre collection musicale</summary>
+  <summary xml:lang="nl">Uw muziekcollectie afspelen</summary>
+  <summary xml:lang="pt">Tocar a sua colecção de música</summary>
+  <summary xml:lang="sk">Prehrať vašu hudobnú kolekciu</summary>
+  <summary xml:lang="sv">Spela din musiksamling</summary>
+  <summary xml:lang="uk">Відтворіть вашу музичну збірку</summary>
+  <summary xml:lang="x-test">xxPlay your music collectionxx</summary>
+  <description>
+    <p> Convergent image and gallery viewer. </p>
+    <p xml:lang="x-test">xxConvergent image and gallery viewer.xx</p>
+  </description>
+  <url type="homepage">https://pix.kde.org/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=pix</url>
+  <url type="donation">https://www.kde.org/community/donations</url>
+  <url type="help">https://docs.kde.org/trunk5/en/extragear-multimedia/pix/</url>
+  <screenshots>
+    <screenshot type="default">
+      <caption>The Pix music player</caption>
+      <caption xml:lang="ca">El reproductor de música Pix</caption>
+      <caption xml:lang="ca-valencia">El reproductor de música Pix</caption>
+      <caption xml:lang="fr">Lecteur de musique Pix</caption>
+      <caption xml:lang="nl">De Pix muziekspeler</caption>
+      <caption xml:lang="pt">O leitor de música Pix</caption>
+      <caption xml:lang="sk">Prehrávač hudby Pix</caption>
+      <caption xml:lang="sv">Pix musikspelaren</caption>
+      <caption xml:lang="uk">Музичний програвач Pix</caption>
+      <caption xml:lang="x-test">xxThe Pix music playerxx</caption>
+      <image type="source" width="1366" height="744">
+        https://raw.githubusercontent.com/mauikit/pix/master/screenshots/view1.png
+      </image>
+    </screenshot>
+  </screenshots>
+  <provides>
+    <binary>pix</binary>
+  </provides>
+  <project_group>KDE</project_group>
+  <releases>
+    <release version="0.1.0" date="2018-09-06"/>
+  </releases>
+</component>

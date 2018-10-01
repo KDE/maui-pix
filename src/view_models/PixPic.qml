@@ -132,16 +132,18 @@ ItemDelegate
 
         Item
         {
-            Layout.fillHeight: showLabel
+            height: showLabel ? (unit * 24) + space.small : 0
             Layout.fillWidth: true
-            Layout.maximumHeight: !showLabel ? 0 : parent.height * (isMobile? 0.5 : 0.3)
+            Layout.maximumHeight: height
+            Layout.minimumHeight: height
+            Layout.preferredHeight: height
             visible: showLabel
 
             Label
             {
                 text: title
                 width: parent.width
-                height: parent.height * 0.8
+                height: parent.height
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
                 elide: Qt.ElideRight
