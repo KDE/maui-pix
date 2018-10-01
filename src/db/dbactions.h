@@ -24,14 +24,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QObject>
 #include "db.h"
 
-#ifdef STATIC_MAUIKIT
-#include "tagging.h"
-#else
-#include <MauiKit/tagging.h>
-#endif
-
 #include "../utils/pic.h"
 
+class Tagging;
 class DBActions : public DB
 {
     Q_OBJECT

@@ -2,9 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>view_models/PixGrid.qml</file>
-        <file>utils/Icon.qml</file>
-        <file>utils/Icons.js</file>
-        <file>utils/materialdesignicons-webfont.ttf</file>
         <file>widgets/PixsBar.qml</file>
         <file>db/script.sql</file>
         <file>view_models/PixPic.qml</file>
