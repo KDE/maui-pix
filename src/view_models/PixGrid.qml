@@ -5,7 +5,8 @@ import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../widgets/views/Pix.js" as PIX
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.mauikit 1.0 as Maui
-    import QtQml.Models 2.1
+import QtQml.Models 2.1
+
 Maui.Page
 {
     id: gridPage

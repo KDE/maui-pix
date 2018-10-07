@@ -46,7 +46,6 @@ Maui.Page
     footBar.rightContent : Maui.ToolButton
     {
         iconName: "edit-clear"
-        Layout.alignment: Qt.AlignRight
         onClicked: searchInput.clear()
     }
 

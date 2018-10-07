@@ -22,6 +22,17 @@ Maui.Page
         iconName: "list-remove"
     }
 
+    Maui.Holder
+    {
+        visible: tagsList.count === 0
+        emoji: "qrc:/img/assets/Rainbow.png"
+        isMask: false
+        title : "No Tags!"
+        body: "You can create new tags"
+        emojiSize: iconSizes.huge
+        z: 999
+    }
+
     Maui.SideBar
     {
         id: tagsList

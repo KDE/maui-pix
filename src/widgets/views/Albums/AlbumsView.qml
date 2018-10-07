@@ -55,6 +55,8 @@ Kirigami.PageRow
             iconName: "overflow-menu"
         }
 
+        footBar.colorScheme.backgroundColor: altColor
+        footBar.colorScheme.borderColor: Qt.darker(altColor, 1.4)
         footBar.middleContent: Maui.ToolButton
         {
             iconName: "list-add"

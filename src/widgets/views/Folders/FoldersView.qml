@@ -23,10 +23,10 @@ Kirigami.PageRow
 
         headBarVisible: false
 
-        footBar.middleContent: Maui.TextField
+         footBar.middleContent:  Maui.TextField
         {
-            width: footBar.middleLayout.width * 0.7
-            placeholderText: qsTr("Filter folder...")
+            placeholderText: qsTr("Filter...")
+            width: foldersPage.footBar.middleLayout.width * 0.9
         }
 
         Maui.Holder
