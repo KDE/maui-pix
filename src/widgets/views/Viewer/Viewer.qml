@@ -17,10 +17,7 @@ Maui.Page
     clip: true
     focus: true
 
-    background: Rectangle
-    {
-        color: viewerBackgroundColor
-    }
+    colorScheme.backgroundColor: viewerBackgroundColor
 
     ListView
     {

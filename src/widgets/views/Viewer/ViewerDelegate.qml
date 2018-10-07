@@ -36,7 +36,7 @@ ItemDelegate
             anchors.fill: parent
             acceptedButtons:  Qt.LeftButton | Qt.RightButton
 
-            onEntered: galleryRoll.visible = !galleryRoll.visible
+//            onEntered: galleryRoll.visible = !galleryRoll.visible
             onPressAndHold: picMenu.show(currentPic.url)
 
             onWheel: wheel.angleDelta.y > 0 ? zoomIn() : zoomOut()

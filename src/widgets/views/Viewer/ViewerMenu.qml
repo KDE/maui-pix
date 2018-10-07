@@ -9,38 +9,32 @@ PixMenu
 {
     property alias menuItems: viewerMenuLayout.children
 
+    MenuItem
+    {
+        text: qsTr(tagBarVisible ? "Hide Tag bar" :
+                                   "Show Tag bar")
+        onTriggered: toogleTagbar()
+
+    }
+
+    MenuItem
+    {
+        text: "Configurations..."
+        onTriggered:
+        {
+            viewerConf.open()
+            close()
+        }
+    }
+
+    MenuItem
+    {
+        text: "Sort..."
+        onTriggered: {close()}
+    }
+
     Column
     {
         id: viewerMenuLayout
-        MenuItem
-        {
-            text: qsTr(tagBarVisible ? "Hide Tag bar" :
-                                       "Show Tag bar")
-            onTriggered:
-            {
-                tagBarVisible = !tagBarVisible
-                pix.saveSettings("TAGBAR", tagBarVisible, "PIX")
-            }
-        }
-
-        Kirigami.Separator{ width: parent.width; height: 1}
-
-        MenuItem
-        {
-            text: "Configurations..."
-            onTriggered:
-            {
-                viewerConf.open()
-                close()
-            }
-        }
-
-        Kirigami.Separator{ width: parent.width; height: 1}
-
-        MenuItem
-        {
-            text: "Sort..."
-            onTriggered: {close()}
-        }
     }
 }

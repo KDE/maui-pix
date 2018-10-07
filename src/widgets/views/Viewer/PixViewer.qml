@@ -26,41 +26,33 @@ Maui.Page
     property string viewerForegroundColor : pix.loadSettings("VIEWER_FG_COLOR", "PIX", textColor)
 
     margins: 0
-    headBarVisible: false
+    colorScheme.backgroundColor: viewerBackgroundColor
+    headBarExit: false
+    headBarTitle: currentPic.title
+    headBar.rightContent: [
+        Maui.ToolButton
+        {
+            iconName: "overflow-menu"
+            onClicked: viewerMenu.open()
+        }
+    ]
 
-    background: Rectangle
-    {
-        color: viewerBackgroundColor
-    }
+    headBar.leftContent: [
+        Maui.ToolButton
+        {
+            iconName: "view-preview"
+            onClicked: riseContent()
+            iconColor: control.contentIsRised ? colorScheme.highlightColor: colorScheme.textColor
 
-   Rectangle
-   {
-       height: toolBarHeightAlt
-       width: parent.width *0.7
-       color: altColor
-       radius: unit* 4
-       visible: isMobile
-       opacity: 0.7
-       z: 999
-       anchors
-       {
-           top: parent.top
-           horizontalCenter: parent.horizontalCenter
-           margins: space.big
-       }
+        },
 
-       Label
-       {
-           height: parent.height
-           width: parent.width
-           horizontalAlignment: Qt.AlignHCenter
-            verticalAlignment: Qt.AlignVCenter
-           color: altColorText
-           elide: Text.ElideRight
-           text: currentPic.title
-       }
-   }
-
+        Maui.ToolButton
+        {
+            iconName: "filename-space-amarok"
+            onClicked: toogleTagbar()
+            iconColor: tagBarVisible ? colorScheme.highlightColor: colorScheme.textColor
+        }
+    ]
 
     Connections
     {
@@ -96,37 +88,43 @@ Maui.Page
     //        visible: shareDialog.opened
     //    }
 
-    ColumnLayout
+    backContain: GalleryRoll
     {
-        spacing: 0
+        id: galleryRoll
+        visible: !holder.visible
+        onPicClicked: VIEWER.view(index)
+    }
+
+
+    floatingBar: true
+    footBarOverlap: true
+
+    Viewer
+    {
+        id: viewer
+
         height: parent.height
         width: parent.width
 
-        Viewer
+        floatingBar: true
+        headBarVisible: false
+
+        footBar.colorScheme.backgroundColor: accentColor
+        footBar.colorScheme.textColor: altColorText
+
+        footBar.leftContent: Maui.ToolButton
         {
-            id: viewer
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            iconName: "document-share"
+            iconColor: altColorText
 
-            floatingBar: true
-            headBarVisible: false
+            onClicked: isAndroid ? Maui.Android.shareDialog(pixViewer.currentPic.url) :
+                                   shareDialog.show(pixViewer.currentPic.url)
+        }
 
-            footBar.colorScheme.backgroundColor: accentColor
-            footBar.colorScheme.textColor: altColorText
-
-            footBar.leftContent: Maui.ToolButton
-            {
-                iconName: "document-share"
-                iconColor: altColorText
-
-                onClicked: isAndroid ? Maui.Android.shareDialog(pixViewer.currentPic.url) :
-                                       shareDialog.show(pixViewer.currentPic.url)
-            }
-
-            footBar.middleContent: PixFooter
-            {
-                id: pixFooter
-            }
+        footBar.middleContent: PixFooter
+        {
+            id: pixFooter
+        }
 
         //    footBar.rightContent : Maui.ToolButton
         //    {
@@ -137,36 +135,28 @@ Maui.Page
 
         //    }
 
-            footBar.rightContent : Maui.ToolButton
-            {
-                iconName: "document-save-as"
-                iconColor: altColorText
-                onClicked: editTools.visible ? editTools.close() : editTools.open()
-            }
-
-
-            Maui.Holder
-            {
-                id: holder
-                emoji: "qrc:/img/assets/Rainbow.png"
-                isMask: false
-                title : "No Pic!"
-                body: "Open an image from your collection"
-                emojiSize: iconSizes.huge
-                visible: viewer.list.count === 0
-                fgColor: viewerForegroundColor
-            }
-
-            GalleryRoll
-            {
-                id: galleryRoll
-                visible: !holder.visible
-                anchors.bottom: parent.bottom
-                onPicClicked: VIEWER.view(index)
-            }
+        footBar.rightContent : Maui.ToolButton
+        {
+            iconName: "document-save-as"
+            iconColor: altColorText
+            onClicked: editTools.visible ? editTools.close() : editTools.open()
         }
 
-        Maui.TagsBar
+
+        Maui.Holder
+        {
+            id: holder
+            emoji: "qrc:/img/assets/Rainbow.png"
+            isMask: false
+            title : "No Pic!"
+            body: "Open an image from your collection"
+            emojiSize: iconSizes.huge
+            visible: viewer.list.count === 0
+            fgColor: viewerForegroundColor
+        }
+
+
+        footer: Maui.TagsBar
         {
             id: tagBar
             visible: !holder.visible && tagBarVisible && !fullScreen
@@ -183,6 +173,11 @@ Maui.Page
                 VIEWER.setCurrentPicTags()
             }
         }
+    }
 
+    function toogleTagbar()
+    {
+        tagBarVisible = !tagBarVisible
+        pix.saveSettings("TAGBAR", tagBarVisible, "PIX")
     }
 }
