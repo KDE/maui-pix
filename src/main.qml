@@ -91,18 +91,59 @@ Maui.ApplicationWindow
     onSearchButtonClicked: currentView =  views.search
 
     //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
-    menuDrawer.actions: [
-        Kirigami.Action
+    mainMenu: [
+        Maui.MenuItem
         {
             text: "Sources"
-            iconName: "love"
             onTriggered: fmDialog.show()
         }
     ]
 
     headBar.visible: !fullScreen
 
-    headBar.middleContent: PixsBar {}
+    headBar.middleContent: [
+        Maui.ToolButton
+        {
+            text: qsTr("Viewer")
+            visible: !pixViewer.holder.visible
+            iconColor: currentView === views.viewer ? highlightColor : headBarFGColor
+            iconName: "image"
+            onClicked: currentView = views.viewer
+        },
+
+        Maui.ToolButton
+        {
+            text: qsTr("Gallery")
+            iconColor: currentView === views.gallery? highlightColor : headBarFGColor
+            iconName: "image-multiple"
+            onClicked: currentView = views.gallery
+        },
+
+        Maui.ToolButton
+        {
+            text: qsTr("Folders")
+            iconColor: currentView === views.folders? highlightColor : headBarFGColor
+            iconName: "image-folder-view"
+            onClicked: currentView = views.folders
+        },
+
+        Maui.ToolButton
+        {
+            text: qsTr("Albums")
+            iconColor: currentView === views.albums? highlightColor : headBarFGColor
+            iconName: "image-frames"
+            onClicked: currentView = views.albums
+        },
+
+        Maui.ToolButton
+        {
+            text: qsTr("Tags")
+            iconColor: currentView === views.tags? highlightColor : headBarFGColor
+            iconName: "tag"
+            onClicked: currentView = views.tags
+        }
+    ]
+
     content: ColumnLayout
     {
         id: mainPage

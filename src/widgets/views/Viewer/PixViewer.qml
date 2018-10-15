@@ -28,7 +28,7 @@ Maui.Page
     margins: 0
     colorScheme.backgroundColor: viewerBackgroundColor
     headBarExit: false
-    headBarTitle: currentPic.title
+    headBarTitle: currentPic.title ? currentPic.title : ""
     headBar.rightContent: [
         Maui.ToolButton
         {
@@ -41,7 +41,7 @@ Maui.Page
         Maui.ToolButton
         {
             iconName: "view-preview"
-            onClicked: riseContent()
+            onClicked: control.contentIsRised ? dropContent() : riseContent()
             iconColor: control.contentIsRised ? colorScheme.highlightColor: colorScheme.textColor
 
         },
@@ -117,23 +117,33 @@ Maui.Page
             iconName: "document-share"
             iconColor: altColorText
 
-            onClicked: isAndroid ? Maui.Android.shareDialog(pixViewer.currentPic.url) :
-                                   shareDialog.show(pixViewer.currentPic.url)
+            onClicked: isAndroid ? Maui.Android.shareDialog([pixViewer.currentPic.url]) :
+                                   shareDialog.show([pixViewer.currentPic.url])
         }
 
-        footBar.middleContent: PixFooter
-        {
-            id: pixFooter
-        }
+        footBar.middleContent: [
 
-        //    footBar.rightContent : Maui.ToolButton
-        //    {
-        //        iconName: fullScreen? "window-close" : "view-fullscreen"
-        //        iconColor: altColorText
+            Maui.ToolButton
+            {
+                iconName: "go-previous"
+                iconColor: altColorText
+                onClicked: VIEWER.previous()
+            },
 
-        //        onClicked: fullScreen = !fullScreen
+            Maui.ToolButton
+            {
+                iconName: "love"
+                iconColor: altColorText
+                onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
+            },
 
-        //    }
+            Maui.ToolButton
+            {
+                iconName: "go-next"
+                iconColor: altColorText
+                onClicked: VIEWER.next()
+            }
+        ]
 
         footBar.rightContent : Maui.ToolButton
         {

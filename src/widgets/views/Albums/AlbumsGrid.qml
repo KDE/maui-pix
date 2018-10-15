@@ -14,7 +14,6 @@ Maui.GridView
     signal albumClicked(int index)
 
     adaptContent: true
-
     itemSize : iconSizes.huge
     spacing: itemSize * 0.5 + (isMobile ? space.big : space.large)
 

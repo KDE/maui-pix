@@ -11,7 +11,6 @@ Maui.Dialog
 {
     property var picUrls : []
     property bool forAlbum : false
-    clip: true
     signal picTagged(string tag, string url)
     signal tagsAdded(var tags, var urls)
 

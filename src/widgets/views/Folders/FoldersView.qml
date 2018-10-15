@@ -1,8 +1,10 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
-import "../../../view_models"
 import org.kde.kirigami 2.2 as Kirigami
 import org.kde.mauikit 1.0 as Maui
+
+import "../../../view_models"
+import "../../../db/Query.js" as Q
 
 Kirigami.PageRow
 {
@@ -22,11 +24,13 @@ Kirigami.PageRow
         anchors.fill: parent
 
         headBarVisible: false
-
-         footBar.middleContent:  Maui.TextField
+        footBar.drawBorder: false
+        footBar.middleContent:  Maui.TextField
         {
             placeholderText: qsTr("Filter...")
             width: foldersPage.footBar.middleLayout.width * 0.9
+            onAccepted: filter(text)
+            onCleared: populate()
         }
 
         Maui.Holder
@@ -77,7 +81,18 @@ Kirigami.PageRow
     function populate()
     {
         clear()
-        var folders = pix.getFolders()
+        var folders = pix.getFolders("select * from sources order by url asc")
+        if(folders.length > 0)
+            for(var i in folders)
+                folderGrid.model.append(folders[i])
+
+    }
+
+    function filter(hint)
+    {
+        var query = Q.Query.folders_.arg(hint)
+        clear()
+        var folders = pix.getFolders(query)
         if(folders.length > 0)
             for(var i in folders)
                 folderGrid.model.append(folders[i])

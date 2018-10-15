@@ -32,27 +32,27 @@ Maui.Page
         visible: grid.count === 0
     }
 
-    PixMenu
+    Maui.Menu
     {
         id: gridMenu
 
-        MenuItem
+        Maui.MenuItem
         {
             text: qsTr(selectionMode ? "Selection OFF" : "Selection ON")
             onTriggered: selectionMode  = !selectionMode
         }
 
-        MenuItem
+        Maui.MenuItem
         {
             text: qsTr(selectionMode ? "Select all" : "UnSelect all")
         }
 
-        MenuItem
+        Maui.MenuItem
         {
             text: qsTr("Sort...")
         }
 
-        MenuItem
+        Maui.MenuItem
         {
             text: qsTr(fitPreviews ?  "Crop previews" : "Fit previews")
             onTriggered:
@@ -64,7 +64,7 @@ Maui.Page
             }
         }
 
-        MenuItem
+        Maui.MenuItem
         {
             text: qsTr(showLabels ? "Hide labels" : "Show labels")
             onTriggered:

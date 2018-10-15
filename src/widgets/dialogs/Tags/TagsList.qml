@@ -10,11 +10,9 @@ ListView
 
     signal tagClicked(int index)
 
-
     highlight: Rectangle
     {
         width: tagListRoot.width
-        height: tagListRoot.currentItem.height
         color: highlightColor
     }
 

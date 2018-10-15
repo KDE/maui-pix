@@ -60,7 +60,7 @@ public:
 
     Q_INVOKABLE QVariantList searchFor(const QStringList &queries, const QString &queryTxt);
     /* utils */
-    Q_INVOKABLE QVariantList getFolders();
+    Q_INVOKABLE QVariantList getFolders(const QString &query);
     Q_INVOKABLE QVariantList get(const QString &queryTxt);
 
 private:

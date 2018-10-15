@@ -6,7 +6,7 @@ import "../db/Query.js" as Q
 import "../widgets/views/Pix.js" as PIX
 import "../view_models"
 
-PixMenu
+Maui.Menu
 {
     id: control
     property var paths : []
@@ -21,7 +21,7 @@ PixMenu
     signal showFolderClicked(var urls)
 
 
-    MenuItem
+    Maui.MenuItem
     {
         text: qsTr(isFav ? "UnFav it": "Fav it")
         onTriggered:
@@ -31,7 +31,7 @@ PixMenu
         }
     }
 
-    MenuItem
+    Maui.MenuItem
     {
         text: qsTr("Add to...")
         onTriggered:
@@ -41,7 +41,7 @@ PixMenu
         }
     }
 
-    MenuItem
+    Maui.MenuItem
     {
         text: qsTr("Tags...")
         onTriggered:
@@ -51,7 +51,7 @@ PixMenu
         }
     }
 
-    MenuItem
+    Maui.MenuItem
     {
         text: qsTr("Share...")
         onTriggered:
@@ -61,7 +61,7 @@ PixMenu
         }
     }
 
-    MenuItem
+    Maui.MenuItem
     {
         text: qsTr("Remove...")
         onTriggered:
@@ -71,7 +71,7 @@ PixMenu
         }
     }
 
-    MenuItem
+    Maui.MenuItem
     {
         text: qsTr("Show in folder...")
         enabled: !isMultiple
@@ -82,7 +82,7 @@ PixMenu
         }
     }
 
-    MenuItem
+    Maui.MenuItem
     {
         text: qsTr("Save to...")
         onTriggered:
@@ -98,7 +98,17 @@ PixMenu
         }
     }
 
-    MenuItem
+    Maui.MenuItem
+    {
+        text: qsTr("Copy")
+        onTriggered:
+        {
+            Maui.Handy.copyToClipboard(paths.join(","))
+            control.close()
+        }
+    }
+
+    Maui.MenuItem
     {
         enabled: !isMultiple
         text: qsTr("Select")
@@ -128,6 +138,4 @@ PixMenu
         if(isMobile) open()
         else popup()
     }
-
-
 }

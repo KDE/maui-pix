@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>view_models/PixGrid.qml</file>
-        <file>widgets/PixsBar.qml</file>
         <file>db/script.sql</file>
         <file>view_models/PixPic.qml</file>
         <file>db/Query.js</file>
@@ -17,7 +16,6 @@
         <file>widgets/views/Viewer/Viewer.js</file>
         <file>widgets/views/Folders/PicsView.qml</file>
         <file>widgets/views/Pix.js</file>
-        <file>widgets/PixFooter.qml</file>
         <file>widgets/dialogs/Tags/TagsDialog.qml</file>
         <file>widgets/dialogs/Tags/TagsList.qml</file>
         <file>view_models/PixDelegate.qml</file>
@@ -26,7 +24,6 @@
         <file>widgets/dialogs/Albums/AlbumsDialog.qml</file>
         <file>widgets/dialogs/Albums/AlbumsList.qml</file>
         <file>widgets/views/Viewer/GalleryRoll.qml</file>
-        <file>view_models/PixMenu.qml</file>
         <file>widgets/views/Viewer/ViewerMenu.qml</file>
         <file>widgets/views/Tags/TagsSidebar.qml</file>
         <file>widgets/views/Viewer/ConfigurationDialog.qml</file>

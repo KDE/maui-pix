@@ -268,10 +268,10 @@ QVariantList DBActions::searchFor(const QStringList &queries, const QString &que
     return res;
 }
 
-QVariantList DBActions::getFolders()
+QVariantList DBActions::getFolders(const QString &query)
 {
     QVariantList res;
-    auto data = this->getDBData("select * from sources order by url asc");
+    auto data = this->getDBData(query);
 
     /*Data model keys for to be used on MauiKit Icondelegate component */
     for(auto i : data)

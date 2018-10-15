@@ -29,11 +29,7 @@ Maui.Page
 
     }
 
-    footBar.leftContent:  Maui.ToolButton
-    {
-        iconName: "view-filter"
-    }
-
+    footBar.drawBorder: false
     footBar.middleContent:  Maui.TextField
     {
         id: searchInput
@@ -43,11 +39,6 @@ Maui.Page
         onAccepted: runSearch(searchInput.text)
     }
 
-    footBar.rightContent : Maui.ToolButton
-    {
-        iconName: "edit-clear"
-        onClicked: searchInput.clear()
-    }
 
     function runSearch(query)
     {
