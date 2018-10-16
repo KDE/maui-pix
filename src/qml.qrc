@@ -18,7 +18,6 @@
         <file>widgets/views/Pix.js</file>
         <file>widgets/dialogs/Tags/TagsDialog.qml</file>
         <file>widgets/dialogs/Tags/TagsList.qml</file>
-        <file>view_models/PixDelegate.qml</file>
         <file>widgets/views/Albums/AlbumsGrid.qml</file>
         <file>widgets/views/Albums/AlbumDelegate.qml</file>
         <file>widgets/dialogs/Albums/AlbumsDialog.qml</file>

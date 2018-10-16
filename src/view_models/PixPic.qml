@@ -156,7 +156,7 @@ ItemDelegate
                     visible: parent.visible && showSelectionBackground
                     anchors.fill: parent
                     z: -1
-                    radius: 3
+                    radius: radiusV
                     color: hightlightedColor
                     opacity: hovered ? 0.25 : 1
                 }

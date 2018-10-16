@@ -9,13 +9,6 @@ ListView
 
     signal albumClicked(int index)
 
-    highlight: Rectangle
-    {
-        width: albumsListRoot.width
-        height: albumsListRoot.currentItem.height
-        color: highlightColor
-    }
-
     focus: true
     interactive: true
     highlightFollowsCurrentItem: true
@@ -26,17 +19,18 @@ ListView
         id: holder
         emoji: "qrc:/img/assets/RedPlanet.png"
         isMask: false
-        title : "No albums!"
-        body: "Start creating new albums"
+        title : qsTr("No albums!")
+        body: qsTr("Start creating new albums")
         emojiSize: iconSizes.huge
         visible: count === 0
     }
 
     model: ListModel{}
-    delegate: PixDelegate
+    delegate: Maui.ListDelegate
     {
         id: delegate
         label: album
+        radius: radiusV
 
         Connections
         {

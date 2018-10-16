@@ -23,7 +23,6 @@ Maui.Dialog
     ColumnLayout
     {
         anchors.fill: parent
-
         Item
         {
             Layout.fillHeight: true
@@ -39,7 +38,6 @@ Maui.Dialog
                     tagListComposer.model.insert(0, {tag: tagsList.model.get(index).tag})
                 }
             }
-
         }
 
 

@@ -32,12 +32,37 @@ Maui.Page
     headBar.rightContent: [
         Maui.ToolButton
         {
+            iconName: "document-save-as"
+            onClicked: albumsDialog.open()
+        },
+
+        Maui.ToolButton
+        {
+            iconName: "object-rotate-left"
+            onClicked: viewer.list.currentItem.rotateLeft()
+        },
+
+        Maui.ToolButton
+        {
+            iconName: "object-rotate-right"
+            onClicked: viewer.list.currentItem.rotateRight()
+        },
+
+        Maui.ToolButton
+        {
             iconName: "overflow-menu"
-            onClicked: viewerMenu.open()
+            onClicked: viewerMenu.popup()
         }
     ]
 
     headBar.leftContent: [
+        Maui.ToolButton
+        {
+            iconName: "document-share"
+            onClicked: isAndroid ? Maui.Android.shareDialog([pixViewer.currentPic.url]) :
+                                   shareDialog.show([pixViewer.currentPic.url])
+        },
+
         Maui.ToolButton
         {
             iconName: "view-preview"
@@ -48,7 +73,7 @@ Maui.Page
 
         Maui.ToolButton
         {
-            iconName: "filename-space-amarok"
+            iconName: "tag"
             onClicked: toogleTagbar()
             iconColor: tagBarVisible ? colorScheme.highlightColor: colorScheme.textColor
         }
@@ -77,16 +102,6 @@ Maui.Page
 
     }
 
-    //    Rectangle
-    //    {
-    //        id: shadow
-    //        width: parent.width
-    //        height: parent.height - headerBar.height
-    //        y: headerBar.height
-    //        color: textColor
-    //        opacity: 0.6
-    //        visible: shareDialog.opened
-    //    }
 
     backContain: GalleryRoll
     {
@@ -112,15 +127,6 @@ Maui.Page
         footBar.colorScheme.backgroundColor: accentColor
         footBar.colorScheme.textColor: altColorText
 
-        footBar.leftContent: Maui.ToolButton
-        {
-            iconName: "document-share"
-            iconColor: altColorText
-
-            onClicked: isAndroid ? Maui.Android.shareDialog([pixViewer.currentPic.url]) :
-                                   shareDialog.show([pixViewer.currentPic.url])
-        }
-
         footBar.middleContent: [
 
             Maui.ToolButton
@@ -133,7 +139,8 @@ Maui.Page
             Maui.ToolButton
             {
                 iconName: "love"
-                iconColor: altColorText
+                colorScheme.highlightColor: "#ff557f";
+                iconColor: pixViewer.currentPicFav ? colorScheme.highlightColor : colorScheme.textColor
                 onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
             },
 
@@ -144,13 +151,6 @@ Maui.Page
                 onClicked: VIEWER.next()
             }
         ]
-
-        footBar.rightContent : Maui.ToolButton
-        {
-            iconName: "document-save-as"
-            iconColor: altColorText
-            onClicked: editTools.visible ? editTools.close() : editTools.open()
-        }
 
 
         Maui.Holder

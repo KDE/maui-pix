@@ -11,7 +11,7 @@ Maui.Dialog
     property var picUrls : []
     signal picTagged(string tag)
 
-     maxHeight: unit * 500
+    maxHeight: unit * 500
 
     onOpened: populate()
     onAccepted: addToAlbum(albumsList.model.get(albumsList.currentIndex).album)
@@ -19,7 +19,6 @@ Maui.Dialog
     ColumnLayout
     {
         anchors.fill: parent
-
 
         AlbumsList
         {
@@ -32,7 +31,7 @@ Maui.Dialog
         {
             id: albumText
             Layout.fillWidth: true
-            placeholderText: "New album..."
+            placeholderText: qsTr("New album...")
             onAccepted:
             {
                 albumsList.model.insert(0, {album: albumText.text})

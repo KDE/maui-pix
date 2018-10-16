@@ -10,12 +10,6 @@ ListView
 
     signal tagClicked(int index)
 
-    highlight: Rectangle
-    {
-        width: tagListRoot.width
-        color: highlightColor
-    }
-
     focus: true
     interactive: true
     highlightFollowsCurrentItem: true
@@ -37,7 +31,7 @@ ListView
     {
         id: delegate
         label: tag
-
+        radius: radiusV
         Connections
         {
             target: delegate
