@@ -80,8 +80,6 @@ Maui.Page
     headBarTitle: gridModel.count+" "+qsTr("images")
 
     headBar.rightContent:[
-
-
         Maui.ToolButton
         {
             iconName: "edit-select"
@@ -106,6 +104,12 @@ Maui.Page
             iconName: "image-frame"
             onClicked: fitPreviews = !fitPreviews
             iconColor: !fitPreviews ? highlightColor : textColor
+        },
+        Maui.ToolButton
+        {
+            iconName: "filename-space-amarok"
+            onClicked: showLabels = !showLabels
+            iconColor: showLabels ? highlightColor : textColor
         }
     ]
 
