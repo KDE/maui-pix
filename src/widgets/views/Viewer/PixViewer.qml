@@ -162,7 +162,7 @@ Maui.Page
             body: "Open an image from your collection"
             emojiSize: iconSizes.huge
             visible: viewer.list.count === 0
-            fgColor: viewerForegroundColor
+            colorScheme.backgroundColor: viewerForegroundColor
         }
 
 
