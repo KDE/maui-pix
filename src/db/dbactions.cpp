@@ -276,7 +276,7 @@ QVariantList DBActions::getFolders(const QString &query)
     /*Data model keys for to be used on MauiKit Icondelegate component */
     for(auto i : data)
     {
-        res << FM::getDirInfo(i[PIX::KEY::URL], FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::PLACES]);
+        res << FM::getDirInfo(i[PIX::KEY::URL], FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::PLACES_PATH]);
 
         //               QVariantMap  {
         //        {PIX::KEYMAP[PIX::KEY::URL], i[PIX::KEY::URL]},

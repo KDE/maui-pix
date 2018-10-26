@@ -237,7 +237,6 @@ Maui.ApplicationWindow
     Maui.FileDialog
     {
         id: fmDialog
-        multipleSelection: false
         onlyDirs: true
     }
 
