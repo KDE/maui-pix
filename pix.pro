@@ -44,7 +44,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     src/pix.cpp \
     src/db/db.cpp \
-    src/db/dbactions.cpp
+    src/db/dbactions.cpp \
+    src/models/basemodel.cpp \
+    src/models/baselist.cpp \
+    src/models/gallery/gallery.cpp \
+    src/models/albums/albums.cpp
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -67,7 +71,11 @@ HEADERS += \
     src/db/fileloader.h \
     src/db/db.h \
     src/db/dbactions.h \
-    src/utils/pic.h
+    src/utils/pic.h \
+    src/models/basemodel.h \
+    src/models/baselist.h \
+    src/models/gallery/gallery.h \
+    src/models/albums/albums.h
 
 include(install.pri)
 

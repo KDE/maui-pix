@@ -26,6 +26,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QFileInfo>
 #include "dbactions.h"
 
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+#include <MauiKit/fmh.h>
+#else
+#include "fmh.h"
+#endif
+
 class FileLoader : public DBActions
 {
     Q_OBJECT
@@ -71,7 +77,7 @@ public slots:
         for(auto path : paths)
             if (QFileInfo(path).isDir())
             {
-                QDirIterator it(path, PIX::formats, QDir::Files, QDirIterator::Subdirectories);
+                QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
 
                 while (it.hasNext())
                     urls << it.next();

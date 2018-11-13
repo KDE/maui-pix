@@ -52,6 +52,8 @@ Maui.ApplicationWindow
     //    altToolBars: true
     about.appDescription: qsTr("Pix is an image gallery manager made for Maui. Pix is a convergent and multiplatform app that works under Android and GNU Linux distros.")
     about.appIcon: "qrc:/img/assets/pix.svg"
+
+    property alias dialog : dialogLoader.item
     /*READONLY PROPS*/
     readonly property var views : ({
                                        viewer: 0,
@@ -95,7 +97,11 @@ Maui.ApplicationWindow
         Maui.MenuItem
         {
             text: "Sources"
-            onTriggered: fmDialog.show()
+            onTriggered:
+            {
+                dialogLoader.sourceComponent= fmDialogComponent
+                dialog.show()
+            }
         }
     ]
 
@@ -188,7 +194,6 @@ Maui.ApplicationWindow
             {
                 id: searchView
             }
-
         }
 
         Maui.SelectionBar
@@ -202,7 +207,6 @@ Maui.ApplicationWindow
             visible: selectionList.count > 0 && currentView !== views.viewer
             onIconClicked: picMenu.showMultiple(selectedPaths)
             onExitClicked: clear()
-
         }
     }
 
@@ -211,40 +215,78 @@ Maui.ApplicationWindow
         id: picMenu
         onFavClicked: VIEWER.fav(urls)
         onRemoveClicked: PIX.removePic(urls)
-        onShareClicked: isAndroid ? Maui.Android.shareDialog(urls) : shareDialog.show(urls)
-        onAddClicked: albumsDialog.show(urls)
-        onTagsClicked: tagsDialog.show(urls)
+        onShareClicked:
+        {
+            if(isAndroid)
+                Maui.Android.shareDialog(urls)
+            else
+            {
+                dialogLoader.sourceComponent = shareDialogComponent
+                dialog.show(urls)
+            }
+        }
+        onAddClicked:
+        {
+            dialogLoader.sourceComponent = albumsDialogComponent
+            dialog.show(urls)
+        }
+
+        onTagsClicked:
+        {
+            dialogLoader.sourceComponent = tagsDialogComponent
+            dialog.show(urls)
+        }
         onShowFolderClicked: pix.showInFolder(urls)
     }
 
-    Maui.ShareDialog
+    Component
     {
-        id: shareDialog
+        id: shareDialogComponent
+        Maui.ShareDialog
+        {
+            id: shareDialog
+        }
     }
 
-    AlbumsDialog
+    Component
     {
-        id: albumsDialog
+        id: albumsDialogComponent
+        AlbumsDialog
+        {
+            id: albumsDialog
+        }
     }
 
-    TagsDialog
+    Component
     {
-        id: tagsDialog
-        forAlbum: false
-        onTagsAdded: addTagsToPic(urls, tags)
+        id: tagsDialogComponent
+        TagsDialog
+        {
+            id: tagsDialog
+            forAlbum: false
+            onTagsAdded: addTagsToPic(urls, tags)
+        }
     }
 
-    Maui.FileDialog
+    Component
     {
-        id: fmDialog
-        onlyDirs: true
+        id: fmDialogComponent
+        Maui.FileDialog
+        {
+            id: fmDialog
+            onlyDirs: true
+        }
+    }
+
+    Loader
+    {
+        id: dialogLoader
     }
 
     Connections
     {
         target: pix
-
-        onRefreshViews: PIX.refreshViews()
+//        onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.openExternalPics(pics, 0)
     }
 

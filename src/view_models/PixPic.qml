@@ -46,14 +46,11 @@ ItemDelegate
         }
     }
 
-    Maui.ToolButton
+    Maui.Badge
     {
         id: emblem
-
-        size: iconSizes.medium
-        iconName: (keepEmblemOverlay && emblemAdded) ? "emblem-remove" : "emblem-added"
+        iconName: (keepEmblemOverlay && emblemAdded) ? "list-remove" : "list-add"
         visible: (isHovered || (keepEmblemOverlay && emblemAdded)) && showEmblem
-        isMask: false
         z: 999
         anchors.top: parent.top
         anchors.left: parent.left

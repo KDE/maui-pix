@@ -12,14 +12,14 @@ Maui.Page
 
     headBarExitIcon: "edit-clear"
     headBarTitle: searchResults.grid.count + qsTr(" results")
-    headBarVisible: true
+    headBar.visible: true
 
     PixGrid
     {
         id: searchResults
         height: parent.height
         width: parent.width
-        headBarVisible: false
+        headBar.visible: false
 
         holder.emoji: "qrc:/img/assets/BugSearch.png"
         holder.isMask: false
@@ -30,7 +30,7 @@ Maui.Page
     }
 
     footBar.drawBorder: false
-    footBar.middleContent:  Maui.TextField
+    footBar.middleContent: Maui.TextField
     {
         id: searchInput
         placeholderText: qsTr("Search...")
@@ -38,7 +38,6 @@ Maui.Page
 
         onAccepted: runSearch(searchInput.text)
     }
-
 
     function runSearch(query)
     {

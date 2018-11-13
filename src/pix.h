@@ -35,9 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using namespace std;
 
-
 class FileLoader;
-
 class Pix : public DBActions
 {
     Q_OBJECT
@@ -47,17 +45,11 @@ public:
     ~Pix();
 
     /*UTILS*/
-    Q_INVOKABLE bool isAndroid();
-
     Q_INVOKABLE void openPics(const QStringList &pics);
 
     Q_INVOKABLE void refreshCollection();
 
     Q_INVOKABLE bool run(const QString &query);
-
-    Q_INVOKABLE static void saveSettings(const QString &key, const QVariant &value, const QString &group);
-    Q_INVOKABLE static QVariant loadSettings(const QString &key, const QString &group, const QVariant &defaultValue);
-
     /*File actions*/
     Q_INVOKABLE bool removeFile(const QString &url);
     Q_INVOKABLE void showInFolder(const QStringList &urls);
@@ -70,9 +62,5 @@ private:
 signals:
     void refreshViews(QVariantMap tables);
     void viewPics(QVariantList pics);
-
 };
-
-
-
 #endif // PIX_H

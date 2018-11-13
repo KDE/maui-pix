@@ -23,7 +23,7 @@ Kirigami.PageRow
         id: foldersPage
         anchors.fill: parent
 
-        headBarVisible: false
+        headBar.visible: false
         footBar.drawBorder: false
         footBar.middleContent:  Maui.TextField
         {
@@ -66,7 +66,7 @@ Kirigami.PageRow
         id: picsView
         anchors.fill: parent
 
-        headBarVisible: true
+        headBar.visible: true
         headBarExit: foldersPageRoot.currentIndex === 1
         headBarExitIcon: "go-previous"
         onExit: foldersPageRoot.currentIndex = 0

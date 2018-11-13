@@ -8,7 +8,7 @@ import "../../../view_models"
 PixGrid
 {
     id: galleryViewRoot
-
+    list.query: "select * from images"
     headBarExit: false
     visible: true
     holder.emoji: "qrc:/img/assets/ElectricPlug.png"
@@ -16,12 +16,4 @@ PixGrid
     holder.title : "No Pics!"
     holder.body: "Add new image sources"
     holder.emojiSize: iconSizes.huge
-
-    function populate()
-    {
-        clear()
-        var map = pix.get(Q.Query.allPics)
-        for(var i in map)
-            model.append(map[i])
-    }
 }

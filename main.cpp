@@ -42,12 +42,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifdef STATIC_MAUIKIT
-#include "fm.h"
+#include "fmh.h"
 #include "tagging.h"
 #else
-#include <MauiKit/fm.h>
+#include <MauiKit/fmh.h>
 #include <MauiKit/tagging.h>
 #endif
+
+#include "src/models/basemodel.h"
+#include "src/models/baselist.h"
+#include "src/models/gallery/gallery.h"
+#include "src/models/albums/albums.h"
 
 QStringList getFolderImages(const QString &path)
 {
@@ -55,7 +60,7 @@ QStringList getFolderImages(const QString &path)
 
     if (QFileInfo(path).isDir())
     {
-        QDirIterator it(path, PIX::formats, QDir::Files, QDirIterator::Subdirectories);
+        QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
         while (it.hasNext())
             urls << it.next();
 
@@ -123,6 +128,14 @@ int main(int argc, char *argv[])
     auto context = engine.rootContext();
     context->setContextProperty("pix", &pix);
     context->setContextProperty("tag", pix.tag);
+
+    qmlRegisterUncreatableMetaObject(PIX::staticMetaObject, "PIX", 1, 0, "KEY", "Error");
+
+    qmlRegisterUncreatableType<BaseList>("BaseList", 1, 0, "BaseList", QStringLiteral("BaseList should not be created in QML"));
+
+    qmlRegisterType<BaseModel>("PixModel", 1, 0, "PixModel");
+    qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
+    qmlRegisterType<Albums>("AlbumsList", 1, 0, "AlbumsList");
 
 #ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();

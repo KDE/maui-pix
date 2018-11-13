@@ -24,6 +24,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QStringList>
 #include <QSqlQuery>
 
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+#include <MauiKit/fmh.h>
+#else
+#include "fmh.h"
+#endif
+
 DB::DB(QObject *parent) : QObject(parent)
 {
     QDir collectionDBPath_dir(PIX::CollectionDBPath);
@@ -31,7 +37,7 @@ DB::DB(QObject *parent) : QObject(parent)
         collectionDBPath_dir.mkpath(".");
 
     this->name = QUuid::createUuid().toString();
-    if(!PIX::fileExists(PIX::CollectionDBPath + PIX::DBName))
+    if(!FMH::fileExists(PIX::CollectionDBPath + PIX::DBName))
     {
         this->openDB(this->name);
         qDebug()<<"Collection doesn't exists, trying to create it" << PIX::CollectionDBPath + PIX::DBName;
@@ -42,6 +48,37 @@ DB::DB(QObject *parent) : QObject(parent)
 DB::~DB()
 {
     this->m_db.close();
+}
+
+void DB::init()
+{
+    QDir collectionDBPath_dir(PIX::CollectionDBPath);
+    if (!collectionDBPath_dir.exists())
+        collectionDBPath_dir.mkpath(".");
+
+    this->name = QUuid::createUuid().toString();
+    if(!FMH::fileExists(PIX::CollectionDBPath + PIX::DBName))
+    {
+        this->openDB(this->name);
+        qDebug()<<"Collection doesn't exists, trying to create it" << PIX::CollectionDBPath + PIX::DBName;
+        this->prepareCollectionDB();
+    }else this->openDB(this->name);
+}
+
+DB *DB::instance = nullptr;
+DB *DB::getInstance()
+{
+    if(!instance)
+    {
+        instance = new DB();
+        qDebug() << "getInstance(): First DB instance\n";
+        instance->init();
+        return instance;
+    } else
+    {
+        qDebug()<< "getInstance(): previous DB instance\n";
+        return instance;
+    }
 }
 
 void DB::openDB(const QString &name)
@@ -216,7 +253,7 @@ bool DB::remove(const QString &tableName, const PIX::DB &removeData)
     }
 
     QString strValues;
-        auto i = 0;
+    auto i = 0;
     for (auto key : removeData.keys())
     {
         strValues.append(QString("%1 = \"%2\"").arg(PIX::KEYMAP[key], removeData[key]));
@@ -230,4 +267,67 @@ bool DB::remove(const QString &tableName, const PIX::DB &removeData)
     qDebug()<< sqlQueryString;
 
     return this->getQuery(sqlQueryString).exec();
+}
+
+PIX::DB_LIST DB::getDBData(const QString &queryTxt)
+{
+    PIX::DB_LIST mapList;
+
+    auto query = this->getQuery(queryTxt);
+
+    if(query.exec())
+    {
+        while(query.next())
+        {
+            PIX::DB data;
+            for(auto key : PIX::KEYMAP.keys())
+                if(query.record().indexOf(PIX::KEYMAP[key])>-1)
+                    data.insert(key, query.value(PIX::KEYMAP[key]).toString());
+
+            const auto url = data[PIX::KEY::URL];
+            if(!url.isEmpty())
+            {
+                if(FMH::fileExists(url))
+                    mapList<< data;
+//                else
+//                    removePic(data[PIX::KEY::URL]);
+            }else mapList<< data;
+        }
+
+    }else qDebug()<< query.lastError()<< query.lastQuery();
+
+    return mapList;
+}
+
+QVariantList DB::get(const QString &queryTxt)
+{
+    QVariantList mapList;
+
+    auto query = this->getQuery(queryTxt);
+
+    if(query.exec())
+    {
+        while(query.next())
+        {
+            QVariantMap data;
+            for(auto key : PIX::KEYMAP.keys())
+                if(query.record().indexOf(PIX::KEYMAP[key])>-1)
+                    data[PIX::KEYMAP[key]] = query.value(PIX::KEYMAP[key]).toString();
+
+            auto url = data[PIX::KEYMAP[PIX::KEY::URL]].toString();
+
+            //            if(!url.isEmpty())
+            //            {
+            //                if(FMH::fileExists(url))
+            //                    mapList<< data;
+            //                else
+            //                    removePic(data[PIX::KEYMAP[PIX::KEY::URL]].toString());
+            //            }else
+            mapList<< data;
+
+        }
+
+    }else qDebug()<< query.lastError()<< query.lastQuery();
+
+    return mapList;
 }

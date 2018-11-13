@@ -48,8 +48,6 @@ Pix::Pix(QObject *parent) : DBActions(parent)
 
 
     this->fileLoader = new FileLoader;
-
-
     connect(this->fileLoader, &FileLoader::finished,[this](int size)
     {
         Q_UNUSED(size);
@@ -59,17 +57,11 @@ Pix::Pix(QObject *parent) : DBActions(parent)
                               {PIX::TABLEMAP[TABLE::IMAGES], true}
                           });
     });
-
 }
 
 Pix::~Pix()
 {
     delete this->fileLoader;
-}
-
-bool Pix::isAndroid()
-{
-    return PIX::isAndroid();
 }
 
 void Pix::openPics(const QStringList &pics)
@@ -103,7 +95,7 @@ void Pix::openPics(const QStringList &pics)
 
 void Pix::refreshCollection()
 {
-    this->populateDB({PIX::PicturesPath, PIX::DownloadsPath, PIX::DocumentsPath});
+    this->populateDB({FMH::PicturesPath, FMH::DownloadsPath, FMH::DocumentsPath});
 }
 
 bool Pix::run(const QString &query)
@@ -128,16 +120,6 @@ void Pix::populateDB(const QStringList &paths)
     fileLoader->requestPath(newPaths);
 }
 
-void Pix::saveSettings(const QString &key, const QVariant &value, const QString &group)
-{
-    PIX::saveSettings(key, value, group);
-}
-
-QVariant Pix::loadSettings(const QString &key, const QString &group, const QVariant &defaultValue)
-{
-    return PIX::loadSettings(key, group, defaultValue);
-}
-
 bool Pix::removeFile(const QString &url)
 {
     QFile file(url);
@@ -154,7 +136,3 @@ void Pix::showInFolder(const QStringList &urls)
     for(auto url : urls)
         QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(url).dir().absolutePath()));
 }
-
-
-
-

@@ -69,7 +69,9 @@ Kirigami.PageRow
             id: albumGrid
             height: parent.height
             width: parent.width
-            onAlbumClicked: filter(model.get(index).album)
+            onAlbumClicked: filter(albumsGrid.list.get(index).album)
+            list.query: Q.Query.allAlbums
+
         }
     }
 
@@ -78,7 +80,7 @@ Kirigami.PageRow
         id: picsView
         anchors.fill: parent
 
-        headBarVisible: true
+        headBar.visible: true
 
         holder.title: "No Pics!"
         holder.body: "This album is empty"
@@ -107,42 +109,38 @@ Kirigami.PageRow
 
     }
 
-    function populate()
-    {
-        var albums = [{album: "Favs"}, {album: "Recent"}]
-        albums.push(pix.get(Q.Query.allAlbums))
+//    function populate()
+//    {
+//        var albums = [{album: "Favs"}, {album: "Recent"}]
+//        albums.push(pix.get(Q.Query.allAlbums))
 
-        if(albums.length > 0)
-            for(var i in albums)
-                albumGrid.model.append(albums[i])
+//        if(albums.length > 0)
+//            for(var i in albums)
+//                albumGrid.model.append(albums[i])
 
-    }
+//    }
 
-    function clear()
-    {
-        albumGrid.model.clear()
-    }
+
 
     function filter(album)
     {
         albumGrid.currentAlbum = album
-        picsView.clear()
         tagBar.tagsList.model.clear()
         tagBar.visible = false
 
         switch(album)
         {
         case "Favs":
-            populateAlbum(pix.get(Q.Query.favPics))
+            populateAlbum(Q.Query.favPics)
             break
         case "Recent":
-            populateAlbum(pix.get(Q.Query.recentPics))
+            populateAlbum(Q.Query.recentPics)
             break
         default:
-            populateAlbum(pix.get(Q.Query.albumPics_.arg(album)))
+            populateAlbum(Q.Query.albumPics_.arg(album))
             var tags = tag.getAbstractTags("album", album, true)
             for(var i in tags)
-                populateAlbum(tag.getUrls(tags[i].tag))
+                albumsGrid.list.append(tag.getUrls(tags[i].tag)) //create an append function in gallery.cpp
 
             tagBar.visible = true
             tagBar.tagsList.populate(tags)
@@ -150,23 +148,16 @@ Kirigami.PageRow
         }
     }
 
-    function populateAlbum(pics)
+    function populateAlbum(query)
     {
         albumsPageRoot.currentIndex = 1
-
-        if(pics.length > 0)
-            for(var i in pics)
-                picsView.model.append(pics[i])
-
+        picsView.list.query = query
     }
 
     function addAlbum(album)
     {
         if(album.length > 0)
-            if(!pix.checkExistance("albums", "album", album))
-                if (pix.addAlbum(album))
-                    albumGrid.model.append({"album": album})
-
+            albumsGrid.list.insert({"album": album})
     }
 
     function addTagsToAlbum(album, tags)

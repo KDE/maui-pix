@@ -40,34 +40,37 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class DB : public QObject
 {
-        Q_OBJECT
-    private:
-        QString name;
-         QSqlDatabase m_db;
-    public:
-        explicit DB(QObject *parent = nullptr);
-        ~ DB();
+    Q_OBJECT
+private:
+    QString name;
+    QSqlDatabase m_db;
+    static DB* instance;
+    explicit DB(QObject *parent = nullptr);
+    ~ DB();
 
-        void openDB(const QString &name);
+public:
+    static DB *getInstance();
 
-        /*basic public actions*/
-        void prepareCollectionDB() const;
+    /* utils*/
+    Q_INVOKABLE bool checkExistance(const QString &tableName, const QString &searchId, const QString &search);
 
-        /* utils*/
-        Q_INVOKABLE bool checkExistance(const QString &tableName, const QString &searchId, const QString &search);
+    QSqlQuery getQuery(const QString &queryTxt);
+    bool insert(const QString &tableName, const QVariantMap &insertData);
+    bool update(const QString &tableName, const PIX::DB &updateData, const QVariantMap &where);
+    bool update(const QString &table, const QString &column, const QVariant &newValue, const QVariant &op, const QString &id);
+    bool remove(const QString &tableName, const PIX::DB &removeData);
 
+    PIX::DB_LIST getDBData(const QString &queryTxt);
+    QVariantList get(const QString &queryTxt);
 
-    protected:
-        QSqlQuery getQuery(const QString &queryTxt);
+protected:
+    void init();
+    void openDB(const QString &name);
+    void prepareCollectionDB() const;
 
-        bool insert(const QString &tableName, const QVariantMap &insertData);
-        bool update(const QString &tableName, const PIX::DB &updateData, const QVariantMap &where);
-        bool update(const QString &table, const QString &column, const QVariant &newValue, const QVariant &op, const QString &id);
-        bool remove(const QString &tableName, const PIX::DB &removeData);
+signals:
 
-    signals:
-
-    public slots:
+public slots:
 };
 
 #endif // DB_H

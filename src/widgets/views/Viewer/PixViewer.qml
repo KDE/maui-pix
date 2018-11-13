@@ -21,9 +21,9 @@ Maui.Page
     property var currentPic : ({})
     property int currentPicIndex : 0
 
-    property bool tagBarVisible : pix.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
-    property string viewerBackgroundColor : pix.loadSettings("VIEWER_BG_COLOR", "PIX", backgroundColor)
-    property string viewerForegroundColor : pix.loadSettings("VIEWER_FG_COLOR", "PIX", textColor)
+    property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
+    property string viewerBackgroundColor : Maui.FM.loadSettings("VIEWER_BG_COLOR", "PIX", backgroundColor)
+    property string viewerForegroundColor : Maui.FM.loadSettings("VIEWER_FG_COLOR", "PIX", textColor)
 
     margins: 0
     colorScheme.backgroundColor: viewerBackgroundColor
@@ -33,7 +33,11 @@ Maui.Page
         Maui.ToolButton
         {
             iconName: "document-save-as"
-            onClicked: albumsDialog.open()
+            onClicked:
+            {
+                dialogLoader.sourceComponent = albumsDialogComponent
+                dialog.show()
+            }
         },
 
         Maui.ToolButton
@@ -59,8 +63,16 @@ Maui.Page
         Maui.ToolButton
         {
             iconName: "document-share"
-            onClicked: isAndroid ? Maui.Android.shareDialog([pixViewer.currentPic.url]) :
-                                   shareDialog.show([pixViewer.currentPic.url])
+            onClicked:
+            {
+                if(isAndroid)
+                Maui.Android.shareDialog([pixViewer.currentPic.url])
+                else
+                {
+                    dialogLoader.sourceComponent = shareDialogComponent
+                    dialog.show([pixViewer.currentPic.url])
+                }
+            }
         },
 
         Maui.ToolButton
@@ -79,12 +91,12 @@ Maui.Page
         }
     ]
 
-    Connections
-    {
-        target: tagsDialog
-        onPicTagged: if(currentView === views.viewer)
-                         VIEWER.setCurrentPicTags()
-    }
+//    Connections
+//    {
+//        target: tagsDialog
+//        onPicTagged: if(currentView === views.viewer)
+//                         VIEWER.setCurrentPicTags()
+//    }
 
     ViewerMenu
     {
@@ -122,7 +134,7 @@ Maui.Page
         width: parent.width
 
         floatingBar: true
-        headBarVisible: false
+        headBar.visible: false
 
         footBar.colorScheme.backgroundColor: accentColor
         footBar.colorScheme.textColor: altColorText
@@ -174,7 +186,11 @@ Maui.Page
             bgColor: viewerBackgroundColor
             allowEditMode: true
             onTagClicked: PIX.searchFor(tag)
-            onAddClicked: tagsDialog.show(currentPic.url)
+            onAddClicked:
+            {
+                dialogLoader.sourceComponent = tagsDialogComponent
+                dialog.show(currentPic.url)
+            }
             onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
                                      tagsList.model.remove(index)
             onTagsEdited:
@@ -188,6 +204,6 @@ Maui.Page
     function toogleTagbar()
     {
         tagBarVisible = !tagBarVisible
-        pix.saveSettings("TAGBAR", tagBarVisible, "PIX")
+        Maui.FM.saveSettings("TAGBAR", tagBarVisible, "PIX")
     }
 }

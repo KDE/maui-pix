@@ -41,7 +41,7 @@ Maui.Dialog
             onAccepted:
             {
                 viewerBackgroundColor = text
-                pix.saveSettings("VIEWER_BG_COLOR", viewerBackgroundColor, "PIX")
+                Maui.FM.saveSettings("VIEWER_BG_COLOR", viewerBackgroundColor, "PIX")
             }
         }
 
@@ -67,15 +67,15 @@ Maui.Dialog
             onAccepted:
             {
                 viewerForegroundColor = text
-                pix.saveSettings("VIEWER_FG_COLOR", viewerForegroundColor, "PIX")
+                Maui.FM.saveSettings("VIEWER_FG_COLOR", viewerForegroundColor, "PIX")
             }
         }
     }
 
     function saveConfs()
     {
-        pix.saveSettings("VIEWER_BG_COLOR", bgColor.text, "PIX")
-        pix.saveSettings("VIEWER_FG_COLOR", fgColor.text, "PIX")
+        Maui.FM.saveSettings("VIEWER_BG_COLOR", bgColor.text, "PIX")
+        Maui.FM.saveSettings("VIEWER_FG_COLOR", fgColor.text, "PIX")
         viewerForegroundColor = fgColor.text
         viewerBackgroundColor = bgColor.text
 

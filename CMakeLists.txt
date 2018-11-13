@@ -16,19 +16,36 @@ include(ECMAddAppIcon)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTORCC ON)
 
-add_executable(pix
-    assets.qrc
+set(pix_SRCS
     main.cpp
-   
-    src/db/db.cpp
-    src/db/db.h
-    src/db/dbactions.cpp   
-    src/db/dbactions.h   
-    src/db/fileloader.h
     src/pix.cpp
-    src/qml.qrc
+    src/db/db.cpp
+    src/db/dbactions.cpp
+    src/models/basemodel.cpp
+    src/models/baselist.cpp
     )
-    
+
+set(pix_HDRS
+    src/pix.h
+    src/db/fileloader.h
+    src/db/db.h
+    src/db/dbactions.h
+    src/utils/pic.h
+    src/models/basemodel.h
+    src/models/baselist.h
+    )
+
+set(pix_ASSETS
+    src/qml.qrc
+    assets.qrc
+    )
+
+add_executable(pix
+    ${pix_SRCS}
+    ${pix_HDRS}
+    ${pix_ASSETS}
+    )
+
 if (ANDROID)
     find_package(Qt5 REQUIRED COMPONENTS AndroidExtras)
 

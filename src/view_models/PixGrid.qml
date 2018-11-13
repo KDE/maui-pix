@@ -5,7 +5,10 @@ import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../widgets/views/Pix.js" as PIX
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.mauikit 1.0 as Maui
-import QtQml.Models 2.1
+import PixModel 1.0
+import GalleryList 1.0
+
+import PIX 1.0
 
 Maui.Page
 {
@@ -15,9 +18,10 @@ Maui.Page
     property int itemSize : isMobile ? iconSizes.huge * 1.5 : iconSizes.enormous
     property int itemSpacing: isMobile ? space.medium : space.big
     property int itemRadius : Kirigami.Units.devicePixelRatio * 6
-    property bool showLabels : pix.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
-    property bool fitPreviews : pix.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
+    property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
+    property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
     property alias model: gridModel
+    property alias list: pixList
     property alias grid: grid
     property alias holder: holder
 
@@ -58,9 +62,7 @@ Maui.Page
             onTriggered:
             {
                 fitPreviews = !fitPreviews
-                //model = gridModel
-
-                pix.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
+                Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
             }
         }
 
@@ -70,14 +72,12 @@ Maui.Page
             onTriggered:
             {
                 showLabels = !showLabels
-//                model = gridModel
-
-                pix.saveSettings("SHOW_LABELS", showLabels, "GRID")
+                Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
             }
         }
     }
 
-    headBarTitle: gridModel.count+" "+qsTr("images")
+    headBarTitle: grid.count+" "+qsTr("images")
 
     headBar.rightContent:[
         Maui.ToolButton
@@ -98,6 +98,60 @@ Maui.Page
         Maui.ToolButton
         {
             iconName: "view-sort"
+            onClicked: sortMenu.popup()
+
+            Maui.Menu
+            {
+                id: sortMenu
+
+                Maui.MenuItem
+                {
+                    text: qsTr("Title")
+                    checkable: true
+                    checked: pixList.sortBy === KEY.TITLE
+                    onTriggered: pixList.sortBy = KEY.TITLE
+                }
+
+                Maui.MenuItem
+                {
+                    text: qsTr("Add date")
+                    checkable: true
+                    checked: pixList.sortBy === KEY.ADD_DATE
+                    onTriggered: pixList.sortBy = KEY.ADD_DATE
+                }
+
+                Maui.MenuItem
+                {
+                    text: qsTr("Creation date")
+                    checkable: true
+                    checked: pixList.sortBy === KEY.PIC_DATE
+                    onTriggered: pixList.sortBy = KEY.PIC_DATE
+                }
+
+                Maui.MenuItem
+                {
+                    text: qsTr("Place")
+                    checkable: true
+                    checked: pixList.sortBy === KEY.PLACE
+                    onTriggered: pixList.sortBy = KEY.PLACE
+                }
+
+                Maui.MenuItem
+                {
+                    text: qsTr("Format")
+                    checkable: true
+                    checked: pixList.sortBy === KEY.FORMAT
+                    onTriggered: pixList.sortBy = KEY.FORMAT
+                }
+
+                Maui.MenuItem
+                {
+                    text: qsTr("Size")
+                    checkable: true
+                    checked: pixList.sortBy === KEY.SIZE
+                    onTriggered: pixList.sortBy = KEY.SIZE
+                }
+            }
         },
         Maui.ToolButton
         {
@@ -133,32 +187,17 @@ Maui.Page
         }
     ]
 
-
-    ListModel {id: gridModel}
-    DelegateModel
+    PixModel
     {
-        id: displayDelegateModel
-        delegate: gridDelegate
-        model: gridModel
-
-        groups: [
-            DelegateModelGroup {
-                includeByDefault: true
-                name: "label"
-            }
-        ]
-        filterOnGroup: "label"
-        //        Component.onCompleted: {
-        //                var rowCount = folderModel.count;
-        //                items.remove(0,rowCount);
-        //                for( var i = 0;i < rowCount;i++ ) {
-        //                    var entry = folderModel.get(i);
-        //                    if(entry.role_display !== undefined) {
-        //                        items.insert(entry, "displayField");
-        //                    }
-        //                }
-        //            }
+        id: gridModel
+        list: pixList
     }
+
+    GalleryList
+    {
+        id: pixList
+    }
+
     Component
     {
         id: gridDelegate
@@ -245,12 +284,8 @@ Maui.Page
         //            radius: 4
         //        }
 
-        model: displayDelegateModel
-    }
-
-    function clear()
-    {
-        gridModel.clear()
+        model: gridModel
+        delegate: gridDelegate
     }
 
     function openPic(index)
@@ -274,5 +309,4 @@ Maui.Page
     {
         grid.adaptGrid()
     }
-
 }

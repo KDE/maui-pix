@@ -22,12 +22,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DBACTIONS_H
 
 #include <QObject>
-#include "db.h"
-
 #include "../utils/pic.h"
 
+class DB;
 class Tagging;
-class DBActions : public DB
+class DBActions : public QObject
 {
     Q_OBJECT
 public:
@@ -35,9 +34,6 @@ public:
     ~DBActions();
 
     Tagging *tag;
-
-    PIX::DB_LIST getDBData(const QString &queryTxt);
-
     bool execQuery(const QString &queryTxt);
 
     bool insertPic(const PIX::DB &img);
@@ -54,16 +50,14 @@ public:
     Q_INVOKABLE bool removeAlbumTag(const QString &tag, const QString &album);
     Q_INVOKABLE bool cleanTags();
 
-    Q_INVOKABLE bool addAlbum(const QString &album);
     Q_INVOKABLE bool picAlbum(const QString &album, const QString &url);
-
 
     Q_INVOKABLE QVariantList searchFor(const QStringList &queries, const QString &queryTxt);
     /* utils */
     Q_INVOKABLE QVariantList getFolders(const QString &query);
-    Q_INVOKABLE QVariantList get(const QString &queryTxt);
 
 private:
+    DB *db;
 
 signals:
     void tagAdded(QString tag);

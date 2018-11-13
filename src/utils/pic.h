@@ -103,7 +103,7 @@ static const QMap<TABLE,QString> TABLEMAP =
     {TABLE::TAGS,"tags"}
 };
 
-enum class KEY :uint8_t
+enum KEY : uint8_t
 {
     URL,
     SOURCES_URL,
@@ -118,8 +118,9 @@ enum class KEY :uint8_t
     PLACE,
     FORMAT,
     TAG,
+    SIZE,
     NONE
-};
+}; Q_ENUM_NS(KEY)
 
 typedef QMap<PIX::KEY, QString> DB;
 typedef QList<DB> DB_LIST;
@@ -138,14 +139,29 @@ static const DB KEYMAP =
     {KEY::PLACE, "place"},
     {KEY::FORMAT, "format"},
     {KEY::ADD_DATE, "addDate"},
+    {KEY::SIZE, "size"},
     {KEY::TAG, "tag"}
 };
 
+static const QMap<QString, PIX::KEY> MAPKEY =
+{
+    {PIX::KEYMAP[PIX::KEY::URL], PIX::KEY::URL},
+    {PIX::KEYMAP[PIX::SOURCES_URL], PIX::SOURCES_URL},
+    {PIX::KEYMAP[PIX::RATE], PIX::RATE},
+    {PIX::KEYMAP[PIX::TITLE], PIX::TITLE},
+    {PIX::KEYMAP[PIX::ALBUM], PIX::ALBUM},
+    {PIX::KEYMAP[PIX::FAV], PIX::FAV},
+    {PIX::KEYMAP[PIX::COLOR], PIX::COLOR},
+    {PIX::KEYMAP[PIX::NOTE], PIX::NOTE},
+    {PIX::KEYMAP[PIX::PIC_DATE], PIX::PIC_DATE},
+    {PIX::KEYMAP[PIX::PLACE], PIX::PLACE},
+    {PIX::KEYMAP[PIX::FORMAT], PIX::FORMAT},
+    {PIX::KEYMAP[PIX::ADD_DATE], PIX::ADD_DATE},
+    {PIX::KEYMAP[PIX::SIZE], PIX::SIZE},
+    {PIX::KEYMAP[PIX::TAG], PIX::TAG}
+};
 
-const QString PicturesPath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
-const QString DownloadsPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-const QString DocumentsPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-const QString HomePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+
 const QString SettingPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)+"/pix/";
 const QString CollectionDBPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/pix/";
 const QString CachePath = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)+"/pix/";
@@ -156,8 +172,6 @@ const QString comment = "Gallery image viewer";
 const QString DBName = "collection.db";
 
 const QStringList MoodColors = {"#F0FF01","#01FF5B","#3DAEFD","#B401FF","#E91E63"};
-
-const QStringList formats {"*.jpg","*.jpeg","*.png","*.bmp","*.gif"};
 
 inline QString ucfirst(const QString &str)/*uppercase first letter*/
 {
@@ -182,50 +196,6 @@ inline QString ucfirst(const QString &str)/*uppercase first letter*/
     }else output = str;
 
     return output.simplified();
-}
-
-inline bool fileExists(const QString &url)
-{
-    QFileInfo path(url);
-    if (path.exists()) return true;
-    else return false;
-}
-
-inline void savePic(DB &track, const QByteArray &array, const QString &path)
-{
-    if(!array.isNull()&&!array.isEmpty())
-    {
-        // qDebug()<<"tryna save array: "<< array;
-
-        QImage img;
-        img.loadFromData(array);
-        QString name = track[PIX::KEY::TITLE];
-        name.replace("/", "-");
-        name.replace("&", "-");
-        QString format = "JPEG";
-        if (img.save(path + name + ".jpg", format.toLatin1(), 100))
-            qDebug()<<"image saved!";
-        else  qDebug() << "couldn't save artwork";
-    }else qDebug()<<"array is empty";
-}
-
-inline void saveSettings(const QString &key, const QVariant &value, const QString &group)
-{
-    QSettings setting(PIX::App, PIX::App);
-    setting.beginGroup(group);
-    setting.setValue(key,value);
-    setting.endGroup();
-}
-
-inline QVariant loadSettings(const QString &key, const QString &group, const QVariant &defaultValue)
-{
-    QVariant variant;
-    QSettings setting(PIX::App, PIX::App);
-    setting.beginGroup(group);
-    variant = setting.value(key,defaultValue);
-    setting.endGroup();
-
-    return variant;
 }
 
 inline QString getQuery(const QString &key)
@@ -257,44 +227,6 @@ inline QString getQuery(const QString &key)
     if(itemMap.isEmpty()) return "";
 
     return itemMap.value(key).toString();
-}
-
-inline bool isMobile()
-{
-#if defined(Q_OS_ANDROID)
-    return true;
-#elif defined(Q_OS_LINUX)
-    return false;
-#elif defined(Q_OS_WIN32)
-    return false;
-#elif defined(Q_OS_WIN64)
-    return false;
-#elif defined(Q_OS_MACOS)
-    return false;
-#elif defined(Q_OS_IOS)
-    return true;
-#elif defined(Q_OS_HAIKU)
-    return false;
-#endif
-}
-
-inline bool isAndroid()
-{
-#if defined(Q_OS_ANDROID)
-    return true;
-#elif defined(Q_OS_LINUX)
-    return false;
-#elif defined(Q_OS_WIN32)
-    return false;
-#elif defined(Q_OS_WIN64)
-    return false;
-#elif defined(Q_OS_MACOS)
-    return false;
-#elif defined(Q_OS_IOS)
-    return true;
-#elif defined(Q_OS_HAIKU)
-    return false;
-#endif
 }
 
 }
