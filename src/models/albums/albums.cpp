@@ -1,21 +1,16 @@
 #include "albums.h"
-#include "./src/db/db.h"
+#include "./src/db/dbactions.h"
 
 #ifdef STATIC_MAUIKIT
 #include "fmh.h"
-#include "tagging.h"
 #else
 #include <MauiKit/fmh.h>
-#include <MauiKit/tagging.h>
 #endif
 
 Albums::Albums(QObject *parent) : BaseList(parent)
 {
     qDebug()<< "CREATING GALLERY LIST";
-    this->db = DB::getInstance();
-    this->tag = Tagging::getInstance(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
-
-    this->tag =  Tagging::getInstance(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
+    this->dba = DBActions::getInstance();
     this->sortList();
 
     connect(this, &Albums::sortByChanged, this, &Albums::sortList);
@@ -106,22 +101,11 @@ void Albums::setList()
 {
     emit this->preListChanged();
 
-    this->list = this->db->getDBData(this->query);
+    this->list = this->dba->getDBData(this->query);
     qDebug()<< "ALBUMS LIST READY"<< list;
     this->sortList();
 
     emit this->postListChanged();
-}
-
-bool Albums::addAlbum(const QString &album)
-{
-    QVariantMap albumMap
-    {
-        {PIX::KEYMAP[PIX::KEY::ALBUM], album},
-        {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}
-    };
-
-    return this->db->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS], albumMap);
 }
 
 QVariantMap Albums::get(const int &index) const
@@ -142,7 +126,7 @@ bool Albums::insert(const QVariantMap &pic)
 {
     emit this->preItemAppended();
 
-    if(this->addAlbum(pic[PIX::KEYMAP[PIX::KEY::ALBUM]].toString()))
+    if(this->dba->addAlbum(pic[PIX::KEYMAP[PIX::KEY::ALBUM]].toString()))
     {
         emit postItemAppended();
         return true;

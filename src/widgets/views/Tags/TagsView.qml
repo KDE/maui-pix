@@ -60,7 +60,6 @@ Kirigami.PageRow
         if(tags.length > 0)
             for(var i in tags)
                 append(tags[i])
-
     }
 
     function populateGrid(myTag)

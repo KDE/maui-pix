@@ -2,11 +2,9 @@
 .import "../../../db/Query.js" as Q
 
 
-function open(model, index)
+function open(list, index)
 {
-    pixViewer.viewer.list.model = model
-    pixViewer.roll.rollList.model = pixViewer.viewer.list.model
-
+    pixViewer.model.list = list
     view(index)
 
     if(currentView !== views.viewer)
@@ -17,7 +15,6 @@ function open(model, index)
 function openExternalPics(pics, index)
 {
     pixViewer.viewer.populate(pics)
-    pixViewer.roll.rollList.model = pixViewer.viewer.list.model
     view(index)
     if(currentView !== views.viewer)
         currentView = views.viewer
@@ -27,9 +24,10 @@ function view(index)
 {
     pixViewer.currentPicIndex = index
 
-    pixViewer.currentPic = pixViewer.viewer.list.model.get(pixViewer.currentPicIndex)
+    pixViewer.currentPic = pixViewer.model.list.get(pixViewer.currentPicIndex)
 
-    pixViewer.currentPicFav = pix.isFav(pixViewer.currentPic.url)
+    console.log("CURRENT PIC FAV", pixViewer.currentPic.fav)
+    pixViewer.currentPicFav = dba.isFav(pixViewer.currentPic.url)
     setCurrentPicTags()
 
     root.title = pixViewer.currentPic.title
@@ -45,9 +43,9 @@ function setCurrentPicTags()
 
 function next()
 {
-    if(pixViewer.viewer.list.count > 0)
+    if(pixViewer.viewer.count > 0)
     {
-        if(pixViewer.currentPicIndex < pixViewer.viewer.list.count)
+        if(pixViewer.currentPicIndex < pixViewer.viewer.count)
             pixViewer.currentPicIndex++
         else
             pixViewer.currentPicIndex = 0
@@ -58,12 +56,12 @@ function next()
 
 function previous()
 {
-    if(pixViewer.viewer.list.count > 0)
+    if(pixViewer.viewer.count > 0)
     {
         if(pixViewer.currentPicIndex > 0)
             pixViewer.currentPicIndex--
         else
-            pixViewer.currentPicIndex = pixViewer.viewer.list.count-1
+            pixViewer.currentPicIndex = pixViewer.viewer.count-1
 
         view(pixViewer.currentPicIndex)
     }
@@ -74,25 +72,9 @@ function fav(urls)
     for(var i in urls)
     {
         var url = urls[i]
+        var faved = dba.isFav(url);
 
-        if(!pix.checkExistance("images", "url", url))
-            if(!pix.addPic(url))
-                return
-
-        var faved = pix.isFav(url);
-
-        //        if(!faved)
-        //        {
-        //            if(PIX.addTagToPic("fav", pixViewer.currentPic.url))
-        //                pixViewer.tagBar.tagsList.model.insert(0, {"tag": "fav"})
-        //        }else
-        //        {
-        //            if(pix.removePicTag("fav", pixViewer.currentPic.url))
-        //                pixViewer.tagBar.tagsList.populate(pixViewer.currentPic.url)
-
-        //        }
-
-        if(pix.favPic(url, !faved))
+        if(dba.favPic(url, !faved))
             if(urls.length === 1)
                 return !faved
     }

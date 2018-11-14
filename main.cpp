@@ -49,10 +49,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <MauiKit/tagging.h>
 #endif
 
-#include "src/models/basemodel.h"
-#include "src/models/baselist.h"
-#include "src/models/gallery/gallery.h"
-#include "src/models/albums/albums.h"
+#include "./src/models/basemodel.h"
+#include "./src/models/baselist.h"
+#include "./src/models/gallery/gallery.h"
+#include "./src/models/albums/albums.h"
+
+#include "./src/models/folders/foldermodel.h"
+#include "./src/models/folders/folders.h"
 
 QStringList getFolderImages(const QString &path)
 {
@@ -127,7 +130,10 @@ int main(int argc, char *argv[])
 
     auto context = engine.rootContext();
     context->setContextProperty("pix", &pix);
-    context->setContextProperty("tag", pix.tag);
+
+    const auto dba = DBActions::getInstance();
+    context->setContextProperty("tag", dba->tag);
+    context->setContextProperty("dba", dba);
 
     qmlRegisterUncreatableMetaObject(PIX::staticMetaObject, "PIX", 1, 0, "KEY", "Error");
 
@@ -136,6 +142,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<BaseModel>("PixModel", 1, 0, "PixModel");
     qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
     qmlRegisterType<Albums>("AlbumsList", 1, 0, "AlbumsList");
+    qmlRegisterType<FolderModel>("FolderModel", 1, 0, "FolderModel");
+    qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
 
 #ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();

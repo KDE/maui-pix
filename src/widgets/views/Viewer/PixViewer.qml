@@ -8,14 +8,19 @@ import "../../../db/Query.js" as Q
 import "../.."
 
 import org.kde.mauikit 1.0 as Maui
+import PIX 1.0
+import PixModel 1.0
+import GalleryList 1.0
 
 Maui.Page
 {
     id: control
+
     property alias viewer : viewer
     property alias holder : holder
     property alias tagBar : tagBar
     property alias roll : galleryRoll
+    property alias model : pixModel
 
     property bool currentPicFav: false
     property var currentPic : ({})
@@ -91,12 +96,12 @@ Maui.Page
         }
     ]
 
-//    Connections
-//    {
-//        target: tagsDialog
-//        onPicTagged: if(currentView === views.viewer)
-//                         VIEWER.setCurrentPicTags()
-//    }
+    //    Connections
+    //    {
+    //        target: tagsDialog
+    //        onPicTagged: if(currentView === views.viewer)
+    //                         VIEWER.setCurrentPicTags()
+    //    }
 
     ViewerMenu
     {
@@ -111,9 +116,7 @@ Maui.Page
     EditTools
     {
         id: editTools
-
     }
-
 
     backContain: GalleryRoll
     {
@@ -122,9 +125,13 @@ Maui.Page
         onPicClicked: VIEWER.view(index)
     }
 
-
     floatingBar: true
     footBarOverlap: true
+
+    PixModel
+    {
+        id: pixModel
+    }
 
     Viewer
     {
@@ -173,7 +180,7 @@ Maui.Page
             title : "No Pic!"
             body: "Open an image from your collection"
             emojiSize: iconSizes.huge
-            visible: viewer.list.count === 0
+            visible: viewer.count === 0
             colorScheme.backgroundColor: viewerForegroundColor
         }
 

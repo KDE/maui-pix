@@ -5,8 +5,7 @@
 #include "./src/models/baselist.h"
 #include "./src/utils/pic.h"
 
-class DB;
-class Tagging;
+class DBActions;
 class Gallery : public BaseList
 {
     Q_OBJECT
@@ -24,14 +23,15 @@ public:
     uint getSortBy() const;
 
 private:
-    DB *db;
-    Tagging *tag;
+    DBActions *dba;
     PIX::DB_LIST list;
     void sortList();
     void setList();
 
     QString query;
     uint sort = PIX::KEY::ADD_DATE;
+
+    bool addPic(const PIX::DB &img);
 
 signals:
     void queryChanged();
@@ -40,12 +40,12 @@ signals:
 
 public slots:    
     QVariantMap get(const int &index) const override;
-    bool insert(const QVariantMap &pic) override;
     bool update(const int &index, const QVariant &value, const int &role) override; //deprecrated
     bool update(const QVariantMap &data, const int &index) override;
     bool update(const PIX::DB &pic) override;
     bool remove(const int &index) override;
     void append(const QVariantMap &pic);
+    void refresh();
 };
 
 #endif // GALLERY_H

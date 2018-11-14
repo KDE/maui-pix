@@ -13,7 +13,8 @@ Maui.Page
     property real picHue : 0
     property real picLightness : 0
 
-    property alias list : viewerList
+    property alias count : viewerList.count
+
     clip: true
     focus: true
 
@@ -32,15 +33,13 @@ Maui.Page
         highlightFollowsCurrentItem: true
         highlightMoveDuration: 0
         snapMode: ListView.SnapOneItem
-
+        model: pixModel
         onMovementEnded:
         {
             var index = indexAt(contentX, contentY)
             if(index !== currentPicIndex)
                 VIEWER.view(index)
         }
-
-        model : ListModel{}
 
         delegate: ViewerDelegate
         {

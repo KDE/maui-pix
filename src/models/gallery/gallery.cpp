@@ -1,21 +1,16 @@
 #include "gallery.h"
-#include "./src/db/db.h"
+#include "./src/db/dbactions.h"
 
 #ifdef STATIC_MAUIKIT
 #include "fmh.h"
-#include "tagging.h"
 #else
 #include <MauiKit/fmh.h>
-#include <MauiKit/tagging.h>
 #endif
 
 Gallery::Gallery(QObject *parent) : BaseList(parent)
 {
     qDebug()<< "CREATING GALLERY LIST";
-    this->db = DB::getInstance();
-    this->tag = Tagging::getInstance(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
-
-    this->tag =  Tagging::getInstance(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
+    this->dba = DBActions::getInstance();
     this->sortList();
 
     connect(this, &Gallery::sortByChanged, this, &Gallery::sortList);
@@ -116,7 +111,7 @@ void Gallery::setList()
 {
     emit this->preListChanged();
 
-    this->list = this->db->getDBData(this->query);
+    this->list = this->dba->getDBData(this->query);
     this->sortList();
 
     emit this->postListChanged();
@@ -134,11 +129,6 @@ QVariantMap Gallery::get(const int &index) const
         res.insert(PIX::KEYMAP[key], pic[key]);
 
     return res;
-}
-
-bool Gallery::insert(const QVariantMap &pic)
-{
-    return false;
 }
 
 bool Gallery::update(const int &index, const QVariant &value, const int &role)
@@ -170,4 +160,9 @@ void Gallery::append(const QVariantMap &pic)
 
 
     emit this->postItemAppended();
+}
+
+void Gallery::refresh()
+{
+    this->setList();
 }

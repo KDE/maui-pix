@@ -5,10 +5,9 @@ import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../widgets/views/Pix.js" as PIX
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.mauikit 1.0 as Maui
+import PIX 1.0
 import PixModel 1.0
 import GalleryList 1.0
-
-import PIX 1.0
 
 Maui.Page
 {
@@ -20,10 +19,9 @@ Maui.Page
     property int itemRadius : Kirigami.Units.devicePixelRatio * 6
     property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
     property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
-    property alias model: gridModel
-    property alias list: pixList
     property alias grid: grid
     property alias holder: holder
+    property alias list : pixList
 
     /*signals*/
     signal picClicked(int index)
@@ -187,17 +185,6 @@ Maui.Page
         }
     ]
 
-    PixModel
-    {
-        id: gridModel
-        list: pixList
-    }
-
-    GalleryList
-    {
-        id: pixList
-    }
-
     Component
     {
         id: gridDelegate
@@ -263,6 +250,17 @@ Maui.Page
         }
     }
 
+    PixModel
+    {
+        id: pixModel
+        list: pixList
+    }
+
+    GalleryList
+    {
+        id: pixList
+    }
+
     Maui.GridView
     {
         id: grid
@@ -284,13 +282,13 @@ Maui.Page
         //            radius: 4
         //        }
 
-        model: gridModel
+        model: pixModel
         delegate: gridDelegate
     }
 
     function openPic(index)
     {
-        VIEWER.open(model, index)
+        VIEWER.open(pixList, index)
     }
 
     function zoomIn()

@@ -48,7 +48,9 @@ SOURCES += main.cpp \
     src/models/basemodel.cpp \
     src/models/baselist.cpp \
     src/models/gallery/gallery.cpp \
-    src/models/albums/albums.cpp
+    src/models/albums/albums.cpp \
+    src/models/folders/folders.cpp \
+    src/models/folders/foldermodel.cpp \
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -75,7 +77,9 @@ HEADERS += \
     src/models/basemodel.h \
     src/models/baselist.h \
     src/models/gallery/gallery.h \
-    src/models/albums/albums.h
+    src/models/albums/albums.h \
+    src/models/folders/folders.h \
+    src/models/folders/foldermodel.h
 
 include(install.pri)
 

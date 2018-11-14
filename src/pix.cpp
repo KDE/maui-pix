@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using namespace PIX;
 
-Pix::Pix(QObject *parent) : DBActions(parent)
+Pix::Pix(QObject *parent) : QObject(parent)
 {
     qDebug() << "Getting settings info from: " << PIX::SettingPath;
 
@@ -98,11 +98,6 @@ void Pix::refreshCollection()
     this->populateDB({FMH::PicturesPath, FMH::DownloadsPath, FMH::DocumentsPath});
 }
 
-bool Pix::run(const QString &query)
-{
-    return this->execQuery(query);
-}
-
 void Pix::populateDB(const QStringList &paths)
 {
     qDebug() << "Function Name: " << Q_FUNC_INFO
@@ -120,16 +115,16 @@ void Pix::populateDB(const QStringList &paths)
     fileLoader->requestPath(newPaths);
 }
 
-bool Pix::removeFile(const QString &url)
-{
-    QFile file(url);
-    if(!file.exists()) return false;
+//bool Pix::removeFile(const QString &url)
+//{
+//    QFile file(url);
+//    if(!file.exists()) return false;
 
-    if(file.remove())
-        return removePic(url);
+//    if(file.remove())
+//        return removePic(url);
 
-    return false;
-}
+//    return false;
+//}
 
 void Pix::showInFolder(const QStringList &urls)
 {

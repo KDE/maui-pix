@@ -36,7 +36,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using namespace std;
 
 class FileLoader;
-class Pix : public DBActions
+class Pix : public QObject
 {
     Q_OBJECT
 
@@ -48,15 +48,12 @@ public:
     Q_INVOKABLE void openPics(const QStringList &pics);
 
     Q_INVOKABLE void refreshCollection();
-
-    Q_INVOKABLE bool run(const QString &query);
     /*File actions*/
-    Q_INVOKABLE bool removeFile(const QString &url);
+//    Q_INVOKABLE bool removeFile(const QString &url);
     Q_INVOKABLE void showInFolder(const QStringList &urls);
 
 private:
     FileLoader *fileLoader;
-
     void populateDB(const QStringList &paths);
 
 signals:

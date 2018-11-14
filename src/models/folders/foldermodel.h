@@ -1,17 +1,17 @@
-#ifndef BASEMODEL_H
-#define BASEMODEL_H
+#ifndef FOLDERMODEL_H
+#define FOLDERMODEL_H
 
 #include <QAbstractListModel>
 #include <QList>
 
-class BaseList;
-class BaseModel : public QAbstractListModel
+class Folders;
+class FolderModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(BaseList *list READ getList WRITE setList)
+    Q_PROPERTY(Folders *list READ getList WRITE setList)
 
 public:
-    explicit BaseModel(QObject *parent = nullptr);
+    explicit FolderModel(QObject *parent = nullptr);
 
     // Basic functionality:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -25,16 +25,13 @@ public:
 
     virtual QHash<int, QByteArray> roleNames() const override;
 
-    BaseList* getList() const;
-    void setList(BaseList *value);
+    Folders* getList() const;
+    void setList(Folders *value);
 
 private:
-    BaseList *mList;
+    Folders *mList;
 signals:
     void listChanged();
-
-public slots:
-    QVariantMap get(const int &index) const;
 };
 
 #endif // NOTESMODEL_H

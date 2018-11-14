@@ -32,13 +32,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "fmh.h"
 #endif
 
-class FileLoader : public DBActions
+class FileLoader : public QObject
 {
     Q_OBJECT
 
 public:
-    FileLoader() : DBActions()
+    FileLoader() : QObject()
     {
+        this->dba = DBActions::getInstance();
         qRegisterMetaType<PIX::DB>("PIX::DB");
         qRegisterMetaType<PIX::TABLE>("PIX::TABLE");
         qRegisterMetaType<QMap<PIX::TABLE, bool>>("QMap<PIX::TABLE,bool>");
@@ -93,7 +94,7 @@ public slots:
             {
                 if(go)
                 {
-                    if(this->addPic(url))
+                    if(this->dba->addPic(url))
                         newPics++;
                 }else break;
             }
@@ -107,11 +108,11 @@ public slots:
     }
 
 signals:
-    void trackReady(PIX::DB track);
     void finished(int size);
     void collectionSize(int size);
 
 private:
+    DBActions * dba;
     QThread t;
     bool go = false;
     bool wait = true;

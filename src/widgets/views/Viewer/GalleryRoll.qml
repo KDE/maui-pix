@@ -16,7 +16,6 @@ Item
     height: rollHeight
     width: parent.width
 
-
     Rectangle
     {
         anchors.fill: parent
@@ -41,7 +40,7 @@ Item
         focus: true
         interactive: true
 
-        model: ListModel{}
+        model: pixModel
 
         delegate: PixPic
         {

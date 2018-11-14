@@ -150,6 +150,7 @@ Maui.ApplicationWindow
         }
     ]
 
+
     content: ColumnLayout
     {
         id: mainPage
@@ -286,8 +287,9 @@ Maui.ApplicationWindow
     Connections
     {
         target: pix
-//        onRefreshViews: PIX.refreshViews()
+        onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.openExternalPics(pics, 0)
+        onNewPic: console.log(pic.url)
     }
 
     Connections

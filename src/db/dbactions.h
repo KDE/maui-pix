@@ -24,41 +24,55 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QObject>
 #include "../utils/pic.h"
 
+#ifdef STATIC_MAUIKIT
+#include "fmh.h"
+#else
+#include <MauiKit/fmh.h>
+#endif
+
 class DB;
 class Tagging;
 class DBActions : public QObject
 {
     Q_OBJECT
 public:
-    explicit DBActions(QObject *parent = nullptr);
-    ~DBActions();
 
+    static DBActions *getInstance();
     Tagging *tag;
+
     bool execQuery(const QString &queryTxt);
 
     bool insertPic(const PIX::DB &img);
-    Q_INVOKABLE bool addPic(const QString &url);
-    Q_INVOKABLE bool removePic(const QString &url);
+    bool addPic(const QString &url);
+    bool removePic(const QString &url);
 
     /* actions on model */
-    Q_INVOKABLE bool favPic(const QString &url, const bool &fav);
-    Q_INVOKABLE bool isFav(const QString &url);
+    bool addTag(const QString &tag);
+    bool albumTag(const QString &tag, const QString &album);
+    bool removePicTag(const QString &tag, const QString &url);
+    bool removeAlbumTag(const QString &tag, const QString &album);
+    bool cleanTags();
 
-    Q_INVOKABLE bool addTag(const QString &tag);
-    Q_INVOKABLE bool albumTag(const QString &tag, const QString &album);
-    Q_INVOKABLE bool removePicTag(const QString &tag, const QString &url);
-    Q_INVOKABLE bool removeAlbumTag(const QString &tag, const QString &album);
-    Q_INVOKABLE bool cleanTags();
+    bool addAlbum(const QString &album);
+    bool picAlbum(const QString &album, const QString &url);
 
-    Q_INVOKABLE bool picAlbum(const QString &album, const QString &url);
+    QVariantList searchFor(const QStringList &queries, const QString &queryTxt);
 
-    Q_INVOKABLE QVariantList searchFor(const QStringList &queries, const QString &queryTxt);
     /* utils */
-    Q_INVOKABLE QVariantList getFolders(const QString &query);
+    FMH::MODEL_LIST getFolders(const QString &query);
+    PIX::DB_LIST getDBData(const QString &query);
+
+public slots:
+    bool favPic(const QString &url, const bool &fav);
+    bool isFav(const QString &url);
 
 private:
     DB *db;
 
+    static DBActions* instance;
+    explicit DBActions(QObject *parent = nullptr);
+    ~DBActions();
+    void init();
 signals:
     void tagAdded(QString tag);
 };

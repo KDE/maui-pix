@@ -22,15 +22,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "db.h"
 
 #ifdef STATIC_MAUIKIT
-#include "fmh.h"
 #include "tagging.h"
 #else
-#include <MauiKit/fmh.h>
 #include <MauiKit/tagging.h>
 #endif
 
+DBActions::DBActions(QObject *parent) : QObject(parent) {}
 
-DBActions::DBActions(QObject *parent) : QObject(parent)
+DBActions::~DBActions() {}
+
+void DBActions::init()
 {
     qDebug() << "Getting collectionDB info from: " << PIX::CollectionDBPath;
 
@@ -40,8 +41,22 @@ DBActions::DBActions(QObject *parent) : QObject(parent)
     this->tag = Tagging::getInstance(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
 }
 
-DBActions::~DBActions() {}
+DBActions *DBActions::instance = nullptr;
 
+DBActions *DBActions::getInstance()
+{
+    if(!instance)
+    {
+        instance = new DBActions();
+        qDebug() << "getInstance(): First DBActions instance\n";
+        instance->init();
+        return instance;
+    } else
+    {
+        qDebug()<< "getInstance(): previous DBActions instance\n";
+        return instance;
+    }
+}
 
 bool DBActions::execQuery(const QString &queryTxt)
 {
@@ -131,6 +146,10 @@ bool DBActions::removePic(const QString &url)
 
 bool DBActions::favPic(const QString &url, const bool &fav )
 {
+    if(!this->db->checkExistance("images", "url", url))
+        if(!this->addPic(url))
+            return false;
+
     PIX::DB favedPic = {{PIX::KEY::FAV, fav ? "1" : "0"}};
     return this->db->update(PIX::TABLEMAP[PIX::TABLE::IMAGES], favedPic, QVariantMap({{PIX::KEYMAP[PIX::KEY::URL], url}}) );
 }
@@ -179,6 +198,17 @@ bool DBActions::cleanTags()
     return false;
 }
 
+bool DBActions::addAlbum(const QString &album)
+{
+    QVariantMap albumMap
+    {
+        {PIX::KEYMAP[PIX::KEY::ALBUM], album},
+        {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}
+    };
+
+    return this->db->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS], albumMap);
+}
+
 bool DBActions::picAlbum(const QString &album, const QString &url)
 {
     qDebug()<<"Trying to add to album"<<album<<url;
@@ -201,14 +231,19 @@ QVariantList DBActions::searchFor(const QStringList &queries, const QString &que
     return res;
 }
 
-QVariantList DBActions::getFolders(const QString &query)
+FMH::MODEL_LIST DBActions::getFolders(const QString &query)
 {
-    QVariantList res;
+    FMH::MODEL_LIST res;
     auto data =  this->db->getDBData(query);
 
     /*Data model keys for to be used on MauiKit Icondelegate component */
     for(auto i : data)
-        res << FMH::getFileInfo(i[PIX::KEY::URL]);
+        res << FMH::getFileInfoModel(i[PIX::KEY::URL]);
 
     return res;
+}
+
+PIX::DB_LIST DBActions::getDBData(const QString &query)
+{
+   return this->db->getDBData(query);
 }

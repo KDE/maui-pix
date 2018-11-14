@@ -46,7 +46,7 @@ Qt::ItemFlags BaseModel::flags(const QModelIndex &index) const
 
 QHash<int, QByteArray> BaseModel::roleNames() const
 {
-    QHash<int, QByteArray> names;    
+    QHash<int, QByteArray> names;
     for(auto key : PIX::KEYMAP.keys())
             names[key] = QString(PIX::KEYMAP[key]).toUtf8();
     return names;
@@ -106,4 +106,9 @@ void BaseModel::setList(BaseList *value)
     }
 
     endResetModel();
+}
+
+QVariantMap BaseModel::get(const int &index) const
+{
+   return this->mList->get(index);
 }

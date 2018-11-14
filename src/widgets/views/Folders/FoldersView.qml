@@ -6,6 +6,10 @@ import org.kde.mauikit 1.0 as Maui
 import "../../../view_models"
 import "../../../db/Query.js" as Q
 
+
+import FolderModel 1.0
+import FoldersList 1.0
+
 Kirigami.PageRow
 {
     id: foldersPageRoot
@@ -44,24 +48,37 @@ Kirigami.PageRow
             visible: folderGrid.count === 0
         }
 
+        FolderModel
+        {
+            id: folderModel
+            list: foldersList
+        }
+
+        FoldersList
+        {
+            id: foldersList
+            query: "select * from sources"
+        }
+
         Maui.GridBrowser
         {
             id: folderGrid
             anchors.fill: parent
             showEmblem: false
+            model: folderModel
 
             onItemClicked:
             {
-                picsView.headBarTitle = folderGrid.model.get(index).label
-                picsView.clear()
-                currentFolder = folderGrid.model.get(index).path
-                picsView.populate(currentFolder)
+                var folder = foldersList.get(index)
+                picsView.headBarTitle = folder.label
+                currentFolder = folder.path
+                picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
                 foldersPageRoot.currentIndex = 1
             }
         }
     }
 
-    PicsView
+    PixGrid
     {
         id: picsView
         anchors.fill: parent
@@ -78,30 +95,16 @@ Kirigami.PageRow
         holder.emojiSize: iconSizes.huge
     }
 
-    function populate()
-    {
-        clear()
-        var folders = pix.getFolders("select * from sources order by url asc")
-        if(folders.length > 0)
-            for(var i in folders)
-                folderGrid.model.append(folders[i])
+    Component.onCompleted: populate()
 
+    function refresh()
+    {
+        foldersList.refresh()
     }
 
     function filter(hint)
     {
         var query = Q.Query.folders_.arg(hint)
-        clear()
-        var folders = pix.getFolders(query)
-        if(folders.length > 0)
-            for(var i in folders)
-                folderGrid.model.append(folders[i])
-
+        foldersList.query = query
     }
-
-    function clear()
-    {
-        folderGrid.model.clear()
-    }
-
 }
