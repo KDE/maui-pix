@@ -28,5 +28,6 @@
         <file>widgets/PicMenu.qml</file>
         <file>widgets/views/Search/SearchView.qml</file>
         <file>widgets/views/Viewer/ViewerDelegate.qml</file>
+        <file>view_models/PixMenu.qml</file>
     </qresource>
 </RCC>

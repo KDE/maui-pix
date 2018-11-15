@@ -124,10 +124,11 @@ QVariantMap Albums::get(const int &index) const
 
 bool Albums::insert(const QVariantMap &pic)
 {
-    emit this->preItemAppended();
-
-    if(this->dba->addAlbum(pic[PIX::KEYMAP[PIX::KEY::ALBUM]].toString()))
+    const auto album = pic[PIX::KEYMAP[PIX::KEY::ALBUM]].toString();
+    if(this->dba->addAlbum(album))
     {
+        emit this->preItemAppended();
+        this->list << PIX::DB {{PIX::KEY::ALBUM, album}};
         emit postItemAppended();
         return true;
     }
@@ -153,4 +154,11 @@ bool Albums::update(const PIX::DB &pic)
 bool Albums::remove(const int &index)
 {
     return false;
+}
+
+void Albums::insertPic(const QString &album, const QString &url)
+{
+    this->insert({{PIX::KEYMAP[PIX::KEY::ALBUM], album}});
+
+    this->dba->picAlbum(album, url);
 }

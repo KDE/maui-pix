@@ -12,9 +12,7 @@ Maui.Dialog
     signal picTagged(string tag)
 
     maxHeight: unit * 500
-
-    onOpened: populate()
-    onAccepted: addToAlbum(albumsList.model.get(albumsList.currentIndex).album)
+    onAccepted: addToAlbum(albumsList.get(_albumsList.currentIndex).album)
 
     ColumnLayout
     {
@@ -22,7 +20,7 @@ Maui.Dialog
 
         AlbumsList
         {
-            id: albumsList
+            id: _albumsList
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
@@ -34,7 +32,8 @@ Maui.Dialog
             placeholderText: qsTr("New album...")
             onAccepted:
             {
-                albumsList.model.insert(0, {album: albumText.text})
+                albumsView.addAlbum(albumText.text)
+                _albumsList.currentIndex = _albumsList.count-1
                 clear()
             }
         }
@@ -48,22 +47,9 @@ Maui.Dialog
 
     function addToAlbum(album)
     {
-        var albumExists = pix.checkExistance("albums", "album", album)
         for(var i in picUrls)
-        {
-            if(pix.picAlbum(album, picUrls[i]) && !albumExists)
-                albumsView.albumsGrid.model.append({album : album})
-        }
+            albumsList.insertPic(album, picUrls[i])
+
         close()
-    }
-
-    function populate()
-    {
-        albumsList.model.clear()
-        var albums = pix.get(Q.Query.allAlbums)
-
-        if(albums.length > 0)
-            for(var i in albums)
-                albumsList.model.append(albums[i])
     }
 }

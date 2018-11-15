@@ -44,6 +44,8 @@ public slots:
     bool update(const QVariantMap &data, const int &index) override;
     bool update(const PIX::DB &pic) override;
     bool remove(const int &index) override;
+    bool deleteAt(const int &index);
+    bool fav(const int &index, const bool &value);
     void append(const QVariantMap &pic);
     void refresh();
 };

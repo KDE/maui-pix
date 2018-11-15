@@ -32,17 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 DB::DB(QObject *parent) : QObject(parent)
 {
-    QDir collectionDBPath_dir(PIX::CollectionDBPath);
-    if (!collectionDBPath_dir.exists())
-        collectionDBPath_dir.mkpath(".");
-
-    this->name = QUuid::createUuid().toString();
-    if(!FMH::fileExists(PIX::CollectionDBPath + PIX::DBName))
-    {
-        this->openDB(this->name);
-        qDebug()<<"Collection doesn't exists, trying to create it" << PIX::CollectionDBPath + PIX::DBName;
-        this->prepareCollectionDB();
-    }else this->openDB(this->name);
+    this->init();
 }
 
 DB::~DB()
@@ -63,22 +53,6 @@ void DB::init()
         qDebug()<<"Collection doesn't exists, trying to create it" << PIX::CollectionDBPath + PIX::DBName;
         this->prepareCollectionDB();
     }else this->openDB(this->name);
-}
-
-DB *DB::instance = nullptr;
-DB *DB::getInstance()
-{
-    if(!instance)
-    {
-        instance = new DB();
-        qDebug() << "getInstance(): First DB instance\n";
-        instance->init();
-        return instance;
-    } else
-    {
-        qDebug()<< "getInstance(): previous DB instance\n";
-        return instance;
-    }
 }
 
 void DB::openDB(const QString &name)
@@ -267,36 +241,6 @@ bool DB::remove(const QString &tableName, const PIX::DB &removeData)
     qDebug()<< sqlQueryString;
 
     return this->getQuery(sqlQueryString).exec();
-}
-
-PIX::DB_LIST DB::getDBData(const QString &queryTxt)
-{
-    PIX::DB_LIST mapList;
-
-    auto query = this->getQuery(queryTxt);
-
-    if(query.exec())
-    {
-        while(query.next())
-        {
-            PIX::DB data;
-            for(auto key : PIX::KEYMAP.keys())
-                if(query.record().indexOf(PIX::KEYMAP[key])>-1)
-                    data.insert(key, query.value(PIX::KEYMAP[key]).toString());
-
-            const auto url = data[PIX::KEY::URL];
-            if(!url.isEmpty())
-            {
-                if(FMH::fileExists(url))
-                    mapList<< data;
-//                else
-//                    removePic(data[PIX::KEY::URL]);
-            }else mapList<< data;
-        }
-
-    }else qDebug()<< query.lastError()<< query.lastQuery();
-
-    return mapList;
 }
 
 QVariantList DB::get(const QString &queryTxt)

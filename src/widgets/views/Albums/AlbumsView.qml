@@ -16,7 +16,6 @@ Kirigami.PageRow
 {
     id: albumsPageRoot
     property alias albumsGrid : albumGrid
-
     separatorVisible: albumsPageRoot.wideMode
     initialPage: [albumsPage, picsView]
     defaultColumnWidth: parent.width
@@ -69,9 +68,7 @@ Kirigami.PageRow
             id: albumGrid
             height: parent.height
             width: parent.width
-            onAlbumClicked: filter(albumsGrid.list.get(index).album)
-            list.query: Q.Query.allAlbums
-
+            onAlbumClicked: filter(albumsList.get(index).album)
         }
     }
 
@@ -109,18 +106,21 @@ Kirigami.PageRow
 
     }
 
-//    function populate()
-//    {
-//        var albums = [{album: "Favs"}, {album: "Recent"}]
-//        albums.push(pix.get(Q.Query.allAlbums))
+    //    function populate()
+    //    {
+    //        var albums = [{album: "Favs"}, {album: "Recent"}]
+    //        albums.push(pix.get(Q.Query.allAlbums))
 
-//        if(albums.length > 0)
-//            for(var i in albums)
-//                albumGrid.model.append(albums[i])
+    //        if(albums.length > 0)
+    //            for(var i in albums)
+    //                albumGrid.model.append(albums[i])
 
-//    }
+    //    }
 
-
+    function refreshPics()
+    {
+        picsView.list.refresh()
+    }
 
     function filter(album)
     {
@@ -157,7 +157,7 @@ Kirigami.PageRow
     function addAlbum(album)
     {
         if(album.length > 0)
-            albumsGrid.list.insert({"album": album})
+            albumsList.insert({"album": album})
     }
 
     function addTagsToAlbum(album, tags)

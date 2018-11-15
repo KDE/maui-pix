@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QObject>
 #include "../utils/pic.h"
+#include "db.h"
 
 #ifdef STATIC_MAUIKIT
 #include "fmh.h"
@@ -30,9 +31,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <MauiKit/fmh.h>
 #endif
 
-class DB;
 class Tagging;
-class DBActions : public QObject
+class DBActions : public DB
 {
     Q_OBJECT
 public:
@@ -60,21 +60,24 @@ public:
 
     /* utils */
     FMH::MODEL_LIST getFolders(const QString &query);
-    PIX::DB_LIST getDBData(const QString &query);
+    PIX::DB_LIST getDBData(const QString &queryTxt);
 
 public slots:
+    QVariantList get(const QString &queryTxt);
+
     bool favPic(const QString &url, const bool &fav);
     bool isFav(const QString &url);
+    bool deletePic(const QString &url);
 
 private:
-    DB *db;
-
     static DBActions* instance;
     explicit DBActions(QObject *parent = nullptr);
     ~DBActions();
     void init();
 signals:
     void tagAdded(QString tag);
+    void albumAdded(QString album);
+    void picRemoved();
 };
 
 #endif // DBACTIONS_H

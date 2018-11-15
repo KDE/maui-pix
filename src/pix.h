@@ -49,7 +49,6 @@ public:
 
     Q_INVOKABLE void refreshCollection();
     /*File actions*/
-//    Q_INVOKABLE bool removeFile(const QString &url);
     Q_INVOKABLE void showInFolder(const QStringList &urls);
 
 private:

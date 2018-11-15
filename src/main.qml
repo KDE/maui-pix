@@ -42,6 +42,10 @@ import "widgets/dialogs/Tags"
 
 import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
+import "db/Query.js" as Q
+
+import PixModel 1.0
+import AlbumsList 1.0
 
 Maui.ApplicationWindow
 {
@@ -208,36 +212,37 @@ Maui.ApplicationWindow
             visible: selectionList.count > 0 && currentView !== views.viewer
             onIconClicked: picMenu.showMultiple(selectedPaths)
             onExitClicked: clear()
-        }
-    }
 
-    PicMenu
-    {
-        id: picMenu
-        onFavClicked: VIEWER.fav(urls)
-        onRemoveClicked: PIX.removePic(urls)
-        onShareClicked:
-        {
-            if(isAndroid)
-                Maui.Android.shareDialog(urls)
-            else
+            PicMenu
             {
-                dialogLoader.sourceComponent = shareDialogComponent
-                dialog.show(urls)
-            }
-        }
-        onAddClicked:
-        {
-            dialogLoader.sourceComponent = albumsDialogComponent
-            dialog.show(urls)
-        }
+                id: picMenu
+                onFavClicked: VIEWER.fav(urls)
+                onRemoveClicked: PIX.removePics(urls)
+                onShareClicked:
+                {
+                    if(isAndroid)
+                        Maui.Android.shareDialog(urls)
+                    else
+                    {
+                        dialogLoader.sourceComponent = shareDialogComponent
+                        dialog.show(urls)
+                    }
+                }
+                onAddClicked:
+                {
+                    dialogLoader.sourceComponent = albumsDialogComponent
+                    dialog.show(urls)
+                }
 
-        onTagsClicked:
-        {
-            dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.show(urls)
+                onTagsClicked:
+                {
+                    dialogLoader.sourceComponent = tagsDialogComponent
+                    dialog.show(urls)
+                }
+                onShowFolderClicked: pix.showInFolder(urls)
+            }
+
         }
-        onShowFolderClicked: pix.showInFolder(urls)
     }
 
     Component
@@ -282,6 +287,19 @@ Maui.ApplicationWindow
     Loader
     {
         id: dialogLoader
+    }
+
+    /***MODELS****/
+    PixModel
+    {
+        id: albumsModel
+        list: albumsList
+    }
+
+    AlbumsList
+    {
+        id: albumsList
+        query: Q.Query.allAlbums
     }
 
     Connections

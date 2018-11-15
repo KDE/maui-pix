@@ -16,33 +16,27 @@ function addTagToAlbum(tag, url)
     return pix.albumTag(tag, url)
 }
 
-function removePic(urls)
+function removePics(urls)
 {
     for(var i in urls)
+        dba.deletePic( urls[i])
+
+    switch(currentView)
     {
-        var url = urls[i]
-
-        if(pix.removeFile(url))
-        {
-            switch(currentView)
-            {
-            case views.gallery :
-                galleryView.populate()
-                break
-            case views.folders:
-                foldersView.picsView.populate(foldersView.currentFolder)
-                break
-            case views.albums:
-                albumsView.filter(albumsView.albumsGrid.currentAlbum)
-                break
-            case views.tags:
-                tagsView.populateGrid(tagsView.currentTag)
-                break
-            case views.search:
-                searchView.runSearch(searchView.currentQuery)
-
-            }
-        }
+    case views.gallery :
+        galleryView.list.refresh()
+        break
+    case views.folders:
+        foldersView.picsView.list.refresh();
+        break
+    case views.albums:
+        albumsView.refreshPics()
+        break
+    case views.tags:
+        tagsView.refreshPics()
+        break
+    case views.search:
+        searchView.refreshPics()
     }
 }
 

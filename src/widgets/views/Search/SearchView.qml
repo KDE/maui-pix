@@ -39,28 +39,33 @@ Maui.Page
         onAccepted: runSearch(searchInput.text)
     }
 
+    function refreshPics()
+    {
+        searchResults.list.refresh()
+    }
+
     function runSearch(query)
     {
-        searchResults.clear()
         if(query)
         {
             currentQuery = query
+            searchResults.list.query = pix.get(Q.Query.searchFor_.arg(currentQuery))
 
-            var queries = query.split(",")
-            for(var i in queries)
-            {
-                var res =[]
-                res.push(pix.get(Q.Query.searchFor_.arg(queries[i])))
-                res.push(tag.getUrls(query, true))
-                populate(res)
-            }
+//            var queries = query.split(",")
+//            for(var i in queries)
+//            {
+//                var res =[]
+//                res.push(pix.get(Q.Query.searchFor_.arg(queries[i])))
+//                res.push(tag.getUrls(query, true))
+//                populate(res)
+//            }
         }
     }
 
-    function populate(data)
-    {
-        if(data.length > 0)
-            for(var i in data)
-                searchResults.model.append(data[i])
-    }
+//    function populate(data)
+//    {
+//        if(data.length > 0)
+//            for(var i in data)
+//                searchResults.model.append(data[i])
+//    }
 }

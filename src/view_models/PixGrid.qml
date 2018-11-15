@@ -8,6 +8,7 @@ import org.kde.mauikit 1.0 as Maui
 import PIX 1.0
 import PixModel 1.0
 import GalleryList 1.0
+import "../widgets"
 
 Maui.Page
 {
@@ -51,11 +52,6 @@ Maui.Page
 
         Maui.MenuItem
         {
-            text: qsTr("Sort...")
-        }
-
-        Maui.MenuItem
-        {
             text: qsTr(fitPreviews ?  "Crop previews" : "Fit previews")
             onTriggered:
             {
@@ -73,6 +69,35 @@ Maui.Page
                 Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
             }
         }
+    }
+
+    PixMenu
+    {
+        id: _picMenu
+//        onFavClicked: VIEWER.fav(urls)
+//        onRemoveClicked: PIX.removePics(urls)
+//        onShareClicked:
+//        {
+//            if(isAndroid)
+//                Maui.Android.shareDialog(urls)
+//            else
+//            {
+//                dialogLoader.sourceComponent = shareDialogComponent
+//                dialog.show(urls)
+//            }
+//        }
+//        onAddClicked:
+//        {
+//            dialogLoader.sourceComponent = albumsDialogComponent
+//            dialog.show(urls)
+//        }
+
+//        onTagsClicked:
+//        {
+//            dialogLoader.sourceComponent = tagsDialogComponent
+//            dialog.show(urls)
+//        }
+//        onShowFolderClicked: pix.showInFolder(urls)
     }
 
     headBarTitle: grid.count+" "+qsTr("images")
@@ -225,26 +250,19 @@ Maui.Page
                 onPressAndHold:
                 {
                     grid.currentIndex = index
-                    picMenu.show(gridModel.get(index).url)
+                    _picMenu.popup()
                 }
 
                 onRightClicked:
                 {
                     grid.currentIndex = index
-                    picMenu.show(gridModel.get(index).url)
+                    _picMenu.popup()
                 }
                 onEmblemClicked:
                 {
                     grid.currentIndex = index
-                    var item = gridModel.get(index)
-                    selectionBox.append({
-                                            path: item.url,
-                                            thumbnail: item.url,
-                                            mime: "image",
-                                            tooltip: item.title,
-                                            label: item.title
-
-                                        })
+                    var item = pixList.get(index)
+                    selectionBox.append(Maui.FM.getFileInfo(item.url))
                 }
             }
         }

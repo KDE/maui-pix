@@ -2,8 +2,6 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import org.kde.mauikit 1.0 as Maui
-import PixModel 1.0
-import AlbumsList 1.0
 
 Maui.GridView
 {
@@ -11,7 +9,6 @@ Maui.GridView
 
     width: parent.width
     height: parent.height
-    property alias list : albumsList
 
     property string currentAlbum : ""
     signal albumClicked(int index)
@@ -21,20 +18,9 @@ Maui.GridView
     spacing: itemSize * 0.5 + (isMobile ? space.big : space.large)
 
     cellWidth: itemSize + spacing
-    cellHeight: itemSize +spacing
+    cellHeight: itemSize +spacing   
 
-    PixModel
-    {
-        id: gridModel
-        list: albumsList
-    }
-
-    AlbumsList
-    {
-        id: albumsList
-    }
-
-    model: gridModel
+    model: albumsModel
 
     delegate: AlbumDelegate
     {

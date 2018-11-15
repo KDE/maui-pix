@@ -8,7 +8,9 @@ Maui.Page
     property alias list : tagsList
     margins:0
     headBarExit: false
-    headBarTitle: qsTr("Tags");
+    headBarTitle: qsTr("Tags")
+    headBar.plegable: false
+
     clip: true
 
     headBar.leftContent: Maui.ToolButton
@@ -37,8 +39,7 @@ Maui.Page
     {
         id: tagsList
 
-        height: parent.height
-        width: parent.width
+        anchors.fill: parent
         delegate: Maui.ListDelegate
         {
             id: delegate

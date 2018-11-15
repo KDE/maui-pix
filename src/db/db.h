@@ -43,16 +43,12 @@ class DB : public QObject
     Q_OBJECT
 private:
     QString name;
-    QSqlDatabase m_db;
-    static DB* instance;
-    explicit DB(QObject *parent = nullptr);
-    ~ DB();
+    QSqlDatabase m_db; 
 
 public:
-    static DB *getInstance();
-
+    explicit DB(QObject *parent = nullptr);
+    ~ DB();
     /* utils*/
-    Q_INVOKABLE bool checkExistance(const QString &tableName, const QString &searchId, const QString &search);
 
     QSqlQuery getQuery(const QString &queryTxt);
     bool insert(const QString &tableName, const QVariantMap &insertData);
@@ -60,7 +56,6 @@ public:
     bool update(const QString &table, const QString &column, const QVariant &newValue, const QVariant &op, const QString &id);
     bool remove(const QString &tableName, const PIX::DB &removeData);
 
-    PIX::DB_LIST getDBData(const QString &queryTxt);
     QVariantList get(const QString &queryTxt);
 
 protected:
@@ -71,6 +66,8 @@ protected:
 signals:
 
 public slots:
+    bool checkExistance(const QString &tableName, const QString &searchId, const QString &search);
+
 };
 
 #endif // DB_H

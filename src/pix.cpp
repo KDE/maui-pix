@@ -115,17 +115,6 @@ void Pix::populateDB(const QStringList &paths)
     fileLoader->requestPath(newPaths);
 }
 
-//bool Pix::removeFile(const QString &url)
-//{
-//    QFile file(url);
-//    if(!file.exists()) return false;
-
-//    if(file.remove())
-//        return removePic(url);
-
-//    return false;
-//}
-
 void Pix::showInFolder(const QStringList &urls)
 {
     for(auto url : urls)

@@ -151,6 +151,33 @@ bool Gallery::remove(const int &index)
     return false;
 }
 
+bool Gallery::deleteAt(const int &index)
+{
+    if(index >= this->list.size() || index < 0)
+        return false;
+
+    emit this->preItemRemoved(index);
+    auto item = this->list.takeAt(index);
+    this->dba->deletePic(item[PIX::KEY::URL]);
+    emit this->postItemRemoved();
+
+    return true;
+}
+
+bool Gallery::fav(const int &index, const bool &value)
+{
+    if(index >= this->list.size() || index < 0)
+        return false;
+
+    if(this->dba->favPic(this->list[index][PIX::KEY::URL], value))
+    {
+        this->list[index].insert(PIX::KEY::FAV, value ? "1" : "0");
+        return true;
+    }
+
+    return false;
+}
+
 void Gallery::append(const QVariantMap &pic)
 {
     emit this->preItemAppended();

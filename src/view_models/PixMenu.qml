@@ -4,29 +4,25 @@ import QtQuick.Layouts 1.3
 import org.kde.mauikit 1.0 as Maui
 import "../db/Query.js" as Q
 import "../widgets/views/Pix.js" as PIX
-import "../view_models"
 
 Maui.Menu
 {
     id: control
-    property var paths : []
+
     property bool isFav : false
-    property bool isMultiple: false
 
-    signal favClicked(var urls)
-    signal removeClicked(var urls)
-    signal shareClicked(var urls)
-    signal addClicked(var urls)
-    signal tagsClicked(var urls)
-    signal showFolderClicked(var urls)
-
+    onOpened:
+    {
+        console.log(grid.currentIndex, "checking if is fav",list.get(grid.currentIndex).fav)
+        isFav = list.get(grid.currentIndex).fav == 0 ? false : true
+    }
 
     Maui.MenuItem
     {
         text: qsTr(isFav ? "UnFav it": "Fav it")
         onTriggered:
         {
-            favClicked(paths)
+            list.fav(grid.currentIndex, !isFav)
             close()
         }
     }
@@ -110,7 +106,6 @@ Maui.Menu
 
     Maui.MenuItem
     {
-        enabled: !isMultiple
         text: qsTr("Select")
         onTriggered:
         {
@@ -119,23 +114,5 @@ Maui.Menu
 
             control.close()
         }
-    }
-
-
-    function show(url)
-    {
-        paths = [url]
-        isMultiple = false
-        isFav = dba.isFav(url)
-        if(isMobile) open()
-        else popup()
-    }
-
-    function showMultiple(urls)
-    {
-        paths = urls
-        isMultiple = true
-        if(isMobile) open()
-        else popup()
-    }
+    }  
 }

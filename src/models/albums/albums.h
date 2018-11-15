@@ -45,6 +45,7 @@ public slots:
     bool update(const QVariantMap &data, const int &index) override;
     bool update(const PIX::DB &pic) override;
     bool remove(const int &index) override;
+    void insertPic(const QString &album, const QString &url);
 };
 
 #endif // ALBUMS_H

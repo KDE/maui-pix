@@ -52,6 +52,11 @@ Kirigami.PageRow
         holder.emoji: "qrc:/img/assets/Bread.png"
     }
 
+    function refreshPics()
+    {
+        tagsGrid.list.refresh()
+    }
+
     function populate()
     {
         tagsSidebar.list.model.clear()
@@ -79,7 +84,7 @@ Kirigami.PageRow
     function clear()
     {
         tagsSidebar.list.model.clear()
-        tagsGrid.model.clear()
+//        tagsGrid.model.clear()
     }
 
     function append(myTag)

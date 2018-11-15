@@ -25,7 +25,7 @@ ListView
         visible: count === 0
     }
 
-    model: ListModel{}
+    model: albumsModel
     delegate: Maui.ListDelegate
     {
         id: delegate
