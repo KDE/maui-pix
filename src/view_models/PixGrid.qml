@@ -76,21 +76,6 @@ Maui.Page
         id: _picMenu
 //        onFavClicked: VIEWER.fav(urls)
 //        onRemoveClicked: PIX.removePics(urls)
-//        onShareClicked:
-//        {
-//            if(isAndroid)
-//                Maui.Android.shareDialog(urls)
-//            else
-//            {
-//                dialogLoader.sourceComponent = shareDialogComponent
-//                dialog.show(urls)
-//            }
-//        }
-//        onAddClicked:
-//        {
-//            dialogLoader.sourceComponent = albumsDialogComponent
-//            dialog.show(urls)
-//        }
 
 //        onTagsClicked:
 //        {
@@ -262,7 +247,7 @@ Maui.Page
                 {
                     grid.currentIndex = index
                     var item = pixList.get(index)
-                    selectionBox.append(Maui.FM.getFileInfo(item.url))
+                    PIX.selectItem(item)
                 }
             }
         }

@@ -11,20 +11,12 @@ Maui.Menu
 
     property bool isFav : false
 
-    onOpened:
-    {
-        console.log(grid.currentIndex, "checking if is fav",list.get(grid.currentIndex).fav)
-        isFav = list.get(grid.currentIndex).fav == 0 ? false : true
-    }
+    onOpened: isFav = list.get(grid.currentIndex).fav == 0 ? false : true
 
     Maui.MenuItem
     {
         text: qsTr(isFav ? "UnFav it": "Fav it")
-        onTriggered:
-        {
-            list.fav(grid.currentIndex, !isFav)
-            close()
-        }
+        onTriggered: list.fav(grid.currentIndex, !isFav)
     }
 
     Maui.MenuItem
@@ -32,8 +24,8 @@ Maui.Menu
         text: qsTr("Add to...")
         onTriggered:
         {
-            addClicked(paths)
-            close()
+            dialogLoader.sourceComponent = albumsDialogComponent
+            dialog.show([list.get(grid.currentIndex).url])
         }
     }
 
@@ -42,8 +34,8 @@ Maui.Menu
         text: qsTr("Tags...")
         onTriggered:
         {
-            tagsClicked(paths)
-            close()
+            dialogLoader.sourceComponent = tagsDialogComponent
+            dialog.show([list.get(grid.currentIndex).url])
         }
     }
 
@@ -52,8 +44,13 @@ Maui.Menu
         text: qsTr("Share...")
         onTriggered:
         {
-            shareClicked(paths)
-            close()
+            if(isAndroid)
+                Maui.Android.shareDialog([list.get(grid.currentIndex).url])
+            else
+            {
+                dialogLoader.sourceComponent = shareDialogComponent
+                dialog.show([list.get(grid.currentIndex).url])
+            }
         }
     }
 
@@ -62,8 +59,25 @@ Maui.Menu
         text: qsTr("Remove...")
         onTriggered:
         {
-            removeClicked(paths)
+            removeDialog.open()
             close()
+        }
+
+        Maui.Dialog
+        {
+            id: removeDialog
+            property var paths: []
+
+            title: qsTr("Delete file?")
+            acceptButton.text: qsTr("Accept")
+            rejectButton.text: qsTr("Cancel")
+            message: qsTr("If you are sure you want to delete the file click on Accept, otherwise click on Cancel")
+            onRejected: close()
+            onAccepted:
+            {
+                list.deleteAt(grid.currentIndex)
+                close()
+            }
         }
     }
 
@@ -73,7 +87,7 @@ Maui.Menu
         enabled: !isMultiple
         onTriggered:
         {
-            showFolderClicked(paths)
+            pix.showInFolder([list.get(grid.currentIndex).url])
             close()
         }
     }
@@ -83,36 +97,40 @@ Maui.Menu
         text: qsTr("Save to...")
         onTriggered:
         {
-            var pic = picUrl
-            fmDialog.show(function(paths)
+            var pic = list.get(grid.currentIndex).url
+            dialogLoader.sourceComponent= fmDialogComponent
+            dialog.show(function(paths)
             {
-                for(var i in paths)
-                    Maui.FM.copy([pic], paths[i])
+                if (typeof paths == 'string')
+                {
+                    Maui.FM.copy([Maui.FM.getFileInfo(pic)], paths)
+                }else
+                {
+                    var items = []
+                    for(var i in list)
+                        items.push(Maui.FM.getFileInfo(pic))
+                    Maui.FM.copy(items, paths[i])
+                }
 
             });
             close()
         }
     }
 
-    Maui.MenuItem
-    {
-        text: qsTr("Copy")
-        onTriggered:
-        {
-            Maui.Handy.copyToClipboard(paths.join(","))
-            control.close()
-        }
-    }
+//    Maui.MenuItem
+//    {
+//        text: qsTr("Copy")
+//        onTriggered:
+//        {
+//            Maui.Handy.copyToClipboard(paths.join(","))
+//            control.close()
+//        }
+//    }
 
     Maui.MenuItem
     {
         text: qsTr("Select")
-        onTriggered:
-        {
-            for(var i in paths)
-                PIX.selectItem(dba.get(Q.Query.picUrl_.arg(paths[i]))[i])
+        onTriggered: PIX.selectItem(list.get(grid.currentIndex))
 
-            control.close()
-        }
-    }  
+    }
 }

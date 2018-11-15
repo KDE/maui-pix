@@ -1,4 +1,5 @@
 .import "../../db/Query.js" as Q
+.import org.kde.mauikit 1.0 as Maui
 
 function refreshViews()
 {
@@ -61,14 +62,7 @@ function searchFor(query)
 
 function selectItem(item)
 {
-    selectionBox.append({
-                            path: item.url,
-                            label: item.title,
-                            mime: "image",
-                            thumbnail: item.url,
-                            tooltip: item.title
-
-                        })
+    selectionBox.append(Maui.FM.getFileInfo(item.url))
 }
 
 
