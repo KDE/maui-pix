@@ -68,13 +68,13 @@ Maui.SelectionBar
             onTriggered:
             {
                 var pics = selectedPaths
-                fmDialog.show(function(paths)
+                dialogLoader.sourceComponent= fmDialogComponent
+                dialog.show(function(paths)
                 {
                     for(var i in paths)
                         Maui.FM.copy(pics, paths[i])
 
                 });
-                close()
             }
         }
 
@@ -94,7 +94,6 @@ Maui.SelectionBar
             onTriggered:
             {
                 removeDialog.open()
-                close()
             }
 
             Maui.Dialog
@@ -110,6 +109,7 @@ Maui.SelectionBar
                 onAccepted:
                 {
                     PIX.removePics(selectedPaths)
+                    control.clear()
                     close()
                 }
             }
