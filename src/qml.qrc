@@ -25,9 +25,9 @@
         <file>widgets/views/Viewer/ViewerMenu.qml</file>
         <file>widgets/views/Tags/TagsSidebar.qml</file>
         <file>widgets/views/Viewer/ConfigurationDialog.qml</file>
-        <file>widgets/PicMenu.qml</file>
         <file>widgets/views/Search/SearchView.qml</file>
         <file>widgets/views/Viewer/ViewerDelegate.qml</file>
         <file>view_models/PixMenu.qml</file>
+        <file>widgets/SelectionBar.qml</file>
     </qresource>
 </RCC>

@@ -20,6 +20,7 @@ Maui.Page
     property int itemRadius : Kirigami.Units.devicePixelRatio * 6
     property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
     property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
+
     property alias grid: grid
     property alias holder: holder
     property alias list : pixList
@@ -74,15 +75,7 @@ Maui.Page
     PixMenu
     {
         id: _picMenu
-//        onFavClicked: VIEWER.fav(urls)
-//        onRemoveClicked: PIX.removePics(urls)
-
-//        onTagsClicked:
-//        {
-//            dialogLoader.sourceComponent = tagsDialogComponent
-//            dialog.show(urls)
-//        }
-//        onShowFolderClicked: pix.showInFolder(urls)
+        index: grid.currentIndex
     }
 
     headBarTitle: grid.count+" "+qsTr("images")
@@ -184,14 +177,12 @@ Maui.Page
             iconName: "zoom-in"
             iconColor: altColorText
             onClicked: zoomIn()
-
         },
         Maui.ToolButton
         {
             iconName: "zoom-out"
             iconColor: altColorText
             onClicked: zoomOut()
-
         }
     ]
 
@@ -222,6 +213,7 @@ Maui.Page
                     else if(isMobile)
                         openPic(index)
                 }
+
                 onDoubleClicked:
                 {
                     //picClicked(index)

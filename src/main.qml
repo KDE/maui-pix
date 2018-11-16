@@ -201,7 +201,7 @@ Maui.ApplicationWindow
             }
         }
 
-        Maui.SelectionBar
+        SelectionBar
         {
             id: selectionBox
             Layout.fillWidth : true
@@ -209,39 +209,6 @@ Maui.ApplicationWindow
             Layout.rightMargin: space.big
             Layout.bottomMargin: space.big
             Layout.topMargin: space.small
-            visible: selectionList.count > 0 && currentView !== views.viewer
-            onIconClicked: picMenu.showMultiple(selectedPaths)
-            onExitClicked: clear()
-
-            PicMenu
-            {
-                id: picMenu
-                onFavClicked: VIEWER.fav(urls)
-                onRemoveClicked: PIX.removePics(urls)
-                onShareClicked:
-                {
-                    if(isAndroid)
-                        Maui.Android.shareDialog(urls)
-                    else
-                    {
-                        dialogLoader.sourceComponent = shareDialogComponent
-                        dialog.show(urls)
-                    }
-                }
-                onAddClicked:
-                {
-                    dialogLoader.sourceComponent = albumsDialogComponent
-                    dialog.show(urls)
-                }
-
-                onTagsClicked:
-                {
-                    dialogLoader.sourceComponent = tagsDialogComponent
-                    dialog.show(urls)
-                }
-                onShowFolderClicked: pix.showInFolder(urls)
-            }
-
         }
     }
 
@@ -281,6 +248,7 @@ Maui.ApplicationWindow
         {
             id: fmDialog
             onlyDirs: true
+            mode: modes.SAVE
         }
     }
 

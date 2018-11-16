@@ -14,6 +14,7 @@ Maui.Page
     property real picLightness : 0
 
     property alias count : viewerList.count
+    property alias currentIndex : viewerList.currentIndex
 
     clip: true
     focus: true
@@ -46,7 +47,6 @@ Maui.Page
             id: delegate
             itemHeight: viewerList.height
             itemWidth: viewerList.width
-
         }
     }
 

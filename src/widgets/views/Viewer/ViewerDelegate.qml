@@ -6,7 +6,6 @@ import QtGraphicalEffects 1.0
 
 ItemDelegate
 {
-
     property int itemWidth : parent.width
     property int itemHeight : parent.height
 
@@ -37,12 +36,12 @@ ItemDelegate
             acceptedButtons:  Qt.LeftButton | Qt.RightButton
 
 //            onEntered: galleryRoll.visible = !galleryRoll.visible
-            onPressAndHold: picMenu.show(currentPic.url)
+            onPressAndHold: _picMenu.popup()
 
             onWheel: wheel.angleDelta.y > 0 ? zoomIn() : zoomOut()
 
             onClicked: if(!isMobile && mouse.button === Qt.RightButton)
-                           picMenu.show(currentPic.url)
+                           _picMenu.popup()
         }
 
         //        BrightnessContrast

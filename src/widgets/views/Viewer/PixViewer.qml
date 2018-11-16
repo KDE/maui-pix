@@ -21,6 +21,7 @@ Maui.Page
     property alias tagBar : tagBar
     property alias roll : galleryRoll
     property alias model : pixModel
+    property alias list : pixModel.list
 
     property bool currentPicFav: false
     property var currentPic : ({})
@@ -127,6 +128,12 @@ Maui.Page
 
     floatingBar: true
     footBarOverlap: true
+
+    PixMenu
+    {
+        id: _picMenu
+        index: viewer.currentIndex
+    }
 
     PixModel
     {

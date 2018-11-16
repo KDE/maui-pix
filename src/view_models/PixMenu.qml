@@ -10,13 +10,22 @@ Maui.Menu
     id: control
 
     property bool isFav : false
+    property int index : -1
 
-    onOpened: isFav = list.get(grid.currentIndex).fav == 0 ? false : true
+    onOpened: isFav = list.get(index).fav == 0 ? false : true
+
+    Maui.MenuItem
+    {
+        text: qsTr("Select")
+        onTriggered: PIX.selectItem(list.get(index))
+    }
+
+    MenuSeparator{}
 
     Maui.MenuItem
     {
         text: qsTr(isFav ? "UnFav it": "Fav it")
-        onTriggered: list.fav(grid.currentIndex, !isFav)
+        onTriggered: list.fav(index, !isFav)
     }
 
     Maui.MenuItem
@@ -25,7 +34,7 @@ Maui.Menu
         onTriggered:
         {
             dialogLoader.sourceComponent = albumsDialogComponent
-            dialog.show([list.get(grid.currentIndex).url])
+            dialog.show([list.get(index).url])
         }
     }
 
@@ -35,7 +44,7 @@ Maui.Menu
         onTriggered:
         {
             dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.show([list.get(grid.currentIndex).url])
+            dialog.show([list.get(index).url])
         }
     }
 
@@ -45,50 +54,12 @@ Maui.Menu
         onTriggered:
         {
             if(isAndroid)
-                Maui.Android.shareDialog([list.get(grid.currentIndex).url])
+                Maui.Android.shareDialog([list.get(index).url])
             else
             {
                 dialogLoader.sourceComponent = shareDialogComponent
-                dialog.show([list.get(grid.currentIndex).url])
+                dialog.show([list.get(index).url])
             }
-        }
-    }
-
-    Maui.MenuItem
-    {
-        text: qsTr("Remove...")
-        onTriggered:
-        {
-            removeDialog.open()
-            close()
-        }
-
-        Maui.Dialog
-        {
-            id: removeDialog
-            property var paths: []
-
-            title: qsTr("Delete file?")
-            acceptButton.text: qsTr("Accept")
-            rejectButton.text: qsTr("Cancel")
-            message: qsTr("If you are sure you want to delete the file click on Accept, otherwise click on Cancel")
-            onRejected: close()
-            onAccepted:
-            {
-                list.deleteAt(grid.currentIndex)
-                close()
-            }
-        }
-    }
-
-    Maui.MenuItem
-    {
-        text: qsTr("Show in folder...")
-        enabled: !isMultiple
-        onTriggered:
-        {
-            pix.showInFolder([list.get(grid.currentIndex).url])
-            close()
         }
     }
 
@@ -97,8 +68,9 @@ Maui.Menu
         text: qsTr("Save to...")
         onTriggered:
         {
-            var pic = list.get(grid.currentIndex).url
+            var pic = list.get(index).url
             dialogLoader.sourceComponent= fmDialogComponent
+            dialog.suggestedFileName= Maui.FM.getFileInfo(list.get(index).url).label
             dialog.show(function(paths)
             {
                 if (typeof paths == 'string')
@@ -117,6 +89,17 @@ Maui.Menu
         }
     }
 
+    Maui.MenuItem
+    {
+        text: qsTr("Show in folder...")
+        enabled: !isMultiple
+        onTriggered:
+        {
+            pix.showInFolder([list.get(index).url])
+            close()
+        }
+    }
+
 //    Maui.MenuItem
 //    {
 //        text: qsTr("Copy")
@@ -127,10 +110,35 @@ Maui.Menu
 //        }
 //    }
 
+    MenuSeparator{}
+
+
     Maui.MenuItem
     {
-        text: qsTr("Select")
-        onTriggered: PIX.selectItem(list.get(grid.currentIndex))
+        text: qsTr("Remove...")
+        colorScheme.textColor: dangerColor
+        onTriggered:
+        {
+            removeDialog.open()
+            close()
+        }
 
+        Maui.Dialog
+        {
+            id: removeDialog
+            property var paths: []
+
+            title: qsTr("Delete file?")
+            acceptButton.text: qsTr("Accept")
+            rejectButton.text: qsTr("Cancel")
+            message: qsTr("If you are sure you want to delete the file click on Accept, otherwise click on Cancel")
+            onRejected: close()
+            onAccepted:
+            {
+                list.deleteAt(index)
+                close()
+            }
+        }
     }
+
 }
