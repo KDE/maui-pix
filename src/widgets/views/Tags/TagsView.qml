@@ -31,7 +31,7 @@ Kirigami.PageRow
         title: qsTr("New tag")
         onFinished:
         {
-            tag.tag(text)
+            tagsList.insert(text)
         }
     }
     TagsSidebar
@@ -57,17 +57,7 @@ Kirigami.PageRow
         tagsGrid.list.refresh()
     }
 
-    function populate()
-    {
-        tagsSidebar.list.model.clear()
-        var tags = tag.getUrlsTags(true)
-
-        if(tags.length > 0)
-            for(var i in tags)
-                append(tags[i])
-    }
-
-    function populateGrid(myTag)
+     function populateGrid(myTag)
     {
         if(!wideMode && currentIndex === 0)
             currentIndex = 1
@@ -80,16 +70,4 @@ Kirigami.PageRow
                 tagsGrid.model.append(tags[i])
 
     }
-
-    function clear()
-    {
-        tagsSidebar.list.model.clear()
-//        tagsGrid.model.clear()
-    }
-
-    function append(myTag)
-    {
-        tagsSidebar.list.model.append(myTag)
-    }
-
-}
+ }

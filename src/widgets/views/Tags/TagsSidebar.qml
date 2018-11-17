@@ -38,8 +38,8 @@ Maui.Page
     Maui.SideBar
     {
         id: tagsList
-
         anchors.fill: parent
+        model: tagsModel
         delegate: Maui.ListDelegate
         {
             id: delegate

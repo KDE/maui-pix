@@ -47,6 +47,9 @@ import "db/Query.js" as Q
 import PixModel 1.0
 import AlbumsList 1.0
 
+import TagsModel 1.0
+import TagsList 1.0
+
 Maui.ApplicationWindow
 {
     id: root
@@ -114,7 +117,7 @@ Maui.ApplicationWindow
     headBar.middleContent: [
         Maui.ToolButton
         {
-            text: qsTr("Viewer")
+//            text: qsTr("Viewer")
             visible: !pixViewer.holder.visible
             iconColor: currentView === views.viewer ? highlightColor : headBarFGColor
             iconName: "image"
@@ -123,7 +126,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-            text: qsTr("Gallery")
+//            text: qsTr("Gallery")
             iconColor: currentView === views.gallery? highlightColor : headBarFGColor
             iconName: "image-multiple"
             onClicked: currentView = views.gallery
@@ -131,7 +134,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-            text: qsTr("Folders")
+//            text: qsTr("Folders")
             iconColor: currentView === views.folders? highlightColor : headBarFGColor
             iconName: "image-folder-view"
             onClicked: currentView = views.folders
@@ -139,7 +142,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-            text: qsTr("Albums")
+//            text: qsTr("Albums")
             iconColor: currentView === views.albums? highlightColor : headBarFGColor
             iconName: "image-frames"
             onClicked: currentView = views.albums
@@ -147,9 +150,17 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-            text: qsTr("Tags")
+//            text: qsTr("Tags")
             iconColor: currentView === views.tags? highlightColor : headBarFGColor
             iconName: "tag"
+            onClicked: currentView = views.tags
+        },
+
+        Maui.ToolButton
+        {
+//            text: qsTr("Cloud")
+            iconColor: currentView === views.tags? highlightColor : headBarFGColor
+            iconName: "folder-cloud"
             onClicked: currentView = views.tags
         }
     ]
@@ -270,17 +281,22 @@ Maui.ApplicationWindow
         query: Q.Query.allAlbums
     }
 
+    TagsModel
+    {
+        id: tagsModel
+        list: tagsList
+    }
+
+    TagsList
+    {
+        id: tagsList
+    }
+
     Connections
     {
         target: pix
         onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.openExternalPics(pics, 0)
         onNewPic: console.log(pic.url)
-    }
-
-    Connections
-    {
-        target: tag
-        onTagged: tagsView.populate()
     }
 }

@@ -36,7 +36,7 @@ void DBActions::init()
 
     qDebug()<< "Starting DBActions";
 
-    this->tag = Tagging::getInstance(PIX::App, PIX::version, "org.kde.pix", PIX::comment);
+    this->tag = Tagging::getInstance();
 }
 
 DBActions *DBActions::instance = nullptr;

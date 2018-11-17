@@ -92,7 +92,6 @@ Maui.Menu
     Maui.MenuItem
     {
         text: qsTr("Show in folder...")
-        enabled: !isMultiple
         onTriggered:
         {
             pix.showInFolder([list.get(index).url])

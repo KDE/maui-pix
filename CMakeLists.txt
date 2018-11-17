@@ -23,6 +23,10 @@ set(pix_SRCS
     src/db/dbactions.cpp
     src/models/basemodel.cpp
     src/models/baselist.cpp
+    src/models/gallery/gallery.cpp
+    src/models/albums/albums.cpp
+    src/models/folders/folders.cpp
+    src/models/folders/foldermodel.cpp
     )
 
 set(pix_HDRS
@@ -33,6 +37,10 @@ set(pix_HDRS
     src/utils/pic.h
     src/models/basemodel.h
     src/models/baselist.h
+    src/models/gallery/gallery.h
+    src/models/albums/albums.h
+    src/models/folders/folders.h
+    src/models/folders/foldermodel.h
     )
 
 set(pix_ASSETS
