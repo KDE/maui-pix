@@ -209,7 +209,7 @@ Maui.Page
                     grid.currentIndex = index
 
                     if(selectionMode)
-                        PIX.selectItem(gridModel.get(index))
+                        PIX.selectItem(pixList.get(index))
                     else if(isMobile)
                         openPic(index)
                 }

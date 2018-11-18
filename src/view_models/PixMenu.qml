@@ -12,7 +12,7 @@ Maui.Menu
     property bool isFav : false
     property int index : -1
 
-    onOpened: isFav = list.get(index).fav == 0 ? false : true
+    onOpened: isFav = dba.isFav(list.get(index).url)
 
     Maui.MenuItem
     {
