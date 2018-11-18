@@ -14,7 +14,7 @@ function addTagToPic(myTag, url)
 
 function addTagToAlbum(tag, url)
 {
-    return pix.albumTag(tag, url)
+    return dba.albumTag(tag, url)
 }
 
 function removePics(urls)

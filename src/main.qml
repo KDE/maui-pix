@@ -297,6 +297,5 @@ Maui.ApplicationWindow
         target: pix
         onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.openExternalPics(pics, 0)
-        onNewPic: console.log(pic.url)
     }
 }

@@ -95,8 +95,6 @@ Kirigami.PageRow
         holder.emojiSize: iconSizes.huge
     }
 
-    Component.onCompleted: populate()
-
     function refresh()
     {
         foldersList.refresh()

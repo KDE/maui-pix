@@ -13,12 +13,12 @@ Maui.Dialog
     property bool forAlbum : false
     signal picTagged(string tag, string url)
     signal tagsAdded(var tags, var urls)
+    defaultButtons: true
 
     maxHeight: unit * 500
 
     onAccepted: setTags()
     onRejected: close()
-    onOpened: populate()
 
     ColumnLayout
     {
@@ -29,13 +29,13 @@ Maui.Dialog
             Layout.fillWidth: true
             TagsList
             {
-                id: tagsList
+                id: _tagsList
 
                 width: parent.width
                 height: parent.height
                 onTagClicked:
                 {
-                    tagListComposer.model.insert(0, {tag: tagsList.model.get(index).tag})
+                    tagListComposer.list.append(tagsList.get(index).tag)
                 }
             }
         }
@@ -52,11 +52,8 @@ Maui.Dialog
                 for(var i in tags)
                 {
                     var myTag = tags[i].trim()
-                    if(!tag.tagExists(myTag, true))
-                        tagsList.model.insert(0, {tag: myTag})
-
-                    tagListComposer.model.insert(0, {tag: myTag})
-
+                   tagsList.insert(myTag)
+                    tagListComposer.list.append(myTag)
                 }
                 clear()
             }
@@ -69,13 +66,11 @@ Maui.Dialog
             Layout.fillWidth: true
             Layout.leftMargin: contentMargins
             Layout.rightMargin: contentMargins
-
             height: 64
             width: parent.width
             onTagRemoved:
             {
-                pix.removePicTag(model.get(index).tag, pixViewer.currentPic.url)
-                tagListComposer.model.remove(index)
+                list.removeFrom(index, pixViewer.currentPic.url)
             }
         }
     }
@@ -83,6 +78,11 @@ Maui.Dialog
     function show(urls)
     {
         picUrls = urls
+        if(forAlbum)
+            tag.getAbstractTags("album", picUrls[0], true)
+        else
+            tagListComposer.list.urls = picUrls
+
         open()
     }
 
@@ -90,8 +90,8 @@ Maui.Dialog
     {
         var tags = []
 
-        for(var i = 0; i < tagListComposer.model.count; i++)
-            tags.push(tagListComposer.model.get(i).tag)
+        for(var i = 0; i < tagListComposer.count; i++)
+            tags.push(tagListComposer.list.get(i).tag)
 
         tagsAdded(tags, picUrls)
     }
@@ -103,8 +103,8 @@ Maui.Dialog
             var url = urls[j]
             if(tags.length > 0)
             {
-                if(!pix.checkExistance("images", "url", url))
-                    if(!pix.addPic(url))
+                if(!dba.checkExistance("images", "url", url))
+                    if(!dba.addPic(url))
                         return
 
                 for(var i in tags)
@@ -114,20 +114,5 @@ Maui.Dialog
 
         }
         close()
-    }
-
-    function populate()
-    {
-        tagsList.model.clear()
-        var tags = tag.getUrlsTags()
-
-        if(tags.length > 0)
-            for(var i in tags)
-                tagsList.model.append(tags[i])
-
-
-        if(picUrls.length === 1)
-            tagListComposer.populate(forAlbum ? tag.getAbstractTags("album", picUrls[0], true) :
-                                                tag.getUrlTags(picUrls[0], true))
-    }
+    }  
 }

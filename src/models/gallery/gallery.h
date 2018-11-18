@@ -47,7 +47,9 @@ public slots:
     bool deleteAt(const int &index);
     bool fav(const int &index, const bool &value);
     void append(const QVariantMap &pic);
+    void append(const QString &url);
     void refresh();
+    void clear();
 };
 
 #endif // GALLERY_H

@@ -199,6 +199,7 @@ Maui.Page
             Layout.fillWidth: true
             bgColor: viewerBackgroundColor
             allowEditMode: true
+            list.urls: [currentPic.url]
             onTagClicked: PIX.searchFor(tag)
             onAddClicked:
             {
@@ -210,7 +211,7 @@ Maui.Page
             onTagsEdited:
             {
                 PIX.updatePicTags(tags, pixViewer.currentPic.url)
-                VIEWER.setCurrentPicTags()
+                list.refresh()
             }
         }
     }

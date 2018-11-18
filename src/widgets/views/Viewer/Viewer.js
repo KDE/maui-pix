@@ -28,18 +28,10 @@ function view(index)
 
     console.log("CURRENT PIC FAV", pixViewer.currentPic.fav)
     pixViewer.currentPicFav = dba.isFav(pixViewer.currentPic.url)
-    setCurrentPicTags()
-
     root.title = pixViewer.currentPic.title
 
     pixViewer.roll.position(pixViewer.currentPicIndex)
 }
-
-function setCurrentPicTags()
-{
-    pixViewer.tagBar.populate(tag.getUrlTags(pixViewer.currentPic.url))
-}
-
 
 function next()
 {

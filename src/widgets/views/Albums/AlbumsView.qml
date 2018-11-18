@@ -94,16 +94,15 @@ Kirigami.PageRow
         footer: Maui.TagsBar
         {
             id: tagBar
+            list.abstract: true
+            list.key: "album"
             width: picsView.width
             allowEditMode: true
             onAddClicked: tagsDialog.show(albumGrid.currentAlbum)
             onTagsEdited: addTagsToAlbum(albumGrid.currentAlbum, tags)
 
-            onTagRemovedClicked: if(pix.removeAlbumTag(tagsList.model.get(index).tag, albumGrid.currentAlbum))
-                                     tagsList.model.remove(index)
+            onTagRemovedClicked: list.removeFrom(index, list.key, list.lot)
         }
-
-
     }
 
     //    function populate()
@@ -125,7 +124,6 @@ Kirigami.PageRow
     function filter(album)
     {
         albumGrid.currentAlbum = album
-        tagBar.tagsList.model.clear()
         tagBar.visible = false
 
         switch(album)
@@ -138,12 +136,18 @@ Kirigami.PageRow
             break
         default:
             populateAlbum(Q.Query.albumPics_.arg(album))
-            var tags = tag.getAbstractTags("album", album, true)
-            for(var i in tags)
-                albumsGrid.list.append(tag.getUrls(tags[i].tag)) //create an append function in gallery.cpp
 
             tagBar.visible = true
-            tagBar.tagsList.populate(tags)
+            tagBar.list.lot = album
+
+            for(var i = 0; i < tagBar.count; i++)
+            {
+                var _tag = tagBar.list.get(i).tag
+                var urls = tag.getUrls(_tag)
+                for(var j in urls)
+                    picsView.list.append(urls[j].url)
+            }
+
             break
         }
     }
@@ -152,6 +156,7 @@ Kirigami.PageRow
     {
         albumsPageRoot.currentIndex = 1
         picsView.list.query = query
+
     }
 
     function addAlbum(album)
@@ -165,7 +170,7 @@ Kirigami.PageRow
         if(tags.length > 0)
             for(var i in tags)
                 if(PIX.addTagToAlbum(tags[i], album))
-                    tagBar.append({"tag": tags[i]})
+                    tagBar.list.append(tags[i])
 
     }
 }

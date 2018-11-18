@@ -185,11 +185,25 @@ void Gallery::append(const QVariantMap &pic)
     for(auto key : pic.keys())
         this->list << PIX::DB {{PIX::MAPKEY[key], pic[key].toString()}};
 
+    emit this->postItemAppended();
+}
 
+void Gallery::append(const QString &url)
+{
+    emit this->preItemAppended();
+    qDebug()<< QString("select * from images where url = '%1'").arg(url);
+    this->list << this->dba->getDBData(QString("select * from images where url = '%1'").arg(url));
     emit this->postItemAppended();
 }
 
 void Gallery::refresh()
 {
     this->setList();
+}
+
+void Gallery::clear()
+{
+    emit this->preListChanged();
+    this->list.clear();
+    emit this->postListChanged();
 }

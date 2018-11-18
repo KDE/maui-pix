@@ -19,11 +19,6 @@ Kirigami.PageRow
 
     property string currentTag : ""
 
-    Connections
-    {
-        target: pix
-        onTagAdded: tagsSidebar.list.model.insert(tagsSidebar.list.count, {"tag": tag})
-    }
 
     Maui.NewDialog
     {
@@ -34,6 +29,7 @@ Kirigami.PageRow
             tagsList.insert(text)
         }
     }
+
     TagsSidebar
     {
         id: tagsSidebar
@@ -59,15 +55,15 @@ Kirigami.PageRow
 
      function populateGrid(myTag)
     {
+         tagsGrid.list.clear()
         if(!wideMode && currentIndex === 0)
             currentIndex = 1
 
-        tagsGrid.model.clear()
-        var tags = tag.getUrls(myTag);
+        var urls = tag.getUrls(myTag);
 
-        if(tags.length > 0)
-            for(var i in tags)
-                tagsGrid.model.append(tags[i])
+        if(urls.length > 0)
+            for(var i in urls)
+                tagsGrid.list.append(urls[i].url)
 
     }
  }

@@ -48,9 +48,7 @@ public:
 
     /* actions on model */
     bool addTag(const QString &tag);
-    bool albumTag(const QString &tag, const QString &album);
     bool removePicTag(const QString &tag, const QString &url);
-    bool removeAlbumTag(const QString &tag, const QString &album);
     bool cleanTags();
 
     bool addAlbum(const QString &album);
@@ -64,6 +62,9 @@ public:
 
 public slots:
     QVariantList get(const QString &queryTxt);
+
+    bool albumTag(const QString &tag, const QString &album);
+    bool removeAlbumTag(const QString &tag, const QString &album);
 
     bool favPic(const QString &url, const bool &fav);
     bool isFav(const QString &url);

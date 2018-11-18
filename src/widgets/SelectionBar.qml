@@ -81,7 +81,6 @@ Maui.SelectionBar
         Maui.MenuItem
         {
             text: qsTr("Show in folder...")
-            enabled: !isMultiple
             onTriggered: pix.showInFolder(selectedPaths)
         }
 

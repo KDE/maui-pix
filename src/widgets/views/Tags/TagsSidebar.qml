@@ -5,7 +5,6 @@ import org.kde.mauikit 1.0 as Maui
 
 Maui.Page
 {
-    property alias list : tagsList
     margins:0
     headBarExit: false
     headBarTitle: qsTr("Tags")
@@ -26,7 +25,7 @@ Maui.Page
 
     Maui.Holder
     {
-        visible: tagsList.count === 0
+        visible: _tagsList.count === 0
         emoji: "qrc:/img/assets/Rainbow.png"
         isMask: false
         title : "No Tags!"
@@ -37,7 +36,7 @@ Maui.Page
 
     Maui.SideBar
     {
-        id: tagsList
+        id: _tagsList
         anchors.fill: parent
         model: tagsModel
         delegate: Maui.ListDelegate
@@ -50,8 +49,8 @@ Maui.Page
                 target: delegate
                 onClicked:
                 {
-                    tagsList.currentIndex = index
-                    currentTag = tagsList.model.get(index).tag
+                    _tagsList.currentIndex = index
+                    currentTag = tagsList.get(index).tag
                     populateGrid(currentTag)
                 }
             }

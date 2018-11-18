@@ -26,7 +26,7 @@ ListView
         emojiSize: iconSizes.huge
     }
 
-    model: ListModel{}
+    model: tagsModel
     delegate: Maui.ListDelegate
     {
         id: delegate
