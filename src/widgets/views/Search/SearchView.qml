@@ -10,17 +10,17 @@ Maui.Page
 {
     property string currentQuery : ""
 
-    headBarExitIcon: "edit-clear"
-    headBarTitle: searchResults.grid.count + qsTr(" results")
-    headBar.visible: true
+    margins: 0
+    headBar.visible: false
 
     PixGrid
     {
         id: searchResults
-        height: parent.height
-        width: parent.width
-        headBar.visible: false
 
+        anchors.fill: parent
+        headBar.visible: true
+        headBarExitIcon: "edit-clear"
+        headBarTitle: searchResults.grid.count + qsTr(" results")
         holder.emoji: "qrc:/img/assets/BugSearch.png"
         holder.isMask: false
         holder.title : "No Results!"
@@ -49,7 +49,7 @@ Maui.Page
         if(query)
         {
             currentQuery = query
-            searchResults.list.query = pix.get(Q.Query.searchFor_.arg(currentQuery))
+            searchResults.list.query = Q.Query.searchFor_.arg(currentQuery)
 
 //            var queries = query.split(",")
 //            for(var i in queries)
