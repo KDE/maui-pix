@@ -206,8 +206,8 @@ Maui.Page
                 dialogLoader.sourceComponent = tagsDialogComponent
                 dialog.show(currentPic.url)
             }
-            onTagRemovedClicked: if(pix.removePicTag(tagsList.model.get(index).tag, pixViewer.currentPic.url))
-                                     tagsList.model.remove(index)
+
+            onTagRemovedClicked: list.removeFrom(index, pixViewer.currentPic.url)
             onTagsEdited:
             {
                 PIX.updatePicTags(tags, pixViewer.currentPic.url)
