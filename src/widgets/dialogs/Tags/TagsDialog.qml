@@ -68,10 +68,7 @@ Maui.Dialog
             Layout.rightMargin: contentMargins
             height: 64
             width: parent.width
-            onTagRemoved:
-            {
-                list.removeFrom(index, pixViewer.currentPic.url)
-            }
+            onTagRemoved: list.removeFromUrls(index)
         }
     }
 
@@ -97,12 +94,14 @@ Maui.Dialog
     }
 
     function addTagsToPic(urls, tags)
-    {
+    {        
+         if(tags.length < 1)
+             return
+
         for(var j in urls)
         {
             var url = urls[j]
-            if(tags.length > 0)
-            {
+
                 if(!dba.checkExistance("images", "url", url))
                     if(!dba.addPic(url))
                         return
@@ -110,7 +109,6 @@ Maui.Dialog
                 for(var i in tags)
                     if(PIX.addTagToPic(tags[i], url))
                         picTagged(tags[i], url)
-            }
 
         }
         close()

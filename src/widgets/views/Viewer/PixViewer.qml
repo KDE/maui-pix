@@ -207,12 +207,8 @@ Maui.Page
                 dialog.show(currentPic.url)
             }
 
-            onTagRemovedClicked: list.removeFrom(index, pixViewer.currentPic.url)
-            onTagsEdited:
-            {
-                PIX.updatePicTags(tags, pixViewer.currentPic.url)
-                list.refresh()
-            }
+            onTagRemovedClicked: list.removeFromUrls(index)
+            onTagsEdited: list.updateToUrls(tags)
         }
     }
 
