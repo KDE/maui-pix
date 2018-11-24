@@ -26,7 +26,6 @@ Maui.Page
         holder.title : "No Results!"
         holder.body: "Try with another query"
         holder.emojiSize: iconSizes.huge
-
     }
 
     footBar.drawBorder: false
