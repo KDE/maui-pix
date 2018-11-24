@@ -99,9 +99,8 @@ Kirigami.PageRow
             width: picsView.width
             allowEditMode: true
             onAddClicked: tagsDialog.show(albumGrid.currentAlbum)
-            onTagsEdited: addTagsToAlbum(albumGrid.currentAlbum, tags)
-
-            onTagRemovedClicked: list.removeFrom(index, list.key, list.lot)
+            onTagsEdited: list.updateToAbstract(tags)
+            onTagRemovedClicked: list.removeFromAbstract(index)
         }
     }
 
