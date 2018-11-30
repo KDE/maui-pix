@@ -77,14 +77,14 @@ void Pix::openPics(const QStringList &pics)
 
         QVariantMap picMap =
         {
-            {PIX::KEYMAP[PIX::KEY::URL], url},
-            {PIX::KEYMAP[PIX::KEY::TITLE], title},
-            {PIX::KEYMAP[PIX::KEY::FAV], "0"},
-            {PIX::KEYMAP[PIX::KEY::RATE], "0"},
-            {PIX::KEYMAP[PIX::KEY::COLOR], ""},
-            {PIX::KEYMAP[PIX::KEY::SOURCES_URL], sourceUrl},
-            {PIX::KEYMAP[PIX::KEY::PIC_DATE], info.birthTime().toString()},
-            {PIX::KEYMAP[PIX::KEY::FORMAT], format}
+            {FMH::MODEL_NAME[FMH::MODEL_KEY::URL], url},
+            {FMH::MODEL_NAME[FMH::MODEL_KEY::TITLE], title},
+            {FMH::MODEL_NAME[FMH::MODEL_KEY::FAV], "0"},
+            {FMH::MODEL_NAME[FMH::MODEL_KEY::RATE], "0"},
+            {FMH::MODEL_NAME[FMH::MODEL_KEY::COLOR], ""},
+            {FMH::MODEL_NAME[FMH::MODEL_KEY::SOURCE], sourceUrl},
+            {FMH::MODEL_NAME[FMH::MODEL_KEY::DATE], info.birthTime().toString()},
+            {FMH::MODEL_NAME[FMH::MODEL_KEY::FORMAT], format}
         };
 
         data << picMap;

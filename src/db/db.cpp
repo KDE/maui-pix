@@ -24,12 +24,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QStringList>
 #include <QSqlQuery>
 
-#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
-#include <MauiKit/fmh.h>
-#else
-#include "fmh.h"
-#endif
-
 DB::DB(QObject *parent) : QObject(parent)
 {
     this->init();
@@ -180,7 +174,7 @@ bool DB::insert(const QString &tableName, const QVariantMap &insertData)
     return query.exec();
 }
 
-bool DB::update(const QString &tableName, const PIX::DB &updateData, const QVariantMap &where)
+bool DB::update(const QString &tableName, const FMH::MODEL &updateData, const QVariantMap &where)
 {
     if (tableName.isEmpty())
     {
@@ -194,7 +188,7 @@ bool DB::update(const QString &tableName, const PIX::DB &updateData, const QVari
 
     QStringList set;
     for (auto key : updateData.keys())
-        set.append(PIX::KEYMAP[key]+" = '"+updateData[key]+"'");
+        set.append(FMH::MODEL_NAME[key]+" = '"+updateData[key]+"'");
 
     QStringList condition;
     for (auto key : where.keys())
@@ -213,7 +207,7 @@ bool DB::update(const QString &table, const QString &column, const QVariant &new
     return query.exec();
 }
 
-bool DB::remove(const QString &tableName, const PIX::DB &removeData)
+bool DB::remove(const QString &tableName, const FMH::MODEL &removeData)
 {
     if (tableName.isEmpty())
     {
@@ -230,7 +224,7 @@ bool DB::remove(const QString &tableName, const PIX::DB &removeData)
     auto i = 0;
     for (auto key : removeData.keys())
     {
-        strValues.append(QString("%1 = \"%2\"").arg(PIX::KEYMAP[key], removeData[key]));
+        strValues.append(QString("%1 = \"%2\"").arg(FMH::MODEL_NAME[key], removeData[key]));
         i++;
 
         if(removeData.keys().size() > 1 && i<removeData.keys().size())
@@ -254,11 +248,11 @@ QVariantList DB::get(const QString &queryTxt)
         while(query.next())
         {
             QVariantMap data;
-            for(auto key : PIX::KEYMAP.keys())
-                if(query.record().indexOf(PIX::KEYMAP[key])>-1)
-                    data[PIX::KEYMAP[key]] = query.value(PIX::KEYMAP[key]).toString();
+            for(auto key : FMH::MODEL_NAME.keys())
+                if(query.record().indexOf(FMH::MODEL_NAME[key])>-1)
+                    data[FMH::MODEL_NAME[key]] = query.value(FMH::MODEL_NAME[key]).toString();
 
-            auto url = data[PIX::KEYMAP[PIX::KEY::URL]].toString();
+            auto url = data[FMH::MODEL_NAME[FMH::MODEL_KEY::URL]].toString();
 
             //            if(!url.isEmpty())
             //            {

@@ -34,7 +34,7 @@ uint Gallery::getSortBy() const
     return this->sort;
 }
 
-PIX::DB_LIST Gallery::items() const
+FMH::MODEL_LIST Gallery::items() const
 {
     return this->list;
 }
@@ -57,23 +57,24 @@ QString Gallery::getQuery() const
 
 void Gallery::sortList()
 {
-    const auto key = static_cast<PIX::KEY>(this->sort);
+    const auto key = static_cast<FMH::MODEL_KEY>(this->sort);
     qDebug()<< "SORTING LIST BY"<< this->sort;
-    qSort(this->list.begin(), this->list.end(), [key](const PIX::DB& e1, const PIX::DB& e2) -> bool
+    qSort(this->list.begin(), this->list.end(), [key](const FMH::MODEL &e1, const FMH::MODEL &e2) -> bool
     {
         auto role = key;
 
         switch(role)
         {
-        case PIX::KEY::SIZE:
+        case FMH::MODEL_KEY::SIZE:
         {
             if(e1[role].toDouble() > e2[role].toDouble())
                 return true;
             break;
         }
 
-        case PIX::KEY::ADD_DATE:
-        case PIX::KEY::PIC_DATE:
+        case FMH::MODEL_KEY::DATE:
+        case FMH::MODEL_KEY::ADDDATE:
+        case FMH::MODEL_KEY::MODIFIED:
         {
             auto currentTime = QDateTime::currentDateTime();
 
@@ -86,9 +87,9 @@ void Gallery::sortList()
             break;
         }
 
-        case PIX::KEY::TITLE:
-        case PIX::KEY::PLACE:
-        case PIX::KEY::FORMAT:
+        case FMH::MODEL_KEY::TITLE:
+        case FMH::MODEL_KEY::PLACE:
+        case FMH::MODEL_KEY::FORMAT:
         {
             const auto str1 = QString(e1[role]).toLower();
             const auto str2 = QString(e2[role]).toLower();
@@ -126,7 +127,7 @@ QVariantMap Gallery::get(const int &index) const
     const auto pic = this->list.at(index);
 
     for(auto key : pic.keys())
-        res.insert(PIX::KEYMAP[key], pic[key]);
+        res.insert(FMH::MODEL_NAME[key], pic[key]);
 
     return res;
 }
@@ -141,7 +142,7 @@ bool Gallery::update(const QVariantMap &data, const int &index)
     return false;
 }
 
-bool Gallery::update(const PIX::DB &pic)
+bool Gallery::update(const FMH::MODEL &pic)
 {
     return false;
 }
@@ -158,7 +159,7 @@ bool Gallery::deleteAt(const int &index)
 
     emit this->preItemRemoved(index);
     auto item = this->list.takeAt(index);
-    this->dba->deletePic(item[PIX::KEY::URL]);
+    this->dba->deletePic(item[FMH::MODEL_KEY::URL]);
     emit this->postItemRemoved();
 
     return true;
@@ -169,9 +170,9 @@ bool Gallery::fav(const int &index, const bool &value)
     if(index >= this->list.size() || index < 0)
         return false;
 
-    if(this->dba->favPic(this->list[index][PIX::KEY::URL], value))
+    if(this->dba->favPic(this->list[index][FMH::MODEL_KEY::URL], value))
     {
-        this->list[index].insert(PIX::KEY::FAV, value ? "1" : "0");
+        this->list[index].insert(FMH::MODEL_KEY::FAV, value ? "1" : "0");
         return true;
     }
 
@@ -183,7 +184,7 @@ void Gallery::append(const QVariantMap &pic)
     emit this->preItemAppended();
 
     for(auto key : pic.keys())
-        this->list << PIX::DB {{PIX::MAPKEY[key], pic[key].toString()}};
+        this->list << FMH::MODEL {{FMH::MODEL_NAME_KEY[key], pic[key].toString()}};
 
     emit this->postItemAppended();
 }

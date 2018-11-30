@@ -40,7 +40,6 @@ public:
     FileLoader() : QObject()
     {
         this->dba = DBActions::getInstance();
-        qRegisterMetaType<PIX::DB>("PIX::DB");
         qRegisterMetaType<PIX::TABLE>("PIX::TABLE");
         qRegisterMetaType<QMap<PIX::TABLE, bool>>("QMap<PIX::TABLE,bool>");
         this->moveToThread(&t);

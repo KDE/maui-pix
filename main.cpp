@@ -52,7 +52,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "./src/models/basemodel.h"
 #include "./src/models/baselist.h"
 #include "./src/models/gallery/gallery.h"
-#include "./src/models/albums/albums.h"
+//#include "./src/models/albums/albums.h"
 
 #include "./src/models/folders/foldermodel.h"
 #include "./src/models/folders/folders.h"
@@ -135,13 +135,13 @@ int main(int argc, char *argv[])
     context->setContextProperty("tag", dba->tag);
     context->setContextProperty("dba", dba);
 
-    qmlRegisterUncreatableMetaObject(PIX::staticMetaObject, "PIX", 1, 0, "KEY", "Error");
+//    qmlRegisterUncreatableMetaObject(PIX::staticMetaObject, "PIX", 1, 0, "KEY", "Error");
 
     qmlRegisterUncreatableType<BaseList>("BaseList", 1, 0, "BaseList", QStringLiteral("BaseList should not be created in QML"));
 
     qmlRegisterType<BaseModel>("PixModel", 1, 0, "PixModel");
     qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
-    qmlRegisterType<Albums>("AlbumsList", 1, 0, "AlbumsList");
+//    qmlRegisterType<Albums>("AlbumsList", 1, 0, "AlbumsList");
     qmlRegisterType<FolderModel>("FolderModel", 1, 0, "FolderModel");
     qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
 

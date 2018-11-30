@@ -2,7 +2,11 @@
 #define BASELIST_H
 
 #include <QObject>
-#include "src/utils/pic.h"
+#ifdef Q_OS_ANDROID
+#include "fmh.h"
+#else
+#include <MauiKit/fmh.h>
+#endif
 
 class BaseList : public QObject
 {
@@ -12,8 +16,7 @@ public:
     explicit BaseList(QObject *parent = nullptr);
 
     //* To be overrided *//
-    virtual PIX::DB_LIST items() const {return PIX::DB_LIST({{}});}
-
+    virtual FMH::MODEL_LIST items() const {return FMH::MODEL_LIST({{}});}
 
 protected:
 
@@ -48,7 +51,7 @@ public slots:
         return false;
     }
 
-    virtual bool update(const PIX::DB &data)
+    virtual bool update(const FMH::MODEL &data)
     {
         Q_UNUSED(data);
         return false;

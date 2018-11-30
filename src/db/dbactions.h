@@ -42,7 +42,7 @@ public:
 
     bool execQuery(const QString &queryTxt);
 
-    bool insertPic(const PIX::DB &img);
+    bool insertPic(const FMH::MODEL &img);
     bool addPic(const QString &url);
     bool removePic(const QString &url);
 
@@ -58,7 +58,7 @@ public:
 
     /* utils */
     FMH::MODEL_LIST getFolders(const QString &query);
-    PIX::DB_LIST getDBData(const QString &queryTxt);
+    FMH::MODEL_LIST getDBData(const QString &queryTxt);
 
 public slots:
     QVariantList get(const QString &queryTxt);

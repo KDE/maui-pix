@@ -62,58 +62,58 @@ bool DBActions::execQuery(const QString &queryTxt)
     return query.exec();
 }
 
-bool DBActions::insertPic(const PIX::DB &img)
+bool DBActions::insertPic(const FMH::MODEL &img)
 {
-    auto url = img[PIX::KEY::URL];
-    auto title = img[PIX::KEY::TITLE];
-    auto rate = img[PIX::KEY::RATE];
-    auto fav = img[PIX::KEY::FAV];
-    auto color = img[PIX::KEY::COLOR];
-    auto addDate = img[PIX::KEY::ADD_DATE];
-    auto sourceUrl = img[PIX::KEY::SOURCES_URL];
-    auto picDate = img[PIX::KEY::PIC_DATE];
-    auto place = img[PIX::KEY::PLACE];
-    auto format = img[PIX::KEY::FORMAT];
+    auto url = img[FMH::MODEL_KEY::URL];
+    auto title = img[FMH::MODEL_KEY::TITLE];
+    auto rate = img[FMH::MODEL_KEY::RATE];
+    auto fav = img[FMH::MODEL_KEY::FAV];
+    auto color = img[FMH::MODEL_KEY::COLOR];
+    auto addDate = img[FMH::MODEL_KEY::ADDDATE];
+    auto sourceUrl = img[FMH::MODEL_KEY::SOURCE];
+    auto picDate = img[FMH::MODEL_KEY::DATE];
+    auto place = img[FMH::MODEL_KEY::PLACE];
+    auto format = img[FMH::MODEL_KEY::FORMAT];
 
     qDebug()<< "writting to db: "<<title<<url;
     /* first needs to insert album and artist*/
-    QVariantMap sourceMap {{PIX::KEYMAP[PIX::KEY::URL],sourceUrl}};
+    QVariantMap sourceMap {{FMH::MODEL_NAME[FMH::MODEL_KEY::URL], sourceUrl}};
     this->insert(PIX::TABLEMAP[PIX::TABLE::SOURCES], sourceMap);
 
 
-    QVariantMap imgMap {{PIX::KEYMAP[PIX::KEY::URL], url},
-                        {PIX::KEYMAP[PIX::KEY::SOURCES_URL], sourceUrl},
-                        {PIX::KEYMAP[PIX::KEY::TITLE], title},
-                        {PIX::KEYMAP[PIX::KEY::RATE], rate},
-                        {PIX::KEYMAP[PIX::KEY::FAV], fav},
-                        {PIX::KEYMAP[PIX::KEY::COLOR], color},
-                        {PIX::KEYMAP[PIX::KEY::FORMAT], format},
-                        {PIX::KEYMAP[PIX::KEY::PIC_DATE], picDate},
-                        {PIX::KEYMAP[PIX::KEY::PLACE], place},
-                        {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}};
+    QVariantMap imgMap {{FMH::MODEL_NAME[FMH::MODEL_KEY::URL], url},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::SOURCE], sourceUrl},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::TITLE], title},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::RATE], rate},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::FAV], fav},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::COLOR], color},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::FORMAT], format},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::DATE], picDate},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::PLACE], place},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::ADDDATE], QDateTime::currentDateTime()}};
     return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES], imgMap);
 
 }
 
 bool DBActions::addPic(const QString &url)
 {
-    if(!this->checkExistance(PIX::TABLEMAP[PIX::TABLE::IMAGES], PIX::KEYMAP[PIX::KEY::URL], url))
+    if(!this->checkExistance(PIX::TABLEMAP[PIX::TABLE::IMAGES], FMH::MODEL_NAME[FMH::MODEL_KEY::URL], url))
     {
         QFileInfo info(url);
         auto title = info.baseName();
         auto format = info.suffix();
         auto sourceUrl = info.dir().path();
 
-        PIX::DB picMap =
+        FMH::MODEL picMap =
         {
-            {PIX::KEY::URL, url},
-            {PIX::KEY::TITLE, title},
-            {PIX::KEY::FAV, "0"},
-            {PIX::KEY::RATE, "0"},
-            {PIX::KEY::COLOR, ""},
-            {PIX::KEY::SOURCES_URL, sourceUrl},
-            {PIX::KEY::PIC_DATE, info.birthTime().toString()},
-            {PIX::KEY::FORMAT, format}
+            {FMH::MODEL_KEY::URL, url},
+            {FMH::MODEL_KEY::TITLE, title},
+            {FMH::MODEL_KEY::FAV, "0"},
+            {FMH::MODEL_KEY::RATE, "0"},
+            {FMH::MODEL_KEY::COLOR, ""},
+            {FMH::MODEL_KEY::SOURCE, sourceUrl},
+            {FMH::MODEL_KEY::DATE, info.birthTime().toString()},
+            {FMH::MODEL_KEY::FORMAT, format}
         };
 
         return this->insertPic(picMap);
@@ -159,8 +159,8 @@ bool DBActions::favPic(const QString &url, const bool &fav )
         if(!this->addPic(url))
             return false;
 
-    PIX::DB favedPic = {{PIX::KEY::FAV, fav ? "1" : "0"}};
-    return this->update(PIX::TABLEMAP[PIX::TABLE::IMAGES], favedPic, QVariantMap({{PIX::KEYMAP[PIX::KEY::URL], url}}) );
+    FMH::MODEL favedPic = {{FMH::MODEL_KEY::FAV, fav ? "1" : "0"}};
+     return this->update(PIX::TABLEMAP[PIX::TABLE::IMAGES], favedPic, QVariantMap({{FMH::MODEL_NAME[FMH::MODEL_KEY::URL], url}}) );
 }
 
 bool DBActions::isFav(const QString &url)
@@ -169,7 +169,7 @@ bool DBActions::isFav(const QString &url)
 
     if (data.isEmpty()) return false;
 
-    return data.first()[PIX::KEY::FAV] == "1" ? true : false;
+    return data.first()[FMH::MODEL_KEY::FAV] == "1" ? true : false;
 }
 
 bool DBActions::addTag(const QString &tag)
@@ -187,18 +187,18 @@ bool DBActions::albumTag(const QString &tag, const QString &album)
 {
     this->addTag(tag);
 
-    return this->tag->tagAbstract(tag, PIX::KEYMAP[PIX::KEY::ALBUM], album);
+    return this->tag->tagAbstract(tag, FMH::MODEL_NAME[FMH::MODEL_KEY::ALBUM], album);
 }
 
 bool DBActions::removePicTag(const QString &tag, const QString &url)
 {
-    PIX::DB tagMap {{PIX::KEY::URL, url}, {PIX::KEY::TAG, tag}};
+    FMH::MODEL tagMap {{FMH::MODEL_KEY::URL, url}, {FMH::MODEL_KEY::TAG, tag}};
     return this->remove(PIX::TABLEMAP[PIX::TABLE::IMAGES_TAGS], tagMap);
 }
 
 bool DBActions::removeAlbumTag(const QString &tag, const QString &album)
 {
-    PIX::DB tagMap {{PIX::KEY::TAG, tag}, {PIX::KEY::ALBUM, album}};
+    FMH::MODEL tagMap {{FMH::MODEL_KEY::TAG, tag}, {FMH::MODEL_KEY::ALBUM, album}};
     return this->remove(PIX::TABLEMAP[PIX::TABLE::ALBUMS_TAGS], tagMap);
 }
 
@@ -211,8 +211,8 @@ bool DBActions::addAlbum(const QString &album)
 {
     QVariantMap albumMap
     {
-        {PIX::KEYMAP[PIX::KEY::ALBUM], album},
-        {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}
+        {FMH::MODEL_NAME[FMH::MODEL_KEY::ALBUM], album},
+        {FMH::MODEL_NAME[FMH::MODEL_KEY::DATE], QDateTime::currentDateTime()}
     };
 
     if(this->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS], albumMap))
@@ -230,9 +230,9 @@ bool DBActions::picAlbum(const QString &album, const QString &url)
     this->addAlbum(album);
     QVariantMap albumPic
     {
-        {PIX::KEYMAP[PIX::KEY::URL], url},
-        {PIX::KEYMAP[PIX::KEY::ALBUM], album},
-        {PIX::KEYMAP[PIX::KEY::ADD_DATE], QDateTime::currentDateTime()}
+        {FMH::MODEL_NAME[FMH::MODEL_KEY::URL], url},
+        {FMH::MODEL_NAME[FMH::MODEL_KEY::ALBUM], album},
+        {FMH::MODEL_NAME[FMH::MODEL_KEY::DATE], QDateTime::currentDateTime()}
     };
     return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_ALBUMS], albumPic);
 }
@@ -253,14 +253,14 @@ FMH::MODEL_LIST DBActions::getFolders(const QString &query)
 
     /*Data model keys for to be used on MauiKit Icondelegate component */
     for(auto i : data)
-        res << FMH::getFileInfoModel(i[PIX::KEY::URL]);
+        res << FMH::getFileInfoModel(i[FMH::MODEL_KEY::URL]);
 
     return res;
 }
 
-PIX::DB_LIST DBActions::getDBData(const QString &queryTxt)
+FMH::MODEL_LIST DBActions::getDBData(const QString &queryTxt)
 {
-    PIX::DB_LIST mapList;
+    FMH::MODEL_LIST mapList;
 
     auto query = this->getQuery(queryTxt);
 
@@ -268,18 +268,18 @@ PIX::DB_LIST DBActions::getDBData(const QString &queryTxt)
     {
         while(query.next())
         {
-            PIX::DB data;
-            for(auto key : PIX::KEYMAP.keys())
-                if(query.record().indexOf(PIX::KEYMAP[key])>-1)
-                    data.insert(key, query.value(PIX::KEYMAP[key]).toString());
+            FMH::MODEL data;
+            for(auto key : FMH::MODEL_NAME.keys())
+                if(query.record().indexOf(FMH::MODEL_NAME[key]) > -1)
+                    data.insert(key, query.value(FMH::MODEL_NAME[key]).toString());
 
-            const auto url = data[PIX::KEY::URL];
+            const auto url = data[FMH::MODEL_KEY::URL];
             if(!url.isEmpty())
             {
                 if(FMH::fileExists(url))
                     mapList<< data;
                 else
-                    this->removePic(data[PIX::KEY::URL]);
+                    this->removePic(data[FMH::MODEL_KEY::URL]);
             }else mapList<< data;
         }
 

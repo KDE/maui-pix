@@ -14,7 +14,7 @@ class Gallery : public BaseList
 
 public:
     explicit Gallery(QObject *parent = nullptr);
-    PIX::DB_LIST items() const override;
+    FMH::MODEL_LIST items() const override;
 
     void setQuery(const QString &query);
     QString getQuery() const;
@@ -24,14 +24,14 @@ public:
 
 private:
     DBActions *dba;
-    PIX::DB_LIST list;
+    FMH::MODEL_LIST list;
     void sortList();
     void setList();
 
     QString query;
-    uint sort = PIX::KEY::ADD_DATE;
+    uint sort = FMH::MODEL_KEY::DATE;
 
-    bool addPic(const PIX::DB &img);
+    bool addPic(const FMH::MODEL &img);
 
 signals:
     void queryChanged();
@@ -42,7 +42,7 @@ public slots:
     QVariantMap get(const int &index) const override;
     bool update(const int &index, const QVariant &value, const int &role) override; //deprecrated
     bool update(const QVariantMap &data, const int &index) override;
-    bool update(const PIX::DB &pic) override;
+    bool update(const FMH::MODEL &pic) override;
     bool remove(const int &index) override;
     bool deleteAt(const int &index);
     bool fav(const int &index, const bool &value);

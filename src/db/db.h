@@ -36,7 +36,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QVariantMap>
 
 #include "../utils/pic.h"
-
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+#include <MauiKit/fmh.h>
+#else
+#include "fmh.h"
+#endif
 
 class DB : public QObject
 {
@@ -52,9 +56,9 @@ public:
 
     QSqlQuery getQuery(const QString &queryTxt);
     bool insert(const QString &tableName, const QVariantMap &insertData);
-    bool update(const QString &tableName, const PIX::DB &updateData, const QVariantMap &where);
+    bool update(const QString &tableName, const FMH::MODEL &updateData, const QVariantMap &where);
     bool update(const QString &table, const QString &column, const QVariant &newValue, const QVariant &op, const QString &id);
-    bool remove(const QString &tableName, const PIX::DB &removeData);
+    bool remove(const QString &tableName, const FMH::MODEL &removeData);
 
     QVariantList get(const QString &queryTxt);
 

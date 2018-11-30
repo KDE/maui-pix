@@ -20,7 +20,7 @@ QVariant BaseModel::data(const QModelIndex &index, int role) const
     if (!index.isValid() || !mList)
         return QVariant();
 
-    return mList->items().at(index.row())[static_cast<PIX::KEY>(role)];
+    return mList->items().at(index.row())[static_cast<FMH::MODEL_KEY>(role)];
 }
 
 bool BaseModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -47,8 +47,8 @@ Qt::ItemFlags BaseModel::flags(const QModelIndex &index) const
 QHash<int, QByteArray> BaseModel::roleNames() const
 {
     QHash<int, QByteArray> names;
-    for(auto key : PIX::KEYMAP.keys())
-            names[key] = QString(PIX::KEYMAP[key]).toUtf8();
+    for(auto key : FMH::MODEL_NAME.keys())
+            names[key] = QString(FMH::MODEL_NAME[key]).toUtf8();
     return names;
 }
 
