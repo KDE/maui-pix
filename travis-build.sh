@@ -10,11 +10,8 @@ wget -qO - 'http://archive.neon.kde.org/public.key' | apt-key add -
 ### Install Dependencies
 apt-get --yes update
 apt-get --yes dist-upgrade
-apt-get --yes install devscripts lintian build-essential automake autotools-dev equivs libkf5kio-dev libkf5service-dev libkf5notifications-dev gettext libkf5i18n-dev qtwebengine5-dev qtquickcontrols2-5-dev libqt5svg5-dev qtdeclarative5-dev extra-cmake-modules build-essential cmake
+apt-get --yes install devscripts lintian build-essential automake autotools-dev equivs qt5-default qtdeclarative5-dev qtquickcontrols2-5-dev qtwebengine5-dev
 mk-build-deps -i -t "apt-get --yes" -r
-
-cd debian
-./install
 
 ### Build Deb
 mkdir source
