@@ -91,6 +91,7 @@ bool DBActions::insertPic(const FMH::MODEL &img)
                         {FMH::MODEL_NAME[FMH::MODEL_KEY::DATE], picDate},
                         {FMH::MODEL_NAME[FMH::MODEL_KEY::PLACE], place},
                         {FMH::MODEL_NAME[FMH::MODEL_KEY::ADDDATE], QDateTime::currentDateTime()}};
+
     return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES], imgMap);
 
 }

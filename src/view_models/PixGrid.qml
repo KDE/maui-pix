@@ -8,6 +8,8 @@ import org.kde.mauikit 1.0 as Maui
 import PIX 1.0
 import PixModel 1.0
 import GalleryList 1.0
+import FMList 1.0
+
 import "../widgets"
 
 Maui.Page
@@ -109,48 +111,48 @@ Maui.Page
                 {
                     text: qsTr("Title")
                     checkable: true
-                    checked: pixList.sortBy === KEY.TITLE
-                    onTriggered: pixList.sortBy = KEY.TITLE
+                    checked: pixList.sortBy === FMList.TITLE
+                    onTriggered: pixList.sortBy = FMList.TITLE
                 }
 
                 Maui.MenuItem
                 {
                     text: qsTr("Add date")
                     checkable: true
-                    checked: pixList.sortBy === KEY.ADD_DATE
-                    onTriggered: pixList.sortBy = KEY.ADD_DATE
+                    checked: pixList.sortBy === FMList.ADDDATE
+                    onTriggered: pixList.sortBy = FMList.ADDDATE
                 }
 
                 Maui.MenuItem
                 {
                     text: qsTr("Creation date")
                     checkable: true
-                    checked: pixList.sortBy === KEY.PIC_DATE
-                    onTriggered: pixList.sortBy = KEY.PIC_DATE
+                    checked: pixList.sortBy === FMList.DATE
+                    onTriggered: pixList.sortBy = FMList.DATE
                 }
 
                 Maui.MenuItem
                 {
                     text: qsTr("Place")
                     checkable: true
-                    checked: pixList.sortBy === KEY.PLACE
-                    onTriggered: pixList.sortBy = KEY.PLACE
+                    checked: pixList.sortBy === FMList.PLACE
+                    onTriggered: pixList.sortBy = FMList.PLACE
                 }
 
                 Maui.MenuItem
                 {
                     text: qsTr("Format")
                     checkable: true
-                    checked: pixList.sortBy === KEY.FORMAT
-                    onTriggered: pixList.sortBy = KEY.FORMAT
+                    checked: pixList.sortBy === FMList.FORMAT
+                    onTriggered: pixList.sortBy = FMList.FORMAT
                 }
 
                 Maui.MenuItem
                 {
                     text: qsTr("Size")
                     checkable: true
-                    checked: pixList.sortBy === KEY.SIZE
-                    onTriggered: pixList.sortBy = KEY.SIZE
+                    checked: pixList.sortBy === FMList.SIZE
+                    onTriggered: pixList.sortBy = FMList.SIZE
                 }
             }
         },
