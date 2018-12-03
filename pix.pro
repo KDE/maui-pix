@@ -51,6 +51,8 @@ SOURCES += main.cpp \
     src/models/albums/albums.cpp \
     src/models/folders/folders.cpp \
     src/models/folders/foldermodel.cpp \
+    src/models/cloud/cloud.cpp
+
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -79,7 +81,8 @@ HEADERS += \
     src/models/gallery/gallery.h \
     src/models/albums/albums.h \
     src/models/folders/folders.h \
-    src/models/folders/foldermodel.h
+    src/models/folders/foldermodel.h \
+    src/models/cloud/cloud.h
 
 include(install.pri)
 

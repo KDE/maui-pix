@@ -27,6 +27,7 @@ set(pix_SRCS
     src/models/albums/albums.cpp
     src/models/folders/folders.cpp
     src/models/folders/foldermodel.cpp
+    src/models/cloud/cloud.cpp
     )
 
 set(pix_HDRS
@@ -41,6 +42,7 @@ set(pix_HDRS
     src/models/albums/albums.h
     src/models/folders/folders.h
     src/models/folders/foldermodel.h
+    src/models/cloud/cloud.h
     )
 
 set(pix_ASSETS

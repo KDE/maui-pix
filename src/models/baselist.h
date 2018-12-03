@@ -1,10 +1,11 @@
 #ifndef BASELIST_H
 #define BASELIST_H
 
-#include <QObject>
 #ifdef Q_OS_ANDROID
+#include "fm.h"
 #include "fmh.h"
 #else
+#include <MauiKit/fm.h>
 #include <MauiKit/fmh.h>
 #endif
 

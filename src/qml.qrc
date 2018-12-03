@@ -29,5 +29,6 @@
         <file>widgets/views/Viewer/ViewerDelegate.qml</file>
         <file>view_models/PixMenu.qml</file>
         <file>widgets/SelectionBar.qml</file>
+        <file>widgets/views/Cloud/CloudView.qml</file>
     </qresource>
 </RCC>

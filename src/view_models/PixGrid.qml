@@ -26,6 +26,7 @@ Maui.Page
     property alias grid: grid
     property alias holder: holder
     property alias list : pixList
+    property alias model: pixModel
 
     /*signals*/
     signal picClicked(int index)

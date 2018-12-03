@@ -35,6 +35,7 @@ import "widgets/views/Settings"
 import "widgets/views/Tags"
 import "widgets/views/Viewer"
 import "widgets/views/Search"
+import "widgets/views/Cloud"
 
 import "view_models"
 import "widgets/dialogs/Albums"
@@ -49,6 +50,9 @@ import AlbumsList 1.0
 
 import TagsModel 1.0
 import TagsList 1.0
+
+import SyncingModel 1.0
+import SyncingList 1.0
 
 Maui.ApplicationWindow
 {
@@ -68,7 +72,8 @@ Maui.ApplicationWindow
                                        folders: 2,
                                        albums: 3,
                                        tags: 4,
-                                       search: 5
+                                       cloud: 5,
+                                       search: 6
                                    })
     /*PROPS*/
 
@@ -113,6 +118,39 @@ Maui.ApplicationWindow
     ]
 
     headBar.visible: !fullScreen
+    headBar.leftContent:[
+    Maui.ToolButton
+        {
+            text:  "mauitest"
+            onClicked: _accountMenu.popup()
+            iconName: "list-add-user"
+
+            Maui.Menu
+            {
+                id: _accountMenu
+
+                contentItem: ListView
+                {
+                       model: _syncingModel
+                    delegate: Maui.MenuItem
+                    {
+                        text: model.user
+                    }
+                   }
+            }
+        }
+    ]
+
+    SyncingModel
+        {
+            id: _syncingModel
+            list: _syncingList
+        }
+
+        SyncingList
+        {
+            id: _syncingList
+        }
 
     headBar.middleContent: [
         Maui.ToolButton
@@ -159,9 +197,9 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
 //            text: qsTr("Cloud")
-            iconColor: currentView === views.tags? highlightColor : headBarFGColor
+            iconColor: currentView === views.cloud? highlightColor : headBarFGColor
             iconName: "folder-cloud"
-            onClicked: currentView = views.tags
+            onClicked: currentView = views.cloud
         }
     ]
 
@@ -204,6 +242,11 @@ Maui.ApplicationWindow
             TagsView
             {
                 id: tagsView
+            }
+
+            CloudView
+            {
+                id: cloudView
             }
 
             SearchView
