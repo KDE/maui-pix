@@ -196,7 +196,6 @@ Maui.Page
         PixPic
         {
             id: delegate
-
             picSize : itemSize
             picRadius : itemRadius
             fit: fitPreviews

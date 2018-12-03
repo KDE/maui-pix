@@ -14,6 +14,9 @@ ItemDelegate
     property bool fit : false
     property bool isHovered :  hovered
 
+    property alias source : img.source
+    property alias label : _label.text
+
     property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
 
     property color labelColor : (GridView.isCurrentItem || (keepEmblemOverlay && emblemAdded)) && !hovered && showSelectionBackground? highlightedTextColor : textColor
@@ -84,9 +87,8 @@ ItemDelegate
                 antialiasing: true
                 smooth: true
                 fillMode: fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
-                source: (url && url.length>0)?
-                            "file://"+encodeURIComponent(url) :
-                            "qrc:/img/assets/image-x-generic.svg"
+                source: (url && url.length>0) ?
+                            "file://"+encodeURIComponent(url) : "qrc:/img/assets/image-x-generic.svg"
                 asynchronous: true
 
                 Rectangle
@@ -138,6 +140,7 @@ ItemDelegate
 
             Label
             {
+                id: _label
                 text: title
                 width: parent.width
                 height: parent.height

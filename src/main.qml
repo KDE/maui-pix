@@ -81,6 +81,7 @@ Maui.ApplicationWindow
     property bool fullScreen : false
 
     property bool selectionMode : false
+    property alias currentAccount: _accountCombobox.currentText
 
     /***************************************************/
     /******************** UI COLORS *******************/
@@ -119,43 +120,30 @@ Maui.ApplicationWindow
 
     headBar.visible: !fullScreen
     headBar.leftContent:[
-    Maui.ToolButton
+        ComboBox
         {
-            text:  "mauitest"
-            onClicked: _accountMenu.popup()
-            iconName: "list-add-user"
-
-            Maui.Menu
-            {
-                id: _accountMenu
-
-                contentItem: ListView
-                {
-                       model: _syncingModel
-                    delegate: Maui.MenuItem
-                    {
-                        text: model.user
-                    }
-                   }
-            }
+            id: _accountCombobox
+            textRole: "user"
+            flat: true
+            model: _syncingModel
         }
     ]
 
     SyncingModel
-        {
-            id: _syncingModel
-            list: _syncingList
-        }
+    {
+        id: _syncingModel
+        list: _syncingList
+    }
 
-        SyncingList
-        {
-            id: _syncingList
-        }
+    SyncingList
+    {
+        id: _syncingList
+    }
 
     headBar.middleContent: [
         Maui.ToolButton
         {
-//            text: qsTr("Viewer")
+            //            text: qsTr("Viewer")
             visible: !pixViewer.holder.visible
             iconColor: currentView === views.viewer ? highlightColor : headBarFGColor
             iconName: "image"
@@ -164,7 +152,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-//            text: qsTr("Gallery")
+            //            text: qsTr("Gallery")
             iconColor: currentView === views.gallery? highlightColor : headBarFGColor
             iconName: "image-multiple"
             onClicked: currentView = views.gallery
@@ -172,7 +160,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-//            text: qsTr("Folders")
+            //            text: qsTr("Folders")
             iconColor: currentView === views.folders? highlightColor : headBarFGColor
             iconName: "image-folder-view"
             onClicked: currentView = views.folders
@@ -180,7 +168,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-//            text: qsTr("Albums")
+            //            text: qsTr("Albums")
             iconColor: currentView === views.albums? highlightColor : headBarFGColor
             iconName: "image-frames"
             onClicked: currentView = views.albums
@@ -188,7 +176,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-//            text: qsTr("Tags")
+            //            text: qsTr("Tags")
             iconColor: currentView === views.tags? highlightColor : headBarFGColor
             iconName: "tag"
             onClicked: currentView = views.tags
@@ -196,7 +184,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-//            text: qsTr("Cloud")
+            //            text: qsTr("Cloud")
             iconColor: currentView === views.cloud? highlightColor : headBarFGColor
             iconName: "folder-cloud"
             onClicked: currentView = views.cloud

@@ -12,7 +12,7 @@ class Cloud : public BaseList
 
 public:   
    explicit Cloud(QObject *parent = nullptr);
-//     ~Cloud();
+//    ~Cloud();
     FMH::MODEL_LIST items() const override;
 
     void setAccount(const QString value);
