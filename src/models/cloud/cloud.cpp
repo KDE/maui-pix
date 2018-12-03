@@ -46,7 +46,7 @@ QString Cloud::getAccount() const
 
 void Cloud::setList()
 {
-    this->fm->getCloudServerContent(FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::CLOUD_PATH]+"/"+this->account, QStringList());
+    this->fm->getCloudServerContent(FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::CLOUD_PATH]+"/"+this->account, QStringList(), 3);
 }
 
 QVariantMap Cloud::get(const int &index) const

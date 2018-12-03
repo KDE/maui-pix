@@ -57,6 +57,7 @@ PixGrid
         id: _cloudList
         path: "Cloud/"+currentAccount
         filterType: FMList.IMAGE
+        cloudDepth: 3
     }
 
     grid.model: _cloudModel

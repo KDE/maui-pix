@@ -118,6 +118,16 @@ ItemDelegate
                         }
                     }
                 }
+
+                Maui.ToolButton
+                {
+                    visible:  img.status !== Image.Ready
+                    iconName: "image-x-generic"
+                    size: iconSizes.huge
+                    isMask: false
+
+                    anchors.centerIn: parent
+                }
             }
 
             Rectangle
