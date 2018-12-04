@@ -125,21 +125,10 @@ Maui.ApplicationWindow
             id: _accountCombobox
             textRole: "user"
             flat: true
-            model: _syncingModel
+            model: accounts.model
             iconButton.iconName: "list-add-user"
         }
     ]
-
-    SyncingModel
-    {
-        id: _syncingModel
-        list: _syncingList
-    }
-
-    SyncingList
-    {
-        id: _syncingList
-    }
 
     headBar.middleContent: [
         Maui.ToolButton
