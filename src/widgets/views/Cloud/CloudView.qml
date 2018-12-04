@@ -2,6 +2,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import org.kde.mauikit 1.0 as Maui
 
+import "../Viewer/Viewer.js" as VIEWER
+import "../Pix.js" as PIX
 import "../../../view_models"
 
 //import CloudList 1.0
@@ -43,6 +45,50 @@ PixGrid
         showLabel: control.showLabels
         height: control.grid.cellHeight * 0.9
         width: control.grid.cellWidth * 0.8
+
+        Connections
+        {
+            target: delegate
+            onClicked:
+            {
+                control.grid.currentIndex = index
+
+                if(selectionMode)
+                    PIX.selectItem(pixList.get(index))
+                else if(isMobile)
+                    control.openPic(index)
+            }
+
+            onDoubleClicked:
+            {
+                control.grid.currentIndex = index
+
+                //picClicked(index)
+                if(!isMobile)
+                    control.openPic(index)
+                //                    else
+                //                        selectionBox.append(gridModel.get(index))
+
+            }
+
+            onPressAndHold:
+            {
+                grid.currentIndex = index
+                _picMenu.popup()
+            }
+
+            onRightClicked:
+            {
+                grid.currentIndex = index
+                _picMenu.popup()
+            }
+            onEmblemClicked:
+            {
+                grid.currentIndex = index
+                var item = pixList.get(index)
+                PIX.selectItem(item)
+            }
+        }
 
     }
 

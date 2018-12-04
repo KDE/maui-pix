@@ -1,8 +1,7 @@
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick 2.9
-import "../widgets/views/Viewer/Viewer.js" as VIEWER
-import "../widgets/views/Pix.js" as PIX
+
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.mauikit 1.0 as Maui
 import PIX 1.0
@@ -10,6 +9,8 @@ import PixModel 1.0
 import GalleryList 1.0
 import FMList 1.0
 
+import "../widgets/views/Viewer/Viewer.js" as VIEWER
+import "../widgets/views/Pix.js" as PIX
 import "../widgets"
 
 Maui.Page
@@ -209,7 +210,6 @@ Maui.Page
                 onClicked:
                 {
                     grid.currentIndex = index
-
                     if(selectionMode)
                         PIX.selectItem(pixList.get(index))
                     else if(isMobile)
@@ -218,12 +218,9 @@ Maui.Page
 
                 onDoubleClicked:
                 {
-                    //picClicked(index)
+                    grid.currentIndex = index
                     if(!isMobile)
                         openPic(index)
-                    //                    else
-                    //                        selectionBox.append(gridModel.get(index))
-
                 }
 
                 onPressAndHold:
