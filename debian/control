@@ -2,18 +2,18 @@ Source: pix
 Section: graphics
 Priority: optional
 Maintainer: Jonah Brüchert <jbb@kaidan.im>
-Build-Depends: cmake (>= 3.0),
-               debhelper (>= 11),
-               extra-cmake-modules (>= 1.7.0),
-               libkf5config-dev (>= 5.24.0~),
-               libkf5coreaddons-dev (>= 5.24.0~),
-               libkf5i18n-dev (>= 5.24.0~),
+Build-Depends: cmake,
+               debhelper,
+               extra-cmake-modules,
+               libkf5config-dev,
+               libkf5coreaddons-dev,
+               libkf5i18n-dev,
                libkf5kio-dev,
-               libkf5notifications-dev (>= 5.24.0~),
-               libkf5service-dev (>= 5.24.0~),
+               libkf5notifications-dev,
+               libkf5service-dev,
                libqt5svg5-dev,
                mauikit-dev,
-               qtbase5-dev (>= 5.5.0~),
+               qtbase5-dev,
                qtdeclarative5-dev,
                qtquickcontrols2-5-dev,
                qtwebengine5-dev
