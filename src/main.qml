@@ -120,12 +120,13 @@ Maui.ApplicationWindow
 
     headBar.visible: !fullScreen
     headBar.leftContent:[
-        ComboBox
+        Maui.ComboBox
         {
             id: _accountCombobox
             textRole: "user"
             flat: true
             model: _syncingModel
+            iconButton.iconName: "list-add-user"
         }
     ]
 
