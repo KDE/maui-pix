@@ -123,6 +123,7 @@ Maui.ApplicationWindow
         Maui.ComboBox
         {
             id: _accountCombobox
+            visible: count > 1
             textRole: "user"
             flat: true
             model: accounts.model
