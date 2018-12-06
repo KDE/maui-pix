@@ -49,7 +49,7 @@ void Cloud::formatList()
         auto thumbnail = item[FMH::MODEL_KEY::THUMBNAIL];
 
         item[FMH::MODEL_KEY::FAV] = QString("0");
-        item[FMH::MODEL_KEY::URL] = thumbnail;
+        item[FMH::MODEL_KEY::URL] = FMH::fileExists(thumbnail)? thumbnail : item[FMH::MODEL_KEY::PATH];
         item[FMH::MODEL_KEY::SOURCE] = url;
         item[FMH::MODEL_KEY::TITLE] = item[FMH::MODEL_KEY::LABEL];
     }

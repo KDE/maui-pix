@@ -54,13 +54,12 @@ PixGrid
                 if(selectionMode)
                     PIX.selectItem(pixList.get(index))
                 else if(isMobile)
-                    console.log(_cloudList.get(index).url)
+                    VIEWER.open(_cloudList, index)
             }
 
             onDoubleClicked:
             {
                 control.grid.currentIndex = index
-
                 //picClicked(index)
                 if(!isMobile)
                      VIEWER.open(_cloudList, index)

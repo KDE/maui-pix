@@ -1,6 +1,6 @@
 .import "../Pix.js" as PIX
 .import "../../../db/Query.js" as Q
-
+.import org.kde.mauikit 1.0 as Maui
 
 function open(list, index)
 {
@@ -23,8 +23,10 @@ function openExternalPics(pics, index)
 function view(index)
 {
     pixViewer.currentPicIndex = index
-
     pixViewer.currentPic = pixViewer.model.list.get(pixViewer.currentPicIndex)
+
+    if(Maui.FM.isCloud(pixViewer.currentPic.url))
+        console.log("IS CLOUD IMAGE")
 
     console.log("CURRENT PIC FAV", pixViewer.currentPic.fav)
     pixViewer.currentPicFav = dba.isFav(pixViewer.currentPic.url)

@@ -125,6 +125,7 @@ ItemDelegate
                     iconName: "image-x-generic"
                     size: Math.min(picSize, iconSizes.huge)
                     isMask: false
+                    enabled: false
 
                     anchors.centerIn: parent
                 }
@@ -173,6 +174,4 @@ ItemDelegate
             }
         }
     }
-
-
 }
