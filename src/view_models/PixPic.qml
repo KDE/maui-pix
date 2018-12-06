@@ -123,7 +123,7 @@ ItemDelegate
                 {
                     visible:  img.status !== Image.Ready
                     iconName: "image-x-generic"
-                    size: iconSizes.huge
+                    size: Math.min(picSize, iconSizes.huge)
                     isMask: false
 
                     anchors.centerIn: parent

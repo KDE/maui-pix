@@ -1,26 +1,18 @@
 #include "cloud.h"
 
-#ifdef Q_OS_ANDROID
-#include "fm.h"
-#include "fmh.h"
-#else
-#include <MauiKit/fm.h>
-#include <MauiKit/fmh.h>
-#endif
-
 Cloud::Cloud(QObject *parent) : BaseList (parent)
 {
     this->fm = FM::getInstance();
     this->setList();
 
-//    connect(this->fm, &FM::cloudServerContentReady, [](const FMH::MODEL_LIST &list, const QString &url)
-//    {
-////        Q_UNUSED(url);
-////        emit this->preListChanged();
-////        this->list = list;
-////        emit this->postListChanged();
-//    });
-
+    connect(this->fm, &FM::cloudServerContentReady, [this](const FMH::MODEL_LIST &list, const QString &url)
+    {
+        Q_UNUSED(url);
+        emit this->preListChanged();
+        this->list = list;
+        this->formatList();
+        emit this->postListChanged();
+    });
 }
 
 FMH::MODEL_LIST Cloud::items() const
@@ -46,7 +38,21 @@ QString Cloud::getAccount() const
 
 void Cloud::setList()
 {
-    this->fm->getCloudServerContent(FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::CLOUD_PATH]+"/"+this->account, QStringList(), 3);
+    this->fm->getCloudServerContent(FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::CLOUD_PATH]+"/"+this->account, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], 3);
+}
+
+void Cloud::formatList()
+{
+    for(auto &item : this->list)
+    {
+        auto url = item[FMH::MODEL_KEY::URL];
+        auto thumbnail = item[FMH::MODEL_KEY::THUMBNAIL];
+
+        item[FMH::MODEL_KEY::FAV] = QString("0");
+        item[FMH::MODEL_KEY::URL] = thumbnail;
+        item[FMH::MODEL_KEY::SOURCE] = url;
+        item[FMH::MODEL_KEY::TITLE] = item[FMH::MODEL_KEY::LABEL];
+    }
 }
 
 QVariantMap Cloud::get(const int &index) const

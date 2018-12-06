@@ -6,10 +6,8 @@ import "../Viewer/Viewer.js" as VIEWER
 import "../Pix.js" as PIX
 import "../../../view_models"
 
-//import CloudList 1.0
-import FMList 1.0
-import FMModel 1.0
-
+import CloudList 1.0
+import PixModel 1.0
 
 PixGrid
 {
@@ -56,7 +54,7 @@ PixGrid
                 if(selectionMode)
                     PIX.selectItem(pixList.get(index))
                 else if(isMobile)
-                    control.openPic(index)
+                    console.log(_cloudList.get(index).url)
             }
 
             onDoubleClicked:
@@ -65,7 +63,7 @@ PixGrid
 
                 //picClicked(index)
                 if(!isMobile)
-                    control.openPic(index)
+                     VIEWER.open(_cloudList, index)
                 //                    else
                 //                        selectionBox.append(gridModel.get(index))
 
@@ -92,18 +90,16 @@ PixGrid
 
     }
 
-    FMModel
+    PixModel
     {
         id: _cloudModel
         list: _cloudList
     }
 
-    FMList
+    CloudList
     {
         id: _cloudList
-        path: "Cloud/"+currentAccount
-        filterType: FMList.IMAGE
-        cloudDepth: 3
+        account: currentAccount
     }
 
     grid.model: _cloudModel
