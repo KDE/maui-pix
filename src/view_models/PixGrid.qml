@@ -28,6 +28,7 @@ Maui.Page
     property alias holder: holder
     property alias list : pixList
     property alias model: pixModel
+    property alias menu : _picMenu
 
     /*signals*/
     signal picClicked(int index)

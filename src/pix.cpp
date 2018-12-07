@@ -95,7 +95,7 @@ void Pix::openPics(const QStringList &pics)
 
 void Pix::refreshCollection()
 {
-    this->populateDB({FMH::PicturesPath, FMH::DownloadsPath, FMH::DocumentsPath});
+    this->populateDB({FMH::PicturesPath, FMH::DownloadsPath, FMH::DocumentsPath, FMH::CloudCachePath});
 }
 
 void Pix::populateDB(const QStringList &paths)

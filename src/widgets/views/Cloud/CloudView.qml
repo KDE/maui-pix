@@ -72,19 +72,19 @@ PixGrid
 
             onPressAndHold:
             {
-                grid.currentIndex = index
-                _picMenu.popup()
+                control.grid.currentIndex = index
+                control.menu.popup()
             }
 
             onRightClicked:
             {
-                grid.currentIndex = index
-                _picMenu.popup()
+                control.grid.currentIndex = index
+                control.menu.popup()
             }
             onEmblemClicked:
             {
-                grid.currentIndex = index
-                var item = pixList.get(index)
+                control.grid.currentIndex = index
+                var item = _cloudList.get(index)
                 PIX.selectItem(item)
             }
         }

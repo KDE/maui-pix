@@ -103,65 +103,6 @@ static const QMap<TABLE,QString> TABLEMAP =
     {TABLE::TAGS,"tags"}
 };
 
-//enum KEY : uint8_t
-//{
-//    URL,
-//    SOURCES_URL,
-//    TITLE,
-//    ALBUM,
-//    RATE,
-//    FAV,
-//    COLOR,
-//    NOTE,
-//    ADD_DATE,
-//    PIC_DATE,
-//    PLACE,
-//    FORMAT,
-//    TAG,
-//    SIZE,
-//    NONE
-//}; Q_ENUM_NS(KEY)
-
-//typedef QMap<PIX::KEY, QString> DB;
-//typedef QList<DB> DB_LIST;
-
-//static const DB KEYMAP =
-//{
-//    {KEY::URL, "url"},
-//    {KEY::SOURCES_URL, "sources_url"},
-//    {KEY::RATE, "rate"},
-//    {KEY::TITLE, "title"},
-//    {KEY::ALBUM, "album"},
-//    {KEY::FAV, "fav"},
-//    {KEY::COLOR, "color"},
-//    {KEY::NOTE, "note"},
-//    {KEY::PIC_DATE, "picDate"},
-//    {KEY::PLACE, "place"},
-//    {KEY::FORMAT, "format"},
-//    {KEY::ADD_DATE, "addDate"},
-//    {KEY::SIZE, "size"},
-//    {KEY::TAG, "tag"}
-//};
-
-//static const QMap<QString, PIX::KEY> MAPKEY =
-//{
-//    {PIX::KEYMAP[PIX::KEY::URL], PIX::KEY::URL},
-//    {PIX::KEYMAP[PIX::SOURCES_URL], PIX::SOURCES_URL},
-//    {PIX::KEYMAP[PIX::RATE], PIX::RATE},
-//    {PIX::KEYMAP[PIX::TITLE], PIX::TITLE},
-//    {PIX::KEYMAP[PIX::ALBUM], PIX::ALBUM},
-//    {PIX::KEYMAP[PIX::FAV], PIX::FAV},
-//    {PIX::KEYMAP[PIX::COLOR], PIX::COLOR},
-//    {PIX::KEYMAP[PIX::NOTE], PIX::NOTE},
-//    {PIX::KEYMAP[PIX::PIC_DATE], PIX::PIC_DATE},
-//    {PIX::KEYMAP[PIX::PLACE], PIX::PLACE},
-//    {PIX::KEYMAP[PIX::FORMAT], PIX::FORMAT},
-//    {PIX::KEYMAP[PIX::ADD_DATE], PIX::ADD_DATE},
-//    {PIX::KEYMAP[PIX::SIZE], PIX::SIZE},
-//    {PIX::KEYMAP[PIX::TAG], PIX::TAG}
-//};
-
-
 const QString SettingPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)+"/pix/";
 const QString CollectionDBPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/pix/";
 const QString CachePath = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)+"/pix/";
@@ -230,8 +171,5 @@ inline QString getQuery(const QString &key)
 }
 
 }
-
-
-
 
 #endif // PIC_H
