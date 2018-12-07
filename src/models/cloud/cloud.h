@@ -32,14 +32,19 @@ private:
     void setList();
     void formatList();
 
+    QHash<QString, int> pending;
+
     QString account;
     FM *fm;
 
 public slots:
     QVariantMap get(const int &index) const override;
+    void requestImage(const int &index);
+    bool update(const QVariantMap &data, const int &index) override;
 
 signals:
     void accountChanged();
+    void cloudImageReady(QVariantMap item);
 };
 
 #endif // CLOUD_H

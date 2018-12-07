@@ -25,8 +25,8 @@ function view(index)
     pixViewer.currentPicIndex = index
     pixViewer.currentPic = pixViewer.model.list.get(pixViewer.currentPicIndex)
 
-    if(Maui.FM.isCloud(pixViewer.currentPic.url))
-        console.log("IS CLOUD IMAGE")
+    if(Maui.FM.isCloud(pixViewer.currentPic.source))
+        cloudView.list.requestImage(pixViewer.currentPicIndex)
 
     console.log("CURRENT PIC FAV", pixViewer.currentPic.fav)
     pixViewer.currentPicFav = dba.isFav(pixViewer.currentPic.url)

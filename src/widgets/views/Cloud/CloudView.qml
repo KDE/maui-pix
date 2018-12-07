@@ -12,6 +12,8 @@ import PixModel 1.0
 PixGrid
 {
     id: control
+    property alias list : _cloudList
+
     headBarExit: false
     visible: true
     holder.emojiSize: iconSizes.huge
@@ -24,13 +26,13 @@ PixGrid
     holder.isMask: false
     holder.title : if(!_cloudList.contentReady)
                        qsTr("Loading content!")
-                    else
+                   else
                        qsTr("Nothing here")
 
     holder.body: if(!_cloudList.contentReady)
                      qsTr("Almost ready!")
                  else
-                    qsTr("Make sure you're online and your cloud account is working")
+                     qsTr("Make sure you're online and your cloud account is working")
 
     grid.delegate: PixPic
     {
@@ -62,7 +64,7 @@ PixGrid
                 control.grid.currentIndex = index
                 //picClicked(index)
                 if(!isMobile)
-                     VIEWER.open(_cloudList, index)
+                    VIEWER.open(_cloudList, index)
                 //                    else
                 //                        selectionBox.append(gridModel.get(index))
 
