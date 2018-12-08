@@ -178,19 +178,18 @@ Maui.Page
             }
         ]
 
-
         Maui.Holder
         {
             id: holder
-            emoji: "qrc:/img/assets/Rainbow.png"
+            emoji: viewer.count === 0 ? "qrc:/img/assets/Rainbow.png" : "qrc:/img/assets/animat-image-color.gif"
             isMask: false
-            title : "No Pic!"
-            body: "Open an image from your collection"
-            emojiSize: iconSizes.huge
-            visible: viewer.count === 0
+            isGif : viewer.currentItem.status !== Image.Ready
+            title : viewer.count === 0 ? qsTr("No Pic!") : qsTr("Loading...")
+            body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
+            emojiSize: isGif ? iconSizes.enormous : iconSizes.huge
+            visible: viewer.count === 0 || viewer.currentItem.status !== Image.Ready
             colorScheme.backgroundColor: viewerForegroundColor
         }
-
 
         footer: Maui.TagsBar
         {
