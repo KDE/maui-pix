@@ -83,7 +83,7 @@ Maui.Page
 
         Maui.ToolButton
         {
-            iconName: "view-preview"
+            iconName: "image-preview"
             onClicked: control.contentIsRised ? dropContent() : riseContent()
             iconColor: control.contentIsRised ? colorScheme.highlightColor: colorScheme.textColor
 

@@ -1,7 +1,7 @@
 #ifndef BASELIST_H
 #define BASELIST_H
 
-#ifdef Q_OS_ANDROID
+#ifdef STATIC_MAUIKIT
 #include "fm.h"
 #include "fmh.h"
 #else

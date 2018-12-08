@@ -101,6 +101,13 @@ PixGrid
     {
         id: _cloudList
         account: currentAccount
+        onWarning:
+        {
+            dialogLoader.sourceComponent = notificationDialogComponent
+            dialog.title = qsTr("An error happened")
+            dialog.message = error
+            dialog.open()
+        }
     }
 
     grid.model: _cloudModel

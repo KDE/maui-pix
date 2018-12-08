@@ -88,7 +88,7 @@ Maui.Page
     headBar.rightContent:[
         Maui.ToolButton
         {
-            iconName: "edit-select"
+            iconName: "item-select"
             onClicked: selectionMode = !selectionMode
             iconColor: selectionMode ? highlightColor : textColor
 
@@ -97,9 +97,10 @@ Maui.Page
         {
             id: menuBtn
             iconName: "overflow-menu"
-            onClicked: isMobile? gridMenu.open() : gridMenu.popup()
+            onClicked: gridMenu.popup()
         }
     ]
+
     headBar.leftContent: [
         Maui.ToolButton
         {
@@ -161,7 +162,7 @@ Maui.Page
         },
         Maui.ToolButton
         {
-            iconName: "image-frame"
+            iconName: "image-preview"
             onClicked: fitPreviews = !fitPreviews
             iconColor: !fitPreviews ? highlightColor : textColor
         },
