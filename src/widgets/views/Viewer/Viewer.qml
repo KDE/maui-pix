@@ -15,6 +15,7 @@ Maui.Page
 
     property alias count : viewerList.count
     property alias currentIndex : viewerList.currentIndex
+    property alias currentItem: viewerList.currentItem
 
     clip: true
     focus: true

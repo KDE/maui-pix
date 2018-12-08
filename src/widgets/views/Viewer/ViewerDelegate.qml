@@ -9,6 +9,8 @@ ItemDelegate
     property int itemWidth : parent.width
     property int itemHeight : parent.height
 
+    property alias status : pic.status
+
     height: itemHeight
     width: itemWidth
 

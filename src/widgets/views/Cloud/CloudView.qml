@@ -73,13 +73,13 @@ PixGrid
             onPressAndHold:
             {
                 control.grid.currentIndex = index
-                control.menu.popup()
+                _picMenu.popup()
             }
 
             onRightClicked:
             {
                 control.grid.currentIndex = index
-                control.menu.popup()
+               _picMenu.popup()
             }
             onEmblemClicked:
             {
@@ -101,9 +101,22 @@ PixGrid
     {
         id: _cloudList
         account: currentAccount
+        onWarning:
+        {
+            dialogLoader.sourceComponent = notificationDialogComponent
+            dialog.title = qsTr("An error happened")
+            dialog.message = error
+            dialog.open()
+        }
     }
 
     grid.model: _cloudModel
+
+    PixMenu
+    {
+        id: _picMenu
+        index: control.grid.currentIndex
+    }
 
     //    property alias list : _cloudList
 

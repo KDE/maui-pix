@@ -12,6 +12,11 @@ Cloud::Cloud(QObject *parent) : BaseList (parent)
         this->list = list;
         this->formatList();
         emit this->postListChanged();
+    });    
+
+    connect(this->fm, &FM::warningMessage, [this](const QString &message)
+    {
+        emit this->warning(message);
     });
 
     connect(this->fm, &FM::cloudItemReady, [this](const FMH::MODEL &item, const QString &path)
@@ -56,7 +61,10 @@ QString Cloud::getAccount() const
 
 void Cloud::setList()
 {
+    emit this->preListChanged();
+    this->list.clear();
     this->fm->getCloudServerContent(FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::CLOUD_PATH]+"/"+this->account, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], 3);
+    emit this->postListChanged();
 }
 
 void Cloud::formatList()

@@ -45,6 +45,7 @@ public slots:
 signals:
     void accountChanged();
     void cloudImageReady(QVariantMap item);
+    void warning(QString error);
 };
 
 #endif // CLOUD_H

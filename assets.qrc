@@ -14,6 +14,7 @@
         <file>assets/Rainbow.png</file>
         <file>assets/BugSearch.png</file>
         <file>assets/pix.svg</file>
+        <file>assets/animat-image-color.gif</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
