@@ -1,15 +1,33 @@
 Source: pix
-Section: unknown
+Section: graphics
 Priority: optional
-Maintainer: Bruno Queiros <bqueiros@gmail.com>
-Build-Depends: debhelper (>= 10)
-Standards-Version: 4.1.2
-Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: https://anonscm.debian.org/git/collab-maint/pix.git
-#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/pix.git
+Maintainer: Jonah Brüchert <jbb@kaidan.im>
+Build-Depends: cmake (>= 3.0),
+               debhelper (>= 11),
+               extra-cmake-modules (>= 1.7.0),
+               libkf5config-dev (>= 5.24.0~),
+               libkf5coreaddons-dev (>= 5.24.0~),
+               libkf5i18n-dev (>= 5.24.0~),
+               libkf5kio-dev,
+               libkf5notifications-dev (>= 5.24.0~),
+               libkf5service-dev (>= 5.24.0~),
+               libqt5svg5-dev,
+               mauikit-dev,
+               qtbase5-dev (>= 5.5.0~),
+               qtdeclarative5-dev,
+               qtquickcontrols2-5-dev,
+               qtwebengine5-dev
+Standards-Version: 4.2.1
+Homepage: https://github.com/maui-project/pix
+Vcs-Browser: https://gitlab.com/debian-pm/apps/pix
+Vcs-Git: https://gitlab.com/debian-pm/apps/pix.git
 
 Package: pix
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: qml-module-org-kde-mauikit, ${misc:Depends}, ${shlibs:Depends}
+Description: Image gallery manager built with MauiKit
+ Pix is an image gallery manager made for Maui
+ .
+ Pix is a convergent and multiplatform app
+ that works under Android and GNU Linux distros
+ .
