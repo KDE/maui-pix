@@ -213,7 +213,7 @@ bool DBActions::addAlbum(const QString &album)
     QVariantMap albumMap
     {
         {FMH::MODEL_NAME[FMH::MODEL_KEY::ALBUM], album},
-        {FMH::MODEL_NAME[FMH::MODEL_KEY::DATE], QDateTime::currentDateTime()}
+        {FMH::MODEL_NAME[FMH::MODEL_KEY::ADDDATE], QDateTime::currentDateTime()}
     };
 
     if(this->insert(PIX::TABLEMAP[PIX::TABLE::ALBUMS], albumMap))
@@ -233,7 +233,7 @@ bool DBActions::picAlbum(const QString &album, const QString &url)
     {
         {FMH::MODEL_NAME[FMH::MODEL_KEY::URL], url},
         {FMH::MODEL_NAME[FMH::MODEL_KEY::ALBUM], album},
-        {FMH::MODEL_NAME[FMH::MODEL_KEY::DATE], QDateTime::currentDateTime()}
+        {FMH::MODEL_NAME[FMH::MODEL_KEY::ADDDATE], QDateTime::currentDateTime()}
     };
     return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES_ALBUMS], albumPic);
 }

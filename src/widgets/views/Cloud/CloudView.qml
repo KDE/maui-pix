@@ -73,13 +73,13 @@ PixGrid
             onPressAndHold:
             {
                 control.grid.currentIndex = index
-                control.menu.popup()
+                _picMenu.popup()
             }
 
             onRightClicked:
             {
                 control.grid.currentIndex = index
-                control.menu.popup()
+               _picMenu.popup()
             }
             onEmblemClicked:
             {
@@ -104,6 +104,12 @@ PixGrid
     }
 
     grid.model: _cloudModel
+
+    PixMenu
+    {
+        id: _picMenu
+        index: control.grid.currentIndex
+    }
 
     //    property alias list : _cloudList
 

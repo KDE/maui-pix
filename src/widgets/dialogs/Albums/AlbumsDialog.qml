@@ -32,6 +32,7 @@ Maui.Dialog
             placeholderText: qsTr("New album...")
             onAccepted:
             {
+                console.log("CREATING ALBUM", albumText.text)
                 albumsView.addAlbum(albumText.text)
                 _albumsList.currentIndex = _albumsList.count-1
                 clear()

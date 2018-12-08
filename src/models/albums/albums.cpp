@@ -127,6 +127,7 @@ bool Albums::insert(const QVariantMap &pic)
         return true;
     }
 
+    qDebug()<< "COUDLDNT ADD ALBUM" << album;
     return false;
 }
 
@@ -152,7 +153,7 @@ bool Albums::remove(const int &index)
 
 void Albums::insertPic(const QString &album, const QString &url)
 {
-    this->insert({{FMH::MODEL_NAME[FMH::MODEL_KEY::ALBUM], album}});
+    //this->insert({{FMH::MODEL_NAME[FMH::MODEL_KEY::ALBUM], album}});
 
     this->dba->picAlbum(album, url);
 }
