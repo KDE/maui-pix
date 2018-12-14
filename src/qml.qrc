@@ -30,5 +30,6 @@
         <file>view_models/PixMenu.qml</file>
         <file>widgets/SelectionBar.qml</file>
         <file>widgets/views/Cloud/CloudView.qml</file>
+        <file>widgets/views/Store/StoreView.qml</file>
     </qresource>
 </RCC>

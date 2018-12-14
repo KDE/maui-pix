@@ -36,6 +36,7 @@ import "widgets/views/Tags"
 import "widgets/views/Viewer"
 import "widgets/views/Search"
 import "widgets/views/Cloud"
+import "widgets/views/Store"
 
 import "view_models"
 import "widgets/dialogs/Albums"
@@ -73,7 +74,8 @@ Maui.ApplicationWindow
                                        albums: 3,
                                        tags: 4,
                                        cloud: 5,
-                                       search: 6
+                                       store: 6,
+                                       search: 7
                                    })
     /*PROPS*/
 
@@ -81,7 +83,6 @@ Maui.ApplicationWindow
     property bool fullScreen : false
 
     property bool selectionMode : false
-    property alias currentAccount: _accountCombobox.currentText
 
     /***************************************************/
     /******************** UI COLORS *******************/
@@ -119,17 +120,6 @@ Maui.ApplicationWindow
     ]
 
     headBar.visible: !fullScreen
-    headBar.leftContent:[
-        Maui.ComboBox
-        {
-            id: _accountCombobox
-            visible: count > 1
-            textRole: "user"
-            flat: true
-            model: accounts.model
-            iconButton.iconName: "list-add-user"
-        }
-    ]
 
     headBar.middleContent: [
         Maui.ToolButton
@@ -179,6 +169,14 @@ Maui.ApplicationWindow
             iconColor: currentView === views.cloud? highlightColor : headBarFGColor
             iconName: "folder-cloud"
             onClicked: currentView = views.cloud
+        },
+
+        Maui.ToolButton
+        {
+            //            text: qsTr("Cloud")
+            iconColor: currentView === views.store? highlightColor : headBarFGColor
+            iconName: "nx-software-center"
+            onClicked: currentView = views.store
         }
     ]
 
@@ -226,6 +224,11 @@ Maui.ApplicationWindow
             CloudView
             {
                 id: cloudView
+            }
+
+            StoreView
+            {
+                id: storeView
             }
 
             SearchView
