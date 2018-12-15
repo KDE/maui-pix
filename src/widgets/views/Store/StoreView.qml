@@ -3,7 +3,8 @@ import org.kde.mauikit 1.0 as Maui
 import StoreModel 1.0
 import StoreList 1.0
 
-Item {
+Maui.Page
+{
 
 
     StoreModel
@@ -14,5 +15,11 @@ Item {
     StoreList
     {
         id: list
+    }
+
+    headBar.leftContent: Maui.TextField
+    {
+        width: 150
+        onAccepted: list.getPersonInfo(text);
     }
 }
