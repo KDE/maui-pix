@@ -49,13 +49,13 @@ Maui.Page
         Maui.ToolButton
         {
             iconName: "object-rotate-left"
-            onClicked: viewer.list.currentItem.rotateLeft()
+            onClicked: viewer.currentItem.rotateLeft()
         },
 
         Maui.ToolButton
         {
             iconName: "object-rotate-right"
-            onClicked: viewer.list.currentItem.rotateRight()
+            onClicked: viewer.currentItem.rotateRight()
         },
 
         Maui.ToolButton

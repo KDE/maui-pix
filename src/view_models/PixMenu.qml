@@ -78,10 +78,8 @@ Maui.Menu
                     Maui.FM.copy([Maui.FM.getFileInfo(pic)], paths)
                 }else
                 {
-                    var items = []
-                    for(var i in list)
-                        items.push(Maui.FM.getFileInfo(pic))
-                    Maui.FM.copy(items, paths[i])
+                    for(var i in paths)
+                        Maui.FM.copy([Maui.FM.getFileInfo(pic)], paths[i])
                 }
 
             });
@@ -99,15 +97,15 @@ Maui.Menu
         }
     }
 
-//    Maui.MenuItem
-//    {
-//        text: qsTr("Copy")
-//        onTriggered:
-//        {
-//            Maui.Handy.copyToClipboard(paths.join(","))
-//            control.close()
-//        }
-//    }
+    //    Maui.MenuItem
+    //    {
+    //        text: qsTr("Copy")
+    //        onTriggered:
+    //        {
+    //            Maui.Handy.copyToClipboard(paths.join(","))
+    //            control.close()
+    //        }
+    //    }
 
     MenuSeparator{}
 

@@ -108,9 +108,35 @@ Maui.ApplicationWindow
 
     //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
     mainMenu: [
+
+
+        Maui.MenuItem
+        {
+            text: qsTr("Store")
+            onTriggered: currentView = views.store
+            icon.name: "nx-software-center"
+        },
+
+        Maui.MenuItem
+        {
+            text: qsTr("Cloud")
+            onTriggered: currentView = views.cloud
+            icon.name: "folder-cloud"
+        },
+
+        Maui.MenuItem
+        {
+            text: qsTr("Tags")
+            onTriggered: currentView = views.tags
+            icon.name: "tag"
+        },
+
+        MenuSeparator {},
+
         Maui.MenuItem
         {
             text: "Sources"
+            icon.name: "folder-add"
             onTriggered:
             {
                 dialogLoader.sourceComponent= fmDialogComponent
@@ -120,6 +146,7 @@ Maui.ApplicationWindow
     ]
 
     headBar.visible: !fullScreen
+
 
     headBar.middleContent: [
         Maui.ToolButton
@@ -133,7 +160,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-            //            text: qsTr("Gallery")
+//            text: qsTr("Gallery")
             iconColor: currentView === views.gallery? highlightColor : headBarFGColor
             iconName: "image-multiple"
             onClicked: currentView = views.gallery
@@ -141,7 +168,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-            //            text: qsTr("Folders")
+//            text: qsTr("Folders")
             iconColor: currentView === views.folders? highlightColor : headBarFGColor
             iconName: "image-folder-view"
             onClicked: currentView = views.folders
@@ -149,34 +176,10 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-            //            text: qsTr("Albums")
+//            text: qsTr("Albums")
             iconColor: currentView === views.albums? highlightColor : headBarFGColor
             iconName: "image-frames"
             onClicked: currentView = views.albums
-        },
-
-        Maui.ToolButton
-        {
-            //            text: qsTr("Tags")
-            iconColor: currentView === views.tags? highlightColor : headBarFGColor
-            iconName: "tag"
-            onClicked: currentView = views.tags
-        },
-
-        Maui.ToolButton
-        {
-            //            text: qsTr("Cloud")
-            iconColor: currentView === views.cloud? highlightColor : headBarFGColor
-            iconName: "folder-cloud"
-            onClicked: currentView = views.cloud
-        },
-
-        Maui.ToolButton
-        {
-            //            text: qsTr("Cloud")
-            iconColor: currentView === views.store? highlightColor : headBarFGColor
-            iconName: "nx-software-center"
-            onClicked: currentView = views.store
         }
     ]
 
@@ -221,19 +224,41 @@ Maui.ApplicationWindow
                 id: tagsView
             }
 
-            CloudView
+
+            Loader
             {
-                id: cloudView
+                id: cloudViewLoader
             }
 
-            StoreView
+            Loader
             {
-                id: storeView
+                id: storeViewLoader
             }
 
             SearchView
             {
                 id: searchView
+            }
+        }
+
+        /*** Components ***/
+
+        Component
+        {
+            id: _cloudViewComponent
+            CloudView
+            {
+                anchors.fill : parent
+            }
+        }
+
+        Component
+        {
+            id: _storeViewComponent
+
+            StoreView
+            {
+                anchors.fill : parent
             }
         }
 
@@ -283,8 +308,9 @@ Maui.ApplicationWindow
         Maui.FileDialog
         {
             id: fmDialog
-            onlyDirs: true
-            mode: modes.SAVE
+            onlyDirs: false
+            mode: modes.OPEN
+            filterType: FMList.TEXT
         }
     }
 
@@ -335,5 +361,11 @@ Maui.ApplicationWindow
         target: pix
         onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.openExternalPics(pics, 0)
+    }
+
+    Component.onCompleted:
+    {
+        cloudViewLoader.sourceComponent = _cloudViewComponent
+        storeViewLoader.sourceComponent= _storeViewComponent
     }
 }

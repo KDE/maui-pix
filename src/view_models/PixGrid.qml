@@ -20,7 +20,7 @@ Maui.Page
     /*props*/
     property int itemSize : isMobile ? iconSizes.huge * 1.5 : iconSizes.enormous
     property int itemSpacing: isMobile ? space.medium : space.big
-    property int itemRadius : Kirigami.Units.devicePixelRatio * 6
+    property int itemRadius : unit * 6
     property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
     property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
 

@@ -6,6 +6,8 @@ import org.kde.mauikit 1.0 as Maui
 
 ItemDelegate
 {  
+    id: control
+
     property int picSize : iconSizes.enormous
     property int picRadius : 0
     property bool showLabel : true
@@ -13,6 +15,7 @@ ItemDelegate
     property bool showEmblem:  true
     property bool fit : false
     property bool isHovered :  hovered
+    property bool cachePic: false
 
     property alias source : img.source
     property alias label : _label.text
@@ -81,9 +84,9 @@ ItemDelegate
                 anchors.centerIn: parent
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
-                sourceSize.height: picSize
-                sourceSize.width: picSize
-                cache: false
+                sourceSize.height: control.picSize
+                sourceSize.width: control.picSize
+                cache: control.cachePic
                 antialiasing: true
                 smooth: true
                 fillMode: fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop

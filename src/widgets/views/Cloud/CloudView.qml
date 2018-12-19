@@ -13,8 +13,6 @@ PixGrid
 {
     id: control
     property alias list : _cloudList
-    property alias currentAccount: _accountCombobox.currentText
-
     headBarExit: false
     visible: true
     holder.emojiSize: iconSizes.huge
@@ -34,18 +32,6 @@ PixGrid
                      qsTr("Almost ready!")
                  else
                      qsTr("Make sure you're online and your cloud account is working")
-
-    headBar.leftContent:[
-        Maui.ComboBox
-        {
-            id: _accountCombobox
-            visible: count > 1
-            textRole: "user"
-            flat: true
-            model: accounts.model
-            iconButton.iconName: "list-add-user"
-        }
-    ]
 
     grid.delegate: PixPic
     {
@@ -92,7 +78,7 @@ PixGrid
             onRightClicked:
             {
                 control.grid.currentIndex = index
-               _picMenu.popup()
+                _picMenu.popup()
             }
             onEmblemClicked:
             {
