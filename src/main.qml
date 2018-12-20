@@ -112,6 +112,7 @@ Maui.ApplicationWindow
 
         Maui.MenuItem
         {
+            id: _storeButton
             text: qsTr("Store")
             onTriggered: currentView = views.store
             icon.name: "nx-software-center"
@@ -119,6 +120,7 @@ Maui.ApplicationWindow
 
         Maui.MenuItem
         {
+            id: _cloudButton
             text: qsTr("Cloud")
             onTriggered: currentView = views.cloud
             icon.name: "folder-cloud"
@@ -126,6 +128,7 @@ Maui.ApplicationWindow
 
         Maui.MenuItem
         {
+            id: _tagsButton
             text: qsTr("Tags")
             onTriggered: currentView = views.tags
             icon.name: "tag"
@@ -146,6 +149,32 @@ Maui.ApplicationWindow
     ]
 
     headBar.visible: !fullScreen
+
+
+//    headBar.leftContent: Maui.ToolButton
+//    {
+//        id: _indicatorButton
+
+//        iconName: switch(currentView)
+//                  {
+//                  case views.store:
+//                      _storeButton.iconName; break;
+//                  case views.cloud:
+//                      _cloudButton.iconName; break;
+//                  case views.tags:
+//                      _tagsButton.iconName; break;
+//                  }
+
+//        onClicked: switch(iconName)
+//                   {
+//                   case _storeButton.iconName:
+//                      currentView = views.store; break;
+//                   case _cloudButton.iconName:
+//                       currentView = views.cloud; break;
+//                   case _tagsButton.iconName:
+//                      currentView = views.tags; break;
+//                   }
+//    }
 
 
     headBar.middleContent: [
@@ -256,9 +285,10 @@ Maui.ApplicationWindow
         {
             id: _storeViewComponent
 
-            StoreView
+            Maui.Store
             {
                 anchors.fill : parent
+                detailsView: true
             }
         }
 
