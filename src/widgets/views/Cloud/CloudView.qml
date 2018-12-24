@@ -102,10 +102,7 @@ PixGrid
         account: currentAccount
         onWarning:
         {
-            dialogLoader.sourceComponent = notificationDialogComponent
-            dialog.title = qsTr("An error happened")
-            dialog.message = error
-            dialog.open()
+            notify("dialog-information", "An error happened", error)
         }
     }
 

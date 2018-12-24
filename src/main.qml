@@ -344,19 +344,6 @@ Maui.ApplicationWindow
         }
     }
 
-    Component
-    {
-        id: notificationDialogComponent
-
-        Maui.Dialog
-        {
-            defaultButtons: false
-            maxWidth: unit * 300
-            colorScheme.textColor: warningColor
-            colorScheme.backgroundColor: altColor
-        }
-    }
-
     Loader
     {
         id: dialogLoader
