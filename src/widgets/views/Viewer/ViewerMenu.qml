@@ -30,8 +30,19 @@ Maui.Menu
 
     Maui.MenuItem
     {
-        text: "Sort..."
-        onTriggered: {close()}
+        text: "Open..."
+        onTriggered:
+        {
+            dialogLoader.sourceComponent= fmDialogComponent
+            dialog.mode = dialog.modes.OPEN
+            dialog.show(function(paths)
+            {
+
+                    console.log("OPEN IMAGE", paths)
+
+            });
+            close()
+        }
     }
 
     Column

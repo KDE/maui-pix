@@ -70,6 +70,7 @@ Maui.Menu
         {
             var pic = list.get(index).url
             dialogLoader.sourceComponent= fmDialogComponent
+            dialog.mode = dialog.modes.SAVE
             dialog.suggestedFileName= Maui.FM.getFileInfo(list.get(index).url).label
             dialog.show(function(paths)
             {

@@ -28,7 +28,7 @@ Maui.Dialog
             text: qsTr("Background color")
         }
 
-        TextField
+        Maui.TextField
         {
             id: bgColor
             Layout.fillWidth: true
@@ -54,7 +54,7 @@ Maui.Dialog
             text: qsTr("Foreground color")
         }
 
-        TextField
+        Maui.TextField
         {
             id: fgColor
             Layout.fillWidth: true

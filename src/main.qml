@@ -55,6 +55,9 @@ import TagsList 1.0
 import SyncingModel 1.0
 import SyncingList 1.0
 
+import FMList 1.0
+import StoreList 1.0
+
 Maui.ApplicationWindow
 {
     id: root
@@ -289,6 +292,8 @@ Maui.ApplicationWindow
             {
                 anchors.fill : parent
                 detailsView: true
+                list.category: StoreList.WALLPAPERS
+                list.provider: StoreList.KDELOOK
             }
         }
 
@@ -339,8 +344,8 @@ Maui.ApplicationWindow
         {
             id: fmDialog
             onlyDirs: false
-            mode: modes.OPEN
-            filterType: FMList.TEXT
+            mode: modes.SAVE
+            filterType: FMList.IMAGE
         }
     }
 
