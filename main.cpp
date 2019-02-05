@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("tag", dba->tag);
     context->setContextProperty("dba", dba);
 
-    qmlRegisterUncreatableMetaObject(PIX::staticMetaObject, "PIX", 1, 0, "KEY", "Error");
+//    qmlRegisterUncreatableMetaObject(PIX::staticMetaObject, "PIX", 1, 0, "KEY", "Error");
 
     qmlRegisterUncreatableType<BaseList>("BaseList", 1, 0, "BaseList", QStringLiteral("BaseList should not be created in QML"));
 

@@ -35,7 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace PIX
 {
-Q_NAMESPACE
+//Q_NAMESPACE
 
 enum SearchT
 {

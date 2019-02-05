@@ -8,7 +8,6 @@ import "../../../db/Query.js" as Q
 import "../.."
 
 import org.kde.mauikit 1.0 as Maui
-import PIX 1.0
 import PixModel 1.0
 import GalleryList 1.0
 
