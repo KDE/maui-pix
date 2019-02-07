@@ -186,7 +186,7 @@ Maui.Page
             title : viewer.count === 0 ? qsTr("No Pic!") : qsTr("Loading...")
             body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
             emojiSize: isGif ? iconSizes.enormous : iconSizes.huge
-            visible: viewer.count === 0 || viewer.currentItem.status !== Image.Ready
+            visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
             colorScheme.backgroundColor: viewerForegroundColor
         }
 
