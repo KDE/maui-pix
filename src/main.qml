@@ -154,36 +154,36 @@ Maui.ApplicationWindow
     headBar.visible: !fullScreen
 
 
-//    headBar.leftContent: Maui.ToolButton
-//    {
-//        id: _indicatorButton
+    //    headBar.leftContent: Maui.ToolButton
+    //    {
+    //        id: _indicatorButton
 
-//        iconName: switch(currentView)
-//                  {
-//                  case views.store:
-//                      _storeButton.iconName; break;
-//                  case views.cloud:
-//                      _cloudButton.iconName; break;
-//                  case views.tags:
-//                      _tagsButton.iconName; break;
-//                  }
+    //        iconName: switch(currentView)
+    //                  {
+    //                  case views.store:
+    //                      _storeButton.iconName; break;
+    //                  case views.cloud:
+    //                      _cloudButton.iconName; break;
+    //                  case views.tags:
+    //                      _tagsButton.iconName; break;
+    //                  }
 
-//        onClicked: switch(iconName)
-//                   {
-//                   case _storeButton.iconName:
-//                      currentView = views.store; break;
-//                   case _cloudButton.iconName:
-//                       currentView = views.cloud; break;
-//                   case _tagsButton.iconName:
-//                      currentView = views.tags; break;
-//                   }
-//    }
+    //        onClicked: switch(iconName)
+    //                   {
+    //                   case _storeButton.iconName:
+    //                      currentView = views.store; break;
+    //                   case _cloudButton.iconName:
+    //                       currentView = views.cloud; break;
+    //                   case _tagsButton.iconName:
+    //                      currentView = views.tags; break;
+    //                   }
+    //    }
 
 
     headBar.middleContent: [
         Maui.ToolButton
         {
-            //            text: qsTr("Viewer")
+            text: qsTr("Viewer")
             visible: !pixViewer.holder.visible
             iconColor: currentView === views.viewer ? highlightColor : headBarFGColor
             iconName: "image"
@@ -192,7 +192,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-//            text: qsTr("Gallery")
+            text: qsTr("Gallery")
             iconColor: currentView === views.gallery? highlightColor : headBarFGColor
             iconName: "image-multiple"
             onClicked: currentView = views.gallery
@@ -200,7 +200,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-//            text: qsTr("Folders")
+            text: qsTr("Folders")
             iconColor: currentView === views.folders? highlightColor : headBarFGColor
             iconName: "image-folder-view"
             onClicked: currentView = views.folders
@@ -208,7 +208,7 @@ Maui.ApplicationWindow
 
         Maui.ToolButton
         {
-//            text: qsTr("Albums")
+            text: qsTr("Albums")
             iconColor: currentView === views.albums? highlightColor : headBarFGColor
             iconName: "image-frames"
             onClicked: currentView = views.albums
