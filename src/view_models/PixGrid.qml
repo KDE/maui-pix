@@ -47,12 +47,6 @@ Maui.Page
 
         Maui.MenuItem
         {
-            text: qsTr(selectionMode ? "Selection OFF" : "Selection ON")
-            onTriggered: selectionMode  = !selectionMode
-        }
-
-        Maui.MenuItem
-        {
             checkable: true
             checked: fitPreviews
             text: qsTr( "Crop previews")

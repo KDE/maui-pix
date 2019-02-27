@@ -8,25 +8,7 @@ import "../../../view_models"
 
 Maui.Menu
 {
-    property alias menuItems: viewerMenuLayout.children
 
-    Maui.MenuItem
-    {
-        text: qsTr(tagBarVisible ? "Hide Tag bar" :
-                                   "Show Tag bar")
-        onTriggered: toogleTagbar()
-
-    }
-
-    Maui.MenuItem
-    {
-        text: "Configurations..."
-        onTriggered:
-        {
-            viewerConf.open()
-            close()
-        }
-    }
 
     Maui.MenuItem
     {
@@ -38,15 +20,30 @@ Maui.Menu
             dialog.show(function(paths)
             {
 
-                    console.log("OPEN IMAGE", paths)
+                console.log("OPEN IMAGE", paths)
 
             });
             close()
         }
     }
 
-    Column
+    MenuSeparator{}
+
+
+    Maui.MenuItem
     {
-        id: viewerMenuLayout
+        checkable: true
+        checked: tagBarVisible
+        text: qsTr("Tag bar")
+        onTriggered: toogleTagbar()
     }
+
+    Maui.MenuItem
+    {
+        checkable: true
+        checked: contentIsRised
+        text: qsTr("Preview bar")
+        onTriggered: contentIsRised ? dropContent() : riseContent()
+    }
+
 }

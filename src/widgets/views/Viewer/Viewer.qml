@@ -49,6 +49,14 @@ Maui.Page
             id: delegate
             itemHeight: viewerList.height
             itemWidth: viewerList.width
+
+            Connections
+            {
+                target: delegate
+
+                onPressAndHold: _picMenu.popup()
+                onRightClicked: _picMenu.popup()
+            }
         }
     }
 

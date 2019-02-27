@@ -18,6 +18,9 @@ Flickable
 
     property alias image: image
 
+    signal rightClicked();
+    signal pressAndHold();
+
     width: itemWidth
     height: itemHeight
 
@@ -134,6 +137,12 @@ Flickable
             MouseArea
             {
                 anchors.fill: parent
+
+                acceptedButtons:  Qt.RightButton | Qt.LeftButton
+                onClicked:  if(!isMobile && mouse.button === Qt.RightButton)
+                                rightClicked()
+
+                onPressAndHold: flick.pressAndHold()
 
                 onDoubleClicked:
                 {

@@ -12,7 +12,7 @@ Kirigami.PageRow
     id: tagsPageRoot
     clip: true
 
-    separatorVisible: wideMode
+    separatorVisible: false
     initialPage: [tagsSidebar, tagsGrid]
     defaultColumnWidth: Kirigami.Units.gridUnit * 15
     interactive: currentIndex === 1

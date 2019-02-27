@@ -36,16 +36,7 @@ Maui.Page
     allowRiseContent: true
     headBar.drawBorder: false
     headBarTitle: currentPic.title ? currentPic.title : ""
-    headBar.rightContent: [
-        Maui.ToolButton
-        {
-            iconName: "document-save-as"
-            onClicked:
-            {
-                dialogLoader.sourceComponent = albumsDialogComponent
-                dialog.show()
-            }
-        },
+    headBar.rightContent: [      
 
         Maui.ToolButton
         {
@@ -80,21 +71,6 @@ Maui.Page
                     dialog.show([pixViewer.currentPic.url])
                 }
             }
-        },
-
-        Maui.ToolButton
-        {
-            iconName: "image-preview"
-            onClicked: control.contentIsRised ? dropContent() : riseContent()
-            iconColor: control.contentIsRised ? colorScheme.highlightColor: colorScheme.textColor
-
-        },
-
-        Maui.ToolButton
-        {
-            iconName: "tag"
-            onClicked: toogleTagbar()
-            iconColor: tagBarVisible ? colorScheme.highlightColor: colorScheme.textColor
         }
     ]
 

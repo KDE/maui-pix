@@ -5,10 +5,14 @@ import org.kde.mauikit 1.0 as Maui
 
 Maui.Page
 {
+    id: control
     margins:0
     headBarExit: false
     headBarTitle: qsTr("Tags")
     headBar.plegable: false
+    headBar.drawBorder: false
+
+    colorScheme.backgroundColor: backgroundColor
 
     clip: true
 
@@ -38,11 +42,13 @@ Maui.Page
     {
         id: _tagsList
         anchors.fill: parent
+        anchors.margins: space.medium
         model: tagsModel
         delegate: Maui.ListDelegate
         {
             id: delegate
             label: tag
+            radius: radiusV
 
             Connections
             {
