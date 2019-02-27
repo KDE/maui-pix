@@ -33,6 +33,8 @@ Maui.Page
     margins: 0
     colorScheme.backgroundColor: viewerBackgroundColor
     headBarExit: false
+    allowRiseContent: true
+    headBar.drawBorder: false
     headBarTitle: currentPic.title ? currentPic.title : ""
     headBar.rightContent: [
         Maui.ToolButton
@@ -151,6 +153,7 @@ Maui.Page
 
         footBar.colorScheme.backgroundColor: accentColor
         footBar.colorScheme.textColor: altColorText
+//        footBar.colorScheme.borderColor: accentColor
 
         footBar.middleContent: [
 

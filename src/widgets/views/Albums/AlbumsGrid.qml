@@ -7,9 +7,6 @@ Maui.GridView
 {
     id: albumsGridRoot
 
-    width: parent.width
-    height: parent.height
-
     property string currentAlbum : ""
     signal albumClicked(int index)
 
@@ -18,7 +15,7 @@ Maui.GridView
     spacing: itemSize * 0.5 + (isMobile ? space.big : space.large)
 
     cellWidth: itemSize + spacing
-    cellHeight: itemSize +spacing   
+    cellHeight: itemSize +spacing
 
     model: albumsModel
 

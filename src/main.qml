@@ -95,11 +95,14 @@ Maui.ApplicationWindow
     altColor : "#2e2f30" // "#545c6e"
     accentColor: altColor
     altColorText: "#fafafa"
+
     colorSchemeName: "pix"
-    bgColor: pixViewer.viewerBackgroundColor
-    headBarBGColor: currentView === views.viewer ? accentColor : Maui.Style.backgroundColor
+    bgColor: backgroundColor
+    headBar.drawBorder: false
+    headBar.implicitHeight: toolBarHeight * 1.5
+    headBarBGColor: backgroundColor
     headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
-    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : Maui.Style.backgroundColor
+    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : viewBackgroundColor
     viewBackgroundColor: currentView === views.viewer ? backgroundColor : Maui.Style.viewBackgroundColor
     textColor: headBarFGColor
 
@@ -111,7 +114,6 @@ Maui.ApplicationWindow
 
     //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
     mainMenu: [
-
 
         Maui.MenuItem
         {
@@ -153,33 +155,6 @@ Maui.ApplicationWindow
 
     headBar.visible: !fullScreen
 
-
-    //    headBar.leftContent: Maui.ToolButton
-    //    {
-    //        id: _indicatorButton
-
-    //        iconName: switch(currentView)
-    //                  {
-    //                  case views.store:
-    //                      _storeButton.iconName; break;
-    //                  case views.cloud:
-    //                      _cloudButton.iconName; break;
-    //                  case views.tags:
-    //                      _tagsButton.iconName; break;
-    //                  }
-
-    //        onClicked: switch(iconName)
-    //                   {
-    //                   case _storeButton.iconName:
-    //                      currentView = views.store; break;
-    //                   case _cloudButton.iconName:
-    //                       currentView = views.cloud; break;
-    //                   case _tagsButton.iconName:
-    //                      currentView = views.tags; break;
-    //                   }
-    //    }
-
-
     headBar.middleContent: [
         Maui.ToolButton
         {
@@ -215,96 +190,110 @@ Maui.ApplicationWindow
         }
     ]
 
-
-    content: ColumnLayout
+    content: Item
     {
-        id: mainPage
         anchors.fill: parent
 
-        SwipeView
+        Rectangle
         {
-            id: swipeView
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            interactive: isMobile
-            currentIndex: currentView
-
-            onCurrentIndexChanged: currentView = currentIndex
-
-            PixViewer
-            {
-                id: pixViewer
-            }
-
-            GalleryView
-            {
-                id: galleryView
-            }
-
-            FoldersView
-            {
-                id: foldersView
-            }
-
-            AlbumsView
-            {
-                id: albumsView
-            }
-
-            TagsView
-            {
-                id: tagsView
-            }
-
-
-            Loader
-            {
-                id: cloudViewLoader
-            }
-
-            Loader
-            {
-                id: storeViewLoader
-            }
-
-            SearchView
-            {
-                id: searchView
-            }
+            anchors.fill: parent
+            color: bgColor
         }
 
-        /*** Components ***/
-
-        Component
+        ColumnLayout
         {
-            id: _cloudViewComponent
-            CloudView
+            anchors.fill: parent
+
+
+
+            SwipeView
             {
-                anchors.fill : parent
+                id: swipeView
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                interactive: isMobile
+                currentIndex: currentView
+
+                onCurrentIndexChanged: currentView = currentIndex
+
+                PixViewer
+                {
+                    id: pixViewer
+                }
+
+                GalleryView
+                {
+                    id: galleryView
+                }
+
+                FoldersView
+                {
+                    id: foldersView
+                }
+
+                AlbumsView
+                {
+                    id: albumsView
+                }
+
+                TagsView
+                {
+                    id: tagsView
+                }
+
+
+                Loader
+                {
+                    id: cloudViewLoader
+                }
+
+                Loader
+                {
+                    id: storeViewLoader
+                }
+
+                SearchView
+                {
+                    id: searchView
+                }
+
+            }
+
+            SelectionBar
+            {
+                id: selectionBox
+                Layout.fillWidth : true
+                Layout.leftMargin: space.big
+                Layout.rightMargin: space.big
+                Layout.bottomMargin: space.big
+                Layout.topMargin: space.small
+
+
             }
         }
+    }
 
-        Component
+    /*** Components ***/
+
+    Component
+    {
+        id: _cloudViewComponent
+        CloudView
         {
-            id: _storeViewComponent
-
-            Maui.Store
-            {
-                anchors.fill : parent
-                detailsView: true
-                list.category: StoreList.WALLPAPERS
-                list.provider: StoreList.KDELOOK
-            }
+            anchors.fill : parent
         }
+    }
 
-        SelectionBar
+    Component
+    {
+        id: _storeViewComponent
+
+        Maui.Store
         {
-            id: selectionBox
-            Layout.fillWidth : true
-            Layout.leftMargin: space.big
-            Layout.rightMargin: space.big
-            Layout.bottomMargin: space.big
-            Layout.topMargin: space.small
+            anchors.fill : parent
+            detailsView: true
+            list.category: StoreList.WALLPAPERS
+            list.provider: StoreList.KDELOOK
         }
     }
 

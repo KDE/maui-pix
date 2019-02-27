@@ -33,6 +33,7 @@ Maui.Page
     signal picClicked(int index)
     floatingBar: true
     footBarOverlap: true
+    headBar.drawBorder: false
 
     Maui.Holder
     {
@@ -52,12 +53,9 @@ Maui.Page
 
         Maui.MenuItem
         {
-            text: qsTr(selectionMode ? "Select all" : "UnSelect all")
-        }
-
-        Maui.MenuItem
-        {
-            text: qsTr(fitPreviews ?  "Crop previews" : "Fit previews")
+            checkable: true
+            checked: fitPreviews
+            text: qsTr( "Crop previews")
             onTriggered:
             {
                 fitPreviews = !fitPreviews
@@ -67,7 +65,9 @@ Maui.Page
 
         Maui.MenuItem
         {
-            text: qsTr(showLabels ? "Hide labels" : "Show labels")
+            checkable: true
+            checked: showLabels
+            text: qsTr("Show labels")
             onTriggered:
             {
                 showLabels = !showLabels
@@ -158,24 +158,12 @@ Maui.Page
                     onTriggered: pixList.sortBy = FMList.SIZE
                 }
             }
-        },
-        Maui.ToolButton
-        {
-            iconName: "image-preview"
-            onClicked: fitPreviews = !fitPreviews
-            iconColor: !fitPreviews ? highlightColor : textColor
-        },
-        Maui.ToolButton
-        {
-            iconName: "filename-space-amarok"
-            onClicked: showLabels = !showLabels
-            iconColor: showLabels ? highlightColor : textColor
         }
     ]
 
     footBar.colorScheme.backgroundColor: accentColor
     footBar.colorScheme.textColor: altColorText
-    footBar.visible: !holder.visible
+    footBar.visible: false
     footBar.middleContent: [
         Maui.ToolButton
         {

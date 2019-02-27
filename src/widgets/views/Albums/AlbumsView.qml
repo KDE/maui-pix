@@ -40,19 +40,13 @@ Kirigami.PageRow
     Maui.Page
     {
         id: albumsPage
-        anchors.fill: parent
-        headBarTitle: albumGrid.count+qsTr(" Albums")
-        headBarExit: false
+        headBar.visible: false
+        headBar.implicitHeight: 0
         floatingBar: true
         footBarOverlap: true
         allowRiseContent: false
         footBarAligment: Qt.AlignRight
         footBarMargins: space.huge
-
-        headBar.rightContent:  Maui.ToolButton
-        {
-            iconName: "overflow-menu"
-        }
 
         footBar.colorScheme.backgroundColor: altColor
         footBar.colorScheme.borderColor: Qt.darker(altColor, 1.4)

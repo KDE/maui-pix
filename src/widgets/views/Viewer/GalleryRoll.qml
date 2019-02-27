@@ -64,8 +64,8 @@ Item
                     picClicked(index)
                 }
 
-                onPressAndHold: picMenu.show(rollList.model.get(index).url)
-                onRightClicked: picMenu.show(rollList.model.get(index).url)
+                onPressAndHold: _picMenu.popup()
+                onRightClicked: _picMenu.popup()
             }
         }
     }

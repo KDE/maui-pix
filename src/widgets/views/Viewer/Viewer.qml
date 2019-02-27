@@ -19,6 +19,7 @@ Maui.Page
 
     clip: true
     focus: true
+    headBar.drawBorder: false
 
     colorScheme.backgroundColor: viewerBackgroundColor
 
