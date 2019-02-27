@@ -1,12 +1,5 @@
-pix (0+git20181114-1) UNRELEASED; urgency=medium
+pix (0+git20190223-1) nxos; urgency=medium
 
   * New snapshot
-  * Upstream switched to cmake, adapt package to it
 
- -- Jonah Brüchert <jbb@kaidan.im>  Wed, 14 Nov 2018 15:43:27 +0100
-
-pix (0+git20180905-1) unstable; urgency=medium
-
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
-
- -- Jonah Brüchert <jbb@kaidan.im>  Wed, 05 Sep 2018 14:37:52 +0200
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 23 Feb 2019 15:34:00 -0500
