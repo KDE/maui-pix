@@ -91,10 +91,10 @@ Maui.Page
         id : viewerConf
     }
 
-    EditTools
-    {
-        id: editTools
-    }
+//    EditTools
+//    {
+//        id: editTools
+//    }
 
     backContain: GalleryRoll
     {

@@ -51,6 +51,9 @@ public:
     /*File actions*/
     Q_INVOKABLE void showInFolder(const QStringList &urls);
 
+public slots:
+    void addSources(const QStringList &paths);
+
 private:
     FileLoader *fileLoader;
     void populateDB(const QStringList &paths);

@@ -155,7 +155,7 @@ ItemDelegate
             Label
             {
                 id: _label
-                text: title
+                text: model.adddate
                 width: parent.width
                 height: parent.height
                 horizontalAlignment: Qt.AlignHCenter

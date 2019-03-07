@@ -41,7 +41,6 @@ Kirigami.PageRow
     {
         id: albumsPage
         headBar.visible: false
-        headBar.implicitHeight: 0
         floatingBar: true
         footBarOverlap: true
         allowRiseContent: false
@@ -60,8 +59,7 @@ Kirigami.PageRow
         AlbumsGrid
         {
             id: albumGrid
-            height: parent.height
-            width: parent.width
+            anchors.fill: parent
             onAlbumClicked: filter(albumsList.get(index).album)
         }
     }

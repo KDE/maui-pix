@@ -49,7 +49,7 @@ Maui.Page
         {
             checkable: true
             checked: fitPreviews
-            text: qsTr( "Crop previews")
+            text: qsTr( "Fit previews")
             onTriggered:
             {
                 fitPreviews = !fitPreviews
@@ -108,48 +108,56 @@ Maui.Page
                 {
                     text: qsTr("Title")
                     checkable: true
-                    checked: pixList.sortBy === FMList.TITLE
-                    onTriggered: pixList.sortBy = FMList.TITLE
+                    checked: pixList.sortBy === GalleryList.TITLE
+                    onTriggered: pixList.sortBy = GalleryList.TITLE
                 }
 
                 Maui.MenuItem
                 {
                     text: qsTr("Add date")
                     checkable: true
-                    checked: pixList.sortBy === FMList.ADDDATE
-                    onTriggered: pixList.sortBy = FMList.ADDDATE
+                    checked: pixList.sortBy === GalleryList.ADDDATE
+                    onTriggered: pixList.sortBy = GalleryList.ADDDATE
                 }
 
                 Maui.MenuItem
                 {
                     text: qsTr("Creation date")
                     checkable: true
-                    checked: pixList.sortBy === FMList.DATE
-                    onTriggered: pixList.sortBy = FMList.DATE
+                    checked: pixList.sortBy === GalleryList.DATE
+                    onTriggered: pixList.sortBy = GalleryList.DATE
                 }
 
-                Maui.MenuItem
-                {
-                    text: qsTr("Place")
-                    checkable: true
-                    checked: pixList.sortBy === FMList.PLACE
-                    onTriggered: pixList.sortBy = FMList.PLACE
-                }
+//                Maui.MenuItem
+//                {
+//                    text: qsTr("Place")
+//                    checkable: true
+//                    checked: pixList.sortBy === FMList.PLACE
+//                    onTriggered: pixList.sortBy = FMList.PLACE
+//                }
 
                 Maui.MenuItem
                 {
                     text: qsTr("Format")
                     checkable: true
-                    checked: pixList.sortBy === FMList.FORMAT
-                    onTriggered: pixList.sortBy = FMList.FORMAT
+                    checked: pixList.sortBy === GalleryList.FORMAT
+                    onTriggered: pixList.sortBy = GalleryList.FORMAT
                 }
 
                 Maui.MenuItem
                 {
                     text: qsTr("Size")
                     checkable: true
-                    checked: pixList.sortBy === FMList.SIZE
-                    onTriggered: pixList.sortBy = FMList.SIZE
+                    checked: pixList.sortBy === GalleryList.SIZE
+                    onTriggered: pixList.sortBy = GalleryList.SIZE
+                }
+
+                Maui.MenuItem
+                {
+                    text: qsTr("Favorites")
+                    checkable: true
+                    checked: pixList.sortBy === GalleryList.FAV
+                    onTriggered: pixList.sortBy = GalleryList.FAV
                 }
             }
         }

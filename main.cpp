@@ -53,7 +53,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "./src/models/baselist.h"
 #include "./src/models/gallery/gallery.h"
 #include "./src/models/albums/albums.h"
-#include "./src/models/cloud/cloud.h"
+//#include "./src/models/cloud/cloud.h"
 
 #include "./src/models/folders/foldermodel.h"
 #include "./src/models/folders/folders.h"
@@ -145,7 +145,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<Albums>("AlbumsList", 1, 0, "AlbumsList");
     qmlRegisterType<FolderModel>("FolderModel", 1, 0, "FolderModel");
     qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
-    qmlRegisterType<Cloud>("CloudList", 1, 0, "CloudList");
+//    qmlRegisterType<Cloud>("CloudList", 1, 0, "CloudList");
 
 #ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();

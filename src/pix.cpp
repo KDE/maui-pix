@@ -120,3 +120,8 @@ void Pix::showInFolder(const QStringList &urls)
     for(auto url : urls)
         QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(url).dir().absolutePath()));
 }
+
+void Pix::addSources(const QStringList &paths)
+{
+    this->populateDB(paths);
+}

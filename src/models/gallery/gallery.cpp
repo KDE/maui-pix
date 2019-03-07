@@ -20,7 +20,7 @@ Gallery::Gallery(QObject *parent) : BaseList(parent)
     connect(this, &Gallery::sortByChanged, this, &Gallery::setList);
 }
 
-void Gallery::setSortBy(const uint &sort)
+void Gallery::setSortBy(const SORTBY &sort)
 {
     if(this->sort == sort)
         return;
@@ -29,7 +29,7 @@ void Gallery::setSortBy(const uint &sort)
     emit this->sortByChanged();
 }
 
-uint Gallery::getSortBy() const
+Gallery::SORTBY Gallery::getSortBy() const
 {
     return this->sort;
 }
@@ -59,13 +59,14 @@ void Gallery::sortList()
 {
     const auto key = static_cast<FMH::MODEL_KEY>(this->sort);
     qDebug()<< "SORTING LIST BY"<< this->sort;
-    qSort(this->list.begin(), this->list.end(), [key](const FMH::MODEL &e1, const FMH::MODEL &e2) -> bool
+    std::sort(this->list.begin(), this->list.end(), [key](const FMH::MODEL &e1, const FMH::MODEL &e2) -> bool
     {
         auto role = key;
 
         switch(role)
         {
         case FMH::MODEL_KEY::SIZE:
+        case FMH::MODEL_KEY::FAV:
         {
             if(e1[role].toDouble() > e2[role].toDouble())
                 return true;
@@ -74,17 +75,15 @@ void Gallery::sortList()
 
         case FMH::MODEL_KEY::DATE:
         case FMH::MODEL_KEY::ADDDATE:
-        case FMH::MODEL_KEY::MODIFIED:
         {
-            auto currentTime = QDateTime::currentDateTime();
-
             auto date1 = QDateTime::fromString(e1[role], Qt::TextDate);
             auto date2 = QDateTime::fromString(e2[role], Qt::TextDate);
 
-            if(date1.secsTo(currentTime) <  date2.secsTo(currentTime))
+            if(date1 > date2)
                 return true;
 
             break;
+
         }
 
         case FMH::MODEL_KEY::TITLE:

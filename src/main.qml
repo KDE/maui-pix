@@ -62,7 +62,7 @@ Maui.ApplicationWindow
 {
     id: root
     title: qsTr("Pix")
-
+    showAccounts: false
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
     //    altToolBars: true
     about.appDescription: qsTr("Pix is an image gallery manager made for Maui. Pix is a convergent and multiplatform app that works under Android and GNU Linux distros.")
@@ -76,9 +76,9 @@ Maui.ApplicationWindow
                                        folders: 2,
                                        albums: 3,
                                        tags: 4,
-                                       cloud: 5,
-                                       store: 6,
-                                       search: 7
+//                                       cloud: 5,
+//                                       store: 6,
+                                       search: 5
                                    })
     /*PROPS*/
 
@@ -115,21 +115,21 @@ Maui.ApplicationWindow
     //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
     mainMenu: [
 
-        Maui.MenuItem
-        {
-            id: _storeButton
-            text: qsTr("Store")
-            onTriggered: currentView = views.store
-            icon.name: "nx-software-center"
-        },
+//        Maui.MenuItem
+//        {
+//            id: _storeButton
+//            text: qsTr("Store")
+//            onTriggered: currentView = views.store
+//            icon.name: "nx-software-center"
+//        },
 
-        Maui.MenuItem
-        {
-            id: _cloudButton
-            text: qsTr("Cloud")
-            onTriggered: currentView = views.cloud
-            icon.name: "folder-cloud"
-        },
+//        Maui.MenuItem
+//        {
+//            id: _cloudButton
+//            text: qsTr("Cloud")
+//            onTriggered: currentView = views.cloud
+//            icon.name: "folder-cloud"
+//        },
 
         Maui.MenuItem
         {
@@ -148,7 +148,12 @@ Maui.ApplicationWindow
             onTriggered:
             {
                 dialogLoader.sourceComponent= fmDialogComponent
-                dialog.show()
+                dialog.mode= dialog.modes.OPEN
+                dialog.onlyDirs= true
+                dialog.show(function(paths)
+                {
+                    pix.addSources(paths)
+                })
             }
         }
     ]
@@ -242,15 +247,15 @@ Maui.ApplicationWindow
                 }
 
 
-                Loader
-                {
-                    id: cloudViewLoader
-                }
+//                Loader
+//                {
+//                    id: cloudViewLoader
+//                }
 
-                Loader
-                {
-                    id: storeViewLoader
-                }
+//                Loader
+//                {
+//                    id: storeViewLoader
+//                }
 
                 SearchView
                 {
@@ -267,35 +272,33 @@ Maui.ApplicationWindow
                 Layout.rightMargin: space.big
                 Layout.bottomMargin: space.big
                 Layout.topMargin: space.small
-
-
             }
         }
     }
 
     /*** Components ***/
 
-    Component
-    {
-        id: _cloudViewComponent
-        CloudView
-        {
-            anchors.fill : parent
-        }
-    }
+//    Component
+//    {
+//        id: _cloudViewComponent
+//        CloudView
+//        {
+//            anchors.fill : parent
+//        }
+//    }
 
-    Component
-    {
-        id: _storeViewComponent
+//    Component
+//    {
+//        id: _storeViewComponent
 
-        Maui.Store
-        {
-            anchors.fill : parent
-            detailsView: true
-            list.category: StoreList.WALLPAPERS
-            list.provider: StoreList.KDELOOK
-        }
-    }
+//        Maui.Store
+//        {
+//            anchors.fill : parent
+//            detailsView: true
+//            list.category: StoreList.WALLPAPERS
+//            list.provider: StoreList.KDELOOK
+//        }
+//    }
 
     Component
     {
@@ -374,9 +377,9 @@ Maui.ApplicationWindow
         onViewPics: VIEWER.openExternalPics(pics, 0)
     }
 
-    Component.onCompleted:
-    {
-        cloudViewLoader.sourceComponent = _cloudViewComponent
-        storeViewLoader.sourceComponent= _storeViewComponent
-    }
+//    Component.onCompleted:
+//    {
+//        cloudViewLoader.sourceComponent = _cloudViewComponent
+//        storeViewLoader.sourceComponent= _storeViewComponent
+//    }
 }

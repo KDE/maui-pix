@@ -69,10 +69,8 @@ bool DBActions::insertPic(const FMH::MODEL &img)
     auto rate = img[FMH::MODEL_KEY::RATE];
     auto fav = img[FMH::MODEL_KEY::FAV];
     auto color = img[FMH::MODEL_KEY::COLOR];
-    auto addDate = img[FMH::MODEL_KEY::ADDDATE];
     auto sourceUrl = img[FMH::MODEL_KEY::SOURCE];
     auto picDate = img[FMH::MODEL_KEY::DATE];
-    auto place = img[FMH::MODEL_KEY::PLACE];
     auto format = img[FMH::MODEL_KEY::FORMAT];
 
     qDebug()<< "writting to db: "<<title<<url;
@@ -89,8 +87,8 @@ bool DBActions::insertPic(const FMH::MODEL &img)
                         {FMH::MODEL_NAME[FMH::MODEL_KEY::COLOR], color},
                         {FMH::MODEL_NAME[FMH::MODEL_KEY::FORMAT], format},
                         {FMH::MODEL_NAME[FMH::MODEL_KEY::DATE], picDate},
-                        {FMH::MODEL_NAME[FMH::MODEL_KEY::PLACE], place},
-                        {FMH::MODEL_NAME[FMH::MODEL_KEY::ADDDATE], QDateTime::currentDateTime()}};
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::PLACE], QString()},
+                        {FMH::MODEL_NAME[FMH::MODEL_KEY::ADDDATE], QDateTime::currentDateTime().toString(Qt::TextDate)}};
 
     return this->insert(PIX::TABLEMAP[PIX::TABLE::IMAGES], imgMap);
 
@@ -113,7 +111,7 @@ bool DBActions::addPic(const QString &url)
             {FMH::MODEL_KEY::RATE, "0"},
             {FMH::MODEL_KEY::COLOR, ""},
             {FMH::MODEL_KEY::SOURCE, sourceUrl},
-            {FMH::MODEL_KEY::DATE, info.birthTime().toString()},
+            {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
             {FMH::MODEL_KEY::FORMAT, format}
         };
 
