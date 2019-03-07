@@ -194,6 +194,7 @@ Maui.Page
             showLabel: gridPage.showLabels
             height: grid.cellHeight * 0.9
             width: grid.cellWidth * 0.8
+            showEmblem: selectionMode
 
             Connections
             {

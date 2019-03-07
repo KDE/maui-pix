@@ -55,8 +55,8 @@ ItemDelegate
     Maui.Badge
     {
         id: emblem
-        iconName: (keepEmblemOverlay && emblemAdded) ? "list-remove" : "list-add"
-        visible: (isHovered || (keepEmblemOverlay && emblemAdded)) && showEmblem
+        iconName: "list-add"
+        visible: isHovered || showEmblem
         z: 999
         anchors.top: parent.top
         anchors.left: parent.left

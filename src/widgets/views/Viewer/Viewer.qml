@@ -19,7 +19,10 @@ Maui.Page
 
     clip: true
     focus: true
-    headBar.drawBorder: false
+    floatingBar: true
+//    footBarOverlap: true
+//    allowRiseContent: false
+    headBar.visible: false
 
     colorScheme.backgroundColor: viewerBackgroundColor
 

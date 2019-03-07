@@ -124,8 +124,6 @@ Maui.Page
             Layout.fillHeight: true
             Layout.fillWidth: true
 
-            floatingBar: true
-            headBar.visible: false
 
             footBar.colorScheme.backgroundColor: accentColor
             footBar.colorScheme.textColor: altColorText
