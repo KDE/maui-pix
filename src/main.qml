@@ -155,6 +155,23 @@ Maui.ApplicationWindow
                     pix.addSources(paths)
                 })
             }
+        },
+
+        Maui.MenuItem
+        {
+            text: "Open..."
+            onTriggered:
+            {
+                dialogLoader.sourceComponent= fmDialogComponent
+                dialog.mode = dialog.modes.OPEN
+                dialog.filterType= FMList.IMAGE
+                dialog.onlyDirs= false
+                dialog.show(function(paths)
+                {
+                    pix.openPics(paths)
+
+                });
+            }
         }
     ]
 

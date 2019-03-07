@@ -65,32 +65,8 @@ Pix::~Pix()
 }
 
 void Pix::openPics(const QStringList &pics)
-{
-    QVariantList data;
-
-    for(auto url : pics)
-    {
-        QFileInfo info(url);
-        auto title = info.baseName();
-        auto format = info.suffix();
-        auto sourceUrl = info.dir().path();
-
-        QVariantMap picMap =
-        {
-            {FMH::MODEL_NAME[FMH::MODEL_KEY::URL], url},
-            {FMH::MODEL_NAME[FMH::MODEL_KEY::TITLE], title},
-            {FMH::MODEL_NAME[FMH::MODEL_KEY::FAV], "0"},
-            {FMH::MODEL_NAME[FMH::MODEL_KEY::RATE], "0"},
-            {FMH::MODEL_NAME[FMH::MODEL_KEY::COLOR], ""},
-            {FMH::MODEL_NAME[FMH::MODEL_KEY::SOURCE], sourceUrl},
-            {FMH::MODEL_NAME[FMH::MODEL_KEY::DATE], info.birthTime().toString()},
-            {FMH::MODEL_NAME[FMH::MODEL_KEY::FORMAT], format}
-        };
-
-        data << picMap;
-    }
-
-    emit viewPics(data);
+{   
+    emit viewPics(pics);
 }
 
 void Pix::refreshCollection()

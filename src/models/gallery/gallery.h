@@ -61,6 +61,7 @@ public slots:
     bool fav(const int &index, const bool &value);
     void append(const QVariantMap &pic);
     void append(const QString &url);
+//    void appendAt(const QString &url, const int &pos);
     void refresh();
     void clear();
 };

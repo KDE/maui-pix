@@ -33,10 +33,10 @@ Maui.Page
     margins: 0
     colorScheme.backgroundColor: viewerBackgroundColor
     headBarExit: false
-    allowRiseContent: true
+    allowRiseContent: false
     headBar.drawBorder: false
     headBarTitle: currentPic.title ? currentPic.title : ""
-    headBar.rightContent: [      
+    headBar.rightContent: [
 
         Maui.ToolButton
         {
@@ -91,17 +91,10 @@ Maui.Page
         id : viewerConf
     }
 
-//    EditTools
-//    {
-//        id: editTools
-//    }
-
-    backContain: GalleryRoll
-    {
-        id: galleryRoll
-        visible: !holder.visible
-        onPicClicked: VIEWER.view(index)
-    }
+    //    EditTools
+    //    {
+    //        id: editTools
+    //    }
 
     floatingBar: true
     footBarOverlap: true
@@ -115,79 +108,99 @@ Maui.Page
     PixModel
     {
         id: pixModel
+        list: GalleryList {}
     }
 
-    Viewer
-    {
-        id: viewer
 
+
+    ColumnLayout
+    {
         height: parent.height
         width: parent.width
 
-        floatingBar: true
-        headBar.visible: false
-
-        footBar.colorScheme.backgroundColor: accentColor
-        footBar.colorScheme.textColor: altColorText
-//        footBar.colorScheme.borderColor: accentColor
-
-        footBar.middleContent: [
-
-            Maui.ToolButton
-            {
-                iconName: "go-previous"
-                iconColor: altColorText
-                onClicked: VIEWER.previous()
-            },
-
-            Maui.ToolButton
-            {
-                iconName: "love"
-                colorScheme.highlightColor: "#ff557f";
-                iconColor: pixViewer.currentPicFav ? colorScheme.highlightColor : colorScheme.textColor
-                onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
-            },
-
-            Maui.ToolButton
-            {
-                iconName: "go-next"
-                iconColor: altColorText
-                onClicked: VIEWER.next()
-            }
-        ]
-
-        Maui.Holder
+        Viewer
         {
-            id: holder
-            emoji: viewer.count === 0 ? "qrc:/img/assets/Rainbow.png" : "qrc:/img/assets/animat-image-color.gif"
-            isMask: false
-            isGif : viewer.currentItem.status !== Image.Ready
-            title : viewer.count === 0 ? qsTr("No Pic!") : qsTr("Loading...")
-            body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
-            emojiSize: isGif ? iconSizes.enormous : iconSizes.huge
-            visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
-            colorScheme.backgroundColor: viewerForegroundColor
+            id: viewer
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            floatingBar: true
+            headBar.visible: false
+
+            footBar.colorScheme.backgroundColor: accentColor
+            footBar.colorScheme.textColor: altColorText
+            //        footBar.colorScheme.borderColor: accentColor
+
+            footBar.middleContent: [
+
+                Maui.ToolButton
+                {
+                    iconName: "go-previous"
+                    iconColor: altColorText
+                    onClicked: VIEWER.previous()
+                },
+
+                Maui.ToolButton
+                {
+                    iconName: "love"
+                    colorScheme.highlightColor: "#ff557f";
+                    iconColor: pixViewer.currentPicFav ? colorScheme.highlightColor : colorScheme.textColor
+                    onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
+                },
+
+                Maui.ToolButton
+                {
+                    iconName: "go-next"
+                    iconColor: altColorText
+                    onClicked: VIEWER.next()
+                }
+            ]
+
+            Maui.Holder
+            {
+                id: holder
+                emoji: viewer.count === 0 ? "qrc:/img/assets/Rainbow.png" : "qrc:/img/assets/animat-image-color.gif"
+                isMask: false
+                isGif : viewer.currentItem.status !== Image.Ready
+                title : viewer.count === 0 ? qsTr("No Pic!") : qsTr("Loading...")
+                body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
+                emojiSize: isGif ? iconSizes.enormous : iconSizes.huge
+                visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
+                colorScheme.backgroundColor: viewerForegroundColor
+            }
+
+            footer: Maui.TagsBar
+            {
+                id: tagBar
+                visible: !holder.visible && tagBarVisible && !fullScreen
+                Layout.fillWidth: true
+                bgColor: viewerBackgroundColor
+                allowEditMode: true
+                list.urls: [currentPic.url]
+                onTagClicked: PIX.searchFor(tag)
+                onAddClicked:
+                {
+                    dialogLoader.sourceComponent = tagsDialogComponent
+                    dialog.show(currentPic.url)
+                }
+
+                onTagRemovedClicked: list.removeFromUrls(index)
+                onTagsEdited: list.updateToUrls(tags)
+            }
         }
 
-        footer: Maui.TagsBar
-        {
-            id: tagBar
-            visible: !holder.visible && tagBarVisible && !fullScreen
-            Layout.fillWidth: true
-            bgColor: viewerBackgroundColor
-            allowEditMode: true
-            list.urls: [currentPic.url]
-            onTagClicked: PIX.searchFor(tag)
-            onAddClicked:
-            {
-                dialogLoader.sourceComponent = tagsDialogComponent
-                dialog.show(currentPic.url)
-            }
 
-            onTagRemovedClicked: list.removeFromUrls(index)
-            onTagsEdited: list.updateToUrls(tags)
+        GalleryRoll
+        {
+            id: galleryRoll
+            Layout.fillWidth: true
+            Layout.margins: space.big
+
+            visible: !holder.visible
+            onPicClicked: VIEWER.view(index)
         }
     }
+
 
     function toogleTagbar()
     {

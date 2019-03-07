@@ -6,18 +6,15 @@ function open(list, index)
 {
     pixViewer.model.list = list
     view(index)
-
-    if(currentView !== views.viewer)
-        currentView = views.viewer
-
+    currentView = views.viewer
 }
 
 function openExternalPics(pics, index)
 {
-    pixViewer.viewer.populate(pics)
-    view(index)
-    if(currentView !== views.viewer)
-        currentView = views.viewer
+    var oldIndex = pixViewer.viewer.count
+    pixViewer.viewer.appendPics(pics)
+    view(Math.max(oldIndex, 0))
+    currentView = views.viewer
 }
 
 function view(index)

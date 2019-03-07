@@ -191,8 +191,27 @@ void Gallery::append(const QVariantMap &pic)
 void Gallery::append(const QString &url)
 {
     emit this->preItemAppended();
-    qDebug()<< QString("select * from images where url = '%1'").arg(url);
-    this->list << this->dba->getDBData(QString("select * from images where url = '%1'").arg(url));
+
+    if(this->dba->checkExistance("images", "url", url))
+        this->list << this->dba->getDBData(QString("select * from images where url = '%1'").arg(url));
+    else
+    {
+        QFileInfo info(url);
+        auto title = info.baseName();
+        auto format = info.suffix();
+        auto sourceUrl = info.dir().path();
+
+        auto picMap = FMH::getFileInfoModel(url);
+        picMap[FMH::MODEL_KEY::URL] = title;
+        picMap[FMH::MODEL_KEY::FAV] = "0";
+        picMap[FMH::MODEL_KEY::RATE] = "0";
+        picMap[FMH::MODEL_KEY::COLOR] = QString();
+        picMap[FMH::MODEL_KEY::FORMAT] = format;
+        picMap[FMH::MODEL_KEY::DATE] =  info.birthTime().toString();
+        picMap[FMH::MODEL_KEY::SOURCE] = sourceUrl;
+
+        this->list << picMap;
+    }
     emit this->postItemAppended();
 }
 

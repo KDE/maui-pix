@@ -60,6 +60,6 @@ private:
 
 signals:
     void refreshViews(QVariantMap tables);
-    void viewPics(QVariantList pics);
+    void viewPics(QStringList pics);
 };
 #endif // PIX_H

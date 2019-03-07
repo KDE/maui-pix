@@ -61,12 +61,11 @@ Maui.Page
     }
 
 
-    function populate(pics)
+    function appendPics(pics)
     {
-        viewerList.model.clear()
         if(pics.length > 0)
             for(var i in pics)
-                viewerList.model.append(pics[i])
+                viewerList.model.list.append(pics[i])
 
     }
 

@@ -3,33 +3,12 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.2 as Kirigami
 import org.kde.mauikit 1.0 as Maui
+import FMList 1.0
 
 import "../../../view_models"
 
 Maui.Menu
 {
-
-
-    Maui.MenuItem
-    {
-        text: "Open..."
-        onTriggered:
-        {
-            dialogLoader.sourceComponent= fmDialogComponent
-            dialog.mode = dialog.modes.OPEN
-            dialog.show(function(paths)
-            {
-
-                console.log("OPEN IMAGE", paths)
-
-            });
-            close()
-        }
-    }
-
-    MenuSeparator{}
-
-
     Maui.MenuItem
     {
         checkable: true
@@ -41,9 +20,9 @@ Maui.Menu
     Maui.MenuItem
     {
         checkable: true
-        checked: contentIsRised
+        checked: galleryRoll.visible
         text: qsTr("Preview bar")
-        onTriggered: contentIsRised ? dropContent() : riseContent()
+        onTriggered: galleryRoll.visible = !galleryRoll.visible
     }
 
 }
