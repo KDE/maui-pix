@@ -76,8 +76,8 @@ Maui.ApplicationWindow
                                        folders: 2,
                                        albums: 3,
                                        tags: 4,
-//                                       cloud: 5,
-//                                       store: 6,
+                                       //                                       cloud: 5,
+                                       //                                       store: 6,
                                        search: 5
                                    })
     /*PROPS*/
@@ -115,21 +115,21 @@ Maui.ApplicationWindow
     //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
     mainMenu: [
 
-//        Maui.MenuItem
-//        {
-//            id: _storeButton
-//            text: qsTr("Store")
-//            onTriggered: currentView = views.store
-//            icon.name: "nx-software-center"
-//        },
+        //        Maui.MenuItem
+        //        {
+        //            id: _storeButton
+        //            text: qsTr("Store")
+        //            onTriggered: currentView = views.store
+        //            icon.name: "nx-software-center"
+        //        },
 
-//        Maui.MenuItem
-//        {
-//            id: _cloudButton
-//            text: qsTr("Cloud")
-//            onTriggered: currentView = views.cloud
-//            icon.name: "folder-cloud"
-//        },
+        //        Maui.MenuItem
+        //        {
+        //            id: _cloudButton
+        //            text: qsTr("Cloud")
+        //            onTriggered: currentView = views.cloud
+        //            icon.name: "folder-cloud"
+        //        },
 
         Maui.MenuItem
         {
@@ -147,19 +147,24 @@ Maui.ApplicationWindow
             icon.name: "folder-add"
             onTriggered:
             {
-                dialogLoader.sourceComponent= fmDialogComponent
-                dialog.mode= dialog.modes.OPEN
-                dialog.onlyDirs= true
-                dialog.show(function(paths)
-                {
-                    pix.addSources(paths)
-                })
+//                dialogLoader.sourceComponent = sourcesDialogComponent;
+//                dialog.open()
+
+
+                                dialogLoader.sourceComponent= fmDialogComponent
+                                dialog.mode= dialog.modes.OPEN
+                                dialog.onlyDirs= true
+                                dialog.show(function(paths)
+                                {
+                                    pix.addSources(paths)
+                                })
             }
         },
 
         Maui.MenuItem
         {
             text: "Open..."
+            icon.name: "folder-open"
             onTriggered:
             {
                 dialogLoader.sourceComponent= fmDialogComponent
@@ -181,6 +186,8 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Viewer")
+            height: headBar.height
+            showIndicator: currentView === views.viewer
             visible: !pixViewer.holder.visible
             iconColor: currentView === views.viewer ? highlightColor : headBarFGColor
             iconName: "image"
@@ -190,6 +197,8 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Gallery")
+            height: headBar.height
+            showIndicator: currentView === views.gallery
             iconColor: currentView === views.gallery? highlightColor : headBarFGColor
             iconName: "image-multiple"
             onClicked: currentView = views.gallery
@@ -198,6 +207,8 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Folders")
+            height: headBar.height
+            showIndicator: currentView === views.folders
             iconColor: currentView === views.folders? highlightColor : headBarFGColor
             iconName: "image-folder-view"
             onClicked: currentView = views.folders
@@ -206,6 +217,8 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Albums")
+            height: headBar.height
+            showIndicator: currentView === views.albums
             iconColor: currentView === views.albums? highlightColor : headBarFGColor
             iconName: "image-frames"
             onClicked: currentView = views.albums
@@ -264,15 +277,15 @@ Maui.ApplicationWindow
                 }
 
 
-//                Loader
-//                {
-//                    id: cloudViewLoader
-//                }
+                //                Loader
+                //                {
+                //                    id: cloudViewLoader
+                //                }
 
-//                Loader
-//                {
-//                    id: storeViewLoader
-//                }
+                //                Loader
+                //                {
+                //                    id: storeViewLoader
+                //                }
 
                 SearchView
                 {
@@ -295,27 +308,27 @@ Maui.ApplicationWindow
 
     /*** Components ***/
 
-//    Component
-//    {
-//        id: _cloudViewComponent
-//        CloudView
-//        {
-//            anchors.fill : parent
-//        }
-//    }
+    //    Component
+    //    {
+    //        id: _cloudViewComponent
+    //        CloudView
+    //        {
+    //            anchors.fill : parent
+    //        }
+    //    }
 
-//    Component
-//    {
-//        id: _storeViewComponent
+    //    Component
+    //    {
+    //        id: _storeViewComponent
 
-//        Maui.Store
-//        {
-//            anchors.fill : parent
-//            detailsView: true
-//            list.category: StoreList.WALLPAPERS
-//            list.provider: StoreList.KDELOOK
-//        }
-//    }
+    //        Maui.Store
+    //        {
+    //            anchors.fill : parent
+    //            detailsView: true
+    //            list.category: StoreList.WALLPAPERS
+    //            list.provider: StoreList.KDELOOK
+    //        }
+    //    }
 
     Component
     {
@@ -351,10 +364,61 @@ Maui.ApplicationWindow
         id: fmDialogComponent
         Maui.FileDialog
         {
-            id: fmDialog
             onlyDirs: false
             mode: modes.SAVE
             filterType: FMList.IMAGE
+        }
+    }
+
+    Component
+    {
+        id: sourcesDialogComponent
+        Maui.Dialog
+        {
+            maxHeight: 500
+            maxWidth: 500
+
+            headBarTitle: qsTr("Sources")
+            headBar.rightContent: [
+
+                Maui.ToolButton
+                {
+                    iconName: "list-add"
+                },
+
+                Maui.ToolButton
+                {
+                    iconName: "list-remove"
+                }
+            ]
+
+            ListView
+            {
+                id: _listView
+                clip: true
+                anchors.fill: parent
+                delegate: Maui.ListDelegate
+                {
+                    id: _delegate
+                    label: model.url
+
+                    Connections
+                    {
+                        target: _delegate
+                        onClicked: _listView.currentIndex = index
+                    }
+                }
+
+                model: ListModel{}
+            }
+
+            Component.onCompleted:
+            {
+                var items = dba.get("select * from sources")
+                //                console.log(items)
+                for(var i in items)
+                    _listView.model.append(items[i]);
+            }
         }
     }
 
@@ -394,9 +458,9 @@ Maui.ApplicationWindow
         onViewPics: VIEWER.openExternalPics(pics, 0)
     }
 
-//    Component.onCompleted:
-//    {
-//        cloudViewLoader.sourceComponent = _cloudViewComponent
-//        storeViewLoader.sourceComponent= _storeViewComponent
-//    }
+    //    Component.onCompleted:
+    //    {
+    //        cloudViewLoader.sourceComponent = _cloudViewComponent
+    //        storeViewLoader.sourceComponent= _storeViewComponent
+    //    }
 }

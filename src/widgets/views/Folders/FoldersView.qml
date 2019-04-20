@@ -66,7 +66,7 @@ Kirigami.PageRow
             anchors.fill: parent
             showEmblem: false
             model: folderModel
-            cellWidth: itemSize * 10
+
 
             onItemClicked:
             {

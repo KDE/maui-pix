@@ -90,6 +90,7 @@ Maui.Menu
 
     Maui.MenuItem
     {
+        visible: !isAndroid
         text: qsTr("Show in folder...")
         onTriggered:
         {

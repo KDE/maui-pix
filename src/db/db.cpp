@@ -26,15 +26,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 DB::DB(QObject *parent) : QObject(parent)
 {
-    this->init();
+    this->initDB();
 }
 
 DB::~DB()
 {
-    this->m_db.close();
+//    this->m_db.close();
 }
 
-void DB::init()
+void DB::initDB()
 {
     QDir collectionDBPath_dir(PIX::CollectionDBPath);
     if (!collectionDBPath_dir.exists())
@@ -60,8 +60,9 @@ void DB::openDB(const QString &name)
     if (!this->m_db.isOpen())
     {
         if(!this->m_db.open())
-            qDebug()<<"ERROR OPENING DB"<<this->m_db.lastError().text()<<m_db.connectionName();
+            qDebug()<<"ERROR OPENING DBACTIONS"<<this->m_db.lastError().text()<<m_db.connectionName();
     }
+
     auto query = this->getQuery("PRAGMA synchronous=OFF");
     query.exec();
 }
@@ -237,7 +238,7 @@ bool DB::remove(const QString &tableName, const FMH::MODEL &removeData)
     return this->getQuery(sqlQueryString).exec();
 }
 
-QVariantList DB::get(const QString &queryTxt)
+QVariantList DB::getList(const QString &queryTxt)
 {
     QVariantList mapList;
 

@@ -60,10 +60,10 @@ public:
     bool update(const QString &table, const QString &column, const QVariant &newValue, const QVariant &op, const QString &id);
     bool remove(const QString &tableName, const FMH::MODEL &removeData);
 
-    QVariantList get(const QString &queryTxt);
+    QVariantList getList(const QString &queryTxt);
 
 protected:
-    void init();
+    void initDB();
     void openDB(const QString &name);
     void prepareCollectionDB() const;
 

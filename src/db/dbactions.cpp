@@ -35,7 +35,6 @@ void DBActions::init()
     qDebug() << "Getting collectionDB info from: " << PIX::CollectionDBPath;
 
     qDebug()<< "Starting DBActions";
-
     this->tag = Tagging::getInstance();
 }
 
@@ -159,7 +158,7 @@ bool DBActions::favPic(const QString &url, const bool &fav )
             return false;
 
     FMH::MODEL favedPic = {{FMH::MODEL_KEY::FAV, fav ? "1" : "0"}};
-     return this->update(PIX::TABLEMAP[PIX::TABLE::IMAGES], favedPic, QVariantMap({{FMH::MODEL_NAME[FMH::MODEL_KEY::URL], url}}) );
+    return this->update(PIX::TABLEMAP[PIX::TABLE::IMAGES], favedPic, QVariantMap({{FMH::MODEL_NAME[FMH::MODEL_KEY::URL], url}}) );
 }
 
 bool DBActions::isFav(const QString &url)
@@ -289,5 +288,5 @@ FMH::MODEL_LIST DBActions::getDBData(const QString &queryTxt)
 
 QVariantList DBActions::get(const QString &queryTxt)
 {
-    return this->get(queryTxt);
+    return this->getList(queryTxt);
 }
