@@ -202,7 +202,9 @@ void Gallery::append(const QString &url)
         auto sourceUrl = info.dir().path();
 
         auto picMap = FMH::getFileInfoModel(url);
-        picMap[FMH::MODEL_KEY::URL] = title;
+        picMap[FMH::MODEL_KEY::URL] = url;
+        picMap[FMH::MODEL_KEY::TITLE] = title;
+        picMap[FMH::MODEL_KEY::LABEL] = title;
         picMap[FMH::MODEL_KEY::FAV] = "0";
         picMap[FMH::MODEL_KEY::RATE] = "0";
         picMap[FMH::MODEL_KEY::COLOR] = QString();

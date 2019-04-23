@@ -23,7 +23,28 @@ Item
         color: accentColor
         radius: unit * 3
         opacity: 0.8
-        border.color: Qt.darker(color, 1.5)
+
+        Kirigami.Separator
+        {
+            anchors
+            {
+                top: parent.rop
+                left: parent.left
+                right: parent.right
+            }
+            color: Qt.darker(parent.color, 1.5)
+        }
+
+        Kirigami.Separator
+        {
+            anchors
+            {
+                bottom: parent.bottom
+                left: parent.left
+                right: parent.right
+            }
+            color: Qt.darker(parent.color, 1.5)
+        }
     }
 
     ListView

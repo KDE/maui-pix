@@ -147,17 +147,17 @@ Maui.ApplicationWindow
             icon.name: "folder-add"
             onTriggered:
             {
-//                dialogLoader.sourceComponent = sourcesDialogComponent;
-//                dialog.open()
+                //                dialogLoader.sourceComponent = sourcesDialogComponent;
+                //                dialog.open()
 
 
-                                dialogLoader.sourceComponent= fmDialogComponent
-                                dialog.mode= dialog.modes.OPEN
-                                dialog.onlyDirs= true
-                                dialog.show(function(paths)
-                                {
-                                    pix.addSources(paths)
-                                })
+                dialogLoader.sourceComponent= fmDialogComponent
+                dialog.mode= dialog.modes.OPEN
+                dialog.onlyDirs= true
+                dialog.show(function(paths)
+                {
+                    pix.addSources(paths)
+                })
             }
         },
 
@@ -173,6 +173,8 @@ Maui.ApplicationWindow
                 dialog.onlyDirs= false
                 dialog.show(function(paths)
                 {
+                    console.log("OPEN THIS PATHS", paths)
+
                     pix.openPics(paths)
 
                 });
