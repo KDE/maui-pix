@@ -33,6 +33,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QJsonDocument>
 #include <QJsonObject>
 
+#if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
+#include <MauiKit/utils.h>
+#include <MauiKit/fmh.h>
+#else
+#include "utils.h"
+#include "fmh.h"
+#endif
+
+
 namespace PIX
 {
 //Q_NAMESPACE
@@ -168,6 +177,31 @@ inline QString getQuery(const QString &key)
     if(itemMap.isEmpty()) return "";
 
     return itemMap.value(key).toString();
+}
+
+inline QStringList getSourcePaths()
+{
+    const auto defaultSources = QStringList() << FMH::PicturesPath << FMH::DownloadsPath << FMH::DocumentsPath << FMH::CloudCachePath;
+    const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
+
+    if(sources.isEmpty())
+        UTIL::saveSettings("Sources", defaultSources, "Settings");
+
+    return sources;
+}
+
+inline void saveSourcePath(QStringList const& paths)
+{
+    auto sources = PIX::getSourcePaths();
+
+    for(const auto &path : paths)
+    {
+        if(sources.contains(path))
+            continue;
+
+        sources << path;
+        UTIL::saveSettings("Sources", sources, "Settings");
+    }
 }
 
 }

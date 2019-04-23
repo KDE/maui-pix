@@ -88,11 +88,11 @@ ItemDelegate
                 sourceSize.width: control.picSize
                 cache: control.cachePic
                 antialiasing: true
+                asynchronous: true
                 smooth: true
                 fillMode: fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
                 source: (url && url.length>0) ?
                             "file://"+encodeURIComponent(url) : "qrc:/img/assets/image-x-generic.svg"
-                asynchronous: true
 
                 Rectangle
                 {

@@ -193,7 +193,7 @@ Maui.Page
             id: galleryRoll
             Layout.fillWidth: true
             Layout.margins: space.big
-
+            rollHeight: 120 * unit
             visible: !holder.visible
             onPicClicked: VIEWER.view(index)
         }

@@ -71,7 +71,9 @@ void Pix::openPics(const QStringList &pics)
 
 void Pix::refreshCollection()
 {
-    this->populateDB({FMH::PicturesPath, FMH::DownloadsPath, FMH::DocumentsPath, FMH::CloudCachePath});
+    const auto sources = PIX::getSourcePaths();
+    qDebug()<< "getting default sources to look up" << sources;
+    this->populateDB(sources);
 }
 
 void Pix::populateDB(const QStringList &paths)
@@ -99,5 +101,6 @@ void Pix::showInFolder(const QStringList &urls)
 
 void Pix::addSources(const QStringList &paths)
 {
+    PIX::saveSourcePath(paths);
     this->populateDB(paths);
 }
