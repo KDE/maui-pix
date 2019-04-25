@@ -5,8 +5,6 @@
   <project_license>LGPL-3.0</project_license>
   <name>Pix</name>
   <name xml:lang="ca">Pix</name>
-  <name xml:lang="ca-valencia">Pix</name>
-  <name xml:lang="fr">Pix</name>
   <name xml:lang="nl">Pix</name>
   <name xml:lang="pt">Pix</name>
   <name xml:lang="sk">Pix</name>
@@ -15,16 +13,20 @@
   <name xml:lang="x-test">xxPixxx</name>
   <summary>Play your music collection</summary>
   <summary xml:lang="ca">Reprodueix la vostra col·lecció de música</summary>
-  <summary xml:lang="ca-valencia">Reprodueix la vostra col·lecció de música</summary>
-  <summary xml:lang="fr">Jouez votre collection musicale</summary>
   <summary xml:lang="nl">Uw muziekcollectie afspelen</summary>
   <summary xml:lang="pt">Tocar a sua colecção de música</summary>
   <summary xml:lang="sk">Prehrať vašu hudobnú kolekciu</summary>
   <summary xml:lang="sv">Spela din musiksamling</summary>
-  <summary xml:lang="uk">Відтворіть вашу музичну збірку</summary>
+  <summary xml:lang="uk">Відтворення вашої музичної збірки</summary>
   <summary xml:lang="x-test">xxPlay your music collectionxx</summary>
   <description>
     <p> Convergent image and gallery viewer. </p>
+    <p xml:lang="ca">Visor convergent d'imatges i galeries.</p>
+    <p xml:lang="nl">Viewer voor convergente afbeeldingen en galerij.</p>
+    <p xml:lang="pt">Visualizador convergente de imagens e galerias.</p>
+    <p xml:lang="sk">Konvergentný prehliadať obrázkov a galéria.</p>
+    <p xml:lang="sv">Konvergent bild- och gallerivisning.</p>
+    <p xml:lang="uk">Зручна програма для перегляду зображень і галерей.</p>
     <p xml:lang="x-test">xxConvergent image and gallery viewer.xx</p>
   </description>
   <url type="homepage">https://pix.kde.org/</url>
@@ -35,12 +37,10 @@
     <screenshot type="default">
       <caption>The Pix music player</caption>
       <caption xml:lang="ca">El reproductor de música Pix</caption>
-      <caption xml:lang="ca-valencia">El reproductor de música Pix</caption>
-      <caption xml:lang="fr">Lecteur de musique Pix</caption>
-      <caption xml:lang="nl">De Pix muziekspeler</caption>
+      <caption xml:lang="nl">De muziekspeler Pix</caption>
       <caption xml:lang="pt">O leitor de música Pix</caption>
-      <caption xml:lang="sk">Prehrávač hudby Pix</caption>
-      <caption xml:lang="sv">Pix musikspelaren</caption>
+      <caption xml:lang="sk">Hudobný prehrávač Pix</caption>
+      <caption xml:lang="sv">Musikspelaren Pix</caption>
       <caption xml:lang="uk">Музичний програвач Pix</caption>
       <caption xml:lang="x-test">xxThe Pix music playerxx</caption>
       <image type="source" width="1366" height="744">
