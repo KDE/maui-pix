@@ -1,6 +1,20 @@
 [Desktop Entry]
 Name=Pix
+Name[ca]=Pix
+Name[nl]=Pix
+Name[pt]=Pix
+Name[sk]=Pix
+Name[sv]=Pix
+Name[uk]=Pix
+Name[x-test]=xxPixxx
 Comment=Image gallery viewer
+Comment[ca]=Visor de galeria d'imatges
+Comment[nl]=Viewer van galerij met afbeeldingen
+Comment[pt]=Visualizador de galerias de imagens
+Comment[sk]=Prehliadač galérie obrázkov
+Comment[sv]=Bildgallerivisning
+Comment[uk]=Перегляд галерей зображень
+Comment[x-test]=xxImage gallery viewerxx
 TryExec=pix
 Exec=pix %U
 Terminal=false
@@ -11,3 +25,10 @@ Icon=pix
 MimeType=image/gif;image/jpeg;image/png;image/bmp;image/x-eps;image/x-ico;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/x-xbitmap;image/x-xpixmap;image/tiff;image/x-psd;image/x-webp;image/webp;
 # Generic name with translations
 GenericName=Image Gallery
+GenericName[ca]=Galeria d'imatges
+GenericName[nl]=Galerij met afbeeldingen
+GenericName[pt]=Galeria de Imagens
+GenericName[sk]=Galéria obrázkov
+GenericName[sv]=Bildgalleri
+GenericName[uk]=Галерея зображень
+GenericName[x-test]=xxImage Galleryxx
