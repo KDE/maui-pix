@@ -26,6 +26,7 @@ MimeType=image/gif;image/jpeg;image/png;image/bmp;image/x-eps;image/x-ico;image/
 # Generic name with translations
 GenericName=Image Gallery
 GenericName[ca]=Galeria d'imatges
+GenericName[fr]=Galerie d'images
 GenericName[nl]=Galerij met afbeeldingen
 GenericName[pt]=Galeria de Imagens
 GenericName[sk]=Galéria obrázkov
