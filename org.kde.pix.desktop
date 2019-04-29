@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Pix
 Name[ca]=Pix
+Name[ca@valencia]=Pix
 Name[nl]=Pix
 Name[pt]=Pix
 Name[sk]=Pix
@@ -9,6 +10,7 @@ Name[uk]=Pix
 Name[x-test]=xxPixxx
 Comment=Image gallery viewer
 Comment[ca]=Visor de galeria d'imatges
+Comment[ca@valencia]=Visor de galeria d'imatges
 Comment[nl]=Viewer van galerij met afbeeldingen
 Comment[pt]=Visualizador de galerias de imagens
 Comment[sk]=Prehliadač galérie obrázkov
@@ -26,6 +28,7 @@ MimeType=image/gif;image/jpeg;image/png;image/bmp;image/x-eps;image/x-ico;image/
 # Generic name with translations
 GenericName=Image Gallery
 GenericName[ca]=Galeria d'imatges
+GenericName[ca@valencia]=Galeria d'imatges
 GenericName[fr]=Galerie d'images
 GenericName[nl]=Galerij met afbeeldingen
 GenericName[pt]=Galeria de Imagens
