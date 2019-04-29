@@ -5,6 +5,7 @@
   <project_license>LGPL-3.0</project_license>
   <name>Pix</name>
   <name xml:lang="ca">Pix</name>
+  <name xml:lang="ca-valencia">Pix</name>
   <name xml:lang="nl">Pix</name>
   <name xml:lang="pt">Pix</name>
   <name xml:lang="sk">Pix</name>
@@ -13,6 +14,7 @@
   <name xml:lang="x-test">xxPixxx</name>
   <summary>Play your music collection</summary>
   <summary xml:lang="ca">Reprodueix la vostra col·lecció de música</summary>
+  <summary xml:lang="ca-valencia">Reprodueix la vostra col·lecció de música</summary>
   <summary xml:lang="fr">Jouez votre collection musicale</summary>
   <summary xml:lang="nl">Uw muziekcollectie afspelen</summary>
   <summary xml:lang="pt">Tocar a sua colecção de música</summary>
@@ -23,6 +25,7 @@
   <description>
     <p> Convergent image and gallery viewer. </p>
     <p xml:lang="ca">Visor convergent d'imatges i galeries.</p>
+    <p xml:lang="ca-valencia">Visor convergent d'imatges i galeries.</p>
     <p xml:lang="nl">Viewer voor convergente afbeeldingen en galerij.</p>
     <p xml:lang="pt">Visualizador convergente de imagens e galerias.</p>
     <p xml:lang="sk">Konvergentný prehliadať obrázkov a galéria.</p>
@@ -38,6 +41,7 @@
     <screenshot type="default">
       <caption>The Pix music player</caption>
       <caption xml:lang="ca">El reproductor de música Pix</caption>
+      <caption xml:lang="ca-valencia">El reproductor de música Pix</caption>
       <caption xml:lang="nl">De muziekspeler Pix</caption>
       <caption xml:lang="pt">O leitor de música Pix</caption>
       <caption xml:lang="sk">Hudobný prehrávač Pix</caption>
