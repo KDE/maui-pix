@@ -111,6 +111,8 @@ Maui.ApplicationWindow
     /*************************************************/
 
     onSearchButtonClicked: currentView =  views.search
+    rightIcon.iconColor: currentView === views.search ? highlightColor : headBarFGColor
+//    rightIcon.showIndicator: currentView === views.search
 
     //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
     mainMenu: [
@@ -183,7 +185,7 @@ Maui.ApplicationWindow
     ]
 
     headBar.visible: !fullScreen
-
+    headBar.spacing: space.huge
     headBar.middleContent: [
         Maui.ToolButton
         {

@@ -77,7 +77,7 @@ Maui.Page
     }
 
     headBarTitle: grid.count+" "+qsTr("images")
-
+headBar.plegable : false
     headBar.rightContent:[
         Maui.ToolButton
         {
