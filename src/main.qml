@@ -99,7 +99,6 @@ Maui.ApplicationWindow
     colorSchemeName: "pix"
     bgColor: backgroundColor
     headBar.drawBorder: false
-    headBar.implicitHeight: toolBarHeight * 1.5
     headBarBGColor: backgroundColor
     headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
     backgroundColor:  currentView === views.viewer ? "#3c3e3f" : viewBackgroundColor
@@ -190,10 +189,11 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Viewer")
-            height: headBar.height
-            showIndicator: currentView === views.viewer
+            Layout.fillHeight:true
+            showIndicator: true
+            active: currentView === views.viewer
             visible: !pixViewer.holder.visible
-            iconColor: currentView === views.viewer ? highlightColor : headBarFGColor
+            iconColor: active ? highlightColor : headBarFGColor
             iconName: "image"
             onClicked: currentView = views.viewer
         },
@@ -201,9 +201,10 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Gallery")
-            height: headBar.height
-            showIndicator: currentView === views.gallery
-            iconColor: currentView === views.gallery? highlightColor : headBarFGColor
+            Layout.fillHeight:true
+            active: currentView === views.gallery
+            showIndicator: true
+            iconColor: active ? highlightColor : headBarFGColor
             iconName: "image-multiple"
             onClicked: currentView = views.gallery
         },
@@ -211,9 +212,10 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Folders")
-            height: headBar.height
-            showIndicator: currentView === views.folders
-            iconColor: currentView === views.folders? highlightColor : headBarFGColor
+            Layout.fillHeight:true
+            active: currentView === views.folders
+            showIndicator: true
+            iconColor: active ? highlightColor : headBarFGColor
             iconName: "image-folder-view"
             onClicked: currentView = views.folders
         },
@@ -221,9 +223,10 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Albums")
-            height: headBar.height
-            showIndicator: currentView === views.albums
-            iconColor: currentView === views.albums? highlightColor : headBarFGColor
+            Layout.fillHeight:true
+            active: currentView === views.albums
+            showIndicator: true
+            iconColor: active ? highlightColor : headBarFGColor
             iconName: "image-frames"
             onClicked: currentView = views.albums
         }

@@ -10,23 +10,22 @@ import "../../../db/Query.js" as Q
 import FolderModel 1.0
 import FoldersList 1.0
 
-Kirigami.PageRow
+StackView
 {
-    id: foldersPageRoot
-    separatorVisible: foldersPageRoot.wideMode
-    initialPage: [foldersPage, picsView]
-    defaultColumnWidth: parent.width
-    interactive: foldersPageRoot.currentIndex  === 1
+    id: _stackView
+//    separatorVisible: foldersPageRoot.wideMode
+//    initialPage: [foldersPage, picsView]
+//    defaultColumnWidth: width
+
+//    interactive: foldersPageRoot.currentIndex  === 1
     clip: true
 
     property string currentFolder : ""
     property alias picsView : picsView
 
-    Maui.Page
+    initialItem: Maui.Page
     {
         id: foldersPage
-        anchors.fill: parent
-
         headBar.visible: false
         footBar.drawBorder: false
         footBar.middleContent:  Maui.TextField
@@ -45,7 +44,7 @@ Kirigami.PageRow
             title : "No Folders!"
             body: "Add new image sources"
             emojiSize: iconSizes.huge
-            visible: folderGrid.count === 0
+            visible: false
         }
 
         FolderModel
@@ -74,7 +73,7 @@ Kirigami.PageRow
                 picsView.headBarTitle = folder.label
                 currentFolder = folder.path
                 picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
-                foldersPageRoot.currentIndex = 1
+                _stackView.push(picsView)
             }
         }
     }
@@ -82,12 +81,11 @@ Kirigami.PageRow
     PixGrid
     {
         id: picsView
-        anchors.fill: parent
 
         headBar.visible: true
-        headBarExit: foldersPageRoot.currentIndex === 1
+        headBarExit: _stackView.currentItem === picsView
         headBarExitIcon: "go-previous"
-        onExit: foldersPageRoot.currentIndex = 0
+        onExit: _stackView.pop()
 
         holder.emoji: "qrc:/img/assets/Electricity.png"
         holder.isMask: false
