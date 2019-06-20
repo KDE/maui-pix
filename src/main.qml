@@ -184,12 +184,11 @@ Maui.ApplicationWindow
     ]
 
     headBar.visible: !fullScreen
-    headBar.spacing: space.huge
+    headBar.spacing: space.big
     headBar.middleContent: [
         Maui.ToolButton
         {
             text: qsTr("Viewer")
-            Layout.fillHeight:true
             showIndicator: true
             active: currentView === views.viewer
             visible: !pixViewer.holder.visible
@@ -201,7 +200,6 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Gallery")
-            Layout.fillHeight:true
             active: currentView === views.gallery
             showIndicator: true
             iconColor: active ? highlightColor : headBarFGColor
@@ -212,7 +210,6 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Folders")
-            Layout.fillHeight:true
             active: currentView === views.folders
             showIndicator: true
             iconColor: active ? highlightColor : headBarFGColor
@@ -223,7 +220,6 @@ Maui.ApplicationWindow
         Maui.ToolButton
         {
             text: qsTr("Albums")
-            Layout.fillHeight:true
             active: currentView === views.albums
             showIndicator: true
             iconColor: active ? highlightColor : headBarFGColor

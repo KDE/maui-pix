@@ -12,14 +12,10 @@ import "../../dialogs/Albums"
 import "../../dialogs/Tags"
 
 
-Kirigami.PageRow
+StackView
 {
-    id: albumsPageRoot
+    id: stackView
     property alias albumsGrid : albumGrid
-    separatorVisible: albumsPageRoot.wideMode
-    initialPage: [albumsPage, picsView]
-    defaultColumnWidth: parent.width
-    interactive: albumsPageRoot.currentIndex  === 1
     clip: true
 
     TagsDialog
@@ -37,7 +33,7 @@ Kirigami.PageRow
         onFinished: addAlbum(text)
     }
 
-    Maui.Page
+   initialItem: Maui.Page
     {
         id: albumsPage
         headBar.visible: false
@@ -67,8 +63,6 @@ Kirigami.PageRow
     PixGrid
     {
         id: picsView
-        anchors.fill: parent
-
         headBar.visible: true
 
         holder.title: "No Pics!"
@@ -77,11 +71,11 @@ Kirigami.PageRow
         holder.emojiSize: iconSizes.huge
         holder.emoji: "qrc:/img/assets/MoonSki.png"
 
-        headBarExit: albumsPageRoot.currentIndex === 1
+        headBarExit: true
         headBarExitIcon: "go-previous"
         headBarTitle: albumGrid.currentAlbum
 
-        onExit: albumsPageRoot.currentIndex = 0
+        onExit: stackView.pop()
 
         footer: Maui.TagsBar
         {
@@ -145,7 +139,7 @@ Kirigami.PageRow
 
     function populateAlbum(query)
     {
-        albumsPageRoot.currentIndex = 1
+        stackView.push(picsView)
         picsView.list.query = query
 
     }
