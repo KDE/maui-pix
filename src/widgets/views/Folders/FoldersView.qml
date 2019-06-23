@@ -29,10 +29,8 @@ StackView
         headBar.visible: false
         footBar.drawBorder: false
 
-        headBar.middleContent:  Maui.TextField
+        footBar.middleContent:  Maui.TextField
         {
-            Layout.margins: space.medium
-            Layout.fillWidth: true
             placeholderText: qsTr("Filter...")
             width: foldersPage.footBar.middleLayout.width * 0.9
             onAccepted: filter(text)

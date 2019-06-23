@@ -31,8 +31,7 @@ Maui.Page
 
     /*signals*/
     signal picClicked(int index)
-    floatingBar: true
-    footBarOverlap: true
+
     headBar.drawBorder: false
 
     Maui.Holder
@@ -77,7 +76,6 @@ Maui.Page
     }
 
     headBarTitle: grid.count+" "+qsTr("images")
-headBar.plegable : false
     headBar.rightContent:[
         Maui.ToolButton
         {
@@ -128,13 +126,13 @@ headBar.plegable : false
                     onTriggered: pixList.sortBy = GalleryList.DATE
                 }
 
-//                Maui.MenuItem
-//                {
-//                    text: qsTr("Place")
-//                    checkable: true
-//                    checked: pixList.sortBy === FMList.PLACE
-//                    onTriggered: pixList.sortBy = FMList.PLACE
-//                }
+                //                Maui.MenuItem
+                //                {
+                //                    text: qsTr("Place")
+                //                    checkable: true
+                //                    checked: pixList.sortBy === FMList.PLACE
+                //                    onTriggered: pixList.sortBy = FMList.PLACE
+                //                }
 
                 Maui.MenuItem
                 {
@@ -163,23 +161,23 @@ headBar.plegable : false
         }
     ]
 
-    footBar.colorScheme.backgroundColor: accentColor
-    footBar.colorScheme.textColor: altColorText
-    footBar.visible: false
-    footBar.middleContent: [
-        Maui.ToolButton
-        {
-            iconName: "zoom-in"
-            iconColor: altColorText
-            onClicked: zoomIn()
-        },
-        Maui.ToolButton
-        {
-            iconName: "zoom-out"
-            iconColor: altColorText
-            onClicked: zoomOut()
-        }
-    ]
+//    footBar.colorScheme.backgroundColor: accentColor
+//    footBar.colorScheme.textColor: altColorText
+//    footBar.visible: false
+//    footBar.middleContent: [
+//        Maui.ToolButton
+//        {
+//            iconName: "zoom-in"
+//            iconColor: altColorText
+//            onClicked: zoomIn()
+//        },
+//        Maui.ToolButton
+//        {
+//            iconName: "zoom-out"
+//            iconColor: altColorText
+//            onClicked: zoomOut()
+//        }
+//    ]
 
     Component
     {
