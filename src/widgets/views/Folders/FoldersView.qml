@@ -29,10 +29,13 @@ StackView
         headBar.visible: false
         footBar.drawBorder: false
 
-        footBar.middleContent:  Maui.TextField
+        headBar.middleContent:  Maui.TextField
         {
+//            Layout.fillWidth: true
+//            Layout.margins: space.medium
+//            Layout.fillWidth: true
             placeholderText: qsTr("Filter...")
-            width: foldersPage.footBar.middleLayout.width * 0.9
+//            width: foldersPage.footBar.middleLayout.width * 0.9
             onAccepted: filter(text)
             onCleared: populate()
         }

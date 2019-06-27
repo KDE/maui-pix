@@ -74,7 +74,7 @@ public slots:
 
         QStringList urls;
 
-        for(auto path : paths)
+        for(const auto &path : paths)
             if (QFileInfo(path).isDir())
             {
                 QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
