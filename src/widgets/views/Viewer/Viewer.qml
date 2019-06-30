@@ -16,14 +16,10 @@ Maui.Page
     property alias count : viewerList.count
     property alias currentIndex : viewerList.currentIndex
     property alias currentItem: viewerList.currentItem
+    headBar.visible: false
 
     clip: true
     focus: true
-    floatingBar: true
-//    footBarOverlap: true
-//    allowRiseContent: false
-    headBar.visible: false
-
     colorScheme.backgroundColor: viewerBackgroundColor
 
     ListView

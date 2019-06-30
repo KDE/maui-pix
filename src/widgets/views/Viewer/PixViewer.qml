@@ -32,47 +32,7 @@ Maui.Page
 
     margins: 0
     colorScheme.backgroundColor: viewerBackgroundColor
-    headBarExit: false
-    allowRiseContent: false
-    headBar.drawBorder: false
-    headBarTitle: currentPic.title ? currentPic.title : ""
-    headBar.rightContent: [
 
-        Maui.ToolButton
-        {
-            iconName: "object-rotate-left"
-            onClicked: viewer.currentItem.rotateLeft()
-        },
-
-        Maui.ToolButton
-        {
-            iconName: "object-rotate-right"
-            onClicked: viewer.currentItem.rotateRight()
-        },
-
-        Maui.ToolButton
-        {
-            iconName: "overflow-menu"
-            onClicked: viewerMenu.popup()
-        }
-    ]
-
-    headBar.leftContent: [
-        Maui.ToolButton
-        {
-            iconName: "document-share"
-            onClicked:
-            {
-                if(isAndroid)
-                Maui.Android.shareDialog([pixViewer.currentPic.url])
-                else
-                {
-                    dialogLoader.sourceComponent = shareDialogComponent
-                    dialog.show([pixViewer.currentPic.url])
-                }
-            }
-        }
-    ]
 
     //    Connections
     //    {
@@ -96,9 +56,6 @@ Maui.Page
     //        id: editTools
     //    }
 
-    floatingBar: true
-    footBarOverlap: true
-
     PixMenu
     {
         id: _picMenu
@@ -111,7 +68,78 @@ Maui.Page
         list: GalleryList {}
     }
 
+    floatingBar: false
+    footBarOverlap: true
+    allowRiseContent: false
+    headBar.visible: false
+    headBarExit: false
 
+    footBar.rightContent: [
+
+        Maui.ToolButton
+        {
+            iconName: "document-share"
+            onClicked:
+            {
+                if(isAndroid)
+                Maui.Android.shareDialog([pixViewer.currentPic.url])
+                else
+                {
+                    dialogLoader.sourceComponent = shareDialogComponent
+                    dialog.show([pixViewer.currentPic.url])
+                }
+            }
+        },
+
+        Maui.ToolButton
+        {
+            iconName: "object-rotate-left"
+            onClicked: viewer.currentItem.rotateLeft()
+        },
+
+        Maui.ToolButton
+        {
+            iconName: "object-rotate-right"
+            onClicked: viewer.currentItem.rotateRight()
+        },
+
+        Maui.ToolButton
+        {
+            iconName: "overflow-menu"
+            onClicked: viewerMenu.popup()
+        }
+    ]
+
+
+
+    footBar.colorScheme.backgroundColor: accentColor
+    footBar.colorScheme.textColor: altColorText
+    //        footBar.colorScheme.borderColor: accentColor
+
+    footBar.leftContent: [
+
+        Maui.ToolButton
+        {
+            iconName: "go-previous"
+            iconColor: altColorText
+            onClicked: VIEWER.previous()
+        },
+
+        Maui.ToolButton
+        {
+            iconName: "love"
+            colorScheme.highlightColor: "#ff557f";
+            iconColor: pixViewer.currentPicFav ? colorScheme.highlightColor : colorScheme.textColor
+            onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
+        },
+
+        Maui.ToolButton
+        {
+            iconName: "go-next"
+            iconColor: altColorText
+            onClicked: VIEWER.next()
+        }
+    ]
 
     ColumnLayout
     {
@@ -123,36 +151,6 @@ Maui.Page
             id: viewer
             Layout.fillHeight: true
             Layout.fillWidth: true
-
-
-            footBar.colorScheme.backgroundColor: accentColor
-            footBar.colorScheme.textColor: altColorText
-            //        footBar.colorScheme.borderColor: accentColor
-
-            footBar.middleContent: [
-
-                Maui.ToolButton
-                {
-                    iconName: "go-previous"
-                    iconColor: altColorText
-                    onClicked: VIEWER.previous()
-                },
-
-                Maui.ToolButton
-                {
-                    iconName: "love"
-                    colorScheme.highlightColor: "#ff557f";
-                    iconColor: pixViewer.currentPicFav ? colorScheme.highlightColor : colorScheme.textColor
-                    onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
-                },
-
-                Maui.ToolButton
-                {
-                    iconName: "go-next"
-                    iconColor: altColorText
-                    onClicked: VIEWER.next()
-                }
-            ]
 
             Maui.Holder
             {
