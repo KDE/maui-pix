@@ -24,7 +24,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.1
 
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
 
 import "widgets"
@@ -132,15 +132,7 @@ Maui.ApplicationWindow
         //            icon.name: "folder-cloud"
         //        },
 
-        Maui.MenuItem
-        {
-            id: _tagsButton
-            text: qsTr("Tags")
-            onTriggered: currentView = views.tags
-            icon.name: "tag"
-        },
 
-        MenuSeparator {},
 
         Maui.MenuItem
         {
@@ -185,48 +177,67 @@ Maui.ApplicationWindow
 
     headBar.visible: !fullScreen
     headBar.spacing: space.big
-    headBar.middleContent: [
-        Maui.ToolButton
-        {
-            text: qsTr("Viewer")
-            showIndicator: true
-            active: currentView === views.viewer
-            visible: !pixViewer.holder.visible
-            iconColor: active ? highlightColor : headBarFGColor
-            iconName: "image"
-            onClicked: currentView = views.viewer
-        },
+    headBar.middleContent: Kirigami.ActionToolBar
+    {
+        hiddenActions: [
 
-        Maui.ToolButton
-        {
-            text: qsTr("Gallery")
-            active: currentView === views.gallery
-            showIndicator: true
-            iconColor: active ? highlightColor : headBarFGColor
-            iconName: "image-multiple"
-            onClicked: currentView = views.gallery
-        },
+            Kirigami.Action
+            {
+                id: _tagsButton
+                text: qsTr("Tags")
+                onTriggered: currentView = views.tags
+                icon.name: "tag"
+            }
+        ]
 
-        Maui.ToolButton
-        {
-            text: qsTr("Folders")
-            active: currentView === views.folders
-            showIndicator: true
-            iconColor: active ? highlightColor : headBarFGColor
-            iconName: "image-folder-view"
-            onClicked: currentView = views.folders
-        },
+        actions: [
+            Kirigami.Action
+            {
+                text: qsTr("Viewer")
+//                showIndicator: true
+                checked: currentView === views.viewer
+                checkable: false
+                visible: !pixViewer.holder.visible
+                icon.color: checked ? highlightColor : headBarFGColor
+                icon.name: "image"
+                onTriggered: currentView = views.viewer
+            },
 
-        Maui.ToolButton
-        {
-            text: qsTr("Albums")
-            active: currentView === views.albums
-            showIndicator: true
-            iconColor: active ? highlightColor : headBarFGColor
-            iconName: "image-frames"
-            onClicked: currentView = views.albums
-        }
-    ]
+            Kirigami.Action
+            {
+                text: qsTr("Gallery")
+                checked: currentView === views.gallery
+//                showIndicator: true
+                icon.color: checked ? highlightColor : headBarFGColor
+                icon.name: "image-multiple"
+                onTriggered: currentView = views.gallery
+            },
+
+            Kirigami.Action
+            {
+                text: qsTr("Folders")
+                checked: currentView === views.folders
+                checkable: false
+//                showIndicator: true
+                icon.color: active ? highlightColor : headBarFGColor
+                icon.name: "image-folder-view"
+                onTriggered: currentView = views.folders
+            },
+
+            Kirigami.Action
+            {
+                text: qsTr("Albums")
+                checked: currentView === views.albums
+                checkable: false
+//                showIndicator: true
+                icon.color: checked ? highlightColor : headBarFGColor
+                icon.name: "image-frames"
+                onTriggered: currentView = views.albums
+            }
+        ]
+
+
+    }
 
     content: Item
     {
