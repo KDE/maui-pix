@@ -3,13 +3,12 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.2 as Kirigami
 import org.kde.mauikit 1.0 as Maui
-import FMList 1.0
 
 import "../../../view_models"
 
-Maui.Menu
+Menu
 {
-    Maui.MenuItem
+    MenuItem
     {
         checkable: true
         checked: tagBarVisible
@@ -17,7 +16,7 @@ Maui.Menu
         onTriggered: toogleTagbar()
     }
 
-    Maui.MenuItem
+    MenuItem
     {
         checkable: true
         checked: galleryRoll.visible

@@ -18,11 +18,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.1
 
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
@@ -54,8 +52,6 @@ import TagsList 1.0
 
 import SyncingModel 1.0
 import SyncingList 1.0
-
-import FMList 1.0
 import StoreList 1.0
 
 Maui.ApplicationWindow
@@ -110,7 +106,7 @@ Maui.ApplicationWindow
     /*************************************************/
 
     onSearchButtonClicked: currentView =  views.search
-    rightIcon.iconColor: currentView === views.search ? highlightColor : headBarFGColor
+//    rightIcon.icon.color: currentView === views.search ? highlightColor : headBarFGColor
 //    rightIcon.showIndicator: currentView === views.search
 
     //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
@@ -134,27 +130,27 @@ Maui.ApplicationWindow
 
 
 
-        Maui.MenuItem
+        MenuItem
         {
             text: "Sources"
             icon.name: "folder-add"
             onTriggered:
             {
-                //                dialogLoader.sourceComponent = sourcesDialogComponent;
-                //                dialog.open()
+                                dialogLoader.sourceComponent = sourcesDialogComponent;
+                                dialog.open()
 
 
-                dialogLoader.sourceComponent= fmDialogComponent
-                dialog.mode= dialog.modes.OPEN
-                dialog.onlyDirs= true
-                dialog.show(function(paths)
-                {
-                    pix.addSources(paths)
-                })
+//                dialogLoader.sourceComponent= fmDialogComponent
+//                dialog.mode= dialog.modes.OPEN
+//                dialog.onlyDirs= true
+//                dialog.show(function(paths)
+//                {
+//                    pix.addSources(paths)
+//                })
             }
         },
 
-        Maui.MenuItem
+        MenuItem
         {
             text: "Open..."
             icon.name: "folder-open"
@@ -162,14 +158,12 @@ Maui.ApplicationWindow
             {
                 dialogLoader.sourceComponent= fmDialogComponent
                 dialog.mode = dialog.modes.OPEN
-                dialog.filterType= FMList.IMAGE
+                dialog.filterType= Maui.FMList.IMAGE
                 dialog.onlyDirs= false
                 dialog.show(function(paths)
                 {
                     console.log("OPEN THIS PATHS", paths)
-
                     pix.openPics(paths)
-
                 });
             }
         }
@@ -380,7 +374,7 @@ Maui.ApplicationWindow
         {
             onlyDirs: false
             mode: modes.SAVE
-            filterType: FMList.IMAGE
+            filterType: Maui.FMList.IMAGE
         }
     }
 
@@ -395,14 +389,14 @@ Maui.ApplicationWindow
             headBarTitle: qsTr("Sources")
             headBar.rightContent: [
 
-                Maui.ToolButton
+                ToolButton
                 {
-                    iconName: "list-add"
+                    icon.name: "list-add"
                 },
 
-                Maui.ToolButton
+                ToolButton
                 {
-                    iconName: "list-remove"
+                    icon.name: "list-remove"
                 }
             ]
 

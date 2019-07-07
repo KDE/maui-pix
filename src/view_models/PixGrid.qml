@@ -6,7 +6,6 @@ import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
 import PixModel 1.0
 import GalleryList 1.0
-import FMList 1.0
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../widgets/views/Pix.js" as PIX
@@ -106,14 +105,6 @@ Maui.Page
                     checked: pixList.sortBy === GalleryList.DATE
                     onTriggered: pixList.sortBy = GalleryList.DATE
                 }
-
-                //                Maui.MenuItem
-                //                {
-                //                    text: qsTr("Place")
-                //                    checkable: true
-                //                    checked: pixList.sortBy === FMList.PLACE
-                //                    onTriggered: pixList.sortBy = FMList.PLACE
-                //                }
 
                 Kirigami.Action
                 {
