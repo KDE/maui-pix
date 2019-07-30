@@ -124,8 +124,11 @@ Maui.Page
 
         ToolButton
         {
+            Kirigami.Theme.inherit: false
+            Kirigami.Theme.highlightColor: "#ff5a86"
             icon.name: "love"
 //            colorScheme.highlightColor: "#ff557f";
+            checked: pixViewer.currentPicFav
             icon.color: pixViewer.currentPicFav ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
             onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
         },
