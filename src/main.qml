@@ -191,7 +191,7 @@ Maui.ApplicationWindow
                 checked: currentView === views.viewer
                 checkable: false
                 visible: !pixViewer.holder.visible
-                icon.color: checked ? highlightColor : headBarFGColor
+//                icon.color: checked ? highlightColor : headBarFGColor
                 icon.name: "image"
                 onTriggered: currentView = views.viewer
             },
@@ -201,8 +201,8 @@ Maui.ApplicationWindow
                 text: qsTr("Gallery")
                 checked: currentView === views.gallery
 //                showIndicator: true
-                icon.color: checked ? highlightColor : headBarFGColor
-                icon.name: "image-multiple"
+//                icon.color: checked ? highlightColor : headBarFGColor
+                icon.name: "folder-image"
                 onTriggered: currentView = views.gallery
             },
 
@@ -212,8 +212,8 @@ Maui.ApplicationWindow
                 checked: currentView === views.folders
                 checkable: false
 //                showIndicator: true
-                icon.color: active ? highlightColor : headBarFGColor
-                icon.name: "image-folder-view"
+//                icon.color: active ? highlightColor : headBarFGColor
+                icon.name: "folder"
                 onTriggered: currentView = views.folders
             },
 
@@ -223,7 +223,7 @@ Maui.ApplicationWindow
                 checked: currentView === views.albums
                 checkable: false
 //                showIndicator: true
-                icon.color: checked ? highlightColor : headBarFGColor
+//                icon.color: checked ? highlightColor : headBarFGColor
                 icon.name: "image-frames"
                 onTriggered: currentView = views.albums
             }

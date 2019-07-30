@@ -7,8 +7,8 @@ import org.kde.kirigami 2.2 as Kirigami
 ItemDelegate
 {
     property int albumSize :  iconSizes.large
-    property color hightlightedColor : GridView.isCurrentItem || hovered  ? highlightColor : "transparent"
-    property color labelColor : GridView.isCurrentItem  && !hovered ? highlightedTextColor : textColor
+    property color hightlightedColor : GridView.isCurrentItem || hovered  ? Kirigami.Theme.highlightColor : "transparent"
+    property color labelColor : GridView.isCurrentItem  && !hovered ?Kirigami.Theme. highlightedTextColor : Kirigami.Theme.textColor
 
     hoverEnabled: !isMobile
 

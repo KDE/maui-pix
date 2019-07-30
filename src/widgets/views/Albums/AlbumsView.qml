@@ -36,8 +36,7 @@ StackView
    initialItem: Maui.Page
     {
         id: albumsPage
-        headBar.visible: false
-
+        padding: space.big
 
 //        footBar.colorScheme.backgroundColor: altColor
 //        footBar.colorScheme.borderColor: Qt.darker(altColor, 1.4)
@@ -45,7 +44,7 @@ StackView
         {
             icon.name: "list-add"
             onClicked: newAlbumDialog.open()
-            icon.color: altColorText
+//            icon.color: altColorText
         }
 
         AlbumsGrid

@@ -32,6 +32,7 @@ Maui.Page
     signal picClicked(int index)
 
     headBar.drawBorder: false
+    padding: space.big
 
     Maui.Holder
     {
@@ -49,7 +50,8 @@ Maui.Page
 //    headBar.leftSretch: false
     headBar.rightContent: Kirigami.ActionToolBar
     {
-
+        Layout.fillWidth: false
+        Layout.preferredWidth: implicitWidth
         hiddenActions: [
             Kirigami.Action
             {

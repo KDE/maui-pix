@@ -10,10 +10,6 @@ Maui.Page
     padding:0
     title: qsTr("Tags")
 
-    Kirigami.Theme.backgroundColor: backgroundColor
-
-    clip: true
-
     headBar.leftContent: ToolButton
     {
         icon.name: "list-add"

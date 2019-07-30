@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.2 as Kirigami
 import org.kde.mauikit 1.0 as Maui
+import QtQuick.Layouts 1.3
 
 import "../../../view_models"
 import "../../../db/Query.js" as Q
@@ -26,14 +27,13 @@ StackView
     initialItem: Maui.Page
     {
         id: foldersPage
-        headBar.visible: false
-        footBar.drawBorder: false
+        padding: space.big
 
         headBar.middleContent:  Maui.TextField
         {
 //            Layout.fillWidth: true
-//            Layout.margins: space.medium
-//            Layout.fillWidth: true
+            Layout.margins: space.medium
+            Layout.fillWidth: true
             placeholderText: qsTr("Filter...")
             onAccepted: filter(text)
             onCleared: populate()
@@ -73,7 +73,7 @@ StackView
             onItemClicked:
             {
                 var folder = foldersList.get(index)
-                picsView.headBarTitle = folder.label
+                picsView.title = folder.label
                 currentFolder = folder.path
                 picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
                 _stackView.push(picsView)
@@ -89,6 +89,12 @@ StackView
 //        headBarExit: _stackView.currentItem === picsView
 //        headBarExitIcon: "go-previous"
 //        onExit: _stackView.pop()
+
+        headBar.leftContent: ToolButton
+        {
+            icon.name:"go-previous"
+            onClicked: _stackView.pop()
+        }
 
         holder.emoji: "qrc:/img/assets/Electricity.png"
         holder.isMask: false

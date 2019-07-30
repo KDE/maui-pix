@@ -3,6 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import org.kde.mauikit 1.0 as Maui
+import org.kde.kirigami 2.7 as Kirigami
 
 ItemDelegate
 {  
@@ -20,10 +21,10 @@ ItemDelegate
     property alias source : img.source
     property alias label : _label.text
 
-    property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
+    property string indicatorColor: ListView.isCurrentItem ? Kirigami.Theme.highlightColor : "transparent"
 
-    property color labelColor : (GridView.isCurrentItem || (keepEmblemOverlay && emblemAdded)) && !hovered && showSelectionBackground? highlightedTextColor : textColor
-    property color hightlightedColor : GridView.isCurrentItem || hovered || (keepEmblemOverlay && emblemAdded) ? highlightColor : "transparent"
+    property color labelColor : (GridView.isCurrentItem || (keepEmblemOverlay && emblemAdded)) && !hovered && showSelectionBackground? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+    property color hightlightedColor : GridView.isCurrentItem || hovered || (keepEmblemOverlay && emblemAdded) ? Kirigami.Theme.highlightColor : "transparent"
 
     property bool showSelectionBackground : true
 

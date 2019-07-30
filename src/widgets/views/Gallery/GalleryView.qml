@@ -13,6 +13,7 @@ PixGrid
     holder.body: "Add new image sources"
     holder.emojiSize: iconSizes.huge
 
+
     function refresh()
     {
         list.refresh()
