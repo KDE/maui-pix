@@ -52,7 +52,7 @@ Maui.Page
     }
 
     footBar.middleContent: [
-        Maui.ToolButton
+        ToolButton
         {
             id: _previousPageButton
             iconName: "go-previous"
@@ -76,7 +76,7 @@ Maui.Page
             anchors.verticalCenter: _previousPageButton.verticalCenter
         },
 
-        Maui.ToolButton
+        ToolButton
         {
             id: _nextPageButton
             iconName: "go-next"
@@ -98,7 +98,7 @@ Maui.Page
     }
 
     footBar.leftContent: [
-        Maui.ToolButton
+        ToolButton
         {
             id:_filterButton
             iconName: "view-filter"
@@ -109,7 +109,7 @@ Maui.Page
 
     footBar.rightContent: [
 
-        Maui.ToolButton
+        ToolButton
         {
             id:_sortButton
             iconName: "view-sort"

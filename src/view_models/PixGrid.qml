@@ -145,13 +145,13 @@ Maui.Page
     //    footBar.colorScheme.textColor: altColorText
     //    footBar.visible: false
     //    footBar.middleContent: [
-    //        Maui.ToolButton
+    //        ToolButton
     //        {
     //            iconName: "zoom-in"
     //            iconColor: altColorText
     //            onClicked: zoomIn()
     //        },
-    //        Maui.ToolButton
+    //        ToolButton
     //        {
     //            iconName: "zoom-out"
     //            iconColor: altColorText

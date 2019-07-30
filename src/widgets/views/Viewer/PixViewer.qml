@@ -6,6 +6,7 @@ import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../../../widgets/views/Pix.js" as PIX
 import "../../../db/Query.js" as Q
 import "../.."
+import org.kde.kirigami 2.7 as Kirigami
 
 import org.kde.mauikit 1.0 as Maui
 import PixModel 1.0
@@ -30,8 +31,8 @@ Maui.Page
     property string viewerBackgroundColor : Maui.FM.loadSettings("VIEWER_BG_COLOR", "PIX", backgroundColor)
     property string viewerForegroundColor : Maui.FM.loadSettings("VIEWER_FG_COLOR", "PIX", textColor)
 
-    margins: 0
-    colorScheme.backgroundColor: viewerBackgroundColor
+    padding: 0
+    Kirigami.Theme.backgroundColor: viewerBackgroundColor
 
 
     //    Connections
@@ -68,17 +69,13 @@ Maui.Page
         list: GalleryList {}
     }
 
-    floatingBar: false
-    footBarOverlap: true
-    allowRiseContent: false
     headBar.visible: false
-    headBarExit: false
 
     footBar.rightContent: [
 
-        Maui.ToolButton
+        ToolButton
         {
-            iconName: "document-share"
+            icon.name: "document-share"
             onClicked:
             {
                 if(isAndroid)
@@ -91,52 +88,52 @@ Maui.Page
             }
         },
 
-        Maui.ToolButton
+        ToolButton
         {
-            iconName: "object-rotate-left"
+            icon.name: "object-rotate-left"
             onClicked: viewer.currentItem.rotateLeft()
         },
 
-        Maui.ToolButton
+        ToolButton
         {
-            iconName: "object-rotate-right"
+            icon.name: "object-rotate-right"
             onClicked: viewer.currentItem.rotateRight()
         },
 
-        Maui.ToolButton
+        ToolButton
         {
-            iconName: "overflow-menu"
+            icon.name: "overflow-menu"
             onClicked: viewerMenu.popup()
         }
     ]
 
 
 
-    footBar.colorScheme.backgroundColor: accentColor
-    footBar.colorScheme.textColor: altColorText
+//    footBar.colorScheme.backgroundColor: accentColor
+//    footBar.colorScheme.textColor: altColorText
     //        footBar.colorScheme.borderColor: accentColor
 
     footBar.leftContent: [
 
-        Maui.ToolButton
+        ToolButton
         {
-            iconName: "go-previous"
-            iconColor: altColorText
+            icon.name: "go-previous"
+//            icon.color: altColorText
             onClicked: VIEWER.previous()
         },
 
-        Maui.ToolButton
+        ToolButton
         {
-            iconName: "love"
-            colorScheme.highlightColor: "#ff557f";
-            iconColor: pixViewer.currentPicFav ? colorScheme.highlightColor : colorScheme.textColor
+            icon.name: "love"
+//            colorScheme.highlightColor: "#ff557f";
+            icon.color: pixViewer.currentPicFav ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
             onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
         },
 
-        Maui.ToolButton
+        ToolButton
         {
-            iconName: "go-next"
-            iconColor: altColorText
+            icon.name: "go-next"
+//            icon.color: altColorText
             onClicked: VIEWER.next()
         }
     ]
@@ -162,7 +159,7 @@ Maui.Page
                 body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
                 emojiSize: isGif ? iconSizes.enormous : iconSizes.huge
                 visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
-                colorScheme.backgroundColor: viewerForegroundColor
+                Kirigami.Theme.backgroundColor: viewerForegroundColor
             }
 
             footer: Maui.TagsBar

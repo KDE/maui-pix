@@ -122,12 +122,12 @@ ItemDelegate
                     }
                 }
 
-                Maui.ToolButton
+                ToolButton
                 {
                     visible:  img.status !== Image.Ready
-                    iconName: "image-x-generic"
-                    size: Math.min(picSize, iconSizes.huge)
-                    isMask: false
+                    icon.name: "image-x-generic"
+                    icon.width: Math.min(picSize, iconSizes.huge)
+//                    isMask: false
                     enabled: false
 
                     anchors.centerIn: parent

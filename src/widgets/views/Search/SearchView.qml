@@ -13,9 +13,9 @@ import org.kde.mauikit 1.0 as Maui
         id: searchResults
         property string currentQuery : ""
 
-        headBar.visible: true
-        headBarExitIcon: "edit-clear"
-        headBarTitle: searchResults.grid.count + qsTr(" results")
+//        headBar.visible: true
+//        headBarExitIcon: "edit-clear"
+        title: searchResults.grid.count + qsTr(" results")
         holder.emoji: "qrc:/img/assets/BugSearch.png"
         holder.isMask: false
         holder.title : "No Results!"

@@ -1,30 +1,28 @@
 import QtQuick 2.9
+import QtQuick.Controls 2.2
 import "../../../view_models"
 import org.kde.mauikit 1.0 as Maui
-
+import org.kde.kirigami 2.7 as Kirigami
 
 Maui.Page
 {
     id: control
-    margins:0
-    headBarExit: false
-    headBarTitle: qsTr("Tags")
-    headBar.plegable: false
-    headBar.drawBorder: false
+    padding:0
+    title: qsTr("Tags")
 
-    colorScheme.backgroundColor: backgroundColor
+    Kirigami.Theme.backgroundColor: backgroundColor
 
     clip: true
 
-    headBar.leftContent: Maui.ToolButton
+    headBar.leftContent: ToolButton
     {
-        iconName: "list-add"
+        icon.name: "list-add"
         onClicked: newTagDialog.open()
     }
 
-    headBar.rightContent: Maui.ToolButton
+    headBar.rightContent: ToolButton
     {
-        iconName: "list-remove"
+        icon.name: "list-remove"
     }
 
     Maui.Holder

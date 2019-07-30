@@ -87,19 +87,18 @@ Maui.ApplicationWindow
     /******************** UI COLORS *******************/
     /*************************************************/
 
-    highlightColor : "#00abaa"
-    altColor : "#2e2f30" // "#545c6e"
-    accentColor: altColor
-    altColorText: "#fafafa"
+//    highlightColor : "#00abaa"
+//    altColor : "#2e2f30" // "#545c6e"
+//    accentColor: altColor
+//    altColorText: "#fafafa"
 
-    colorSchemeName: "pix"
-    bgColor: backgroundColor
-    headBar.drawBorder: false
-    headBarBGColor: backgroundColor
-    headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
-    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : viewBackgroundColor
-    viewBackgroundColor: currentView === views.viewer ? backgroundColor : Maui.Style.viewBackgroundColor
-    textColor: headBarFGColor
+//    colorSchemeName: "pix"
+//    bgColor: backgroundColor
+//    headBar.drawBorder: false
+//    headBarBGColor: backgroundColor
+//    headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
+//    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : viewBackgroundColor
+//    viewBackgroundColor: currentView === views.viewer ? backgroundColor : Maui.Style.viewBackgroundColor
 
     /***************************************************/
     /**************************************************/
@@ -233,84 +232,71 @@ Maui.ApplicationWindow
 
     }
 
-    content: Item
+    ColumnLayout
     {
         anchors.fill: parent
 
-        Rectangle
+        SwipeView
         {
-            anchors.fill: parent
-            color: bgColor
+            id: swipeView
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            interactive: isMobile
+            currentIndex: currentView
+
+            onCurrentIndexChanged: currentView = currentIndex
+
+            PixViewer
+            {
+                id: pixViewer
+            }
+
+            GalleryView
+            {
+                id: galleryView
+            }
+
+            FoldersView
+            {
+                id: foldersView
+            }
+
+            AlbumsView
+            {
+                id: albumsView
+            }
+
+            TagsView
+            {
+                id: tagsView
+            }
+
+
+            //                Loader
+            //                {
+            //                    id: cloudViewLoader
+            //                }
+
+            //                Loader
+            //                {
+            //                    id: storeViewLoader
+            //                }
+
+            SearchView
+            {
+                id: searchView
+            }
+
         }
 
-        ColumnLayout
+        SelectionBar
         {
-            anchors.fill: parent
-
-
-
-            SwipeView
-            {
-                id: swipeView
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                interactive: isMobile
-                currentIndex: currentView
-
-                onCurrentIndexChanged: currentView = currentIndex
-
-                PixViewer
-                {
-                    id: pixViewer
-                }
-
-                GalleryView
-                {
-                    id: galleryView
-                }
-
-                FoldersView
-                {
-                    id: foldersView
-                }
-
-                AlbumsView
-                {
-                    id: albumsView
-                }
-
-                TagsView
-                {
-                    id: tagsView
-                }
-
-
-                //                Loader
-                //                {
-                //                    id: cloudViewLoader
-                //                }
-
-                //                Loader
-                //                {
-                //                    id: storeViewLoader
-                //                }
-
-                SearchView
-                {
-                    id: searchView
-                }
-
-            }
-
-            SelectionBar
-            {
-                id: selectionBox
-                Layout.fillWidth : true
-                Layout.leftMargin: space.big
-                Layout.rightMargin: space.big
-                Layout.bottomMargin: space.big
-                Layout.topMargin: space.small
-            }
+            id: selectionBox
+            Layout.fillWidth : true
+            Layout.leftMargin: space.big
+            Layout.rightMargin: space.big
+            Layout.bottomMargin: space.big
+            Layout.topMargin: space.small
         }
     }
 
@@ -386,7 +372,7 @@ Maui.ApplicationWindow
             maxHeight: 500
             maxWidth: 500
 
-            headBarTitle: qsTr("Sources")
+            page.title: qsTr("Sources")
             headBar.rightContent: [
 
                 ToolButton

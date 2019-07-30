@@ -86,9 +86,9 @@ StackView
         id: picsView
 
         headBar.visible: true
-        headBarExit: _stackView.currentItem === picsView
-        headBarExitIcon: "go-previous"
-        onExit: _stackView.pop()
+//        headBarExit: _stackView.currentItem === picsView
+//        headBarExitIcon: "go-previous"
+//        onExit: _stackView.pop()
 
         holder.emoji: "qrc:/img/assets/Electricity.png"
         holder.isMask: false

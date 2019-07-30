@@ -18,7 +18,7 @@ Maui.SelectionBar
     visible: selectionList.count > 0 && currentView !== views.viewer
     onIconClicked: _menu.popup()
     onExitClicked: clear()
-    colorScheme.backgroundColor: "#212121"
+//    colorScheme.backgroundColor: "#212121"
 
     Menu
     {
