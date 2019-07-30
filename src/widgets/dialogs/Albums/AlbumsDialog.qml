@@ -14,6 +14,7 @@ Maui.Dialog
     maxHeight: unit * 500
     onAccepted: addToAlbum(albumsList.get(_albumsList.currentIndex).album)
 
+    page.padding: space.medium
     ColumnLayout
     {
         anchors.fill: parent

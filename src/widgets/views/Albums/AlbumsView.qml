@@ -66,11 +66,12 @@ StackView
         holder.emojiSize: iconSizes.huge
         holder.emoji: "qrc:/img/assets/MoonSki.png"
 
-//        headBarExit: true
-//        headBarExitIcon: "go-previous"
         title: albumGrid.currentAlbum
-
-//        onExit: stackView.pop()
+        headBar.leftContent: ToolButton
+        {
+            icon.name:"go-previous"
+            onClicked: stackView.pop()
+        }
 
         footer: Maui.TagsBar
         {
