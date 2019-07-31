@@ -8,6 +8,7 @@
   <name xml:lang="ca-valencia">Pix</name>
   <name xml:lang="es">Pix</name>
   <name xml:lang="gl">Pix</name>
+  <name xml:lang="id">Pix</name>
   <name xml:lang="it">Pix</name>
   <name xml:lang="ko">Pix</name>
   <name xml:lang="nl">Pix</name>
@@ -24,6 +25,7 @@
   <summary xml:lang="es">Reproduce su colección de música</summary>
   <summary xml:lang="fr">Jouez votre collection musicale</summary>
   <summary xml:lang="gl">Reproducir a súa colección de música</summary>
+  <summary xml:lang="id">Putar koleksi musikmu</summary>
   <summary xml:lang="it">Riproduce la tua collezione musicale</summary>
   <summary xml:lang="ko">내 음악 모음집 재생</summary>
   <summary xml:lang="nl">Uw muziekcollectie afspelen</summary>
@@ -40,6 +42,7 @@
     <p xml:lang="ca-valencia">Visor convergent d'imatges i galeries.</p>
     <p xml:lang="es">Visor convergente de imágenes y galería.</p>
     <p xml:lang="gl">Visor converxente de imaxes e galerías.</p>
+    <p xml:lang="id">Penampil galeri dan citra yang konvergen</p>
     <p xml:lang="it">Visualizzatore convergente di immagini e galleria.</p>
     <p xml:lang="ko">이미지와 갤러리 통합 뷰어입니다.</p>
     <p xml:lang="nl">Viewer voor convergente afbeeldingen en galerij.</p>
@@ -61,6 +64,7 @@
       <caption xml:lang="ca-valencia">El reproductor de música Pix</caption>
       <caption xml:lang="es">El reproductor de música Pix</caption>
       <caption xml:lang="gl">O reprodutor de música Pix</caption>
+      <caption xml:lang="id">Pemutar musik Pix</caption>
       <caption xml:lang="it">Il lettore musicale Pix</caption>
       <caption xml:lang="ko">Pix 음악 재생기</caption>
       <caption xml:lang="nl">De muziekspeler Pix</caption>
