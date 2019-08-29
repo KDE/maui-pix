@@ -43,6 +43,7 @@ MimeType=image/gif;image/jpeg;image/png;image/bmp;image/x-eps;image/x-ico;image/
 GenericName=Image Gallery
 GenericName[ca]=Galeria d'imatges
 GenericName[ca@valencia]=Galeria d'imatges
+GenericName[cs]=Galerie obrázků
 GenericName[de]=Bildergalerie
 GenericName[es]=Galería de imágenes
 GenericName[fr]=Galerie d'images
