@@ -7,6 +7,7 @@
   <name xml:lang="ca">Pix</name>
   <name xml:lang="ca-valencia">Pix</name>
   <name xml:lang="es">Pix</name>
+  <name xml:lang="it">Pix</name>
   <name xml:lang="ko">Pix</name>
   <name xml:lang="nl">Pix</name>
   <name xml:lang="pt">Pix</name>
@@ -14,11 +15,13 @@
   <name xml:lang="sv">Pix</name>
   <name xml:lang="uk">Pix</name>
   <name xml:lang="x-test">xxPixxx</name>
+  <name xml:lang="zh-TW">Pix</name>
   <summary>Play your music collection</summary>
   <summary xml:lang="ca">Reprodueix la vostra col·lecció de música</summary>
   <summary xml:lang="ca-valencia">Reprodueix la vostra col·lecció de música</summary>
   <summary xml:lang="es">Reproduce su colección de música</summary>
   <summary xml:lang="fr">Jouez votre collection musicale</summary>
+  <summary xml:lang="it">Riproduce la tua collezione musicale</summary>
   <summary xml:lang="ko">내 음악 모음집 재생</summary>
   <summary xml:lang="nl">Uw muziekcollectie afspelen</summary>
   <summary xml:lang="pt">Tocar a sua colecção de música</summary>
@@ -26,11 +29,13 @@
   <summary xml:lang="sv">Spela din musiksamling</summary>
   <summary xml:lang="uk">Відтворення вашої музичної збірки</summary>
   <summary xml:lang="x-test">xxPlay your music collectionxx</summary>
+  <summary xml:lang="zh-TW">播放您的音樂集合</summary>
   <description>
     <p> Convergent image and gallery viewer. </p>
     <p xml:lang="ca">Visor convergent d'imatges i galeries.</p>
     <p xml:lang="ca-valencia">Visor convergent d'imatges i galeries.</p>
     <p xml:lang="es">Visor convergente de imágenes y galería.</p>
+    <p xml:lang="it">Visualizzatore convergente di immagini e galleria.</p>
     <p xml:lang="ko">이미지와 갤러리 통합 뷰어입니다.</p>
     <p xml:lang="nl">Viewer voor convergente afbeeldingen en galerij.</p>
     <p xml:lang="pt">Visualizador convergente de imagens e galerias.</p>
@@ -49,6 +54,7 @@
       <caption xml:lang="ca">El reproductor de música Pix</caption>
       <caption xml:lang="ca-valencia">El reproductor de música Pix</caption>
       <caption xml:lang="es">El reproductor de música Pix</caption>
+      <caption xml:lang="it">Il lettore musicale Pix</caption>
       <caption xml:lang="ko">Pix 음악 재생기</caption>
       <caption xml:lang="nl">De muziekspeler Pix</caption>
       <caption xml:lang="pt">O leitor de música Pix</caption>
@@ -56,6 +62,7 @@
       <caption xml:lang="sv">Musikspelaren Pix</caption>
       <caption xml:lang="uk">Музичний програвач Pix</caption>
       <caption xml:lang="x-test">xxThe Pix music playerxx</caption>
+      <caption xml:lang="zh-TW">Pix 音樂播放器</caption>
       <image type="source" width="1366" height="744">
         https://raw.githubusercontent.com/mauikit/pix/master/screenshots/view1.png
       </image>

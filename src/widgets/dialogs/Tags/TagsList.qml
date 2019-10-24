@@ -31,7 +31,7 @@ ListView
     {
         id: delegate
         label: tag
-        radius: radiusV
+        radius: Maui.Style.radiusV
         Connections
         {
             target: delegate

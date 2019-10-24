@@ -30,7 +30,7 @@ ListView
     {
         id: delegate
         label: album
-        radius: radiusV
+        radius: Maui.Style.radiusV
 
         Connections
         {

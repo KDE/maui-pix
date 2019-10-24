@@ -2,10 +2,12 @@ import QtQuick 2.9
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import org.kde.mauikit 1.0 as Maui
+import org.kde.kirigami 2.6 as Kirigami
+
 import "../db/Query.js" as Q
 import "../widgets/views/Pix.js" as PIX
 
-Maui.Menu
+Menu
 {
     id: control
 
@@ -14,7 +16,7 @@ Maui.Menu
 
     onOpened: isFav = dba.isFav(list.get(index).url)
 
-    Maui.MenuItem
+    MenuItem
     {
         text: qsTr("Select")
         onTriggered: PIX.selectItem(list.get(index))
@@ -22,13 +24,13 @@ Maui.Menu
 
     MenuSeparator{}
 
-    Maui.MenuItem
+    MenuItem
     {
         text: qsTr(isFav ? "UnFav it": "Fav it")
         onTriggered: list.fav(index, !isFav)
     }
 
-    Maui.MenuItem
+    MenuItem
     {
         text: qsTr("Add to...")
         onTriggered:
@@ -38,7 +40,7 @@ Maui.Menu
         }
     }
 
-    Maui.MenuItem
+    MenuItem
     {
         text: qsTr("Tags...")
         onTriggered:
@@ -48,7 +50,7 @@ Maui.Menu
         }
     }
 
-    Maui.MenuItem
+    MenuItem
     {
         text: qsTr("Share...")
         onTriggered:
@@ -63,7 +65,7 @@ Maui.Menu
         }
     }
 
-    Maui.MenuItem
+    MenuItem
     {
         text: qsTr("Save to...")
         onTriggered:
@@ -88,7 +90,7 @@ Maui.Menu
         }
     }
 
-    Maui.MenuItem
+    MenuItem
     {
         visible: !isAndroid
         text: qsTr("Show in folder...")
@@ -112,10 +114,10 @@ Maui.Menu
     MenuSeparator{}
 
 
-    Maui.MenuItem
+    MenuItem
     {
         text: qsTr("Remove...")
-        colorScheme.textColor: dangerColor
+        Kirigami.Theme.textColor: dangerColor
         onTriggered:
         {
             removeDialog.open()

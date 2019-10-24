@@ -2,6 +2,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import org.kde.mauikit 1.0 as Maui
+import org.kde.kirigami 2.6 as Kirigami
+
 import "../widgets/views/Pix.js" as PIX
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 
@@ -16,19 +18,19 @@ Maui.SelectionBar
     visible: selectionList.count > 0 && currentView !== views.viewer
     onIconClicked: _menu.popup()
     onExitClicked: clear()
-    colorScheme.backgroundColor: "#212121"
+//    colorScheme.backgroundColor: "#212121"
 
-    Maui.Menu
+    Menu
     {
         id: _menu
 
-        Maui.MenuItem
+        MenuItem
         {
             text: qsTr("Un/Fav them")
             onTriggered: VIEWER.fav(selectedPaths)
         }
 
-        Maui.MenuItem
+        MenuItem
         {
             text: qsTr("Add to...")
             onTriggered:
@@ -38,7 +40,7 @@ Maui.SelectionBar
             }
         }
 
-        Maui.MenuItem
+        MenuItem
         {
             text: qsTr("Tags...")
             onTriggered:
@@ -48,7 +50,7 @@ Maui.SelectionBar
             }
         }
 
-        Maui.MenuItem
+        MenuItem
         {
             text: qsTr("Share...")
             onTriggered:
@@ -63,7 +65,7 @@ Maui.SelectionBar
             }
         }
 
-        Maui.MenuItem
+        MenuItem
         {
             text: qsTr("Save to...")
             onTriggered:
@@ -79,7 +81,7 @@ Maui.SelectionBar
             }
         }
 
-        Maui.MenuItem
+        MenuItem
         {
             text: qsTr("Show in folder...")
             onTriggered: pix.showInFolder(selectedPaths)
@@ -87,10 +89,10 @@ Maui.SelectionBar
 
         MenuSeparator{}
 
-        Maui.MenuItem
+        MenuItem
         {
             text: qsTr("Remove...")
-            colorScheme.textColor: dangerColor
+            Kirigami.Theme.textColor: dangerColor
             onTriggered:
             {
                 removeDialog.open()

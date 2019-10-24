@@ -18,13 +18,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.1
 
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
 
 import "widgets"
@@ -52,21 +50,18 @@ import AlbumsList 1.0
 import TagsModel 1.0
 import TagsList 1.0
 
-import SyncingModel 1.0
-import SyncingList 1.0
-
-import FMList 1.0
+//import SyncingModel 1.0
+//import SyncingList 1.0
 import StoreList 1.0
 
 Maui.ApplicationWindow
 {
     id: root
     title: qsTr("Pix")
-    showAccounts: false
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
     //    altToolBars: true
-    about.appDescription: qsTr("Pix is an image gallery manager made for Maui. Pix is a convergent and multiplatform app that works under Android and GNU Linux distros.")
-    about.appIcon: "qrc:/img/assets/pix.svg"
+    Maui.App.description: qsTr("Pix is an image gallery manager made for Maui. Pix is a convergent and multiplatform app that works under Android and GNU Linux distros.")
+    Maui.App.iconName: "qrc:/img/assets/pix.svg"
 
     property alias dialog : dialogLoader.item
     /*READONLY PROPS*/
@@ -91,26 +86,25 @@ Maui.ApplicationWindow
     /******************** UI COLORS *******************/
     /*************************************************/
 
-    highlightColor : "#00abaa"
-    altColor : "#2e2f30" // "#545c6e"
-    accentColor: altColor
-    altColorText: "#fafafa"
+//    highlightColor : "#00abaa"
+//    altColor : "#2e2f30" // "#545c6e"
+//    accentColor: altColor
+//    altColorText: "#fafafa"
 
-    colorSchemeName: "pix"
-    bgColor: backgroundColor
-    headBar.drawBorder: false
-    headBarBGColor: backgroundColor
-    headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
-    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : viewBackgroundColor
-    viewBackgroundColor: currentView === views.viewer ? backgroundColor : Maui.Style.viewBackgroundColor
-    textColor: headBarFGColor
+//    colorSchemeName: "pix"
+//    bgColor: backgroundColor
+//    headBar.drawBorder: false
+//    headBarBGColor: backgroundColor
+//    headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
+//    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : viewBackgroundColor
+//    viewBackgroundColor: currentView === views.viewer ? backgroundColor : Maui.Style.viewBackgroundColor
 
     /***************************************************/
     /**************************************************/
     /*************************************************/
 
     onSearchButtonClicked: currentView =  views.search
-    rightIcon.iconColor: currentView === views.search ? highlightColor : headBarFGColor
+//    rightIcon.icon.color: currentView === views.search ? highlightColor : headBarFGColor
 //    rightIcon.showIndicator: currentView === views.search
 
     //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
@@ -132,37 +126,29 @@ Maui.ApplicationWindow
         //            icon.name: "folder-cloud"
         //        },
 
-        Maui.MenuItem
-        {
-            id: _tagsButton
-            text: qsTr("Tags")
-            onTriggered: currentView = views.tags
-            icon.name: "tag"
-        },
 
-        MenuSeparator {},
 
-        Maui.MenuItem
+        MenuItem
         {
             text: "Sources"
             icon.name: "folder-add"
             onTriggered:
             {
-                //                dialogLoader.sourceComponent = sourcesDialogComponent;
-                //                dialog.open()
+                                dialogLoader.sourceComponent = sourcesDialogComponent;
+                                dialog.open()
 
 
-                dialogLoader.sourceComponent= fmDialogComponent
-                dialog.mode= dialog.modes.OPEN
-                dialog.onlyDirs= true
-                dialog.show(function(paths)
-                {
-                    pix.addSources(paths)
-                })
+//                dialogLoader.sourceComponent= fmDialogComponent
+//                dialog.mode= dialog.modes.OPEN
+//                dialog.onlyDirs= true
+//                dialog.show(function(paths)
+//                {
+//                    pix.addSources(paths)
+//                })
             }
         },
 
-        Maui.MenuItem
+        MenuItem
         {
             text: "Open..."
             icon.name: "folder-open"
@@ -170,14 +156,12 @@ Maui.ApplicationWindow
             {
                 dialogLoader.sourceComponent= fmDialogComponent
                 dialog.mode = dialog.modes.OPEN
-                dialog.filterType= FMList.IMAGE
+                dialog.filterType= Maui.FMList.IMAGE
                 dialog.onlyDirs= false
                 dialog.show(function(paths)
                 {
                     console.log("OPEN THIS PATHS", paths)
-
                     pix.openPics(paths)
-
                 });
             }
         }
@@ -185,127 +169,133 @@ Maui.ApplicationWindow
 
     headBar.visible: !fullScreen
     headBar.spacing: space.big
-    headBar.middleContent: [
-        Maui.ToolButton
-        {
-            text: qsTr("Viewer")
-            showIndicator: true
-            active: currentView === views.viewer
-            visible: !pixViewer.holder.visible
-            iconColor: active ? highlightColor : headBarFGColor
-            iconName: "image"
-            onClicked: currentView = views.viewer
-        },
+    headBar.middleContent: Kirigami.ActionToolBar
+    {
+        hiddenActions: [
 
-        Maui.ToolButton
-        {
-            text: qsTr("Gallery")
-            active: currentView === views.gallery
-            showIndicator: true
-            iconColor: active ? highlightColor : headBarFGColor
-            iconName: "image-multiple"
-            onClicked: currentView = views.gallery
-        },
+            Kirigami.Action
+            {
+                id: _tagsButton
+                text: qsTr("Tags")
+                onTriggered: currentView = views.tags
+                icon.name: "tag"
+            }
+        ]
 
-        Maui.ToolButton
-        {
-            text: qsTr("Folders")
-            active: currentView === views.folders
-            showIndicator: true
-            iconColor: active ? highlightColor : headBarFGColor
-            iconName: "image-folder-view"
-            onClicked: currentView = views.folders
-        },
+        actions: [
+            Kirigami.Action
+            {
+                text: qsTr("Viewer")
+//                showIndicator: true
+                checked: currentView === views.viewer
+                checkable: false
+                visible: !pixViewer.holder.visible
+//                icon.color: checked ? highlightColor : headBarFGColor
+                icon.name: "image"
+                onTriggered: currentView = views.viewer
+            },
 
-        Maui.ToolButton
-        {
-            text: qsTr("Albums")
-            active: currentView === views.albums
-            showIndicator: true
-            iconColor: active ? highlightColor : headBarFGColor
-            iconName: "image-frames"
-            onClicked: currentView = views.albums
-        }
-    ]
+            Kirigami.Action
+            {
+                text: qsTr("Gallery")
+                checked: currentView === views.gallery
+//                showIndicator: true
+//                icon.color: checked ? highlightColor : headBarFGColor
+                icon.name: "folder-image"
+                onTriggered: currentView = views.gallery
+            },
 
-    content: Item
+            Kirigami.Action
+            {
+                text: qsTr("Folders")
+                checked: currentView === views.folders
+                checkable: false
+//                showIndicator: true
+//                icon.color: active ? highlightColor : headBarFGColor
+                icon.name: "folder"
+                onTriggered: currentView = views.folders
+            },
+
+            Kirigami.Action
+            {
+                text: qsTr("Albums")
+                checked: currentView === views.albums
+                checkable: false
+//                showIndicator: true
+//                icon.color: checked ? highlightColor : headBarFGColor
+                icon.name: "image-frames"
+                onTriggered: currentView = views.albums
+            }
+        ]
+
+
+    }
+
+    ColumnLayout
     {
         anchors.fill: parent
 
-        Rectangle
+        SwipeView
         {
-            anchors.fill: parent
-            color: bgColor
+            id: swipeView
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            interactive: isMobile
+            currentIndex: currentView
+
+            onCurrentIndexChanged: currentView = currentIndex
+
+            PixViewer
+            {
+                id: pixViewer
+            }
+
+            GalleryView
+            {
+                id: galleryView
+            }
+
+            FoldersView
+            {
+                id: foldersView
+            }
+
+            AlbumsView
+            {
+                id: albumsView
+            }
+
+            TagsView
+            {
+                id: tagsView
+            }
+
+
+            //                Loader
+            //                {
+            //                    id: cloudViewLoader
+            //                }
+
+            //                Loader
+            //                {
+            //                    id: storeViewLoader
+            //                }
+
+            SearchView
+            {
+                id: searchView
+            }
+
         }
 
-        ColumnLayout
+        SelectionBar
         {
-            anchors.fill: parent
-
-
-
-            SwipeView
-            {
-                id: swipeView
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                interactive: isMobile
-                currentIndex: currentView
-
-                onCurrentIndexChanged: currentView = currentIndex
-
-                PixViewer
-                {
-                    id: pixViewer
-                }
-
-                GalleryView
-                {
-                    id: galleryView
-                }
-
-                FoldersView
-                {
-                    id: foldersView
-                }
-
-                AlbumsView
-                {
-                    id: albumsView
-                }
-
-                TagsView
-                {
-                    id: tagsView
-                }
-
-
-                //                Loader
-                //                {
-                //                    id: cloudViewLoader
-                //                }
-
-                //                Loader
-                //                {
-                //                    id: storeViewLoader
-                //                }
-
-                SearchView
-                {
-                    id: searchView
-                }
-
-            }
-
-            SelectionBar
-            {
-                id: selectionBox
-                Layout.fillWidth : true
-                Layout.leftMargin: space.big
-                Layout.rightMargin: space.big
-                Layout.bottomMargin: space.big
-                Layout.topMargin: space.small
-            }
+            id: selectionBox
+            Layout.fillWidth : true
+            Layout.leftMargin: space.big
+            Layout.rightMargin: space.big
+            Layout.bottomMargin: space.big
+            Layout.topMargin: space.small
         }
     }
 
@@ -367,9 +357,10 @@ Maui.ApplicationWindow
         id: fmDialogComponent
         Maui.FileDialog
         {
-            onlyDirs: false
             mode: modes.SAVE
-            filterType: FMList.IMAGE
+            settings.filterType: Maui.FMList.IMAGE
+            settings.onlyDirs: false
+
         }
     }
 
@@ -381,17 +372,17 @@ Maui.ApplicationWindow
             maxHeight: 500
             maxWidth: 500
 
-            headBarTitle: qsTr("Sources")
+            page.title: qsTr("Sources")
             headBar.rightContent: [
 
-                Maui.ToolButton
+                ToolButton
                 {
-                    iconName: "list-add"
+                    icon.name: "list-add"
                 },
 
-                Maui.ToolButton
+                ToolButton
                 {
-                    iconName: "list-remove"
+                    icon.name: "list-remove"
                 }
             ]
 

@@ -23,13 +23,13 @@ Maui.Drawer
             position: ToolBar.Header
 
             middleContent: [
-                Maui.ToolButton
+                ToolButton
                 {
                     iconName: "object-rotate-left"
                     onClicked: viewer.list.currentItem.rotateLeft()
                 }
                 ,
-                Maui.ToolButton
+                ToolButton
                 {
                     iconName: "object-rotate-right"
                     onClicked: viewer.list.currentItem.rotateRight()

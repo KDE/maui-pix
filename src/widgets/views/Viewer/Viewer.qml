@@ -1,6 +1,8 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import org.kde.mauikit 1.0 as Maui
+import org.kde.kirigami 2.7 as Kirigami
+
 import "../../"
 import "Viewer.js" as VIEWER
 
@@ -16,15 +18,11 @@ Maui.Page
     property alias count : viewerList.count
     property alias currentIndex : viewerList.currentIndex
     property alias currentItem: viewerList.currentItem
+    headBar.visible: false
 
     clip: true
     focus: true
-    floatingBar: true
-//    footBarOverlap: true
-//    allowRiseContent: false
-    headBar.visible: false
-
-    colorScheme.backgroundColor: viewerBackgroundColor
+    Kirigami.Theme.backgroundColor: viewerBackgroundColor
 
     ListView
     {

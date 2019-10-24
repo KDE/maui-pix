@@ -38,9 +38,9 @@ Kirigami.PageRow
     PixGrid
     {
         id: tagsGrid
-        headBarExit: !wideMode
-        headBarExitIcon: "go-previous"
-        onExit: if(!wideMode) currentIndex = 0
+//        headBarExit: !wideMode
+//        headBarExitIcon: "go-previous"
+//        onExit: if(!wideMode) currentIndex = 0
         holder.title: "No Pics!"
         holder.body: "There's no pics associated with the tag"
         holder.isMask: false

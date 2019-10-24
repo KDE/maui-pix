@@ -2,11 +2,10 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick 2.9
 
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
 import PixModel 1.0
 import GalleryList 1.0
-import FMList 1.0
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../widgets/views/Pix.js" as PIX
@@ -31,43 +30,13 @@ Maui.Page
 
     /*signals*/
     signal picClicked(int index)
-    floatingBar: true
-    footBarOverlap: true
-    headBar.drawBorder: false
+
+    padding: space.big
 
     Maui.Holder
     {
         id: holder
         visible: grid.count === 0
-    }
-
-    Maui.Menu
-    {
-        id: gridMenu
-
-        Maui.MenuItem
-        {
-            checkable: true
-            checked: fitPreviews
-            text: qsTr( "Fit previews")
-            onTriggered:
-            {
-                fitPreviews = !fitPreviews
-                Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
-            }
-        }
-
-        Maui.MenuItem
-        {
-            checkable: true
-            checked: showLabels
-            text: qsTr("Show labels")
-            onTriggered:
-            {
-                showLabels = !showLabels
-                Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
-            }
-        }
     }
 
     PixMenu
@@ -76,35 +45,45 @@ Maui.Page
         index: grid.currentIndex
     }
 
-    headBarTitle: grid.count+" "+qsTr("images")
-headBar.plegable : false
-    headBar.rightContent:[
-        Maui.ToolButton
-        {
-            iconName: "item-select"
-            onClicked: selectionMode = !selectionMode
-            iconColor: selectionMode ? highlightColor : textColor
-
-        },
-        Maui.ToolButton
-        {
-            id: menuBtn
-            iconName: "overflow-menu"
-            onClicked: gridMenu.popup()
-        }
-    ]
-
-    headBar.leftContent: [
-        Maui.ToolButton
-        {
-            iconName: "view-sort"
-            onClicked: sortMenu.popup()
-
-            Maui.Menu
+//    headBarTitle: grid.count+" "+qsTr("images")
+//    headBar.leftSretch: false
+    headBar.rightContent: Kirigami.ActionToolBar
+    {
+        Layout.fillWidth: false
+        Layout.preferredWidth: implicitWidth
+        hiddenActions: [
+            Kirigami.Action
             {
-                id: sortMenu
+                checkable: true
+                checked: fitPreviews
+                text: qsTr( "Fit previews")
+                onTriggered:
+                {
+                    fitPreviews = !fitPreviews
+                    Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
+                }
+            },
 
-                Maui.MenuItem
+            Kirigami.Action
+            {
+                checkable: true
+                checked: showLabels
+                text: qsTr("Show labels")
+                onTriggered:
+                {
+                    showLabels = !showLabels
+                    Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
+                }
+            }
+        ]
+
+        actions: [
+            Kirigami.Action
+            {
+                icon.name: "view-sort"
+                text: qsTr("Sort")
+
+                Kirigami.Action
                 {
                     text: qsTr("Title")
                     checkable: true
@@ -112,7 +91,7 @@ headBar.plegable : false
                     onTriggered: pixList.sortBy = GalleryList.TITLE
                 }
 
-                Maui.MenuItem
+                Kirigami.Action
                 {
                     text: qsTr("Add date")
                     checkable: true
@@ -120,7 +99,7 @@ headBar.plegable : false
                     onTriggered: pixList.sortBy = GalleryList.ADDDATE
                 }
 
-                Maui.MenuItem
+                Kirigami.Action
                 {
                     text: qsTr("Creation date")
                     checkable: true
@@ -128,15 +107,7 @@ headBar.plegable : false
                     onTriggered: pixList.sortBy = GalleryList.DATE
                 }
 
-//                Maui.MenuItem
-//                {
-//                    text: qsTr("Place")
-//                    checkable: true
-//                    checked: pixList.sortBy === FMList.PLACE
-//                    onTriggered: pixList.sortBy = FMList.PLACE
-//                }
-
-                Maui.MenuItem
+                Kirigami.Action
                 {
                     text: qsTr("Format")
                     checkable: true
@@ -144,7 +115,7 @@ headBar.plegable : false
                     onTriggered: pixList.sortBy = GalleryList.FORMAT
                 }
 
-                Maui.MenuItem
+                Kirigami.Action
                 {
                     text: qsTr("Size")
                     checkable: true
@@ -152,34 +123,42 @@ headBar.plegable : false
                     onTriggered: pixList.sortBy = GalleryList.SIZE
                 }
 
-                Maui.MenuItem
+                Kirigami.Action
                 {
                     text: qsTr("Favorites")
                     checkable: true
                     checked: pixList.sortBy === GalleryList.FAV
                     onTriggered: pixList.sortBy = GalleryList.FAV
                 }
-            }
-        }
-    ]
+            },
 
-    footBar.colorScheme.backgroundColor: accentColor
-    footBar.colorScheme.textColor: altColorText
-    footBar.visible: false
-    footBar.middleContent: [
-        Maui.ToolButton
-        {
-            iconName: "zoom-in"
-            iconColor: altColorText
-            onClicked: zoomIn()
-        },
-        Maui.ToolButton
-        {
-            iconName: "zoom-out"
-            iconColor: altColorText
-            onClicked: zoomOut()
-        }
-    ]
+            Kirigami.Action
+            {
+                icon.name: "item-select"
+                onTriggered: selectionMode = !selectionMode
+                text: qsTr("Select")
+                checkable: true
+            }
+        ]
+    }
+
+    //    footBar.colorScheme.backgroundColor: accentColor
+    //    footBar.colorScheme.textColor: altColorText
+    //    footBar.visible: false
+    //    footBar.middleContent: [
+    //        ToolButton
+    //        {
+    //            iconName: "zoom-in"
+    //            iconColor: altColorText
+    //            onClicked: zoomIn()
+    //        },
+    //        ToolButton
+    //        {
+    //            iconName: "zoom-out"
+    //            iconColor: altColorText
+    //            onClicked: zoomOut()
+    //        }
+    //    ]
 
     Component
     {

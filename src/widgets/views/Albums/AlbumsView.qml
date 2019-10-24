@@ -36,20 +36,15 @@ StackView
    initialItem: Maui.Page
     {
         id: albumsPage
-        headBar.visible: false
-        floatingBar: true
-        footBarOverlap: true
-        allowRiseContent: false
-        footBarAligment: Qt.AlignRight
-        footBarMargins: space.huge
+        padding: space.big
 
-        footBar.colorScheme.backgroundColor: altColor
-        footBar.colorScheme.borderColor: Qt.darker(altColor, 1.4)
-        footBar.middleContent: Maui.ToolButton
+//        footBar.colorScheme.backgroundColor: altColor
+//        footBar.colorScheme.borderColor: Qt.darker(altColor, 1.4)
+        footBar.middleContent: ToolButton
         {
-            iconName: "list-add"
+            icon.name: "list-add"
             onClicked: newAlbumDialog.open()
-            iconColor: altColorText
+//            icon.color: altColorText
         }
 
         AlbumsGrid
@@ -71,11 +66,12 @@ StackView
         holder.emojiSize: iconSizes.huge
         holder.emoji: "qrc:/img/assets/MoonSki.png"
 
-        headBarExit: true
-        headBarExitIcon: "go-previous"
-        headBarTitle: albumGrid.currentAlbum
-
-        onExit: stackView.pop()
+        title: albumGrid.currentAlbum
+        headBar.leftContent: ToolButton
+        {
+            icon.name:"go-previous"
+            onClicked: stackView.pop()
+        }
 
         footer: Maui.TagsBar
         {

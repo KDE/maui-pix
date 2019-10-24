@@ -3,6 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import org.kde.mauikit 1.0 as Maui
+import org.kde.kirigami 2.7 as Kirigami
 
 ItemDelegate
 {  
@@ -20,10 +21,10 @@ ItemDelegate
     property alias source : img.source
     property alias label : _label.text
 
-    property string indicatorColor: ListView.isCurrentItem ? highlightColor : "transparent"
+    property string indicatorColor: ListView.isCurrentItem ? Kirigami.Theme.highlightColor : "transparent"
 
-    property color labelColor : (GridView.isCurrentItem || (keepEmblemOverlay && emblemAdded)) && !hovered && showSelectionBackground? highlightedTextColor : textColor
-    property color hightlightedColor : GridView.isCurrentItem || hovered || (keepEmblemOverlay && emblemAdded) ? highlightColor : "transparent"
+    property color labelColor : (GridView.isCurrentItem || (keepEmblemOverlay && emblemAdded)) && !hovered && showSelectionBackground? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+    property color hightlightedColor : GridView.isCurrentItem || hovered || (keepEmblemOverlay && emblemAdded) ? Kirigami.Theme.highlightColor : "transparent"
 
     property bool showSelectionBackground : true
 
@@ -122,12 +123,12 @@ ItemDelegate
                     }
                 }
 
-                Maui.ToolButton
+                ToolButton
                 {
                     visible:  img.status !== Image.Ready
-                    iconName: "image-x-generic"
-                    size: Math.min(picSize, iconSizes.huge)
-                    isMask: false
+                    icon.name: "image-x-generic"
+                    icon.width: Math.min(picSize, iconSizes.huge)
+//                    isMask: false
                     enabled: false
 
                     anchors.centerIn: parent
@@ -170,7 +171,7 @@ ItemDelegate
                     visible: parent.visible && showSelectionBackground
                     anchors.fill: parent
                     z: -1
-                    radius: radiusV
+                    radius: Maui.Style.radiusV
                     color: hightlightedColor
                     opacity: hovered ? 0.25 : 1
                 }
