@@ -170,7 +170,6 @@ Maui.Page
                 id: tagBar
                 visible: !holder.visible && tagBarVisible && !fullScreen
                 Layout.fillWidth: true
-                bgColor: viewerBackgroundColor
                 allowEditMode: true
                 list.urls: [currentPic.url]
                 onTagClicked: PIX.searchFor(tag)

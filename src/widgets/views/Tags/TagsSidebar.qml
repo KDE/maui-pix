@@ -32,7 +32,7 @@ Maui.Page
         z: 999
     }
 
-    Maui.SideBar
+    Maui.ListBrowser
     {
         id: _tagsList
         anchors.fill: parent
@@ -42,7 +42,7 @@ Maui.Page
         {
             id: delegate
             label: tag
-            radius: radiusV
+            radius: Maui.Style.radiusV
 
             Connections
             {
