@@ -50,19 +50,18 @@ import AlbumsList 1.0
 import TagsModel 1.0
 import TagsList 1.0
 
-import SyncingModel 1.0
-import SyncingList 1.0
+//import SyncingModel 1.0
+//import SyncingList 1.0
 import StoreList 1.0
 
 Maui.ApplicationWindow
 {
     id: root
     title: qsTr("Pix")
-    showAccounts: false
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
     //    altToolBars: true
-    about.appDescription: qsTr("Pix is an image gallery manager made for Maui. Pix is a convergent and multiplatform app that works under Android and GNU Linux distros.")
-    about.appIcon: "qrc:/img/assets/pix.svg"
+    Maui.App.description: qsTr("Pix is an image gallery manager made for Maui. Pix is a convergent and multiplatform app that works under Android and GNU Linux distros.")
+    Maui.App.iconName: "qrc:/img/assets/pix.svg"
 
     property alias dialog : dialogLoader.item
     /*READONLY PROPS*/
@@ -358,9 +357,10 @@ Maui.ApplicationWindow
         id: fmDialogComponent
         Maui.FileDialog
         {
-            onlyDirs: false
             mode: modes.SAVE
-            filterType: Maui.FMList.IMAGE
+            settings.filterType: Maui.FMList.IMAGE
+            settings.onlyDirs: false
+
         }
     }
 

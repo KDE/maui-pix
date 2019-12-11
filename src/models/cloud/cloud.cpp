@@ -5,7 +5,7 @@ Cloud::Cloud(QObject *parent) : BaseList (parent)
     this->fm = new FM(this);
     this->setList();
 
-    connect(this->fm, &FM::cloudServerContentReady, [this](const FMH::MODEL_LIST &list, const QString &url)
+    connect(this->fm, &FM::cloudServerContentReady, [this](const FMH::MODEL_LIST &list, const QUrl &url)
     {
         Q_UNUSED(url);
         emit this->preListChanged();
@@ -19,7 +19,7 @@ Cloud::Cloud(QObject *parent) : BaseList (parent)
         emit this->warning(message);
     });
 
-    connect(this->fm, &FM::cloudItemReady, [this](const FMH::MODEL &item, const QString &path)
+    connect(this->fm, &FM::cloudItemReady, [this](const FMH::MODEL &item, const QUrl &path)
     {
         qDebug()<< "REQUESTED CLOUD IMAGE READY << " << item;
         Q_UNUSED(path);
@@ -32,9 +32,8 @@ Cloud::Cloud(QObject *parent) : BaseList (parent)
         newItem[FMH::MODEL_KEY::SOURCE] = FMH::fileExists(thumbnail)? thumbnail : item[FMH::MODEL_KEY::PATH];
         newItem[FMH::MODEL_KEY::TITLE] = item[FMH::MODEL_KEY::LABEL];
 
-
-        this->update(FM::toMap(newItem), this->pending.take(QString(item[FMH::MODEL_KEY::PATH]).replace(FMH::CloudCachePath+"opendesktop", FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::CLOUD_PATH])));
-        emit this->cloudImageReady(FM::toMap(newItem));
+        this->update(FMH::toMap(newItem), this->pending.take(QString(item[FMH::MODEL_KEY::PATH]).replace(FMH::CloudCachePath+"opendesktop", FMH::PATHTYPE_URI[FMH::PATHTYPE_KEY::CLOUD_PATH])));
+        emit this->cloudImageReady(FMH::toMap(newItem));
     });
 }
 
@@ -63,7 +62,7 @@ void Cloud::setList()
 {
     emit this->preListChanged();
     this->list.clear();
-    this->fm->getCloudServerContent(FMH::PATHTYPE_NAME[FMH::PATHTYPE_KEY::CLOUD_PATH]+"/"+this->account, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], 3);
+    this->fm->getCloudServerContent(FMH::PATHTYPE_URI[FMH::PATHTYPE_KEY::CLOUD_PATH]+"/"+this->account, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], 3);
     emit this->postListChanged();
 }
 
@@ -103,7 +102,7 @@ void Cloud::requestImage(const int &index)
     this->pending.insert(this->list[index][FMH::MODEL_KEY::PATH], index);
     qDebug()<< "1-PEDNIGN CLOUD"<< this->pending;
 
-    this->fm->getCloudItem(FM::toMap(this->list[index]));
+    this->fm->getCloudItem(FMH::toMap(this->list[index]));
 }
 
 bool Cloud::update(const QVariantMap &data, const int &index)

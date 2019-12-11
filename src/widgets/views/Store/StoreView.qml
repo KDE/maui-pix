@@ -191,7 +191,7 @@ Maui.Page
             delegate: Maui.ListDelegate
             {
                 id: delegate
-                radius: radiusV
+                radius: Maui.Style.radiusV
 
                 Connections
                 {

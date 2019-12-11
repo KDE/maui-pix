@@ -16,7 +16,7 @@ Maui.ImageViewer
 
     readonly property string currentImageSource: "file://"+model.url
 
-    image.source : currentImageSource
+    source : currentImageSource
 
     width: itemWidth
     height: itemHeight   

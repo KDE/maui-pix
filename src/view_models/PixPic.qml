@@ -171,7 +171,7 @@ ItemDelegate
                     visible: parent.visible && showSelectionBackground
                     anchors.fill: parent
                     z: -1
-                    radius: radiusV
+                    radius: Maui.Style.radiusV
                     color: hightlightedColor
                     opacity: hovered ? 0.25 : 1
                 }

@@ -31,7 +31,6 @@ Maui.Page
     /*signals*/
     signal picClicked(int index)
 
-    headBar.drawBorder: false
     padding: space.big
 
     Maui.Holder

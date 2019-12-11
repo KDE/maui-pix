@@ -24,7 +24,6 @@ import org.kde.mauikit 1.0 as Maui
 
 
     footBar.visible: true
-        footBar.drawBorder: false
         footBar.middleContent: Maui.TextField
         {
             id: searchInput
