@@ -1,18 +1,10 @@
 #include "gallery.h"
 #include "./src/db/dbactions.h"
 
-#ifdef STATIC_MAUIKIT
-#include "fmh.h"
-#else
-#include <MauiKit/fmh.h>
-#endif
-
-Gallery::Gallery(QObject *parent) : BaseList(parent)
+Gallery::Gallery(QObject *parent) : MauiList(parent)
 {
     qDebug()<< "CREATING GALLERY LIST";
     this->dba = DBActions::getInstance();
-    this->sortList();
-
     connect(this, &Gallery::sortByChanged, this, &Gallery::sortList);
     connect(this, &Gallery::orderChanged, this, &Gallery::sortList);
 
@@ -65,42 +57,42 @@ void Gallery::sortList()
 
         switch(role)
         {
-        case FMH::MODEL_KEY::SIZE:
-        case FMH::MODEL_KEY::FAV:
-        {
-            if(e1[role].toDouble() > e2[role].toDouble())
-                return true;
-            break;
-        }
+            case FMH::MODEL_KEY::SIZE:
+            case FMH::MODEL_KEY::FAV:
+            {
+                if(e1[role].toDouble() > e2[role].toDouble())
+                    return true;
+                break;
+            }
 
-        case FMH::MODEL_KEY::DATE:
-        case FMH::MODEL_KEY::ADDDATE:
-        {
-            auto date1 = QDateTime::fromString(e1[role], Qt::TextDate);
-            auto date2 = QDateTime::fromString(e2[role], Qt::TextDate);
+            case FMH::MODEL_KEY::DATE:
+            case FMH::MODEL_KEY::ADDDATE:
+            {
+                auto date1 = QDateTime::fromString(e1[role], Qt::TextDate);
+                auto date2 = QDateTime::fromString(e2[role], Qt::TextDate);
 
-            if(date1 > date2)
-                return true;
+                if(date1 > date2)
+                    return true;
 
-            break;
+                break;
 
-        }
+            }
 
-        case FMH::MODEL_KEY::TITLE:
-        case FMH::MODEL_KEY::PLACE:
-        case FMH::MODEL_KEY::FORMAT:
-        {
-            const auto str1 = QString(e1[role]).toLower();
-            const auto str2 = QString(e2[role]).toLower();
+            case FMH::MODEL_KEY::TITLE:
+            case FMH::MODEL_KEY::PLACE:
+            case FMH::MODEL_KEY::FORMAT:
+            {
+                const auto str1 = QString(e1[role]).toLower();
+                const auto str2 = QString(e2[role]).toLower();
 
-            if(str1 < str2)
-                return true;
-            break;
-        }
+                if(str1 < str2)
+                    return true;
+                break;
+            }
 
-        default:
-            if(e1[role] < e2[role])
-                return true;
+            default:
+                if(e1[role] < e2[role])
+                    return true;
         }
 
         return false;
@@ -111,7 +103,18 @@ void Gallery::setList()
 {
     emit this->preListChanged();
 
-    this->list = this->dba->getDBData(this->query);
+    this->list = this->dba->getDBData(this->query, [&](FMH::MODEL &item) {
+            const auto url = QUrl::fromLocalFile(item[FMH::MODEL_KEY::URL]);
+    if(FMH::fileExists(url))
+        return true;
+    else
+    {
+        this->dba->removePic(url.toString());
+        return false;
+    }
+});
+
+    qDebug()<< this->list;
     this->sortList();
 
     emit this->postListChanged();

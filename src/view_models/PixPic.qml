@@ -5,11 +5,11 @@ import QtGraphicalEffects 1.0
 import org.kde.mauikit 1.0 as Maui
 import org.kde.kirigami 2.7 as Kirigami
 
-ItemDelegate
+Maui.ItemDelegate
 {  
     id: control
 
-    property int picSize : iconSizes.enormous
+    property int picSize : Maui.Style.iconSizes.enormous
     property int picRadius : 0
     property bool showLabel : true
     property bool showIndicator : false
@@ -31,10 +31,10 @@ ItemDelegate
     property bool emblemAdded : false
     property bool keepEmblemOverlay : false
 
-    signal rightClicked();
+//    signal rightClicked();
     signal emblemClicked();
 
-    hoverEnabled: !isMobile
+    hoverEnabled: !Kirigami.Settings.isMobile
     focus: true
 
     background: Rectangle
@@ -42,16 +42,16 @@ ItemDelegate
         color: "transparent"
     }
 
-    MouseArea
-    {
-        anchors.fill: parent
-        acceptedButtons:  Qt.RightButton
-        onClicked:
-        {
-            if(!isMobile && mouse.button === Qt.RightButton)
-                rightClicked()
-        }
-    }
+//    MouseArea
+//    {
+//        anchors.fill: parent
+//        acceptedButtons:  Qt.RightButton
+//        onClicked:
+//        {
+//            if(!Kirigami.Settings.isMobile && mouse.button === Qt.RightButton)
+//                rightClicked()
+//        }
+//    }
 
     Maui.Badge
     {
@@ -82,18 +82,16 @@ ItemDelegate
             {
                 id: img
                 anchors.fill: parent
-                anchors.centerIn: parent
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
-                sourceSize.height: control.picSize
-                sourceSize.width: control.picSize
+                sourceSize.height: height
+                sourceSize.width: width
                 cache: control.cachePic
                 antialiasing: true
                 asynchronous: true
                 smooth: true
                 fillMode: fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
-                source: (url && url.length>0) ?
-                            "file://"+encodeURIComponent(url) : "qrc:/img/assets/image-x-generic.svg"
+                source: (url && url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
 
                 Rectangle
                 {
@@ -101,8 +99,8 @@ ItemDelegate
                     anchors.horizontalCenter: parent.horizontalCenter
                     visible: showIndicator
                     color: indicatorColor
-                    height: iconSizes.small
-                    width: iconSizes.small
+                    height: Maui.Style.iconSizes.small
+                    width: Maui.Style.iconSizes.small
                     radius: Math.min(width, height)
                 }
 
@@ -123,14 +121,12 @@ ItemDelegate
                     }
                 }
 
-                ToolButton
+                Kirigami.Icon
                 {
                     visible:  img.status !== Image.Ready
-                    icon.name: "image-x-generic"
-                    icon.width: Math.min(picSize, iconSizes.huge)
-//                    isMask: false
-                    enabled: false
-
+                    source: "image-x-generic"
+                    width: Math.min(parent.height, Maui.Style.iconSizes.huge)
+                    height: width
                     anchors.centerIn: parent
                 }
             }
@@ -146,7 +142,7 @@ ItemDelegate
 
         Item
         {
-            height: showLabel ? (unit * 24) + space.small : 0
+            height: showLabel ? (unit * 24) + Maui.space.small : 0
             Layout.fillWidth: true
             Layout.maximumHeight: height
             Layout.minimumHeight: height
@@ -163,7 +159,7 @@ ItemDelegate
                 verticalAlignment: Qt.AlignVCenter
                 elide: Qt.ElideRight
                 wrapMode: Text.Wrap
-                font.pointSize: fontSizes.default
+                font.pointSize: Maui.Style.fontSizes.default
                 color: labelColor
 
                 Rectangle

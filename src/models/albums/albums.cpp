@@ -1,7 +1,7 @@
 #include "albums.h"
 #include "./src/db/dbactions.h"
 
-Albums::Albums(QObject *parent) : BaseList(parent)
+Albums::Albums(QObject *parent) : MauiList(parent)
 {
     qDebug()<< "CREATING GALLERY LIST";
     this->dba = DBActions::getInstance();

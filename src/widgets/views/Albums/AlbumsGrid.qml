@@ -11,8 +11,8 @@ Maui.GridView
     signal albumClicked(int index)
 
     adaptContent: true
-    itemSize : iconSizes.huge
-    spacing: itemSize * 0.5 + (isMobile ? space.big : space.large)
+    itemSize : Maui.Style.iconSizes.huge
+    spacing: itemSize * 0.5 + (Kirigami.Settings.isMobile ? Maui.Style.space.big : Maui.Style.space.large)
 
     cellWidth: itemSize + spacing
     cellHeight: itemSize +spacing

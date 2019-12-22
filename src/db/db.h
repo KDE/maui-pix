@@ -63,7 +63,6 @@ public:
     QVariantList getList(const QString &queryTxt);
 
 protected:
-    void initDB();
     void openDB(const QString &name);
     void prepareCollectionDB() const;
 

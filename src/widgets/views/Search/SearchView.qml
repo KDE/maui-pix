@@ -20,7 +20,7 @@ import org.kde.mauikit 1.0 as Maui
         holder.isMask: false
         holder.title : "No Results!"
         holder.body: "Try with another query"
-        holder.emojiSize: iconSizes.huge
+        holder.emojiSize: Maui.Style.iconSizes.huge
 
 
     footBar.visible: true
@@ -29,7 +29,7 @@ import org.kde.mauikit 1.0 as Maui
             id: searchInput
             placeholderText: qsTr("Search...")
             width: footBar.middleLayout.width * 0.9
-            Layout.margins: space.medium
+            Layout.margins: Maui.Style.space.medium
             Layout.fillWidth: true
             onAccepted: runSearch(searchInput.text)
         }

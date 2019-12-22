@@ -35,28 +35,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using namespace std;
 
-class FileLoader;
 class Pix : public QObject
 {
     Q_OBJECT
 
 public:
     explicit Pix(QObject* parent = nullptr);
-    ~Pix();
-
     /*UTILS*/
-    Q_INVOKABLE void openPics(const QStringList &pics);
 
-    Q_INVOKABLE void refreshCollection();
-    /*File actions*/
-    Q_INVOKABLE void showInFolder(const QStringList &urls);
 
 public slots:
     void addSources(const QStringList &paths);
+    void openPics(const QStringList &pics);
+    void refreshCollection();
+    /*File actions*/
+   static void showInFolder(const QStringList &urls);
 
 private:
-    FileLoader *fileLoader;
-    void populateDB(const QStringList &paths);
+    void populateDB(const QList<QUrl> &urls);
 
 signals:
     void refreshViews(QVariantMap tables);

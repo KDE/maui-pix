@@ -58,7 +58,7 @@ public:
 
     /* utils */
     FMH::MODEL_LIST getFolders(const QString &query);
-    FMH::MODEL_LIST getDBData(const QString &queryTxt);
+    FMH::MODEL_LIST getDBData(const QString &queryTxt, std::function<void(FMH::MODEL &item)> modifier = nullptr);
 
 public slots:
     QVariantList get(const QString &queryTxt);
@@ -73,8 +73,7 @@ public slots:
 private:
     static DBActions* instance;
     explicit DBActions(QObject *parent = nullptr);
-    ~DBActions();
-    void init();
+
 signals:
     void tagAdded(QString tag);
     void albumAdded(QString album);

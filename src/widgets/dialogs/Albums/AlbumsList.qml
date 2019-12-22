@@ -21,7 +21,7 @@ ListView
         isMask: false
         title : qsTr("No albums!")
         body: qsTr("Start creating new albums")
-        emojiSize: iconSizes.huge
+        emojiSize: Maui.Style.iconSizes.huge
         visible: count === 0
     }
 

@@ -15,7 +15,7 @@ PixGrid
     property alias list : _cloudList
     headBarExit: false
     visible: true
-    holder.emojiSize: iconSizes.huge
+    holder.emojiSize: Maui.Style.iconSizes.huge
     holder.emoji: if(!_cloudList.contentReady)
                       "qrc:/assets/animat-rocket-color.gif"
                   else
@@ -54,7 +54,7 @@ PixGrid
 
                 if(selectionMode)
                     PIX.selectItem(pixList.get(index))
-                else if(isMobile)
+                else if(Kirigami.Settings.isMobile)
                     VIEWER.open(_cloudList, index)
             }
 
@@ -62,7 +62,7 @@ PixGrid
             {
                 control.grid.currentIndex = index
                 //picClicked(index)
-                if(!isMobile)
+                if(!Kirigami.Settings.isMobile)
                     VIEWER.open(_cloudList, index)
                 //                    else
                 //                        selectionBox.append(gridModel.get(index))

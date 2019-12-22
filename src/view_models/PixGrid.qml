@@ -4,7 +4,6 @@ import QtQuick 2.9
 
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
-import PixModel 1.0
 import GalleryList 1.0
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
@@ -16,10 +15,10 @@ Maui.Page
     id: gridPage
 
     /*props*/
-    property int itemSize : isMobile ? iconSizes.huge * 1.5 : iconSizes.enormous
-    property int itemSpacing: isMobile ? space.medium : space.big
-    property int itemRadius : unit * 6
-    property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
+    property int itemSize : Kirigami.Settings.isMobile ? Maui.Style.iconSizes.huge * 1.5 : Maui.Style.iconSizes.enormous
+    property int itemSpacing: Kirigami.Settings.isMobile ? Maui.Style.space.medium : Maui.Style.space.big
+    property int itemRadius : Maui.Style.unit * 6
+    property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !Kirigami.Settings.isMobile) === "true" ? true : false
     property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
 
     property alias grid: grid
@@ -31,7 +30,7 @@ Maui.Page
     /*signals*/
     signal picClicked(int index)
 
-    padding: space.big
+    padding: Maui.Style.space.big
 
     Maui.Holder
     {
@@ -183,14 +182,14 @@ Maui.Page
                     grid.currentIndex = index
                     if(selectionMode)
                         PIX.selectItem(pixList.get(index))
-                    else if(isMobile)
+                    else if(Kirigami.Settings.isMobile)
                         openPic(index)
                 }
 
                 onDoubleClicked:
                 {
                     grid.currentIndex = index
-                    if(!isMobile)
+                    if(!Kirigami.Settings.isMobile)
                         openPic(index)
                 }
 
@@ -215,7 +214,7 @@ Maui.Page
         }
     }
 
-    PixModel
+    Maui.BaseModel
     {
         id: pixModel
         list: pixList

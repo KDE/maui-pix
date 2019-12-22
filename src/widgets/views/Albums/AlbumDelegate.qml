@@ -6,11 +6,11 @@ import org.kde.kirigami 2.2 as Kirigami
 
 ItemDelegate
 {
-    property int albumSize :  iconSizes.large
+    property int albumSize :  Maui.Style.iconSizes.large
     property color hightlightedColor : GridView.isCurrentItem || hovered  ? Kirigami.Theme.highlightColor : "transparent"
     property color labelColor : GridView.isCurrentItem  && !hovered ?Kirigami.Theme. highlightedTextColor : Kirigami.Theme.textColor
 
-    hoverEnabled: !isMobile
+    hoverEnabled: !Kirigami.Settings.isMobile
 
     background: Rectangle
     {
@@ -21,7 +21,7 @@ ItemDelegate
     {
         anchors.fill: parent
         anchors.centerIn: parent
-        spacing: space.small
+        spacing: Maui.Style.space.small
 
         Item
         {
@@ -61,7 +61,7 @@ ItemDelegate
                 verticalAlignment: Qt.AlignVCenter
                 horizontalAlignment: Qt.AlignHCenter
                 elide: Qt.ElideRight
-                font.pointSize: fontSizes.default
+                font.pointSize: Maui.Style.fontSizes.default
                 color: labelColor
 
                 Rectangle

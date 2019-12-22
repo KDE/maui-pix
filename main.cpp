@@ -49,8 +49,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <MauiKit/tagging.h>
 #endif
 
-#include "./src/models/basemodel.h"
-#include "./src/models/baselist.h"
 #include "./src/models/gallery/gallery.h"
 #include "./src/models/albums/albums.h"
 //#include "./src/models/cloud/cloud.h"
@@ -58,7 +56,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "./src/models/folders/foldermodel.h"
 #include "./src/models/folders/folders.h"
 
-QStringList getFolderImages(const QString &path)
+static const QStringList getFolderImages(const QString &path)
 {
     QStringList urls;
 
@@ -74,7 +72,7 @@ QStringList getFolderImages(const QString &path)
     return urls;
 }
 
-QStringList openFiles(const QStringList &files)
+static const QStringList openFiles(const QStringList &files)
 {
     QStringList urls;
 
@@ -101,13 +99,15 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 #endif
 
-    app.setApplicationName(PIX::App);
+    app.setApplicationName(PIX::appName);
     app.setApplicationVersion(PIX::version);
-    app.setApplicationDisplayName(PIX::App);
+    app.setApplicationDisplayName(PIX::displayName);
+    app.setOrganizationName(PIX::orgName);
+    app.setOrganizationDomain(PIX::orgDomain);
     app.setWindowIcon(QIcon(":/img/assets/pix.png"));
 
     QCommandLineParser parser;
-    parser.setApplicationDescription("Pix Image gallery viewer");
+    parser.setApplicationDescription(PIX::description);
     const QCommandLineOption versionOption = parser.addVersionOption();
     parser.addOption(versionOption);
     parser.process(app);
@@ -119,33 +119,41 @@ int main(int argc, char *argv[])
     if(!args.isEmpty())
         pics = openFiles(args);
 
-    Pix pix;
 
     QQmlApplicationEngine engine;
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
-    {
-        pix.refreshCollection();
-        if(!pics.isEmpty())
-            pix.openPics(pics);
+//    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
+//    {
+//        pix.refreshCollection();
+//        if(!pics.isEmpty())
+//            pix.openPics(pics);
+//    });
+
+    qmlRegisterSingletonType<Pix>("org.maui.pix", 1, 0, "Collection",
+                                          [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        return new Pix;
     });
 
-    auto context = engine.rootContext();
-    context->setContextProperty("pix", &pix);
+    qmlRegisterSingletonType<DBActions>("org.maui.pix", 1, 0, "DB",
+                                          [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        return DBActions::getInstance();
+    });
 
-    const auto dba = DBActions::getInstance();
-    context->setContextProperty("tag", dba->tag);
-    context->setContextProperty("dba", dba);
+    qmlRegisterSingletonType<Tagging>("org.maui.pix", 1, 0, "Tag",
+                                          [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        return DBActions::getInstance()->tag;
+    });
 
-//    qmlRegisterUncreatableMetaObject(PIX::staticMetaObject, "PIX", 1, 0, "KEY", "Error");
-
-    qmlRegisterUncreatableType<BaseList>("BaseList", 1, 0, "BaseList", QStringLiteral("BaseList should not be created in QML"));
-
-    qmlRegisterType<BaseModel>("PixModel", 1, 0, "PixModel");
     qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
     qmlRegisterType<Albums>("AlbumsList", 1, 0, "AlbumsList");
     qmlRegisterType<FolderModel>("FolderModel", 1, 0, "FolderModel");
     qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
-//    qmlRegisterType<Cloud>("CloudList", 1, 0, "CloudList");
+    //    qmlRegisterType<Cloud>("CloudList", 1, 0, "CloudList");
 
 #ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();

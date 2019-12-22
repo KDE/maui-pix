@@ -9,8 +9,8 @@ import "../Viewer/Viewer.js" as VIEWER
 import "../Pix.js" as PIX
 import "../../"
 
-import StoreModel 1.0
-import StoreList 1.0
+//import StoreModel 1.0
+//import StoreList 1.0
 
 import "../../../view_models"
 
@@ -18,8 +18,8 @@ Maui.Page
 {
     id: control
     /*props*/
-    property int itemSize : isMobile ? iconSizes.huge * 1.5 : iconSizes.enormous
-    property int itemSpacing: isMobile ? space.medium : space.big
+    property int itemSize : Kirigami.Settings.isMobile ? Maui.Style.iconSizes.huge * 1.5 : Maui.Style.iconSizes.enormous
+    property int itemSpacing: Kirigami.Settings.isMobile ? Maui.Style.space.medium : Maui.Style.space.big
     property int itemRadius : unit * 6
     property bool showLabels : true
     property bool fitPreviews : false
@@ -70,7 +70,7 @@ Maui.Page
             text: _storeList.page
             font.bold: true
             font.weight: Font.Bold
-            font.pointSize: fontSizes.big
+            font.pointSize: Maui.Style.fontSizes.big
             enabled: !holder.visible
 
             anchors.verticalCenter: _previousPageButton.verticalCenter
@@ -122,7 +122,7 @@ Maui.Page
         id: holder
         visible: grid.count === 0
 
-        emojiSize: iconSizes.huge
+        emojiSize: Maui.Style.iconSizes.huge
         emoji: if(!_storeList.contentReady)
                    "qrc:/assets/animat-diamond-color.gif"
                else
@@ -186,7 +186,7 @@ Maui.Page
         {
             id: _filterList
             anchors.fill: parent
-            anchors.margins: space.medium
+            anchors.margins: Maui.Style.space.medium
             model: ListModel{id: _filterModel}
             delegate: Maui.ListDelegate
             {

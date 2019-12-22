@@ -44,7 +44,7 @@ Kirigami.PageRow
         holder.title: "No Pics!"
         holder.body: "There's no pics associated with the tag"
         holder.isMask: false
-        holder.emojiSize: iconSizes.huge
+        holder.emojiSize: Maui.Style.iconSizes.huge
         holder.emoji: "qrc:/img/assets/Bread.png"
     }
 

@@ -23,7 +23,7 @@ ListView
         isMask: false
         title : "No tags!"
         body: "Start tagging your pics"
-        emojiSize: iconSizes.huge
+        emojiSize: Maui.Style.iconSizes.huge
     }
 
     model: tagsModel

@@ -60,7 +60,7 @@ Maui.Drawer
                     Layout.column: 1
                     width: parent.width
                     text: qsTr("Color")
-                    font.pointSize: fontSizes.big
+                    font.pointSize: Maui.Style.fontSizes.big
                     font.weight: Font.Bold
                     font.bold: true
                 }

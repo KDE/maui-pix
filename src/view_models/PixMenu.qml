@@ -117,7 +117,7 @@ Menu
     MenuItem
     {
         text: qsTr("Remove...")
-        Kirigami.Theme.textColor: dangerColor
+        Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
         onTriggered:
         {
             removeDialog.open()

@@ -11,10 +11,10 @@ Maui.SelectionBar
 {
     id: control
     Layout.fillWidth : true
-    Layout.leftMargin: space.big
-    Layout.rightMargin: space.big
-    Layout.bottomMargin: space.big
-    Layout.topMargin: space.small
+    Layout.leftMargin: Maui.Style.space.big
+    Layout.rightMargin: Maui.Style.space.big
+    Layout.bottomMargin: Maui.Style.space.big
+    Layout.topMargin: Maui.Style.space.small
     visible: selectionList.count > 0 && currentView !== views.viewer
     onIconClicked: _menu.popup()
     onExitClicked: clear()
@@ -92,7 +92,7 @@ Maui.SelectionBar
         MenuItem
         {
             text: qsTr("Remove...")
-            Kirigami.Theme.textColor: dangerColor
+            Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
             onTriggered:
             {
                 removeDialog.open()

@@ -14,7 +14,7 @@ Maui.Dialog
     signal picTagged(string tag, string url)
     signal tagsAdded(var tags, var urls)
     defaultButtons: true
-    page.padding: space.medium
+    page.padding: Maui.Style.space.medium
 
     maxHeight: unit * 500
 

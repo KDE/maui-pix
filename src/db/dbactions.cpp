@@ -26,27 +26,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <MauiKit/tagging.h>
 #endif
 
-DBActions::DBActions(QObject *parent) : DB(parent) {}
-
-DBActions::~DBActions() {}
-
-void DBActions::init()
+DBActions::DBActions(QObject *parent) : DB(parent)
 {
     qDebug() << "Getting collectionDB info from: " << PIX::CollectionDBPath;
-
     qDebug()<< "Starting DBActions";
     this->tag = Tagging::getInstance();
 }
 
 DBActions *DBActions::instance = nullptr;
-
 DBActions *DBActions::getInstance()
 {
     if(!instance)
     {
-        instance = new DBActions();
         qDebug() << "getInstance(): First DBActions instance\n";
-        instance->init();
+        instance = new DBActions();
         return instance;
     } else
     {
@@ -256,7 +249,7 @@ FMH::MODEL_LIST DBActions::getFolders(const QString &query)
     return res;
 }
 
-FMH::MODEL_LIST DBActions::getDBData(const QString &queryTxt)
+FMH::MODEL_LIST DBActions::getDBData(const QString &queryTxt, std::function<void(FMH::MODEL &item)> modifier)
 {
     FMH::MODEL_LIST mapList;
 
@@ -267,18 +260,12 @@ FMH::MODEL_LIST DBActions::getDBData(const QString &queryTxt)
         while(query.next())
         {
             FMH::MODEL data;
-            for(auto key : FMH::MODEL_NAME.keys())
+            for(const auto &key : FMH::MODEL_NAME.keys())
                 if(query.record().indexOf(FMH::MODEL_NAME[key]) > -1)
                     data.insert(key, query.value(FMH::MODEL_NAME[key]).toString());
-
-            const auto url = data[FMH::MODEL_KEY::URL];
-            if(!url.isEmpty())
-            {
-                if(FMH::fileExists(url))
-                    mapList<< data;
-                else
-                    this->removePic(data[FMH::MODEL_KEY::URL]);
-            }else mapList<< data;
+            if(modifier)
+                modifier(data);
+            mapList << data;
         }
 
     }else qDebug()<< query.lastError()<< query.lastQuery();

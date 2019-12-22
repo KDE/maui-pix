@@ -26,27 +26,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 DB::DB(QObject *parent) : QObject(parent)
 {
-    this->initDB();
-}
-
-DB::~DB()
-{
-//    this->m_db.close();
-}
-
-void DB::initDB()
-{
-    QDir collectionDBPath_dir(PIX::CollectionDBPath);
+    QDir collectionDBPath_dir(PIX::CollectionDBPath.toLocalFile());
     if (!collectionDBPath_dir.exists())
         collectionDBPath_dir.mkpath(".");
 
     this->name = QUuid::createUuid().toString();
-    if(!FMH::fileExists(PIX::CollectionDBPath + PIX::DBName))
+    if(!FMH::fileExists(PIX::CollectionDBPath.toLocalFile() + PIX::DBName))
     {
         this->openDB(this->name);
-        qDebug()<<"Collection doesn't exists, trying to create it" << PIX::CollectionDBPath + PIX::DBName;
+        qDebug()<<"Collection doesn't exists, trying to create it" << PIX::CollectionDBPath.toLocalFile() + PIX::DBName;
         this->prepareCollectionDB();
     }else this->openDB(this->name);
+}
+
+DB::~DB()
+{
+    this->m_db.close();
 }
 
 void DB::openDB(const QString &name)
@@ -54,7 +49,7 @@ void DB::openDB(const QString &name)
     if(!QSqlDatabase::contains(name))
     {
         this->m_db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), name);
-        this->m_db.setDatabaseName(PIX::CollectionDBPath + PIX::DBName);
+        this->m_db.setDatabaseName(PIX::CollectionDBPath.toLocalFile() + PIX::DBName);
     }
 
     if (!this->m_db.isOpen())

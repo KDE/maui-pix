@@ -8,8 +8,8 @@ Item
 {
     property alias rollList : rollList
 
-    property int rollHeight : iconSizes.large
-    property int rollPicSize : rollHeight-space.tiny
+    property int rollHeight : Maui.Style.iconSizes.large
+    property int rollPicSize : rollHeight-Maui.Style.space.tiny
 
     signal picClicked(int index)
 
@@ -58,7 +58,7 @@ Item
         currentIndex: currentPicIndex
         orientation: ListView.Horizontal
         clip: true
-        spacing: space.small
+        spacing: Maui.Style.space.small
 
         focus: true
         interactive: true

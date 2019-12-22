@@ -27,12 +27,12 @@ StackView
     initialItem: Maui.Page
     {
         id: foldersPage
-        padding: space.big
+        padding: Maui.Style.space.big
 
         headBar.middleContent:  Maui.TextField
         {
 //            Layout.fillWidth: true
-            Layout.margins: space.medium
+            Layout.margins: Maui.Style.space.medium
             Layout.fillWidth: true
             placeholderText: qsTr("Filter...")
             onAccepted: filter(text)
@@ -46,7 +46,7 @@ StackView
             isMask: false
             title : "No Folders!"
             body: "Add new image sources"
-            emojiSize: iconSizes.huge
+            emojiSize: Maui.Style.iconSizes.huge
             visible: false
         }
 
@@ -100,7 +100,7 @@ StackView
         holder.isMask: false
         holder.title : "Folder is empty!"
         holder.body: "There's not images on this folder"
-        holder.emojiSize: iconSizes.huge
+        holder.emojiSize: Maui.Style.iconSizes.huge
     }
 
     function refresh()

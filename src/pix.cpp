@@ -36,37 +36,12 @@ using namespace PIX;
 Pix::Pix(QObject *parent) : QObject(parent)
 {
     qDebug() << "Getting settings info from: " << PIX::SettingPath;
-
-    //    if(!PIX::fileExists(notifyDir+"/Pix.notifyrc"))
-    //    {
-    //        qDebug()<<"The Knotify file does not exists, going to create it";
-    //        QFile knotify(":Data/data/Pix.notifyrc");
-
-    //        if(knotify.copy(notifyDir+"/Pix.notifyrc"))
-    //            qDebug()<<"the knotify file got copied";
-    //    }
-
-
-    this->fileLoader = new FileLoader;
-    connect(this->fileLoader, &FileLoader::finished,[this](int size)
-    {
-        Q_UNUSED(size);
-        emit refreshViews({
-                              {PIX::TABLEMAP[TABLE::ALBUMS], true},
-                              {PIX::TABLEMAP[TABLE::TAGS], true},
-                              {PIX::TABLEMAP[TABLE::IMAGES], true}
-                          });
-    });
-}
-
-Pix::~Pix()
-{
-    delete this->fileLoader;
+    this->refreshCollection();
 }
 
 void Pix::openPics(const QStringList &pics)
 {   
-    emit viewPics(pics);
+    emit this->viewPics(pics);
 }
 
 void Pix::refreshCollection()
@@ -76,31 +51,36 @@ void Pix::refreshCollection()
     this->populateDB(sources);
 }
 
-void Pix::populateDB(const QStringList &paths)
+void Pix::populateDB(const QList<QUrl> &urls)
 {
     qDebug() << "Function Name: " << Q_FUNC_INFO
-             << "new path for database action: " << paths;
-    QStringList newPaths;
+             << "new path for database action: " << urls << QThread::currentThread();
 
-    for(auto path : paths)
-        if(path.startsWith("file://"))
-            newPaths << path.replace("file://", "");
-        else
-            newPaths << path;
-
-    qDebug()<<"paths to scan"<<newPaths;
-
-    fileLoader->requestPath(newPaths);
+    const auto fileLoader = new FileLoader; //is moved to another thread
+    connect(fileLoader, &FileLoader::finished,[this, fl = fileLoader](uint size)
+    {
+        Q_UNUSED(size)
+        emit this->refreshViews({
+                              {PIX::TABLEMAP[TABLE::ALBUMS], true},
+                              {PIX::TABLEMAP[TABLE::TAGS], true},
+                              {PIX::TABLEMAP[TABLE::IMAGES], true}
+                          });
+//        fl->deleteLater(); //not sure if delete since when thread finishes it is also deleted
+    });
+    fileLoader->requestPath(urls);
 }
 
 void Pix::showInFolder(const QStringList &urls)
 {
-    for(auto url : urls)
+    for(const auto &url : urls)
         QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(url).dir().absolutePath()));
 }
 
 void Pix::addSources(const QStringList &paths)
 {
     PIX::saveSourcePath(paths);
-    this->populateDB(paths);
+    this->populateDB(std::accumulate(paths.constBegin(), paths.constEnd(), QList<QUrl> {}, [](QList<QUrl> &urls, const QString &path)  {
+                         urls << QUrl::fromUserInput(path);
+                         return urls;
+                     }));
 }

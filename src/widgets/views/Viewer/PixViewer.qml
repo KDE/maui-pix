@@ -9,7 +9,6 @@ import "../.."
 import org.kde.kirigami 2.7 as Kirigami
 
 import org.kde.mauikit 1.0 as Maui
-import PixModel 1.0
 import GalleryList 1.0
 
 Maui.Page
@@ -63,7 +62,7 @@ Maui.Page
         index: viewer.currentIndex
     }
 
-    PixModel
+    Maui.BaseModel
     {
         id: pixModel
         list: GalleryList {}
@@ -160,7 +159,7 @@ Maui.Page
                 isGif : viewer.currentItem.status !== Image.Ready
                 title : viewer.count === 0 ? qsTr("No Pic!") : qsTr("Loading...")
                 body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
-                emojiSize: isGif ? iconSizes.enormous : iconSizes.huge
+                emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
                 visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
                 Kirigami.Theme.backgroundColor: viewerForegroundColor
             }
@@ -190,8 +189,8 @@ Maui.Page
             id: galleryRoll
             Layout.fillWidth: true
             Layout.margins: 0
-            Layout.topMargin: space.medium
-            Layout.bottomMargin: space.medium
+            Layout.topMargin: Maui.Style.space.medium
+            Layout.bottomMargin: Maui.Style.space.medium
             rollHeight: 120 * unit
             visible: false
             onPicClicked: VIEWER.view(index)

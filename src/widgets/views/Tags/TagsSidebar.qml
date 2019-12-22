@@ -28,7 +28,7 @@ Maui.Page
         isMask: false
         title : "No Tags!"
         body: "You can create new tags"
-        emojiSize: iconSizes.huge
+        emojiSize: Maui.Style.iconSizes.huge
         z: 999
     }
 
@@ -36,7 +36,7 @@ Maui.Page
     {
         id: _tagsList
         anchors.fill: parent
-        anchors.margins: space.medium
+        anchors.margins: Maui.Style.space.medium
         model: tagsModel
         delegate: Maui.ListDelegate
         {
