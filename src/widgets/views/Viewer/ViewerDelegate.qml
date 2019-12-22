@@ -11,10 +11,7 @@ Maui.ImageViewer
 
     property int itemWidth : parent.width
     property int itemHeight : parent.height
-
-
-
-    readonly property string currentImageSource: "file://"+model.url
+    readonly property string currentImageSource: model.url
 
     source : currentImageSource
 

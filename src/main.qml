@@ -222,10 +222,10 @@ Maui.ApplicationWindow
             currentIndex: _actionGroup.currentIndex
             onCurrentIndexChanged: _actionGroup.currentIndex = currentIndex
 
-            //            PixViewer
-            //            {
-            //                id: pixViewer
-            //            }
+                        PixViewer
+                        {
+                            id: pixViewer
+                        }
 
             GalleryView
             {

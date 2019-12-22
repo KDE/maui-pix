@@ -1,6 +1,7 @@
 .import "../Pix.js" as PIX
 .import "../../../db/Query.js" as Q
 .import org.kde.mauikit 1.0 as Maui
+.import org.maui.pix 1.0 as Pix
 
 function open(list, index)
 {
@@ -26,7 +27,7 @@ function view(index)
         cloudView.list.requestImage(pixViewer.currentPicIndex)
 
     console.log("CURRENT PIC FAV", pixViewer.currentPic.fav)
-    pixViewer.currentPicFav = dba.isFav(pixViewer.currentPic.url)
+    pixViewer.currentPicFav = Pix.DB.isFav(pixViewer.currentPic.url)
     root.title = pixViewer.currentPic.title
 
     pixViewer.roll.position(pixViewer.currentPicIndex)
