@@ -17,4 +17,5 @@ Maui.ImageViewer
 
     width: itemWidth
     height: itemHeight   
+    animated: true
 }

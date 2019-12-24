@@ -7,7 +7,7 @@ function open(list, index)
 {
     pixViewer.model.list = list
     view(index)
-    currentView = views.viewer
+    _actionGroup.currentIndex = views.viewer
 }
 
 function openExternalPics(pics, index)
@@ -15,7 +15,7 @@ function openExternalPics(pics, index)
     var oldIndex = pixViewer.viewer.count
     pixViewer.viewer.appendPics(pics)
     view(Math.max(oldIndex, 0))
-    currentView = views.viewer
+    _actionGroup.currentIndex = views.viewer
 }
 
 function view(index)
@@ -61,7 +61,7 @@ function previous()
 
 function fav(urls)
 {
-    for(var i in urls)
+    for(const i in urls)
     {
         var url = urls[i]
         var faved = dba.isFav(url);

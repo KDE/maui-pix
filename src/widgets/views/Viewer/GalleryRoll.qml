@@ -2,7 +2,9 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.7 as Kirigami
+import org.kde.mauikit 1.0 as Maui
 import "../../../view_models"
+import GalleryList 1.0
 
 Item
 {
@@ -68,28 +70,28 @@ Item
         delegate: PixPic
         {
             id: delegate
-            picSize: rollPicSize
-            height: rollPicSize
-            width: rollPicSize
-            anchors.verticalCenter: parent.verticalCenter
+            picSize: 64
+            height: 64
+            width: 64
+//            anchors.verticalCenter: parent.verticalCenter
 
-            picRadius: 0
-            showLabel: false
-            showIndicator: true
-            showEmblem: false
+//            picRadius: 0
+//            showLabel: false
+//            showIndicator: true
+//            showEmblem: false
 
-            Connections
-            {
-                target: delegate
-                onClicked:
-                {
-                    rollList.currentIndex = index
-                    picClicked(index)
-                }
+//            Connections
+//            {
+//                target: delegate
+//                onClicked:
+//                {
+//                    rollList.currentIndex = index
+//                    picClicked(index)
+//                }
 
-                onPressAndHold: _picMenu.popup()
-                onRightClicked: _picMenu.popup()
-            }
+//                onPressAndHold: _picMenu.popup()
+//                onRightClicked: _picMenu.popup()
+//            }
         }
     }
 

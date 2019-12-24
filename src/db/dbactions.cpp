@@ -156,7 +156,7 @@ bool DBActions::favPic(const QString &url, const bool &fav )
 
 bool DBActions::isFav(const QString &url)
 {
-    auto data = this->getDBData(QString("select * from images where url = '%1'").arg(url));
+    const auto data = this->getDBData(QString("select * from images where url = '%1'").arg(url));
 
     if (data.isEmpty()) return false;
 

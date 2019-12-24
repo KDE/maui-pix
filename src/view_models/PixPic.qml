@@ -142,7 +142,7 @@ Maui.ItemDelegate
 
         Item
         {
-            height: showLabel ? (unit * 24) + Maui.space.small : 0
+            height: showLabel ? (Maui.Style.unit * 24) + Maui.Style.space.small : 0
             Layout.fillWidth: true
             Layout.maximumHeight: height
             Layout.minimumHeight: height
