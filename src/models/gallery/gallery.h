@@ -65,7 +65,7 @@ public slots:
     bool update(const FMH::MODEL &pic);
     bool remove(const int &index);
     bool deleteAt(const int &index);
-    bool fav(const int &index, const bool &value);
+    bool fav(const int &url, const bool &value);
     void append(const QVariantMap &pic);
     void append(const QString &url);
 //    void appendAt(const QString &url, const int &pos);

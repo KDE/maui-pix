@@ -3,9 +3,9 @@
 .import org.kde.mauikit 1.0 as Maui
 .import org.maui.pix 1.0 as Pix
 
-function open(list, index)
+function open(model, index)
 {
-    pixViewer.model.list = list
+    pixViewer.currentModel = model
     view(index)
     _actionGroup.currentIndex = views.viewer
 }
@@ -21,7 +21,7 @@ function openExternalPics(pics, index)
 function view(index)
 {
     pixViewer.currentPicIndex = index
-    pixViewer.currentPic = pixViewer.model.list.get(pixViewer.currentPicIndex)
+    pixViewer.currentPic = pixViewer.currentModel.get(pixViewer.currentPicIndex)
 
     if(Maui.FM.isCloud(pixViewer.currentPic.source))
         cloudView.list.requestImage(pixViewer.currentPicIndex)
@@ -63,10 +63,10 @@ function fav(urls)
 {
     for(const i in urls)
     {
-        var url = urls[i]
-        var faved = dba.isFav(url);
+        const url = urls[i]
+        const faved = Pix.DB.isFav(url);
 
-        if(dba.favPic(url, !faved))
+        if(Pix.DB.favPic(url, !faved))
             if(urls.length === 1)
                 return !faved
     }

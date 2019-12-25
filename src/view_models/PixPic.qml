@@ -9,7 +9,6 @@ Maui.ItemDelegate
 {  
     id: control
 
-    property int picSize : Maui.Style.iconSizes.enormous
     property int picRadius : 0
     property bool showLabel : true
     property bool showIndicator : false
@@ -17,30 +16,28 @@ Maui.ItemDelegate
     property bool fit : false
     property bool isHovered :  hovered
     property bool cachePic: false
+    property bool dropShadow: false
 
     property alias source : img.source
     property alias label : _label.text
 
-    property string indicatorColor: ListView.isCurrentItem ? Kirigami.Theme.highlightColor : "transparent"
-
-    property color labelColor : (GridView.isCurrentItem || (keepEmblemOverlay && emblemAdded)) && !hovered && showSelectionBackground? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
-    property color hightlightedColor : GridView.isCurrentItem || hovered || (keepEmblemOverlay && emblemAdded) ? Kirigami.Theme.highlightColor : "transparent"
+    property color labelColor : (selected || isCurrentItem || (keepEmblemOverlay && selected)) && !hovered && showSelectionBackground? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+    property color hightlightedColor : selected || isCurrentItem || hovered || (keepEmblemOverlay && selected) ? Kirigami.Theme.highlightColor : "transparent"
 
     property bool showSelectionBackground : true
 
-    property bool emblemAdded : false
+    property bool selected : false
     property bool keepEmblemOverlay : false
 
-//    signal rightClicked();
     signal emblemClicked();
 
     hoverEnabled: !Kirigami.Settings.isMobile
-    focus: true
+    padding: Maui.Style.space.medium
 
-    background: Rectangle
-    {
-        color: "transparent"
-    }
+//    background: Rectangle
+//    {
+//        color: "transparent"
+//    }
 
 //    MouseArea
 //    {
@@ -56,14 +53,14 @@ Maui.ItemDelegate
     Maui.Badge
     {
         id: emblem
-        iconName: "list-add"
+        iconName: selected ? "lisr-remove" : "list-add"
         visible: isHovered || showEmblem
         z: 999
         anchors.top: parent.top
         anchors.left: parent.left
         onClicked:
         {
-            emblemAdded = !emblemAdded
+            selected = !selected
             emblemClicked(index)
         }
     }
@@ -71,7 +68,7 @@ Maui.ItemDelegate
     ColumnLayout
     {
         anchors.fill: parent
-
+        anchors.margins: Maui.Style.space.tiny
         Item
         {
             Layout.fillHeight: true
@@ -82,42 +79,34 @@ Maui.ItemDelegate
             {
                 id: img
                 anchors.fill: parent
-                horizontalAlignment: Qt.AlignHCenter
-                verticalAlignment: Qt.AlignVCenter
                 sourceSize.height: height
                 sourceSize.width: width
                 cache: control.cachePic
                 antialiasing: true
                 asynchronous: true
                 smooth: true
-                fillMode: fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
-                source: (url && url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
+                fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
+                source: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
 
                 Rectangle
                 {
                     anchors.bottom: parent.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
-                    visible: showIndicator
-                    color: indicatorColor
+                    visible: control.showIndicator
+                    color: control.isCurrentItem ? Kirigami.Theme.highlightColor : "transparent"
                     height: Maui.Style.iconSizes.small
                     width: Maui.Style.iconSizes.small
                     radius: Math.min(width, height)
                 }
 
-                layer.enabled: picRadius > 0
+                layer.enabled: true
                 layer.effect: OpacityMask
                 {
-                    maskSource: Item
+                    maskSource:  Rectangle
                     {
-                        width: img.sourceSize.width
-                        height: img.sourceSize.height
-                        Rectangle
-                        {
-                            anchors.centerIn: parent
-                            width: img.adapt ? img.sourceSize.width : Math.min(img.sourceSize.width, img.sourceSize.height)
-                            height: img.adapt ? img.sourceSize.height : width
-                            radius: picRadius
-                        }
+                        width: img.width
+                        height: img.height
+                        radius: control.picRadius
                     }
                 }
 
@@ -131,12 +120,24 @@ Maui.ItemDelegate
                 }
             }
 
-            Rectangle
+//            Rectangle
+//            {
+//                anchors.fill: parent
+//                color: hovered ? "#333" : "transparent"
+//                opacity: hovered ?  0.3 : 0
+//                radius: picRadius
+//            }
+
+            DropShadow
             {
-                anchors.fill: parent
-                color: hovered ? "#333" : "transparent"
-                opacity: hovered ?  0.3 : 0
-                radius: picRadius
+                anchors.fill: img
+                visible: control.dropShadow
+                horizontalOffset: 0
+                verticalOffset: 0
+                radius: 8.0
+                samples: 17
+                color: "#80000000"
+                source: img
             }
         }
 

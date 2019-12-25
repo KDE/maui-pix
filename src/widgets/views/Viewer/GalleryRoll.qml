@@ -10,46 +10,9 @@ Item
 {
     property alias rollList : rollList
 
-    property int rollHeight : Maui.Style.iconSizes.large
     property int rollPicSize : rollHeight-Maui.Style.space.tiny
 
     signal picClicked(int index)
-
-    Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
-    Kirigami.Theme.inherit: false
-    height: rollHeight
-    width: parent.width
-
-    Rectangle
-    {
-        anchors.fill: parent
-        z:-1
-        color: Kirigami.Theme.backgroundColor
-        radius: unit * 3
-        opacity: 0.8
-
-        Kirigami.Separator
-        {
-            anchors
-            {
-                top: parent.rop
-                left: parent.left
-                right: parent.right
-            }
-//            color: Qt.darker(parent.color, 1.5)
-        }
-
-        Kirigami.Separator
-        {
-            anchors
-            {
-                bottom: parent.bottom
-                left: parent.left
-                right: parent.right
-            }
-//            color: Qt.darker(parent.color, 1.5)
-        }
-    }
 
     ListView
     {
@@ -60,25 +23,26 @@ Item
         currentIndex: currentPicIndex
         orientation: ListView.Horizontal
         clip: true
-        spacing: Maui.Style.space.small
+        spacing: Maui.Style.space.big
 
         focus: true
         interactive: true
 
-        model: pixModel
+        model: currentModel
 
         delegate: PixPic
         {
             id: delegate
-            picSize: 64
-            height: 64
-            width: 64
-//            anchors.verticalCenter: parent.verticalCenter
+            height: 100
+            width: 100
 
-//            picRadius: 0
-//            showLabel: false
-//            showIndicator: true
-//            showEmblem: false
+            picRadius: Maui.Style.radiusV
+            showLabel: false
+            showIndicator: true
+            fit: false
+            showEmblem: false
+            dropShadow: true
+            isCurrentItem: ListView.isCurrentItem
 
 //            Connections
 //            {

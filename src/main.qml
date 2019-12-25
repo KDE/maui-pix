@@ -222,30 +222,30 @@ Maui.ApplicationWindow
             currentIndex: _actionGroup.currentIndex
             onCurrentIndexChanged: _actionGroup.currentIndex = currentIndex
 
-                        PixViewer
-                        {
-                            id: pixViewer
-                        }
+            PixViewer
+            {
+                id: pixViewer
+            }
 
             GalleryView
             {
                 id: galleryView
             }
 
-            //            FoldersView
-            //            {
-            //                id: foldersView
-            //            }
+            FoldersView
+            {
+                id: foldersView
+            }
 
-            //            AlbumsView
-            //            {
-            //                id: albumsView
-            //            }
+            AlbumsView
+            {
+                id: albumsView
+            }
 
-            //            TagsView
-            //            {
-            //                id: tagsView
-            //            }
+            TagsView
+            {
+                id: tagsView
+            }
 
 
             //            //                Loader
@@ -268,11 +268,13 @@ Maui.ApplicationWindow
         SelectionBar
         {
             id: selectionBox
-            Layout.fillWidth : true
-            Layout.leftMargin: Maui.Style.space.big
-            Layout.rightMargin: Maui.Style.space.big
-            Layout.bottomMargin: Maui.Style.space.big
+            Layout.maximumWidth: 500
+            Layout.minimumWidth: 100
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignCenter
+            Layout.margins: Maui.Style.space.big
             Layout.topMargin: Maui.Style.space.small
+            Layout.bottomMargin: Maui.Style.space.big
         }
     }
 

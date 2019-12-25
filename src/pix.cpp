@@ -73,7 +73,7 @@ void Pix::populateDB(const QList<QUrl> &urls)
 void Pix::showInFolder(const QStringList &urls)
 {
     for(const auto &url : urls)
-        QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(url).dir().absolutePath()));
+        QDesktopServices::openUrl(FMH::fileDir(url));
 }
 
 void Pix::addSources(const QStringList &paths)

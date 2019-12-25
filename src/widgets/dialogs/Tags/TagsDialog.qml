@@ -16,7 +16,7 @@ Maui.Dialog
     defaultButtons: true
     page.padding: Maui.Style.space.medium
 
-    maxHeight: unit * 500
+    maxHeight: 500
 
     onAccepted: setTags()
     onRejected: close()
@@ -64,9 +64,7 @@ Maui.Dialog
         Maui.TagList
         {
             id: tagListComposer
-            Layout.fillWidth: true
-            Layout.leftMargin: contentMargins
-            Layout.rightMargin: contentMargins
+            Layout.fillWidth: true           
             height: 64
             width: parent.width
             onTagRemoved: list.removeFromUrls(index)

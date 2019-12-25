@@ -19,12 +19,11 @@ Maui.Page
     property alias holder : holder
     property alias tagBar : tagBar
     property alias roll : galleryRoll
-    property alias model : pixModel
-    property alias list : pixModel.list
 
     property bool currentPicFav: false
     property var currentPic : ({})
     property int currentPicIndex : 0
+    property Maui.BaseModel currentModel : null
 
     property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
     property string viewerBackgroundColor : Maui.FM.loadSettings("VIEWER_BG_COLOR", "PIX", Kirigami.Theme.backgroundColor)
@@ -60,12 +59,6 @@ Maui.Page
     {
         id: _picMenu
         index: viewer.currentIndex
-    }
-
-    Maui.BaseModel
-    {
-        id: pixModel
-        list: GalleryList {}
     }
 
     headBar.visible: false
@@ -191,7 +184,7 @@ Maui.Page
             Layout.margins: 0
             Layout.topMargin: Maui.Style.space.medium
             Layout.bottomMargin: Maui.Style.space.medium
-            rollHeight: 120 * unit
+            Layout.preferredHeight: 120
             visible: false
             onPicClicked: VIEWER.view(index)
         }

@@ -11,7 +11,7 @@ Maui.Dialog
     property var picUrls : []
     signal picTagged(string tag)
 
-    maxHeight: unit * 500
+    maxHeight:  500
     onAccepted: addToAlbum(albumsList.get(_albumsList.currentIndex).album)
 
     page.padding: Maui.Style.space.medium

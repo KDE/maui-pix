@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.2 as Kirigami
 import org.kde.mauikit 1.0 as Maui
+import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
 import "../../../db/Query.js" as Q
@@ -59,10 +60,10 @@ Kirigami.PageRow
         if(!wideMode && currentIndex === 0)
             currentIndex = 1
 
-        var urls = tag.getUrls(myTag);
+        const urls = Pix.Tag.getUrls(myTag, true);
 
         if(urls.length > 0)
-            for(var i in urls)
+            for(const i in urls)
                 tagsGrid.list.append(urls[i].url)
 
     }

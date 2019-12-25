@@ -151,7 +151,6 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
     qmlRegisterType<Albums>("AlbumsList", 1, 0, "AlbumsList");
-    qmlRegisterType<FolderModel>("FolderModel", 1, 0, "FolderModel");
     qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
     //    qmlRegisterType<Cloud>("CloudList", 1, 0, "CloudList");
 

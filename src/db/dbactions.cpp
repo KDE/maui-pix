@@ -239,14 +239,11 @@ QVariantList DBActions::searchFor(const QStringList &queries, const QString &que
 
 FMH::MODEL_LIST DBActions::getFolders(const QString &query)
 {
-    FMH::MODEL_LIST res;
-    auto data =  this->getDBData(query);
-
-    /*Data model keys for to be used on MauiKit Icondelegate component */
-    for(auto i : data)
-        res << FMH::getFileInfoModel(i[FMH::MODEL_KEY::URL]);
-
-    return res;
+    const auto data = this->getDBData(query);
+    return std::accumulate(data.begin(), data.end(), FMH::MODEL_LIST(), [](FMH::MODEL_LIST &res, const FMH::MODEL &item){
+        res << FMH::getFileInfoModel(item[FMH::MODEL_KEY::URL]);
+        return res;
+    });
 }
 
 FMH::MODEL_LIST DBActions::getDBData(const QString &queryTxt, std::function<void(FMH::MODEL &item)> modifier)

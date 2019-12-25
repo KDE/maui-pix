@@ -6,50 +6,23 @@
 
 #ifdef STATIC_MAUIKIT
 #include "fmh.h"
+#include "mauilist.h"
 #else
 #include <MauiKit/fmh.h>
+#include <MauiKit/mauilist.h>
 #endif
 
-class DBActions;
-class Folders : public QObject
+class Folders : public MauiList
 {
     Q_OBJECT
-    Q_PROPERTY(QString query READ getQuery WRITE setQuery NOTIFY queryChanged())
-    Q_PROPERTY(uint sortBy READ getSortBy WRITE setSortBy NOTIFY sortByChanged)
 
 public:    
     explicit Folders(QObject *parent = nullptr);
-    FMH::MODEL_LIST items() const;
-
-    void setQuery(const QString &query);
-    QString getQuery() const;
-
-    void setSortBy(const uint &sort);
-    uint getSortBy() const;
+    FMH::MODEL_LIST items() const override final;
 
 private:
-    DBActions *dba;
     FMH::MODEL_LIST list;
-    void sortList();
     void setList();
-
-    QString query;
-    uint sort = FMH::MODIFIED;
-
-protected:
-
-signals:
-    void queryChanged();
-    void orderChanged();
-    void sortByChanged();
-
-    void preItemAppended();
-    void postItemAppended();
-    void preItemRemoved(int index);
-    void postItemRemoved();
-    void updateModel(int index, QVector<int> roles);
-    void preListChanged();
-    void postListChanged();
 
 public slots:    
     QVariantMap get(const int &index) const;

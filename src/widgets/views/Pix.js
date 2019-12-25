@@ -62,7 +62,7 @@ function searchFor(query)
 
 function selectItem(item)
 {
-    selectionBox.append(Maui.FM.getFileInfo(item.url))
+    selectionBox.append(item.url, item)
 }
 
 
