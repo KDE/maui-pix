@@ -7,8 +7,8 @@ import "../../../widgets/views/Pix.js" as PIX
 import "../../../db/Query.js" as Q
 import "../.."
 import org.kde.kirigami 2.7 as Kirigami
-
 import org.kde.mauikit 1.0 as Maui
+import org.maui.pix 1.0 as Pix
 import GalleryList 1.0
 
 Maui.Page
@@ -122,7 +122,10 @@ Maui.Page
 //            colorScheme.highlightColor: "#ff557f";
             checked: pixViewer.currentPicFav
             icon.color: pixViewer.currentPicFav ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
-            onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
+            onClicked:
+            {
+                 pixViewer.currentPicFav = Pix.Collection.fav(pixViewer.currentPic.url)
+            }
         },
 
         ToolButton

@@ -32,11 +32,29 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDesktopServices>
 
 using namespace PIX;
+#ifdef STATIC_MAUIKIT
+#include "tagging.h"
+#else
+#include <MauiKit/tagging.h>
+#endif
 
 Pix::Pix(QObject *parent) : QObject(parent)
 {
     qDebug() << "Getting settings info from: " << PIX::SettingPath;
     this->refreshCollection();
+}
+
+bool Pix::fav(const QUrl &url)
+{
+    if(Pix::isFav(url))
+       return Tagging::getInstance()->removeUrlTag(url.toString(), "fav");
+
+    return Tagging::getInstance()->tagUrl(url.toString(), "fav");
+}
+
+bool Pix::isFav(const QUrl &url)
+{
+    return  Tagging::getInstance()->urlTagExists(url.toString(), "fav", false);
 }
 
 void Pix::openPics(const QStringList &pics)
@@ -56,8 +74,8 @@ void Pix::populateDB(const QList<QUrl> &urls)
     qDebug() << "Function Name: " << Q_FUNC_INFO
              << "new path for database action: " << urls << QThread::currentThread();
 
-    const auto fileLoader = new FileLoader; //is moved to another thread
-    connect(fileLoader, &FileLoader::finished,[this, fl = fileLoader](uint size)
+    const auto fileLoader = new FileLoader; //is moved to another thread and deletion happens there
+    connect(fileLoader, &FileLoader::finished,[this](uint size)
     {
         Q_UNUSED(size)
         emit this->refreshViews({
@@ -65,7 +83,6 @@ void Pix::populateDB(const QList<QUrl> &urls)
                               {PIX::TABLEMAP[TABLE::TAGS], true},
                               {PIX::TABLEMAP[TABLE::IMAGES], true}
                           });
-//        fl->deleteLater(); //not sure if delete since when thread finishes it is also deleted
     });
     fileLoader->requestPath(urls);
 }

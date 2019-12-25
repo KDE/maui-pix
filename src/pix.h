@@ -47,6 +47,8 @@ public:
 public slots:
     void addSources(const QStringList &paths);
     void openPics(const QStringList &pics);
+    static bool fav(const QUrl &url);
+    static bool isFav(const QUrl &url);
     void refreshCollection();
     /*File actions*/
    static void showInFolder(const QStringList &urls);

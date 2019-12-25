@@ -14,7 +14,7 @@ Menu
     property bool isFav : false
     property int index : -1
 
-    onOpened: isFav = Pix.DB.isFav(model.get(index).url)
+    onOpened: isFav = Pix.Collection.isFav(model.get(index).url)
 
     MenuItem
     {
@@ -27,22 +27,12 @@ Menu
     MenuItem
     {
         text: qsTr(isFav ? "UnFav it": "Fav it")
-        onTriggered: list.fav(index, !isFav)
+        onTriggered: Pix.Collection.fav(model.get(index).url)
     }
 
     MenuItem
     {
-        text: qsTr("Add to...")
-        onTriggered:
-        {
-            dialogLoader.sourceComponent = albumsDialogComponent
-            dialog.show([model.get(index).url])
-        }
-    }
-
-    MenuItem
-    {
-        text: qsTr("Tags...")
+        text: qsTr("Tags")
         onTriggered:
         {
             dialogLoader.sourceComponent = tagsDialogComponent
@@ -52,7 +42,7 @@ Menu
 
     MenuItem
     {
-        text: qsTr("Share...")
+        text: qsTr("Share")
         onTriggered:
         {
             if(isAndroid)
@@ -67,7 +57,7 @@ Menu
 
     MenuItem
     {
-        text: qsTr("Save to...")
+        text: qsTr("Export")
         onTriggered:
         {
             var pic = model.get(index).url
@@ -93,7 +83,7 @@ Menu
     MenuItem
     {
         visible: !isAndroid
-        text: qsTr("Show in folder...")
+        text: qsTr("Show in folder")
         onTriggered:
         {
             Pix.Collection.showInFolder([model.get(index).url])
@@ -116,7 +106,7 @@ Menu
 
     MenuItem
     {
-        text: qsTr("Remove...")
+        text: qsTr("Remove")
         Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
         onTriggered:
         {

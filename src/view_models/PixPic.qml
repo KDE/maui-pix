@@ -53,8 +53,8 @@ Maui.ItemDelegate
     Maui.Badge
     {
         id: emblem
-        iconName: selected ? "lisr-remove" : "list-add"
-        visible: isHovered || showEmblem
+        iconName: selected ? "list-remove" : "list-add"
+        visible: isHovered || showEmblem || selected
         z: 999
         anchors.top: parent.top
         anchors.left: parent.left

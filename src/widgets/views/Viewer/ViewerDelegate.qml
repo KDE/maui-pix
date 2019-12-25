@@ -17,5 +17,5 @@ Maui.ImageViewer
 
     width: itemWidth
     height: itemHeight   
-//    animated: true
+    animated: model.format === "gif"
 }

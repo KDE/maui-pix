@@ -5,25 +5,7 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
 {
     qDebug()<< "CREATING GALLERY LIST";
     this->dba = DBActions::getInstance();
-    connect(this, &Gallery::sortByChanged, this, &Gallery::sortList);
-    connect(this, &Gallery::orderChanged, this, &Gallery::sortList);
-
     connect(this, &Gallery::queryChanged, this, &Gallery::setList);
-    connect(this, &Gallery::sortByChanged, this, &Gallery::setList);
-}
-
-void Gallery::setSortBy(const SORTBY &sort)
-{
-    if(this->sort == sort)
-        return;
-
-    this->sort = sort;
-    emit this->sortByChanged();
-}
-
-Gallery::SORTBY Gallery::getSortBy() const
-{
-    return this->sort;
 }
 
 FMH::MODEL_LIST Gallery::items() const
@@ -47,64 +29,12 @@ QString Gallery::getQuery() const
     return this->query;
 }
 
-void Gallery::sortList()
-{
-    const auto key = static_cast<FMH::MODEL_KEY>(this->sort);
-    qDebug()<< "SORTING LIST BY"<< this->sort;
-    std::sort(this->list.begin(), this->list.end(), [key](const FMH::MODEL &e1, const FMH::MODEL &e2) -> bool
-    {
-        auto role = key;
-
-        switch(role)
-        {
-            case FMH::MODEL_KEY::SIZE:
-            case FMH::MODEL_KEY::FAV:
-            {
-                if(e1[role].toDouble() > e2[role].toDouble())
-                    return true;
-                break;
-            }
-
-            case FMH::MODEL_KEY::DATE:
-            case FMH::MODEL_KEY::ADDDATE:
-            {
-                auto date1 = QDateTime::fromString(e1[role], Qt::TextDate);
-                auto date2 = QDateTime::fromString(e2[role], Qt::TextDate);
-
-                if(date1 > date2)
-                    return true;
-
-                break;
-
-            }
-
-            case FMH::MODEL_KEY::TITLE:
-            case FMH::MODEL_KEY::PLACE:
-            case FMH::MODEL_KEY::FORMAT:
-            {
-                const auto str1 = QString(e1[role]).toLower();
-                const auto str2 = QString(e2[role]).toLower();
-
-                if(str1 < str2)
-                    return true;
-                break;
-            }
-
-            default:
-                if(e1[role] < e2[role])
-                    return true;
-        }
-
-        return false;
-    });
-}
-
 void Gallery::setList()
 {
     emit this->preListChanged();
 
     this->list = this->dba->getDBData(this->query, [&](FMH::MODEL &item) {
-            const auto url = QUrl::fromLocalFile(item[FMH::MODEL_KEY::URL]);
+            const auto url = QUrl(item[FMH::MODEL_KEY::URL]);
     if(FMH::fileExists(url))
         return true;
     else
@@ -113,9 +43,6 @@ void Gallery::setList()
         return false;
     }
 });
-
-    qDebug()<< this->list;
-    this->sortList();
 
     emit this->postListChanged();
 }
@@ -165,20 +92,6 @@ bool Gallery::deleteAt(const int &index)
     emit this->postItemRemoved();
 
     return true;
-}
-
-bool Gallery::fav(const int &index, const bool &value)
-{
-    if(index >= this->list.size() || index < 0)
-        return false;
-
-    if(this->dba->favPic(this->list[index][FMH::MODEL_KEY::URL], value))
-    {
-        this->list[index].insert(FMH::MODEL_KEY::FAV, value ? "1" : "0");
-        return true;
-    }
-
-    return false;
 }
 
 void Gallery::append(const QVariantMap &pic)

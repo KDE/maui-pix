@@ -18,8 +18,7 @@ Maui.Page
     property int itemSize : Kirigami.Settings.isMobile ? Maui.Style.iconSizes.huge * 1.5 : Maui.Style.iconSizes.enormous
     property int itemSpacing: Kirigami.Settings.isMobile ? Maui.Style.space.medium : Maui.Style.space.big
     property int itemRadius : Maui.Style.unit * 6
-    property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !Kirigami.Settings.isMobile) === "true" ? true : false
-    property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
+  property bool filterBar: false
 
     property alias grid: grid
     property alias holder: holder
@@ -31,6 +30,94 @@ Maui.Page
     signal picClicked(int index)
 
     padding: 0
+
+    headBar.rightContent: [
+        ToolButton
+        {
+            icon.name: "item-select"
+            onClicked: selectionMode = !selectionMode
+            checkable: true
+            checked: selectionMode
+        },
+
+        Maui.ToolButtonMenu
+        {
+            icon.name: "view-sort"
+            MenuItem
+            {
+                text: qsTr("Title")
+                checkable: true
+                checked: pixModel.sort === "title"
+                onTriggered: pixModel.sort = "title"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Add date")
+                checkable: true
+                checked: pixModel.sort === "adddate"
+                onTriggered: pixModel.sort = "adddate"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Creation date")
+                checkable: true
+                checked: model.sort === "date"
+                onTriggered: model.sort = "date"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Format")
+                checkable: true
+                checked: model.sort === "format"
+                onTriggered: model.sort = "format"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Size")
+                checkable: true
+                checked: pixModel.sort === "size"
+                onTriggered: pixModel.sort = "size"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Favorites")
+                checkable: true
+                checked: pixModel.sort === "fav"
+                onTriggered: pixModel.sort = "fav"
+            }
+
+            MenuSeparator {}
+
+            MenuItem
+            {
+                text: qsTr("Ascending")
+                onTriggered: pixModel.sortOrder = Qt.AscendingOrder
+                checked: pixModel.sortOrder === Qt.AscendingOrder
+                checkable: true
+            }
+
+            MenuItem
+            {
+                text: qsTr("Descending")
+                onTriggered: pixModel.sortOrder = Qt.DescendingOrder
+                checked: pixModel.sortOrder === Qt.DescendingOrder
+                checkable: true
+            }
+        },
+
+        ToolButton
+        {
+          icon.name: "view-filter"
+          checkable: true
+          checked: control.filterBar
+          onClicked: control.filterBar = checked
+        }
+    ]
 
     Maui.Holder
     {
@@ -53,7 +140,7 @@ Maui.Page
             id: delegate
             picRadius : itemRadius
             fit: fitPreviews
-            showLabel: control.showLabels
+            showLabel: root.showLabels
             height: grid.cellHeight
             width: grid.cellWidth
             showEmblem: selectionMode
@@ -122,6 +209,8 @@ Maui.Page
     {
         id: pixModel
         list: pixList
+        sort: "title"
+        sortOrder: Qt.AscendingOrder
         recursiveFilteringEnabled: true
         sortCaseSensitivity: Qt.CaseInsensitive
         filterCaseSensitivity: Qt.CaseInsensitive
@@ -145,6 +234,7 @@ Maui.Page
 
         gridView.header: Maui.ToolBar
         {
+            visible: grid.count && control.filterBar
             width: parent.width
             leftSretch: false
 
@@ -156,100 +246,6 @@ Maui.Page
                 onAccepted: pixModel.filter = text
                 onCleared: pixModel.filter = ""
             }
-
-            rightContent: [
-                ToolButton
-                {
-                    icon.name: "item-select"
-                    onClicked: selectionMode = !selectionMode
-                    text: qsTr("Select")
-                    checkable: true
-                    checked: selectionMode
-                },
-
-                Maui.ToolButtonMenu
-                {
-                    icon.name: "view-sort"
-                    text: qsTr("Sort")
-
-                    MenuItem
-                    {
-                        text: qsTr("Title")
-                        checkable: true
-                        checked: pixList.sortBy === GalleryList.TITLE
-                        onTriggered: pixList.sortBy = GalleryList.TITLE
-                    }
-
-                    MenuItem
-                    {
-                        text: qsTr("Add date")
-                        checkable: true
-                        checked: pixList.sortBy === GalleryList.ADDDATE
-                        onTriggered: pixList.sortBy = GalleryList.ADDDATE
-                    }
-
-                    MenuItem
-                    {
-                        text: qsTr("Creation date")
-                        checkable: true
-                        checked: pixList.sortBy === GalleryList.DATE
-                        onTriggered: pixList.sortBy = GalleryList.DATE
-                    }
-
-                    MenuItem
-                    {
-                        text: qsTr("Format")
-                        checkable: true
-                        checked: pixList.sortBy === GalleryList.FORMAT
-                        onTriggered: pixList.sortBy = GalleryList.FORMAT
-                    }
-
-                    MenuItem
-                    {
-                        text: qsTr("Size")
-                        checkable: true
-                        checked: pixList.sortBy === GalleryList.SIZE
-                        onTriggered: pixList.sortBy = GalleryList.SIZE
-                    }
-
-                    MenuItem
-                    {
-                        text: qsTr("Favorites")
-                        checkable: true
-                        checked: pixList.sortBy === GalleryList.FAV
-                        onTriggered: pixList.sortBy = GalleryList.FAV
-                    }
-                },
-                Maui.ToolButtonMenu
-                {
-                    icon.name: "overflow-menu"
-
-                    MenuItem
-                    {
-                        checkable: true
-                        checked: fitPreviews
-                        text: qsTr( "Fit previews")
-                        onTriggered:
-                        {
-                            fitPreviews = !fitPreviews
-                            Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
-                        }
-                    }
-
-                    MenuItem
-                    {
-                        checkable: true
-                        checked: showLabels
-                        text: qsTr("Show labels")
-                        onTriggered:
-                        {
-                            showLabels = !showLabels
-                            Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
-                        }
-                    }
-                }
-
-            ]
         }
     }
 

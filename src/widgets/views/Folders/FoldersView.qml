@@ -44,8 +44,7 @@ StackView
             list: foldersList
             recursiveFilteringEnabled: false
             sortCaseSensitivity: Qt.CaseInsensitive
-            filterCaseSensitivity: Qt.CaseInsensitive
-            filter: _filterField.text
+            filterCaseSensitivity: Qt.CaseInsensitive            
         }
 
         FoldersList
@@ -70,6 +69,8 @@ StackView
                     Layout.margins: Maui.Style.space.medium
                     Layout.fillWidth: true
                     placeholderText: qsTr("Filter...")
+                    onAccepted: folderModel.filter = text
+                    onCleared: folderModel.filter = ""
                 }
             }
 

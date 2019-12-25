@@ -23,7 +23,6 @@ set(pix_SRCS
     src/db/db.cpp
     src/db/dbactions.cpp
     src/models/gallery/gallery.cpp
-    src/models/albums/albums.cpp
     src/models/folders/folders.cpp
     )
 
@@ -34,7 +33,6 @@ set(pix_HDRS
     src/db/dbactions.h
     src/utils/pic.h
     src/models/gallery/gallery.h
-    src/models/albums/albums.h
     src/models/folders/folders.h
     )
 

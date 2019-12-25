@@ -37,14 +37,10 @@ import "widgets/views/Cloud"
 import "widgets/views/Store"
 
 import "view_models"
-import "widgets/dialogs/Albums"
-import "widgets/dialogs/Tags"
 
 import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
 import "db/Query.js" as Q
-
-import AlbumsList 1.0
 
 import TagsModel 1.0
 import TagsList 1.0
@@ -69,63 +65,22 @@ Maui.ApplicationWindow
                                        viewer: 0,
                                        gallery: 1,
                                        folders: 2,
-                                       albums: 3,
-                                       tags: 4,
+                                       tags: 3,
                                        //                                       cloud: 5,
                                        //                                       store: 6,
-                                       search: 5
+                                       search: 4
                                    })
     /*PROPS*/
 
+    property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !Kirigami.Settings.isMobile) === "true" ? true : false
+    property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
+
+
     property bool fullScreen : false
-
     property bool selectionMode : false
+    onSearchButtonClicked: _actionGroup.currentIndex =  views.search
 
-    /***************************************************/
-    /******************** UI COLORS *******************/
-    /*************************************************/
-
-    //    highlightColor : "#00abaa"
-    //    altColor : "#2e2f30" // "#545c6e"
-    //    accentColor: altColor
-    //    altColorText: "#fafafa"
-
-    //    colorSchemeName: "pix"
-    //    bgColor: backgroundColor
-    //    headBar.drawBorder: false
-    //    headBarBGColor: backgroundColor
-    //    headBarFGColor: currentView === views.viewer ? altColorText : Maui.Style.textColor
-    //    backgroundColor:  currentView === views.viewer ? "#3c3e3f" : viewBackgroundColor
-    //    viewBackgroundColor: currentView === views.viewer ? backgroundColor : Maui.Style.viewBackgroundColor
-
-    /***************************************************/
-    /**************************************************/
-    /*************************************************/
-
-    onSearchButtonClicked: currentView =  views.search
-    //    rightIcon.icon.color: currentView === views.search ? highlightColor : headBarFGColor
-    //    rightIcon.showIndicator: currentView === views.search
-
-    //    menuDrawer.bannerImageSource: "qrc:/img/assets/banner.png"
     mainMenu: [
-
-        //        Maui.MenuItem
-        //        {
-        //            id: _storeButton
-        //            text: qsTr("Store")
-        //            onTriggered: currentView = views.store
-        //            icon.name: "nx-software-center"
-        //        },
-
-        //        Maui.MenuItem
-        //        {
-        //            id: _cloudButton
-        //            text: qsTr("Cloud")
-        //            onTriggered: currentView = views.cloud
-        //            icon.name: "folder-cloud"
-        //        },
-
-
 
         MenuItem
         {
@@ -133,17 +88,8 @@ Maui.ApplicationWindow
             icon.name: "folder-add"
             onTriggered:
             {
-                dialogLoader.sourceComponent = sourcesDialogComponent;
+                dialogLoader.sourceComponent = sourcesDialogComponent
                 dialog.open()
-
-
-                //                dialogLoader.sourceComponent= fmDialogComponent
-                //                dialog.mode= dialog.modes.OPEN
-                //                dialog.onlyDirs= true
-                //                dialog.show(function(paths)
-                //                {
-                //                    pix.addSources(paths)
-                //                })
             }
         },
 
@@ -155,15 +101,27 @@ Maui.ApplicationWindow
             {
                 dialogLoader.sourceComponent= fmDialogComponent
                 dialog.mode = dialog.modes.OPEN
-                dialog.filterType= Maui.FMList.IMAGE
-                dialog.onlyDirs= false
+                dialog.settings.filterType= Maui.FMList.IMAGE
+                dialog.settings.onlyDirs= false
                 dialog.show(function(paths)
                 {
                     console.log("OPEN THIS PATHS", paths)
                     pix.openPics(paths)
                 });
             }
+        },
+
+        MenuItem
+        {
+            text: qsTr("Settings")
+            icon.name: "settings-configure"
+            onTriggered:
+            {
+                dialogLoader.sourceComponent = _settingsDialogComponent
+                dialog.open()
+            }
         }
+
     ]
 
     headBar.visible: !fullScreen
@@ -176,18 +134,10 @@ Maui.ApplicationWindow
         currentIndex : swipeView.currentIndex
         onCurrentIndexChanged: swipeView.currentIndex = currentIndex
 
-        hiddenActions: [
-            Action
-            {
-                text: qsTr("Tags")
-                icon.name: "tag"
-            }
-        ]
-
         Action
         {
             text: qsTr("Viewer")
-            icon.name: "image"
+            icon.name: "view-visible"
         }
 
         Action
@@ -204,8 +154,8 @@ Maui.ApplicationWindow
 
         Action
         {
-            text: qsTr("Albums")
-            icon.name: "image-frames"
+            text: qsTr("Tags")
+            icon.name: "tag"
         }
     }
 
@@ -221,6 +171,7 @@ Maui.ApplicationWindow
             interactive: Kirigami.Settings.isMobile
             currentIndex: _actionGroup.currentIndex
             onCurrentIndexChanged: _actionGroup.currentIndex = currentIndex
+            Component.onCompleted: swipeView.currentIndex = views.gallery
 
             PixViewer
             {
@@ -237,31 +188,15 @@ Maui.ApplicationWindow
                 id: foldersView
             }
 
-            AlbumsView
-            {
-                id: albumsView
-            }
-
             TagsView
             {
                 id: tagsView
             }
 
-
-            //            //                Loader
-            //            //                {
-            //            //                    id: cloudViewLoader
-            //            //                }
-
-            //            //                Loader
-            //            //                {
-            //            //                    id: storeViewLoader
-            //            //                }
-
-            //            SearchView
-            //            {
-            //                id: searchView
-            //            }
+            SearchView
+            {
+                id: searchView
+            }
 
         }
 
@@ -313,21 +248,11 @@ Maui.ApplicationWindow
 
     Component
     {
-        id: albumsDialogComponent
-        AlbumsDialog
-        {
-            id: albumsDialog
-        }
-    }
-
-    Component
-    {
         id: tagsDialogComponent
-        TagsDialog
+        Maui.TagsDialog
         {
             id: tagsDialog
-            forAlbum: false
-            onTagsAdded: addTagsToPic(urls, tags)
+            onTagsReady: composerList.updateToUrls(tags)
         }
     }
 
@@ -339,7 +264,6 @@ Maui.ApplicationWindow
             mode: modes.SAVE
             settings.filterType: Maui.FMList.IMAGE
             settings.onlyDirs: false
-
         }
     }
 
@@ -387,10 +311,51 @@ Maui.ApplicationWindow
 
             Component.onCompleted:
             {
-                var items = dba.get("select * from sources")
-                //                console.log(items)
+                const items = Pix.DB.get("select * from sources")
                 for(var i in items)
                     _listView.model.append(items[i]);
+            }
+        }
+    }
+
+    Component
+    {
+        id: _settingsDialogComponent
+
+        Maui.Dialog
+        {
+            maxHeight: 200
+            maxWidth: 200
+            defaultButtons: false
+            Kirigami.FormLayout
+            {
+                width: parent.width
+                anchors.centerIn: parent
+
+                Switch
+                {
+                    icon.name: "image-preview"
+                    checkable: true
+                    checked: root.fitPreviews
+                    Kirigami.FormData.label: qsTr("Fit previews")
+                    onToggled:
+                    {
+                        root.fitPreviews = !root.fitPreviews
+                        Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
+                    }
+                }
+
+                Switch
+                {
+                    Kirigami.FormData.label: qsTr("Show labels")
+                    checkable: true
+                    checked: root.showLabels
+                    onToggled:
+                    {
+                        root.showLabels = !root.showLabels
+                        Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
+                    }
+                }
             }
         }
     }
@@ -401,29 +366,14 @@ Maui.ApplicationWindow
     }
 
     /***MODELS****/
-    Maui.BaseModel
-    {
-        id: albumsModel
-        list: albumsList
-    }
-
-    AlbumsList
-    {
-        id: albumsList
-        query: Q.Query.allAlbums
-    }
-
     TagsModel
     {
         id: tagsModel
-        list: tagsList
+        list: TagsList
+        {
+            id: tagsList
+        }
     }
-
-    TagsList
-    {
-        id: tagsList
-    }
-
 
     Connections
     {
@@ -431,10 +381,4 @@ Maui.ApplicationWindow
         onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.openExternalPics(pics, 0)
     }
-
-    //    Component.onCompleted:
-    //    {
-    //        cloudViewLoader.sourceComponent = _cloudViewComponent
-    //        storeViewLoader.sourceComponent= _storeViewComponent
-    //    }
 }

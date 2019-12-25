@@ -13,25 +13,12 @@ MauiLab.SelectionBar
     id: control
 
     visible: count > 0 && _actionGroup.currentIndex !== views.viewer
-    onExitClicked: clear()
-//    colorScheme.backgroundColor: "#212121"
-//    Maui.Dialog
-//    {
-//        id: removeDialog
-//        property var paths: []
+    onExitClicked:
+    {
+        selectionMode = false
+        clear()
+    }
 
-//        title: qsTr("Delete files?")
-//        acceptButton.text: qsTr("Accept")
-//        rejectButton.text: qsTr("Cancel")
-//        message: qsTr("If you are sure you want to delete the files click on Accept, otherwise click on Cancel")
-//        onRejected: close()
-//        onAccepted:
-//        {
-//            PIX.removePics(selectedPaths)
-//            control.clear()
-//            close()
-//        }
-//    }
     listDelegate: Maui.ItemDelegate
     {
         Kirigami.Theme.inherit: true
@@ -43,6 +30,7 @@ MauiLab.SelectionBar
             label1.text: model.title
             label2.text: model.url
             imageSource: model.url
+            iconSizeHint: height
         }
 
         onClicked: control.removeAtIndex(index)
@@ -52,18 +40,7 @@ MauiLab.SelectionBar
     {
         text: qsTr("Un/Fav")
         icon.name: "love"
-        onTriggered: VIEWER.fav(selectedPaths)
-    }
-
-    Action
-    {
-        text: qsTr("Add to")
-        icon.name: "document-save"
-        onTriggered:
-        {
-            dialogLoader.sourceComponent = albumsDialogComponent
-            dialog.show(control.selectedPaths)
-        }
+        onTriggered: VIEWER.fav(control.uris)
     }
 
     Action
@@ -73,7 +50,8 @@ MauiLab.SelectionBar
         onTriggered:
         {
             dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.show(selectedPaths)
+            dialog.composerList.urls = control.uris
+            dialog.open()
         }
     }
 
@@ -84,11 +62,11 @@ MauiLab.SelectionBar
         onTriggered:
         {
             if(isAndroid)
-                Maui.Android.shareDialog(selectedPaths)
+                Maui.Android.shareDialog(control.uris)
             else
             {
                 dialogLoader.sourceComponent = shareDialogComponent
-                dialog.show(selectedPaths)
+                dialog.show(control.uris)
             }
         }
     }
@@ -99,24 +77,15 @@ MauiLab.SelectionBar
         icon.name: "document-save"
         onTriggered:
         {
-            var pics = selectedPaths
+            const pics = control.uris
             dialogLoader.sourceComponent= fmDialogComponent
             dialog.show(function(paths)
             {
                 for(var i in paths)
                     Maui.FM.copy(pics, paths[i])
-
             });
         }
     }
-
-    Action
-    {
-        text: qsTr("Browse")
-        icon.name: "folder"
-        onTriggered: pix.showInFolder(selectedPaths)
-    }
-
 
     Action
     {

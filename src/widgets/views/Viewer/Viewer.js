@@ -27,7 +27,7 @@ function view(index)
         cloudView.list.requestImage(pixViewer.currentPicIndex)
 
     console.log("CURRENT PIC FAV", pixViewer.currentPic.fav)
-    pixViewer.currentPicFav = Pix.DB.isFav(pixViewer.currentPic.url)
+    pixViewer.currentPicFav = Pix.Collection.isFav(pixViewer.currentPic.url)
     root.title = pixViewer.currentPic.title
 
     pixViewer.roll.position(pixViewer.currentPicIndex)
@@ -61,15 +61,9 @@ function previous()
 
 function fav(urls)
 {
-    for(const i in urls)
-    {
-        const url = urls[i]
-        const faved = Pix.DB.isFav(url);
+    for(const i in urls)    
+        Pix.Collection.fav(urls[i])
 
-        if(Pix.DB.favPic(url, !faved))
-            if(urls.length === 1)
-                return !faved
-    }
 }
 
 

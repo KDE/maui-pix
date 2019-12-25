@@ -10,7 +10,7 @@ Item
 {
     property alias rollList : rollList
 
-    property int rollPicSize : rollHeight-Maui.Style.space.tiny
+    property int rollPicSize : height-Maui.Style.space.tiny
 
     signal picClicked(int index)
 
@@ -44,18 +44,18 @@ Item
             dropShadow: true
             isCurrentItem: ListView.isCurrentItem
 
-//            Connections
-//            {
-//                target: delegate
-//                onClicked:
-//                {
-//                    rollList.currentIndex = index
-//                    picClicked(index)
-//                }
+            Connections
+            {
+                target: delegate
+                onClicked:
+                {
+                    rollList.currentIndex = index
+                    picClicked(index)
+                }
 
-//                onPressAndHold: _picMenu.popup()
-//                onRightClicked: _picMenu.popup()
-//            }
+                onPressAndHold: _picMenu.popup()
+                onRightClicked: _picMenu.popup()
+            }
         }
     }
 
