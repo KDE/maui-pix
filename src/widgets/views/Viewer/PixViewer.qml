@@ -7,9 +7,8 @@ import "../../../widgets/views/Pix.js" as PIX
 import "../../../db/Query.js" as Q
 import "../.."
 import org.kde.kirigami 2.7 as Kirigami
-
 import org.kde.mauikit 1.0 as Maui
-import PixModel 1.0
+import org.maui.pix 1.0 as Pix
 import GalleryList 1.0
 
 Maui.Page
@@ -20,12 +19,11 @@ Maui.Page
     property alias holder : holder
     property alias tagBar : tagBar
     property alias roll : galleryRoll
-    property alias model : pixModel
-    property alias list : pixModel.list
 
     property bool currentPicFav: false
     property var currentPic : ({})
     property int currentPicIndex : 0
+    property Maui.BaseModel currentModel : null
 
     property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
     property string viewerBackgroundColor : Maui.FM.loadSettings("VIEWER_BG_COLOR", "PIX", Kirigami.Theme.backgroundColor)
@@ -61,12 +59,6 @@ Maui.Page
     {
         id: _picMenu
         index: viewer.currentIndex
-    }
-
-    PixModel
-    {
-        id: pixModel
-        list: GalleryList {}
     }
 
     headBar.visible: false
@@ -130,7 +122,10 @@ Maui.Page
 //            colorScheme.highlightColor: "#ff557f";
             checked: pixViewer.currentPicFav
             icon.color: pixViewer.currentPicFav ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
-            onClicked: pixViewer.currentPicFav = VIEWER.fav([pixViewer.currentPic.url])
+            onClicked:
+            {
+                 pixViewer.currentPicFav = Pix.Collection.fav(pixViewer.currentPic.url)
+            }
         },
 
         ToolButton
@@ -160,7 +155,7 @@ Maui.Page
                 isGif : viewer.currentItem.status !== Image.Ready
                 title : viewer.count === 0 ? qsTr("No Pic!") : qsTr("Loading...")
                 body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
-                emojiSize: isGif ? iconSizes.enormous : iconSizes.huge
+                emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
                 visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
                 Kirigami.Theme.backgroundColor: viewerForegroundColor
             }
@@ -170,7 +165,6 @@ Maui.Page
                 id: tagBar
                 visible: !holder.visible && tagBarVisible && !fullScreen
                 Layout.fillWidth: true
-                bgColor: viewerBackgroundColor
                 allowEditMode: true
                 list.urls: [currentPic.url]
                 onTagClicked: PIX.searchFor(tag)
@@ -191,9 +185,9 @@ Maui.Page
             id: galleryRoll
             Layout.fillWidth: true
             Layout.margins: 0
-            Layout.topMargin: space.medium
-            Layout.bottomMargin: space.medium
-            rollHeight: 120 * unit
+            Layout.topMargin: Maui.Style.space.medium
+            Layout.bottomMargin: Maui.Style.space.medium
+            Layout.preferredHeight: 120
             visible: false
             onPicClicked: VIEWER.view(index)
         }

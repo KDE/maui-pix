@@ -2,52 +2,17 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.7 as Kirigami
+import org.kde.mauikit 1.0 as Maui
 import "../../../view_models"
+import GalleryList 1.0
 
 Item
 {
     property alias rollList : rollList
 
-    property int rollHeight : iconSizes.large
-    property int rollPicSize : rollHeight-space.tiny
+    property int rollPicSize : height-Maui.Style.space.tiny
 
     signal picClicked(int index)
-
-    Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
-    Kirigami.Theme.inherit: false
-    height: rollHeight
-    width: parent.width
-
-    Rectangle
-    {
-        anchors.fill: parent
-        z:-1
-        color: Kirigami.Theme.backgroundColor
-        radius: unit * 3
-        opacity: 0.8
-
-        Kirigami.Separator
-        {
-            anchors
-            {
-                top: parent.rop
-                left: parent.left
-                right: parent.right
-            }
-//            color: Qt.darker(parent.color, 1.5)
-        }
-
-        Kirigami.Separator
-        {
-            anchors
-            {
-                bottom: parent.bottom
-                left: parent.left
-                right: parent.right
-            }
-//            color: Qt.darker(parent.color, 1.5)
-        }
-    }
 
     ListView
     {
@@ -58,25 +23,26 @@ Item
         currentIndex: currentPicIndex
         orientation: ListView.Horizontal
         clip: true
-        spacing: space.small
+        spacing: Maui.Style.space.big
 
         focus: true
         interactive: true
 
-        model: pixModel
+        model: currentModel
 
         delegate: PixPic
         {
             id: delegate
-            picSize: rollPicSize
-            height: rollPicSize
-            width: rollPicSize
-            anchors.verticalCenter: parent.verticalCenter
+            height: 100
+            width: 100
 
-            picRadius: 0
+            picRadius: Maui.Style.radiusV
             showLabel: false
             showIndicator: true
+            fit: false
             showEmblem: false
+            dropShadow: true
+            isCurrentItem: ListView.isCurrentItem
 
             Connections
             {

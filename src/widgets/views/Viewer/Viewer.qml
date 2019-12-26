@@ -37,7 +37,7 @@ Maui.Page
         highlightFollowsCurrentItem: true
         highlightMoveDuration: 0
         snapMode: ListView.SnapOneItem
-        model: pixModel
+        model: currentModel
         onMovementEnded:
         {
             var index = indexAt(contentX, contentY)

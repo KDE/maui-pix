@@ -1,11 +1,18 @@
 #ifndef FOLDERMODEL_H
 #define FOLDERMODEL_H
 
-#include <QAbstractListModel>
 #include <QList>
 
+#ifdef STATIC_MAUIKIT
+#include "fmh.h"
+#include "mauilist.h"
+#else
+#include <MauiKit/mauilist.h>
+#endif
+
+
 class Folders;
-class FolderModel : public QAbstractListModel
+class FolderModel : public MauiList
 {
     Q_OBJECT
     Q_PROPERTY(Folders *list READ getList WRITE setList)
@@ -14,16 +21,7 @@ public:
     explicit FolderModel(QObject *parent = nullptr);
 
     // Basic functionality:
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-
-    // Editable:
-    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
-
-    Qt::ItemFlags flags(const QModelIndex& index) const override;
-
-    virtual QHash<int, QByteArray> roleNames() const override;
+   FMH::MODEL_LIST items() const override final;
 
     Folders* getList() const;
     void setList(Folders *value);

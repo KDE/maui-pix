@@ -36,7 +36,7 @@ StackView
    initialItem: Maui.Page
     {
         id: albumsPage
-        padding: space.big
+        padding: Maui.Style.space.big
 
 //        footBar.colorScheme.backgroundColor: altColor
 //        footBar.colorScheme.borderColor: Qt.darker(altColor, 1.4)
@@ -63,7 +63,7 @@ StackView
         holder.title: "No Pics!"
         holder.body: "This album is empty"
         holder.isMask: false
-        holder.emojiSize: iconSizes.huge
+        holder.emojiSize: Maui.Style.iconSizes.huge
         holder.emoji: "qrc:/img/assets/MoonSki.png"
 
         title: albumGrid.currentAlbum

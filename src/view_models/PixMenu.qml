@@ -3,7 +3,7 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import org.kde.mauikit 1.0 as Maui
 import org.kde.kirigami 2.6 as Kirigami
-
+import org.maui.pix 1.0 as Pix
 import "../db/Query.js" as Q
 import "../widgets/views/Pix.js" as PIX
 
@@ -14,12 +14,12 @@ Menu
     property bool isFav : false
     property int index : -1
 
-    onOpened: isFav = dba.isFav(list.get(index).url)
+    onOpened: isFav = Pix.Collection.isFav(model.get(index).url)
 
     MenuItem
     {
         text: qsTr("Select")
-        onTriggered: PIX.selectItem(list.get(index))
+        onTriggered: PIX.selectItem(model.get(index))
     }
 
     MenuSeparator{}
@@ -27,53 +27,43 @@ Menu
     MenuItem
     {
         text: qsTr(isFav ? "UnFav it": "Fav it")
-        onTriggered: list.fav(index, !isFav)
+        onTriggered: Pix.Collection.fav(model.get(index).url)
     }
 
     MenuItem
     {
-        text: qsTr("Add to...")
-        onTriggered:
-        {
-            dialogLoader.sourceComponent = albumsDialogComponent
-            dialog.show([list.get(index).url])
-        }
-    }
-
-    MenuItem
-    {
-        text: qsTr("Tags...")
+        text: qsTr("Tags")
         onTriggered:
         {
             dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.show([list.get(index).url])
+            dialog.show([model.get(index).url])
         }
     }
 
     MenuItem
     {
-        text: qsTr("Share...")
+        text: qsTr("Share")
         onTriggered:
         {
             if(isAndroid)
-                Maui.Android.shareDialog([list.get(index).url])
+                Maui.Android.shareDialog([model.get(index).url])
             else
             {
                 dialogLoader.sourceComponent = shareDialogComponent
-                dialog.show([list.get(index).url])
+                dialog.show([model.get(index).url])
             }
         }
     }
 
     MenuItem
     {
-        text: qsTr("Save to...")
+        text: qsTr("Export")
         onTriggered:
         {
-            var pic = list.get(index).url
+            var pic = model.get(index).url
             dialogLoader.sourceComponent= fmDialogComponent
             dialog.mode = dialog.modes.SAVE
-            dialog.suggestedFileName= Maui.FM.getFileInfo(list.get(index).url).label
+            dialog.suggestedFileName= Maui.FM.getFileInfo(model.get(index).url).label
             dialog.show(function(paths)
             {
                 if (typeof paths == 'string')
@@ -93,10 +83,10 @@ Menu
     MenuItem
     {
         visible: !isAndroid
-        text: qsTr("Show in folder...")
+        text: qsTr("Show in folder")
         onTriggered:
         {
-            pix.showInFolder([list.get(index).url])
+            Pix.Collection.showInFolder([model.get(index).url])
             close()
         }
     }
@@ -116,8 +106,8 @@ Menu
 
     MenuItem
     {
-        text: qsTr("Remove...")
-        Kirigami.Theme.textColor: dangerColor
+        text: qsTr("Remove")
+        Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
         onTriggered:
         {
             removeDialog.open()
@@ -136,7 +126,7 @@ Menu
             onRejected: close()
             onAccepted:
             {
-                list.deleteAt(index)
+                model.deleteAt(index)
                 close()
             }
         }

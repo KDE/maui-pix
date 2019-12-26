@@ -1,10 +1,9 @@
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import QtQuick 2.9
 
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
-import PixModel 1.0
 import GalleryList 1.0
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
@@ -13,14 +12,13 @@ import "../widgets"
 
 Maui.Page
 {
-    id: gridPage
+    id: control
 
     /*props*/
-    property int itemSize : isMobile ? iconSizes.huge * 1.5 : iconSizes.enormous
-    property int itemSpacing: isMobile ? space.medium : space.big
-    property int itemRadius : unit * 6
-    property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !isMobile) === "true" ? true : false
-    property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
+    property int itemSize : Kirigami.Settings.isMobile ? Maui.Style.iconSizes.huge * 1.5 : Maui.Style.iconSizes.enormous
+    property int itemSpacing: Kirigami.Settings.isMobile ? Maui.Style.space.medium : Maui.Style.space.big
+    property int itemRadius : Maui.Style.unit * 6
+  property bool filterBar: false
 
     property alias grid: grid
     property alias holder: holder
@@ -31,8 +29,95 @@ Maui.Page
     /*signals*/
     signal picClicked(int index)
 
-    headBar.drawBorder: false
-    padding: space.big
+    padding: 0
+
+    headBar.rightContent: [
+        ToolButton
+        {
+            icon.name: "item-select"
+            onClicked: selectionMode = !selectionMode
+            checkable: true
+            checked: selectionMode
+        },
+
+        Maui.ToolButtonMenu
+        {
+            icon.name: "view-sort"
+            MenuItem
+            {
+                text: qsTr("Title")
+                checkable: true
+                checked: pixModel.sort === "title"
+                onTriggered: pixModel.sort = "title"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Add date")
+                checkable: true
+                checked: pixModel.sort === "adddate"
+                onTriggered: pixModel.sort = "adddate"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Creation date")
+                checkable: true
+                checked: model.sort === "date"
+                onTriggered: model.sort = "date"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Format")
+                checkable: true
+                checked: model.sort === "format"
+                onTriggered: model.sort = "format"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Size")
+                checkable: true
+                checked: pixModel.sort === "size"
+                onTriggered: pixModel.sort = "size"
+            }
+
+            MenuItem
+            {
+                text: qsTr("Favorites")
+                checkable: true
+                checked: pixModel.sort === "fav"
+                onTriggered: pixModel.sort = "fav"
+            }
+
+            MenuSeparator {}
+
+            MenuItem
+            {
+                text: qsTr("Ascending")
+                onTriggered: pixModel.sortOrder = Qt.AscendingOrder
+                checked: pixModel.sortOrder === Qt.AscendingOrder
+                checkable: true
+            }
+
+            MenuItem
+            {
+                text: qsTr("Descending")
+                onTriggered: pixModel.sortOrder = Qt.DescendingOrder
+                checked: pixModel.sortOrder === Qt.DescendingOrder
+                checkable: true
+            }
+        },
+
+        ToolButton
+        {
+          icon.name: "view-filter"
+          checkable: true
+          checked: control.filterBar
+          onClicked: control.filterBar = checked
+        }
+    ]
 
     Maui.Holder
     {
@@ -46,121 +131,6 @@ Maui.Page
         index: grid.currentIndex
     }
 
-//    headBarTitle: grid.count+" "+qsTr("images")
-//    headBar.leftSretch: false
-    headBar.rightContent: Kirigami.ActionToolBar
-    {
-        Layout.fillWidth: false
-        Layout.preferredWidth: implicitWidth
-        hiddenActions: [
-            Kirigami.Action
-            {
-                checkable: true
-                checked: fitPreviews
-                text: qsTr( "Fit previews")
-                onTriggered:
-                {
-                    fitPreviews = !fitPreviews
-                    Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
-                }
-            },
-
-            Kirigami.Action
-            {
-                checkable: true
-                checked: showLabels
-                text: qsTr("Show labels")
-                onTriggered:
-                {
-                    showLabels = !showLabels
-                    Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
-                }
-            }
-        ]
-
-        actions: [
-            Kirigami.Action
-            {
-                icon.name: "view-sort"
-                text: qsTr("Sort")
-
-                Kirigami.Action
-                {
-                    text: qsTr("Title")
-                    checkable: true
-                    checked: pixList.sortBy === GalleryList.TITLE
-                    onTriggered: pixList.sortBy = GalleryList.TITLE
-                }
-
-                Kirigami.Action
-                {
-                    text: qsTr("Add date")
-                    checkable: true
-                    checked: pixList.sortBy === GalleryList.ADDDATE
-                    onTriggered: pixList.sortBy = GalleryList.ADDDATE
-                }
-
-                Kirigami.Action
-                {
-                    text: qsTr("Creation date")
-                    checkable: true
-                    checked: pixList.sortBy === GalleryList.DATE
-                    onTriggered: pixList.sortBy = GalleryList.DATE
-                }
-
-                Kirigami.Action
-                {
-                    text: qsTr("Format")
-                    checkable: true
-                    checked: pixList.sortBy === GalleryList.FORMAT
-                    onTriggered: pixList.sortBy = GalleryList.FORMAT
-                }
-
-                Kirigami.Action
-                {
-                    text: qsTr("Size")
-                    checkable: true
-                    checked: pixList.sortBy === GalleryList.SIZE
-                    onTriggered: pixList.sortBy = GalleryList.SIZE
-                }
-
-                Kirigami.Action
-                {
-                    text: qsTr("Favorites")
-                    checkable: true
-                    checked: pixList.sortBy === GalleryList.FAV
-                    onTriggered: pixList.sortBy = GalleryList.FAV
-                }
-            },
-
-            Kirigami.Action
-            {
-                icon.name: "item-select"
-                onTriggered: selectionMode = !selectionMode
-                text: qsTr("Select")
-                checkable: true
-            }
-        ]
-    }
-
-    //    footBar.colorScheme.backgroundColor: accentColor
-    //    footBar.colorScheme.textColor: altColorText
-    //    footBar.visible: false
-    //    footBar.middleContent: [
-    //        ToolButton
-    //        {
-    //            iconName: "zoom-in"
-    //            iconColor: altColorText
-    //            onClicked: zoomIn()
-    //        },
-    //        ToolButton
-    //        {
-    //            iconName: "zoom-out"
-    //            iconColor: altColorText
-    //            onClicked: zoomOut()
-    //        }
-    //    ]
-
     Component
     {
         id: gridDelegate
@@ -168,13 +138,32 @@ Maui.Page
         PixPic
         {
             id: delegate
-            picSize : itemSize
             picRadius : itemRadius
             fit: fitPreviews
-            showLabel: gridPage.showLabels
-            height: grid.cellHeight * 0.9
-            width: grid.cellWidth * 0.8
+            showLabel: root.showLabels
+            height: grid.cellHeight
+            width: grid.cellWidth
             showEmblem: selectionMode
+            isCurrentItem: GridView.isCurrentItem
+            selected: selectionBox.contains(model.url)
+
+            Connections
+            {
+                target:selectionBox
+                onUriRemoved:
+                {
+                    if(uri === model.url)
+                        delegate.selected = false
+                }
+
+                onUriAdded:
+                {
+                    if(uri === model.url)
+                        delegate.selected = true
+                }
+
+                onCleared: delegate.selected = false
+            }
 
             Connections
             {
@@ -183,15 +172,15 @@ Maui.Page
                 {
                     grid.currentIndex = index
                     if(selectionMode)
-                        PIX.selectItem(pixList.get(index))
-                    else if(isMobile)
+                        PIX.selectItem(pixModel.get(index))
+                    else if(Kirigami.Settings.isMobile)
                         openPic(index)
                 }
 
                 onDoubleClicked:
                 {
                     grid.currentIndex = index
-                    if(!isMobile)
+                    if(!Kirigami.Settings.isMobile)
                         openPic(index)
                 }
 
@@ -209,17 +198,22 @@ Maui.Page
                 onEmblemClicked:
                 {
                     grid.currentIndex = index
-                    var item = pixList.get(index)
+                    var item = pixModel.get(index)
                     PIX.selectItem(item)
                 }
             }
         }
     }
 
-    PixModel
+    Maui.BaseModel
     {
         id: pixModel
         list: pixList
+        sort: "title"
+        sortOrder: Qt.AscendingOrder
+        recursiveFilteringEnabled: true
+        sortCaseSensitivity: Qt.CaseInsensitive
+        filterCaseSensitivity: Qt.CaseInsensitive
     }
 
     GalleryList
@@ -233,28 +227,31 @@ Maui.Page
         height: parent.height
         width: parent.width
         adaptContent: true
-        itemSize: gridPage.itemSize
-        spacing: itemSpacing
-        cellWidth: itemSize
-        cellHeight: itemSize
-
-        //        highlightMoveDuration: 0
-        //        highlightFollowsCurrentItem: true
-        //        highlight: Rectangle
-        //        {
-        //            width: itemSize + itemSpacing
-        //            height: itemSize + itemSpacing
-        //            color: highlightColor
-        //            radius: 4
-        //        }
+        itemSize: control.itemSize
 
         model: pixModel
         delegate: gridDelegate
+
+        gridView.header: Maui.ToolBar
+        {
+            visible: grid.count && control.filterBar
+            width: parent.width
+            leftSretch: false
+
+            middleContent: Maui.TextField
+            {
+                id: _filterField
+                Layout.fillWidth: true
+                placeholderText: qsTr("Filter...")
+                onAccepted: pixModel.filter = text
+                onCleared: pixModel.filter = ""
+            }
+        }
     }
 
     function openPic(index)
     {
-        VIEWER.open(pixList, index)
+        VIEWER.open(pixModel, index)
     }
 
     function zoomIn()

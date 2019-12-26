@@ -3,22 +3,17 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.2 as Kirigami
 import org.kde.mauikit 1.0 as Maui
+import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
 import "../../../db/Query.js" as Q
 
-Kirigami.PageRow
+StackView
 {
-    id: tagsPageRoot
+    id: control
     clip: true
 
-    separatorVisible: false
-    initialPage: [tagsSidebar, tagsGrid]
-    defaultColumnWidth: Kirigami.Units.gridUnit * 15
-    interactive: currentIndex === 1
-
     property string currentTag : ""
-
 
     Maui.NewDialog
     {
@@ -30,7 +25,7 @@ Kirigami.PageRow
         }
     }
 
-    TagsSidebar
+    initialItem: TagsSidebar
     {
         id: tagsSidebar
     }
@@ -38,14 +33,19 @@ Kirigami.PageRow
     PixGrid
     {
         id: tagsGrid
-//        headBarExit: !wideMode
-//        headBarExitIcon: "go-previous"
-//        onExit: if(!wideMode) currentIndex = 0
+
+        title: control.currentTag
         holder.title: "No Pics!"
         holder.body: "There's no pics associated with the tag"
         holder.isMask: false
-        holder.emojiSize: iconSizes.huge
+        holder.emojiSize: Maui.Style.iconSizes.huge
         holder.emoji: "qrc:/img/assets/Bread.png"
+
+        headBar.leftContent: ToolButton
+        {
+            icon.name: "go-previous"
+            onClicked: control.pop()
+        }
     }
 
     function refreshPics()
@@ -53,16 +53,15 @@ Kirigami.PageRow
         tagsGrid.list.refresh()
     }
 
-     function populateGrid(myTag)
+    function populateGrid(myTag)
     {
-         tagsGrid.list.clear()
-        if(!wideMode && currentIndex === 0)
-            currentIndex = 1
+        tagsGrid.list.clear()
+        control.push(tagsGrid)
 
-        var urls = tag.getUrls(myTag);
+        const urls = Pix.Tag.getUrls(myTag, true);
 
         if(urls.length > 0)
-            for(var i in urls)
+            for(const i in urls)
                 tagsGrid.list.append(urls[i].url)
 
     }

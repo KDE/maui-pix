@@ -1,120 +1,100 @@
 import QtQuick 2.9
-import QtQuick.Controls 2.3
+import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import org.kde.mauikit 1.0 as Maui
 import org.kde.kirigami 2.6 as Kirigami
+import org.kde.mauikit 1.1 as MauiLab
 
 import "../widgets/views/Pix.js" as PIX
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 
-Maui.SelectionBar
+MauiLab.SelectionBar
 {
     id: control
-    Layout.fillWidth : true
-    Layout.leftMargin: space.big
-    Layout.rightMargin: space.big
-    Layout.bottomMargin: space.big
-    Layout.topMargin: space.small
-    visible: selectionList.count > 0 && currentView !== views.viewer
-    onIconClicked: _menu.popup()
-    onExitClicked: clear()
-//    colorScheme.backgroundColor: "#212121"
 
-    Menu
+    visible: count > 0 && _actionGroup.currentIndex !== views.viewer
+    onExitClicked:
     {
-        id: _menu
+        selectionMode = false
+        clear()
+    }
 
-        MenuItem
+    listDelegate: Maui.ItemDelegate
+    {
+        Kirigami.Theme.inherit: true
+        height: Maui.Style.toolBarHeight
+        width: parent.width
+        Maui.ListItemTemplate
         {
-            text: qsTr("Un/Fav them")
-            onTriggered: VIEWER.fav(selectedPaths)
+            anchors.fill: parent
+            label1.text: model.title
+            label2.text: model.url
+            imageSource: model.url
+            iconSizeHint: height
         }
 
-        MenuItem
+        onClicked: control.removeAtIndex(index)
+    }
+
+    Action
+    {
+        text: qsTr("Un/Fav")
+        icon.name: "love"
+        onTriggered: VIEWER.fav(control.uris)
+    }
+
+    Action
+    {
+        text: qsTr("Tag")
+        icon.name: "tag"
+        onTriggered:
         {
-            text: qsTr("Add to...")
-            onTriggered:
+            dialogLoader.sourceComponent = tagsDialogComponent
+            dialog.composerList.urls = control.uris
+            dialog.open()
+        }
+    }
+
+    Action
+    {
+        text: qsTr("Share")
+        icon.name: "document-share"
+        onTriggered:
+        {
+            if(isAndroid)
+                Maui.Android.shareDialog(control.uris)
+            else
             {
-                dialogLoader.sourceComponent = albumsDialogComponent
-                dialog.show(control.selectedPaths)
+                dialogLoader.sourceComponent = shareDialogComponent
+                dialog.show(control.uris)
             }
         }
+    }
 
-        MenuItem
+    Action
+    {
+        text: qsTr("Export")
+        icon.name: "document-save"
+        onTriggered:
         {
-            text: qsTr("Tags...")
-            onTriggered:
+            const pics = control.uris
+            dialogLoader.sourceComponent= fmDialogComponent
+            dialog.show(function(paths)
             {
-                dialogLoader.sourceComponent = tagsDialogComponent
-                dialog.show(selectedPaths)
-            }
+                for(var i in paths)
+                    Maui.FM.copy(pics, paths[i])
+            });
         }
+    }
 
-        MenuItem
+    Action
+    {
+        text: qsTr("Remove")
+        icon.name: "delete"
+        Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
+        onTriggered:
         {
-            text: qsTr("Share...")
-            onTriggered:
-            {
-                if(isAndroid)
-                    Maui.Android.shareDialog(selectedPaths)
-                else
-                {
-                    dialogLoader.sourceComponent = shareDialogComponent
-                    dialog.show(selectedPaths)
-                }
-            }
-        }
-
-        MenuItem
-        {
-            text: qsTr("Save to...")
-            onTriggered:
-            {
-                var pics = selectedPaths
-                dialogLoader.sourceComponent= fmDialogComponent
-                dialog.show(function(paths)
-                {
-                    for(var i in paths)
-                        Maui.FM.copy(pics, paths[i])
-
-                });
-            }
-        }
-
-        MenuItem
-        {
-            text: qsTr("Show in folder...")
-            onTriggered: pix.showInFolder(selectedPaths)
-        }
-
-        MenuSeparator{}
-
-        MenuItem
-        {
-            text: qsTr("Remove...")
-            Kirigami.Theme.textColor: dangerColor
-            onTriggered:
-            {
-                removeDialog.open()
-            }
-
-            Maui.Dialog
-            {
-                id: removeDialog
-                property var paths: []
-
-                title: qsTr("Delete files?")
-                acceptButton.text: qsTr("Accept")
-                rejectButton.text: qsTr("Cancel")
-                message: qsTr("If you are sure you want to delete the files click on Accept, otherwise click on Cancel")
-                onRejected: close()
-                onAccepted:
-                {
-                    PIX.removePics(selectedPaths)
-                    control.clear()
-                    close()
-                }
-            }
+            removeDialog.open()
         }
     }
 }

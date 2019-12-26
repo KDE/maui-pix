@@ -28,21 +28,21 @@ Maui.Page
         isMask: false
         title : "No Tags!"
         body: "You can create new tags"
-        emojiSize: iconSizes.huge
+        emojiSize: Maui.Style.iconSizes.huge
         z: 999
     }
 
-    Maui.SideBar
+    Maui.ListBrowser
     {
         id: _tagsList
         anchors.fill: parent
-        anchors.margins: space.medium
+        anchors.margins: Maui.Style.space.medium
         model: tagsModel
         delegate: Maui.ListDelegate
         {
             id: delegate
             label: tag
-            radius: radiusV
+            radius: Maui.Style.radiusV
 
             Connections
             {

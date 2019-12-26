@@ -24,6 +24,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QObject>
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QThread>
+
 #include "dbactions.h"
 
 #if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
@@ -32,6 +34,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "fmh.h"
 #endif
 
+class MThread : public QThread
+{
+
+};
+
 class FileLoader : public QObject
 {
     Q_OBJECT
@@ -39,83 +46,72 @@ class FileLoader : public QObject
 public:
     FileLoader() : QObject()
     {
-        this->dba = DBActions::getInstance();
-        qRegisterMetaType<PIX::TABLE>("PIX::TABLE");
-        qRegisterMetaType<QMap<PIX::TABLE, bool>>("QMap<PIX::TABLE,bool>");
+        //        qRegisterMetaType<PIX::TABLE>("PIX::TABLE");
+        //        qRegisterMetaType<QMap<PIX::TABLE, bool>>("QMap<PIX::TABLE,bool>");
         this->moveToThread(&t);
-        t.start();
+        connect(this, &FileLoader::start, this, &FileLoader::getPics);
     }
 
-    ~FileLoader()
+    void requestPath(const QList<QUrl> &urls)
     {
-        this->go = false;
-        this->t.quit();
-        this->t.wait();
-    }
-
-    void requestPath(QStringList paths)
-    {
-        qDebug()<<"FROM file loader"<< paths;
+        qDebug()<<"FROM file loader"<< urls;
 
         this->go = true;
-        QMetaObject::invokeMethod(this, "getPics", Q_ARG(QStringList, paths));
+        this->t.start();
+        emit this->start(urls);
     }
 
-    void nextTrack()
-    {
-        this->wait = !this->wait;
-    }
-
-public slots:
-
-    void getPics(QStringList paths)
+private slots:
+    void getPics(QList<QUrl> paths)
     {
         qDebug()<<"GETTING IMAGES";
 
-        QStringList urls;
+        QList<QUrl> urls;
+        const auto db_ = DBActions::getInstance();
 
         for(const auto &path : paths)
-            if (QFileInfo(path).isDir())
+        {
+            if (QFileInfo(path.toLocalFile()).isDir() && path.isLocalFile())
             {
-                QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
+                QDirIterator it(path.toLocalFile(), FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
 
                 while (it.hasNext())
-                    urls << it.next();
+                    urls << QUrl::fromLocalFile(it.next());
 
-            }else if (QFileInfo(path).isFile())
+            }else if (QFileInfo(path.toLocalFile()).isFile())
                 urls << path;
+        }
 
-        int newPics = 0;
+        uint newPics = 0;
 
         if(urls.size() > 0)
         {
-            for(auto url : urls)
+            for(const auto &url : urls)
             {
                 if(go)
                 {
-                    if(this->dba->addPic(url))
+                    if(db_->addPic(url.toString()))
                         newPics++;
                 }else break;
             }
-            emit collectionSize(newPics);
+            emit this->collectionSize(newPics);
         }
 
-        this->t.msleep(100);
+        //        this->t.msleep(100);
 
         emit this->finished(newPics);
         this->go = false;
+        t.quit();
     }
 
 signals:
-    void finished(int size);
-    void collectionSize(int size);
+    void finished(uint size);
+    void collectionSize(uint size);
+    void start(QList<QUrl> urls);
 
 private:
-    DBActions * dba;
     QThread t;
     bool go = false;
-    bool wait = true;
-    QStringList queue;
 };
 
 

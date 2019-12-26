@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 
 find_package(ECM 1.7.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
+set(CMAKE_CXX_STANDARD 17)
 
 find_package(MauiKit REQUIRED)
 find_package(Qt5 REQUIRED NO_MODULE COMPONENTS Qml Quick Sql Svg QuickControls2 Widgets)
@@ -21,13 +22,8 @@ set(pix_SRCS
     src/pix.cpp
     src/db/db.cpp
     src/db/dbactions.cpp
-    src/models/basemodel.cpp
-    src/models/baselist.cpp
     src/models/gallery/gallery.cpp
-    src/models/albums/albums.cpp
     src/models/folders/folders.cpp
-    src/models/folders/foldermodel.cpp
-    src/models/cloud/cloud.cpp
     )
 
 set(pix_HDRS
@@ -36,13 +32,8 @@ set(pix_HDRS
     src/db/db.h
     src/db/dbactions.h
     src/utils/pic.h
-    src/models/basemodel.h
-    src/models/baselist.h
     src/models/gallery/gallery.h
-    src/models/albums/albums.h
     src/models/folders/folders.h
-    src/models/folders/foldermodel.h
-    src/models/cloud/cloud.h
     )
 
 set(pix_ASSETS

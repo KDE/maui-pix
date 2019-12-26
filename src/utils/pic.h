@@ -54,7 +54,7 @@ enum SearchT
 
 typedef QMap<PIX::SearchT,QString> SEARCH;
 
-static const SEARCH SearchTMap
+inline static const SEARCH SearchTMap
 {
     { PIX::SearchT::LIKE, "like" },
     { PIX::SearchT::SIMILAR, "similar" }
@@ -73,7 +73,7 @@ enum class W : uint_fast8_t
     ASC
 };
 
-static const QMap<W,QString> SLANG =
+inline static const QMap<W,QString> SLANG =
 {
     {W::ALL, "ALL"},
     {W::NONE, "NONE"},
@@ -100,7 +100,7 @@ enum class TABLE : uint8_t
     NONE
 };
 
-static const QMap<TABLE,QString> TABLEMAP =
+inline static const QMap<TABLE,QString> TABLEMAP =
 {
     {TABLE::ALBUMS,"albums"},
     {TABLE::SOURCES,"sources"},
@@ -112,18 +112,23 @@ static const QMap<TABLE,QString> TABLEMAP =
     {TABLE::TAGS,"tags"}
 };
 
-const QString SettingPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)+"/pix/";
-const QString CollectionDBPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/pix/";
-const QString CachePath = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)+"/pix/";
-const QString NotifyDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
-const QString App = "Pix";
-const QString version = "1.0";
-const QString comment = "Gallery image viewer";
-const QString DBName = "collection.db";
+inline const static auto SettingPath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)+"/pix/");
+inline const static auto CollectionDBPath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/pix/");
+inline const static auto CachePath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)+"/pix/");
+inline const static auto NotifyDir = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation));
 
-const QStringList MoodColors = {"#F0FF01","#01FF5B","#3DAEFD","#B401FF","#E91E63"};
+inline const static QString appName = QStringLiteral("pix");
+inline const static QString displayName = QStringLiteral("Pix");
+inline const static QString version = "1.0";
+inline const static QString description = QStringLiteral("Image Viewer");
+inline const static QString orgName = QStringLiteral("Maui");
+inline const static QString orgDomain = QStringLiteral("org.maui.pix");
 
-inline QString ucfirst(const QString &str)/*uppercase first letter*/
+inline const static QString DBName = "collection.db";
+
+inline const static QStringList MoodColors = {"#F0FF01","#01FF5B","#3DAEFD","#B401FF","#E91E63"};
+
+inline static const QString ucfirst(const QString &str)/*uppercase first letter*/
 {
     if (str.isEmpty()) return "";
 
@@ -148,7 +153,7 @@ inline QString ucfirst(const QString &str)/*uppercase first letter*/
     return output.simplified();
 }
 
-inline QString getQuery(const QString &key)
+inline static const QString getQuery(const QString &key)
 {
     QString json;
     QFile file;
@@ -179,29 +184,28 @@ inline QString getQuery(const QString &key)
     return itemMap.value(key).toString();
 }
 
-inline QStringList getSourcePaths()
+inline static const QList<QUrl> getSourcePaths()
 {
-    const auto defaultSources = QStringList() << FMH::PicturesPath << FMH::DownloadsPath << FMH::DocumentsPath << FMH::CloudCachePath;
-    const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
+    const QList<QUrl> defaultSources  = {FMH::PicturesPath, FMH::DownloadsPath, FMH::DocumentsPath, FMH::CloudCachePath};
+    const auto sources = UTIL::loadSettings("Sources", "Settings", QVariant::fromValue(defaultSources)).value<QList<QUrl>>();
 
     if(sources.isEmpty())
-        UTIL::saveSettings("Sources", defaultSources, "Settings");
+        UTIL::saveSettings("Sources", QVariant::fromValue(defaultSources), "Settings");
 
     return sources;
 }
 
-inline void saveSourcePath(QStringList const& paths)
+inline static void saveSourcePath(QStringList const& paths)
 {
     auto sources = PIX::getSourcePaths();
 
     for(const auto &path : paths)
     {
-        if(sources.contains(path))
-            continue;
-
-        sources << path;
-        UTIL::saveSettings("Sources", sources, "Settings");
+        if(!sources.contains(path))
+             sources << path;
     }
+
+    UTIL::saveSettings("Sources", QVariant::fromValue(sources), "Settings");
 }
 
 }

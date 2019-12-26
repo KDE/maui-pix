@@ -32,41 +32,34 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDesktopServices>
 
 using namespace PIX;
+#ifdef STATIC_MAUIKIT
+#include "tagging.h"
+#else
+#include <MauiKit/tagging.h>
+#endif
 
 Pix::Pix(QObject *parent) : QObject(parent)
 {
     qDebug() << "Getting settings info from: " << PIX::SettingPath;
-
-    //    if(!PIX::fileExists(notifyDir+"/Pix.notifyrc"))
-    //    {
-    //        qDebug()<<"The Knotify file does not exists, going to create it";
-    //        QFile knotify(":Data/data/Pix.notifyrc");
-
-    //        if(knotify.copy(notifyDir+"/Pix.notifyrc"))
-    //            qDebug()<<"the knotify file got copied";
-    //    }
-
-
-    this->fileLoader = new FileLoader;
-    connect(this->fileLoader, &FileLoader::finished,[this](int size)
-    {
-        Q_UNUSED(size);
-        emit refreshViews({
-                              {PIX::TABLEMAP[TABLE::ALBUMS], true},
-                              {PIX::TABLEMAP[TABLE::TAGS], true},
-                              {PIX::TABLEMAP[TABLE::IMAGES], true}
-                          });
-    });
+    this->refreshCollection();
 }
 
-Pix::~Pix()
+bool Pix::fav(const QUrl &url)
 {
-    delete this->fileLoader;
+    if(Pix::isFav(url))
+       return Tagging::getInstance()->removeUrlTag(url.toString(), "fav");
+
+    return Tagging::getInstance()->tagUrl(url.toString(), "fav");
+}
+
+bool Pix::isFav(const QUrl &url)
+{
+    return  Tagging::getInstance()->urlTagExists(url.toString(), "fav", false);
 }
 
 void Pix::openPics(const QStringList &pics)
 {   
-    emit viewPics(pics);
+    emit this->viewPics(pics);
 }
 
 void Pix::refreshCollection()
@@ -76,31 +69,35 @@ void Pix::refreshCollection()
     this->populateDB(sources);
 }
 
-void Pix::populateDB(const QStringList &paths)
+void Pix::populateDB(const QList<QUrl> &urls)
 {
     qDebug() << "Function Name: " << Q_FUNC_INFO
-             << "new path for database action: " << paths;
-    QStringList newPaths;
+             << "new path for database action: " << urls << QThread::currentThread();
 
-    for(auto path : paths)
-        if(path.startsWith("file://"))
-            newPaths << path.replace("file://", "");
-        else
-            newPaths << path;
-
-    qDebug()<<"paths to scan"<<newPaths;
-
-    fileLoader->requestPath(newPaths);
+    const auto fileLoader = new FileLoader; //is moved to another thread and deletion happens there
+    connect(fileLoader, &FileLoader::finished,[this](uint size)
+    {
+        Q_UNUSED(size)
+        emit this->refreshViews({
+                              {PIX::TABLEMAP[TABLE::ALBUMS], true},
+                              {PIX::TABLEMAP[TABLE::TAGS], true},
+                              {PIX::TABLEMAP[TABLE::IMAGES], true}
+                          });
+    });
+    fileLoader->requestPath(urls);
 }
 
 void Pix::showInFolder(const QStringList &urls)
 {
-    for(auto url : urls)
-        QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(url).dir().absolutePath()));
+    for(const auto &url : urls)
+        QDesktopServices::openUrl(FMH::fileDir(url));
 }
 
 void Pix::addSources(const QStringList &paths)
 {
     PIX::saveSourcePath(paths);
-    this->populateDB(paths);
+    this->populateDB(std::accumulate(paths.constBegin(), paths.constEnd(), QList<QUrl> {}, [](QList<QUrl> &urls, const QString &path)  {
+                         urls << QUrl::fromUserInput(path);
+                         return urls;
+                     }));
 }

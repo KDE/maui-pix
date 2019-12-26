@@ -7,18 +7,16 @@ import QtQuick.Layouts 1.3
 import "../../../view_models"
 import "../../../db/Query.js" as Q
 
-
-import FolderModel 1.0
 import FoldersList 1.0
 
 StackView
 {
     id: _stackView
-//    separatorVisible: foldersPageRoot.wideMode
-//    initialPage: [foldersPage, picsView]
-//    defaultColumnWidth: width
+    //    separatorVisible: foldersPageRoot.wideMode
+    //    initialPage: [foldersPage, picsView]
+    //    defaultColumnWidth: width
 
-//    interactive: foldersPageRoot.currentIndex  === 1
+    //    interactive: foldersPageRoot.currentIndex  === 1
     clip: true
 
     property string currentFolder : ""
@@ -27,17 +25,7 @@ StackView
     initialItem: Maui.Page
     {
         id: foldersPage
-        padding: space.big
-
-        headBar.middleContent:  Maui.TextField
-        {
-//            Layout.fillWidth: true
-            Layout.margins: space.medium
-            Layout.fillWidth: true
-            placeholderText: qsTr("Filter...")
-            onAccepted: filter(text)
-            onCleared: populate()
-        }
+        padding: 0
 
         Maui.Holder
         {
@@ -46,20 +34,22 @@ StackView
             isMask: false
             title : "No Folders!"
             body: "Add new image sources"
-            emojiSize: iconSizes.huge
+            emojiSize: Maui.Style.iconSizes.huge
             visible: false
         }
 
-        FolderModel
+        Maui.BaseModel
         {
             id: folderModel
             list: foldersList
+            recursiveFilteringEnabled: false
+            sortCaseSensitivity: Qt.CaseInsensitive
+            filterCaseSensitivity: Qt.CaseInsensitive            
         }
 
         FoldersList
         {
             id: foldersList
-            query: "select * from sources"
         }
 
         Maui.GridBrowser
@@ -69,6 +59,20 @@ StackView
             showEmblem: false
             model: folderModel
 
+            gridView.header: Maui.ToolBar
+            {
+                width: parent.width
+
+                middleContent:  Maui.TextField
+                {
+                    id: _filterField
+                    Layout.margins: Maui.Style.space.medium
+                    Layout.fillWidth: true
+                    placeholderText: qsTr("Filter...")
+                    onAccepted: folderModel.filter = text
+                    onCleared: folderModel.filter = ""
+                }
+            }
 
             onItemClicked:
             {
@@ -86,9 +90,9 @@ StackView
         id: picsView
 
         headBar.visible: true
-//        headBarExit: _stackView.currentItem === picsView
-//        headBarExitIcon: "go-previous"
-//        onExit: _stackView.pop()
+        //        headBarExit: _stackView.currentItem === picsView
+        //        headBarExitIcon: "go-previous"
+        //        onExit: _stackView.pop()
 
         headBar.leftContent: ToolButton
         {
@@ -100,17 +104,11 @@ StackView
         holder.isMask: false
         holder.title : "Folder is empty!"
         holder.body: "There's not images on this folder"
-        holder.emojiSize: iconSizes.huge
+        holder.emojiSize: Maui.Style.iconSizes.huge
     }
 
     function refresh()
     {
         foldersList.refresh()
-    }
-
-    function filter(hint)
-    {
-        var query = Q.Query.folders_.arg(hint)
-        foldersList.query = query
     }
 }

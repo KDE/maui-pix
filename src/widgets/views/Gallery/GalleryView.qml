@@ -1,5 +1,7 @@
 import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.5
+import org.kde.mauikit 1.0 as Maui
+
 import "../../../view_models"
 
 PixGrid
@@ -11,8 +13,7 @@ PixGrid
     holder.isMask: false
     holder.title : "No Pics!"
     holder.body: "Add new image sources"
-    holder.emojiSize: iconSizes.huge
-
+    holder.emojiSize: Maui.Style.iconSizes.huge
 
     function refresh()
     {

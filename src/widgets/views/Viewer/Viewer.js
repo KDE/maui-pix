@@ -1,12 +1,13 @@
 .import "../Pix.js" as PIX
 .import "../../../db/Query.js" as Q
 .import org.kde.mauikit 1.0 as Maui
+.import org.maui.pix 1.0 as Pix
 
-function open(list, index)
+function open(model, index)
 {
-    pixViewer.model.list = list
+    pixViewer.currentModel = model
     view(index)
-    currentView = views.viewer
+    _actionGroup.currentIndex = views.viewer
 }
 
 function openExternalPics(pics, index)
@@ -14,19 +15,19 @@ function openExternalPics(pics, index)
     var oldIndex = pixViewer.viewer.count
     pixViewer.viewer.appendPics(pics)
     view(Math.max(oldIndex, 0))
-    currentView = views.viewer
+    _actionGroup.currentIndex = views.viewer
 }
 
 function view(index)
 {
     pixViewer.currentPicIndex = index
-    pixViewer.currentPic = pixViewer.model.list.get(pixViewer.currentPicIndex)
+    pixViewer.currentPic = pixViewer.currentModel.get(pixViewer.currentPicIndex)
 
     if(Maui.FM.isCloud(pixViewer.currentPic.source))
         cloudView.list.requestImage(pixViewer.currentPicIndex)
 
     console.log("CURRENT PIC FAV", pixViewer.currentPic.fav)
-    pixViewer.currentPicFav = dba.isFav(pixViewer.currentPic.url)
+    pixViewer.currentPicFav = Pix.Collection.isFav(pixViewer.currentPic.url)
     root.title = pixViewer.currentPic.title
 
     pixViewer.roll.position(pixViewer.currentPicIndex)
@@ -60,15 +61,9 @@ function previous()
 
 function fav(urls)
 {
-    for(var i in urls)
-    {
-        var url = urls[i]
-        var faved = dba.isFav(url);
+    for(const i in urls)    
+        Pix.Collection.fav(urls[i])
 
-        if(dba.favPic(url, !faved))
-            if(urls.length === 1)
-                return !faved
-    }
 }
 
 

@@ -43,41 +43,27 @@ public:
     bool execQuery(const QString &queryTxt);
 
     bool insertPic(const FMH::MODEL &img);
-    bool addPic(const QString &url);
+    bool addPic(const QUrl &url);
     bool removePic(const QString &url);
 
     /* actions on model */
-    bool addTag(const QString &tag);
-    bool removePicTag(const QString &tag, const QString &url);
     bool cleanTags();
-
-    bool addAlbum(const QString &album);
-    bool picAlbum(const QString &album, const QString &url);
 
     QVariantList searchFor(const QStringList &queries, const QString &queryTxt);
 
     /* utils */
     FMH::MODEL_LIST getFolders(const QString &query);
-    FMH::MODEL_LIST getDBData(const QString &queryTxt);
+    FMH::MODEL_LIST getDBData(const QString &queryTxt, std::function<bool (FMH::MODEL &)> modifier = nullptr);
 
 public slots:
     QVariantList get(const QString &queryTxt);
-
-    bool albumTag(const QString &tag, const QString &album);
-    bool removeAlbumTag(const QString &tag, const QString &album);
-
-    bool favPic(const QString &url, const bool &fav);
-    bool isFav(const QString &url);
     bool deletePic(const QString &url);
 
 private:
     static DBActions* instance;
     explicit DBActions(QObject *parent = nullptr);
-    ~DBActions();
-    void init();
+
 signals:
-    void tagAdded(QString tag);
-    void albumAdded(QString album);
     void picRemoved();
 };
 
