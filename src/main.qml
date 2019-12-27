@@ -105,7 +105,7 @@ Maui.ApplicationWindow
                 dialog.show(function(paths)
                 {
                     console.log("OPEN THIS PATHS", paths)
-                    pix.openPics(paths)
+                    Pix.Collection.openPics(paths)
                 });
             }
         },
