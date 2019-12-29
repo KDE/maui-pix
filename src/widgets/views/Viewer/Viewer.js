@@ -63,7 +63,6 @@ function fav(urls)
 {
     for(const i in urls)    
         Pix.Collection.fav(urls[i])
-
 }
 
 

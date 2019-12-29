@@ -62,7 +62,10 @@ StackView
 
         if(urls.length > 0)
             for(const i in urls)
-                tagsGrid.list.append(urls[i].url)
+            {
+                if(Maui.FM.checkFileType(Maui.FMList.IMAGE, urls[i].mime))
+                    tagsGrid.list.append(urls[i].url)
+            }
 
     }
  }

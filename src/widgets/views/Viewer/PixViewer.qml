@@ -32,14 +32,6 @@ Maui.Page
     padding: 0
     Kirigami.Theme.backgroundColor: viewerBackgroundColor
 
-
-    //    Connections
-    //    {
-    //        target: tagsDialog
-    //        onPicTagged: if(currentView === views.viewer)
-    //                         VIEWER.setCurrentPicTags()
-    //    }
-
     ViewerMenu
     {
         id: viewerMenu
@@ -150,10 +142,10 @@ Maui.Page
             Maui.Holder
             {
                 id: holder
-                emoji: viewer.count === 0 ? "qrc:/img/assets/Rainbow.png" : "qrc:/img/assets/animat-image-color.gif"
+                emoji: viewer.count === 0 ? "qrc:/img/assets/add-image.svg" : "qrc:/img/assets/animat-image-color.gif"
                 isMask: false
                 isGif : viewer.currentItem.status !== Image.Ready
-                title : viewer.count === 0 ? qsTr("No Pic!") : qsTr("Loading...")
+                title : viewer.count === 0 ? qsTr("No Pics!") : qsTr("Loading...")
                 body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
                 emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
                 visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
@@ -167,6 +159,7 @@ Maui.Page
                 Layout.fillWidth: true
                 allowEditMode: true
                 list.urls: [currentPic.url]
+                list.strict: false
                 onTagClicked: PIX.searchFor(tag)
                 onAddClicked:
                 {

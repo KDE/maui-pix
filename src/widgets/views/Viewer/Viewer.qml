@@ -40,7 +40,7 @@ Maui.Page
         model: currentModel
         onMovementEnded:
         {
-            var index = indexAt(contentX, contentY)
+            const index = indexAt(contentX, contentY)
             if(index !== currentPicIndex)
                 VIEWER.view(index)
         }

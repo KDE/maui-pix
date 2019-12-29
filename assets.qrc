@@ -5,16 +5,11 @@
         <file>assets/banner.png</file>
         <file>assets/album.svg</file>
         <file>assets/image-x-generic.svg</file>
-        <file>assets/ElectricPlug.png</file>
-        <file>assets/Bread.png</file>
-        <file>assets/Electricity.png</file>
-        <file>assets/MoonSki.png</file>
-        <file>assets/SunSki.png</file>
-        <file>assets/RedPlanet.png</file>
-        <file>assets/Rainbow.png</file>
-        <file>assets/BugSearch.png</file>
         <file>assets/pix.svg</file>
         <file>assets/animat-image-color.gif</file>
+        <file>assets/add-image.svg</file>
+        <file>assets/view-preview.svg</file>
+        <file>assets/image-multiple.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

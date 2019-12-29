@@ -30,10 +30,9 @@ StackView
         Maui.Holder
         {
             id: holder
-            emoji: "qrc:/img/assets/RedPlanet.png"
-            isMask: false
-            title : "No Folders!"
-            body: "Add new image sources"
+            emoji: "qrc:/img/assets/view-preview.svg"
+            title : qsTr("No Folders!")
+            body: qsTr("Add new image sources")
             emojiSize: Maui.Style.iconSizes.huge
             visible: false
         }
@@ -100,10 +99,9 @@ StackView
             onClicked: _stackView.pop()
         }
 
-        holder.emoji: "qrc:/img/assets/Electricity.png"
-        holder.isMask: false
-        holder.title : "Folder is empty!"
-        holder.body: "There's not images on this folder"
+        holder.emoji: "qrc:/img/assets/add-image.svg"
+        holder.title : qsTr("Folder is empty!")
+        holder.body: qsTr("There's not images on this folder")
         holder.emojiSize: Maui.Style.iconSizes.huge
     }
 

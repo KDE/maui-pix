@@ -9,7 +9,7 @@ PixGrid
     id: galleryViewRoot
     list.query: "select * from images"
     visible: true
-    holder.emoji: "qrc:/img/assets/ElectricPlug.png"
+    holder.emoji: "qrc:/img/assets/image-multiple.svg"
     holder.isMask: false
     holder.title : "No Pics!"
     holder.body: "Add new image sources"
