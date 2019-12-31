@@ -48,8 +48,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "./src/models/gallery/gallery.h"
 //#include "./src/models/cloud/cloud.h"
-
-#include "./src/models/folders/foldermodel.h"
 #include "./src/models/folders/folders.h"
 
 static const QStringList getFolderImages(const QString &path)

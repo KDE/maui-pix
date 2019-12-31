@@ -1,6 +1,6 @@
-import QtQuick.Controls 2.5
+import QtQuick.Controls 2.9
 import QtQuick.Layouts 1.3
-import QtQuick 2.9
+import QtQuick 2.10
 
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
@@ -18,7 +18,7 @@ Maui.Page
     property int itemSize : Kirigami.Settings.isMobile ? Maui.Style.iconSizes.huge * 1.5 : Maui.Style.iconSizes.enormous
     property int itemSpacing: Kirigami.Settings.isMobile ? Maui.Style.space.medium : Maui.Style.space.big
     property int itemRadius : Maui.Style.unit * 6
-  property bool filterBar: false
+    property bool filterBar: false
 
     property alias grid: grid
     property alias holder: holder
@@ -30,6 +30,18 @@ Maui.Page
     signal picClicked(int index)
 
     padding: 0
+    showTitle: !_filterField.visible
+    headBar.leftSretch: false
+
+    headBar.middleContent: Maui.TextField
+    {
+        id: _filterField
+        visible: grid.count && control.filterBar
+        Layout.fillWidth: true
+        placeholderText: qsTr("Filter...")
+        onAccepted: pixModel.filter = text
+        onCleared: pixModel.filter = ""
+    }
 
     headBar.rightContent: [
         ToolButton
@@ -112,10 +124,10 @@ Maui.Page
 
         ToolButton
         {
-          icon.name: "view-filter"
-          checkable: true
-          checked: control.filterBar
-          onClicked: control.filterBar = checked
+            icon.name: "view-filter"
+            checkable: true
+            checked: control.filterBar
+            onClicked: control.filterBar = checked
         }
     ]
 
@@ -231,22 +243,6 @@ Maui.Page
 
         model: pixModel
         delegate: gridDelegate
-
-        gridView.header: Maui.ToolBar
-        {
-            visible: grid.count && control.filterBar
-            width: parent.width
-            leftSretch: false
-
-            middleContent: Maui.TextField
-            {
-                id: _filterField
-                Layout.fillWidth: true
-                placeholderText: qsTr("Filter...")
-                onAccepted: pixModel.filter = text
-                onCleared: pixModel.filter = ""
-            }
-        }
     }
 
     function openPic(index)
