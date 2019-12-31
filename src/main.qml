@@ -250,7 +250,6 @@ Maui.ApplicationWindow
         id: tagsDialogComponent
         Maui.TagsDialog
         {
-            id: tagsDialog
             onTagsReady: composerList.updateToUrls(tags)
         }
     }

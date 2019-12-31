@@ -36,7 +36,8 @@ Menu
         onTriggered:
         {
             dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.show([model.get(index).url])
+            dialog.composerList.urls = [model.get(index).url]
+            dialog.open()
         }
     }
 
