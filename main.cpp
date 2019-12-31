@@ -38,10 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifdef STATIC_MAUIKIT
-#include "./mauikit/src/mauikit.h"
-#endif
-
-#ifdef STATIC_MAUIKIT
+#include "./3rdparty/mauikit/src/mauikit.h"
 #include "fmh.h"
 #include "tagging.h"
 #else

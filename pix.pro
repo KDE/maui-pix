@@ -1,14 +1,13 @@
 QT += qml 
 QT += quick 
-QT += quickcontrols2
 QT += sql
-QT += widgets
 
 TARGET = pix
 TEMPLATE = app
 
 CONFIG += ordered
-CONFIG += c++11
+CONFIG += c++17
+QMAKE_LINK += -nostdlib++
 
 linux:unix:!android {
 
@@ -19,16 +18,20 @@ linux:unix:!android {
 
 } else:android {
 
-    message(Building helpers for Android)
-    include($$PWD/mauikit/mauikit.pri)
-    include($$PWD/3rdparty/kirigami/kirigami.pri)
+    message(Building helpers for Android)   
 
     DEFINES += STATIC_KIRIGAMI
+    DEFINES *= \
+        COMPONENT_FM \
+        COMPONENT_TAGGING \
+        MAUIKIT_STYLE
+
+    include($$PWD/3rdparty/mauikit/mauikit.pri)
+    include($$PWD/3rdparty/kirigami/kirigami.pri)
 
 } else {
     message("Unknown configuration")
 }
-
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -45,14 +48,17 @@ SOURCES += main.cpp \
     src/pix.cpp \
     src/db/db.cpp \
     src/db/dbactions.cpp \
-    src/models/basemodel.cpp \
-    src/models/baselist.cpp \
     src/models/gallery/gallery.cpp \
-    src/models/albums/albums.cpp \
     src/models/folders/folders.cpp \
-    src/models/folders/foldermodel.cpp \
-    src/models/cloud/cloud.cpp
 
+HEADERS += \
+    src/pix.h \
+    src/db/fileloader.h \
+    src/db/db.h \
+    src/db/dbactions.h \
+    src/utils/pic.h \
+    src/models/gallery/gallery.h \
+    src/models/folders/folders.h \
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -69,28 +75,7 @@ RESOURCES += \
     src/qml.qrc \
     assets.qrc \
 
-
-HEADERS += \
-    src/pix.h \
-    src/db/fileloader.h \
-    src/db/db.h \
-    src/db/dbactions.h \
-    src/utils/pic.h \
-    src/models/basemodel.h \
-    src/models/baselist.h \
-    src/models/gallery/gallery.h \
-    src/models/albums/albums.h \
-    src/models/folders/folders.h \
-    src/models/folders/foldermodel.h \
-    src/models/cloud/cloud.h
-
 include(install.pri)
 
-DISTFILES += \
-    android/AndroidManifest.xml \
-    android/gradle/wrapper/gradle-wrapper.jar \
-    android/gradlew \
-    android/res/values/libs.xml \
-    android/build.gradle \
-    android/gradle/wrapper/gradle-wrapper.properties \
-    android/gradlew.bat
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
+
