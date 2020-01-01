@@ -80,7 +80,6 @@ Maui.ApplicationWindow
     onSearchButtonClicked: _actionGroup.currentIndex =  views.search
 
     mainMenu: [
-
         MenuItem
         {
             text: "Sources"

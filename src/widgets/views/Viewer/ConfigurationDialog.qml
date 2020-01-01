@@ -15,7 +15,7 @@ Maui.Dialog
     {
         width: parent.width*0.9
         anchors.centerIn: parent
-        rowSpacing: contentMargins
+        rowSpacing: Maui.Style.space.medium
         rows: 3
         columns: 2
 

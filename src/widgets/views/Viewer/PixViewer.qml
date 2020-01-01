@@ -63,11 +63,11 @@ Maui.Page
             onClicked:
             {
                 if(isAndroid)
-                Maui.Android.shareDialog([pixViewer.currentPic.url])
+                Maui.Android.shareDialog(control.currentPic.url)
                 else
                 {
                     dialogLoader.sourceComponent = shareDialogComponent
-                    dialog.show([pixViewer.currentPic.url])
+                    dialog.show([control.currentPic.url])
                 }
             }
         },

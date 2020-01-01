@@ -12,7 +12,7 @@
 <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 
 
-<application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Index" android:icon="@drawable/icon">
+<application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Pix" android:icon="@drawable/icon">
 <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density" android:name="org.qtproject.qt5.android.bindings.QtActivity" android:label="pix" android:screenOrientation="unspecified" android:launchMode="singleTop">
 <intent-filter>
 <action android:name="android.intent.action.MAIN"/>
@@ -93,7 +93,7 @@
         -->
 
 <!-- Application to launch -->
-<meta-data android:name="android.app.lib_name" android:value="vvave"/>
+<meta-data android:name="android.app.lib_name" android:value="pix"/>
 <!-- Application to launch -->
 
 <!-- Ministro -->
@@ -152,6 +152,8 @@
 <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS"/>
 <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES"/>
-
+<uses-permission android:name="android.permission.STATUS_BAR"/>
+<uses-permission android:name="android.permission.SET_WALLPAPER"/>
+<uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
 
 </manifest>

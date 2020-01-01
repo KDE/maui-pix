@@ -19,8 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
 #include <QQmlApplicationEngine>
-#include <QQmlContext>
-// #include <QQuickStyle>
 #include <QIcon>
 #include <QCommandLineParser>
 #include <QFileInfo>
@@ -28,17 +26,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
-#include <QIcon>
 #else
 #include <QApplication>
 #endif
 
 #ifdef STATIC_KIRIGAMI
-#include "./3rdparty/kirigami/src/kirigamiplugin.h"
+#include "3rdparty/kirigami/src/kirigamiplugin.h"
 #endif
 
 #ifdef STATIC_MAUIKIT
-#include "./3rdparty/mauikit/src/mauikit.h"
+#include "3rdparty/mauikit/src/mauikit.h"
 #include "fmh.h"
 #include "tagging.h"
 #else
@@ -83,12 +80,15 @@ static const QStringList openFiles(const QStringList &files)
     return urls;
 }
 
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
+    if (!MAUIAndroid::checkRunTimePermissions())
+            return -1;
 #else
     QApplication app(argc, argv);
 #endif
@@ -113,20 +113,20 @@ int main(int argc, char *argv[])
     if(!args.isEmpty())
         pics = openFiles(args);
 
+    static Pix pix;
 
     QQmlApplicationEngine engine;
-//    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
-//    {
-//        pix.refreshCollection();
-//        if(!pics.isEmpty())
-//            pix.openPics(pics);
-//    });
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
+    {
+        if(!pics.isEmpty())
+            pix.openPics(pics);
+    });
 
     qmlRegisterSingletonType<Pix>("org.maui.pix", 1, 0, "Collection",
                                           [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
-        return new Pix;
+        return &pix;
     });
 
     qmlRegisterSingletonType<DBActions>("org.maui.pix", 1, 0, "DB",
@@ -145,7 +145,6 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
     qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
-    //    qmlRegisterType<Cloud>("CloudList", 1, 0, "CloudList");
 
 #ifdef STATIC_KIRIGAMI
     KirigamiPlugin::getInstance().registerTypes();

@@ -47,7 +47,7 @@ Menu
         onTriggered:
         {
             if(isAndroid)
-                Maui.Android.shareDialog([model.get(index).url])
+                Maui.Android.shareDialog(model.get(index).url)
             else
             {
                 dialogLoader.sourceComponent = shareDialogComponent

@@ -41,8 +41,6 @@ class Pix : public QObject
 
 public:
     explicit Pix(QObject* parent = nullptr);
-    /*UTILS*/
-
 
 public slots:
     void addSources(const QStringList &paths);

@@ -1,13 +1,12 @@
-QT += qml 
-QT += quick 
-QT += sql
+QT *= qml \
+    quick \
+    sql
 
 TARGET = pix
 TEMPLATE = app
 
 CONFIG += ordered
 CONFIG += c++17
-QMAKE_LINK += -nostdlib++
 
 linux:unix:!android {
 
@@ -19,15 +18,20 @@ linux:unix:!android {
 } else:android {
 
     message(Building helpers for Android)   
+    QMAKE_LINK += -nostdlib++
+    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
 
-    DEFINES += STATIC_KIRIGAMI
     DEFINES *= \
         COMPONENT_FM \
         COMPONENT_TAGGING \
-        MAUIKIT_STYLE
+        COMPONENT_ACCOUNTS \
+        MAUIKIT_STYLE \
+        ANDROID_OPENSSL
 
-    include($$PWD/3rdparty/mauikit/mauikit.pri)
     include($$PWD/3rdparty/kirigami/kirigami.pri)
+    include($$PWD/3rdparty/mauikit/mauikit.pri)
+
+    DEFINES += STATIC_KIRIGAMI
 
 } else {
     message("Unknown configuration")
@@ -76,6 +80,4 @@ RESOURCES += \
     assets.qrc \
 
 include(install.pri)
-
-ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
 
