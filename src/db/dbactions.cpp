@@ -20,6 +20,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "dbactions.h"
 
+#ifdef STATIC_MAUIKIT
+#include "fmstatic.h"
+#else
+#include <MauiKit/fmstatic.h>
+#endif
+
 DBActions::DBActions(QObject *parent) : DB(parent)
 {
     qDebug() << "Getting collectionDB info from: " << PIX::CollectionDBPath;
@@ -92,13 +98,10 @@ bool DBActions::removePic(const QString &url)
     return false;
 }
 
-bool DBActions::deletePic(const QString &url)
+bool DBActions::deletePic(const QUrl &url)
 {
-    QFile file(url);
-    if(!file.exists()) return false;
-
-    if(file.remove())
-        return this->removePic(url);
+    if(FMStatic::removeFile(url))
+        return this->removePic(url.toString());
 
     return false;
 }

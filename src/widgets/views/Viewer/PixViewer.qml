@@ -116,7 +116,12 @@ Maui.Page
             icon.color: pixViewer.currentPicFav ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
             onClicked:
             {
-                 pixViewer.currentPicFav = Pix.Collection.fav(pixViewer.currentPic.url)
+                if(pixViewer.currentPicFav)
+                    tagBar.list.removeFromUrls("fav")
+                else
+                    tagBar.list.insertToUrls("fav")
+
+                pixViewer.currentPicFav = !pixViewer.currentPicFav
             }
         },
 

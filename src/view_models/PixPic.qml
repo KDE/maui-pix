@@ -14,54 +14,33 @@ Maui.ItemDelegate
     property bool showIndicator : false
     property bool showEmblem:  true
     property bool fit : false
-    property bool isHovered :  hovered
     property bool cachePic: false
     property bool dropShadow: false
 
     property alias source : img.source
     property alias label : _label.text
 
-    property color labelColor : (selected || isCurrentItem || (keepEmblemOverlay && selected)) && !hovered && showSelectionBackground? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
-    property color hightlightedColor : selected || isCurrentItem || hovered || (keepEmblemOverlay && selected) ? Kirigami.Theme.highlightColor : "transparent"
-
-    property bool showSelectionBackground : true
+    property color labelColor : (selected || isCurrentItem || selected) && !hovered ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+    property color hightlightedColor : selected || isCurrentItem || hovered  ? Kirigami.Theme.highlightColor : "transparent"
 
     property bool selected : false
-    property bool keepEmblemOverlay : false
 
     signal emblemClicked();
 
-    hoverEnabled: !Kirigami.Settings.isMobile
     padding: Maui.Style.space.medium
-
-//    background: Rectangle
-//    {
-//        color: "transparent"
-//    }
-
-//    MouseArea
-//    {
-//        anchors.fill: parent
-//        acceptedButtons:  Qt.RightButton
-//        onClicked:
-//        {
-//            if(!Kirigami.Settings.isMobile && mouse.button === Qt.RightButton)
-//                rightClicked()
-//        }
-//    }
 
     Maui.Badge
     {
         id: emblem
         iconName: selected ? "list-remove" : "list-add"
-        visible: isHovered || showEmblem || selected
+        visible: control.hovered || control.showEmblem || control.selected
         z: 999
         anchors.top: parent.top
         anchors.left: parent.left
         onClicked:
         {
-            selected = !selected
-            emblemClicked(index)
+            control.selected = !control.selected
+            control.emblemClicked(index)
         }
     }
 
@@ -120,14 +99,6 @@ Maui.ItemDelegate
                 }
             }
 
-//            Rectangle
-//            {
-//                anchors.fill: parent
-//                color: hovered ? "#333" : "transparent"
-//                opacity: hovered ?  0.3 : 0
-//                radius: picRadius
-//            }
-
             DropShadow
             {
                 anchors.fill: img
@@ -165,7 +136,6 @@ Maui.ItemDelegate
 
                 Rectangle
                 {
-                    visible: parent.visible && showSelectionBackground
                     anchors.fill: parent
                     z: -1
                     radius: Maui.Style.radiusV

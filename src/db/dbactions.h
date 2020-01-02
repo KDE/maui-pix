@@ -57,7 +57,7 @@ public:
 
 public slots:
     QVariantList get(const QString &queryTxt);
-    bool deletePic(const QString &url);
+    bool deletePic(const QUrl &url);
 
 private:
     static DBActions* instance;

@@ -124,10 +124,11 @@ Menu
             acceptButton.text: qsTr("Accept")
             rejectButton.text: qsTr("Cancel")
             message: qsTr("If you are sure you want to delete the file click on Accept, otherwise click on Cancel")
+            page.padding: Maui.Style.space.medium
             onRejected: close()
             onAccepted:
             {
-                model.deleteAt(index)
+                list.deleteAt(control.index)
                 close()
             }
         }

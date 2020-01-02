@@ -86,8 +86,10 @@ bool Gallery::deleteAt(const int &index)
     if(index >= this->list.size() || index < 0)
         return false;
 
-    emit this->preItemRemoved(index);
-    auto item = this->list.takeAt(index);
+    const auto index_ = this->mappedIndex(index);
+
+    emit this->preItemRemoved(index_);
+    auto item = this->list.takeAt(index_);
     this->dba->deletePic(item[FMH::MODEL_KEY::URL]);
     emit this->postItemRemoved();
 
