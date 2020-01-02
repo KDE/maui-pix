@@ -35,13 +35,12 @@ StackView
     PixGrid
     {
         id: tagsGrid
-
         title: control.currentTag
-        holder.title: "No Pics!"
-        holder.body: "There's no pics associated with the tag"
+        holder.title: qsTr("No Pics!")
+        holder.body: qsTr("There's no pics associated with the tag")
         holder.isMask: false
         holder.emojiSize: Maui.Style.iconSizes.huge
-        holder.emoji: "qrc:/img/assets/Bread.png"
+        holder.emoji: "qrc:/img/assets/add-image.svg"
 
         headBar.leftContent: ToolButton
         {
@@ -61,7 +60,7 @@ StackView
         control.push(tagsGrid)
 
         const urls = Pix.Tag.getUrls(myTag, true);
-
+        console.log(urls)
         if(urls.length > 0)
             for(const i in urls)
             {

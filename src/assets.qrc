@@ -11,5 +11,4 @@
         <file>assets/view-preview.svg</file>
         <file>assets/image-multiple.svg</file>
     </qresource>
-    <qresource prefix="/"/>
 </RCC>

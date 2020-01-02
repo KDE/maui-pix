@@ -16,20 +16,21 @@ Maui.Page
         onClicked: newTagDialog.open()
     }
 
-    headBar.rightContent: ToolButton
-    {
-        icon.name: "list-remove"
-    }
+//    headBar.rightContent: ToolButton
+//    {
+//        icon.name: "list-remove"
+//    }
 
     Maui.Holder
     {
         visible: _tagsList.count === 0
-        emoji: "qrc:/img/assets/Rainbow.png"
+        emoji: qsTr("qrc:/img/assets/add-image.svg")
         isMask: false
-        title : "No Tags!"
-        body: "You can create new tags"
+        title :qsTr("No Tags!")
+        body: qsTr("You can create new tags to organize your gallery")
         emojiSize: Maui.Style.iconSizes.huge
         z: 999
+        onActionTriggered: newTagDialog.open()
     }
 
     Maui.GridView
@@ -51,7 +52,6 @@ Maui.Page
             Maui.GridItemTemplate
             {
                 anchors.fill: parent
-
                 label1.text: model.tag
                 iconSource: "tag"
             }

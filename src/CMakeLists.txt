@@ -13,7 +13,6 @@ set(pix_HDRS
     db/db.h
     db/dbactions.h
     utils/pic.h
-    utils/pic.h
     models/gallery/gallery.h
     models/folders/folders.h
     )

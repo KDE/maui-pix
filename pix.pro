@@ -77,7 +77,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     src/qml.qrc \
-    src/assets.qrc \
+    src/assets.qrc
 
 include(install.pri)
 

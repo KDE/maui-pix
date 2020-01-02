@@ -55,7 +55,7 @@ Maui.ApplicationWindow
     title: qsTr("Pix")
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
     //    altToolBars: true
-    Maui.App.description: qsTr("Pix is an image gallery manager made for Maui. Pix is a convergent and multiplatform app that works under Android and GNU Linux distros.")
+    Maui.App.description: qsTr("Pix is a convergent gallery manager and image viewer. Supports GNU Linux, Android and Windows.")
     Maui.App.iconName: "qrc:/img/assets/pix.svg"
 
     property alias dialog : dialogLoader.item
@@ -63,8 +63,8 @@ Maui.ApplicationWindow
     readonly property var views : ({
                                        viewer: 0,
                                        gallery: 1,
-                                       folders: 2,
-                                       tags: 3,
+                                       tags: 2,
+                                       folders: 3,
                                        //                                       cloud: 5,
                                        //                                       store: 6,
                                        search: 4
@@ -80,20 +80,12 @@ Maui.ApplicationWindow
     onSearchButtonClicked: _actionGroup.currentIndex =  views.search
 
     mainMenu: [
-        MenuItem
-        {
-            text: "Sources"
-            icon.name: "folder-add"
-            onTriggered:
-            {
-                dialogLoader.sourceComponent = sourcesDialogComponent
-                dialog.open()
-            }
-        },
+
+        MenuSeparator{},
 
         MenuItem
         {
-            text: "Open..."
+            text: qsTr("Open")
             icon.name: "folder-open"
             onTriggered:
             {
@@ -106,6 +98,19 @@ Maui.ApplicationWindow
                     console.log("OPEN THIS PATHS", paths)
                     Pix.Collection.openPics(paths)
                 });
+            }
+        },
+
+        MenuSeparator{},
+
+        MenuItem
+        {
+            text: qsTr("Sources")
+            icon.name: "folder-add"
+            onTriggered:
+            {
+                dialogLoader.sourceComponent = sourcesDialogComponent
+                dialog.open()
             }
         },
 
@@ -135,25 +140,25 @@ Maui.ApplicationWindow
         Action
         {
             text: qsTr("Viewer")
-            icon.name: "view-visible"
+            icon.name: "document-preview-archive"
         }
 
         Action
         {
             text: qsTr("Gallery")
-            icon.name: "folder-image"
-        }
-
-        Action
-        {
-            text: qsTr("Folders")
-            icon.name: "folder"
+            icon.name: "image-multiple"
         }
 
         Action
         {
             text: qsTr("Tags")
             icon.name: "tag"
+        }
+
+        Action
+        {
+            text: qsTr("Folders")
+            icon.name: "image-folder-view"
         }
     }
 
@@ -181,14 +186,14 @@ Maui.ApplicationWindow
                 id: galleryView
             }
 
-            FoldersView
-            {
-                id: foldersView
-            }
-
             TagsView
             {
                 id: tagsView
+            }
+
+            FoldersView
+            {
+                id: foldersView
             }
 
             SearchView
@@ -333,9 +338,15 @@ Maui.ApplicationWindow
                     width: parent.width
                     anchors.centerIn: parent
 
+                    Item
+                    {
+                        Kirigami.FormData.isSection: true
+                        Kirigami.FormData.label: qsTr("Collection")
+                    }
+
                     Switch
                     {
-                        visible: false //TODO to fix
+//                        visible: false //TODO to fix
                         icon.name: "image-preview"
                         checkable: true
                         checked: root.fitPreviews
@@ -359,10 +370,10 @@ Maui.ApplicationWindow
                         }
                     }
 
-                    Label
+                    Item
                     {
                         Kirigami.FormData.isSection: true
-                        text: qsTr("Viewer")
+                        Kirigami.FormData.label: qsTr("Viewer")
                     }
 
                     Switch
@@ -370,20 +381,19 @@ Maui.ApplicationWindow
                         Kirigami.FormData.label: qsTr("Show tag bar")
                         checkable: true
                         checked: pixViewer.tagBarVisible
-                        onToggled: toogleTagbar()
+                        onToggled: pixViewer.toogleTagbar()
                     }
 
                     Switch
                     {
-                        Kirigami.FormData.label: qsTr("Preview bar")
+                        Kirigami.FormData.label: qsTr("Show preview bar")
                         checkable: true
                         checked: pixViewer.roll.visible
-                        onToggled: pixViewer.roll.visible = ! pixViewer.roll.visible
+                        onToggled: pixViewer.tooglePreviewBar()
                     }
-
                 }
             }
-       }
+        }
     }
 
     Maui.Dialog

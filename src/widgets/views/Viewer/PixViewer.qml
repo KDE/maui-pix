@@ -26,6 +26,7 @@ Maui.Page
     property Maui.BaseModel currentModel : _defaultModel
 
     property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
+    property bool previewBarVisible: Maui.FM.loadSettings("PREVIEWBAR", "PIX", true) === "true" ? true : false
     property string viewerBackgroundColor : Maui.FM.loadSettings("VIEWER_BG_COLOR", "PIX", Kirigami.Theme.backgroundColor)
     property string viewerForegroundColor : Maui.FM.loadSettings("VIEWER_FG_COLOR", "PIX", Kirigami.Theme.textColor)
 
@@ -172,6 +173,7 @@ Maui.Page
             Connections
             {
                 target: dialog
+                ignoreUnknownSignals: true
                 enabled: dialogLoader.sourceComponent === tagsDialogComponent
                 onTagsReady: tagBar.list.refresh()
             }
@@ -186,14 +188,20 @@ Maui.Page
             Layout.topMargin: Maui.Style.space.medium
             Layout.bottomMargin: Maui.Style.space.medium
             Layout.preferredHeight: 120
-            visible: false
+            visible: control.previewBarVisible && rollList.count > 0
             onPicClicked: VIEWER.view(index)
         }
     }
 
     function toogleTagbar()
     {
-        tagBarVisible = !tagBarVisible
+        control.tagBarVisible = !control.tagBarVisible
         Maui.FM.saveSettings("TAGBAR", tagBarVisible, "PIX")
+    }
+
+    function tooglePreviewBar()
+    {
+        control.previewBarVisible = !control.previewBarVisible
+        Maui.FM.saveSettings("PREVIEWBAR", previewBarVisible, "PIX")
     }
 }
