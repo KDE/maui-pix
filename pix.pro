@@ -79,5 +79,7 @@ RESOURCES += \
     src/qml.qrc \
     src/assets.qrc
 
+INCLUDEPATH += src/
+
 include(install.pri)
 
