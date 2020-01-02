@@ -167,6 +167,12 @@ Maui.Page
                 onTagRemovedClicked: list.removeFromUrls(index)
                 onTagsEdited: list.updateToUrls(tags)
             }
+
+            Connections
+            {
+                target: dialog
+                onTagsReady: tagBar.list.refresh()
+            }
         }
 
 
