@@ -382,10 +382,27 @@ Maui.ApplicationWindow
                     }
 
                 }
-
             }
-
        }
+    }
+
+    Maui.Dialog
+    {
+        id: removeDialog
+
+        title: qsTr("Delete files?")
+        acceptButton.text: qsTr("Accept")
+        rejectButton.text: qsTr("Cancel")
+        message: qsTr("Are sure you want to delete %1 files").arg(selectionBox.count)
+        page.padding: Maui.Style.space.huge
+        onRejected: close()
+        onAccepted:
+        {
+            for(var url of selectionBox.uris)
+                Maui.FM.removeFile(url)
+            selectionBox.clear()
+            close()
+        }
     }
 
     Loader

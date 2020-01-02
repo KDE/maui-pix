@@ -13,13 +13,21 @@ Menu
 
     property bool isFav : false
     property int index : -1
+    property Maui.BaseModel model : null
 
-    onOpened: isFav = Pix.Collection.isFav(model.get(index).url)
+    onOpened: isFav = Pix.Collection.isFav(control.model.get(index).url)
 
     MenuItem
     {
         text: qsTr("Select")
-        onTriggered: PIX.selectItem(model.get(index))
+        icon.name: "item-select"
+        onTriggered:
+        {
+            if(Kirigami.Settings.isMobile)
+                selectionMode = true
+
+            PIX.selectItem(control.model.get(index))
+        }
     }
 
     MenuSeparator{}
@@ -27,16 +35,18 @@ Menu
     MenuItem
     {
         text: qsTr(isFav ? "UnFav it": "Fav it")
-        onTriggered: Pix.Collection.fav(model.get(index).url)
+        icon.name: "love"
+        onTriggered: Pix.Collection.fav(control.model.get(index).url)
     }
 
     MenuItem
     {
         text: qsTr("Tags")
+        icon.name: "tag"
         onTriggered:
         {
             dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.composerList.urls = [model.get(index).url]
+            dialog.composerList.urls = [control.model.get(index).url]
             dialog.open()
         }
     }
@@ -44,14 +54,15 @@ Menu
     MenuItem
     {
         text: qsTr("Share")
+        icon.name: "document-share"
         onTriggered:
         {
             if(isAndroid)
-                Maui.Android.shareDialog(model.get(index).url)
+                Maui.Android.shareDialog(control.model.get(index).url)
             else
             {
                 dialogLoader.sourceComponent = shareDialogComponent
-                dialog.show([model.get(index).url])
+                dialog.show([control.model.get(index).url])
             }
         }
     }
@@ -59,23 +70,17 @@ Menu
     MenuItem
     {
         text: qsTr("Export")
+        icon.name: "document-save-as"
         onTriggered:
         {
-            var pic = model.get(index).url
+            var pic = control.model.get(index).url
             dialogLoader.sourceComponent= fmDialogComponent
             dialog.mode = dialog.modes.SAVE
-            dialog.suggestedFileName= Maui.FM.getFileInfo(model.get(index).url).label
+            dialog.suggestedFileName= Maui.FM.getFileInfo(control.model.get(index).url).label
             dialog.show(function(paths)
             {
-                if (typeof paths == 'string')
-                {
-                    Maui.FM.copy([Maui.FM.getFileInfo(pic)], paths)
-                }else
-                {
-                    for(var i in paths)
-                        Maui.FM.copy([Maui.FM.getFileInfo(pic)], paths[i])
-                }
-
+                for(var i in paths)
+                    Maui.FM.copy(pic, paths[i])
             });
             close()
         }
@@ -85,9 +90,10 @@ Menu
     {
         visible: !isAndroid
         text: qsTr("Show in folder")
+        icon.name: "folder-open"
         onTriggered:
         {
-            Pix.Collection.showInFolder([model.get(index).url])
+            Pix.Collection.showInFolder([control.model.get(index).url])
             close()
         }
     }
@@ -108,6 +114,7 @@ Menu
     MenuItem
     {
         text: qsTr("Remove")
+        icon.name: "edit-delete"
         Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
         onTriggered:
         {
@@ -118,20 +125,20 @@ Menu
         Maui.Dialog
         {
             id: removeDialog
-            property var paths: []
 
             title: qsTr("Delete file?")
             acceptButton.text: qsTr("Accept")
             rejectButton.text: qsTr("Cancel")
-            message: qsTr("If you are sure you want to delete the file click on Accept, otherwise click on Cancel")
-            page.padding: Maui.Style.space.medium
+            message: qsTr("Are sure you want to delete %1".arg(control.model.get(index).url))
+            page.padding: Maui.Style.space.huge
             onRejected: close()
             onAccepted:
             {
-                list.deleteAt(control.index)
+                control.model.list.deleteAt(control.index)
                 close()
             }
         }
+
     }
 
 }

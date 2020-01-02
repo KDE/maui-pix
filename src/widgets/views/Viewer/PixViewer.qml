@@ -48,6 +48,7 @@ Maui.Page
     {
         id: _picMenu
         index: viewer.currentIndex
+         model: currentModel
     }
 
     headBar.visible: false
@@ -171,6 +172,7 @@ Maui.Page
             Connections
             {
                 target: dialog
+                enabled: dialogLoader.sourceComponent === tagsDialogComponent
                 onTagsReady: tagBar.list.refresh()
             }
         }

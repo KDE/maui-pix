@@ -19,6 +19,8 @@ StackView
     {
         id: newTagDialog
         title: qsTr("New tag")
+        message: qsTr("Create a new tag to organize your gallery")
+        acceptButton.text : qsTr("Add")
         onFinished:
         {
             tagsList.insert(text)

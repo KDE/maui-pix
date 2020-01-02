@@ -24,17 +24,21 @@ MauiLab.SelectionBar
         Kirigami.Theme.inherit: true
         height: Maui.Style.toolBarHeight
         width: parent.width
+
+        background: null
+
         Maui.ListItemTemplate
         {
             anchors.fill: parent
             label1.text: model.title
             label2.text: model.url
+            label2.elide: Text.ElideMiddle
             imageSource: model.url
             iconSizeHint: height
         }
 
         onClicked: control.removeAtIndex(index)
-    }
+    }    
 
     Action
     {
@@ -90,7 +94,7 @@ MauiLab.SelectionBar
     Action
     {
         text: qsTr("Remove")
-        icon.name: "delete"
+        icon.name: "edit-delete"
         Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
         onTriggered:
         {

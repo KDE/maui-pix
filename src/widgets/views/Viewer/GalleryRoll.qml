@@ -24,7 +24,7 @@ Item
         currentIndex: currentPicIndex
         orientation: ListView.Horizontal
         clip: true
-        spacing: Maui.Style.space.big
+        spacing: Maui.Style.space.medium
 
         focus: true
         interactive: true

@@ -142,6 +142,7 @@ Maui.Page
     {
         id: _picMenu
         index: grid.currentIndex
+        model: pixModel
     }
 
     Component
