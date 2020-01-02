@@ -2,7 +2,8 @@
 #define GALLERY_H
 
 #include <QObject>
-#include "./src/utils/pic.h"
+
+#include "utils/pic.h"
 
 #ifdef STATIC_MAUIKIT
 #include "fmh.h"

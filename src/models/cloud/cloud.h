@@ -2,7 +2,7 @@
 #define CLOUD_H
 
 #include <QObject>
-#include "./src/models/baselist.h"
+#include "models/baselist.h"
 
 class FM;
 class Cloud : public BaseList

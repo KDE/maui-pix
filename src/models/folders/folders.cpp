@@ -1,5 +1,5 @@
-#include "./src/models/folders/folders.h"
-#include "./src/db/dbactions.h"
+#include "models/folders/folders.h"
+#include "db/dbactions.h"
 
 Folders::Folders(QObject *parent) : MauiList(parent)
 {

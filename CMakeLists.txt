@@ -1,12 +1,18 @@
 project(pix)
 cmake_minimum_required(VERSION 3.0)
 
-find_package(ECM 1.7.0 REQUIRED NO_MODULE)
+set(REQUIRED_QT_VERSION 5.10.0)
+set(REQUIRED_KF5_VERSION 5.60)
+
+find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
+
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 set(CMAKE_CXX_STANDARD 17)
 
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Qml Quick Sql Svg QuickControls2 Widgets)
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n Notifications Config KIO Attica)
 find_package(MauiKit REQUIRED)
-find_package(Qt5 REQUIRED NO_MODULE COMPONENTS Qml Quick Sql Svg QuickControls2 Widgets)
+
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
@@ -14,62 +20,12 @@ include(ECMInstallIcons)
 include(FeatureSummary)
 include(ECMAddAppIcon)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTORCC ON)
-
-set(pix_SRCS
-    main.cpp
-    src/pix.cpp
-    src/db/db.cpp
-    src/db/dbactions.cpp
-    src/models/gallery/gallery.cpp
-    src/models/folders/folders.cpp
-    )
-
-set(pix_HDRS
-    src/pix.h
-    src/db/fileloader.h
-    src/db/db.h
-    src/db/dbactions.h
-    src/utils/pic.h
-    src/models/gallery/gallery.h
-    src/models/folders/folders.h
-    )
-
-set(pix_ASSETS
-    src/qml.qrc
-    assets.qrc
-    )
-
-add_executable(pix
-    ${pix_SRCS}
-    ${pix_HDRS}
-    ${pix_ASSETS}
-    )
-
 if (ANDROID)
-    find_package(Qt5 REQUIRED COMPONENTS AndroidExtras)
-
-    target_link_libraries(vvave Qt5::AndroidExtras)
-    kde_source_files_enable_exceptions(pix src/pix.cpp)
-else() 
-    find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS I18n Notifications Config KIO Attica)
-    find_package(Qt5 REQUIRED COMPONENTS WebEngine)
-
-    target_link_libraries(pix KF5::ConfigCore KF5::Notifications KF5::KIOCore KF5::I18n KF5::Attica)
+    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS AndroidExtras)
 endif()
 
-if (TARGET create-apk-pix)
-    set_target_properties(create-apk-pix PROPERTIES ANDROID_APK_DIR "${MAUIKIT_ANDROID_DIR}")
-endif()
+add_subdirectory(src)
 
-target_link_libraries(pix MauiKit Qt5::Sql Qt5::Qml Qt5::Widgets Qt5::Svg)
-
-install(TARGETS pix ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES org.kde.pix.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-
-#TODO: port to ecm_install_icons()
-install(FILES assets/pix.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
 install(FILES org.kde.pix.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
-feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

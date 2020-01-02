@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QIcon>
 #include <QCommandLineParser>
 #include <QFileInfo>
-#include "src/pix.h"
+#include "pix.h"
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -43,9 +43,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <MauiKit/tagging.h>
 #endif
 
-#include "./src/models/gallery/gallery.h"
-//#include "./src/models/cloud/cloud.h"
-#include "./src/models/folders/folders.h"
+#include "models/gallery/gallery.h"
+//#include "models/cloud/cloud.h"
+#include "models/folders/folders.h"
+
 
 static const QStringList getFolderImages(const QString &path)
 {
@@ -80,8 +81,7 @@ static const QStringList openFiles(const QStringList &files)
     return urls;
 }
 
-
-int main(int argc, char *argv[])
+Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
