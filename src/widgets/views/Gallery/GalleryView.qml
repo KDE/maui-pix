@@ -8,11 +8,9 @@ PixGrid
 {
     id: galleryViewRoot
     list.query: "select * from images"
-    visible: true
     holder.emoji: "qrc:/img/assets/image-multiple.svg"
-    holder.isMask: false
-    holder.title : "No Pics!"
-    holder.body: "Add new image sources"
+    holder.title : qsTr("No Pics!")
+    holder.body: qsTr("Add new sources to browse your image collection ")
     holder.emojiSize: Maui.Style.iconSizes.huge
 
     function refresh()

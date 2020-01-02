@@ -38,7 +38,6 @@ StackView
         title: control.currentTag
         holder.title: qsTr("No Pics!")
         holder.body: qsTr("There's no pics associated with the tag")
-        holder.isMask: false
         holder.emojiSize: Maui.Style.iconSizes.huge
         holder.emoji: "qrc:/img/assets/add-image.svg"
 

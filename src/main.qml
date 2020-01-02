@@ -79,6 +79,13 @@ Maui.ApplicationWindow
     property bool selectionMode : false
     onSearchButtonClicked: _actionGroup.currentIndex =  views.search
 
+    background: Rectangle
+    {
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        color: Kirigami.Theme.backgroundColor
+    }
+
     mainMenu: [
 
         MenuSeparator{},

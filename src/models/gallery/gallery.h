@@ -3,8 +3,6 @@
 
 #include <QObject>
 
-#include "src/utils/pic.h"
-
 #ifdef STATIC_MAUIKIT
 #include "fmh.h"
 #include "mauilist.h"

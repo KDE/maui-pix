@@ -18,7 +18,12 @@ Maui.ItemDelegate
 
     signal emblemClicked();
 
-    padding: Maui.Style.space.medium
+    padding: Maui.Style.space.medium    
+
+    ToolTip.delay: 1000
+    ToolTip.timeout: 5000
+    ToolTip.visible: control.hovered
+    ToolTip.text: model.url
 
     Maui.Badge
     {

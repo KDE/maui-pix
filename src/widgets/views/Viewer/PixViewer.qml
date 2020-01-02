@@ -49,13 +49,10 @@ Maui.Page
     {
         id: _picMenu
         index: viewer.currentIndex
-         model: currentModel
+        model: currentModel
     }
 
-    headBar.visible: false
-
     footBar.rightContent: [
-
         ToolButton
         {
             icon.name: "document-share"
@@ -83,13 +80,6 @@ Maui.Page
             onClicked: viewer.currentItem.rotateRight()
         }
     ]
-
-
-
-    //    footBar.colorScheme.backgroundColor: accentColor
-    //    footBar.colorScheme.textColor: altColorText
-    //        footBar.colorScheme.borderColor: accentColor
-
     footBar.leftContent: [
 
         ToolButton
@@ -149,36 +139,7 @@ Maui.Page
                 visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
                 Kirigami.Theme.backgroundColor: viewerForegroundColor
             }
-
-            footer: Maui.TagsBar
-            {
-                id: tagBar
-                visible: !holder.visible && tagBarVisible && !fullScreen
-                Layout.fillWidth: true
-                allowEditMode: true
-                list.urls: [currentPic.url]
-                list.strict: false
-                onTagClicked: PIX.searchFor(tag)
-                onAddClicked:
-                {
-                    dialogLoader.sourceComponent = tagsDialogComponent
-                    dialog.composerList.urls = [currentPic.url]
-                    dialog.open()
-                }
-
-                onTagRemovedClicked: list.removeFromUrls(index)
-                onTagsEdited: list.updateToUrls(tags)
-            }
-
-            Connections
-            {
-                target: dialog
-                ignoreUnknownSignals: true
-                enabled: dialogLoader.sourceComponent === tagsDialogComponent
-                onTagsReady: tagBar.list.refresh()
-            }
         }
-
 
         GalleryRoll
         {
@@ -191,6 +152,35 @@ Maui.Page
             visible: control.previewBarVisible && rollList.count > 0
             onPicClicked: VIEWER.view(index)
         }
+
+        Maui.TagsBar
+           {
+               id: tagBar
+               visible: !holder.visible && tagBarVisible && !fullScreen
+               Layout.fillWidth: true
+position: ToolBar.Footer
+               allowEditMode: true
+               list.urls: [currentPic.url]
+               list.strict: false
+               onTagClicked: PIX.searchFor(tag)
+               onAddClicked:
+               {
+                   dialogLoader.sourceComponent = tagsDialogComponent
+                   dialog.composerList.urls = [currentPic.url]
+                   dialog.open()
+               }
+
+               onTagRemovedClicked: list.removeFromUrls(index)
+               onTagsEdited: list.updateToUrls(tags)
+
+               Connections
+               {
+                   target: dialog
+                   ignoreUnknownSignals: true
+                   enabled: dialogLoader.sourceComponent === tagsDialogComponent
+                   onTagsReady: tagBar.list.refresh()
+               }
+           }
     }
 
     function toogleTagbar()

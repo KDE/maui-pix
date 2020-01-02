@@ -135,6 +135,7 @@ Maui.Page
     {
         id: holder
         visible: grid.count === 0
+        isMask: true
         emojiSize: Maui.Style.iconSizes.huge
     }
 

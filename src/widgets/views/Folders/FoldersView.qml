@@ -75,7 +75,7 @@ StackView
 
             onItemClicked:
             {
-                var folder = foldersList.get(index)
+                var folder = folderModel.get(index)
                 picsView.title = folder.label
                 currentFolder = folder.path
                 picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
@@ -101,7 +101,7 @@ StackView
 
         holder.emoji: "qrc:/img/assets/add-image.svg"
         holder.title : qsTr("Folder is empty!")
-        holder.body: qsTr("There's not images on this folder")
+        holder.body: qsTr("There's not images in this folder")
         holder.emojiSize: Maui.Style.iconSizes.huge
     }
 
