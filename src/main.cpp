@@ -113,20 +113,20 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     if(!args.isEmpty())
         pics = openFiles(args);
 
-    static Pix pix;
+    static auto pix = new Pix;
 
     QQmlApplicationEngine engine;
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
     {
         if(!pics.isEmpty())
-            pix.openPics(pics);
+            pix->openPics(pics);
     });
 
     qmlRegisterSingletonType<Pix>("org.maui.pix", 1, 0, "Collection",
                                           [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
-        return &pix;
+        return pix;
     });
 
     qmlRegisterSingletonType<DBActions>("org.maui.pix", 1, 0, "DB",
