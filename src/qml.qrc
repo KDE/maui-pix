@@ -17,9 +17,7 @@
         <file>widgets/views/Albums/AlbumsGrid.qml</file>
         <file>widgets/views/Albums/AlbumDelegate.qml</file>
         <file>widgets/views/Viewer/GalleryRoll.qml</file>
-        <file>widgets/views/Viewer/ViewerMenu.qml</file>
         <file>widgets/views/Tags/TagsSidebar.qml</file>
-        <file>widgets/views/Viewer/ConfigurationDialog.qml</file>
         <file>widgets/views/Search/SearchView.qml</file>
         <file>widgets/views/Viewer/ViewerDelegate.qml</file>
         <file>view_models/PixMenu.qml</file>

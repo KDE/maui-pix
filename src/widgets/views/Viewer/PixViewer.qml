@@ -23,7 +23,7 @@ Maui.Page
     property bool currentPicFav: false
     property var currentPic : ({})
     property int currentPicIndex : 0
-    property Maui.BaseModel currentModel : null
+    property Maui.BaseModel currentModel : _defaultModel
 
     property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
     property string viewerBackgroundColor : Maui.FM.loadSettings("VIEWER_BG_COLOR", "PIX", Kirigami.Theme.backgroundColor)
@@ -32,20 +32,17 @@ Maui.Page
     padding: 0
     Kirigami.Theme.backgroundColor: viewerBackgroundColor
 
-    ViewerMenu
-    {
-        id: viewerMenu
-    }
-
-    ConfigurationDialog
-    {
-        id : viewerConf
-    }
 
     //    EditTools
     //    {
     //        id: editTools
     //    }
+
+    Maui.BaseModel
+    {
+        id: _defaultModel
+        list: GalleryList {}
+    }
 
     PixMenu
     {
@@ -63,7 +60,7 @@ Maui.Page
             onClicked:
             {
                 if(isAndroid)
-                Maui.Android.shareDialog(control.currentPic.url)
+                    Maui.Android.shareDialog(control.currentPic.url)
                 else
                 {
                     dialogLoader.sourceComponent = shareDialogComponent
@@ -82,19 +79,13 @@ Maui.Page
         {
             icon.name: "object-rotate-right"
             onClicked: viewer.currentItem.rotateRight()
-        },
-
-        ToolButton
-        {
-            icon.name: "overflow-menu"
-            onClicked: viewerMenu.popup()
         }
     ]
 
 
 
-//    footBar.colorScheme.backgroundColor: accentColor
-//    footBar.colorScheme.textColor: altColorText
+    //    footBar.colorScheme.backgroundColor: accentColor
+    //    footBar.colorScheme.textColor: altColorText
     //        footBar.colorScheme.borderColor: accentColor
 
     footBar.leftContent: [
@@ -102,7 +93,7 @@ Maui.Page
         ToolButton
         {
             icon.name: "go-previous"
-//            icon.color: altColorText
+            //            icon.color: altColorText
             onClicked: VIEWER.previous()
         },
 
@@ -111,7 +102,7 @@ Maui.Page
             Kirigami.Theme.inherit: false
             Kirigami.Theme.highlightColor: "#ff5a86"
             icon.name: "love"
-//            colorScheme.highlightColor: "#ff557f";
+            //            colorScheme.highlightColor: "#ff557f";
             checked: pixViewer.currentPicFav
             icon.color: pixViewer.currentPicFav ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
             onClicked:
@@ -128,7 +119,7 @@ Maui.Page
         ToolButton
         {
             icon.name: "go-next"
-//            icon.color: altColorText
+            //            icon.color: altColorText
             onClicked: VIEWER.next()
         }
     ]
@@ -169,7 +160,8 @@ Maui.Page
                 onAddClicked:
                 {
                     dialogLoader.sourceComponent = tagsDialogComponent
-                    dialog.show(currentPic.url)
+                    dialog.composerList.urls = [currentPic.url]
+                    dialog.open()
                 }
 
                 onTagRemovedClicked: list.removeFromUrls(index)
@@ -190,7 +182,6 @@ Maui.Page
             onPicClicked: VIEWER.view(index)
         }
     }
-
 
     function toogleTagbar()
     {

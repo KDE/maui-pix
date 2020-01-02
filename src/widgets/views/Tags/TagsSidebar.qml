@@ -32,17 +32,29 @@ Maui.Page
         z: 999
     }
 
-    Maui.ListBrowser
+    Maui.GridView
     {
         id: _tagsList
         anchors.fill: parent
-        anchors.margins: Maui.Style.space.medium
         model: tagsModel
-        delegate: Maui.ListDelegate
+        itemSize: 100
+        adaptContent: true
+
+        delegate: Maui.ItemDelegate
         {
             id: delegate
-            label: tag
-            radius: Maui.Style.radiusV
+            isCurrentItem:  GridView.isCurrentItem
+            height: _tagsList.cellHeight
+            width: _tagsList.cellWidth
+            padding: Maui.Style.space.medium
+
+            Maui.GridItemTemplate
+            {
+                anchors.fill: parent
+
+                label1.text: model.tag
+                iconSource: "tag"
+            }
 
             Connections
             {

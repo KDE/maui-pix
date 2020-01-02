@@ -11,6 +11,7 @@ Item
     property alias rollList : rollList
 
     property int rollPicSize : height-Maui.Style.space.tiny
+    property alias model: rollList.model
 
     signal picClicked(int index)
 
@@ -36,8 +37,7 @@ Item
             height: 100
             width: 100
 
-            picRadius: Maui.Style.radiusV
-            showLabel: false
+            labelsVisible: false
             showIndicator: true
             fit: false
             showEmblem: false

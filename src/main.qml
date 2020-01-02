@@ -321,40 +321,71 @@ Maui.ApplicationWindow
 
         Maui.Dialog
         {
-            maxHeight: 200
-            maxWidth: 200
+            maxHeight: 300
+            maxWidth: 300
             defaultButtons: false
-            Kirigami.FormLayout
+
+            Kirigami.ScrollablePage
             {
-                width: parent.width
-                anchors.centerIn: parent
-
-                Switch
+                anchors.fill: parent
+                Kirigami.FormLayout
                 {
-                    icon.name: "image-preview"
-                    checkable: true
-                    checked: root.fitPreviews
-                    Kirigami.FormData.label: qsTr("Fit previews")
-                    onToggled:
+                    width: parent.width
+                    anchors.centerIn: parent
+
+                    Switch
                     {
-                        root.fitPreviews = !root.fitPreviews
-                        Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
+                        visible: false //TODO to fix
+                        icon.name: "image-preview"
+                        checkable: true
+                        checked: root.fitPreviews
+                        Kirigami.FormData.label: qsTr("Fit previews")
+                        onToggled:
+                        {
+                            root.fitPreviews = !root.fitPreviews
+                            Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
+                        }
                     }
+
+                    Switch
+                    {
+                        Kirigami.FormData.label: qsTr("Show labels")
+                        checkable: true
+                        checked: root.showLabels
+                        onToggled:
+                        {
+                            root.showLabels = !root.showLabels
+                            Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
+                        }
+                    }
+
+                    Label
+                    {
+                        Kirigami.FormData.isSection: true
+                        text: qsTr("Viewer")
+                    }
+
+                    Switch
+                    {
+                        Kirigami.FormData.label: qsTr("Show tag bar")
+                        checkable: true
+                        checked: pixViewer.tagBarVisible
+                        onToggled: toogleTagbar()
+                    }
+
+                    Switch
+                    {
+                        Kirigami.FormData.label: qsTr("Preview bar")
+                        checkable: true
+                        checked: pixViewer.roll.visible
+                        onToggled: pixViewer.roll.visible = ! pixViewer.roll.visible
+                    }
+
                 }
 
-                Switch
-                {
-                    Kirigami.FormData.label: qsTr("Show labels")
-                    checkable: true
-                    checked: root.showLabels
-                    onToggled:
-                    {
-                        root.showLabels = !root.showLabels
-                        Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
-                    }
-                }
             }
-        }
+
+       }
     }
 
     Loader

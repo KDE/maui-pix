@@ -64,9 +64,11 @@ Maui.Page
 
     function appendPics(pics)
     {
+        currentModel = _defaultModel
+
         if(pics.length > 0)
             for(var i in pics)
-                viewerList.model.list.append(pics[i])
+                currentModel.list.append(pics[i])
 
     }
 

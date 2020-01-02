@@ -13,11 +13,9 @@ PixGrid
     //        headBar.visible: true
     //        headBarExitIcon: "edit-clear"
     title: searchResults.grid.count + qsTr(" results")
-    holder.emoji: "qrc:/img/assets/BugSearch.png"
-    holder.isMask: false
-    holder.title : "No Results!"
-    holder.body: "Try with another query"
-    holder.emojiSize: Maui.Style.iconSizes.huge
+    holder.emoji: "qrc:/img/assets/image-multiple.svg"
+    holder.title : qsTr("No Results!")
+    holder.body: qsTr("Try with another query")
 
     footBar.visible: true
     footBar.middleContent: Maui.TextField

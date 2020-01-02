@@ -135,6 +135,7 @@ Maui.Page
     {
         id: holder
         visible: grid.count === 0
+        emojiSize: Maui.Style.iconSizes.huge
     }
 
     PixMenu
@@ -150,9 +151,8 @@ Maui.Page
         PixPic
         {
             id: delegate
-            picRadius : itemRadius
             fit: fitPreviews
-            showLabel: root.showLabels
+            labelsVisible: showLabels
             height: grid.cellHeight
             width: grid.cellWidth
             showEmblem: selectionMode
@@ -236,6 +236,7 @@ Maui.Page
     Maui.GridView
     {
         id: grid
+        visible: !holder.visible
         height: parent.height
         width: parent.width
         adaptContent: true
