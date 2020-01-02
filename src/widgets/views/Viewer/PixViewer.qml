@@ -33,12 +33,6 @@ Maui.Page
     padding: 0
     Kirigami.Theme.backgroundColor: viewerBackgroundColor
 
-
-    //    EditTools
-    //    {
-    //        id: editTools
-    //    }
-
     Maui.BaseModel
     {
         id: _defaultModel
@@ -85,7 +79,6 @@ Maui.Page
         ToolButton
         {
             icon.name: "go-previous"
-            //            icon.color: altColorText
             onClicked: VIEWER.previous()
         },
 
@@ -94,7 +87,6 @@ Maui.Page
             Kirigami.Theme.inherit: false
             Kirigami.Theme.highlightColor: "#ff5a86"
             icon.name: "love"
-            //            colorScheme.highlightColor: "#ff557f";
             checked: pixViewer.currentPicFav
             icon.color: pixViewer.currentPicFav ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
             onClicked:
@@ -111,7 +103,6 @@ Maui.Page
         ToolButton
         {
             icon.name: "go-next"
-            //            icon.color: altColorText
             onClicked: VIEWER.next()
         }
     ]
@@ -131,7 +122,7 @@ Maui.Page
             {
                 id: holder
                 emoji: viewer.count === 0 ? "qrc:/img/assets/add-image.svg" : "qrc:/img/assets/animat-image-color.gif"
-                isMask: false
+                isMask: true
                 isGif : viewer.currentItem.status !== Image.Ready
                 title : viewer.count === 0 ? qsTr("No Pics!") : qsTr("Loading...")
                 body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
@@ -145,42 +136,40 @@ Maui.Page
         {
             id: galleryRoll
             Layout.fillWidth: true
-            Layout.margins: 0
-            Layout.topMargin: Maui.Style.space.medium
-            Layout.bottomMargin: Maui.Style.space.medium
-            Layout.preferredHeight: 120
+            Layout.margins: Maui.Style.space.medium
+            Layout.preferredHeight: Math.min(120, Math.max(parent.height * 0.2, 60))
             visible: control.previewBarVisible && rollList.count > 0
             onPicClicked: VIEWER.view(index)
         }
 
         Maui.TagsBar
-           {
-               id: tagBar
-               visible: !holder.visible && tagBarVisible && !fullScreen
-               Layout.fillWidth: true
-position: ToolBar.Footer
-               allowEditMode: true
-               list.urls: [currentPic.url]
-               list.strict: false
-               onTagClicked: PIX.searchFor(tag)
-               onAddClicked:
-               {
-                   dialogLoader.sourceComponent = tagsDialogComponent
-                   dialog.composerList.urls = [currentPic.url]
-                   dialog.open()
-               }
+        {
+            id: tagBar
+            visible: !holder.visible && tagBarVisible && !fullScreen
+            Layout.fillWidth: true
+            position: ToolBar.Footer
+            allowEditMode: true
+            list.urls: [currentPic.url]
+            list.strict: false
+            onTagClicked: PIX.searchFor(tag)
+            onAddClicked:
+            {
+                dialogLoader.sourceComponent = tagsDialogComponent
+                dialog.composerList.urls = [currentPic.url]
+                dialog.open()
+            }
 
-               onTagRemovedClicked: list.removeFromUrls(index)
-               onTagsEdited: list.updateToUrls(tags)
+            onTagRemovedClicked: list.removeFromUrls(index)
+            onTagsEdited: list.updateToUrls(tags)
 
-               Connections
-               {
-                   target: dialog
-                   ignoreUnknownSignals: true
-                   enabled: dialogLoader.sourceComponent === tagsDialogComponent
-                   onTagsReady: tagBar.list.refresh()
-               }
-           }
+            Connections
+            {
+                target: dialog
+                ignoreUnknownSignals: true
+                enabled: dialogLoader.sourceComponent === tagsDialogComponent
+                onTagsReady: tagBar.list.refresh()
+            }
+        }
     }
 
     function toogleTagbar()

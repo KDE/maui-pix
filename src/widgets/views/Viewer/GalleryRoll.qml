@@ -9,8 +9,6 @@ import GalleryList 1.0
 Item
 {
     property alias rollList : rollList
-
-    property int rollPicSize : height-Maui.Style.space.tiny
     property alias model: rollList.model
 
     signal picClicked(int index)
@@ -18,8 +16,8 @@ Item
     ListView
     {
         id: rollList
-        width: parent.width* 0.9
-        height: parent.height * 0.9
+        width: parent.width
+        height: parent.height
         anchors.centerIn: parent
         currentIndex: currentPicIndex
         orientation: ListView.Horizontal
@@ -34,8 +32,8 @@ Item
         delegate: PixPic
         {
             id: delegate
-            height: 100
-            width: 100
+            height: parent.height * 0.9
+            width: height
 
             labelsVisible: false
             showIndicator: true
