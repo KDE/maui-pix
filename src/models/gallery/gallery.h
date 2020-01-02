@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#include "utils/pic.h"
+#include "src/utils/pic.h"
 
 #ifdef STATIC_MAUIKIT
 #include "fmh.h"

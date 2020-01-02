@@ -2,7 +2,6 @@
 #define FOLDERS_H
 
 #include <QObject>
-#include "utils/pic.h"
 
 #ifdef STATIC_MAUIKIT
 #include "fmh.h"
@@ -27,7 +26,6 @@ private:
 public slots:    
     QVariantMap get(const int &index) const;
     void refresh();
-
 };
 
 #endif // ALBUMS_H

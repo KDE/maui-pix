@@ -1,5 +1,5 @@
 #include "gallery.h"
-#include "db/dbactions.h"
+#include "src/db/dbactions.h"
 
 Gallery::Gallery(QObject *parent) : MauiList(parent)
 {
