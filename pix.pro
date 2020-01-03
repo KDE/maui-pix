@@ -24,7 +24,6 @@ linux:unix:!android {
     DEFINES *= \
         COMPONENT_FM \
         COMPONENT_TAGGING \
-        COMPONENT_ACCOUNTS \
         MAUIKIT_STYLE \
         ANDROID_OPENSSL
 
