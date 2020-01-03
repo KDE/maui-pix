@@ -33,6 +33,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QJsonDocument>
 #include <QJsonObject>
 
+#include "../pix_version.h"
+
 #if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
 #include <MauiKit/utils.h>
 #include <MauiKit/fmh.h>
@@ -119,7 +121,7 @@ inline const static auto NotifyDir = QUrl::fromLocalFile(QStandardPaths::writabl
 
 inline const static QString appName = QStringLiteral("pix");
 inline const static QString displayName = QStringLiteral("Pix");
-inline const static QString version = "1.0";
+inline const static QString version = PIX_VERSION_STRING;
 inline const static QString description = QStringLiteral("Image Viewer");
 inline const static QString orgName = QStringLiteral("Maui");
 inline const static QString orgDomain = QStringLiteral("org.maui.pix");

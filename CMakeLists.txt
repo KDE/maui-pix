@@ -1,5 +1,6 @@
-project(pix)
 cmake_minimum_required(VERSION 3.0)
+set(PIX_VERSION 1.0.0)
+project(pix VERSION ${PIX_VERSION})
 
 set(REQUIRED_QT_VERSION 5.10.0)
 set(REQUIRED_KF5_VERSION 5.60)
@@ -17,8 +18,14 @@ include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
-include(FeatureSummary)
 include(ECMAddAppIcon)
+include(ECMSetupVersion)
+include(FeatureSummary)
+
+ecm_setup_version(${PIX_VERSION}
+    VARIABLE_PREFIX PIX
+    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/pix_version.h"
+    )
 
 if (ANDROID)
     find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS AndroidExtras)
