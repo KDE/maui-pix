@@ -31,7 +31,7 @@ DB::DB(QObject *parent) : QObject(parent)
         collectionDBPath_dir.mkpath(".");
 
     this->name = QUuid::createUuid().toString();
-    if(!FMH::fileExists(PIX::CollectionDBPath.toLocalFile() + PIX::DBName))
+    if(!FMH::fileExists(PIX::CollectionDBPath.toString() + PIX::DBName))
     {
         this->openDB(this->name);
         qDebug()<<"Collection doesn't exists, trying to create it" << PIX::CollectionDBPath.toLocalFile() + PIX::DBName;

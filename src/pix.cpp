@@ -78,6 +78,7 @@ void Pix::populateDB(const QList<QUrl> &urls)
     connect(fileLoader, &FileLoader::finished,[this](uint size)
     {
         Q_UNUSED(size)
+        qDebug()<< "REFRSH THE VIEWS NOW";
         emit this->refreshViews({
                               {PIX::TABLEMAP[TABLE::ALBUMS], true},
                               {PIX::TABLEMAP[TABLE::TAGS], true},

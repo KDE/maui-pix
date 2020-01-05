@@ -290,6 +290,7 @@ Maui.ApplicationWindow
                 ToolButton
                 {
                     icon.name: "list-add"
+                    onClicked: console.log(Maui.Handy.isTouch)
                 },
 
                 ToolButton
