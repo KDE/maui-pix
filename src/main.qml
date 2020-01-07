@@ -45,6 +45,7 @@ import TagsModel 1.0
 import TagsList 1.0
 import org.maui.pix 1.0 as Pix
 
+import org.kde.purpose 1.0 as Purpose
 //import SyncingModel 1.0
 //import SyncingList 1.0
 //import StoreList 1.0
@@ -285,12 +286,53 @@ Maui.ApplicationWindow
             maxWidth: 500
 
             page.title: qsTr("Sources")
+            Maui.Dialog
+            {
+                maxHeight: 500
+                id: _purposeDialog
+
+                Purpose.AlternativesView
+                {
+                    id: _purpose
+                    anchors.fill: parent
+                    pluginType: 'Export'
+
+                    delegate:  Maui.ItemDelegate
+                    {
+                        width: parent.width
+                        height: 100
+
+                        Maui.GridItemTemplate
+                        {
+                            anchors.fill: parent
+                            label1.text: model.display
+                            iconSource: model.iconName
+                            iconSizeHint: Maui.Style.iconSizes.huge
+
+                        }
+
+                        onClicked: reateJob(index)
+
+                        Keys.onReturnPressed: createJob(index)
+                        Keys.onEnterPressed: createJob(index)
+                    }
+                }
+            }
+
             headBar.rightContent: [
 
                 ToolButton
                 {
                     icon.name: "list-add"
-                    onClicked: console.log(Maui.Handy.isTouch)
+                    onClicked:
+                    {
+                        console.log(Maui.Handy.isTouch,"MIME", pixViewer.currentPic.mime)
+                        _purposeDialog.open()
+                        _purpose.inputData = {
+                            'urls': [pixViewer.currentPic.url],
+                            'mimeType': Maui.FM.getFileInfo(pixViewer.currentPic.url).mime
+                        }
+                    }
                 },
 
                 ToolButton
