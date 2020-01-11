@@ -33,7 +33,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QJsonDocument>
 #include <QJsonObject>
 
+#ifndef STATIC_MAUIKIT
 #include "../pix_version.h"
+#endif
 
 #if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
 #include <MauiKit/utils.h>
