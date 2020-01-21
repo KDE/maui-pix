@@ -46,6 +46,7 @@ Maui.Page
         model: currentModel
     }
 
+    footBar.visible: !holder.visible
     footBar.rightContent: [
         ToolButton
         {
@@ -107,6 +108,20 @@ Maui.Page
         }
     ]
 
+    Maui.Holder
+    {
+        id: holder
+        visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
+
+        emoji: viewer.count === 0 ? "qrc:/img/assets/add-image.svg" : "qrc:/img/assets/animat-image-color.gif"
+        isMask: true
+        isGif : viewer.currentItem.status !== Image.Ready
+        title : viewer.count === 0 ? qsTr("No Pics!") : qsTr("Loading...")
+        body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
+        emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
+        Kirigami.Theme.backgroundColor: viewerForegroundColor
+    }
+
     ColumnLayout
     {
         height: parent.height
@@ -115,21 +130,9 @@ Maui.Page
         Viewer
         {
             id: viewer
+            visible: !holder.visible
             Layout.fillHeight: true
             Layout.fillWidth: true
-
-            Maui.Holder
-            {
-                id: holder
-                emoji: viewer.count === 0 ? "qrc:/img/assets/add-image.svg" : "qrc:/img/assets/animat-image-color.gif"
-                isMask: true
-                isGif : viewer.currentItem.status !== Image.Ready
-                title : viewer.count === 0 ? qsTr("No Pics!") : qsTr("Loading...")
-                body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
-                emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
-                visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
-                Kirigami.Theme.backgroundColor: viewerForegroundColor
-            }
         }
 
         GalleryRoll

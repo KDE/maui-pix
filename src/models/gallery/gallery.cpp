@@ -55,7 +55,7 @@ QVariantMap Gallery::get(const int &index) const
     QVariantMap res;
     const auto pic = this->list.at(index);
 
-    for(auto key : pic.keys())
+    for(const auto &key : pic.keys())
         res.insert(FMH::MODEL_NAME[key], pic[key]);
 
     return res;
@@ -100,7 +100,7 @@ void Gallery::append(const QVariantMap &pic)
 {
     emit this->preItemAppended();
 
-    for(auto key : pic.keys())
+    for(const auto &key : pic.keys())
         this->list << FMH::MODEL {{FMH::MODEL_NAME_KEY[key], pic[key].toString()}};
 
     emit this->postItemAppended();

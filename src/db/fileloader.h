@@ -48,16 +48,16 @@ public:
     {
         //        qRegisterMetaType<PIX::TABLE>("PIX::TABLE");
         //        qRegisterMetaType<QMap<PIX::TABLE, bool>>("QMap<PIX::TABLE,bool>");
+
         this->moveToThread(&t);
         connect(this, &FileLoader::start, this, &FileLoader::getPics);
+        this->t.start();
     }
 
     void requestPath(const QList<QUrl> &urls)
     {
         qDebug()<<"FROM file loader"<< urls;
-
         this->go = true;
-        this->t.start();
         emit this->start(urls);
     }
 
@@ -67,7 +67,6 @@ private slots:
         qDebug()<<"GETTING IMAGES";
 
         QList<QUrl> urls;
-        const auto db_ = DBActions::getInstance();
 
         for(const auto &path : paths)
         {
@@ -86,6 +85,7 @@ private slots:
 
         if(urls.size() > 0)
         {
+            const auto db_ = DBActions::getInstance();
             for(const auto &url : urls)
             {
                 if(go)
@@ -96,8 +96,6 @@ private slots:
             }
             emit this->collectionSize(newPics);
         }
-
-        //        this->t.msleep(100);
 
         emit this->finished(newPics);
         this->go = false;

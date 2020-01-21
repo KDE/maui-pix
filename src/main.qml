@@ -285,11 +285,21 @@ Maui.ApplicationWindow
             maxWidth: 500
 
             page.title: qsTr("Sources")
+
             headBar.rightContent: [
 
                 ToolButton
                 {
                     icon.name: "list-add"
+                    onClicked:
+                    {
+                        console.log(Maui.Handy.isTouch,"MIME", pixViewer.currentPic.mime)
+                        _purposeDialog.open()
+                        _purpose.inputData = {
+                            'urls': [pixViewer.currentPic.url],
+                            'mimeType': Maui.FM.getFileInfo(pixViewer.currentPic.url).mime
+                        }
+                    }
                 },
 
                 ToolButton
