@@ -58,7 +58,7 @@ StackView
         tagsGrid.list.clear()
         control.push(tagsGrid)
 
-        const urls = Pix.Tag.getUrls(myTag, true);
+        const urls = Pix.Collection.getTagUrls(myTag, true);
         console.log(urls)
         if(urls.length > 0)
             for(const i in urls)

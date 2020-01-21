@@ -15,7 +15,7 @@ Menu
     property int index : -1
     property Maui.BaseModel model : null
 
-    onOpened: isFav = Pix.Collection.isFav(control.model.get(index).url)
+    onOpened: isFav = Maui.FM.isFav(control.model.get(index).url)
 
     MenuItem
     {
@@ -36,7 +36,7 @@ Menu
     {
         text: qsTr(isFav ? "UnFav it": "Fav it")
         icon.name: "love"
-        onTriggered: Pix.Collection.fav(control.model.get(index).url)
+        onTriggered: Maui.FM.toggleFav(control.model.get(index).url)
     }
 
     MenuItem

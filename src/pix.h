@@ -37,25 +37,25 @@ using namespace std;
 
 class Pix : public QObject
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    explicit Pix(QObject* parent = nullptr);
+	explicit Pix(QObject* parent = nullptr);
 
 public slots:
-    void addSources(const QStringList &paths);
-    void openPics(const QStringList &pics);
-    static bool fav(const QUrl &url);
-    static bool isFav(const QUrl &url);
-    void refreshCollection();
-    /*File actions*/
+	void addSources(const QStringList &paths);
+	void openPics(const QStringList &pics);
+	void refreshCollection();
+	/*File actions*/
    static void showInFolder(const QStringList &urls);
 
+   QVariantList getTagUrls(const QString &tag);
+
 private:
-    void populateDB(const QList<QUrl> &urls);
+	void populateDB(const QList<QUrl> &urls);
 
 signals:
-    void refreshViews(QVariantMap tables);
-    void viewPics(QStringList pics);
+	void refreshViews(QVariantMap tables);
+	void viewPics(QStringList pics);
 };
 #endif // PIX_H

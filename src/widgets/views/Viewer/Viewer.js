@@ -27,7 +27,7 @@ function view(index)
         cloudView.list.requestImage(pixViewer.currentPicIndex)
 
     console.log("CURRENT PIC FAV", pixViewer.currentPic.fav)
-    pixViewer.currentPicFav = Pix.Collection.isFav(pixViewer.currentPic.url)
+    pixViewer.currentPicFav = Maui.FM.isFav(pixViewer.currentPic.url)
     root.title = pixViewer.currentPic.title
 
     pixViewer.roll.position(pixViewer.currentPicIndex)
@@ -61,8 +61,8 @@ function previous()
 
 function fav(urls)
 {
-    for(const i in urls)    
-        Pix.Collection.fav(urls[i])
+    for(const i in urls)
+        Maui.FM.toggleFav(urls[i])
 }
 
 
