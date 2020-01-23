@@ -54,7 +54,7 @@ Maui.ItemDelegate
         id: _template
         isCurrentItem: (control.isCurrentItem || control.selected) && !labelsVisible
         anchors.fill: parent
-        anchors.margins: Maui.Style.space.tiny
+        anchors.margins: 2
         iconSizeHint: height - Maui.Style.space.tiny
         label1.text: model.title
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"

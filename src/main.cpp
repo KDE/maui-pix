@@ -19,8 +19,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
 #include <QQmlApplicationEngine>
-#include <QIcon>
 #include <QCommandLineParser>
+#include <QIcon>
 #include <QFileInfo>
 #include "pix.h"
 
@@ -52,30 +52,30 @@ static const  QList<QUrl>  getFolderImages(const QString &path)
 {
     QList<QUrl> urls;
 
-	if (QFileInfo(path).isDir())
-	{
-		QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
-		while (it.hasNext())
+    if (QFileInfo(path).isDir())
+    {
+        QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
+        while (it.hasNext())
             urls << QUrl::fromLocalFile(it.next());
 
-	}else if (QFileInfo(path).isFile())
-		urls << path;
+    }else if (QFileInfo(path).isFile())
+        urls << path;
 
     return urls;
 }
 
 static const QList<QUrl> openFiles(const QStringList &files)
 {
-     QList<QUrl>  urls;
+    QList<QUrl>  urls;
 
-	if(files.size()>1)
+    if(files.size()>1)
     {
         for(const auto &file : files)
-           urls << QUrl::fromUserInput(file);
+            urls << QUrl::fromUserInput(file);
     }
     else if(files.size() == 1)
-	{        
-		auto folder = QFileInfo(files.first()).dir().absolutePath();
+    {
+        auto folder = QFileInfo(files.first()).dir().absolutePath();
         urls = getFolderImages(folder);
         urls.removeOne(QUrl::fromLocalFile(files.first()));
         urls.insert(0,QUrl::fromLocalFile(files.first()));
@@ -86,73 +86,72 @@ static const QList<QUrl> openFiles(const QStringList &files)
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
     if (!MAUIAndroid::checkRunTimePermissions({"android.permission.WRITE_EXTERNAL_STORAGE"}))
         return -1;
 #else
-	QApplication app(argc, argv);
+    QApplication app(argc, argv);
 #endif
 
-	app.setApplicationName(PIX::appName);
-	app.setApplicationVersion(PIX::version);
-	app.setApplicationDisplayName(PIX::displayName);
-	app.setOrganizationName(PIX::orgName);
-	app.setOrganizationDomain(PIX::orgDomain);
-	app.setWindowIcon(QIcon(":/img/assets/pix.png"));
+    app.setApplicationName(PIX::appName);
+    app.setApplicationVersion(PIX::version);
+    app.setApplicationDisplayName(PIX::displayName);
+    app.setOrganizationName(PIX::orgName);
+    app.setOrganizationDomain(PIX::orgDomain);
+    app.setWindowIcon(QIcon(":/img/assets/pix.png"));
 
-	QCommandLineParser parser;
-	parser.setApplicationDescription(PIX::description);
-	const QCommandLineOption versionOption = parser.addVersionOption();
-	parser.addOption(versionOption);
-	parser.process(app);
+    QCommandLineParser parser;
+    parser.setApplicationDescription(PIX::description);
+    const QCommandLineOption versionOption = parser.addVersionOption();
+    parser.addOption(versionOption);
+    parser.process(app);
 
-	const QStringList args = parser.positionalArguments();
+    const QStringList args = parser.positionalArguments();
 
     QList<QUrl> pics;
+    if(!args.isEmpty())
+        pics = openFiles(args);
 
-	if(!args.isEmpty())
-		pics = openFiles(args);
+    static auto pix = new Pix;
 
-	static auto pix = new Pix;
+    QQmlApplicationEngine engine;
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
+    {
+        if(!pics.isEmpty())
+            pix->openPics(pics);
+    });
 
-	QQmlApplicationEngine engine;
-	QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
-	{
-		if(!pics.isEmpty())
-			pix->openPics(pics);
-	});
+    qmlRegisterSingletonType<Pix>("org.maui.pix", 1, 0, "Collection",
+                                  [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        return pix;
+    });
 
-	qmlRegisterSingletonType<Pix>("org.maui.pix", 1, 0, "Collection",
-										  [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
-		Q_UNUSED(engine)
-		Q_UNUSED(scriptEngine)
-		return pix;
-	});
+    qmlRegisterSingletonType<DBActions>("org.maui.pix", 1, 0, "DB",
+                                        [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        return DBActions::getInstance();
+    });
 
-	qmlRegisterSingletonType<DBActions>("org.maui.pix", 1, 0, "DB",
-										  [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
-		Q_UNUSED(engine)
-		Q_UNUSED(scriptEngine)
-		return DBActions::getInstance();
-	});
-
-	qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
-	qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
+    qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
+    qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
 
 #ifdef STATIC_KIRIGAMI
-	KirigamiPlugin::getInstance().registerTypes();
+    KirigamiPlugin::getInstance().registerTypes();
 #endif
 
 #ifdef STATIC_MAUIKIT
-	MauiKit::getInstance().registerTypes();
+    MauiKit::getInstance().registerTypes();
 #endif
 
-	engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-	if (engine.rootObjects().isEmpty())
-		return -1;
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    if (engine.rootObjects().isEmpty())
+        return -1;
 
-	return app.exec();
+    return app.exec();
 }

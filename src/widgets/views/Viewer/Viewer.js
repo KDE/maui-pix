@@ -7,7 +7,6 @@ function open(model, index)
 {
     pixViewer.currentModel = model
     view(index)
-    _actionGroup.currentIndex = views.viewer
 }
 
 function openExternalPics(pics, index)
@@ -23,13 +22,12 @@ function view(index)
     pixViewer.currentPicIndex = index
     pixViewer.currentPic = pixViewer.currentModel.get(pixViewer.currentPicIndex)
 
-    if(Maui.FM.isCloud(pixViewer.currentPic.source))
-        cloudView.list.requestImage(pixViewer.currentPicIndex)
+//    if(Maui.FM.isCloud(pixViewer.currentPic.source))
+//        cloudView.list.requestImage(pixViewer.currentPicIndex)
 
-    console.log("CURRENT PIC FAV", pixViewer.currentPic.fav)
     pixViewer.currentPicFav = Maui.FM.isFav(pixViewer.currentPic.url)
     root.title = pixViewer.currentPic.title
-
+    _actionGroup.currentIndex = views.viewer
     pixViewer.roll.position(pixViewer.currentPicIndex)
 }
 
