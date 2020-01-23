@@ -27,14 +27,12 @@ import org.kde.mauikit 1.0 as Maui
 import org.kde.mauikit 1.1 as MauiLab
 
 import "widgets"
-import "widgets/views/Albums"
 import "widgets/views/Folders"
 import "widgets/views/Gallery"
 import "widgets/views/Tags"
 import "widgets/views/Viewer"
-import "widgets/views/Search"
-import "widgets/views/Cloud"
-import "widgets/views/Store"
+//import "widgets/views/Cloud"
+//import "widgets/views/Store"
 
 import "view_models"
 

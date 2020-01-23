@@ -44,7 +44,7 @@ public:
 
 public slots:
 	void addSources(const QStringList &paths);
-	void openPics(const QStringList &pics);
+    void openPics(const QList<QUrl> &pics);
 	void refreshCollection();
 	/*File actions*/
    static void showInFolder(const QStringList &urls);

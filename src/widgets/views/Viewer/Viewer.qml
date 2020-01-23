@@ -42,21 +42,19 @@ Maui.Page
         Keys.onPressed:
         {
             if((event.key == Qt.Key_Right))
-                        {
-                            viewerList.incrementCurrentIndex()
-                        }
+            {
+                viewerList.incrementCurrentIndex()
+                VIEWER.view(currentIndex)
+            }
 
             if((event.key == Qt.Key_Left))
-                        {
-                            viewerList.decrementCurrentIndex()
-                        }
+            {
+                viewerList.decrementCurrentIndex()
+                VIEWER.view(currentIndex)
+            }
         }
 
-        onCurrentIndexChanged:
-        {
-            currentPicIndex = viewerList.currentIndex
-            viewerList.forceActiveFocus()
-        }
+        onCurrentIndexChanged:viewerList.forceActiveFocus()
 
         model: currentModel
         onMovementEnded:

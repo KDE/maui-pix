@@ -48,37 +48,40 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "models/folders/folders.h"
 
 
-static const QStringList getFolderImages(const QString &path)
+static const  QList<QUrl>  getFolderImages(const QString &path)
 {
-	QStringList urls;
+    QList<QUrl> urls;
 
 	if (QFileInfo(path).isDir())
 	{
 		QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
 		while (it.hasNext())
-			urls << it.next();
+            urls << QUrl::fromLocalFile(it.next());
 
 	}else if (QFileInfo(path).isFile())
 		urls << path;
 
-	return urls;
+    return urls;
 }
 
-static const QStringList openFiles(const QStringList &files)
+static const QList<QUrl> openFiles(const QStringList &files)
 {
-	QStringList urls;
+     QList<QUrl>  urls;
 
 	if(files.size()>1)
-		urls = files;
-	else
-	{
+    {
+        for(const auto &file : files)
+           urls << QUrl::fromUserInput(file);
+    }
+    else if(files.size() == 1)
+	{        
 		auto folder = QFileInfo(files.first()).dir().absolutePath();
-		urls = getFolderImages(folder);
-		urls.removeOne(QString(files.first()));
-		urls.insert(0, QString(files.first()));
-	}
+        urls = getFolderImages(folder);
+        urls.removeOne(QUrl::fromLocalFile(files.first()));
+        urls.insert(0,QUrl::fromLocalFile(files.first()));
+    }
 
-	return urls;
+    return urls;
 }
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
@@ -108,7 +111,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 	const QStringList args = parser.positionalArguments();
 
-	QStringList pics;
+    QList<QUrl> pics;
 
 	if(!args.isEmpty())
 		pics = openFiles(args);

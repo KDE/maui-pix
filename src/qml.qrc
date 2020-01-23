@@ -8,17 +8,13 @@
         <file>widgets/views/Folders/FoldersView.qml</file>
         <file>widgets/views/Gallery/GalleryView.qml</file>
         <file>widgets/views/Tags/TagsView.qml</file>
-        <file>widgets/views/Albums/AlbumsView.qml</file>
         <file>widgets/views/Viewer/PixViewer.qml</file>
         <file>widgets/views/Viewer/EditTools.qml</file>
         <file>widgets/views/Viewer/Viewer.qml</file>
         <file>widgets/views/Viewer/Viewer.js</file>
         <file>widgets/views/Pix.js</file>
-        <file>widgets/views/Albums/AlbumsGrid.qml</file>
-        <file>widgets/views/Albums/AlbumDelegate.qml</file>
         <file>widgets/views/Viewer/GalleryRoll.qml</file>
         <file>widgets/views/Tags/TagsSidebar.qml</file>
-        <file>widgets/views/Search/SearchView.qml</file>
         <file>widgets/views/Viewer/ViewerDelegate.qml</file>
         <file>view_models/PixMenu.qml</file>
         <file>widgets/SelectionBar.qml</file>

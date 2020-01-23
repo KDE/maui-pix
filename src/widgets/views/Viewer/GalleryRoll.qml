@@ -36,7 +36,6 @@ Item
             width: height
 
             labelsVisible: false
-            showIndicator: true
             fit: false
             showEmblem: false
             dropShadow: true

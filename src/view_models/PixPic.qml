@@ -9,7 +9,6 @@ Maui.ItemDelegate
 {  
     id: control
 
-    property bool showIndicator : false
     property bool showEmblem:  true
     property bool keepEmblem:  false
     property bool fit : false
@@ -39,18 +38,6 @@ Maui.ItemDelegate
             control.selected = !control.selected
             control.emblemClicked(index)
         }
-    }
-
-    Rectangle
-    {
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        visible: control.showIndicator && control.isCurrentItem
-        color: Kirigami.Theme.highlightColor
-        height: Maui.Style.iconSizes.small
-        width: Maui.Style.iconSizes.small
-        radius: Math.min(width, height)
-        z: 999
     }
 
     //    Kirigami.Icon

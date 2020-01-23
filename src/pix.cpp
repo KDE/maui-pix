@@ -44,10 +44,9 @@ Pix::Pix(QObject *parent) : QObject(parent)
 	this->refreshCollection();
 }
 
-
-void Pix::openPics(const QStringList &pics)
+void Pix::openPics(const QList<QUrl> &pics)
 {
-	emit this->viewPics(pics);
+    emit this->viewPics(QUrl::toStringList(pics));
 }
 
 void Pix::refreshCollection()
