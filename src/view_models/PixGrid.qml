@@ -1,6 +1,6 @@
-import QtQuick.Controls 2.9
-import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.10
 import QtQuick 2.10
+import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
@@ -13,34 +13,32 @@ import "../widgets"
 Maui.Page
 {
     id: control
-
+    focus: true
     /*props*/
     property int itemSize : Kirigami.Settings.isMobile ? Maui.Style.iconSizes.huge * 1.5 : Maui.Style.iconSizes.enormous
     property int itemSpacing: Kirigami.Settings.isMobile ? Maui.Style.space.medium : Maui.Style.space.big
     property int itemRadius : Maui.Style.unit * 6
-    property bool filterBar: false
 
     property alias grid: grid
     property alias holder: holder
     property alias list : pixList
     property alias model: pixModel
     property alias menu : _picMenu
+    property alias count: grid.count
 
     /*signals*/
     signal picClicked(int index)
 
     padding: 0
-    showTitle: !_filterField.visible
+    showTitle: false
     headBar.leftSretch: false
-
+    headBar.visible: list.count > 0
     headBar.middleContent: Maui.TextField
     {
-        id: _filterField
-        visible: grid.count && control.filterBar
         Layout.fillWidth: true
-        placeholderText: qsTr("Filter...")
-        onAccepted: pixModel.filter = text
-        onCleared: pixModel.filter = ""
+        placeholderText: qsTr("Search") + " " + count + " images"
+        onAccepted: model.filter = text
+        onCleared: model.filter = ""
     }
 
     headBar.rightContent: [
@@ -120,14 +118,6 @@ Maui.Page
                 checked: pixModel.sortOrder === Qt.DescendingOrder
                 checkable: true
             }
-        },
-
-        ToolButton
-        {
-            icon.name: "view-filter"
-            checkable: true
-            checked: control.filterBar
-            onClicked: control.filterBar = checked
         }
     ]
 
@@ -157,7 +147,9 @@ Maui.Page
             labelsVisible: showLabels
             height: grid.cellHeight
             width: grid.cellWidth
-            showEmblem: selectionMode
+            keepEmblem: selectionMode
+            showEmblem: true
+
             isCurrentItem: GridView.isCurrentItem
             selected: selectionBox.contains(model.url)
 

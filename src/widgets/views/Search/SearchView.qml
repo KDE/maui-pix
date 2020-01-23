@@ -5,20 +5,13 @@ import "../../../view_models"
 import "../../../db/Query.js" as Q
 import org.kde.mauikit 1.0 as Maui
 
-PixGrid
+
+Maui.Page
 {
-    id: searchResults
-    property string currentQuery : ""
+    id: control
+    property string currentQuery
 
-    //        headBar.visible: true
-    //        headBarExitIcon: "edit-clear"
-    title: searchResults.grid.count + qsTr(" results")
-    holder.emoji: "qrc:/img/assets/image-multiple.svg"
-    holder.title : qsTr("No Results!")
-    holder.body: qsTr("Try with another query")
-
-    footBar.visible: true
-    footBar.middleContent: Maui.TextField
+    headBar.middleContent: Maui.TextField
     {
         id: searchInput
         placeholderText: qsTr("Search...")
@@ -26,11 +19,19 @@ PixGrid
         Layout.margins: Maui.Style.space.medium
         Layout.fillWidth: true
         onAccepted: runSearch(searchInput.text)
+        onCleared: searchResults.list.clear()
     }
 
-    function refreshPics()
+    PixGrid
     {
-        searchResults.list.refresh()
+        id: searchResults
+
+        anchors.fill: parent
+        title: searchResults.grid.count + qsTr(" results")
+        holder.emoji: "qrc:/img/assets/image-multiple.svg"
+        holder.title : qsTr("No Results!")
+        holder.body: qsTr("Try with another query")
+        headBar.visible: !holder.visible
     }
 
     function runSearch(query)
@@ -39,23 +40,6 @@ PixGrid
         {
             currentQuery = query
             searchResults.list.query = Q.Query.searchFor_.arg(currentQuery)
-
-            //            var queries = query.split(",")
-            //            for(var i in queries)
-            //            {
-            //                var res =[]
-            //                res.push(pix.get(Q.Query.searchFor_.arg(queries[i])))
-            //                res.push(tag.getUrls(query, true))
-            //                populate(res)
-            //            }
         }
     }
-
-    //    function populate(data)
-    //    {
-    //        if(data.length > 0)
-    //            for(var i in data)
-    //                searchResults.model.append(data[i])
-    //    }
 }
-

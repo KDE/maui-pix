@@ -28,6 +28,8 @@ linux:unix:!android {
     message(Building helpers for Android)   
     QMAKE_LINK += -nostdlib++
     ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
+   DISTFILES += \
+$$PWD/android_files/AndroidManifest.xml
 
     DEFINES *= \
         COMPONENT_FM \

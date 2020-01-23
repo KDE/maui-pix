@@ -24,6 +24,7 @@ import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
+import org.kde.mauikit 1.1 as MauiLab
 
 import "widgets"
 import "widgets/views/Albums"
@@ -57,6 +58,7 @@ Maui.ApplicationWindow
     //    altToolBars: true
     Maui.App.description: qsTr("Pix is a convergent gallery manager and image viewer. Supports GNU Linux, Android and Windows.")
     Maui.App.iconName: "qrc:/img/assets/pix.svg"
+    Maui.App.handleAccounts: false
 
     property alias dialog : dialogLoader.item
     /*READONLY PROPS*/
@@ -67,7 +69,6 @@ Maui.ApplicationWindow
                                        folders: 3,
                                        //                                       cloud: 5,
                                        //                                       store: 6,
-                                       search: 4
                                    })
     /*PROPS*/
 
@@ -77,7 +78,6 @@ Maui.ApplicationWindow
 
     property bool fullScreen : false
     property bool selectionMode : false
-    onSearchButtonClicked: _actionGroup.currentIndex =  views.search
 
     background: Rectangle
     {
@@ -188,27 +188,12 @@ Maui.ApplicationWindow
                 id: pixViewer
             }
 
-            GalleryView
-            {
-                id: galleryView
-            }
+            GalleryView { }
 
-            TagsView
-            {
-                id: tagsView
-            }
+            TagsView { }
 
-            FoldersView
-            {
-                id: foldersView
-            }
-
-            SearchView
-            {
-                id: searchView
-            }
-
-        }
+            FoldersView { }
+       }
 
         SelectionBar
         {
@@ -250,10 +235,7 @@ Maui.ApplicationWindow
     Component
     {
         id: shareDialogComponent
-        Maui.ShareDialog
-        {
-            id: shareDialog
-        }
+        MauiLab.ShareDialog {}
     }
 
     Component
@@ -293,12 +275,7 @@ Maui.ApplicationWindow
                     icon.name: "list-add"
                     onClicked:
                     {
-                        console.log(Maui.Handy.isTouch,"MIME", pixViewer.currentPic.mime)
-                        _purposeDialog.open()
-                        _purpose.inputData = {
-                            'urls': [pixViewer.currentPic.url],
-                            'mimeType': Maui.FM.getFileInfo(pixViewer.currentPic.url).mime
-                        }
+
                     }
                 },
 

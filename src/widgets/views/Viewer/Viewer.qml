@@ -22,7 +22,6 @@ Maui.Page
 
     clip: true
     focus: true
-    Kirigami.Theme.backgroundColor: viewerBackgroundColor
 
     ListView
     {
@@ -33,10 +32,32 @@ Maui.Page
         currentIndex: currentPicIndex
         clip: true
         focus: true
-        interactive: true
+        interactive: Maui.Handy.isTouch
         highlightFollowsCurrentItem: true
         highlightMoveDuration: 0
         snapMode: ListView.SnapOneItem
+
+        keyNavigationEnabled : bool
+        keyNavigationWraps : bool
+        Keys.onPressed:
+        {
+            if((event.key == Qt.Key_Right))
+                        {
+                            viewerList.incrementCurrentIndex()
+                        }
+
+            if((event.key == Qt.Key_Left))
+                        {
+                            viewerList.decrementCurrentIndex()
+                        }
+        }
+
+        onCurrentIndexChanged:
+        {
+            currentPicIndex = viewerList.currentIndex
+            viewerList.forceActiveFocus()
+        }
+
         model: currentModel
         onMovementEnded:
         {

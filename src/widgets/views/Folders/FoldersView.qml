@@ -58,21 +58,6 @@ StackView
             showEmblem: false
             model: folderModel
 
-            gridView.header: Maui.ToolBar
-            {
-                width: parent.width
-
-                middleContent:  Maui.TextField
-                {
-                    id: _filterField
-                    Layout.margins: Maui.Style.space.medium
-                    Layout.fillWidth: true
-                    placeholderText: qsTr("Filter...")
-                    onAccepted: folderModel.filter = text
-                    onCleared: folderModel.filter = ""
-                }
-            }
-
             onItemClicked:
             {
                 var folder = folderModel.get(index)
@@ -87,12 +72,7 @@ StackView
     PixGrid
     {
         id: picsView
-
-        headBar.visible: true
-        //        headBarExit: _stackView.currentItem === picsView
-        //        headBarExitIcon: "go-previous"
-        //        onExit: _stackView.pop()
-
+        headBar.visible: true    
         headBar.leftContent: ToolButton
         {
             icon.name:"go-previous"

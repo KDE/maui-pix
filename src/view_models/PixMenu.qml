@@ -57,13 +57,9 @@ Menu
         icon.name: "document-share"
         onTriggered:
         {
-            if(isAndroid)
-                Maui.Android.shareDialog(control.model.get(index).url)
-            else
-            {
-                dialogLoader.sourceComponent = shareDialogComponent
-                dialog.show([control.model.get(index).url])
-            }
+            dialogLoader.sourceComponent = shareDialogComponent
+            dialog.urls= [control.model.get(index).url]
+            dialog.open()
         }
     }
 

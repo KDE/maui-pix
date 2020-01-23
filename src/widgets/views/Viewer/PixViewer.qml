@@ -27,11 +27,9 @@ Maui.Page
 
     property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
     property bool previewBarVisible: Maui.FM.loadSettings("PREVIEWBAR", "PIX", true) === "true" ? true : false
-    property string viewerBackgroundColor : Maui.FM.loadSettings("VIEWER_BG_COLOR", "PIX", Kirigami.Theme.backgroundColor)
-    property string viewerForegroundColor : Maui.FM.loadSettings("VIEWER_FG_COLOR", "PIX", Kirigami.Theme.textColor)
 
     padding: 0
-    Kirigami.Theme.backgroundColor: viewerBackgroundColor
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
 
     Maui.BaseModel
     {
@@ -53,13 +51,9 @@ Maui.Page
             icon.name: "document-share"
             onClicked:
             {
-                if(isAndroid)
-                    Maui.Android.shareDialog(control.currentPic.url)
-                else
-                {
-                    dialogLoader.sourceComponent = shareDialogComponent
-                    dialog.show([control.currentPic.url])
-                }
+                dialogLoader.sourceComponent = shareDialogComponent
+                dialog.urls = [control.currentPic.url]
+                dialog.open()
             }
         },
 
@@ -119,7 +113,6 @@ Maui.Page
         title : viewer.count === 0 ? qsTr("No Pics!") : qsTr("Loading...")
         body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
         emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
-        Kirigami.Theme.backgroundColor: viewerForegroundColor
     }
 
     ColumnLayout

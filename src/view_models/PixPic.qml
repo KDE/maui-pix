@@ -11,6 +11,7 @@ Maui.ItemDelegate
 
     property bool showIndicator : false
     property bool showEmblem:  true
+    property bool keepEmblem:  false
     property bool fit : false
     property bool dropShadow: false
     property bool selected : false
@@ -29,7 +30,7 @@ Maui.ItemDelegate
     {
         id: emblem
         iconName: selected ? "list-remove" : "list-add"
-        visible: control.hovered || control.showEmblem || control.selected
+        visible: (control.hovered || control.selected || control.keepEmblem) &&  control.showEmblem
         z: 999
         anchors.top: parent.top
         anchors.left: parent.left
@@ -66,6 +67,7 @@ Maui.ItemDelegate
         id: _template
         isCurrentItem: (control.isCurrentItem || control.selected) && !labelsVisible
         anchors.fill: parent
+        anchors.margins: Maui.Style.space.tiny
         iconSizeHint: height - Maui.Style.space.tiny
         label1.text: model.title
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"

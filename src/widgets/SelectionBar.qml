@@ -32,7 +32,6 @@ MauiLab.SelectionBar
             anchors.fill: parent
             label1.text: model.title
             label2.text: model.url
-            label2.elide: Text.ElideMiddle
             imageSource: model.url
             iconSizeHint: height
         }
@@ -65,13 +64,9 @@ MauiLab.SelectionBar
         icon.name: "document-share"
         onTriggered:
         {
-            if(isAndroid)
-                Maui.Android.shareDialog(control.uris)
-            else
-            {
-                dialogLoader.sourceComponent = shareDialogComponent
-                dialog.show(control.uris)
-            }
+            dialogLoader.sourceComponent = shareDialogComponent
+            dialog.urls= control.uris
+            dialog.open()
         }
     }
 
