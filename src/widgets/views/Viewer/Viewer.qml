@@ -35,6 +35,7 @@ Maui.Page
         interactive: Maui.Handy.isTouch
         highlightFollowsCurrentItem: true
         highlightMoveDuration: 0
+        highlightResizeDuration : 0
         snapMode: ListView.SnapOneItem
 
         keyNavigationEnabled : bool
