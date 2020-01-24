@@ -51,14 +51,7 @@ QVariantMap Gallery::get(const int &index) const
 {
     if(index >= this->list.size() || index < 0)
         return QVariantMap();
-
-    QVariantMap res;
-    const auto pic = this->list.at(index);
-
-    for(const auto &key : pic.keys())
-        res.insert(FMH::MODEL_NAME[key], pic[key]);
-
-    return res;
+    return FMH::toMap(this->list.at( this->mappedIndex(index)));
 }
 
 bool Gallery::update(const int &index, const QVariant &value, const int &role)

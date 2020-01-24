@@ -23,14 +23,7 @@ QVariantMap Folders::get(const int &index) const
 {
     if(index >= this->list.size() || index < 0)
         return QVariantMap();
-
-    const auto folder = this->list.at(index);
-
-    QVariantMap res;
-    for(auto key : folder.keys())
-        res.insert(FMH::MODEL_NAME[key], folder[key]);
-
-    return res;
+    return FMH::toMap(this->list.at(this->mappedIndex(index)));
 }
 
 void Folders::refresh()
