@@ -15,6 +15,8 @@ StackView
 
     property string currentTag : ""
 
+    property Flickable flickable : tagsGrid.flickable
+
     Maui.NewDialog
     {
         id: newTagDialog

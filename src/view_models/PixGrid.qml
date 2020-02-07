@@ -28,7 +28,7 @@ Maui.Page
 
     /*signals*/
     signal picClicked(int index)
-
+    flickable: grid.flickable
     padding: 0
     showTitle: false
     headBar.leftSretch: false

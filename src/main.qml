@@ -73,9 +73,10 @@ Maui.ApplicationWindow
     property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !Kirigami.Settings.isMobile) === "true" ? true : false
     property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
 
-
     property bool fullScreen : false
     property bool selectionMode : false
+
+    flickable: swipeView.currentItem.flickable || null
 
     background: Rectangle
     {
@@ -108,16 +109,16 @@ Maui.ApplicationWindow
 
         MenuSeparator{},
 
-        MenuItem
-        {
-            text: qsTr("Sources")
-            icon.name: "folder-add"
-            onTriggered:
-            {
-                dialogLoader.sourceComponent = sourcesDialogComponent
-                dialog.open()
-            }
-        },
+//        MenuItem
+//        {
+//            text: qsTr("Sources")
+//            icon.name: "folder-add"
+//            onTriggered:
+//            {
+//                dialogLoader.sourceComponent = sourcesDialogComponent
+//                dialog.open()
+//            }
+//        },
 
         MenuItem
         {

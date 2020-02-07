@@ -21,11 +21,15 @@ StackView
 
     property string currentFolder : ""
     property alias picsView : picsView
+    property Flickable flickable : picsView.flickable
 
-    initialItem: Maui.Page
+    initialItem:  Maui.GridBrowser
     {
         id: foldersPage
-        padding: 0
+
+        anchors.fill: parent
+        showEmblem: false
+        model: folderModel
 
         Maui.Holder
         {
@@ -43,7 +47,7 @@ StackView
             list: foldersList
             recursiveFilteringEnabled: false
             sortCaseSensitivity: Qt.CaseInsensitive
-            filterCaseSensitivity: Qt.CaseInsensitive            
+            filterCaseSensitivity: Qt.CaseInsensitive
         }
 
         FoldersList
@@ -51,28 +55,20 @@ StackView
             id: foldersList
         }
 
-        Maui.GridBrowser
+        onItemClicked:
         {
-            id: folderGrid
-            anchors.fill: parent
-            showEmblem: false
-            model: folderModel
-
-            onItemClicked:
-            {
-                var folder = folderModel.get(index)
-                picsView.title = folder.label
-                currentFolder = folder.path
-                picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
-                _stackView.push(picsView)
-            }
+            var folder = folderModel.get(index)
+            picsView.title = folder.label
+            currentFolder = folder.path
+            picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
+            _stackView.push(picsView)
         }
     }
 
     PixGrid
     {
         id: picsView
-        headBar.visible: true    
+        headBar.visible: true
         headBar.leftContent: ToolButton
         {
             icon.name:"go-previous"
