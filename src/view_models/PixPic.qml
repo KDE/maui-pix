@@ -6,7 +6,7 @@ import org.kde.mauikit 1.0 as Maui
 import org.kde.kirigami 2.7 as Kirigami
 
 Maui.ItemDelegate
-{  
+{
     id: control
 
     property bool showEmblem:  true
@@ -18,27 +18,13 @@ Maui.ItemDelegate
 
     signal emblemClicked();
 
-    padding: Maui.Style.space.medium    
+//    padding: Maui.Style.space.medium
 
     ToolTip.delay: 1000
     ToolTip.timeout: 5000
     ToolTip.visible: control.hovered
     ToolTip.text: model.url
 
-    Maui.Badge
-    {
-        id: emblem
-        iconName: selected ? "list-remove" : "list-add"
-        visible: (control.hovered || control.selected || control.keepEmblem) &&  control.showEmblem
-        z: 999
-        anchors.top: parent.top
-        anchors.left: parent.left
-        onClicked:
-        {
-            control.selected = !control.selected
-            control.emblemClicked(index)
-        }
-    }
 
     //    Kirigami.Icon
     //    {
@@ -55,10 +41,26 @@ Maui.ItemDelegate
         isCurrentItem: (control.isCurrentItem || control.selected) && !labelsVisible
         anchors.fill: parent
         anchors.margins: 2
-        iconSizeHint: height - Maui.Style.space.tiny
+        iconSizeHint: width
         label1.text: model.title
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
         fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
+
+        emblem.iconName: selected ? "checkbox" : " "
+        emblem.visible: (control.selected || control.keepEmblem) &&  control.showEmblem
+        emblem.border.color: emblem.Kirigami.Theme.textColor
+        emblem.color: control.selected ? emblem.Kirigami.Theme.highlightColor : emblem.Kirigami.Theme.backgroundColor
+
+        Connections
+        {
+            target: _template.emblem
+            onClicked:
+            {
+                control.selected = !control.selected
+                control.emblemClicked(index)
+            }
+        }
+
     }
 
     DropShadow

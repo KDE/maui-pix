@@ -29,15 +29,22 @@ MauiLab.SelectionBar
 
         Maui.ListItemTemplate
         {
+            id: _template
             anchors.fill: parent
             label1.text: model.title
             label2.text: model.url
             imageSource: model.url
             iconSizeHint: height
-        }
+            emblem.visible: true
+            emblem.iconName: "list-remove"
 
-        onClicked: control.removeAtIndex(index)
-    }    
+            Connections
+            {
+                target: _template.emblem
+                onClicked: control.removeAtIndex(index)
+            }
+        }
+    }
 
     Action
     {
