@@ -23,25 +23,18 @@ Maui.Page
     property bool currentPicFav: false
     property var currentPic : ({})
     property int currentPicIndex : 0
-    property Maui.BaseModel currentModel : _defaultModel
-
+    property alias model :viewer.model
     property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
     property bool previewBarVisible: Maui.FM.loadSettings("PREVIEWBAR", "PIX", true) === "true" ? true : false
 
     padding: 0
     Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-    Maui.BaseModel
-    {
-        id: _defaultModel
-        list: GalleryList {}
-    }
-
     PixMenu
     {
         id: _picMenu
         index: viewer.currentIndex
-        model: currentModel
+        model:control.model
     }
 
     footBar.visible: !holder.visible
@@ -111,7 +104,7 @@ Maui.Page
         isMask: true
         isGif : viewer.currentItem.status !== Image.Ready
         title : viewer.count === 0 ? qsTr("No Pics!") : qsTr("Loading...")
-        body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
+        body: viewer.count
         emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
     }
 

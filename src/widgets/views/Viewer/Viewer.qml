@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import org.kde.mauikit 1.0 as Maui
 import org.kde.kirigami 2.7 as Kirigami
+import GalleryList 1.0
 
 import "../../"
 import "Viewer.js" as VIEWER
@@ -14,6 +15,7 @@ Maui.Page
     property real picSaturation : 0
     property real picHue : 0
     property real picLightness : 0
+    property alias model : viewerList.model
 
     property alias count : viewerList.count
     property alias currentIndex : viewerList.currentIndex
@@ -37,9 +39,10 @@ Maui.Page
         highlightMoveDuration: 0
         highlightResizeDuration : 0
         snapMode: ListView.SnapOneItem
+        cacheBuffer: 0
 
-        keyNavigationEnabled : bool
-        keyNavigationWraps : bool
+        keyNavigationEnabled : true
+        keyNavigationWraps : true
         Keys.onPressed:
         {
             if((event.key == Qt.Key_Right))
@@ -57,7 +60,6 @@ Maui.Page
 
         onCurrentIndexChanged:viewerList.forceActiveFocus()
 
-        model: currentModel
         onMovementEnded:
         {
             const index = indexAt(contentX, contentY)
@@ -68,8 +70,8 @@ Maui.Page
         delegate: ViewerDelegate
         {
             id: delegate
-            itemHeight: viewerList.height
-            itemWidth: viewerList.width
+            height: viewerList.height
+            width: viewerList.width
 
             Connections
             {
@@ -81,14 +83,20 @@ Maui.Page
         }
     }
 
+    Maui.BaseModel
+    {
+        id: _defaultModel
+        list: GalleryList {}
+    }
+
 
     function appendPics(pics)
     {
-        currentModel = _defaultModel
+        model = _defaultModel
 
         if(pics.length > 0)
             for(var i in pics)
-                currentModel.list.append(pics[i])
+                _defaultModel.list.append(pics[i])
 
     }
 

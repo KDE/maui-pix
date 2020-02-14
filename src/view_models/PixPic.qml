@@ -26,6 +26,7 @@ Maui.ItemDelegate
     ToolTip.text: model.url
 
 
+   radius:  labelsVisible ? Maui.Style.radiusV : 0
     //    Kirigami.Icon
     //    {
     //        visible:  img.status !== Image.Ready
@@ -38,10 +39,13 @@ Maui.ItemDelegate
     Maui.GridItemTemplate
     {
         id: _template
+        maskRadius: control.radius
         isCurrentItem: (control.isCurrentItem || control.selected) && !labelsVisible
         anchors.fill: parent
         anchors.margins: 2
-        iconSizeHint: width
+        iconSizeHint: labelsVisible ? height * 0.7 : height
+        imageHeight: 100
+        imageWidth: 100
         label1.text: model.title
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
         fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop

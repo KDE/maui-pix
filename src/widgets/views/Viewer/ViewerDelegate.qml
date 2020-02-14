@@ -7,8 +7,6 @@ import org.kde.mauikit 1.0 as Maui
 
 Maui.ImageViewer
 {
-    id: flick
-
     property int itemWidth : parent.width
     property int itemHeight : parent.height
     readonly property string currentImageSource: model.url
@@ -16,6 +14,6 @@ Maui.ImageViewer
     source : currentImageSource
 
     width: itemWidth
-    height: itemHeight   
+    height: itemHeight
     animated: model.format === "gif"
 }

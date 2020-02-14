@@ -27,7 +27,7 @@ Item
         focus: true
         interactive: true
 
-        model: currentModel
+        model: pixViewer.model
 
         delegate: PixPic
         {
@@ -54,14 +54,6 @@ Item
                 onRightClicked: _picMenu.popup()
             }
         }
-    }
-
-    function populate(pics)
-    {
-        rollList.model.clear()
-        if(pics.length > 0)
-            for(var i in pics)
-                rollList.model.append(pics[i])
     }
 
     function position(index)

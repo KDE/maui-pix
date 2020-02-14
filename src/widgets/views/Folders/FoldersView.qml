@@ -26,8 +26,6 @@ StackView
     initialItem:  Maui.GridBrowser
     {
         id: foldersPage
-
-        anchors.fill: parent
         showEmblem: false
         model: folderModel
 
