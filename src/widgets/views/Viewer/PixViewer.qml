@@ -104,7 +104,7 @@ Maui.Page
         isMask: true
         isGif : viewer.currentItem.status !== Image.Ready
         title : viewer.count === 0 ? qsTr("No Pics!") : qsTr("Loading...")
-        body: viewer.count
+        body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
         emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
     }
 

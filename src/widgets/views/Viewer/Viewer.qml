@@ -67,19 +67,25 @@ Maui.Page
                 VIEWER.view(index)
         }
 
-        delegate: ViewerDelegate
+        delegate: Loader
         {
-            id: delegate
             height: viewerList.height
             width: viewerList.width
 
-            Connections
-            {
-                target: delegate
+            active: ListView.isCurrentItem || index === 1-viewerList.currentIndex ||  index === 1+viewerList.currentIndex
 
-                onPressAndHold: _picMenu.popup()
-                onRightClicked: _picMenu.popup()
-            }
+           sourceComponent: ViewerDelegate
+                    {
+                        id: delegate
+
+                        Connections
+                        {
+                            target: delegate
+
+                            onPressAndHold: _picMenu.popup()
+                            onRightClicked: _picMenu.popup()
+                        }
+                    }
         }
     }
 
