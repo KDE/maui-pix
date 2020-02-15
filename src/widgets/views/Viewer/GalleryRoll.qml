@@ -32,7 +32,7 @@ Item
         delegate: PixPic
         {
             id: delegate
-            height: parent.height * 0.9
+            height: parent.height
             width: height
 
             labelsVisible: false
@@ -40,7 +40,7 @@ Item
             showEmblem: false
             dropShadow: true
             isCurrentItem: ListView.isCurrentItem
-
+radius:  Maui.Style.radiusV
             Connections
             {
                 target: delegate

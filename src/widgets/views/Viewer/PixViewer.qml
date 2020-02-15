@@ -119,17 +119,61 @@ Maui.Page
             visible: !holder.visible
             Layout.fillHeight: true
             Layout.fillWidth: true
-        }
 
-        GalleryRoll
-        {
-            id: galleryRoll
-            Layout.fillWidth: true
-            Layout.margins: Maui.Style.space.medium
-            Layout.preferredHeight: Math.min(120, Math.max(parent.height * 0.2, 60))
-            visible: control.previewBarVisible && rollList.count > 0
-            onPicClicked: VIEWER.view(index)
-        }
+            MouseArea
+            {
+                width: parent.width
+                height: parent.height * 0.3
+                anchors.bottom: parent.bottom
+                propagateComposedEvents: true
+
+                onPressed:
+                {
+                    galleryRollBg.toogle()
+                     mouse.accepted = false
+                }
+
+                onReleased:
+                {
+                    mouse.accepted = false
+                }
+            }
+
+            Rectangle
+            {
+                id: galleryRollBg
+                width: parent.width
+                anchors.bottom: parent.bottom
+                height: Math.min(100, Math.max(parent.height * 0.15, 60))
+                visible: control.previewBarVisible && galleryRoll.rollList.count > 0
+                color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.4)
+
+                 Behavior on opacity
+                 {
+                     NumberAnimation
+                     {
+                         duration: Kirigami.Units.longDuration
+                         easing.type: Easing.InOutQuad
+                     }
+                 }
+
+                 GalleryRoll
+                 {
+                     id: galleryRoll
+                     height: parent.height -Maui.Style.space.small
+                     width: parent.width
+                     anchors.centerIn: parent
+                     onPicClicked: VIEWER.view(index)
+                 }
+
+                function toogle()
+                {
+                    galleryRollBg.opacity = !galleryRollBg.opacity
+                }
+            }
+
+
+        }      
 
         Maui.TagsBar
         {

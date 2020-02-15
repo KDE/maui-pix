@@ -7,7 +7,7 @@ import GalleryList 1.0
 import "../../"
 import "Viewer.js" as VIEWER
 
-Maui.Page
+Item
 {
     property bool autoSaveTransformation : false
     property real picContrast : 0
@@ -20,7 +20,6 @@ Maui.Page
     property alias count : viewerList.count
     property alias currentIndex : viewerList.currentIndex
     property alias currentItem: viewerList.currentItem
-    headBar.visible: false
 
     clip: true
     focus: true
@@ -94,7 +93,6 @@ Maui.Page
         id: _defaultModel
         list: GalleryList {}
     }
-
 
     function appendPics(pics)
     {
