@@ -53,13 +53,13 @@ Maui.Page
         ToolButton
         {
             icon.name: "object-rotate-left"
-            onClicked: viewer.currentItem.rotateLeft()
+            onClicked: viewer.currentItem.item.rotateLeft()
         },
 
         ToolButton
         {
             icon.name: "object-rotate-right"
-            onClicked: viewer.currentItem.rotateRight()
+            onClicked: viewer.currentItem.item.rotateRight()
         }
     ]
     footBar.leftContent: [
@@ -144,7 +144,7 @@ Maui.Page
                 id: galleryRollBg
                 width: parent.width
                 anchors.bottom: parent.bottom
-                height: Math.min(100, Math.max(parent.height * 0.15, 60))
+                height: Math.min(100, Math.max(parent.height * 0.12, 60))
                 visible: control.previewBarVisible && galleryRoll.rollList.count > 0
                 color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.4)
 
