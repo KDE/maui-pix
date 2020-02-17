@@ -143,14 +143,15 @@ Maui.Page
         PixPic
         {
             id: delegate
+            property int spacing : Kirigami.Settings.isMobile ? 2 : 10
             fit: fitPreviews
             labelsVisible: showLabels
-            height: grid.cellHeight
-            width: grid.cellWidth
+            height: grid.cellHeight - spacing
+            width: grid.cellWidth - spacing
             keepEmblem: selectionMode
             showEmblem: true
 
-            isCurrentItem: GridView.isCurrentItem
+            isCurrentItem: (GridView.isCurrentItem || selected)
             selected: selectionBox.contains(model.url)
 
             Connections
@@ -204,8 +205,7 @@ Maui.Page
                 onEmblemClicked:
                 {
                     grid.currentIndex = index
-                    var item = pixModel.get(index)
-                    PIX.selectItem(item)
+                    PIX.selectItem(pixModel.get(index))
                 }
             }
         }
@@ -231,13 +231,20 @@ Maui.Page
     {
         id: grid
         visible: !holder.visible
-        height: parent.height
-        width: parent.width
+        anchors.fill: parent
+        padding: Maui.Style.space.medium
         adaptContent: true
         itemSize: control.itemSize
 
         model: pixModel
         delegate: gridDelegate
+        enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
+
+        onItemsSelected:
+        {
+            for(var i in indexes)
+                PIX.selectItem(pixModel.get(indexes[i]))
+        }
     }
 
     function openPic(index)

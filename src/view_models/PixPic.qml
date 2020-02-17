@@ -18,34 +18,23 @@ Maui.ItemDelegate
 
     signal emblemClicked();
 
-//    padding: Maui.Style.space.medium
-
     ToolTip.delay: 1000
     ToolTip.timeout: 5000
     ToolTip.visible: control.hovered
     ToolTip.text: model.url
 
-
-   radius:  labelsVisible ? Maui.Style.radiusV : 0
-    //    Kirigami.Icon
-    //    {
-    //        visible:  img.status !== Image.Ready
-    //        source: "image-x-generic"
-    //        width: Math.min(parent.height, Maui.Style.iconSizes.huge)
-    //        height: width
-    //        anchors.centerIn: parent
-    //    }
+   radius:  labelsVisible ? Maui.Style.radiusV : 4
 
     Maui.GridItemTemplate
     {
         id: _template
         maskRadius: control.radius
-        isCurrentItem: (control.isCurrentItem || control.selected) && !labelsVisible
+        isCurrentItem: (control.isCurrentItem) && !labelsVisible
         anchors.fill: parent
-        anchors.margins: 2
+        anchors.margins: 4
         iconSizeHint: labelsVisible ? height * 0.7 : height
-        imageHeight: 100
-        imageWidth: 100
+        imageHeight: Math.max(height, 200)
+        imageWidth: Math.max(width, 200)
         label1.text: model.title
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
         fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop

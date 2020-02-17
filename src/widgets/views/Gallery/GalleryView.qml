@@ -15,7 +15,6 @@ PixGrid
     holder.body: qsTr("Add new sources to browse your image collection ")
     holder.emojiSize: Maui.Style.iconSizes.huge
 
-
     function refresh()
     {
         list.refresh()
