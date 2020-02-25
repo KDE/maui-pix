@@ -42,6 +42,7 @@ StackView
         holder.body: qsTr("There's no pics associated with the tag")
         holder.emojiSize: Maui.Style.iconSizes.huge
         holder.emoji: "qrc:/img/assets/add-image.svg"
+        headBar.visible: true
         headBar.leftContent: ToolButton
         {
             icon.name: "go-previous"

@@ -48,9 +48,12 @@ Maui.Page
             height: _tagsList.cellHeight
             width: _tagsList.cellWidth
             padding: Maui.Style.space.medium
+            background: Item {}
 
             Maui.GridItemTemplate
             {
+                hovered: delegate.hovered
+                isCurrentItem: delegate.isCurrentItem
                 anchors.fill: parent
                 label1.text: model.tag
                 iconSource: "tag"

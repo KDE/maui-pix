@@ -198,7 +198,7 @@ Maui.ApplicationWindow
         {
             id: selectionBox
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: Math.min(parent.width, implicitWidth)
+            Layout.preferredWidth: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
             Layout.margins: Maui.Style.space.medium
         }
     }
