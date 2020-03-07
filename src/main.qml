@@ -78,13 +78,6 @@ Maui.ApplicationWindow
 
     flickable: swipeView.currentItem.flickable || null
 
-    background: Rectangle
-    {
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        color: Kirigami.Theme.backgroundColor
-    }
-
     mainMenu: [
 
         MenuSeparator{},
