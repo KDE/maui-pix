@@ -193,6 +193,8 @@ Maui.ApplicationWindow
             Layout.alignment: Qt.AlignHCenter
             Layout.preferredWidth: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
             Layout.margins: Maui.Style.space.medium
+            maxListHeight: swipeView.height - Maui.Style.space.medium
+
         }
     }
 
