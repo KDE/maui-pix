@@ -53,11 +53,10 @@ Maui.ApplicationWindow
     id: root
     title: qsTr("Pix")
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
-    //    altToolBars: true
     Maui.App.description: qsTr("Pix is a convergent gallery manager and image viewer. Supports GNU Linux, Android and Windows.")
     Maui.App.iconName: "qrc:/img/assets/pix.svg"
     Maui.App.handleAccounts: false
-
+    Maui.App.enableCSD: true
     property alias dialog : dialogLoader.item
     /*READONLY PROPS*/
     readonly property var views : ({
