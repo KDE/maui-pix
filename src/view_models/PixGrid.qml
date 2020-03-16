@@ -73,16 +73,16 @@ Maui.Page
             {
                 text: qsTr("Creation date")
                 checkable: true
-                checked: model.sort === "date"
-                onTriggered: model.sort = "date"
+                checked: pixModel.sort === "date"
+                onTriggered: pixModel.sort = "date"
             }
 
             MenuItem
             {
                 text: qsTr("Format")
                 checkable: true
-                checked: model.sort === "format"
-                onTriggered: model.sort = "format"
+                checked: pixModel.sort === "format"
+                onTriggered: pixModel.sort = "format"
             }
 
             MenuItem
@@ -91,14 +91,6 @@ Maui.Page
                 checkable: true
                 checked: pixModel.sort === "size"
                 onTriggered: pixModel.sort = "size"
-            }
-
-            MenuItem
-            {
-                text: qsTr("Favorites")
-                checkable: true
-                checked: pixModel.sort === "fav"
-                onTriggered: pixModel.sort = "fav"
             }
 
             MenuSeparator {}

@@ -140,33 +140,33 @@ Maui.ApplicationWindow
             Layout.fillWidth: true
             Component.onCompleted: swipeView.currentIndex = views.gallery
 
-            MauiLab.AppView
+            MauiLab.AppViewLoader
             {
                 id: _pixViewerLoader
-                action.text: qsTr("Viewer")
-                action.icon.name: "document-preview-archive"
+                MauiLab.AppView.title: qsTr("Viewer")
+                 MauiLab.AppView.iconName: "document-preview-archive"
                 PixViewer {}
             }
 
-            MauiLab.AppView
+            MauiLab.AppViewLoader
             {
-                action.text: qsTr("Gallery")
-                action.icon.name: "image-multiple"
-                GalleryView { }
+                MauiLab.AppView.title: qsTr("Gallery")
+                 MauiLab.AppView.iconName: "image-multiple"
+                GalleryView {}
             }
 
-            MauiLab.AppView
+            MauiLab.AppViewLoader
             {
-                action.text: qsTr("Tags")
-                action.icon.name: "tag"
+                MauiLab.AppView.title: qsTr("Tags")
+                 MauiLab.AppView.iconName: "tag"
                 TagsView {}
             }
 
-            MauiLab.AppView
+            MauiLab.AppViewLoader
             {
-                action.text: qsTr("Folders")
-                action.icon.name: "image-folder-view"
-                FoldersView { }
+                MauiLab.AppView.title: qsTr("Folders")
+                 MauiLab.AppView.iconName: "image-folder-view"
+                FoldersView {}
             }
        }
 
