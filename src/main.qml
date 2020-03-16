@@ -57,7 +57,10 @@ Maui.ApplicationWindow
     Maui.App.iconName: "qrc:/img/assets/pix.svg"
     Maui.App.handleAccounts: false
 //    Maui.App.enableCSD: true
+
     property alias dialog : dialogLoader.item
+    property alias pixViewer : _pixViewerLoader.item
+
     /*READONLY PROPS*/
     readonly property var views : ({
                                        viewer: 0,
@@ -122,68 +125,49 @@ Maui.ApplicationWindow
                 dialog.open()
             }
         }
-
     ]
 
     headBar.visible: !fullScreen
-    headBar.spacing: Maui.Style.space.big
-    headBar.middleContent: Maui.ActionGroup
-    {
-        id: _actionGroup
-        Layout.fillHeight: true
-        Layout.minimumWidth: implicitWidth
-        currentIndex : swipeView.currentIndex
-        onCurrentIndexChanged: swipeView.currentIndex = currentIndex
-
-        Action
-        {
-            text: qsTr("Viewer")
-            icon.name: "document-preview-archive"
-        }
-
-        Action
-        {
-            text: qsTr("Gallery")
-            icon.name: "image-multiple"
-        }
-
-        Action
-        {
-            text: qsTr("Tags")
-            icon.name: "tag"
-        }
-
-        Action
-        {
-            text: qsTr("Folders")
-            icon.name: "image-folder-view"
-        }
-    }
 
     ColumnLayout
     {
         anchors.fill: parent
 
-        SwipeView
+        MauiLab.AppViews
         {
             id: swipeView
             Layout.fillHeight: true
             Layout.fillWidth: true
-            interactive: Kirigami.Settings.isMobile
-            currentIndex: _actionGroup.currentIndex
-            onCurrentIndexChanged: _actionGroup.currentIndex = currentIndex
             Component.onCompleted: swipeView.currentIndex = views.gallery
 
-            PixViewer
+            MauiLab.AppView
             {
-                id: pixViewer
+                id: _pixViewerLoader
+                action.text: qsTr("Viewer")
+                action.icon.name: "document-preview-archive"
+                PixViewer {}
             }
 
-            GalleryView { }
+            MauiLab.AppView
+            {
+                action.text: qsTr("Gallery")
+                action.icon.name: "image-multiple"
+                GalleryView { }
+            }
 
-            TagsView { }
+            MauiLab.AppView
+            {
+                action.text: qsTr("Tags")
+                action.icon.name: "tag"
+                TagsView {}
+            }
 
-            FoldersView { }
+            MauiLab.AppView
+            {
+                action.text: qsTr("Folders")
+                action.icon.name: "image-folder-view"
+                FoldersView { }
+            }
        }
 
         SelectionBar
@@ -193,7 +177,6 @@ Maui.ApplicationWindow
             Layout.preferredWidth: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
             Layout.margins: Maui.Style.space.medium
             maxListHeight: swipeView.height - Maui.Style.space.medium
-
         }
     }
 

@@ -53,7 +53,6 @@ Maui.ItemDelegate
                 control.emblemClicked(index)
             }
         }
-
     }
 
     DropShadow

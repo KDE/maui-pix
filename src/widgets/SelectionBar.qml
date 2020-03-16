@@ -12,7 +12,7 @@ MauiLab.SelectionBar
 {
     id: control
 
-    visible: count > 0 && _actionGroup.currentIndex !== views.viewer
+    visible: count > 0 && swipeView.currentIndex !== views.viewer
     onExitClicked:
     {
         selectionMode = false

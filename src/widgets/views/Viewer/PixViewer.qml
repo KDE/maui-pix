@@ -34,7 +34,7 @@ Maui.Page
     {
         id: _picMenu
         index: viewer.currentIndex
-        model:control.model
+        model: control.model
     }
 
     footBar.visible: !holder.visible
@@ -62,8 +62,8 @@ Maui.Page
             onClicked: viewer.currentItem.item.rotateRight()
         }
     ]
-    footBar.leftContent: [
 
+    footBar.leftContent: [
         ToolButton
         {
             icon.name: "go-previous"
@@ -171,8 +171,6 @@ Maui.Page
                     galleryRollBg.opacity = !galleryRollBg.opacity
                 }
             }
-
-
         }      
 
         Maui.TagsBar

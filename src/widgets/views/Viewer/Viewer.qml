@@ -21,7 +21,7 @@ Item
     property alias currentIndex : viewerList.currentIndex
     property alias currentItem: viewerList.currentItem
 
-    clip: true
+    clip: false
     focus: true
 
     ListView
@@ -31,7 +31,7 @@ Item
         width: parent.width
         orientation: ListView.Horizontal
         currentIndex: currentPicIndex
-        clip: true
+        clip: false
         focus: true
         interactive: Maui.Handy.isTouch
         highlightFollowsCurrentItem: true

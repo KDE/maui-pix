@@ -179,21 +179,27 @@ Maui.Page
                 {
                     grid.currentIndex = index
                     if(selectionMode)
+                    {
                         PIX.selectItem(pixModel.get(index))
-                    else if(Kirigami.Settings.isMobile)
+                    }else if(Kirigami.Settings.isMobile)
+                    {
                         openPic(index)
+                    }
                 }
 
                 onDoubleClicked:
                 {
                     grid.currentIndex = index
                     if(!Kirigami.Settings.isMobile)
+                    {
                         openPic(index)
+                    }
                 }
 
                 onPressAndHold:
                 {
                     grid.currentIndex = index
+                     openPic(index)
                     _picMenu.popup()
                 }
 

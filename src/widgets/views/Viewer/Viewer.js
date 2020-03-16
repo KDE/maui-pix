@@ -14,7 +14,6 @@ function openExternalPics(pics, index)
     var oldIndex = pixViewer.viewer.count
     pixViewer.viewer.appendPics(pics)
     view(Math.max(oldIndex, 0))
-    _actionGroup.currentIndex = views.viewer
 }
 
 function view(index)
@@ -24,7 +23,7 @@ function view(index)
 
     pixViewer.currentPicFav = Maui.FM.isFav(pixViewer.currentPic.url)
     root.title = pixViewer.currentPic.title
-    _actionGroup.currentIndex = views.viewer
+    swipeView.setCurrentIndex(views.viewer)
     pixViewer.roll.position(pixViewer.currentPicIndex)
 }
 
