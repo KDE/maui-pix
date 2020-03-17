@@ -25,7 +25,7 @@ MauiLab.SelectionBar
         height: Maui.Style.toolBarHeight
         width: parent.width
 
-        background: null
+        background: Item {}
 
         Maui.ListItemTemplate
         {
@@ -35,14 +35,9 @@ MauiLab.SelectionBar
             label2.text: model.url
             imageSource: model.url
             iconSizeHint: height
-            emblem.visible: true
-            emblem.iconName: "list-remove"
-
-            Connections
-            {
-                target: _template.emblem
-                onClicked: control.removeAtIndex(index)
-            }
+            checkable: true
+            checked: true
+            onToggled: control.removeAtIndex(index)
         }
     }
 

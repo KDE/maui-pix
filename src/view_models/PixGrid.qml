@@ -140,11 +140,10 @@ Maui.Page
             labelsVisible: showLabels
             height: grid.cellHeight - spacing
             width: grid.cellWidth - spacing
-            keepEmblem: selectionMode
-            showEmblem: true
+            checkable: selectionMode
 
-            isCurrentItem: (GridView.isCurrentItem || selected)
-            selected: selectionBox.contains(model.url)
+            isCurrentItem: (GridView.isCurrentItem || checked)
+            checked: selectionBox.contains(model.url)
 
             Connections
             {
@@ -152,16 +151,16 @@ Maui.Page
                 onUriRemoved:
                 {
                     if(uri === model.url)
-                        delegate.selected = false
+                        delegate.checked = false
                 }
 
                 onUriAdded:
                 {
                     if(uri === model.url)
-                        delegate.selected = true
+                        delegate.checked = true
                 }
 
-                onCleared: delegate.selected = false
+                onCleared: delegate.checked = false
             }
 
             Connections
@@ -200,7 +199,7 @@ Maui.Page
                     grid.currentIndex = index
                     _picMenu.popup()
                 }
-                onEmblemClicked:
+                onToggled:
                 {
                     grid.currentIndex = index
                     PIX.selectItem(pixModel.get(index))

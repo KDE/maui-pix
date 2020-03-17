@@ -37,7 +37,7 @@ Item
 
             labelsVisible: false
             fit: false
-            showEmblem: false
+            checkable: false
             dropShadow: true
             isCurrentItem: ListView.isCurrentItem
 radius:  Maui.Style.radiusV

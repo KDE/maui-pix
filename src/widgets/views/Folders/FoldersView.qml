@@ -26,7 +26,7 @@ StackView
     initialItem:  Maui.GridBrowser
     {
         id: foldersPage
-        showEmblem: false
+        checkable: false
         model: folderModel
 
         Maui.Holder

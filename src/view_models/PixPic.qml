@@ -9,21 +9,21 @@ Maui.ItemDelegate
 {
     id: control
 
-    property bool showEmblem:  true
-    property bool keepEmblem:  false
-    property bool fit : false
-    property bool dropShadow: false
-    property bool selected : false
+    property alias checkable : _template.checkable
+    property alias checked : _template.checked
     property alias labelsVisible: _template.labelsVisible
 
-    signal emblemClicked();
+    property bool fit : false
+    property bool dropShadow: false
+
+    signal toggled(int index, bool state);
 
     ToolTip.delay: 1000
     ToolTip.timeout: 5000
     ToolTip.visible: control.hovered
     ToolTip.text: model.url
 
-   radius:  labelsVisible ? Maui.Style.radiusV : 4
+   radius: labelsVisible ? Maui.Style.radiusV : 4
 
     Maui.GridItemTemplate
     {
@@ -39,20 +39,9 @@ Maui.ItemDelegate
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
         fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
 
-        emblem.iconName: selected ? "checkbox" : " "
-        emblem.visible: (control.selected || control.keepEmblem) &&  control.showEmblem
-        emblem.border.color: emblem.Kirigami.Theme.textColor
-        emblem.color: control.selected ? emblem.Kirigami.Theme.highlightColor : emblem.Kirigami.Theme.backgroundColor
+        checkable: control.checkable
+       onToggled: control.toggled(index, state)
 
-        Connections
-        {
-            target: _template.emblem
-            onClicked:
-            {
-                control.selected = !control.selected
-                control.emblemClicked(index)
-            }
-        }
     }
 
     DropShadow
