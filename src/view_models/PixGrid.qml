@@ -20,7 +20,7 @@ Maui.Page
     property int itemRadius : Maui.Style.unit * 6
 
     property alias grid: grid
-    property alias holder: holder
+    property alias holder: grid.holder
     property alias list : pixList
     property alias model: pixModel
     property alias menu : _picMenu
@@ -113,26 +113,48 @@ Maui.Page
         }
     ]
 
-    Maui.Holder
+    Maui.GridView
     {
-        id: holder
-        visible: grid.count === 0
-        isMask: true
-        emojiSize: Maui.Style.iconSizes.huge
-    }
+        id: grid
+        //        visible: !holder.visible
+        anchors.fill: parent
+        margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.medium
+        adaptContent: true
+        itemSize: control.itemSize
+        model: Maui.BaseModel
+        {
+            id: pixModel
+            list:  GalleryList
+            {
+                id: pixList
+            }
+            sort: "title"
+            sortOrder: Qt.AscendingOrder
+            recursiveFilteringEnabled: true
+            sortCaseSensitivity: Qt.CaseInsensitive
+            filterCaseSensitivity: Qt.CaseInsensitive
+        }
 
-    PixMenu
-    {
-        id: _picMenu
-        index: grid.currentIndex
-        model: pixModel
-    }
+        enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
 
-    Component
-    {
-        id: gridDelegate
+        holder.visible: count === 0
+        holder.isMask: true
+        holder.emojiSize: Maui.Style.iconSizes.huge
 
-        PixPic
+        onItemsSelected:
+        {
+            for(var i in indexes)
+                PIX.selectItem(pixModel.get(indexes[i]))
+        }
+
+        PixMenu
+        {
+            id: _picMenu
+            index: grid.currentIndex
+            model: pixModel
+        }
+
+        delegate: PixPic
         {
             id: delegate
             property int spacing : Kirigami.Settings.isMobile ? 2 : 10
@@ -190,7 +212,7 @@ Maui.Page
                 onPressAndHold:
                 {
                     grid.currentIndex = index
-                     openPic(index)
+                    openPic(index)
                     _picMenu.popup()
                 }
 
@@ -205,42 +227,6 @@ Maui.Page
                     PIX.selectItem(pixModel.get(index))
                 }
             }
-        }
-    }
-
-    Maui.BaseModel
-    {
-        id: pixModel
-        list: pixList
-        sort: "title"
-        sortOrder: Qt.AscendingOrder
-        recursiveFilteringEnabled: true
-        sortCaseSensitivity: Qt.CaseInsensitive
-        filterCaseSensitivity: Qt.CaseInsensitive
-    }
-
-    GalleryList
-    {
-        id: pixList
-    }
-
-    Maui.GridView
-    {
-        id: grid
-        visible: !holder.visible
-        anchors.fill: parent
-        padding: Maui.Style.space.medium
-        adaptContent: true
-        itemSize: control.itemSize
-
-        model: pixModel
-        delegate: gridDelegate
-        enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
-
-        onItemsSelected:
-        {
-            for(var i in indexes)
-                PIX.selectItem(pixModel.get(indexes[i]))
         }
     }
 

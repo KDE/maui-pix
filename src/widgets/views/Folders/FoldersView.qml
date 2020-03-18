@@ -20,10 +20,10 @@ StackView
     clip: true
 
     property string currentFolder : ""
-    property alias picsView : picsView
+    property alias picsView : _stackView.currentItem
     property Flickable flickable : picsView.flickable
 
-    initialItem:  Maui.GridBrowser
+    initialItem: Maui.GridBrowser
     {
         id: foldersPage
         checkable: false
@@ -55,28 +55,32 @@ StackView
 
         onItemClicked:
         {
+            _stackView.push(picsViewComponent)
+
             var folder = folderModel.get(index)
             picsView.title = folder.label
             currentFolder = folder.path
             picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
-            _stackView.push(picsView)
         }
     }
 
-    PixGrid
+    Component
     {
-        id: picsView
-        headBar.visible: true
-        headBar.leftContent: ToolButton
+        id: picsViewComponent
+        PixGrid
         {
-            icon.name:"go-previous"
-            onClicked: _stackView.pop()
-        }
+            headBar.visible: true
+            headBar.leftContent: ToolButton
+            {
+                icon.name:"go-previous"
+                onClicked: _stackView.pop()
+            }
 
-        holder.emoji: "qrc:/img/assets/add-image.svg"
-        holder.title : qsTr("Folder is empty!")
-        holder.body: qsTr("There's not images in this folder")
-        holder.emojiSize: Maui.Style.iconSizes.huge
+            holder.emoji: "qrc:/img/assets/add-image.svg"
+            holder.title : qsTr("Folder is empty!")
+            holder.body: qsTr("There's not images in this folder")
+            holder.emojiSize: Maui.Style.iconSizes.huge
+        }
     }
 
     function refresh()

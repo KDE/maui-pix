@@ -33,15 +33,15 @@ void Gallery::setList()
 {
 	emit this->preListChanged();
 
-	this->list = this->dba->getDBData(this->query, [&](FMH::MODEL &item) {
-			const auto url = QUrl(item[FMH::MODEL_KEY::URL]);
-	if(FMH::fileExists(url))
-		return true;
-	else
-	{
-		this->dba->removePic(url.toString());
-		return false;
-	}
+    this->list = this->dba->getDBData(this->query, [&](FMH::MODEL &item) {
+            const auto url = QUrl(item[FMH::MODEL_KEY::URL]);
+    if(FMH::fileExists(url))
+        return true;
+    else
+    {
+        this->dba->removePic(url.toString());
+        return false;
+    }
 });
 
 	emit this->postListChanged();
