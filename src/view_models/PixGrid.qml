@@ -212,7 +212,6 @@ Maui.Page
                 onPressAndHold:
                 {
                     grid.currentIndex = index
-                    openPic(index)
                     _picMenu.popup()
                 }
 
