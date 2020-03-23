@@ -193,7 +193,7 @@ Maui.Page
                     grid.currentIndex = index
                     if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
                     {
-                        PIX.selectItem(pixModel.get(index))
+                        grid.itemsSelected([index])
                     }else if(Kirigami.Settings.isMobile)
                     {
                         openPic(index)

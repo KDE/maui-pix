@@ -32,6 +32,12 @@ function addTagsToPic(tags, url)
 
 function selectItem(item)
 {
+    if(selectionBox.contains(item.url))
+    {
+        selectionBox.removeAtUri(item.url)
+        return
+    }
+
     selectionBox.append(item.url, item)
 }
 
