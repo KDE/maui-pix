@@ -191,7 +191,7 @@ Maui.Page
                 onClicked:
                 {
                     grid.currentIndex = index
-                    if(selectionMode)
+                    if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
                     {
                         PIX.selectItem(pixModel.get(index))
                     }else if(Kirigami.Settings.isMobile)

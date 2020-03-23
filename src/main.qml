@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import QtQuick 2.9
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
+import QtQuick.Window 2.13
 
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
@@ -62,20 +63,15 @@ Maui.ApplicationWindow
     property alias pixViewer : _pixViewerLoader.item
 
     /*READONLY PROPS*/
-    readonly property var views : ({
-                                       viewer: 0,
+    readonly property var views : ({ viewer: 0,
                                        gallery: 1,
                                        tags: 2,
-                                       folders: 3,
-                                       //                                       cloud: 5,
-                                       //                                       store: 6,
-                                   })
+                                       folders: 3 })
     /*PROPS*/
-
     property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !Kirigami.Settings.isMobile) === "true" ? true : false
     property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", false) === "false" ?  false : true
 
-    property bool fullScreen : false
+    readonly property bool fullScreen : root.visibility === Window.FullScreen
     property bool selectionMode : false
 
     flickable: swipeView.currentItem.flickable || null
@@ -203,6 +199,31 @@ Maui.ApplicationWindow
     //            list.provider: StoreList.KDELOOK
     //        }
     //    }
+
+    DropArea
+    {
+        id: _dropArea
+        anchors.fill: parent
+        onDropped:
+        {
+            if(drop.urls)
+            {
+                VIEWER.openExternalPics(drop.urls, 0)
+            }
+        }
+
+        MauiLab.Rectangle
+        {
+            anchors.fill: parent
+            anchors.margins: Maui.Style.space.huge
+            visible: parent.containsDrag
+            color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.5)
+            borderColor: Kirigami.Theme.textColor
+            solidBorder: false
+        }
+    }
+
+
 
     Component
     {

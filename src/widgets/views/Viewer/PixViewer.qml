@@ -1,11 +1,14 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtQuick.Window 2.13
+
 import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../../../widgets/views/Pix.js" as PIX
 import "../../../db/Query.js" as Q
 import "../.."
+
 import org.kde.kirigami 2.7 as Kirigami
 import org.kde.mauikit 1.0 as Maui
 import org.maui.pix 1.0 as Pix
@@ -60,6 +63,13 @@ Maui.Page
         {
             icon.name: "object-rotate-right"
             onClicked: viewer.currentItem.item.rotateRight()
+        },
+
+        ToolButton
+        {
+            icon.name: "view-fullscreen"
+            onClicked: control.toogleFullscreen()
+            checked: fullScreen
         }
     ]
 
@@ -127,10 +137,19 @@ Maui.Page
                 anchors.bottom: parent.bottom
                 propagateComposedEvents: true
 
-                onPressed:
+                onClicked:
                 {
                     galleryRollBg.toogle()
-                     mouse.accepted = false
+                    root.headBar.visible = !root.headBar.visible
+                   control.footBar.visible = !control.footBar.visible
+                    viewer.forceActiveFocus()
+                    mouse.accepted = false
+                }
+
+                onDoubleClicked:
+                {
+                    toogleFullscreen()
+                    mouse.accepted = false
                 }
 
                 onReleased:
@@ -145,7 +164,7 @@ Maui.Page
                 width: parent.width
                 anchors.bottom: parent.bottom
                 height: Math.min(100, Math.max(parent.height * 0.12, 60))
-                visible: control.previewBarVisible && galleryRoll.rollList.count > 0
+                visible: control.previewBarVisible && galleryRoll.rollList.count > 0 && opacity> 0
                 color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.4)
 
                  Behavior on opacity
@@ -171,7 +190,7 @@ Maui.Page
                     galleryRollBg.opacity = !galleryRollBg.opacity
                 }
             }
-        }      
+        }
 
         Maui.TagsBar
         {
@@ -213,5 +232,17 @@ Maui.Page
     {
         control.previewBarVisible = !control.previewBarVisible
         Maui.FM.saveSettings("PREVIEWBAR", previewBarVisible, "PIX")
+    }
+
+    function toogleFullscreen()
+    {
+        if(Window.window.visibility === Window.FullScreen)
+        {
+            Window.window.showNormal()
+        }else
+        {
+            Window.window.showFullScreen()
+        }
+
     }
 }

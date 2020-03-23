@@ -24,6 +24,11 @@ Item
     clip: false
     focus: true
 
+    function forceActiveFocus()
+    {
+        viewerList.forceActiveFocus()
+    }
+
     ListView
     {
         id: viewerList
