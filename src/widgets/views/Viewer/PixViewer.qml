@@ -137,18 +137,12 @@ Maui.Page
                 anchors.bottom: parent.bottom
                 propagateComposedEvents: true
 
-                onClicked:
+                onPressed:
                 {
                     galleryRollBg.toogle()
                     root.headBar.visible = !root.headBar.visible
                    control.footBar.visible = !control.footBar.visible
                     viewer.forceActiveFocus()
-                    mouse.accepted = false
-                }
-
-                onDoubleClicked:
-                {
-                    toogleFullscreen()
                     mouse.accepted = false
                 }
 

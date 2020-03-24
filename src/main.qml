@@ -141,7 +141,27 @@ Maui.ApplicationWindow
                 id: _pixViewerLoader
                 MauiLab.AppView.title: qsTr("Viewer")
                  MauiLab.AppView.iconName: "document-preview-archive"
-                PixViewer {}
+                PixViewer
+                {
+                    MauiLab.Rectangle
+                    {
+                        anchors.fill: parent
+                        visible: _dropArea.containsDrag
+                        color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.9)
+                        borderColor: Kirigami.Theme.textColor
+                        solidBorder: false
+
+                        Maui.Holder
+                        {
+                            anchors.fill: parent
+                            visible: true
+                            emoji: "qrc:/img/assets/add-image.svg"
+                            emojiSize: Maui.Style.iconSizes.huge
+                            title: qsTr("Open images")
+                            body: qsTr("Drag and drop images here")
+                        }
+                    }
+                }
             }
 
             MauiLab.AppViewLoader
@@ -211,19 +231,12 @@ Maui.ApplicationWindow
                 VIEWER.openExternalPics(drop.urls, 0)
             }
         }
-
-        MauiLab.Rectangle
+        onContainsDragChanged:
         {
-            anchors.fill: parent
-            anchors.margins: Maui.Style.space.huge
-            visible: parent.containsDrag
-            color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.5)
-            borderColor: Kirigami.Theme.textColor
-            solidBorder: false
+            if(containsDrag)
+                swipeView.currentIndex = views.viewer
         }
     }
-
-
 
     Component
     {
