@@ -143,22 +143,30 @@ Maui.ApplicationWindow
                  MauiLab.AppView.iconName: "document-preview-archive"
                 PixViewer
                 {
-                    MauiLab.Rectangle
+                    Rectangle
                     {
                         anchors.fill: parent
                         visible: _dropArea.containsDrag
-                        color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.9)
-                        borderColor: Kirigami.Theme.textColor
-                        solidBorder: false
 
-                        Maui.Holder
+                        color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
+
+                        MauiLab.Rectangle
                         {
                             anchors.fill: parent
-                            visible: true
-                            emoji: "qrc:/img/assets/add-image.svg"
-                            emojiSize: Maui.Style.iconSizes.huge
-                            title: qsTr("Open images")
-                            body: qsTr("Drag and drop images here")
+                            anchors.margins: Maui.Style.space.medium
+                            color: "transparent"
+                            borderColor: Kirigami.Theme.textColor
+                            solidBorder: false
+
+                            Maui.Holder
+                            {
+                                anchors.fill: parent
+                                visible: true
+                                emoji: "qrc:/img/assets/add-image.svg"
+                                emojiSize: Maui.Style.iconSizes.huge
+                                title: qsTr("Open images")
+                                body: qsTr("Drag and drop images here")
+                            }
                         }
                     }
                 }
@@ -250,6 +258,7 @@ Maui.ApplicationWindow
         Maui.TagsDialog
         {
             onTagsReady: composerList.updateToUrls(tags)
+            composerList.strict: false
         }
     }
 
