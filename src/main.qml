@@ -140,7 +140,7 @@ Maui.ApplicationWindow
             {
                 id: _pixViewerLoader
                 MauiLab.AppView.title: qsTr("Viewer")
-                 MauiLab.AppView.iconName: "document-preview-archive"
+                MauiLab.AppView.iconName: "document-preview-archive"
                 PixViewer
                 {
                     Rectangle
