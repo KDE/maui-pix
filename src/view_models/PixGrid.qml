@@ -167,87 +167,104 @@ Maui.Page
             isCurrentItem: (GridView.isCurrentItem || checked)
             checked: selectionBox.contains(model.url)
 
-            Connections
+            Drag.keys: ["text/uri-list"]
+            Drag.mimeData: Drag.active ?
+                               {
+                                   "text/uri-list": control.filterSelectedItems(model.url)
+                               } : {}
+
+        Connections
+        {
+            target:selectionBox
+            onUriRemoved:
             {
-                target:selectionBox
-                onUriRemoved:
-                {
-                    if(uri === model.url)
-                        delegate.checked = false
-                }
-
-                onUriAdded:
-                {
-                    if(uri === model.url)
-                        delegate.checked = true
-                }
-
-                onCleared: delegate.checked = false
+                if(uri === model.url)
+                    delegate.checked = false
             }
 
-            Connections
+            onUriAdded:
             {
-                target: delegate
-                onClicked:
-                {
-                    grid.currentIndex = index
-                    if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
-                    {
-                        grid.itemsSelected([index])
-                    }else if(Kirigami.Settings.isMobile)
-                    {
-                        openPic(index)
-                    }
-                }
+                if(uri === model.url)
+                    delegate.checked = true
+            }
 
-                onDoubleClicked:
-                {
-                    grid.currentIndex = index
-                    if(!Kirigami.Settings.isMobile)
-                    {
-                        openPic(index)
-                    }
-                }
+            onCleared: delegate.checked = false
+        }
 
-                onPressAndHold:
+        Connections
+        {
+            target: delegate
+            onClicked:
+            {
+                grid.currentIndex = index
+                if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
                 {
-                    grid.currentIndex = index
-                    _picMenu.popup()
+                    grid.itemsSelected([index])
+                }else if(Kirigami.Settings.isMobile)
+                {
+                    openPic(index)
                 }
+            }
 
-                onRightClicked:
+            onDoubleClicked:
+            {
+                grid.currentIndex = index
+                if(!Kirigami.Settings.isMobile)
                 {
-                    grid.currentIndex = index
-                    _picMenu.popup()
+                    openPic(index)
                 }
-                onToggled:
-                {
-                    grid.currentIndex = index
-                    PIX.selectItem(pixModel.get(index))
-                }
+            }
+
+            onPressAndHold:
+            {
+                grid.currentIndex = index
+                _picMenu.popup()
+            }
+
+            onRightClicked:
+            {
+                grid.currentIndex = index
+                _picMenu.popup()
+            }
+            onToggled:
+            {
+                grid.currentIndex = index
+                PIX.selectItem(pixModel.get(index))
             }
         }
     }
+}
 
-    function openPic(index)
+function filterSelectedItems(path)
+{
+    if(selectionBox && selectionBox.count > 0 && selectionBox.contains(path))
     {
-        VIEWER.open(pixModel, index)
+        const uris = selectionBox.uris
+        return uris.join("\n")
     }
 
-    function zoomIn()
-    {
-        itemSize = itemSize + 20
-        refreshGrid()
-    }
+    return path
+}
 
-    function zoomOut()
-    {
-        itemSize = itemSize - 20
-        refreshGrid()
-    }
+function openPic(index)
+{
+    VIEWER.open(pixModel, index)
+}
 
-    function refreshGrid()
-    {
-        grid.adaptGrid()
-    }
+function zoomIn()
+{
+    itemSize = itemSize + 20
+    refreshGrid()
+}
+
+function zoomOut()
+{
+    itemSize = itemSize - 20
+    refreshGrid()
+}
+
+function refreshGrid()
+{
+    grid.adaptGrid()
+}
 }

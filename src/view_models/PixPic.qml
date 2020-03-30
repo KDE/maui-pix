@@ -23,7 +23,9 @@ Maui.ItemDelegate
     ToolTip.visible: control.hovered
     ToolTip.text: model.url
 
-   radius: labelsVisible ? Maui.Style.radiusV : 4
+    radius: labelsVisible ? Maui.Style.radiusV : 4
+
+    draggable: true
 
     Maui.GridItemTemplate
     {
@@ -40,7 +42,7 @@ Maui.ItemDelegate
         fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
 
         checkable: control.checkable
-       onToggled: control.toggled(index, state)
+        onToggled: control.toggled(index, state)
 
     }
 

@@ -239,10 +239,23 @@ Maui.ApplicationWindow
                 VIEWER.openExternalPics(drop.urls, 0)
             }
         }
-        onContainsDragChanged:
+
+        onExited:
         {
-            if(containsDrag)
-                swipeView.currentIndex = views.viewer
+            if(swipeView.currentIndex === views.viewer)
+            {
+                swipeView.goBack()
+            }
+        }
+
+        onEntered:
+        {
+            if(drag.source)
+            {
+                return
+            }
+
+            swipeView.currentIndex = views.viewer
         }
     }
 
