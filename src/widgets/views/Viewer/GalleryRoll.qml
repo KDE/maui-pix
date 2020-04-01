@@ -6,19 +6,27 @@ import org.kde.mauikit 1.0 as Maui
 import "../../../view_models"
 import GalleryList 1.0
 
-Item
+
+Kirigami.ScrollablePage
 {
     property alias rollList : rollList
     property alias model: rollList.model
 
     signal picClicked(int index)
 
+    padding: 0
+    leftPadding: padding
+    rightPadding: padding
+    topPadding: padding
+    bottomPadding: padding
+
+    background: null
+
     ListView
     {
         id: rollList
-        width: parent.width
         height: parent.height
-        anchors.centerIn: parent
+        contentHeight: height
         currentIndex: currentPicIndex
         orientation: ListView.Horizontal
         clip: true
@@ -40,7 +48,7 @@ Item
             checkable: false
             dropShadow: true
             isCurrentItem: ListView.isCurrentItem
-radius:  Maui.Style.radiusV
+            radius:  Maui.Style.radiusV
             Connections
             {
                 target: delegate
@@ -61,5 +69,4 @@ radius:  Maui.Style.radiusV
         rollList.currentIndex = index
         rollList.positionViewAtIndex(index, ListView.Center)
     }
-
 }

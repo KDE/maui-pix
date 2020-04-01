@@ -33,17 +33,16 @@ Maui.ItemDelegate
         maskRadius: control.radius
         isCurrentItem: (control.isCurrentItem) && !labelsVisible
         anchors.fill: parent
-        anchors.margins: 4
+        anchors.margins: 1
         iconSizeHint: labelsVisible ? height * 0.7 : height
-        imageHeight: 100
-        imageWidth: 100
+        imageHeight: 200
+        imageWidth: 200
         label1.text: model.title
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
         fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
-
+        hovered: control.hovered
         checkable: control.checkable
         onToggled: control.toggled(index, state)
-
     }
 
     DropShadow
