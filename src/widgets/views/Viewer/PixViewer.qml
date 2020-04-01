@@ -101,7 +101,6 @@ Maui.Page
 
             icon.name: "love"
             checked: pixViewer.currentPicFav
-            icon.color: pixViewer.currentPicFav ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
             onTriggered:
             {
                 if(pixViewer.currentPicFav)
