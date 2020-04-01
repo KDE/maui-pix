@@ -127,7 +127,13 @@ Maui.ApplicationWindow
     headBar.rightContent: ToolButton
     {
         icon.name: "item-select"
-        onClicked: selectionMode = !selectionMode
+        onClicked:
+        {
+             selectionMode = !selectionMode
+            if(selectionMode)
+                swipeView.currentIndex = views.gallery
+        }
+
         checkable: true
         checked: selectionMode
     }
