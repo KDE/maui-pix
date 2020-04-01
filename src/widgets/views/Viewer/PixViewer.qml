@@ -1,5 +1,5 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick 2.13
+import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
@@ -55,39 +55,54 @@ Maui.Page
 
         ToolButton
         {
-            icon.name: "object-rotate-left"
-            onClicked: viewer.currentItem.item.rotateLeft()
-        },
-
-        ToolButton
-        {
-            icon.name: "object-rotate-right"
-            onClicked: viewer.currentItem.item.rotateRight()
-        },
-
-        ToolButton
-        {
             icon.name: "view-fullscreen"
             onClicked: control.toogleFullscreen()
             checked: fullScreen
         }
     ]
 
-    footBar.leftContent: [
-        ToolButton
-        {
-            icon.name: "go-previous"
-            onClicked: VIEWER.previous()
-        },
+    footBar.leftContent: Maui.ToolActions
+    {
+        expanded: true
+        autoExclusive: false
+        checkable: false
 
-        ToolButton
+        Action
         {
-            Kirigami.Theme.inherit: false
-            Kirigami.Theme.highlightColor: "#ff5a86"
+            icon.name: "object-rotate-left"
+            text: qsTr("Rotate Left")
+            onTriggered: viewer.currentItem.item.rotateLeft()
+        }
+
+        Action
+        {
+            icon.name: "object-rotate-right"
+            text: qsTr("Rotate Right")
+            onTriggered: viewer.currentItem.item.rotateRight()
+        }
+    }
+
+    footBar.middleContent: Maui.ToolActions
+        {
+            expanded: true
+            autoExclusive: false
+            checkable: false
+
+        Action
+        {
+            text: qsTr("Previous")
+            icon.name: "go-previous"
+            onTriggered: VIEWER.previous()
+        }
+
+        Action
+        {
+            text: qsTr("Favorite")
+
             icon.name: "love"
             checked: pixViewer.currentPicFav
             icon.color: pixViewer.currentPicFav ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
-            onClicked:
+            onTriggered:
             {
                 if(pixViewer.currentPicFav)
                     tagBar.list.removeFromUrls("fav")
@@ -96,14 +111,14 @@ Maui.Page
 
                 pixViewer.currentPicFav = !pixViewer.currentPicFav
             }
-        },
+        }
 
-        ToolButton
+        Action
         {
             icon.name: "go-next"
-            onClicked: VIEWER.next()
+            onTriggered: VIEWER.next()
         }
-    ]
+    }
 
     Maui.Holder
     {
