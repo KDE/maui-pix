@@ -124,6 +124,13 @@ Maui.ApplicationWindow
     ]
 
     headBar.visible: !fullScreen
+    headBar.rightContent: ToolButton
+    {
+        icon.name: "item-select"
+        onClicked: selectionMode = !selectionMode
+        checkable: true
+        checked: selectionMode
+    }
 
     ColumnLayout
     {

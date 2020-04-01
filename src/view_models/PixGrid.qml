@@ -42,13 +42,6 @@ Maui.Page
     }
 
     headBar.rightContent: [
-        ToolButton
-        {
-            icon.name: "item-select"
-            onClicked: selectionMode = !selectionMode
-            checkable: true
-            checked: selectionMode
-        },
 
         Maui.ToolButtonMenu
         {
