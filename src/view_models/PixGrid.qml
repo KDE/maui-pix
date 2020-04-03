@@ -111,7 +111,7 @@ Maui.Page
         id: grid
         //        visible: !holder.visible
         anchors.fill: parent
-        margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.medium
+        margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
         adaptContent: true
         itemSize: control.itemSize
         model: Maui.BaseModel
@@ -150,7 +150,7 @@ Maui.Page
         delegate: PixPic
         {
             id: delegate
-            property int spacing : Kirigami.Settings.isMobile ? 2 : 10
+            property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
             fit: fitPreviews
             labelsVisible: showLabels
             height: grid.cellHeight - spacing

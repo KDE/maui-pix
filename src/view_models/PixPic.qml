@@ -26,12 +26,13 @@ Maui.ItemDelegate
     radius: labelsVisible ? Maui.Style.radiusV : 4
 
     draggable: true
+    background: Item {}
 
     Maui.GridItemTemplate
     {
         id: _template
         maskRadius: control.radius
-        isCurrentItem: (control.isCurrentItem) && !labelsVisible
+        isCurrentItem: control.isCurrentItem
         anchors.fill: parent
         anchors.margins: 1
         iconSizeHint: labelsVisible ? height * 0.7 : height
