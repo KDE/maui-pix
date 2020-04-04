@@ -193,7 +193,7 @@ Maui.Page
                 if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
                 {
                     grid.itemsSelected([index])
-                }else if(Kirigami.Settings.isMobile)
+                }else if(Maui.Handy.singleClick)
                 {
                     openPic(index)
                 }
@@ -202,7 +202,7 @@ Maui.Page
             onDoubleClicked:
             {
                 grid.currentIndex = index
-                if(!Kirigami.Settings.isMobile)
+                if(!Maui.Handy.singleClick && !selectionMode)
                 {
                     openPic(index)
                 }

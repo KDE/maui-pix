@@ -154,6 +154,10 @@ Maui.ApplicationWindow
                 id: _pixViewerLoader
                 MauiLab.AppView.title: qsTr("Viewer")
                 MauiLab.AppView.iconName: "document-preview-archive"
+//                Kirigami.Theme.inherit: false
+//                Kirigami.Theme.backgroundColor: "#333"
+//                Kirigami.Theme.textColor: "#fafafa"
+
                 PixViewer
                 {
                     Rectangle

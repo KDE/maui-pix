@@ -14,8 +14,7 @@ StackView
     clip: true
 
     property string currentTag : ""
-
-    property Flickable flickable : tagsGrid.flickable
+    property Flickable flickable : currentItem.flickable
 
     Maui.NewDialog
     {
@@ -34,19 +33,23 @@ StackView
         id: tagsSidebar
     }
 
-    PixGrid
+    Component
     {
         id: tagsGrid
-        title: control.currentTag
-        holder.title: qsTr("No Pics!")
-        holder.body: qsTr("There's no pics associated with the tag")
-        holder.emojiSize: Maui.Style.iconSizes.huge
-        holder.emoji: "qrc:/img/assets/add-image.svg"
-        headBar.visible: true
-        headBar.leftContent: ToolButton
+
+        PixGrid
         {
-            icon.name: "go-previous"
-            onClicked: control.pop()
+            title: control.currentTag
+            holder.title: qsTr("No Pics!")
+            holder.body: qsTr("There's no pics associated with the tag")
+            holder.emojiSize: Maui.Style.iconSizes.huge
+            holder.emoji: "qrc:/img/assets/add-image.svg"
+            headBar.visible: true
+            headBar.leftContent: ToolButton
+            {
+                icon.name: "go-previous"
+                onClicked: control.pop()
+            }
         }
     }
 
@@ -57,8 +60,8 @@ StackView
 
     function populateGrid(myTag)
     {
-        tagsGrid.list.clear()
         control.push(tagsGrid)
+        control.currentItem.list.clear()
 
         const urls = Pix.Collection.getTagUrls(myTag, true);
         console.log(urls)
@@ -66,7 +69,7 @@ StackView
             for(const i in urls)
             {
                 if(Maui.FM.checkFileType(Maui.FMList.IMAGE, urls[i].mime))
-                    tagsGrid.list.append(urls[i].url)
+                    control.currentItem.list.append(urls[i].url)
             }
 
     }

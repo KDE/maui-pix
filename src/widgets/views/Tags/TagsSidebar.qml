@@ -16,11 +16,6 @@ Maui.Page
         onClicked: newTagDialog.open()
     }
 
-//    headBar.rightContent: ToolButton
-//    {
-//        icon.name: "list-remove"
-//    }
-
     Maui.Holder
     {
         visible: _tagsList.count === 0
