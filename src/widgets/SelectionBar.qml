@@ -43,6 +43,13 @@ MauiLab.SelectionBar
 
     Action
     {
+        text: qsTr("View")
+        icon.name: "quickview"
+        onTriggered: VIEWER.openExternalPics(control.uris, 0)
+    }
+
+    Action
+    {
         text: qsTr("Un/Fav")
         icon.name: "love"
         onTriggered: VIEWER.fav(control.uris)
