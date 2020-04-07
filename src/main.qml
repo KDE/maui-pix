@@ -126,6 +126,7 @@ Maui.ApplicationWindow
     headBar.visible: !fullScreen
     headBar.rightContent: ToolButton
     {
+        visible: Maui.Handy.isTouch
         icon.name: "item-select"
         onClicked:
         {
