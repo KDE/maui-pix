@@ -140,6 +140,23 @@ Maui.Page
                 PIX.selectItem(pixModel.get(indexes[i]))
         }
 
+        onKeyPress:
+        {
+            const index = grid.currentIndex
+            const item = grid.model.get(index)
+
+            if((event.key == Qt.Key_Left || event.key == Qt.Key_Right || event.key == Qt.Key_Down || event.key == Qt.Key_Up) && (event.modifiers & Qt.ControlModifier) && (event.modifiers & Qt.ShiftModifier))
+            {
+                if(selectionBox.contains(item.url))
+                {
+                    control.selectionBox.removeAtUri(item.url)
+                }else
+                {
+                    grid.itemsSelected([index])
+                }
+            }
+        }
+
         PixMenu
         {
             id: _picMenu
