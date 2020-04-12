@@ -137,7 +137,7 @@ Maui.Page
     {
         height: parent.height
         width: parent.width
-
+        spacing: 0
         Viewer
         {
             id: viewer
