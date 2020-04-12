@@ -57,7 +57,7 @@ Maui.ApplicationWindow
     Maui.App.description: qsTr("Pix is a convergent gallery manager and image viewer. Supports GNU Linux, Android and Windows.")
     Maui.App.iconName: "qrc:/img/assets/pix.svg"
     Maui.App.handleAccounts: false
-//    Maui.App.enableCSD: true
+    //    Maui.App.enableCSD: true
 
     property alias dialog : dialogLoader.item
     property alias pixViewer : _pixViewerLoader.item
@@ -100,16 +100,16 @@ Maui.ApplicationWindow
 
         MenuSeparator{},
 
-//        MenuItem
-//        {
-//            text: qsTr("Sources")
-//            icon.name: "folder-add"
-//            onTriggered:
-//            {
-//                dialogLoader.sourceComponent = sourcesDialogComponent
-//                dialog.open()
-//            }
-//        },
+        //        MenuItem
+        //        {
+        //            text: qsTr("Sources")
+        //            icon.name: "folder-add"
+        //            onTriggered:
+        //            {
+        //                dialogLoader.sourceComponent = sourcesDialogComponent
+        //                dialog.open()
+        //            }
+        //        },
 
         MenuItem
         {
@@ -130,7 +130,7 @@ Maui.ApplicationWindow
         icon.name: "item-select"
         onClicked:
         {
-             selectionMode = !selectionMode
+            selectionMode = !selectionMode
             if(selectionMode)
                 swipeView.currentIndex = views.gallery
         }
@@ -155,9 +155,9 @@ Maui.ApplicationWindow
                 id: _pixViewerLoader
                 MauiLab.AppView.title: qsTr("Viewer")
                 MauiLab.AppView.iconName: "document-preview-archive"
-//                Kirigami.Theme.inherit: false
-//                Kirigami.Theme.backgroundColor: "#333"
-//                Kirigami.Theme.textColor: "#fafafa"
+                //                Kirigami.Theme.inherit: false
+                //                Kirigami.Theme.backgroundColor: "#333"
+                //                Kirigami.Theme.textColor: "#fafafa"
 
                 PixViewer
                 {
@@ -203,17 +203,17 @@ Maui.ApplicationWindow
             MauiLab.AppViewLoader
             {
                 MauiLab.AppView.title: qsTr("Tags")
-                 MauiLab.AppView.iconName: "tag"
+                MauiLab.AppView.iconName: "tag"
                 TagsView {}
             }
 
             MauiLab.AppViewLoader
             {
                 MauiLab.AppView.title: qsTr("Folders")
-                 MauiLab.AppView.iconName: "image-folder-view"
+                MauiLab.AppView.iconName: "image-folder-view"
                 FoldersView {}
             }
-       }
+        }
 
         SelectionBar
         {
@@ -367,73 +367,59 @@ Maui.ApplicationWindow
     {
         id: _settingsDialogComponent
 
-        Maui.Dialog
+        MauiLab.SettingsDialog
         {
-            maxHeight: 300
-            maxWidth: 300
-            defaultButtons: false
-
-            Kirigami.ScrollablePage
+            MauiLab.SettingsSection
             {
-                anchors.fill: parent
-                Kirigami.FormLayout
+                title: qsTr("Collection")
+                description: qsTr("Configure the app plugins and behavior.")
+
+                Switch
                 {
-                    width: parent.width
-                    anchors.centerIn: parent
-
-                    Item
+                    //                        visible: false //TODO to fix
+                    icon.name: "image-preview"
+                    checkable: true
+                    checked: root.fitPreviews
+                    text: qsTr("Fit previews")
+                    onToggled:
                     {
-                        Kirigami.FormData.isSection: true
-                        Kirigami.FormData.label: qsTr("Collection")
+                        root.fitPreviews = !root.fitPreviews
+                        Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
                     }
+                }
 
-                    Switch
+                Switch
+                {
+                    text: qsTr("Show labels")
+                    checkable: true
+                    checked: root.showLabels
+                    onToggled:
                     {
-//                        visible: false //TODO to fix
-                        icon.name: "image-preview"
-                        checkable: true
-                        checked: root.fitPreviews
-                        Kirigami.FormData.label: qsTr("Fit previews")
-                        onToggled:
-                        {
-                            root.fitPreviews = !root.fitPreviews
-                            Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
-                        }
+                        root.showLabels = !root.showLabels
+                        Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
                     }
+                }
+            }
 
-                    Switch
-                    {
-                        Kirigami.FormData.label: qsTr("Show labels")
-                        checkable: true
-                        checked: root.showLabels
-                        onToggled:
-                        {
-                            root.showLabels = !root.showLabels
-                            Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
-                        }
-                    }
 
-                    Item
-                    {
-                        Kirigami.FormData.isSection: true
-                        Kirigami.FormData.label: qsTr("Viewer")
-                    }
+            MauiLab.SettingsSection
+            {
+                title: qsTr("Viewer")
 
-                    Switch
-                    {
-                        Kirigami.FormData.label: qsTr("Show tag bar")
-                        checkable: true
-                        checked: pixViewer.tagBarVisible
-                        onToggled: pixViewer.toogleTagbar()
-                    }
+                Switch
+                {
+                    text: qsTr("Show tag bar")
+                    checkable: true
+                    checked: pixViewer.tagBarVisible
+                    onToggled: pixViewer.toogleTagbar()
+                }
 
-                    Switch
-                    {
-                        Kirigami.FormData.label: qsTr("Show preview bar")
-                        checkable: true
-                        checked: pixViewer.roll.visible
-                        onToggled: pixViewer.tooglePreviewBar()
-                    }
+                Switch
+                {
+                    text: qsTr("Show preview bar")
+                    checkable: true
+                    checked: pixViewer.roll.visible
+                    onToggled: pixViewer.tooglePreviewBar()
                 }
             }
         }
