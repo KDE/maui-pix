@@ -380,7 +380,7 @@ Maui.ApplicationWindow
                     icon.name: "image-preview"
                     checkable: true
                     checked: root.fitPreviews
-                    text: qsTr("Fit previews")
+                    Kirigami.FormData.label: qsTr("Fit previews")
                     onToggled:
                     {
                         root.fitPreviews = !root.fitPreviews
@@ -390,7 +390,7 @@ Maui.ApplicationWindow
 
                 Switch
                 {
-                    text: qsTr("Show labels")
+                    Kirigami.FormData.label: qsTr("Show labels")
                     checkable: true
                     checked: root.showLabels
                     onToggled:
@@ -408,7 +408,7 @@ Maui.ApplicationWindow
 
                 Switch
                 {
-                    text: qsTr("Show tag bar")
+                    Kirigami.FormData.label: qsTr("Show tag bar")
                     checkable: true
                     checked: pixViewer.tagBarVisible
                     onToggled: pixViewer.toogleTagbar()
@@ -416,7 +416,7 @@ Maui.ApplicationWindow
 
                 Switch
                 {
-                    text: qsTr("Show preview bar")
+                    Kirigami.FormData.label: qsTr("Show preview bar")
                     checkable: true
                     checked: pixViewer.roll.visible
                     onToggled: pixViewer.tooglePreviewBar()
