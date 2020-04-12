@@ -16,10 +16,13 @@ ScrollView
     contentHeight: height
     contentWidth: rollList.contentWidth
 
+    ScrollBar.horizontal: ScrollBar {parent: _scrollView; visible: false}
+    ScrollBar.vertical: ScrollBar {parent: _scrollView; visible: false}
+
     ListView
     {
         id: rollList
-       anchors.fill: parent
+        anchors.fill: parent
         currentIndex: currentPicIndex
         orientation: ListView.Horizontal
         clip: true
