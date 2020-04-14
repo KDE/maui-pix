@@ -73,6 +73,7 @@ Maui.ApplicationWindow
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     property bool selectionMode : false
+    property int previewSize : Maui.FM.loadSettings("PREVIEWSIZE", "UI", Maui.Style.iconSizes.huge * 1.5)
 
     flickable: swipeView.currentItem.flickable || null
 
@@ -398,6 +399,40 @@ Maui.ApplicationWindow
                         Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
                     }
                 }
+
+                Maui.ToolActions
+                {
+                    id: _gridIconSizesGroup
+                    Kirigami.FormData.label: qsTr("Preview Size")
+                    Layout.fillWidth: true
+                    expanded: true
+                    autoExclusive: true
+                    display: ToolButton.TextOnly
+
+                    Action
+                    {
+                        text: qsTr("S")
+                        onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.2)
+                    }
+
+                    Action
+                    {
+                        text: qsTr("M")
+                        onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.5)
+                    }
+
+                    Action
+                    {
+                        text: qsTr("X")
+                        onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.8 )
+                    }
+
+                    Action
+                    {
+                        text: qsTr("XL")
+                        onTriggered: setPreviewSize(Maui.Style.iconSizes.enormous * 1.2)
+                    }
+                }
             }
 
             MauiLab.SettingsSection
@@ -462,5 +497,11 @@ Maui.ApplicationWindow
         target:  Pix.Collection
         onRefreshViews: PIX.refreshViews()
         onViewPics: VIEWER.openExternalPics(pics, 0)
+    }
+
+    function setPreviewSize(size)
+    {
+        root.previewSize = size
+        Maui.FM.saveSettings("PREVIEWSIZE",  root.previewSize, "UI")
     }
 }

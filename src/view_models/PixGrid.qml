@@ -15,7 +15,7 @@ Maui.Page
     id: control
     focus: true
     /*props*/
-    property int itemSize : Kirigami.Settings.isMobile ? Maui.Style.iconSizes.huge * 1.5 : Maui.Style.iconSizes.enormous
+    property int itemSize : root.previewSize
     property int itemSpacing: Kirigami.Settings.isMobile ? Maui.Style.space.medium : Maui.Style.space.big
     property int itemRadius : Maui.Style.unit * 6
 
