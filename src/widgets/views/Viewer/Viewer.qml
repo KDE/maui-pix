@@ -36,7 +36,7 @@ Item
         width: parent.width
         orientation: ListView.Horizontal
         currentIndex: currentPicIndex
-        clip: false
+        clip: true
         focus: true
         interactive: Maui.Handy.isTouch
         highlightFollowsCurrentItem: true
