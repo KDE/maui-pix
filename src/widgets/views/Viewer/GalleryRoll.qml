@@ -16,8 +16,8 @@ ScrollView
     contentHeight: height
     contentWidth: rollList.contentWidth
 
-    ScrollBar.horizontal: ScrollBar {parent: _scrollView; visible: false}
-    ScrollBar.vertical: ScrollBar {parent: _scrollView; visible: false}
+    ScrollBar.horizontal: ScrollBar {parent: control; visible: false}
+    ScrollBar.vertical: ScrollBar {parent: control; visible: false}
 
     ListView
     {
