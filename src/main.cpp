@@ -49,6 +49,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#include "models/cloud/cloud.h"
 #include "models/folders/folders.h"
 
+#ifdef Q_OS_MACOS
+#include "mauimacos.h"
+#endif
 
 static const  QList<QUrl>  getFolderImages(const QString &path)
 {
@@ -156,6 +159,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 	if (engine.rootObjects().isEmpty())
 		return -1;
+
+#ifdef Q_OS_MACOS
+//    MAUIMacOS::removeTitlebarFromWindow();
+//    MauiApp::instance()->setEnableCSD(true); //for now index can not handle cloud accounts
+#endif
 
 	return app.exec();
 }

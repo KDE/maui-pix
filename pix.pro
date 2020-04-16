@@ -23,27 +23,26 @@ linux:unix:!android {
     QT += KIOCore KIOFileWidgets KIOWidgets KNTLM
     LIBS += -lMauiKit
 
-} else:android {
+} else {
 
+android {
     message(Building helpers for Android)   
     QMAKE_LINK += -nostdlib++
     ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
    DISTFILES += \
 $$PWD/android_files/AndroidManifest.xml
+}
 
     DEFINES *= \
         COMPONENT_FM \
         COMPONENT_TAGGING \
-        MAUIKIT_STYLE \
-        ANDROID_OPENSSL
+        MAUIKIT_STYLE
 
     include($$PWD/3rdparty/kirigami/kirigami.pri)
     include($$PWD/3rdparty/mauikit/mauikit.pri)
 
     DEFINES += STATIC_KIRIGAMI
 
-} else {
-    message("Unknown configuration")
 }
 
 # The following define makes your compiler emit warnings if you use
