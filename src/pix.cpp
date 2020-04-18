@@ -41,7 +41,7 @@ using namespace PIX;
 Pix::Pix(QObject *parent) : QObject(parent)
 {
 	qDebug() << "Getting settings info from: " << PIX::SettingPath;
-//	this->refreshCollection();
+    this->refreshCollection();
 }
 
 void Pix::openPics(const QList<QUrl> &pics)
