@@ -32,7 +32,7 @@ Maui.Page
 
     padding: 0
     Kirigami.Theme.colorSet: Kirigami.Theme.View
-
+    headBar.visible: false
     PixMenu
     {
         id: _picMenu
