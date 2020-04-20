@@ -42,23 +42,21 @@ Maui.Page
         model: control.model
     }
 
-
     MauiLab.Doodle
     {
-        anchors.fill: parent
-        visible: control.doodle
-        z: parent.z + 99999
-        sourceItem: viewer.currentItem
+        id: _doodleDialog
     }
-
 
     footBar.visible: !holder.visible
     footBar.rightContent: [
         ToolButton
         {
           icon.name: "tool_pen"
-          onClicked: control.doodle =!control.doodle
-          checked: control.doodle
+          onClicked:
+          {
+              _doodleDialog.source = control.currentPic.url
+               _doodleDialog.open()
+          }
         },
 
         ToolButton
