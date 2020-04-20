@@ -11,6 +11,7 @@ import "../.."
 
 import org.kde.kirigami 2.7 as Kirigami
 import org.kde.mauikit 1.0 as Maui
+import org.kde.mauikit 1.1 as MauiLab
 import org.maui.pix 1.0 as Pix
 import GalleryList 1.0
 
@@ -29,10 +30,11 @@ Maui.Page
     property alias model :viewer.model
     property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
     property bool previewBarVisible: Maui.FM.loadSettings("PREVIEWBAR", "PIX", true) === "true" ? true : false
+    property bool doodle : false
 
     padding: 0
     Kirigami.Theme.colorSet: Kirigami.Theme.View
-    headBar.visible: false
+
     PixMenu
     {
         id: _picMenu
@@ -40,8 +42,25 @@ Maui.Page
         model: control.model
     }
 
+
+    MauiLab.Doodle
+    {
+        anchors.fill: parent
+        visible: control.doodle
+        z: parent.z + 99999
+        sourceItem: viewer.currentItem
+    }
+
+
     footBar.visible: !holder.visible
     footBar.rightContent: [
+        ToolButton
+        {
+          icon.name: "tool_pen"
+          onClicked: control.doodle =!control.doodle
+          checked: control.doodle
+        },
+
         ToolButton
         {
             icon.name: "document-share"
