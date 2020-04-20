@@ -48,6 +48,10 @@ Maui.Page
     }
 
     footBar.visible: !holder.visible
+    autoHideFooter: true
+    autoHideFooterMargins: control.height
+    autoHideFooterDelay: 3000
+    floatingFooter: !previewBarVisible && !tagBarVisible
     footBar.rightContent: [
         ToolButton
         {
