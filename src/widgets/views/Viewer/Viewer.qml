@@ -43,7 +43,7 @@ Item
         highlightMoveDuration: 0
         highlightResizeDuration : 0
         snapMode: ListView.SnapOneItem
-        cacheBuffer: 0
+        cacheBuffer: width * 3
 
         keyNavigationEnabled : true
         keyNavigationWraps : true

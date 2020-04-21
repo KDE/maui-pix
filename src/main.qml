@@ -128,6 +128,7 @@ Maui.ApplicationWindow
 
     floatingHeader: swipeView.currentIndex === views.viewer
     autoHideHeader: swipeView.currentIndex === views.viewer
+    headerPositioning: ListView.InlineHeader
 
     headBar.rightContent: ToolButton
     {
