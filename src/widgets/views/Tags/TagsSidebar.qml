@@ -9,7 +9,7 @@ Maui.Page
     id: control
     padding:0
     title: qsTr("Tags")
-
+    flickable: _tagsList.flickable
     headBar.leftContent: ToolButton
     {
         icon.name: "list-add"

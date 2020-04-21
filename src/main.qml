@@ -75,7 +75,7 @@ Maui.ApplicationWindow
     property bool selectionMode : false
     property int previewSize : Maui.FM.loadSettings("PREVIEWSIZE", "UI", Maui.Style.iconSizes.huge * 1.5)
 
-    flickable: swipeView.currentItem.flickable || null
+    flickable: swipeView.currentItem.item.flickable || null
 
     mainMenu: [
 
@@ -125,8 +125,10 @@ Maui.ApplicationWindow
     ]
 
     headBar.visible: !fullScreen
+
     floatingHeader: swipeView.currentIndex === views.viewer
     autoHideHeader: swipeView.currentIndex === views.viewer
+
     headBar.rightContent: ToolButton
     {
         visible: Maui.Handy.isTouch
@@ -142,91 +144,86 @@ Maui.ApplicationWindow
         checked: selectionMode
     }
 
-    ColumnLayout
+    MauiLab.AppViews
     {
+        id: swipeView
         anchors.fill: parent
+        Component.onCompleted: swipeView.currentIndex = views.gallery
 
-        MauiLab.AppViews
+        MauiLab.AppViewLoader
         {
-            id: swipeView
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Component.onCompleted: swipeView.currentIndex = views.gallery
+            id: _pixViewerLoader
+            MauiLab.AppView.title: qsTr("Viewer")
+            MauiLab.AppView.iconName: "document-preview-archive"
+            //                Kirigami.Theme.inherit: false
+            //                Kirigami.Theme.backgroundColor: "#333"
+            //                Kirigami.Theme.textColor: "#fafafa"
 
-            MauiLab.AppViewLoader
+            PixViewer
             {
-                id: _pixViewerLoader
-                MauiLab.AppView.title: qsTr("Viewer")
-                MauiLab.AppView.iconName: "document-preview-archive"
-                //                Kirigami.Theme.inherit: false
-                //                Kirigami.Theme.backgroundColor: "#333"
-                //                Kirigami.Theme.textColor: "#fafafa"
-
-                PixViewer
+                Rectangle
                 {
-                    Rectangle
+                    anchors.fill: parent
+                    visible: _dropArea.containsDrag
+
+                    color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
+
+                    MauiLab.Rectangle
                     {
                         anchors.fill: parent
-                        visible: _dropArea.containsDrag
+                        anchors.margins: Maui.Style.space.medium
+                        color: "transparent"
+                        borderColor: Kirigami.Theme.textColor
+                        solidBorder: false
 
-                        color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
-
-                        MauiLab.Rectangle
+                        Maui.Holder
                         {
                             anchors.fill: parent
-                            anchors.margins: Maui.Style.space.medium
-                            color: "transparent"
-                            borderColor: Kirigami.Theme.textColor
-                            solidBorder: false
-
-                            Maui.Holder
-                            {
-                                anchors.fill: parent
-                                visible: true
-                                emoji: "qrc:/img/assets/add-image.svg"
-                                emojiSize: Maui.Style.iconSizes.huge
-                                title: qsTr("Open images")
-                                body: qsTr("Drag and drop images here")
-                            }
+                            visible: true
+                            emoji: "qrc:/img/assets/add-image.svg"
+                            emojiSize: Maui.Style.iconSizes.huge
+                            title: qsTr("Open images")
+                            body: qsTr("Drag and drop images here")
                         }
                     }
                 }
             }
-
-            MauiLab.AppViewLoader
-            {
-                MauiLab.AppView.title: qsTr("Gallery")
-                MauiLab.AppView.iconName: "image-multiple"
-                Kirigami.Theme.highlightColor: "red"
-                Kirigami.Theme.inherit: false
-
-                GalleryView {}
-            }
-
-            MauiLab.AppViewLoader
-            {
-                MauiLab.AppView.title: qsTr("Tags")
-                MauiLab.AppView.iconName: "tag"
-                TagsView {}
-            }
-
-            MauiLab.AppViewLoader
-            {
-                MauiLab.AppView.title: qsTr("Folders")
-                MauiLab.AppView.iconName: "image-folder-view"
-                FoldersView {}
-            }
         }
 
-        SelectionBar
+        MauiLab.AppViewLoader
         {
-            id: selectionBox
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
-            Layout.margins: Maui.Style.space.medium
-            maxListHeight: swipeView.height - Maui.Style.space.medium
+            MauiLab.AppView.title: qsTr("Gallery")
+            MauiLab.AppView.iconName: "image-multiple"
+            Kirigami.Theme.highlightColor: "red"
+            Kirigami.Theme.inherit: false
+
+            GalleryView {}
+        }
+
+        MauiLab.AppViewLoader
+        {
+            MauiLab.AppView.title: qsTr("Tags")
+            MauiLab.AppView.iconName: "tag"
+            TagsView {}
+        }
+
+        MauiLab.AppViewLoader
+        {
+            MauiLab.AppView.title: qsTr("Folders")
+            MauiLab.AppView.iconName: "image-folder-view"
+            FoldersView {}
         }
     }
+
+    footer: SelectionBar
+    {
+        id: selectionBox
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
+        padding: Maui.Style.space.big
+        maxListHeight: swipeView.height - Maui.Style.space.medium
+    }
+
 
     /*** Components ***/
 
