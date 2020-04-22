@@ -58,7 +58,7 @@ Maui.Page
           icon.name: "tool_pen"
           onClicked:
           {
-              _doodleDialog.source = control.currentPic.url
+              _doodleDialog.sourceItem = control.viewer.currentItem
                _doodleDialog.open()
           }
         },
