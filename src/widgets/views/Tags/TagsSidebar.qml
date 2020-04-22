@@ -10,9 +10,16 @@ Maui.Page
     padding:0
     title: qsTr("Tags")
     flickable: _tagsList.flickable
-    headBar.leftContent: ToolButton
+
+    Maui.FloatingButton
     {
-        icon.name: "list-add"
+        id: _overlayButton
+        z: 999
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: Maui.Style.toolBarHeight
+        anchors.bottomMargin: Maui.Style.toolBarHeight
+        icon.name : "list-add"
         onClicked: newTagDialog.open()
     }
 
@@ -60,8 +67,21 @@ Maui.Page
                 onClicked:
                 {
                     _tagsList.currentIndex = index
-                    currentTag = tagsList.get(index).tag
-                    populateGrid(currentTag)
+                    if(Maui.Handy.singleClick)
+                    {
+                        currentTag = tagsList.get(index).tag
+                        populateGrid(currentTag)
+                    }
+                }
+
+                onDoubleClicked:
+                {
+                    _tagsList.currentIndex = index
+                    if(!Maui.Handy.singleClick)
+                    {
+                        currentTag = tagsList.get(index).tag
+                        populateGrid(currentTag)
+                    }
                 }
             }
         }

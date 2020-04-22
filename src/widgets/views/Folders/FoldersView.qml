@@ -12,12 +12,6 @@ import FoldersList 1.0
 StackView
 {
     id: _stackView
-    //    separatorVisible: foldersPageRoot.wideMode
-    //    initialPage: [foldersPage, picsView]
-    //    defaultColumnWidth: width
-
-    //    interactive: foldersPageRoot.currentIndex  === 1
-    clip: true
 
     property string currentFolder : ""
     property alias picsView : _stackView.currentItem
@@ -55,12 +49,30 @@ StackView
 
         onItemClicked:
         {
-            _stackView.push(picsViewComponent)
+            foldersPage.currentIndex = index
 
-            var folder = folderModel.get(index)
-            picsView.title = folder.label
-            currentFolder = folder.path
-            picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
+            if(Maui.Handy.singleClick)
+            {
+                _stackView.push(picsViewComponent)
+                var folder = folderModel.get(foldersPage.currentIndex)
+                picsView.title = folder.label
+                currentFolder = folder.path
+                picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
+            }
+        }
+
+        onItemDoubleClicked:
+        {
+            foldersPage.currentIndex = index
+
+            if(!Maui.Handy.singleClick)
+            {
+                _stackView.push(picsViewComponent)
+                var folder = folderModel.get(foldersPage.currentIndex)
+                picsView.title = folder.label
+                currentFolder = folder.path
+                picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
+            }
         }
     }
 
@@ -70,7 +82,7 @@ StackView
         PixGrid
         {
             headBar.visible: true
-            headBar.leftContent: ToolButton
+            headBar.farLeftContent: ToolButton
             {
                 icon.name:"go-previous"
                 onClicked: _stackView.pop()

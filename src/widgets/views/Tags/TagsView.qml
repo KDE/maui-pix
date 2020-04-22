@@ -26,6 +26,8 @@ StackView
         {
             tagsList.insert(text)
         }
+
+        onRejected: close()
     }
 
     initialItem: TagsSidebar
@@ -45,7 +47,7 @@ StackView
             holder.emojiSize: Maui.Style.iconSizes.huge
             holder.emoji: "qrc:/img/assets/add-image.svg"
             headBar.visible: true
-            headBar.leftContent: ToolButton
+            headBar.farLeftContent: ToolButton
             {
                 icon.name: "go-previous"
                 onClicked: control.pop()
