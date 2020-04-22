@@ -57,7 +57,6 @@ Maui.ApplicationWindow
     Maui.App.description: qsTr("Pix is a convergent gallery manager and image viewer. Supports GNU Linux, Android and Windows.")
     Maui.App.iconName: "qrc:/img/assets/pix.svg"
     Maui.App.handleAccounts: false
-    Maui.App.enableCSD: true
 
     property alias dialog : dialogLoader.item
     property alias pixViewer : _pixViewerLoader.item
