@@ -159,6 +159,7 @@ Maui.Page
         height: parent.height
         width: parent.width
         spacing: 0
+
         Viewer
         {
             id: viewer
@@ -196,7 +197,6 @@ Maui.Page
                 height: Math.min(100, Math.max(parent.height * 0.12, 60))
                 visible: control.previewBarVisible && galleryRoll.rollList.count > 0 && opacity> 0
                 color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.7)
-
                  Behavior on opacity
                  {
                      NumberAnimation
