@@ -209,7 +209,7 @@ MauiLab.AltBrowser
         checked: selectionBox.contains(model.url)
 
         Drag.keys: ["text/uri-list"]
-        Drag.mimeData: Drag.active ? {"text/uri-list": control.filterSelectedItems(model.url)} : null
+        Drag.mimeData: Drag.active ? {"text/uri-list": control.filterSelectedItems(model.url)} : undefined
 
         Connections
         {

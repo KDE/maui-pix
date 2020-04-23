@@ -36,8 +36,8 @@ Maui.ItemDelegate
         anchors.fill: parent
         anchors.margins: 1
         iconSizeHint: labelsVisible ? height * 0.7 : height
-        imageHeight: 200
-        imageWidth: 200
+        imageHeight: height
+        imageWidth: height
         label1.text: model.title
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
         fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
