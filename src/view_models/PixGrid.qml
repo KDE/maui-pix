@@ -211,87 +211,87 @@ MauiLab.AltBrowser
         Drag.keys: ["text/uri-list"]
         Drag.mimeData: Drag.active ? {"text/uri-list": control.filterSelectedItems(model.url)} : {}
 
-        Connections
+    Connections
+    {
+        target: selectionBox
+        onUriRemoved:
         {
-            target: selectionBox
-            onUriRemoved:
+            if(uri === model.url)
             {
-                if(uri === model.url)
-                {
-                    _listDelegate.checked = false
-                }
-            }
-
-            onUriAdded:
-            {
-                if(uri === model.url)
-                {
-                    _listDelegate.checked = true
-                }
-            }
-
-            onCleared: _listDelegate.checked = false
-        }
-
-        Connections
-        {
-            target: _listDelegate
-            onClicked:
-            {
-                control.currentIndex = index
-                if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
-                {
-                    control.currentView.itemsSelected([index])
-                }else if(Maui.Handy.singleClick)
-                {
-                    openPic(index)
-                }
-            }
-
-            onDoubleClicked:
-            {
-                control.currentIndex = index
-                if(!Maui.Handy.singleClick && !selectionMode)
-                {
-                    openPic(index)
-                }
-            }
-
-            onPressAndHold:
-            {
-                control.currentIndex = index
-                _picMenu.popup()
-            }
-
-            onRightClicked:
-            {
-                control.currentIndex = index
-                _picMenu.popup()
-            }
-            onToggled:
-            {
-                control.currentIndex = index
-                PIX.selectItem(pixModel.get(index))
+                _listDelegate.checked = false
             }
         }
 
+        onUriAdded:
+        {
+            if(uri === model.url)
+            {
+                _listDelegate.checked = true
+            }
+        }
+
+        onCleared: _listDelegate.checked = false
     }
 
-    gridDelegate: PixPic
+    Connections
     {
-        id: _gridDelegate
-        property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
-        fit: fitPreviews
-        labelsVisible: showLabels
-        height: control.gridView.cellHeight - spacing
-        width: control.gridView.cellWidth - spacing
-        checkable: selectionMode
+        target: _listDelegate
+        onClicked:
+        {
+            control.currentIndex = index
+            if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+            {
+                control.currentView.itemsSelected([index])
+            }else if(Maui.Handy.singleClick)
+            {
+                openPic(index)
+            }
+        }
 
-        isCurrentItem: (GridView.isCurrentItem || checked)
-        checked: selectionBox.contains(model.url)
+        onDoubleClicked:
+        {
+            control.currentIndex = index
+            if(!Maui.Handy.singleClick && !selectionMode)
+            {
+                openPic(index)
+            }
+        }
 
-        Drag.keys: ["text/uri-list"]
-        Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
+        onPressAndHold:
+        {
+            control.currentIndex = index
+            _picMenu.popup()
+        }
+
+        onRightClicked:
+        {
+            control.currentIndex = index
+            _picMenu.popup()
+        }
+        onToggled:
+        {
+            control.currentIndex = index
+            PIX.selectItem(pixModel.get(index))
+        }
+    }
+
+}
+
+gridDelegate: PixPic
+{
+    id: _gridDelegate
+    property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
+    fit: fitPreviews
+    labelsVisible: showLabels
+    height: control.gridView.cellHeight - spacing
+    width: control.gridView.cellWidth - spacing
+    checkable: selectionMode
+
+    isCurrentItem: (GridView.isCurrentItem || checked)
+    checked: selectionBox.contains(model.url)
+
+    Drag.keys: ["text/uri-list"]
+    Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
 
     Connections
     {
