@@ -194,8 +194,8 @@ Maui.ApplicationWindow
         {
             MauiLab.AppView.title: qsTr("Gallery")
             MauiLab.AppView.iconName: "image-multiple"
-            Kirigami.Theme.highlightColor: "red"
-            Kirigami.Theme.inherit: false
+//            Kirigami.Theme.highlightColor: "red"
+//            Kirigami.Theme.inherit: false
 
             GalleryView {}
         }
