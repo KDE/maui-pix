@@ -58,7 +58,7 @@ Maui.Page
                 isCurrentItem: delegate.isCurrentItem
                 anchors.fill: parent
                 label1.text: model.tag
-                iconSource: model.tag === "fav" ? "love" : "tag"
+                iconSource: model.icon
             }
 
             Connections

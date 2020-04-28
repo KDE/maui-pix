@@ -66,7 +66,7 @@ MauiLab.AltBrowser
         expanded: isWide
         currentIndex : control.viewType === MauiLab.AltBrowser.ViewType.List ? 0 : 1
         enabled: list.count > 0
-
+        display: ToolButton.TextBesideIcon
         Action
         {
             text: qsTr("List")
