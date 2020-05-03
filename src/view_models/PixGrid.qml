@@ -41,7 +41,7 @@ MauiLab.AltBrowser
         id: delegate
         width: parent.width
         height: Maui.Style.toolBarHeightAlt
-        label: model.sort === "date" ? Maui.FM.formatDate(section, "MM/dd/yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : String(section).toUpperCase())
+        label: model.sort === "date" || model.sort === "adddate" ? Maui.FM.formatDate(Date(section), "MM/dd/yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : String(section).toUpperCase())
         labelTxt.font.pointSize: Maui.Style.fontSizes.big
         isSection: true
     }
@@ -156,7 +156,7 @@ MauiLab.AltBrowser
             id: pixList
         }
         sort: "date"
-        sortOrder: Qt.AscendingOrder
+        sortOrder: Qt.DescendingOrder
         recursiveFilteringEnabled: true
         sortCaseSensitivity: Qt.CaseInsensitive
         filterCaseSensitivity: Qt.CaseInsensitive
