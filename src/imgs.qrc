@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/img">
+    <qresource prefix="/">
         <file>assets/Babe.notifyrc</file>
         <file>assets/pix.png</file>
         <file>assets/banner.png</file>

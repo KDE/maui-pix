@@ -38,7 +38,6 @@ StackView
     Component
     {
         id: tagsGrid
-
         PixGrid
         {
             title: control.currentTag

@@ -1,20 +1,21 @@
 QT *= qml \
     quick \
-    sql
+    sql \
+    svg
+
+CONFIG += ordered
+CONFIG += c++17
 
 TARGET = pix
 TEMPLATE = app
 
 VERSION_MAJOR = 1
-VERSION_MINOR = 0
+VERSION_MINOR = 1
 VERSION_BUILD = 0
 
 VERSION = $${VERSION_MAJOR}.$${VERSION_MINOR}.$${VERSION_BUILD}
 
 DEFINES += PIX_VERSION_STRING=\\\"$$VERSION\\\"
-
-CONFIG += ordered
-CONFIG += c++17
 
 linux:unix:!android {
 
@@ -25,13 +26,13 @@ linux:unix:!android {
 
 } else {
 
-android {
-    message(Building helpers for Android)   
-    QMAKE_LINK += -nostdlib++
-    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
-   DISTFILES += \
-$$PWD/android_files/AndroidManifest.xml
-}
+    android {
+        message(Building for Android)
+        QMAKE_LINK += -nostdlib++
+        ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
+        DISTFILES += $$PWD/android_files/AndroidManifest.xml
+        DEFINES *= ANDROID_OPENSSL
+     }
 
     DEFINES *= \
         COMPONENT_FM \
@@ -42,7 +43,9 @@ $$PWD/android_files/AndroidManifest.xml
     include($$PWD/3rdparty/mauikit/mauikit.pri)
 
     DEFINES += STATIC_KIRIGAMI
-
+    win32 {
+        RC_ICONS = $$PWD/windows_files/pix.ico
+    }
 }
 
 # The following define makes your compiler emit warnings if you use
@@ -61,7 +64,7 @@ SOURCES += src/main.cpp \
     src/db/db.cpp \
     src/db/dbactions.cpp \
     src/models/gallery/gallery.cpp \
-    src/models/folders/folders.cpp \
+    src/models/folders/folders.cpp
 
 HEADERS += \
     src/pix.h \
@@ -70,13 +73,7 @@ HEADERS += \
     src/db/dbactions.h \
     src/utils/pic.h \
     src/models/gallery/gallery.h \
-    src/models/folders/folders.h \
-
-# Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
-
-# Additional import path used to resolve QML modules just for Qt Quick Designer
-QML_DESIGNER_IMPORT_PATH =
+    src/models/folders/folders.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -84,8 +81,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    src/qml.qrc \
-    src/assets.qrc
+    $$PWD/src/qml.qrc \
+    $$PWD/src/imgs.qrc
 
 INCLUDEPATH += src/
 

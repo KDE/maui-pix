@@ -146,7 +146,7 @@ Maui.Page
         id: holder
         visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
 
-        emoji: viewer.count === 0 ? "qrc:/img/assets/add-image.svg" : "qrc:/img/assets/animat-image-color.gif"
+        emoji: viewer.count === 0 ? "qrc:/assets/add-image.svg" : "qrc:/assets/animat-image-color.gif"
         isMask: true
         isGif : viewer.currentItem.status !== Image.Ready
         title : viewer.count === 0 ? qsTr("No Pics!") : qsTr("Loading...")

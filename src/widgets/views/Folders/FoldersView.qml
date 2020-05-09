@@ -26,7 +26,7 @@ StackView
         Maui.Holder
         {
             id: holder
-            emoji: "qrc:/img/assets/view-preview.svg"
+            emoji: "qrc:/assets/view-preview.svg"
             title : qsTr("No Folders!")
             body: qsTr("Add new image sources")
             emojiSize: Maui.Style.iconSizes.huge
@@ -88,7 +88,7 @@ StackView
                 onClicked: _stackView.pop()
             }
 
-            holder.emoji: "qrc:/img/assets/add-image.svg"
+            holder.emoji: "qrc:/assets/add-image.svg"
             holder.title : qsTr("Folder is empty!")
             holder.body: qsTr("There's not images in this folder")
             holder.emojiSize: Maui.Style.iconSizes.huge

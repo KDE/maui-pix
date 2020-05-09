@@ -26,7 +26,7 @@ Maui.Page
     Maui.Holder
     {
         visible: _tagsList.count === 0
-        emoji: qsTr("qrc:/img/assets/add-image.svg")
+        emoji: qsTr("qrc:/assets/add-image.svg")
         isMask: false
         title :qsTr("No Tags!")
         body: qsTr("You can create new tags to organize your gallery")

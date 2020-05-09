@@ -39,7 +39,7 @@ Maui.ItemDelegate
         imageHeight: height
         imageWidth: height
         label1.text: model.title
-        imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
+        imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/assets/image-x-generic.svg"
         fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
         hovered: control.hovered
         checkable: control.checkable
