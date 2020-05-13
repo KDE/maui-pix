@@ -19,7 +19,7 @@ set(pix_HDRS
 
 set(pix_ASSETS
     qml.qrc
-    assets.qrc
+    imgs.qrc
     )
 
 add_executable(pix
