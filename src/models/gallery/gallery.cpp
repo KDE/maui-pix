@@ -46,7 +46,8 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
     connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir)
     {
         qDebug()<< "Dir changed" << dir;
-        this->scan({QUrl::fromLocalFile(dir)}, m_recursive);
+        this->rescan();
+//        this->scan({QUrl::fromLocalFile(dir)}, m_recursive);
     });
 
     connect(m_watcher, &QFileSystemWatcher::fileChanged, [this](QString file)
@@ -236,6 +237,7 @@ void Gallery::clear()
 
 void Gallery::rescan()
 {
+    this->clear();
     this->scan(m_urls, m_recursive);
 }
 
