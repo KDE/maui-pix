@@ -38,11 +38,16 @@ using namespace std;
 class Pix : public QObject
 {
 	Q_OBJECT
-
+    Q_PROPERTY(QList<QUrl> sources READ sources NOTIFY sourcesChanged FINAL)
 public:
 	explicit Pix(QObject* parent = nullptr);
 
 public slots:
+    QList<QUrl> sources() const
+    {
+        return PIX::getSourcePaths();
+    }
+
 	void addSources(const QStringList &paths);
     void openPics(const QList<QUrl> &pics);
 	void refreshCollection();
@@ -51,11 +56,10 @@ public slots:
 
    QVariantList getTagUrls(const QString &tag);
 
-private:
-	void populateDB(const QList<QUrl> &urls);
 
 signals:
 	void refreshViews(QVariantMap tables);
 	void viewPics(QStringList pics);
+    void sourcesChanged();
 };
 #endif // PIX_H

@@ -45,6 +45,7 @@ StackView
         FoldersList
         {
             id: foldersList
+            folders: _galleryView.list.folders
         }
 
         onItemClicked:
@@ -57,7 +58,7 @@ StackView
                 var folder = folderModel.get(foldersPage.currentIndex)
                 picsView.title = folder.label
                 currentFolder = folder.path
-                picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
+                picsView.list.urls = [currentFolder]
             }
         }
 
@@ -71,7 +72,7 @@ StackView
                 var folder = folderModel.get(foldersPage.currentIndex)
                 picsView.title = folder.label
                 currentFolder = folder.path
-                picsView.list.query = Q.Query.picLikeUrl_.arg(currentFolder)
+                picsView.list.urls = [currentFolder]
             }
         }
     }
@@ -87,6 +88,7 @@ StackView
                 icon.name:"go-previous"
                 onClicked: _stackView.pop()
             }
+            list.recursive: false
 
             holder.emoji: "qrc:/assets/add-image.svg"
             holder.title : qsTr("Folder is empty!")

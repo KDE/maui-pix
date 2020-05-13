@@ -1,10 +1,8 @@
 #include "models/folders/folders.h"
-#include "db/dbactions.h"
 
 Folders::Folders(QObject *parent) : MauiList(parent)
 {
     qDebug()<< "CREATING GALLERY LIST";
-    this->setList();
 }
 
 FMH::MODEL_LIST Folders::items() const
@@ -12,11 +10,20 @@ FMH::MODEL_LIST Folders::items() const
     return this->list;
 }
 
-void Folders::setList()
+void Folders::setFolders(const QList<QUrl> &folders)
 {
+    if(m_folders == folders)
+        return;
+
+    m_folders = folders;
+
     emit this->preListChanged();
-    this->list = DBActions::getInstance()->getFolders("select * from sources");
+    for(const auto &folder : m_folders)
+    {
+        this->list << FMH::getDirInfoModel(folder);
+    }
     emit this->postListChanged();
+    emit foldersChanged();
 }
 
 QVariantMap Folders::get(const int &index) const
@@ -28,5 +35,5 @@ QVariantMap Folders::get(const int &index) const
 
 void Folders::refresh()
 {
-    this->setList();
+    this->setFolders(m_folders);
 }

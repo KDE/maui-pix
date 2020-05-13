@@ -1,11 +1,64 @@
 #include "gallery.h"
-#include "db/dbactions.h"
+#include <QFileSystemWatcher>
+#include "db/fileloader.h"
 
 Gallery::Gallery(QObject *parent) : MauiList(parent)
+  , m_fileLoader(new FileLoader())
+  , m_watcher (new QFileSystemWatcher(this))
+  , m_autoReload(true)
+  , m_autoScan(true)
+  , m_recursive (true)
 {
-	qDebug()<< "CREATING GALLERY LIST";
-	this->dba = DBActions::getInstance();
-	connect(this, &Gallery::queryChanged, this, &Gallery::setList);
+    qDebug()<< "CREATING GALLERY LIST";
+
+    connect(m_fileLoader, &FileLoader::finished,[this](FMH::MODEL_LIST items)
+    {
+        qDebug() << "Items finished" << items.size();
+
+    });
+
+    connect(m_fileLoader, &FileLoader::itemsReady,[this](FMH::MODEL_LIST items)
+    {
+        qDebug() << "Items ready" << items.size() << m_urls;
+
+        emit this->preListChanged();
+        for(const auto &item : items)
+        {
+            if(exists(FMH::MODEL_KEY::URL, item[FMH::MODEL_KEY::URL]))
+            {
+                continue;
+            }
+
+            this->list << item;
+            this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
+        }
+        emit this->postListChanged();
+
+    });
+
+    connect(m_fileLoader, &FileLoader::itemReady,[this](FMH::MODEL item)
+    {
+//        emit this->preItemAppended();
+//        this->list.append(item);
+//        emit this->postItemAppended();
+    });
+
+    connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir)
+    {
+        qDebug()<< "Dir changed" << dir;
+        this->scan({QUrl::fromLocalFile(dir)}, m_recursive);
+    });
+
+    connect(m_watcher, &QFileSystemWatcher::fileChanged, [this](QString file)
+    {
+        qDebug()<< "File changed" << file;
+
+    });
+}
+
+Gallery::~Gallery()
+{
+    delete m_fileLoader;
 }
 
 FMH::MODEL_LIST Gallery::items() const
@@ -13,36 +66,80 @@ FMH::MODEL_LIST Gallery::items() const
 	return this->list;
 }
 
-void Gallery::setQuery(const QString &query)
+void Gallery::setUrls(const QList<QUrl> &urls)
 {
-	if(this->query == query)
+    qDebug()<< "setting urls"<< this->m_urls << urls;
+
+    if(this->m_urls == urls)
 		return;
 
-	this->query = query;
-	qDebug()<< "setting query"<< this->query;
+    this->m_urls = urls;
+    this->clear();
+    emit this->urlsChanged();
 
-	emit this->queryChanged();
+    if(m_autoScan)
+    {
+        this->scan(m_urls, m_recursive);
+    }
 }
 
-QString Gallery::getQuery() const
+QList<QUrl> Gallery::urls() const
 {
-	return this->query;
+    return m_urls;
+}
+
+void Gallery::setAutoScan(const bool &value)
+{
+    if(m_autoScan == value)
+        return;
+
+    m_autoScan = value;
+    emit autoScanChanged();
+}
+
+bool Gallery::autoScan() const
+{
+    return m_autoScan;
+}
+
+void Gallery::setAutoReload(const bool &value)
+{
+    if(m_autoReload == value)
+        return;
+
+    m_autoReload = value;
+    emit autoReloadChanged();
+}
+
+bool Gallery::autoReload() const
+{
+    return m_autoReload;
+}
+
+void Gallery::scan(const QList<QUrl> &urls, const bool &recursive)
+{
+    m_fileLoader->requestPath(urls, recursive);
+}
+
+void Gallery::insertFolder(const QUrl &path)
+{
+    if(!m_folders.contains(path))
+    {
+        m_folders << path;
+
+        if(m_autoReload)
+        {
+            this->m_watcher->addPath(path.toLocalFile());
+        }
+
+        emit foldersChanged();
+    }
 }
 
 void Gallery::setList()
 {
 	emit this->preListChanged();
 
-    this->list = this->dba->getDBData(this->query, [&](FMH::MODEL &item) {
-            const auto url = QUrl(item[FMH::MODEL_KEY::URL]);
-    if(FMH::fileExists(url))
-        return true;
-    else
-    {
-        this->dba->removePic(url.toString());
-        return false;
-    }
-});
 
 	emit this->postListChanged();
 }
@@ -83,7 +180,7 @@ bool Gallery::deleteAt(const int &index)
 
 	emit this->preItemRemoved(index_);
 	auto item = this->list.takeAt(index_);
-	this->dba->deletePic(item[FMH::MODEL_KEY::URL]);
+//	this->dba->deletePic(item[FMH::MODEL_KEY::URL]);
 	emit this->postItemRemoved();
 
 	return true;
@@ -103,10 +200,7 @@ void Gallery::append(const QString &url)
 {
 	emit this->preItemAppended();
 
-	if(this->dba->checkExistance("images", "url", url))
-		this->list << this->dba->getDBData(QString("select * from images where url = '%1'").arg(url));
-	else
-	{
+
 		QFileInfo info(url);
 		auto title = info.baseName();
 		auto format = info.suffix();
@@ -124,18 +218,28 @@ void Gallery::append(const QString &url)
 		picMap[FMH::MODEL_KEY::SOURCE] = sourceUrl;
 
 		this->list << picMap;
-	}
+
 	emit this->postItemAppended();
 }
 
 void Gallery::refresh()
 {
-	this->setList();
+    this->setList();
 }
 
 void Gallery::clear()
 {
 	emit this->preListChanged();
 	this->list.clear();
-	emit this->postListChanged();
+    emit this->postListChanged();
+}
+
+void Gallery::rescan()
+{
+    this->scan(m_urls, m_recursive);
+}
+
+void Gallery::reload()
+{
+    this->scan(m_urls, m_recursive);
 }

@@ -19,7 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
 #include "pix.h"
-#include "db/fileloader.h"
 #include <QFileSystemWatcher>
 #include <QTimer>
 #include <QApplication>
@@ -41,8 +40,6 @@ using namespace PIX;
 Pix::Pix(QObject *parent) : QObject(parent)
 {
 	qDebug() << "Getting settings info from: " << PIX::SettingPath;
-
-//	this->refreshCollection();
 }
 
 void Pix::openPics(const QList<QUrl> &pics)
@@ -54,25 +51,6 @@ void Pix::refreshCollection()
 {
 	const auto sources = PIX::getSourcePaths();
 	qDebug()<< "getting default sources to look up" << sources;
-	this->populateDB(sources);
-}
-
-void Pix::populateDB(const QList<QUrl> &urls)
-{
-	qDebug() << "Function Name: " << Q_FUNC_INFO
-			 << "new path for database action: " << urls << QThread::currentThread();
-
-	const auto fileLoader = new FileLoader; //is moved to another thread and deletion happens there
-	connect(fileLoader, &FileLoader::finished,[this](uint size)
-	{
-		Q_UNUSED(size)
-		emit this->refreshViews({
-							  {PIX::TABLEMAP[TABLE::ALBUMS], true},
-							  {PIX::TABLEMAP[TABLE::TAGS], true},
-							  {PIX::TABLEMAP[TABLE::IMAGES], true}
-						  });
-	});
-	fileLoader->requestPath(urls);
 }
 
 void Pix::showInFolder(const QStringList &urls)
@@ -89,8 +67,5 @@ QVariantList Pix::getTagUrls(const QString & tag)
 void Pix::addSources(const QStringList &paths)
 {
 	PIX::saveSourcePath(paths);
-	this->populateDB(std::accumulate(paths.constBegin(), paths.constEnd(), QList<QUrl> {}, [](QList<QUrl> &urls, const QString &path)  {
-						 urls << QUrl::fromUserInput(path);
-						 return urls;
-					 }));
+    emit sourcesChanged();
 }

@@ -14,18 +14,26 @@
 class Folders : public MauiList
 {
     Q_OBJECT
+    Q_PROPERTY(QList<QUrl> folders READ folders WRITE setFolders NOTIFY foldersChanged)
 
 public:    
     explicit Folders(QObject *parent = nullptr);
     FMH::MODEL_LIST items() const override final;
-
+    void setFolders(const QList<QUrl> &folders);
+    QList<QUrl> folders () const
+    {
+        return m_folders;
+    }
 private:
     FMH::MODEL_LIST list;
-    void setList();
+    QList<QUrl> m_folders;
 
 public slots:    
     QVariantMap get(const int &index) const;
     void refresh();
+
+signals:
+    void foldersChanged();
 };
 
 #endif // ALBUMS_H

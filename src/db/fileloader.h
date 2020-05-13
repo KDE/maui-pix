@@ -34,45 +34,41 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "fmh.h"
 #endif
 
-class MThread : public QThread
-{
-
-};
-
 class FileLoader : public QObject
 {
     Q_OBJECT
 
 public:
-    FileLoader() : QObject()
+    FileLoader(QObject *parent = nullptr) : QObject(parent)
     {
-        //        qRegisterMetaType<PIX::TABLE>("PIX::TABLE");
-        //        qRegisterMetaType<QMap<PIX::TABLE, bool>>("QMap<PIX::TABLE,bool>");
-
         this->moveToThread(&t);
         connect(this, &FileLoader::start, this, &FileLoader::getPics);
         this->t.start();
     }
 
-    void requestPath(const QList<QUrl> &urls)
+    ~FileLoader()
+    {
+        t.quit();
+        t.wait();
+    }
+
+    void requestPath(const QList<QUrl> &urls, const bool &recursive)
     {
         qDebug()<<"FROM file loader"<< urls;
-        this->go = true;
-        emit this->start(urls);
+        emit this->start(urls, recursive);
     }
 
 private slots:
-    void getPics(QList<QUrl> paths)
+    void getPics(QList<QUrl> paths, bool recursive)
     {
         qDebug()<<"GETTING IMAGES";
 
         QList<QUrl> urls;
-
         for(const auto &path : paths)
         {
-            if (QFileInfo(path.toLocalFile()).isDir() && path.isLocalFile())
+            if (QFileInfo(path.toLocalFile()).isDir() && path.isLocalFile() && FMH::fileExists(path))
             {
-                QDirIterator it(path.toLocalFile(), FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
+                QDirIterator it(path.toLocalFile(), FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, recursive ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags);
 
                 while (it.hasNext())
                     urls << QUrl::fromLocalFile(it.next());
@@ -81,35 +77,54 @@ private slots:
                 urls << path;
         }
 
-        uint newPics = 0;
 
-        if(urls.size() > 0)
+        if(!urls.isEmpty())
         {
-            const auto db_ = DBActions::getInstance();
+            const uint m_bsize = 150;
+            uint i = 0;
+            uint batch = 0;
+            FMH::MODEL_LIST res;
             for(const auto &url : urls)
-            {
-                if(go)
+            {              
+                qDebug()<< url;
+                const QFileInfo info(url.toLocalFile());
+                FMH::MODEL map =
                 {
-                    if(db_->addPic(url.toString()))
-                        newPics++;
-                }else break;
-            }
-            emit this->collectionSize(newPics);
-        }
+                    {FMH::MODEL_KEY::URL, url.toString()},
+                    {FMH::MODEL_KEY::TITLE,  info.baseName()},
+                    {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+                    {FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
+                    {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
+                    {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+                    {FMH::MODEL_KEY::FORMAT, info.suffix()}
+                };
 
-        emit this->finished(newPics);
-        this->go = false;
-        t.quit();
+                emit itemReady(map);
+                res << map;
+                i++;
+
+                if(i == m_bsize || res.size() == urls.size()) //send a batch
+                {
+                    emit itemsReady(FMH::MODEL_LIST(res.begin()+(batch*m_bsize), res.end()));
+                    batch++;
+                    i = 0;
+                }
+            }
+
+            emit finished(res);
+        }
     }
 
 signals:
-    void finished(uint size);
-    void collectionSize(uint size);
-    void start(QList<QUrl> urls);
+    void finished(FMH::MODEL_LIST items);
+    void start(QList<QUrl> urls, bool recursive);
+
+    void itemsReady(FMH::MODEL_LIST items);
+    void itemReady(FMH::MODEL item);
 
 private:
     QThread t;
-    bool go = false;
+
 };
 
 

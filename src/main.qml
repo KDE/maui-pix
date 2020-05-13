@@ -69,12 +69,15 @@ Maui.ApplicationWindow
     /*PROPS*/
     property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !Kirigami.Settings.isMobile) === "true" ? true : false
     property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", true) === "false" ?  false : true
+    property bool autoScan: Maui.FM.loadSettings("AUTOSCAN", "GRID", true) === "false" ?  false : true
+
+    property bool autoReload: Maui.FM.loadSettings("AUTORELOAD", "GRID", true) === "false" ?  false : true
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     property bool selectionMode : false
     property int previewSize : Maui.FM.loadSettings("PREVIEWSIZE", "UI", Maui.Style.iconSizes.huge * 1.5)
 
-    flickable: swipeView.currentItem.item.flickable || null
+    flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable : swipeView.currentItem.flickable || null
 
     mainMenu: [
 
@@ -191,15 +194,13 @@ Maui.ApplicationWindow
             }
         }
 
-        MauiLab.AppViewLoader
+        GalleryView
         {
+            id: _galleryView
             MauiLab.AppView.title: qsTr("Gallery")
             MauiLab.AppView.iconName: "image-multiple"
-//            Kirigami.Theme.highlightColor: "red"
-//            Kirigami.Theme.inherit: false
-
-            GalleryView {}
         }
+
 
         MauiLab.AppViewLoader
         {
@@ -371,8 +372,38 @@ Maui.ApplicationWindow
         {
             MauiLab.SettingsSection
             {
+                title: qsTr("Behavior")
+                description: qsTr("Configure the app behaviour.")
+
+                Switch
+                {
+                    checkable: true
+                    checked: root.autoScan
+                    Kirigami.FormData.label: qsTr("Auto Scan on startup")
+                    onToggled:
+                    {
+                        root.autoScan = !root.autoScan
+                        Maui.FM.saveSettings("AUTOSCAN", fitPreviews, "SETTINGS")
+                    }
+                }
+
+                Switch
+                {
+                    checkable: true
+                    checked: root.autoScan
+                    Kirigami.FormData.label: qsTr("Auto reaload on changes")
+                    onToggled:
+                    {
+                        root.autoReload = !root.autoReload
+                        Maui.FM.saveSettings("AUTORELOAD", autoReload, "SETTINGS")
+                    }
+                }
+
+            }
+            MauiLab.SettingsSection
+            {
                 title: qsTr("Collection")
-                description: qsTr("Configure the app plugins and behavior.")
+                description: qsTr("Configure the app plugins and look & feel.")
 
                 Switch
                 {

@@ -1,6 +1,5 @@
 QT *= qml \
     quick \
-    sql \
     svg
 
 CONFIG += ordered
@@ -61,16 +60,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += src/main.cpp \
     src/pix.cpp \
-    src/db/db.cpp \
-    src/db/dbactions.cpp \
+#    src/db/dbactions.cpp \
     src/models/gallery/gallery.cpp \
     src/models/folders/folders.cpp
 
 HEADERS += \
     src/pix.h \
     src/db/fileloader.h \
-    src/db/db.h \
-    src/db/dbactions.h \
+#    src/db/dbactions.h \
     src/utils/pic.h \
     src/models/gallery/gallery.h \
     src/models/folders/folders.h

@@ -190,7 +190,7 @@ inline static const QString getQuery(const QString &key)
 
 inline static const QList<QUrl> getSourcePaths()
 {
-    const QList<QUrl> defaultSources  = {FMH::PicturesPath, FMH::DownloadsPath, FMH::DocumentsPath, FMH::CloudCachePath};
+    static const QList<QUrl> defaultSources  = {FMH::PicturesPath, FMH::DownloadsPath, FMH::CloudCachePath};
     const auto sources = UTIL::loadSettings("Sources", "Settings", QVariant::fromValue(defaultSources)).value<QList<QUrl>>();
 
     if(sources.isEmpty())
@@ -206,7 +206,7 @@ inline static void saveSourcePath(QStringList const& paths)
     for(const auto &path : paths)
     {
         if(!sources.contains(path))
-             sources << path;
+            sources << path;
     }
 
     UTIL::saveSettings("Sources", QVariant::fromValue(sources), "Settings");

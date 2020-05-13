@@ -133,16 +133,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 	qmlRegisterSingletonType<Pix>("org.maui.pix", 1, 0, "Collection",
 								  [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
-		Q_UNUSED(engine)
 		Q_UNUSED(scriptEngine)
+        engine->setObjectOwnership(pix, QQmlEngine::CppOwnership);
 		return pix;
-	});
-
-	qmlRegisterSingletonType<DBActions>("org.maui.pix", 1, 0, "DB",
-										[](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
-		Q_UNUSED(engine)
-		Q_UNUSED(scriptEngine)
-		return DBActions::getInstance();
 	});
 
 	qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");

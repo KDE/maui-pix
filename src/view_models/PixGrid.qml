@@ -41,13 +41,12 @@ MauiLab.AltBrowser
         id: delegate
         width: parent.width
         height: Maui.Style.toolBarHeightAlt
-        label: model.sort === "date" || model.sort === "adddate" ? Maui.FM.formatDate(Date(section), "MM/dd/yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : String(section).toUpperCase())
+        label: model.sort === "date" || model.sort === "modified" ? Maui.FM.formatDate(Date(section), "MM/dd/yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : String(section).toUpperCase())
         labelTxt.font.pointSize: Maui.Style.fontSizes.big
         isSection: true
     }
 
-
-    holder.visible: count === 0
+    holder.visible: pixList.count === 0
     holder.isMask: true
     holder.emojiSize: Maui.Style.iconSizes.huge
 
@@ -98,10 +97,10 @@ MauiLab.AltBrowser
 
             MenuItem
             {
-                text: qsTr("Add date")
+                text: qsTr("Modified")
                 checkable: true
-                checked: pixModel.sort === "adddate"
-                onTriggered: pixModel.sort = "adddate"
+                checked: pixModel.sort === "modified"
+                onTriggered: pixModel.sort = "modified"
             }
 
             MenuItem
@@ -148,13 +147,17 @@ MauiLab.AltBrowser
         }
     ]
 
+    GalleryList
+    {
+        id: pixList
+        autoReload: root.autoReload
+        autoScan: root.autoScan
+    }
+
     model: Maui.BaseModel
     {
         id: pixModel
-        list:  GalleryList
-        {
-            id: pixList
-        }
+        list: pixList
         sort: "date"
         sortOrder: Qt.DescendingOrder
         recursiveFilteringEnabled: true
