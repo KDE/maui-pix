@@ -59,8 +59,12 @@ private slots:
     void getPics(QList<QUrl> paths, bool recursive)
     {
         qDebug()<<"GETTING IMAGES";
-
+        const uint m_bsize = 5000;
+        uint i = 0;
+        uint batch = 0;
+        FMH::MODEL_LIST res;
         QList<QUrl> urls;
+
         for(const auto &path : paths)
         {
             if (QFileInfo(path.toLocalFile()).isDir() && path.isLocalFile() && FMH::fileExists(path))
@@ -68,47 +72,36 @@ private slots:
                 QDirIterator it(path.toLocalFile(), FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, recursive ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags);
 
                 while (it.hasNext())
-                    urls << QUrl::fromLocalFile(it.next());
-
-            }else if (QFileInfo(path.toLocalFile()).isFile())
-                urls << path;
-        }
-
-
-        if(!urls.isEmpty())
-        {
-            const uint m_bsize = 150;
-            uint i = 0;
-            uint batch = 0;
-            FMH::MODEL_LIST res;
-            for(const auto &url : urls)
-            {              
-                const QFileInfo info(url.toLocalFile());
-                FMH::MODEL map =
                 {
-                    {FMH::MODEL_KEY::URL, url.toString()},
-                    {FMH::MODEL_KEY::TITLE,  info.baseName()},
-                    {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-                    {FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
-                    {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
-                    {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-                    {FMH::MODEL_KEY::FORMAT, info.suffix()}
-                };
+                    const auto url = QUrl::fromLocalFile(it.next());
+                    urls << url;
+                    const QFileInfo info(url.toLocalFile());
+                    FMH::MODEL map =
+                    {
+                        {FMH::MODEL_KEY::URL, url.toString()},
+                        {FMH::MODEL_KEY::TITLE,  info.baseName()},
+                        {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+                        {FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
+                        {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
+                        {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+                        {FMH::MODEL_KEY::FORMAT, info.suffix()}
+                    };
 
-                emit itemReady(map);
-                res << map;
-                i++;
+                    emit itemReady(map);
+                    res << map;
+                    i++;
 
-                if(i == m_bsize || res.size() == urls.size()) //send a batch
-                {
-                    emit itemsReady(FMH::MODEL_LIST(res.constBegin()+(batch*m_bsize), res.constEnd()));
-                    batch++;
-                    i = 0;
+                    if(i == m_bsize) //send a batch
+                    {
+                        emit itemsReady(FMH::MODEL_LIST(res.constBegin()+(batch*m_bsize), res.constEnd()));
+                        batch++;
+                        i = 0;
+                    }
                 }
             }
-
-            emit finished(res);
         }
+        emit itemsReady(FMH::MODEL_LIST(res.constBegin()+(batch*m_bsize), res.constEnd()));
+        emit finished(res);
     }
 
 signals:

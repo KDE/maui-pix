@@ -24,16 +24,15 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
         qDebug() << "Items ready" << items.size() << m_urls;
 
         emit this->preListChanged();
-        for(const auto &item : items)
-        {
-            this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
-        }
+
         this-> list << items;
         emit this->postListChanged();
     });
 
     connect(m_fileLoader, &FileLoader::itemReady,[this](FMH::MODEL item)
     {
+        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
+
 //        emit this->preItemAppended();
 //        this->list.append(item);
 //        emit this->postItemAppended();
