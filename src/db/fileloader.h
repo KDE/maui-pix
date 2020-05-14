@@ -33,86 +33,89 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class FileLoader : public QObject
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    FileLoader(QObject *parent = nullptr) : QObject(parent)
-    {
-        this->moveToThread(&t);
-        connect(this, &FileLoader::start, this, &FileLoader::getPics);
-        this->t.start();
-    }
+	FileLoader(QObject *parent = nullptr) : QObject(parent)
+	{
+		this->moveToThread(&t);
+		connect(this, &FileLoader::start, this, &FileLoader::getPics);
+		this->t.start();
+	}
 
-    ~FileLoader()
-    {
-        t.quit();
-        t.wait();
-    }
+	~FileLoader()
+	{
+		t.quit();
+		t.wait();
+	}
 
-    void requestPath(const QList<QUrl> &urls, const bool &recursive)
-    {
-        qDebug()<<"FROM file loader"<< urls;
-        emit this->start(urls, recursive);
-    }
+	void requestPath(const QList<QUrl> &urls, const bool &recursive)
+	{
+		qDebug()<<"FROM file loader"<< urls;
+		emit this->start(urls, recursive);
+	}
 
 private slots:
-    void getPics(QList<QUrl> paths, bool recursive)
-    {
-        qDebug()<<"GETTING IMAGES";
-        const uint m_bsize = 5000;
-        uint i = 0;
-        uint batch = 0;
-        FMH::MODEL_LIST res;
-        QList<QUrl> urls;
+	void getPics(QList<QUrl> paths, bool recursive)
+	{
+		qDebug()<<"GETTING IMAGES";
+		const uint m_bsize = 5000;
+		uint i = 0;
+		uint batch = 0;
+		FMH::MODEL_LIST res;
+		FMH::MODEL_LIST res_batch;
+		QList<QUrl> urls;
 
-        for(const auto &path : paths)
-        {
-            if (QFileInfo(path.toLocalFile()).isDir() && path.isLocalFile() && FMH::fileExists(path))
-            {
-                QDirIterator it(path.toLocalFile(), FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, recursive ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags);
+		for(const auto &path : paths)
+		{
+			if (QFileInfo(path.toLocalFile()).isDir() && path.isLocalFile() && FMH::fileExists(path))
+			{
+				QDirIterator it(path.toLocalFile(), FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, recursive ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags);
 
-                while (it.hasNext())
-                {
-                    const auto url = QUrl::fromLocalFile(it.next());
-                    urls << url;
-                    const QFileInfo info(url.toLocalFile());
-                    FMH::MODEL map =
-                    {
-                        {FMH::MODEL_KEY::URL, url.toString()},
-                        {FMH::MODEL_KEY::TITLE,  info.baseName()},
-                        {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-                        {FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
-                        {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
-                        {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-                        {FMH::MODEL_KEY::FORMAT, info.suffix()}
-                    };
+				while (it.hasNext())
+				{
+					const auto url = QUrl::fromLocalFile(it.next());
+					urls << url;
+					const QFileInfo info(url.toLocalFile());
+					FMH::MODEL map =
+					{
+						{FMH::MODEL_KEY::URL, url.toString()},
+						{FMH::MODEL_KEY::TITLE,  info.baseName()},
+						{FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+						{FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
+						{FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
+						{FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+						{FMH::MODEL_KEY::FORMAT, info.suffix()}
+					};
 
-                    emit itemReady(map);
-                    res << map;
-                    i++;
+					emit itemReady(map);
+					res << map;
+					res_batch << map;
+					i++;
 
-                    if(i == m_bsize) //send a batch
-                    {
-                        emit itemsReady(FMH::MODEL_LIST(res.constBegin()+(batch*m_bsize), res.constEnd()));
-                        batch++;
-                        i = 0;
-                    }
-                }
-            }
-        }
-        emit itemsReady(FMH::MODEL_LIST(res.constBegin()+(batch*m_bsize), res.constEnd()));
-        emit finished(res);
-    }
+					if(i == m_bsize) //send a batch
+					{
+						emit itemsReady(res_batch);
+						res_batch.clear ();
+						batch++;
+						i = 0;
+					}
+				}
+			}
+		}
+		emit itemsReady(res_batch);
+		emit finished(res);
+	}
 
 signals:
-    void finished(FMH::MODEL_LIST items);
-    void start(QList<QUrl> urls, bool recursive);
+	void finished(FMH::MODEL_LIST items);
+	void start(QList<QUrl> urls, bool recursive);
 
-    void itemsReady(FMH::MODEL_LIST items);
-    void itemReady(FMH::MODEL item);
+	void itemsReady(FMH::MODEL_LIST items);
+	void itemReady(FMH::MODEL item);
 
 private:
-    QThread t;
+	QThread t;
 
 };
 
