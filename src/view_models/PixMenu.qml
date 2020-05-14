@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.3
 import org.kde.mauikit 1.0 as Maui
 import org.kde.kirigami 2.6 as Kirigami
 import org.maui.pix 1.0 as Pix
-import "../db/Query.js" as Q
 import "../widgets/views/Pix.js" as PIX
 
 Menu

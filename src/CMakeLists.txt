@@ -1,8 +1,6 @@
 set(pix_SRCS
     main.cpp
     pix.cpp
-    db/db.cpp
-    db/dbactions.cpp
     models/gallery/gallery.cpp
     models/folders/folders.cpp
     )
@@ -10,8 +8,6 @@ set(pix_SRCS
 set(pix_HDRS
     pix.h
     db/fileloader.h
-    db/db.h
-    db/dbactions.h
     utils/pic.h
     models/gallery/gallery.h
     models/folders/folders.h

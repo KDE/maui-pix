@@ -5,7 +5,6 @@ import org.kde.mauikit 1.0 as Maui
 import QtQuick.Layouts 1.3
 
 import "../../../view_models"
-import "../../../db/Query.js" as Q
 
 import FoldersList 1.0
 

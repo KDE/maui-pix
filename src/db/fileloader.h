@@ -20,13 +20,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef FILELOADER_H
 #define FILELOADER_H
 
-#include <QThread>
 #include <QObject>
 #include <QDirIterator>
 #include <QFileInfo>
 #include <QThread>
-
-#include "dbactions.h"
 
 #if (defined (Q_OS_LINUX) && !defined (Q_OS_ANDROID))
 #include <MauiKit/fmh.h>
@@ -86,7 +83,6 @@ private slots:
             FMH::MODEL_LIST res;
             for(const auto &url : urls)
             {              
-                qDebug()<< url;
                 const QFileInfo info(url.toLocalFile());
                 FMH::MODEL map =
                 {
@@ -105,7 +101,7 @@ private slots:
 
                 if(i == m_bsize || res.size() == urls.size()) //send a batch
                 {
-                    emit itemsReady(FMH::MODEL_LIST(res.begin()+(batch*m_bsize), res.end()));
+                    emit itemsReady(FMH::MODEL_LIST(res.constBegin()+(batch*m_bsize), res.constEnd()));
                     batch++;
                     i = 0;
                 }

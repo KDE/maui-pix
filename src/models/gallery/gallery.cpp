@@ -15,6 +15,8 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
     {
         qDebug() << "Items finished" << items.size();
 
+
+
     });
 
     connect(m_fileLoader, &FileLoader::itemsReady,[this](FMH::MODEL_LIST items)
@@ -24,16 +26,10 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
         emit this->preListChanged();
         for(const auto &item : items)
         {
-            if(exists(FMH::MODEL_KEY::URL, item[FMH::MODEL_KEY::URL]))
-            {
-                continue;
-            }
-
-            this->list << item;
             this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
         }
+        this-> list << items;
         emit this->postListChanged();
-
     });
 
     connect(m_fileLoader, &FileLoader::itemReady,[this](FMH::MODEL item)
@@ -231,8 +227,11 @@ void Gallery::refresh()
 void Gallery::clear()
 {
 	emit this->preListChanged();
-	this->list.clear();
+    this->list = {};
     emit this->postListChanged();
+
+    this->m_folders = {};
+    emit foldersChanged();
 }
 
 void Gallery::rescan()

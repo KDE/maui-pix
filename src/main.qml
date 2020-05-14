@@ -39,7 +39,6 @@ import "view_models"
 
 import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
-import "db/Query.js" as Q
 
 import TagsModel 1.0
 import TagsList 1.0
@@ -486,6 +485,66 @@ Maui.ApplicationWindow
                     onToggled: pixViewer.tooglePreviewBar()
                 }
             }
+
+            MauiLab.SettingsSection
+            {
+                title: qsTr("Sources")
+                description: qsTr("Add new sources to manage and browse your image collection")
+
+                ColumnLayout
+                {
+                    anchors.fill: parent
+
+                    Maui.ListBrowser
+                    {
+                        id: _sourcesList
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                        Layout.minimumHeight: Math.min(200, contentHeight)
+                        model: Pix.Collection.sources
+                        delegate: Maui.ListDelegate
+                        {
+                            width: parent.width
+                            iconName: "folder"
+                            iconSize: Maui.Style.iconSizes.small
+                            label: modelData
+                            onClicked: _sourcesList.currentIndex = index
+                        }
+                    }
+
+                    RowLayout
+                    {
+                        Layout.fillWidth: true
+                        Button
+                        {
+                            Layout.fillWidth: true
+                            text: qsTr("Remove")
+                            onClicked:
+                            {
+                                Pix.Collection.removeSources(_sourcesList.model[_sourcesList.currentIndex])
+                            }
+                        }
+
+                        Button
+                        {
+                            Layout.fillWidth: true
+                            text: qsTr("Add")
+                            onClicked:
+                            {
+                                dialogLoader.sourceComponent= fmDialogComponent
+                                dialog.mode = dialog.modes.OPEN
+                                dialog.settings.onlyDirs= true
+                                dialog.show(function(paths)
+                                {
+                                    console.log("ADD THIS PATHS", paths)
+                                    Pix.Collection.addSources(paths)
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
         }
     }
 

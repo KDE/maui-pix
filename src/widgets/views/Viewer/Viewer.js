@@ -1,5 +1,4 @@
 .import "../Pix.js" as PIX
-.import "../../../db/Query.js" as Q
 .import org.kde.mauikit 1.0 as Maui
 .import org.maui.pix 1.0 as Pix
 

@@ -1,4 +1,3 @@
-.import "../../db/Query.js" as Q
 .import org.kde.mauikit 1.0 as Maui
 
 function refreshViews()

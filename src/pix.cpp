@@ -69,3 +69,9 @@ void Pix::addSources(const QStringList &paths)
 	PIX::saveSourcePath(paths);
     emit sourcesChanged();
 }
+
+void Pix::removeSources(const QString &path)
+{
+    PIX::removeSourcePath(path);
+    emit sourcesChanged();
+}

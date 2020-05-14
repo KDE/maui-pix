@@ -1,12 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>assets/Babe.notifyrc</file>
         <file>assets/pix.png</file>
-        <file>assets/banner.png</file>
-        <file>assets/album.svg</file>
         <file>assets/image-x-generic.svg</file>
         <file>assets/pix.svg</file>
-        <file>assets/animat-image-color.gif</file>
         <file>assets/add-image.svg</file>
         <file>assets/view-preview.svg</file>
         <file>assets/image-multiple.svg</file>

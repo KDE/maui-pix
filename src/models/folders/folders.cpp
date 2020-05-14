@@ -18,6 +18,8 @@ void Folders::setFolders(const QList<QUrl> &folders)
     m_folders = folders;
 
     emit this->preListChanged();
+    this->list.clear();
+
     for(const auto &folder : m_folders)
     {
         this->list << FMH::getDirInfoModel(folder);

@@ -188,14 +188,11 @@ inline static const QString getQuery(const QString &key)
     return itemMap.value(key).toString();
 }
 
-inline static const QList<QUrl> getSourcePaths()
+inline static const QStringList getSourcePaths()
 {
-    static const QList<QUrl> defaultSources  = {FMH::PicturesPath, FMH::DownloadsPath, FMH::CloudCachePath};
-    const auto sources = UTIL::loadSettings("Sources", "Settings", QVariant::fromValue(defaultSources)).value<QList<QUrl>>();
-
-    if(sources.isEmpty())
-        UTIL::saveSettings("Sources", QVariant::fromValue(defaultSources), "Settings");
-
+    static const QStringList defaultSources  = {FMH::PicturesPath, FMH::DownloadsPath};
+    const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
+    qDebug()<< "SOURCES" << sources;
     return sources;
 }
 
@@ -203,13 +200,19 @@ inline static void saveSourcePath(QStringList const& paths)
 {
     auto sources = PIX::getSourcePaths();
 
-    for(const auto &path : paths)
-    {
-        if(!sources.contains(path))
-            sources << path;
-    }
+    sources << paths;
+    sources.removeDuplicates();
 
-    UTIL::saveSettings("Sources", QVariant::fromValue(sources), "Settings");
+    qDebug()<< "Saving new sources" << sources;
+    UTIL::saveSettings("Sources", sources, "Settings");
+}
+
+inline static void removeSourcePath(const QString &path)
+{
+    auto sources = PIX::getSourcePaths();
+    sources.removeOne(path);
+
+    UTIL::saveSettings("Sources", sources, "Settings");
 }
 
 }

@@ -2,9 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>view_models/PixGrid.qml</file>
-        <file>db/script.sql</file>
         <file>view_models/PixPic.qml</file>
-        <file>db/Query.js</file>
         <file>widgets/views/Folders/FoldersView.qml</file>
         <file>widgets/views/Gallery/GalleryView.qml</file>
         <file>widgets/views/Tags/TagsView.qml</file>

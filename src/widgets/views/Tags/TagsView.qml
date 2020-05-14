@@ -6,7 +6,6 @@ import org.kde.mauikit 1.0 as Maui
 import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
-import "../../../db/Query.js" as Q
 
 StackView
 {

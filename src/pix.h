@@ -31,24 +31,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QSettings>
 #include <QDirIterator>
 #include <QVariantList>
-#include "db/dbactions.h"
+#include "utils/pic.h"
 
 using namespace std;
 
 class Pix : public QObject
 {
 	Q_OBJECT
-    Q_PROPERTY(QList<QUrl> sources READ sources NOTIFY sourcesChanged FINAL)
+    Q_PROPERTY(QStringList sources READ sources NOTIFY sourcesChanged FINAL)
 public:
 	explicit Pix(QObject* parent = nullptr);
 
 public slots:
-    QList<QUrl> sources() const
+    QStringList sources() const
     {
         return PIX::getSourcePaths();
     }
 
 	void addSources(const QStringList &paths);
+    void removeSources(const QString &path);
+
     void openPics(const QList<QUrl> &pics);
 	void refreshCollection();
 	/*File actions*/

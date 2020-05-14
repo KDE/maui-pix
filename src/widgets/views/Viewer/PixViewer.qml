@@ -6,7 +6,6 @@ import QtQuick.Window 2.13
 import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../../../widgets/views/Pix.js" as PIX
-import "../../../db/Query.js" as Q
 import "../.."
 
 import org.kde.kirigami 2.7 as Kirigami
