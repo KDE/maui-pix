@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-set(PIX_VERSION 1.1.0)
+set(PIX_VERSION 1.1.1)
 project(pix VERSION ${PIX_VERSION})
 
 set(REQUIRED_QT_VERSION 5.10.0)
