@@ -53,9 +53,6 @@ Maui.ApplicationWindow
     id: root
     title: qsTr("Pix")
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
-    Maui.App.description: qsTr("Pix is a convergent gallery manager and image viewer. Supports GNU Linux, Android and Windows.")
-    Maui.App.iconName: "qrc:/assets/pix.svg"
-    Maui.App.handleAccounts: false
 
     property alias dialog : dialogLoader.item
     property alias pixViewer : _pixViewerLoader.item

@@ -182,7 +182,7 @@ MauiLab.AltBrowser
 
             if((event.key == Qt.Key_Left || event.key == Qt.Key_Right || event.key == Qt.Key_Down || event.key == Qt.Key_Up) && (event.modifiers & Qt.ControlModifier) && (event.modifiers & Qt.ShiftModifier))
             {
-                 control.currentView.itemsSelected([index])
+                control.currentView.itemsSelected([index])
             }
         }
     }
@@ -204,91 +204,91 @@ MauiLab.AltBrowser
 
         isCurrentItem: (ListView.isCurrentItem || checked)
         checked: selectionBox.contains(model.url)
-
+        checkable: selectionMode
         Drag.keys: ["text/uri-list"]
         Drag.mimeData: Drag.active ? {"text/uri-list": control.filterSelectedItems(model.url)} : {}
 
-    Connections
-    {
-        target: selectionBox
-        onUriRemoved:
+        Connections
         {
-            if(uri === model.url)
+            target: selectionBox
+            onUriRemoved:
             {
-                _listDelegate.checked = false
+                if(uri === model.url)
+                {
+                    _listDelegate.checked = false
+                }
+            }
+
+            onUriAdded:
+            {
+                if(uri === model.url)
+                {
+                    _listDelegate.checked = true
+                }
+            }
+
+            onCleared: _listDelegate.checked = false
+        }
+
+        Connections
+        {
+            target: _listDelegate
+            onClicked:
+            {
+                control.currentIndex = index
+                if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+                {
+                    control.currentView.itemsSelected([index])
+                }else if(Maui.Handy.singleClick)
+                {
+                    openPic(index)
+                }
+            }
+
+            onDoubleClicked:
+            {
+                control.currentIndex = index
+                if(!Maui.Handy.singleClick && !selectionMode)
+                {
+                    openPic(index)
+                }
+            }
+
+            onPressAndHold:
+            {
+                control.currentIndex = index
+                _picMenu.popup()
+            }
+
+            onRightClicked:
+            {
+                control.currentIndex = index
+                _picMenu.popup()
+            }
+            onToggled:
+            {
+                control.currentIndex = index
+                PIX.selectItem(pixModel.get(index))
             }
         }
 
-        onUriAdded:
-        {
-            if(uri === model.url)
-            {
-                _listDelegate.checked = true
-            }
-        }
-
-        onCleared: _listDelegate.checked = false
     }
 
-    Connections
+    gridDelegate: PixPic
     {
-        target: _listDelegate
-        onClicked:
-        {
-            control.currentIndex = index
-            if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
-            {
-                control.currentView.itemsSelected([index])
-            }else if(Maui.Handy.singleClick)
-            {
-                openPic(index)
-            }
-        }
+        id: _gridDelegate
+        property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
+        fit: fitPreviews
+        labelsVisible: showLabels
+        height: control.gridView.cellHeight - spacing
+        width: control.gridView.cellWidth - spacing
+        checkable: selectionMode
 
-        onDoubleClicked:
-        {
-            control.currentIndex = index
-            if(!Maui.Handy.singleClick && !selectionMode)
-            {
-                openPic(index)
-            }
-        }
+        isCurrentItem: (GridView.isCurrentItem || checked)
+        checked: selectionBox.contains(model.url)
 
-        onPressAndHold:
-        {
-            control.currentIndex = index
-            _picMenu.popup()
-        }
-
-        onRightClicked:
-        {
-            control.currentIndex = index
-            _picMenu.popup()
-        }
-        onToggled:
-        {
-            control.currentIndex = index
-            PIX.selectItem(pixModel.get(index))
-        }
-    }
-
-}
-
-gridDelegate: PixPic
-{
-    id: _gridDelegate
-    property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
-    fit: fitPreviews
-    labelsVisible: showLabels
-    height: control.gridView.cellHeight - spacing
-    width: control.gridView.cellWidth - spacing
-    checkable: selectionMode
-
-    isCurrentItem: (GridView.isCurrentItem || checked)
-    checked: selectionBox.contains(model.url)
-
-    Drag.keys: ["text/uri-list"]
-    Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
+        Drag.keys: ["text/uri-list"]
+        Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
 
     Connections
     {
