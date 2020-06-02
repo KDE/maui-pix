@@ -184,6 +184,11 @@ MauiLab.AltBrowser
             {
                 control.currentView.itemsSelected([index])
             }
+
+            if(event.key === Qt.Key_Space)
+            {
+                getFileInfo(item.url)
+            }
         }
     }
 
