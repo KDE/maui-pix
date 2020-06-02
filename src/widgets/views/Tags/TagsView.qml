@@ -18,9 +18,9 @@ StackView
     Maui.NewDialog
     {
         id: newTagDialog
-        title: qsTr("New tag")
-        message: qsTr("Create a new tag to organize your gallery")
-        acceptButton.text : qsTr("Add")
+        title: i18n("New tag")
+        message: i18n("Create a new tag to organize your gallery")
+        acceptButton.text : i18n("Add")
         onFinished:
         {
             tagsList.insert(text)
@@ -40,8 +40,8 @@ StackView
         PixGrid
         {
             title: control.currentTag
-            holder.title: qsTr("No Pics!")
-            holder.body: qsTr("There's no pics associated with the tag")
+            holder.title: i18n("No Pics!")
+            holder.body: i18n("There's no pics associated with the tag")
             holder.emojiSize: Maui.Style.iconSizes.huge
             holder.emoji: "qrc:/img/assets/add-image.svg"
             headBar.visible: true

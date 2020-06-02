@@ -91,14 +91,14 @@ Maui.Page
         Action
         {
             icon.name: "object-rotate-left"
-            text: qsTr("Rotate Left")
+            text: i18n("Rotate Left")
             onTriggered: viewer.currentItem.item.rotateLeft()
         }
 
         Action
         {
             icon.name: "object-rotate-right"
-            text: qsTr("Rotate Right")
+            text: i18n("Rotate Right")
             onTriggered: viewer.currentItem.item.rotateRight()
         }
     }
@@ -111,14 +111,14 @@ Maui.Page
 
         Action
         {
-            text: qsTr("Previous")
+            text: i18n("Previous")
             icon.name: "go-previous"
             onTriggered: VIEWER.previous()
         }
 
         Action
         {
-            text: qsTr("Favorite")
+            text: i18n("Favorite")
 
             icon.name: "love"
             checked: pixViewer.currentPicFav
@@ -148,8 +148,8 @@ Maui.Page
         emoji: viewer.count === 0 ? "qrc:/assets/add-image.svg" : "qrc:/assets/animat-image-color.gif"
         isMask: true
         isGif : viewer.currentItem.status !== Image.Ready
-        title : viewer.count === 0 ? qsTr("No Pics!") : qsTr("Loading...")
-        body: viewer.count === 0 ? qsTr("Open an image from your collection") : qsTr("Your pic is almost ready")
+        title : viewer.count === 0 ? i18n("No Pics!") : i18n("Loading...")
+        body: viewer.count === 0 ? i18n("Open an image from your collection") : i18n("Your pic is almost ready")
         emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
     }
 

@@ -51,7 +51,7 @@ import org.maui.pix 1.0 as Pix
 Maui.ApplicationWindow
 {
     id: root
-    title: qsTr("Pix")
+    title: i18n("Pix")
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 
     property alias dialog : dialogLoader.item
@@ -81,7 +81,7 @@ Maui.ApplicationWindow
 
         MenuItem
         {
-            text: qsTr("Open")
+            text: i18n("Open")
             icon.name: "folder-open"
             onTriggered:
             {
@@ -99,20 +99,9 @@ Maui.ApplicationWindow
 
         MenuSeparator{},
 
-        //        MenuItem
-        //        {
-        //            text: qsTr("Sources")
-        //            icon.name: "folder-add"
-        //            onTriggered:
-        //            {
-        //                dialogLoader.sourceComponent = sourcesDialogComponent
-        //                dialog.open()
-        //            }
-        //        },
-
         MenuItem
         {
-            text: qsTr("Settings")
+            text: i18n("Settings")
             icon.name: "settings-configure"
             onTriggered:
             {
@@ -152,7 +141,7 @@ Maui.ApplicationWindow
         MauiLab.AppViewLoader
         {
             id: _pixViewerLoader
-            MauiLab.AppView.title: qsTr("Viewer")
+            MauiLab.AppView.title: i18n("Viewer")
             MauiLab.AppView.iconName: "document-preview-archive"
             //                Kirigami.Theme.inherit: false
             //                Kirigami.Theme.backgroundColor: "#333"
@@ -181,8 +170,8 @@ Maui.ApplicationWindow
                             visible: true
                             emoji: "qrc:/img/assets/add-image.svg"
                             emojiSize: Maui.Style.iconSizes.huge
-                            title: qsTr("Open images")
-                            body: qsTr("Drag and drop images here")
+                            title: i18n("Open images")
+                            body: i18n("Drag and drop images here")
 
                         }
                     }
@@ -193,21 +182,21 @@ Maui.ApplicationWindow
         GalleryView
         {
             id: _galleryView
-            MauiLab.AppView.title: qsTr("Gallery")
+            MauiLab.AppView.title: i18n("Gallery")
             MauiLab.AppView.iconName: "image-multiple"
         }
 
 
         MauiLab.AppViewLoader
         {
-            MauiLab.AppView.title: qsTr("Tags")
+            MauiLab.AppView.title: i18n("Tags")
             MauiLab.AppView.iconName: "tag"
             TagsView {}
         }
 
         MauiLab.AppViewLoader
         {
-            MauiLab.AppView.title: qsTr("Folders")
+            MauiLab.AppView.title: i18n("Folders")
             MauiLab.AppView.iconName: "image-folder-view"
             FoldersView {}
         }
@@ -221,31 +210,6 @@ Maui.ApplicationWindow
         padding: Maui.Style.space.big
         maxListHeight: swipeView.height - Maui.Style.space.medium
     }
-
-
-    /*** Components ***/
-
-    //    Component
-    //    {
-    //        id: _cloudViewComponent
-    //        CloudView
-    //        {
-    //            anchors.fill : parent
-    //        }
-    //    }
-
-    //    Component
-    //    {
-    //        id: _storeViewComponent
-
-    //        Maui.Store
-    //        {
-    //            anchors.fill : parent
-    //            detailsView: true
-    //            list.category: StoreList.WALLPAPERS
-    //            list.provider: StoreList.KDELOOK
-    //        }
-    //    }
 
     DropArea
     {
@@ -286,6 +250,12 @@ Maui.ApplicationWindow
 
     Component
     {
+        id: _infoDialogComponent
+        InfoDialog {}
+    }
+
+    Component
+    {
         id: tagsDialogComponent
         Maui.TagsDialog
         {
@@ -307,75 +277,19 @@ Maui.ApplicationWindow
 
     Component
     {
-        id: sourcesDialogComponent
-        Maui.Dialog
-        {
-            maxHeight: 500
-            maxWidth: 500
-
-            page.title: qsTr("Sources")
-
-            headBar.rightContent: [
-                ToolButton
-                {
-                    icon.name: "list-add"
-                    onClicked:
-                    {
-
-                    }
-                },
-
-                ToolButton
-                {
-                    icon.name: "list-remove"
-                }
-            ]
-
-            ListView
-            {
-                id: _listView
-                clip: true
-                anchors.fill: parent
-                delegate: Maui.ListDelegate
-                {
-                    id: _delegate
-                    label: model.url
-
-                    Connections
-                    {
-                        target: _delegate
-                        onClicked: _listView.currentIndex = index
-                    }
-                }
-
-                model: ListModel{}
-            }
-
-            Component.onCompleted:
-            {
-                const items = Pix.DB.get("select * from sources")
-                for(var i in items)
-                    _listView.model.append(items[i]);
-            }
-        }
-    }
-
-    Component
-    {
         id: _settingsDialogComponent
-
         MauiLab.SettingsDialog
         {
             MauiLab.SettingsSection
             {
-                title: qsTr("Behavior")
-                description: qsTr("Configure the app behaviour.")
+                title: i18n("Behavior")
+                description: i18n("Configure the app behaviour.")
 
                 Switch
                 {
                     checkable: true
                     checked: root.autoScan
-                    Kirigami.FormData.label: qsTr("Auto Scan on startup")
+                    Kirigami.FormData.label: i18n("Auto Scan on startup")
                     onToggled:
                     {
                         root.autoScan = !root.autoScan
@@ -387,7 +301,7 @@ Maui.ApplicationWindow
                 {
                     checkable: true
                     checked: root.autoScan
-                    Kirigami.FormData.label: qsTr("Auto reaload on changes")
+                    Kirigami.FormData.label: i18n("Auto reaload on changes")
                     onToggled:
                     {
                         root.autoReload = !root.autoReload
@@ -398,8 +312,8 @@ Maui.ApplicationWindow
             }
             MauiLab.SettingsSection
             {
-                title: qsTr("Collection")
-                description: qsTr("Configure the app plugins and look & feel.")
+                title: i18n("Collection")
+                description: i18n("Configure the app plugins and look & feel.")
 
                 Switch
                 {
@@ -407,7 +321,7 @@ Maui.ApplicationWindow
                     icon.name: "image-preview"
                     checkable: true
                     checked: root.fitPreviews
-                    Kirigami.FormData.label: qsTr("Fit previews")
+                    Kirigami.FormData.label: i18n("Fit previews")
                     onToggled:
                     {
                         root.fitPreviews = !root.fitPreviews
@@ -417,7 +331,7 @@ Maui.ApplicationWindow
 
                 Switch
                 {
-                    Kirigami.FormData.label: qsTr("Show labels")
+                    Kirigami.FormData.label: i18n("Show labels")
                     checkable: true
                     checked: root.showLabels
                     onToggled:
@@ -430,7 +344,7 @@ Maui.ApplicationWindow
                 Maui.ToolActions
                 {
                     id: _gridIconSizesGroup
-                    Kirigami.FormData.label: qsTr("Preview Size")
+                    Kirigami.FormData.label: i18n("Preview Size")
                     Layout.fillWidth: true
                     expanded: true
                     autoExclusive: true
@@ -438,25 +352,25 @@ Maui.ApplicationWindow
 
                     Action
                     {
-                        text: qsTr("S")
+                        text: i18n("S")
                         onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.2)
                     }
 
                     Action
                     {
-                        text: qsTr("M")
+                        text: i18n("M")
                         onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.5)
                     }
 
                     Action
                     {
-                        text: qsTr("X")
+                        text: i18n("X")
                         onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.8 )
                     }
 
                     Action
                     {
-                        text: qsTr("XL")
+                        text: i18n("XL")
                         onTriggered: setPreviewSize(Maui.Style.iconSizes.enormous * 1.2)
                     }
                 }
@@ -464,11 +378,11 @@ Maui.ApplicationWindow
 
             MauiLab.SettingsSection
             {
-                title: qsTr("Viewer")
+                title: i18n("Viewer")
 
                 Switch
                 {
-                    Kirigami.FormData.label: qsTr("Show tag bar")
+                    Kirigami.FormData.label: i18n("Show tag bar")
                     checkable: true
                     checked: pixViewer.tagBarVisible
                     onToggled: pixViewer.toogleTagbar()
@@ -476,7 +390,7 @@ Maui.ApplicationWindow
 
                 Switch
                 {
-                    Kirigami.FormData.label: qsTr("Show preview bar")
+                    Kirigami.FormData.label: i18n("Show preview bar")
                     checkable: true
                     checked: pixViewer.roll.visible
                     onToggled: pixViewer.tooglePreviewBar()
@@ -485,8 +399,8 @@ Maui.ApplicationWindow
 
             MauiLab.SettingsSection
             {
-                title: qsTr("Sources")
-                description: qsTr("Add new sources to manage and browse your image collection")
+                title: i18n("Sources")
+                description: i18n("Add new sources to manage and browse your image collection")
 
                 ColumnLayout
                 {
@@ -515,7 +429,7 @@ Maui.ApplicationWindow
                         Button
                         {
                             Layout.fillWidth: true
-                            text: qsTr("Remove")
+                            text: i18n("Remove")
                             onClicked:
                             {
                                 Pix.Collection.removeSources(_sourcesList.model[_sourcesList.currentIndex])
@@ -525,7 +439,7 @@ Maui.ApplicationWindow
                         Button
                         {
                             Layout.fillWidth: true
-                            text: qsTr("Add")
+                            text: i18n("Add")
                             onClicked:
                             {
                                 dialogLoader.sourceComponent= fmDialogComponent
@@ -549,10 +463,10 @@ Maui.ApplicationWindow
     {
         id: removeDialog
 
-        title: qsTr("Delete files?")
-        acceptButton.text: qsTr("Accept")
-        rejectButton.text: qsTr("Cancel")
-        message: qsTr("Are sure you want to delete %1 files").arg(selectionBox.count)
+        title: i18n("Delete files?")
+        acceptButton.text: i18n("Accept")
+        rejectButton.text: i18n("Cancel")
+        message: i18n("Are sure you want to delete %1 files").arg(selectionBox.count)
         page.padding: Maui.Style.space.huge
         onRejected: close()
         onAccepted:
@@ -590,5 +504,12 @@ Maui.ApplicationWindow
     {
         root.previewSize = size
         Maui.FM.saveSettings("PREVIEWSIZE",  root.previewSize, "UI")
+    }
+
+    function getFileInfo(url)
+    {
+        dialogLoader.sourceComponent= _infoDialogComponent
+        dialog.url = url
+        dialog.open()
     }
 }

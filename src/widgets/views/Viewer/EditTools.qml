@@ -59,7 +59,7 @@ Maui.Drawer
                     Layout.row: 1
                     Layout.column: 1
                     width: parent.width
-                    text: qsTr("Color")
+                    text: i18n("Color")
                     font.pointSize: Maui.Style.fontSizes.big
                     font.weight: Font.Bold
                     font.bold: true
@@ -71,7 +71,7 @@ Maui.Drawer
                     Layout.row: 2
                     Layout.column: 1
 
-                    text: qsTr("Contrast")
+                    text: i18n("Contrast")
                 }
 
                 Slider
@@ -94,7 +94,7 @@ Maui.Drawer
                     Layout.column: 1
                     width: parent.width
 
-                    text: qsTr("Brightness")
+                    text: i18n("Brightness")
                 }
 
                 Slider
@@ -118,7 +118,7 @@ Maui.Drawer
                     Layout.column: 1
                     width: parent.width
 
-                    text: qsTr("Saturation")
+                    text: i18n("Saturation")
                 }
 
                 Slider
@@ -142,7 +142,7 @@ Maui.Drawer
                     Layout.column: 1
                     width: parent.width
 
-                    text: qsTr("Hue")
+                    text: i18n("Hue")
                 }
 
                 Slider
@@ -165,7 +165,7 @@ Maui.Drawer
                     Layout.column: 1
                     width: parent.width
 
-                    text: qsTr("Lightness")
+                    text: i18n("Lightness")
                 }
 
                 Slider

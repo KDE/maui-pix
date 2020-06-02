@@ -56,7 +56,7 @@ Maui.Page
         {
             id: _previousPageButton
             iconName: "go-previous"
-            tooltipText: qsTr("Previous")
+            tooltipText: i18n("Previous")
             enabled: !holder.visible
             onClicked:
             {
@@ -80,7 +80,7 @@ Maui.Page
         {
             id: _nextPageButton
             iconName: "go-next"
-            tooltipText: qsTr("Next")
+            tooltipText: i18n("Next")
             enabled: !holder.visible
 
             onClicked:
@@ -93,7 +93,7 @@ Maui.Page
     headBar.middleContent: Maui.TextField
     {
         width: headBar.middleLayout.width * 0.8
-        placeholderText: qsTr("Search...")
+        placeholderText: i18n("Search...")
         onAccepted: _storeList.query = text
     }
 
@@ -131,14 +131,14 @@ Maui.Page
         isGif: !_storeList.contentReady
         isMask: false
         title : if(!_storeList.contentReady)
-                    qsTr("Loading content!")
+                    i18n("Loading content!")
                 else
-                    qsTr("Nothing here")
+                    i18n("Nothing here")
 
         body: if(!_storeList.contentReady)
-                  qsTr("Almost ready!")
+                  i18n("Almost ready!")
               else
-                  qsTr("Make sure you're online and your cloud account is working")
+                  i18n("Make sure you're online and your cloud account is working")
     }
 
     Component

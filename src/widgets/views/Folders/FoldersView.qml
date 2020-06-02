@@ -26,8 +26,8 @@ StackView
         {
             id: holder
             emoji: "qrc:/assets/view-preview.svg"
-            title : qsTr("No Folders!")
-            body: qsTr("Add new image sources")
+            title : i18n("No Folders!")
+            body: i18n("Add new image sources")
             emojiSize: Maui.Style.iconSizes.huge
             visible: false
         }
@@ -90,8 +90,8 @@ StackView
             list.recursive: false
 
             holder.emoji: "qrc:/assets/add-image.svg"
-            holder.title : qsTr("Folder is empty!")
-            holder.body: qsTr("There's not images in this folder")
+            holder.title : i18n("Folder is empty!")
+            holder.body: i18n("There's not images in this folder")
             holder.emojiSize: Maui.Style.iconSizes.huge
         }
     }

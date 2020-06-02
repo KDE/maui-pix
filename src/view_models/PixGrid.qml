@@ -54,7 +54,7 @@ MauiLab.AltBrowser
     {
         enabled: list.count > 0
         Layout.fillWidth: true
-        placeholderText: qsTr("Search") + " " + count + " images"
+        placeholderText: i18n("Search") + " " + count + " images"
         onAccepted: model.filter = text
         onCleared: model.filter = ""
     }
@@ -68,14 +68,14 @@ MauiLab.AltBrowser
         display: ToolButton.TextBesideIcon
         Action
         {
-            text: qsTr("List")
+            text: i18n("List")
             icon.name: "view-list-details"
             onTriggered: control.viewType = MauiLab.AltBrowser.ViewType.List
         }
 
         Action
         {
-            text: qsTr("Grid")
+            text: i18n("Grid")
             icon.name: "view-list-icons"
             onTriggered: control.viewType= MauiLab.AltBrowser.ViewType.Grid
         }
@@ -89,7 +89,7 @@ MauiLab.AltBrowser
             icon.name: "view-sort"
             MenuItem
             {
-                text: qsTr("Title")
+                text: i18n("Title")
                 checkable: true
                 checked: pixModel.sort === "title"
                 onTriggered: pixModel.sort = "title"
@@ -97,7 +97,7 @@ MauiLab.AltBrowser
 
             MenuItem
             {
-                text: qsTr("Modified")
+                text: i18n("Modified")
                 checkable: true
                 checked: pixModel.sort === "modified"
                 onTriggered: pixModel.sort = "modified"
@@ -105,7 +105,7 @@ MauiLab.AltBrowser
 
             MenuItem
             {
-                text: qsTr("Creation date")
+                text: i18n("Creation date")
                 checkable: true
                 checked: pixModel.sort === "date"
                 onTriggered: pixModel.sort = "date"
@@ -113,7 +113,7 @@ MauiLab.AltBrowser
 
             MenuItem
             {
-                text: qsTr("Format")
+                text: i18n("Format")
                 checkable: true
                 checked: pixModel.sort === "format"
                 onTriggered: pixModel.sort = "format"
@@ -121,7 +121,7 @@ MauiLab.AltBrowser
 
             MenuItem
             {
-                text: qsTr("Size")
+                text: i18n("Size")
                 checkable: true
                 checked: pixModel.sort === "size"
                 onTriggered: pixModel.sort = "size"
@@ -131,7 +131,7 @@ MauiLab.AltBrowser
 
             MenuItem
             {
-                text: qsTr("Ascending")
+                text: i18n("Ascending")
                 onTriggered: pixModel.sortOrder = Qt.AscendingOrder
                 checked: pixModel.sortOrder === Qt.AscendingOrder
                 checkable: true
@@ -139,7 +139,7 @@ MauiLab.AltBrowser
 
             MenuItem
             {
-                text: qsTr("Descending")
+                text: i18n("Descending")
                 onTriggered: pixModel.sortOrder = Qt.DescendingOrder
                 checked: pixModel.sortOrder === Qt.DescendingOrder
                 checkable: true

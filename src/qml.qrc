@@ -19,5 +19,6 @@
         <file>widgets/views/Cloud/CloudView.qml</file>
         <file>widgets/views/Store/StoreView.qml</file>
         <file>view_models/PixPicList.qml</file>
+        <file>widgets/InfoDialog.qml</file>
     </qresource>
 </RCC>

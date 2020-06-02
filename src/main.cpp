@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QQmlApplicationEngine>
 #include <QCommandLineParser>
+#include <QQmlContext>
 #include <QIcon>
 #include <QFileInfo>
 #include "pix.h"
@@ -48,10 +49,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "models/gallery/gallery.h"
 //#include "models/cloud/cloud.h"
 #include "models/folders/folders.h"
+#include "models/picinfomodel.h"
 
 #ifdef Q_OS_MACOS
 #include "mauimacos.h"
 #endif
+
+#include <KI18n/KLocalizedContext>
 
 static const  QList<QUrl>  getFolderImages(const QString &path)
 {
@@ -144,7 +148,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	});
 
 	qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
-	qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
+    qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
+    qmlRegisterType<PicInfoModel>("Pix", 1, 0, "PicInfoModel");
+
+    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
 #ifdef STATIC_KIRIGAMI
 	KirigamiPlugin::getInstance().registerTypes();

@@ -18,7 +18,7 @@ Menu
 
     MenuItem
     {
-        text: qsTr("Select")
+        text: i18n("Select")
         icon.name: "item-select"
         onTriggered:
         {
@@ -33,14 +33,14 @@ Menu
 
     MenuItem
     {
-        text: qsTr(isFav ? "UnFav it": "Fav it")
+        text: i18n(isFav ? "UnFav it": "Fav it")
         icon.name: "love"
         onTriggered: Maui.FM.toggleFav(control.model.get(index).url)
     }
 
     MenuItem
     {
-        text: qsTr("Tags")
+        text: i18n("Tags")
         icon.name: "tag"
         onTriggered:
         {
@@ -52,7 +52,7 @@ Menu
 
     MenuItem
     {
-        text: qsTr("Share")
+        text: i18n("Share")
         icon.name: "document-share"
         onTriggered:
         {
@@ -64,7 +64,7 @@ Menu
 
     MenuItem
     {
-        text: qsTr("Export")
+        text: i18n("Export")
         icon.name: "document-save-as"
         onTriggered:
         {
@@ -84,7 +84,7 @@ Menu
     MenuItem
     {
         visible: !isAndroid
-        text: qsTr("Show in folder")
+        text: i18n("Show in folder")
         icon.name: "folder-open"
         onTriggered:
         {
@@ -93,9 +93,21 @@ Menu
         }
     }
 
+    MenuItem
+    {
+        visible: !isAndroid
+        text: i18n("Info")
+        icon.name: "documentinfo"
+        onTriggered:
+        {
+            getFileInfo(control.model.get(index).url)
+            close()
+        }
+    }
+
     //    Maui.MenuItem
     //    {
-    //        text: qsTr("Copy")
+    //        text: i18n("Copy")
     //        onTriggered:
     //        {
     //            Maui.Handy.copyToClipboard(paths.join(","))
@@ -108,7 +120,7 @@ Menu
 
     MenuItem
     {
-        text: qsTr("Remove")
+        text: i18n("Remove")
         icon.name: "edit-delete"
         Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
         onTriggered:
@@ -121,10 +133,10 @@ Menu
         {
             id: removeDialog
 
-            title: qsTr("Delete file?")
-            acceptButton.text: qsTr("Accept")
-            rejectButton.text: qsTr("Cancel")
-            message: qsTr("Are sure you want to delete %1".arg(control.model.get(index).url))
+            title: i18n("Delete file?")
+            acceptButton.text: i18n("Accept")
+            rejectButton.text: i18n("Cancel")
+            message: i18n("Are sure you want to delete %1".arg(control.model.get(index).url))
             page.padding: Maui.Style.space.huge
             onRejected: close()
             onAccepted:

@@ -10,9 +10,10 @@ find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Qml Quick Sql Svg QuickControls2 Widgets)
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Qml Quick Sql Svg QuickControls2 Positioning)
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n Notifications Config KIO Attica)
 find_package(MauiKit REQUIRED)
+find_package(LibExiv2 0.21 REQUIRED)
 
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
@@ -30,6 +31,8 @@ ecm_setup_version(${PIX_VERSION}
 if (ANDROID)
     find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS AndroidExtras)
 endif()
+
+kde_enable_exceptions()
 
 add_subdirectory(src)
 

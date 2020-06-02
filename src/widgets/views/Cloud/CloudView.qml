@@ -24,14 +24,14 @@ PixGrid
     holder.isGif: !_cloudList.contentReady
     holder.isMask: false
     holder.title : if(!_cloudList.contentReady)
-                       qsTr("Loading content!")
+                       i18n("Loading content!")
                    else
-                       qsTr("Nothing here")
+                       i18n("Nothing here")
 
     holder.body: if(!_cloudList.contentReady)
-                     qsTr("Almost ready!")
+                     i18n("Almost ready!")
                  else
-                     qsTr("Make sure you're online and your cloud account is working")
+                     i18n("Make sure you're online and your cloud account is working")
 
     grid.delegate: PixPic
     {

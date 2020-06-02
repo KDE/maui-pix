@@ -12,7 +12,7 @@ PixGrid
     list.urls: Pix.Collection.sources
     list.recursive: true
     holder.emoji: "qrc:/assets/image-multiple.svg"
-    holder.title : qsTr("No Pics!")
-    holder.body: qsTr("Add new sources to browse your image collection ")
+    holder.title : i18n("No Pics!")
+    holder.body: i18n("Add new sources to browse your image collection ")
     holder.emojiSize: Maui.Style.iconSizes.huge
 }

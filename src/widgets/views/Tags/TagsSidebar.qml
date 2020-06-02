@@ -8,7 +8,7 @@ Maui.Page
 {
     id: control
     padding:0
-    title: qsTr("Tags")
+    title: i18n("Tags")
     flickable: _tagsList.flickable
 
     Maui.FloatingButton
@@ -26,10 +26,10 @@ Maui.Page
     Maui.Holder
     {
         visible: _tagsList.count === 0
-        emoji: qsTr("qrc:/assets/add-image.svg")
+        emoji: i18n("qrc:/assets/add-image.svg")
         isMask: false
-        title :qsTr("No Tags!")
-        body: qsTr("You can create new tags to organize your gallery")
+        title :i18n("No Tags!")
+        body: i18n("You can create new tags to organize your gallery")
         emojiSize: Maui.Style.iconSizes.huge
         z: 999
         onActionTriggered: newTagDialog.open()

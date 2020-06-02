@@ -43,21 +43,21 @@ MauiLab.SelectionBar
 
     Action
     {
-        text: qsTr("View")
+        text: i18n("View")
         icon.name: "quickview"
         onTriggered: VIEWER.openExternalPics(control.uris, 0)
     }
 
     Action
     {
-        text: qsTr("Un/Fav")
+        text: i18n("Un/Fav")
         icon.name: "love"
         onTriggered: VIEWER.fav(control.uris)
     }
 
     Action
     {
-        text: qsTr("Tag")
+        text: i18n("Tag")
         icon.name: "tag"
         onTriggered:
         {
@@ -69,7 +69,7 @@ MauiLab.SelectionBar
 
     Action
     {
-        text: qsTr("Share")
+        text: i18n("Share")
         icon.name: "document-share"
         onTriggered:
         {
@@ -81,7 +81,7 @@ MauiLab.SelectionBar
 
     Action
     {
-        text: qsTr("Export")
+        text: i18n("Export")
         icon.name: "document-save"
         onTriggered:
         {
@@ -97,7 +97,7 @@ MauiLab.SelectionBar
 
     Action
     {
-        text: qsTr("Remove")
+        text: i18n("Remove")
         icon.name: "edit-delete"
         Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
         onTriggered:
