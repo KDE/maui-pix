@@ -14,7 +14,8 @@ import org.kde.mauikit 1.1 as MauiLab
 import org.maui.pix 1.0 as Pix
 import GalleryList 1.0
 
-Maui.Page
+
+StackView
 {
     id: control
 
@@ -22,6 +23,7 @@ Maui.Page
     property alias holder : holder
     property alias tagBar : tagBar
     property alias roll : galleryRoll
+    readonly property bool editing : true
 
     property bool currentPicFav: false
     property var currentPic : ({})
@@ -31,225 +33,239 @@ Maui.Page
     property bool previewBarVisible: Maui.FM.loadSettings("PREVIEWBAR", "PIX", true) === "true" ? true : false
     property bool doodle : false
 
-    padding: 0
-    Kirigami.Theme.colorSet: Kirigami.Theme.View
-
-    PixMenu
+    Component
     {
-        id: _picMenu
-        index: viewer.currentIndex
-        model: control.model
+        id: _editorComponent
+        Editor {}
     }
 
-    MauiLab.Doodle
+    initialItem: Maui.Page
     {
-        id: _doodleDialog
-    }
+        id: _viewer
+        padding: 0
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-    footBar.visible: !holder.visible
-    autoHideFooter: true
-    autoHideFooterMargins: control.height
-    autoHideFooterDelay: 3000
-    floatingFooter: !previewBarVisible && !tagBarVisible
-    footBar.rightContent: [
-        ToolButton
+        PixMenu
         {
-          icon.name: "tool_pen"
-          onClicked:
-          {
-              _doodleDialog.sourceItem = control.viewer.currentItem
-               _doodleDialog.open()
-          }
-        },
+            id: _picMenu
+            index: viewer.currentIndex
+            model: control.model
+        }
 
-        ToolButton
+        MauiLab.Doodle
         {
-            icon.name: "document-share"
-            onClicked:
+            id: _doodleDialog
+        }
+
+        footBar.visible: !holder.visible
+        autoHideFooter: true
+        autoHideFooterMargins: control.height
+        autoHideFooterDelay: 3000
+        floatingFooter: !previewBarVisible && !tagBarVisible
+
+        footBar.rightContent: [
+            ToolButton
             {
-                dialogLoader.sourceComponent = shareDialogComponent
-                dialog.urls = [control.currentPic.url]
-                dialog.open()
+                icon.name: "draw-freehand"
+                onClicked:
+                {
+//                    _doodleDialog.sourceItem = control.viewer.currentItem
+//                    _doodleDialog.open()
+                    control.push(_editorComponent,({} ), StackView.Immediate)
+                }
+            },
+
+            ToolButton
+            {
+                icon.name: "document-share"
+                onClicked:
+                {
+                    dialogLoader.sourceComponent = shareDialogComponent
+                    dialog.urls = [control.currentPic.url]
+                    dialog.open()
+                }
+            },
+
+            ToolButton
+            {
+                visible: !Kirigami.Settings.isMobile
+                icon.name: "view-fullscreen"
+                onClicked: control.toogleFullscreen()
+                checked: fullScreen
             }
-        },
+        ]
 
-        ToolButton
-        {
-            visible: !Kirigami.Settings.isMobile
-            icon.name: "view-fullscreen"
-            onClicked: control.toogleFullscreen()
-            checked: fullScreen
-        }
-    ]
-
-    footBar.leftContent: Maui.ToolActions
-    {
-        expanded: true
-        autoExclusive: false
-        checkable: false
-
-        Action
-        {
-            icon.name: "object-rotate-left"
-            text: i18n("Rotate Left")
-            onTriggered: viewer.currentItem.item.rotateLeft()
-        }
-
-        Action
-        {
-            icon.name: "object-rotate-right"
-            text: i18n("Rotate Right")
-            onTriggered: viewer.currentItem.item.rotateRight()
-        }
-    }
-
-    footBar.middleContent: Maui.ToolActions
+        footBar.leftContent: Maui.ToolActions
         {
             expanded: true
             autoExclusive: false
             checkable: false
 
-        Action
-        {
-            text: i18n("Previous")
-            icon.name: "go-previous"
-            onTriggered: VIEWER.previous()
-        }
-
-        Action
-        {
-            text: i18n("Favorite")
-
-            icon.name: "love"
-            checked: pixViewer.currentPicFav
-            onTriggered:
+            Action
             {
-                if(pixViewer.currentPicFav)
-                    tagBar.list.removeFromUrls("fav")
-                else
-                    tagBar.list.insertToUrls("fav")
+                icon.name: "object-rotate-left"
+                text: i18n("Rotate Left")
+                onTriggered: viewer.currentItem.item.rotateLeft()
+            }
 
-                pixViewer.currentPicFav = !pixViewer.currentPicFav
+            Action
+            {
+                icon.name: "object-rotate-right"
+                text: i18n("Rotate Right")
+                onTriggered: viewer.currentItem.item.rotateRight()
             }
         }
 
-        Action
+        footBar.middleContent: Maui.ToolActions
         {
-            icon.name: "go-next"
-            onTriggered: VIEWER.next()
-        }
-    }
+            expanded: true
+            autoExclusive: false
+            checkable: false
 
-    Maui.Holder
-    {
-        id: holder
-        visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
-
-        emoji: viewer.count === 0 ? "qrc:/assets/add-image.svg" : "qrc:/assets/animat-image-color.gif"
-        isMask: true
-        isGif : viewer.currentItem.status !== Image.Ready
-        title : viewer.count === 0 ? i18n("No Pics!") : i18n("Loading...")
-        body: viewer.count === 0 ? i18n("Open an image from your collection") : i18n("Your pic is almost ready")
-        emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
-    }
-
-    ColumnLayout
-    {
-        height: parent.height
-        width: parent.width
-        spacing: 0
-
-        Viewer
-        {
-            id: viewer
-            visible: !holder.visible
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-
-            MouseArea
+            Action
             {
-                width: parent.width
-                height: parent.height * 0.3
-                anchors.bottom: parent.bottom
-                propagateComposedEvents: true
+                text: i18n("Previous")
+                icon.name: "go-previous"
+                onTriggered: VIEWER.previous()
+            }
 
-                onPressed:
-                {
-                    galleryRollBg.toogle()
-                    root.headBar.visible = !root.headBar.visible
-                   control.footBar.visible = !control.footBar.visible
-                    viewer.forceActiveFocus()
-                    mouse.accepted = false
-                }
+            Action
+            {
+                text: i18n("Favorite")
 
-                onReleased:
+                icon.name: "love"
+                checked: pixViewer.currentPicFav
+                onTriggered:
                 {
-                    mouse.accepted = false
+                    if(pixViewer.currentPicFav)
+                        tagBar.list.removeFromUrls("fav")
+                    else
+                        tagBar.list.insertToUrls("fav")
+
+                    pixViewer.currentPicFav = !pixViewer.currentPicFav
                 }
             }
 
-            Rectangle
+            Action
             {
-                id: galleryRollBg
-                width: parent.width
-                anchors.bottom: parent.bottom
-                height: Math.min(100, Math.max(parent.height * 0.12, 60))
-                visible: control.previewBarVisible && galleryRoll.rollList.count > 0 && opacity> 0
-                color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.7)
-                 Behavior on opacity
-                 {
-                     NumberAnimation
-                     {
-                         duration: Kirigami.Units.longDuration
-                         easing.type: Easing.InOutQuad
-                     }
-                 }
+                icon.name: "go-next"
+                onTriggered: VIEWER.next()
+            }
+        }
 
-                 GalleryRoll
-                 {
-                     id: galleryRoll
-                     height: parent.height -Maui.Style.space.small
-                     width: parent.width
-                     anchors.centerIn: parent
-                     onPicClicked: VIEWER.view(index)
-                 }
+        Maui.Holder
+        {
+            id: holder
+            visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
 
-                function toogle()
+            emoji: viewer.count === 0 ? "qrc:/assets/add-image.svg" : "qrc:/assets/animat-image-color.gif"
+            isMask: true
+            isGif : viewer.currentItem.status !== Image.Ready
+            title : viewer.count === 0 ? i18n("No Pics!") : i18n("Loading...")
+            body: viewer.count === 0 ? i18n("Open an image from your collection") : i18n("Your pic is almost ready")
+            emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
+        }
+
+        ColumnLayout
+        {
+            height: parent.height
+            width: parent.width
+            spacing: 0
+
+            Viewer
+            {
+                id: viewer
+                visible: !holder.visible
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
+                MouseArea
                 {
-                    galleryRollBg.opacity = !galleryRollBg.opacity
+                    width: parent.width
+                    height: parent.height * 0.3
+                    anchors.bottom: parent.bottom
+                    propagateComposedEvents: true
+
+                    onPressed:
+                    {
+                        galleryRollBg.toogle()
+                        root.headBar.visible = !root.headBar.visible
+                        control.footBar.visible = !control.footBar.visible
+                        viewer.forceActiveFocus()
+                        mouse.accepted = false
+                    }
+
+                    onReleased:
+                    {
+                        mouse.accepted = false
+                    }
+                }
+
+                Rectangle
+                {
+                    id: galleryRollBg
+                    width: parent.width
+                    anchors.bottom: parent.bottom
+                    height: Math.min(100, Math.max(parent.height * 0.12, 60))
+                    visible: control.previewBarVisible && galleryRoll.rollList.count > 0 && opacity> 0
+                    color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.7)
+                    Behavior on opacity
+                    {
+                        NumberAnimation
+                        {
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+
+                    GalleryRoll
+                    {
+                        id: galleryRoll
+                        height: parent.height -Maui.Style.space.small
+                        width: parent.width
+                        anchors.centerIn: parent
+                        onPicClicked: VIEWER.view(index)
+                    }
+
+                    function toogle()
+                    {
+                        galleryRollBg.opacity = !galleryRollBg.opacity
+                    }
+                }
+            }
+
+            Maui.TagsBar
+            {
+                id: tagBar
+                visible: !holder.visible && tagBarVisible && !fullScreen
+                Layout.fillWidth: true
+                position: ToolBar.Footer
+                allowEditMode: true
+                list.urls: [currentPic.url]
+                list.strict: false
+                onTagClicked: PIX.searchFor(tag)
+                onAddClicked:
+                {
+                    dialogLoader.sourceComponent = tagsDialogComponent
+                    dialog.composerList.urls = [currentPic.url]
+                    dialog.open()
+                }
+
+                onTagRemovedClicked: list.removeFromUrls(index)
+                onTagsEdited: list.updateToUrls(tags)
+
+                Connections
+                {
+                    target: dialog
+                    ignoreUnknownSignals: true
+                    enabled: dialogLoader.sourceComponent === tagsDialogComponent
+                    onTagsReady: tagBar.list.refresh()
                 }
             }
         }
 
-        Maui.TagsBar
-        {
-            id: tagBar
-            visible: !holder.visible && tagBarVisible && !fullScreen
-            Layout.fillWidth: true
-            position: ToolBar.Footer
-            allowEditMode: true
-            list.urls: [currentPic.url]
-            list.strict: false
-            onTagClicked: PIX.searchFor(tag)
-            onAddClicked:
-            {
-                dialogLoader.sourceComponent = tagsDialogComponent
-                dialog.composerList.urls = [currentPic.url]
-                dialog.open()
-            }
-
-            onTagRemovedClicked: list.removeFromUrls(index)
-            onTagsEdited: list.updateToUrls(tags)
-
-            Connections
-            {
-                target: dialog
-                ignoreUnknownSignals: true
-                enabled: dialogLoader.sourceComponent === tagsDialogComponent
-                onTagsReady: tagBar.list.refresh()
-            }
-        }
     }
+
 
     function toogleTagbar()
     {
@@ -274,4 +290,7 @@ Maui.Page
         }
 
     }
+
 }
+
+

@@ -34,7 +34,7 @@ MauiLab.SelectionBar
             label1.text: model.title
             label2.text: model.url
             imageSource: model.url
-            iconSizeHint: height
+            iconSizeHint: height * 0.9
             checkable: true
             checked: true
             onToggled: control.removeAtIndex(index)

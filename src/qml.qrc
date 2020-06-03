@@ -20,5 +20,7 @@
         <file>widgets/views/Store/StoreView.qml</file>
         <file>view_models/PixPicList.qml</file>
         <file>widgets/InfoDialog.qml</file>
+        <file>widgets/SettingsDialog.qml</file>
+        <file>widgets/views/Viewer/Editor.qml</file>
     </qresource>
 </RCC>

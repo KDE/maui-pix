@@ -18,23 +18,21 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-import QtQuick 2.9
-import QtQuick.Controls 2.5
+import QtQuick 2.13
+import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
 import org.kde.mauikit 1.1 as MauiLab
+import org.maui.pix 1.0 as Pix
 
 import "widgets"
 import "widgets/views/Folders"
 import "widgets/views/Gallery"
 import "widgets/views/Tags"
 import "widgets/views/Viewer"
-//import "widgets/views/Cloud"
-//import "widgets/views/Store"
-
 import "view_models"
 
 import "widgets/views/Pix.js" as PIX
@@ -42,11 +40,6 @@ import "widgets/views/Viewer/Viewer.js" as VIEWER
 
 import TagsModel 1.0
 import TagsList 1.0
-import org.maui.pix 1.0 as Pix
-
-//import SyncingModel 1.0
-//import SyncingList 1.0
-//import StoreList 1.0
 
 Maui.ApplicationWindow
 {
@@ -73,7 +66,7 @@ Maui.ApplicationWindow
     property bool selectionMode : false
     property int previewSize : Maui.FM.loadSettings("PREVIEWSIZE", "UI", Maui.Style.iconSizes.huge * 1.5)
 
-    flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable : swipeView.currentItem.flickable || null
+    flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
     mainMenu: [
 
@@ -113,7 +106,7 @@ Maui.ApplicationWindow
 
     headBar.visible: !fullScreen
 
-    floatingHeader: swipeView.currentIndex === views.viewer
+    floatingHeader: swipeView.currentIndex === views.viewer && !pixViewer.editing
     autoHideHeader: swipeView.currentIndex === views.viewer
     headerPositioning: ListView.InlineHeader
 
@@ -278,185 +271,7 @@ Maui.ApplicationWindow
     Component
     {
         id: _settingsDialogComponent
-        MauiLab.SettingsDialog
-        {
-            MauiLab.SettingsSection
-            {
-                title: i18n("Behavior")
-                description: i18n("Configure the app behaviour.")
-
-                Switch
-                {
-                    checkable: true
-                    checked: root.autoScan
-                    Kirigami.FormData.label: i18n("Auto Scan on startup")
-                    onToggled:
-                    {
-                        root.autoScan = !root.autoScan
-                        Maui.FM.saveSettings("AUTOSCAN", fitPreviews, "SETTINGS")
-                    }
-                }
-
-                Switch
-                {
-                    checkable: true
-                    checked: root.autoScan
-                    Kirigami.FormData.label: i18n("Auto reaload on changes")
-                    onToggled:
-                    {
-                        root.autoReload = !root.autoReload
-                        Maui.FM.saveSettings("AUTORELOAD", autoReload, "SETTINGS")
-                    }
-                }
-
-            }
-            MauiLab.SettingsSection
-            {
-                title: i18n("Collection")
-                description: i18n("Configure the app plugins and look & feel.")
-
-                Switch
-                {
-                    //                        visible: false //TODO to fix
-                    icon.name: "image-preview"
-                    checkable: true
-                    checked: root.fitPreviews
-                    Kirigami.FormData.label: i18n("Fit previews")
-                    onToggled:
-                    {
-                        root.fitPreviews = !root.fitPreviews
-                        Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
-                    }
-                }
-
-                Switch
-                {
-                    Kirigami.FormData.label: i18n("Show labels")
-                    checkable: true
-                    checked: root.showLabels
-                    onToggled:
-                    {
-                        root.showLabels = !root.showLabels
-                        Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
-                    }
-                }
-
-                Maui.ToolActions
-                {
-                    id: _gridIconSizesGroup
-                    Kirigami.FormData.label: i18n("Preview Size")
-                    Layout.fillWidth: true
-                    expanded: true
-                    autoExclusive: true
-                    display: ToolButton.TextOnly
-
-                    Action
-                    {
-                        text: i18n("S")
-                        onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.2)
-                    }
-
-                    Action
-                    {
-                        text: i18n("M")
-                        onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.5)
-                    }
-
-                    Action
-                    {
-                        text: i18n("X")
-                        onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.8 )
-                    }
-
-                    Action
-                    {
-                        text: i18n("XL")
-                        onTriggered: setPreviewSize(Maui.Style.iconSizes.enormous * 1.2)
-                    }
-                }
-            }
-
-            MauiLab.SettingsSection
-            {
-                title: i18n("Viewer")
-
-                Switch
-                {
-                    Kirigami.FormData.label: i18n("Show tag bar")
-                    checkable: true
-                    checked: pixViewer.tagBarVisible
-                    onToggled: pixViewer.toogleTagbar()
-                }
-
-                Switch
-                {
-                    Kirigami.FormData.label: i18n("Show preview bar")
-                    checkable: true
-                    checked: pixViewer.roll.visible
-                    onToggled: pixViewer.tooglePreviewBar()
-                }
-            }
-
-            MauiLab.SettingsSection
-            {
-                title: i18n("Sources")
-                description: i18n("Add new sources to manage and browse your image collection")
-
-                ColumnLayout
-                {
-                    anchors.fill: parent
-
-                    Maui.ListBrowser
-                    {
-                        id: _sourcesList
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
-                        Layout.minimumHeight: Math.min(200, contentHeight)
-                        model: Pix.Collection.sources
-                        delegate: Maui.ListDelegate
-                        {
-                            width: parent.width
-                            iconName: "folder"
-                            iconSize: Maui.Style.iconSizes.small
-                            label: modelData
-                            onClicked: _sourcesList.currentIndex = index
-                        }
-                    }
-
-                    RowLayout
-                    {
-                        Layout.fillWidth: true
-                        Button
-                        {
-                            Layout.fillWidth: true
-                            text: i18n("Remove")
-                            onClicked:
-                            {
-                                Pix.Collection.removeSources(_sourcesList.model[_sourcesList.currentIndex])
-                            }
-                        }
-
-                        Button
-                        {
-                            Layout.fillWidth: true
-                            text: i18n("Add")
-                            onClicked:
-                            {
-                                dialogLoader.sourceComponent= fmDialogComponent
-                                dialog.mode = dialog.modes.OPEN
-                                dialog.settings.onlyDirs= true
-                                dialog.show(function(paths)
-                                {
-                                    console.log("ADD THIS PATHS", paths)
-                                    Pix.Collection.addSources(paths)
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-
-        }
+        SettingsDialog {}
     }
 
     Maui.Dialog
@@ -478,10 +293,7 @@ Maui.ApplicationWindow
         }
     }
 
-    Loader
-    {
-        id: dialogLoader
-    }
+    Loader { id: dialogLoader }
 
     /***MODELS****/
     TagsModel

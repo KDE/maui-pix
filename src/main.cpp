@@ -149,7 +149,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 	qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
     qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
-    qmlRegisterType<PicInfoModel>("Pix", 1, 0, "PicInfoModel");
+    qmlRegisterType<PicInfoModel>("org.maui.pix", 1, 0, "PicInfoModel");
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 

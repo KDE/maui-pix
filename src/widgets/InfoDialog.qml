@@ -3,7 +3,7 @@ import org.kde.mauikit 1.0 as Maui
 import org.kde.kirigami 2.8 as Kirigami
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
-import Pix 1.0 as Pix
+import org.maui.pix 1.0 as Pix
 import QtQuick.Shapes 1.12
 
 Maui.Dialog
@@ -11,11 +11,11 @@ Maui.Dialog
     id: control
     property alias url : _infoModel.url
     maxHeight: 800
-    maxWidth: 600
+    maxWidth: 500
     defaultButtons: false
     page.title: _infoModel.fileName
     headBar.visible: true
-    page.floatingHeader: true
+    page.flickable: _infoContent.flickable
 
     Kirigami.ScrollablePage
     {
