@@ -106,7 +106,7 @@ Maui.ApplicationWindow
 
     headBar.visible: !fullScreen
 
-    floatingHeader: swipeView.currentIndex === views.viewer && !pixViewer.editing
+    floatingHeader: swipeView.currentIndex === views.viewer ? !pixViewer.editing : false
     autoHideHeader: swipeView.currentIndex === views.viewer
     headerPositioning: ListView.InlineHeader
 

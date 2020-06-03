@@ -1,10 +1,12 @@
 import QtQuick 2.13
-import org.kde.mauikit 1.0 as Maui
-import org.kde.kirigami 2.8 as Kirigami
+
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
-import org.maui.pix 1.0 as Pix
 import QtQuick.Shapes 1.12
+
+import org.kde.mauikit 1.2 as Maui
+import org.kde.kirigami 2.8 as Kirigami
+import org.maui.pix 1.0 as Pix
 
 Maui.Dialog
 {
@@ -68,14 +70,22 @@ Maui.Dialog
                             color: "white"
                         }
                     }
-               }
+                }
+            }
+
+            Maui.TagsBar
+            {
+                Layout.fillWidth: true
+                position: ToolBar.Footer
+                allowEditMode: false
+                list.urls: [control.url]
+                list.strict: false
             }
 
             Kirigami.Separator
             {
                 Layout.fillWidth: true
             }
-
             ListView
             {
                 Layout.preferredHeight: contentHeight
@@ -90,28 +100,22 @@ Maui.Dialog
                     }
                 }
 
-                delegate: Rectangle
+                delegate: Maui.AlternateListItem
                 {
                     visible: model.value.length
                     width: visible ? parent.width : 0
                     height: visible ? _delegateColumnInfo.implicitHeight + Maui.Style.space.large : 0
 
-                    color: index % 2 === 0 ? Kirigami.Theme.backgroundColor : Qt.darker(Kirigami.Theme.backgroundColor, 1.1)
-                    Kirigami.Separator
-                    {
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.bottom: parent.bottom
-                    }
+                    alt: index % 2 === 0
 
                     Maui.ListItemTemplate
                     {
                         id: _delegateColumnInfo
                         width: parent.width
 
-                        iconSource: "documentinfo"
+                        iconSource: model.icon
                         iconSizeHint: Maui.Style.iconSizes.medium
-
+                        spacing: Maui.Style.space.medium
                         anchors.centerIn: parent
                         anchors.margins: Maui.Style.space.medium
 
@@ -119,8 +123,6 @@ Maui.Dialog
                         label1.font.weight: Font.Bold
                         label1.font.bold: true
                         label2.text: model.value
-                        label2.elide: Qt.ElideMiddle
-                        label2.wrapMode: Text.Wrap
                         label2.font.weight: Font.Light
                     }
                 }

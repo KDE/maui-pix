@@ -14,7 +14,6 @@ import org.kde.mauikit 1.1 as MauiLab
 import org.maui.pix 1.0 as Pix
 import GalleryList 1.0
 
-
 StackView
 {
     id: control
@@ -23,7 +22,7 @@ StackView
     property alias holder : holder
     property alias tagBar : tagBar
     property alias roll : galleryRoll
-    readonly property bool editing : true
+    readonly property bool editing : control.currentItem.objectName === "imageEditor"
 
     property bool currentPicFav: false
     property var currentPic : ({})
@@ -36,7 +35,11 @@ StackView
     Component
     {
         id: _editorComponent
-        Editor {}
+        Editor
+        {
+            objectName: "imageEditor"
+            url: control.currentPic.url
+        }
     }
 
     initialItem: Maui.Page
@@ -52,10 +55,6 @@ StackView
             model: control.model
         }
 
-        MauiLab.Doodle
-        {
-            id: _doodleDialog
-        }
 
         footBar.visible: !holder.visible
         autoHideFooter: true
@@ -84,36 +83,15 @@ StackView
                     dialog.urls = [control.currentPic.url]
                     dialog.open()
                 }
-            },
-
-            ToolButton
-            {
-                visible: !Kirigami.Settings.isMobile
-                icon.name: "view-fullscreen"
-                onClicked: control.toogleFullscreen()
-                checked: fullScreen
             }
         ]
 
-        footBar.leftContent: Maui.ToolActions
+        footBar.leftContent: ToolButton
         {
-            expanded: true
-            autoExclusive: false
-            checkable: false
-
-            Action
-            {
-                icon.name: "object-rotate-left"
-                text: i18n("Rotate Left")
-                onTriggered: viewer.currentItem.item.rotateLeft()
-            }
-
-            Action
-            {
-                icon.name: "object-rotate-right"
-                text: i18n("Rotate Right")
-                onTriggered: viewer.currentItem.item.rotateRight()
-            }
+            visible: !Kirigami.Settings.isMobile
+            icon.name: "view-fullscreen"
+            onClicked: control.toogleFullscreen()
+            checked: fullScreen
         }
 
         footBar.middleContent: Maui.ToolActions
@@ -243,7 +221,7 @@ StackView
                 allowEditMode: true
                 list.urls: [currentPic.url]
                 list.strict: false
-                onTagClicked: PIX.searchFor(tag)
+//                onTagClicked: PIX.searchFor(tag)
                 onAddClicked:
                 {
                     dialogLoader.sourceComponent = tagsDialogComponent

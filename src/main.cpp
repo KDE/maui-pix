@@ -113,7 +113,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     app.setWindowIcon(QIcon(":/img/assets/pix.png"));
     MauiApp::instance()->setHandleAccounts(false); //for now index can not handle cloud accounts
     MauiApp::instance()->setCredits ({QVariantMap({{"name", "Camilo Higuita"}, {"email", "milo.h@aol.com"}, {"year", "2019-2020"}})});
-    MauiApp::instance()->setDescription("Pix is a convergent gallery manager and image viewer. Supports GNU Linux, Android and Windows.");
+    MauiApp::instance()->setDescription("Pix organizes and manages your images gallery collection");
     MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
     MauiApp::instance()->setHandleAccounts(false);
     MauiApp::instance()->setWebPage("https://mauikit.org");
