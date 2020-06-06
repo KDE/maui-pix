@@ -19,6 +19,7 @@
   <name xml:lang="nn">Pix</name>
   <name xml:lang="pl">Pix</name>
   <name xml:lang="pt">Pix</name>
+  <name xml:lang="pt-BR">Pix</name>
   <name xml:lang="sk">Pix</name>
   <name xml:lang="sv">Pix</name>
   <name xml:lang="uk">Pix</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="nn">Spel av musikksamlinga di</summary>
   <summary xml:lang="pl">Odtwarza swój zbiór muzyki</summary>
   <summary xml:lang="pt">Tocar a sua colecção de música</summary>
+  <summary xml:lang="pt-BR">Reproduza sua coleção de músicas</summary>
   <summary xml:lang="sk">Prehrať vašu hudobnú kolekciu</summary>
   <summary xml:lang="sv">Spela din musiksamling</summary>
   <summary xml:lang="uk">Відтворення вашої музичної збірки</summary>
@@ -60,6 +62,7 @@
     <p xml:lang="nn">Bilet-/gallerivising for fleire brukarflater.</p>
     <p xml:lang="pl">Przeglądarka galerii obrazów i galerii.</p>
     <p xml:lang="pt">Visualizador convergente de imagens e galerias.</p>
+    <p xml:lang="pt-BR">Visualizador de imagens e galeria convergente.</p>
     <p xml:lang="sk">Konvergentný prehliadať obrázkov a galéria.</p>
     <p xml:lang="sv">Konvergent bild- och gallerivisning.</p>
     <p xml:lang="uk">Зручна програма для перегляду зображень і галерей.</p>
@@ -87,6 +90,7 @@
       <caption xml:lang="nn">Pix musikkspelar</caption>
       <caption xml:lang="pl">Odtwarzacz muzyki Pix</caption>
       <caption xml:lang="pt">O leitor de música Pix</caption>
+      <caption xml:lang="pt-BR">O reprodutor de músicas Pix</caption>
       <caption xml:lang="sk">Hudobný prehrávač Pix</caption>
       <caption xml:lang="sv">Musikspelaren Pix</caption>
       <caption xml:lang="uk">Музичний програвач Pix</caption>
