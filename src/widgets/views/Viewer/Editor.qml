@@ -79,8 +79,8 @@ Maui.Page
             icon.name: "draw-freehand"
             onClicked:
             {
-                    _doodleDialog.sourceItem = editImage
-                    _doodleDialog.open()
+                _doodleDialog.sourceItem = editImage
+                _doodleDialog.open()
             }
         }
     ]
@@ -179,53 +179,26 @@ Maui.Page
     KQuickImageEditor.ResizeRectangle
     {
         id: resizeRectangle
-
         visible: control.resizing
 
-        width: 300
-        height: 300
-        x: 200
-        y: 200
+        width: editImage.width
+        height: editImage.height
+        x: 0
+        y: 0
 
-        onAcceptSize: crop();
+        insideX: 100
+        insideY: 100
+        insideWidth: 100
+        insideHeight: 100
 
-        Rectangle {
-            color: "#3daee9"
-            opacity: 0.6
-            anchors.fill: parent
-        }
+        onAcceptSize: control.crop();
+    }
 
-        KQuickImageEditor.BasicResizeHandle {
-            rectangle: resizeRectangle
-            resizeCorner: KQuickImageEditor.ResizeHandle.TopLeft
-            anchors {
-                horizontalCenter: parent.left
-                verticalCenter: parent.top
-            }
-        }
-        KQuickImageEditor.BasicResizeHandle {
-            rectangle: resizeRectangle
-            resizeCorner: KQuickImageEditor.ResizeHandle.BottomLeft
-            anchors {
-                horizontalCenter: parent.left
-                verticalCenter: parent.bottom
-            }
-        }
-        KQuickImageEditor.BasicResizeHandle {
-            rectangle: resizeRectangle
-            resizeCorner: KQuickImageEditor.ResizeHandle.BottomRight
-            anchors {
-                horizontalCenter: parent.right
-                verticalCenter: parent.bottom
-            }
-        }
-        KQuickImageEditor.BasicResizeHandle {
-            rectangle: resizeRectangle
-            resizeCorner: KQuickImageEditor.ResizeHandle.TopRight
-            anchors {
-                horizontalCenter: parent.right
-                verticalCenter: parent.top
-            }
-        }
+    function crop()
+    {
+        const ratioX = editImage.paintedWidth / editImage.nativeWidth;
+        const ratioY = editImage.paintedHeight / editImage.nativeHeight;
+        control.resizing = false
+        imageDoc.crop((resizeRectangle.insideX - control.contentItem.width + editImage.paintedWidth) / ratioX, (resizeRectangle.insideY - control.contentItem.height + editImage.paintedHeight) / ratioY, resizeRectangle.insideWidth / ratioX, resizeRectangle.insideHeight / ratioY);
     }
 }
