@@ -45,18 +45,14 @@ ScrollView
             dropShadow: true
             isCurrentItem: ListView.isCurrentItem
             radius:  Maui.Style.radiusV
-            Connections
+            onClicked:
             {
-                target: delegate
-                onClicked:
-                {
-                    rollList.currentIndex = index
-                    picClicked(index)
-                }
-
-                onPressAndHold: _picMenu.popup()
-                onRightClicked: _picMenu.popup()
+                rollList.currentIndex = index
+                picClicked(index)
             }
+
+            onPressAndHold: _picMenu.popup()
+            onRightClicked: _picMenu.popup()
         }
     }
 
