@@ -24,7 +24,6 @@
   <name xml:lang="sl">Pix</name>
   <name xml:lang="sv">Pix</name>
   <name xml:lang="uk">Pix</name>
-  <name xml:lang="x-test">xxPixxx</name>
   <name xml:lang="zh-TW">Pix</name>
   <summary>Play your music collection</summary>
   <summary xml:lang="ca">Reprodueix la vostra col·lecció de música</summary>
@@ -47,7 +46,6 @@
   <summary xml:lang="sl">Predvajajte svojo glasbeno zbirko</summary>
   <summary xml:lang="sv">Spela din musiksamling</summary>
   <summary xml:lang="uk">Відтворення вашої музичної збірки</summary>
-  <summary xml:lang="x-test">xxPlay your music collectionxx</summary>
   <summary xml:lang="zh-TW">播放您的音樂集合</summary>
   <description>
     <p> Convergent image and gallery viewer. </p>
@@ -69,7 +67,6 @@
     <p xml:lang="sl">Konvergentni pregledovalnik slik in galerij.</p>
     <p xml:lang="sv">Konvergent bild- och gallerivisning.</p>
     <p xml:lang="uk">Зручна програма для перегляду зображень і галерей.</p>
-    <p xml:lang="x-test">xxConvergent image and gallery viewer.xx</p>
   </description>
   <url type="homepage">https://pix.kde.org/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=pix</url>
@@ -98,7 +95,6 @@
       <caption xml:lang="sl">Predvajalnik glasbe Pix</caption>
       <caption xml:lang="sv">Musikspelaren Pix</caption>
       <caption xml:lang="uk">Музичний програвач Pix</caption>
-      <caption xml:lang="x-test">xxThe Pix music playerxx</caption>
       <caption xml:lang="zh-TW">Pix 音樂播放器</caption>
       <image type="source" width="1366" height="744">
         https://raw.githubusercontent.com/mauikit/pix/master/screenshots/view1.png
