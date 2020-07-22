@@ -1,5 +1,5 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import org.kde.mauikit 1.0 as Maui
@@ -12,6 +12,7 @@ Maui.ItemDelegate
     property alias checkable : _template.checkable
     property alias checked : _template.checked
     property alias labelsVisible: _template.labelsVisible
+    property alias imageBorder: _template.imageBorder
 
     property bool fit : false
     property bool dropShadow: false
@@ -39,6 +40,7 @@ Maui.ItemDelegate
         imageHeight: height
         imageWidth: height
         label1.text: model.title
+
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/assets/image-x-generic.svg"
         fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
         hovered: control.hovered

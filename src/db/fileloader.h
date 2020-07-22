@@ -49,19 +49,20 @@ public:
 		t.wait();
 	}
 
-	void requestPath(const QList<QUrl> &urls, const bool &recursive)
+    void requestPath(const QList<QUrl> &urls, const bool &recursive, const uint &limit)
 	{
 		qDebug()<<"FROM file loader"<< urls;
-		emit this->start(urls, recursive);
+        emit this->start(urls, recursive, limit);
 	}
 
 private slots:
-	void getPics(QList<QUrl> paths, bool recursive)
+    void getPics(QList<QUrl> paths, bool recursive, uint limit = 10)
 	{
 		qDebug()<<"GETTING IMAGES";
-		const uint m_bsize = 5000;
-		uint i = 0;
-		uint batch = 0;
+        const uint m_bsize = 5000; //maximum batch size
+        uint count = 0; //total count
+        uint i = 0; //count per batch
+        uint batch = 0; //batches count
 		FMH::MODEL_LIST res;
 		FMH::MODEL_LIST res_batch;
 		QList<QUrl> urls;
@@ -92,6 +93,7 @@ private slots:
 					res << map;
 					res_batch << map;
 					i++;
+                    count++;
 
 					if(i == m_bsize) //send a batch
 					{
@@ -100,8 +102,14 @@ private slots:
 						batch++;
 						i = 0;
 					}
+
+                    if(count == limit)
+                        break;
 				}
 			}
+
+            if(count == limit)
+                break;
 		}
 		emit itemsReady(res_batch);
 		emit finished(res);
@@ -109,7 +117,7 @@ private slots:
 
 signals:
 	void finished(FMH::MODEL_LIST items);
-	void start(QList<QUrl> urls, bool recursive);
+    void start(QList<QUrl> urls, bool recursive, uint limit);
 
 	void itemsReady(FMH::MODEL_LIST items);
 	void itemReady(FMH::MODEL item);

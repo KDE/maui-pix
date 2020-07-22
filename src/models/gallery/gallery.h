@@ -11,6 +11,8 @@
 #include <MauiKit/mauilist.h>
 #endif
 
+#define MAX_LIMIT 20000
+
 class QFileSystemWatcher;
 class FileLoader;
 class Gallery : public MauiList
@@ -21,6 +23,7 @@ class Gallery : public MauiList
     Q_PROPERTY(bool recursive READ recursive WRITE setRecursive NOTIFY recursiveChanged)
     Q_PROPERTY(bool autoScan READ autoScan WRITE setAutoScan NOTIFY autoScanChanged)
     Q_PROPERTY(bool autoReload READ autoReload WRITE setAutoReload NOTIFY autoReloadChanged)
+    Q_PROPERTY(int limit READ limit WRITE setlimit NOTIFY limitChanged)
 
 public:
     explicit Gallery(QObject *parent = nullptr);
@@ -35,15 +38,11 @@ public:
     void setAutoReload(const bool &value);
     bool autoReload() const;
 
-    QList<QUrl> folders() const
-    {
-        return m_folders;
-    }
+    QList<QUrl> folders() const;
 
-    bool recursive() const
-    {
-        return m_recursive;
-    }
+    bool recursive() const;
+
+    int limit() const;
 
 private:
     FileLoader *m_fileLoader;
@@ -55,12 +54,14 @@ private:
 
     FMH::MODEL_LIST list = {};
     void setList();
-    void scan(const QList<QUrl> &urls, const bool &recursive = true);
+    void scan(const QList<QUrl> &urls, const bool &recursive = true, const int &limit = MAX_LIMIT);
     void insert(const FMH::MODEL_LIST &items);
 
     void insertFolder(const QUrl &path);
 
     bool m_recursive;
+
+    int m_limit = MAX_LIMIT;
 
 signals:
     void urlsChanged();
@@ -69,6 +70,8 @@ signals:
     void autoScanChanged();
 
     void recursiveChanged(bool recursive);
+
+    void limitChanged(int limit);
 
 public slots:
     QVariantMap get(const int &index) const;
@@ -85,15 +88,9 @@ public slots:
 
     void rescan();
     void reload();
-    void setRecursive(bool recursive)
-    {
-        if (m_recursive == recursive)
-            return;
-
-        m_recursive = recursive;
-        emit recursiveChanged(m_recursive);
-    }
+    void setRecursive(bool recursive);
+    void setlimit(int limit);
 };
-Q_DECLARE_METATYPE(FMH::MODEL_LIST);
+//Q_DECLARE_METATYPE(FMH::MODEL_LIST);
 
 #endif // GALLERY_H

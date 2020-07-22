@@ -1,16 +1,15 @@
-import QtQuick 2.13
-import QtQuick.Controls 2.13
+import QtQuick 2.14
+import QtQuick.Controls 2.14
+import QtQml 2.14
 import QtQuick.Layouts 1.3
-import QtQuick.Window 2.13
 
 import org.kde.kirigami 2.6 as Kirigami
-import org.kde.mauikit 1.0 as Maui
-import org.kde.mauikit 1.1 as MauiLab
+import org.kde.mauikit 1.2 as Maui
 import org.maui.pix 1.0 as Pix
 
-MauiLab.SettingsDialog
+Maui.SettingsDialog
 {
-    MauiLab.SettingsSection
+    Maui.SettingsSection
     {
         title: i18n("Behavior")
         description: i18n("Configure the app behaviour.")
@@ -40,7 +39,7 @@ MauiLab.SettingsDialog
         }
 
     }
-    MauiLab.SettingsSection
+    Maui.SettingsSection
     {
         title: i18n("Collection")
         description: i18n("Configure the app plugins and look & feel.")
@@ -80,33 +79,46 @@ MauiLab.SettingsDialog
             autoExclusive: true
             display: ToolButton.TextOnly
 
+            Binding on currentIndex
+            {
+                value:  switch(root.previewSize)
+                        {
+                        case previewSizes.small: return 0;
+                        case previewSizes.medium: return 1;
+                        case previewSizes.large: return 2;
+                        case previewSizes.extralarge: return 3;
+                        default: return -1;
+                        }
+                restoreMode: Binding.RestoreValue
+            }
+
             Action
             {
                 text: i18n("S")
-                onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.2)
+                onTriggered: setPreviewSize(previewSizes.small)
             }
 
             Action
             {
                 text: i18n("M")
-                onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.5)
+                onTriggered: setPreviewSize(previewSizes.medium)
             }
 
             Action
             {
                 text: i18n("X")
-                onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.8 )
+                onTriggered: setPreviewSize(previewSizes.large)
             }
 
             Action
             {
                 text: i18n("XL")
-                onTriggered: setPreviewSize(Maui.Style.iconSizes.enormous * 1.2)
+                onTriggered: setPreviewSize(previewSizes.extralarge)
             }
         }
     }
 
-    MauiLab.SettingsSection
+    Maui.SettingsSection
     {
         title: i18n("Viewer")
 
@@ -127,7 +139,7 @@ MauiLab.SettingsDialog
         }
     }
 
-    MauiLab.SettingsSection
+    Maui.SettingsSection
     {
         title: i18n("Sources")
         description: i18n("Add new sources to manage and browse your image collection")

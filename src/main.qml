@@ -66,6 +66,10 @@ Maui.ApplicationWindow
     property bool selectionMode : false
     property int previewSize : Maui.FM.loadSettings("PREVIEWSIZE", "UI", Maui.Style.iconSizes.huge * 1.5)
 
+    readonly property var previewSizes: ({small: Maui.Style.iconSizes.huge * 1.2,
+                                         medium: Maui.Style.iconSizes.huge * 1.5,
+                                         large: Maui.Style.iconSizes.huge * 1.8,
+                                         extralarge: Maui.Style.iconSizes.enormous * 1.2})
     flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
     mainMenu: [

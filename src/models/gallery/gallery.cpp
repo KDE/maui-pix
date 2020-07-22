@@ -24,9 +24,9 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
         qDebug() << "Items ready" << items.size() << m_urls;
 
         emit this->preListChanged();
-
         this-> list << items;
         emit this->postListChanged();
+        emit countChanged(); //TODO this is a bug from mauimodel not changing the count right //TODO
     });
 
     connect(m_fileLoader, &FileLoader::itemReady,[this](FMH::MODEL item)
@@ -75,7 +75,7 @@ void Gallery::setUrls(const QList<QUrl> &urls)
 
     if(m_autoScan)
     {
-        this->scan(m_urls, m_recursive);
+        this->scan(m_urls, m_recursive, m_limit);
     }
 }
 
@@ -112,9 +112,24 @@ bool Gallery::autoReload() const
     return m_autoReload;
 }
 
-void Gallery::scan(const QList<QUrl> &urls, const bool &recursive)
+QList<QUrl> Gallery::folders() const
 {
-    m_fileLoader->requestPath(urls, recursive);
+    return m_folders;
+}
+
+bool Gallery::recursive() const
+{
+    return m_recursive;
+}
+
+int Gallery::limit() const
+{
+    return m_limit;
+}
+
+void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &limit)
+{
+    m_fileLoader->requestPath(urls, recursive, limit);
 }
 
 void Gallery::insertFolder(const QUrl &path)
@@ -236,10 +251,28 @@ void Gallery::clear()
 void Gallery::rescan()
 {
     this->clear();
-    this->scan(m_urls, m_recursive);
+    this->scan(m_urls, m_recursive, m_limit);
 }
 
 void Gallery::reload()
 {
-    this->scan(m_urls, m_recursive);
+    this->scan(m_urls, m_recursive, m_limit);
+}
+
+void Gallery::setRecursive(bool recursive)
+{
+    if (m_recursive == recursive)
+        return;
+
+    m_recursive = recursive;
+    emit recursiveChanged(m_recursive);
+}
+
+void Gallery::setlimit(int limit)
+{
+    if (m_limit == limit)
+        return;
+
+    m_limit = limit;
+    emit limitChanged(m_limit);
 }

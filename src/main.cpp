@@ -113,11 +113,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     app.setWindowIcon(QIcon(":/img/assets/pix.png"));
     MauiApp::instance()->setHandleAccounts(false); //for now index can not handle cloud accounts
     MauiApp::instance()->setCredits ({QVariantMap({{"name", "Camilo Higuita"}, {"email", "milo.h@aol.com"}, {"year", "2019-2020"}})});
-    MauiApp::instance()->setDescription("Pix organizes and manages your images gallery collection");
+    MauiApp::instance()->setDescription("Pix lets you organize, browse, and edit your image collection");
     MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
     MauiApp::instance()->setHandleAccounts(false);
     MauiApp::instance()->setWebPage("https://mauikit.org");
-    MauiApp::instance()->setReportPage("https://invent.kde.org/maui/index-fm/-/issues");
+    MauiApp::instance()->setReportPage("https://invent.kde.org/maui/pix/-/issues");
 
 	QCommandLineParser parser;
 	parser.setApplicationDescription(PIX::description);

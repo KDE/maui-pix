@@ -46,8 +46,7 @@ MauiLab.AltBrowser
         isSection: true
     }
 
-    holder.visible: pixList.count === 0
-    holder.isMask: true
+    holder.visible: count === 0
     holder.emojiSize: Maui.Style.iconSizes.huge
 
     headBar.middleContent: Maui.TextField
@@ -147,17 +146,17 @@ MauiLab.AltBrowser
         }
     ]
 
-    GalleryList
-    {
-        id: pixList
-        autoReload: root.autoReload
-        autoScan: root.autoScan
-    }
 
     model: Maui.BaseModel
     {
         id: pixModel
-        list: pixList
+        list: GalleryList
+        {
+            id: pixList
+            autoReload: root.autoReload
+            autoScan: root.autoScan
+        }
+
         sort: "date"
         sortOrder: Qt.DescendingOrder
         recursiveFilteringEnabled: true
