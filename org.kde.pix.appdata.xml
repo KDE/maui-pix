@@ -10,6 +10,7 @@
   <name xml:lang="de">Pix</name>
   <name xml:lang="es">Pix</name>
   <name xml:lang="et">Pix</name>
+  <name xml:lang="fi">Pix</name>
   <name xml:lang="fr">Pix</name>
   <name xml:lang="gl">Pix</name>
   <name xml:lang="id">Pix</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="de">Wiedergabe Ihrer Musik-Sammlung</summary>
   <summary xml:lang="es">Reproduce su colección de música</summary>
   <summary xml:lang="et">Muusikakogu esitamine</summary>
+  <summary xml:lang="fi">Soita musiikkikokoelmaasi</summary>
   <summary xml:lang="fr">Jouez votre collection musicale</summary>
   <summary xml:lang="gl">Reproducir a súa colección de música</summary>
   <summary xml:lang="id">Putar koleksi musikmu</summary>
@@ -55,6 +57,7 @@
     <p xml:lang="ca-valencia">Visor convergent d'imatges i galeries.</p>
     <p xml:lang="es">Visor convergente de imágenes y galería.</p>
     <p xml:lang="et">Pildi- ja galeriinäitaja kombinatsioon.</p>
+    <p xml:lang="fi">Tuttavallinen kuva- ja galleriakatselin.</p>
     <p xml:lang="fr">Images convergentes et afficheur de galerie.</p>
     <p xml:lang="gl">Visor converxente de imaxes e galerías.</p>
     <p xml:lang="id">Penampil galeri dan citra yang konvergen</p>
@@ -84,6 +87,7 @@
       <caption xml:lang="de">Pix-Musikwiedergabe</caption>
       <caption xml:lang="es">El reproductor de música Pix</caption>
       <caption xml:lang="et">Muusikamängija Pix</caption>
+      <caption xml:lang="fi">Pix-musiikkisoitin</caption>
       <caption xml:lang="fr">Le lecteur de musique Pix</caption>
       <caption xml:lang="gl">O reprodutor de música Pix</caption>
       <caption xml:lang="id">Pemutar musik Pix</caption>
