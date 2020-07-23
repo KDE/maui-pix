@@ -104,8 +104,8 @@ StackView
                             anchors.fill: parent
                             columns: 2
                             rows: 2
-                            columnSpacing: 0
-                            rowSpacing: 0
+                            columnSpacing: 2
+                            rowSpacing: 2
 
                             Repeater
                             {
@@ -124,16 +124,21 @@ StackView
                                     filterCaseSensitivity: Qt.CaseInsensitive
                                 }
 
-                                delegate: PixPic
+                                delegate: Rectangle
                                 {
                                     Layout.fillHeight: true
                                     Layout.fillWidth: true
-                                    labelsVisible: false
-                                    checkable: false
-                                    draggable: false
-                                    enabled: false
-                                    radius: 0
-                                    imageBorder: false
+                                    color: Qt.rgba(0,0,0,0.3)
+                                    Image
+                                    {
+                                        anchors.fill: parent
+                                        sourceSize.width: width
+                                        sourceSize.height: height
+                                        asynchronous: true
+                                        smooth: false
+                                        source: model.url
+                                        fillMode: Image.PreserveAspectCrop
+                                    }
                                 }
                             }
                         }
@@ -154,16 +159,6 @@ StackView
                                 }
                             }
                         }
-                    }
-
-
-                    Rectangle
-                    {
-                        anchors.fill: parent
-                        border.color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.4)
-                        radius: Maui.Style.radiusV
-                        opacity: 0.2
-                        color: control.hovered ? control.Kirigami.Theme.highlightColor : "transparent"
                     }
 
                 }

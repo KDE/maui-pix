@@ -186,10 +186,10 @@ Maui.Page
         x: 0
         y: 0
 
-        insideX: 100
-        insideY: 100
-        insideWidth: 100
-        insideHeight: 100
+//        insideX: 100
+//        insideY: 100
+//        insideWidth: 100
+//        insideHeight: 100
 
         onAcceptSize: control.crop();
     }
