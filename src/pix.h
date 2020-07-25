@@ -38,30 +38,30 @@ using namespace std;
 class Pix : public QObject
 {
 	Q_OBJECT
-    Q_PROPERTY(QStringList sources READ sources NOTIFY sourcesChanged FINAL)
+	Q_PROPERTY(QStringList sources READ sources NOTIFY sourcesChanged FINAL)
 public:
 	explicit Pix(QObject* parent = nullptr);
 
 public slots:
-    QStringList sources() const
-    {
-        return PIX::getSourcePaths();
-    }
+	QStringList sources() const
+	{
+		return PIX::getSourcePaths();
+	}
 
 	void addSources(const QStringList &paths);
-    void removeSources(const QString &path);
+	void removeSources(const QString &path);
 
-    void openPics(const QList<QUrl> &pics);
+	void openPics(const QList<QUrl> &pics);
 	void refreshCollection();
 	/*File actions*/
    static void showInFolder(const QStringList &urls);
 
-   QVariantList getTagUrls(const QString &tag);
+   QVariantList getTagUrls(const QString &tag, const int & limit = 9999);
 
 
 signals:
 	void refreshViews(QVariantMap tables);
 	void viewPics(QStringList pics);
-    void sourcesChanged();
+	void sourcesChanged();
 };
 #endif // PIX_H

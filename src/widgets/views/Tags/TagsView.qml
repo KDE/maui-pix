@@ -63,14 +63,11 @@ StackView
         control.push(tagsGrid)
         control.currentItem.list.clear()
 
-        const urls = Pix.Collection.getTagUrls(myTag, true);
-        console.log(urls)
-        if(urls.length > 0)
-            for(const i in urls)
-            {
-                if(Maui.FM.checkFileType(Maui.FMList.IMAGE, urls[i].mime))
-                    control.currentItem.list.append(urls[i].url)
-            }
+        const tags = Pix.Collection.getTagUrls(myTag);
+        for(const tag of tags)
+        {
+            control.currentItem.list.append(tag.url)
+        }
 
     }
  }

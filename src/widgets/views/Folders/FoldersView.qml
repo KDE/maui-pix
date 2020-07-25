@@ -23,6 +23,8 @@ StackView
     {
         id: foldersPage
         itemSize: Math.min(200, _stackView.width/3)
+        margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
+
         model: Maui.BaseModel
         {
             id: folderModel
@@ -50,8 +52,8 @@ StackView
         {
             id: _delegate
             property var folderPath : [model.path]
-            height: foldersPage.cellHeight
-            width: foldersPage.cellWidth
+            height: foldersPage.cellHeight - Maui.Style.space.medium
+            width: foldersPage.cellWidth - Maui.Style.space.medium
             isCurrentItem: GridView.isCurrentItem
 
             onClicked:
