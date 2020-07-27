@@ -78,13 +78,13 @@ Maui.Page
                         {
                             anchors.fill: parent
                             columns: 2
-                            rows: 3
+                            rows: 2
                             columnSpacing: 2
                             rowSpacing: 2
 
                             Repeater
                             {
-                                model: Pix.Collection.getTagUrls(tag, 6)
+                                model: Pix.Collection.getTagUrls(tag, 4)
                                 delegate: Rectangle
                                 {
                                     Layout.fillHeight: true
