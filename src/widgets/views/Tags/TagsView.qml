@@ -40,6 +40,8 @@ StackView
         PixGrid
         {
             title: control.currentTag
+            list.urls : ["tags:///"+currentTag]
+            list.recursive: false
             holder.title: i18n("No Pics!")
             holder.body: i18n("There's no pics associated with the tag")
             holder.emojiSize: Maui.Style.iconSizes.huge
@@ -61,13 +63,6 @@ StackView
     function populateGrid(myTag)
     {
         control.push(tagsGrid)
-        control.currentItem.list.clear()
-
-        const tags = Pix.Collection.getTagUrls(myTag);
-        for(const tag of tags)
-        {
-            control.currentItem.list.append(tag.url)
-        }
-
+        currentTag = myTag
     }
  }

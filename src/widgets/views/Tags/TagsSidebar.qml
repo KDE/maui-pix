@@ -3,9 +3,11 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import org.kde.mauikit 1.0 as Maui
+import org.kde.mauikit 1.2 as Maui
 import org.kde.kirigami 2.7 as Kirigami
 import org.maui.pix 1.0 as Pix
+
+import GalleryList 1.0
 
 import "../../../view_models"
 
@@ -53,6 +55,7 @@ Maui.Page
         {
             id: _delegate
             property string tag : model.tag
+            property url tagUrl : "tags:///"+model.tag
             height: _tagsList.cellHeight - Maui.Style.space.medium
             width: _tagsList.cellWidth- Maui.Style.space.medium
             isCurrentItem: GridView.isCurrentItem
@@ -84,7 +87,17 @@ Maui.Page
 
                             Repeater
                             {
-                                model: Pix.Collection.getTagUrls(tag, 4)
+                                model: Maui.BaseModel
+                                {
+                                    list: GalleryList
+                                    {
+                                        urls: tagUrl
+                                        autoReload: false
+                                        recursive: false
+                                        limit: 4
+                                    }
+                                }
+
                                 delegate: Rectangle
                                 {
                                     Layout.fillHeight: true
@@ -93,11 +106,11 @@ Maui.Page
                                     Image
                                     {
                                         anchors.fill: parent
-                                        sourceSize.width: width
-                                        sourceSize.height: height
+                                        sourceSize.width: 80
+                                        sourceSize.height: 80
                                         asynchronous: true
                                         smooth: false
-                                        source: modelData.url
+                                        source: model.url
                                         fillMode: Image.PreserveAspectCrop
                                     }
                                 }
@@ -121,36 +134,18 @@ Maui.Page
                             }
                         }
                     }
-
                 }
-
 
                 Maui.ListItemTemplate
                 {
                     Layout.fillWidth: true
                     label1.text: model.tag
-//                    label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
                     rightLabels.visible: true
                     //                    label2.text: model.count
                     iconSource: model.icon
                     iconSizeHint: Maui.Style.iconSizes.small
-
-                    //                    horizontalAlignment: Qt.AlignLeft
-                    //                    font.bold: true
-                    //                    font.weight: Font.Bold
-                    //                    elide: Text.ElideMiddle
                 }
             }
-
-
-//            Maui.GridItemTemplate
-//            {
-//                hovered: delegate.hovered
-//                isCurrentItem: delegate.isCurrentItem
-//                anchors.fill: parent
-//                label1.text: model.tag
-//                iconSource: model.icon
-//            }
 
             Connections
             {

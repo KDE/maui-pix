@@ -2,6 +2,14 @@
 #include <QFileSystemWatcher>
 #include "db/fileloader.h"
 
+#ifdef STATIC_MAUIKIT
+#include "tagging.h"
+#include "fmstatic.h"
+#else
+#include <MauiKit/tagging.h>
+#include <MauiKit/fmstatic.h>
+#endif
+
 Gallery::Gallery(QObject *parent) : MauiList(parent)
   , m_fileLoader(new FileLoader())
   , m_watcher (new QFileSystemWatcher(this))
@@ -9,52 +17,46 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
   , m_autoScan(true)
   , m_recursive (true)
 {
-    qDebug()<< "CREATING GALLERY LIST";
+	qDebug()<< "CREATING GALLERY LIST";
 
-    connect(m_fileLoader, &FileLoader::finished,[this](FMH::MODEL_LIST items)
-    {
-        qDebug() << "Items finished" << items.size();
+	connect(m_fileLoader, &FileLoader::finished,[](FMH::MODEL_LIST items)
+	{
+		qDebug() << "Items finished" << items.size();
+	});
 
+	connect(m_fileLoader, &FileLoader::itemsReady,[this](FMH::MODEL_LIST items)
+	{
+		emit this->preListChanged();
+		this-> list << items;
+		emit this->postListChanged();
+		emit countChanged(); //TODO this is a bug from mauimodel not changing the count right //TODO
+	});
 
-
-    });
-
-    connect(m_fileLoader, &FileLoader::itemsReady,[this](FMH::MODEL_LIST items)
-    {
-        qDebug() << "Items ready" << items.size() << m_urls;
-
-        emit this->preListChanged();
-        this-> list << items;
-        emit this->postListChanged();
-        emit countChanged(); //TODO this is a bug from mauimodel not changing the count right //TODO
-    });
-
-    connect(m_fileLoader, &FileLoader::itemReady,[this](FMH::MODEL item)
-    {
-        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
+	connect(m_fileLoader, &FileLoader::itemReady,[this](FMH::MODEL item)
+	{
+		this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
 
 //        emit this->preItemAppended();
 //        this->list.append(item);
 //        emit this->postItemAppended();
-    });
+	});
 
-    connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir)
-    {
-        qDebug()<< "Dir changed" << dir;
-        this->rescan();
+	connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir)
+	{
+		qDebug()<< "Dir changed" << dir;
+		this->rescan();
 //        this->scan({QUrl::fromLocalFile(dir)}, m_recursive);
-    });
+	});
 
-    connect(m_watcher, &QFileSystemWatcher::fileChanged, [this](QString file)
-    {
-        qDebug()<< "File changed" << file;
-
-    });
+	connect(m_watcher, &QFileSystemWatcher::fileChanged, [](QString file)
+	{
+		qDebug()<< "File changed" << file;
+	});
 }
 
 Gallery::~Gallery()
 {
-    delete m_fileLoader;
+	delete m_fileLoader;
 }
 
 FMH::MODEL_LIST Gallery::items() const
@@ -64,95 +66,122 @@ FMH::MODEL_LIST Gallery::items() const
 
 void Gallery::setUrls(const QList<QUrl> &urls)
 {
-    qDebug()<< "setting urls"<< this->m_urls << urls;
+	qDebug()<< "setting urls"<< this->m_urls << urls;
 
-    if(this->m_urls == urls)
+	if(this->m_urls == urls)
 		return;
 
-    this->m_urls = urls;
-    this->clear();
-    emit this->urlsChanged();
+	this->m_urls = urls;
+	this->clear();
+	emit this->urlsChanged();
 
-    if(m_autoScan)
-    {
-        this->scan(m_urls, m_recursive, m_limit);
-    }
+	if(m_autoScan)
+	{
+		this->scan(m_urls, m_recursive, m_limit);
+	}
 }
 
 QList<QUrl> Gallery::urls() const
 {
-    return m_urls;
+	return m_urls;
 }
 
 void Gallery::setAutoScan(const bool &value)
 {
-    if(m_autoScan == value)
-        return;
+	if(m_autoScan == value)
+		return;
 
-    m_autoScan = value;
-    emit autoScanChanged();
+	m_autoScan = value;
+	emit autoScanChanged();
 }
 
 bool Gallery::autoScan() const
 {
-    return m_autoScan;
+	return m_autoScan;
 }
 
 void Gallery::setAutoReload(const bool &value)
 {
-    if(m_autoReload == value)
-        return;
+	if(m_autoReload == value)
+		return;
 
-    m_autoReload = value;
-    emit autoReloadChanged();
+	m_autoReload = value;
+	emit autoReloadChanged();
 }
 
 bool Gallery::autoReload() const
 {
-    return m_autoReload;
+	return m_autoReload;
 }
 
 QList<QUrl> Gallery::folders() const
 {
-    return m_folders;
+	return m_folders;
 }
 
 bool Gallery::recursive() const
 {
-    return m_recursive;
+	return m_recursive;
 }
 
 int Gallery::limit() const
 {
-    return m_limit;
+	return m_limit;
 }
 
 void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &limit)
 {
-    m_fileLoader->requestPath(urls, recursive, limit);
+	this->scanTags (extractTags (urls), recursive, limit);
+	m_fileLoader->requestPath(urls, recursive, limit);
+}
+
+void Gallery::scanTags(const QList<QUrl> & urls, const bool & recursive, const int & limit)
+{
+	FMH::MODEL_LIST res;
+	for(const auto &tagUrl : urls)
+	{
+			auto items = Tagging::getInstance ()->getUrls (tagUrl.toString ().replace ("tags:///", ""), true, limit, "image");
+
+			for(const auto &item : items)
+			{
+				const auto url = QUrl(item.toMap ().value ("url").toString());
+				res << FileLoader::picInfo (url);
+			}
+	}
+
+	emit this->preListChanged ();
+	list << res;
+	emit this->postListChanged ();
+	emit countChanged();
 }
 
 void Gallery::insertFolder(const QUrl &path)
 {
-    if(!m_folders.contains(path))
-    {
-        m_folders << path;
+	if(!m_folders.contains(path))
+	{
+		m_folders << path;
 
-        if(m_autoReload)
-        {
-            this->m_watcher->addPath(path.toLocalFile());
-        }
+		if(m_autoReload)
+		{
+			this->m_watcher->addPath(path.toLocalFile());
+		}
 
-        emit foldersChanged();
-    }
+		emit foldersChanged();
+	}
 }
 
-void Gallery::setList()
+QList<QUrl> Gallery::extractTags(const QList<QUrl> & urls)
 {
-	emit this->preListChanged();
+	QList<QUrl> res;
+	return std::accumulate(urls.constBegin (), urls.constEnd (), res, [](QList<QUrl> &list, const QUrl &url)
+	{
+		if(FMH::getPathType (url) == FMH::PATHTYPE_KEY::TAGS_PATH)
+		{
+			list << url;
+		}
 
-
-	emit this->postListChanged();
+		return list;
+	});
 }
 
 QVariantMap Gallery::get(const int &index) const
@@ -162,23 +191,9 @@ QVariantMap Gallery::get(const int &index) const
 	return FMH::toMap(this->list.at( this->mappedIndex(index)));
 }
 
-bool Gallery::update(const int &index, const QVariant &value, const int &role)
-{
-	return false;
-}
-
-bool Gallery::update(const QVariantMap &data, const int &index)
-{
-	return false;
-}
-
-bool Gallery::update(const FMH::MODEL &pic)
-{
-	return false;
-}
-
 bool Gallery::remove(const int &index)
 {
+	Q_UNUSED (index)
 	return false;
 }
 
@@ -191,7 +206,7 @@ bool Gallery::deleteAt(const int &index)
 
 	emit this->preItemRemoved(index_);
 	auto item = this->list.takeAt(index_);
-//	this->dba->deletePic(item[FMH::MODEL_KEY::URL]);
+	FMStatic::removeFiles ({item[FMH::MODEL_KEY::URL]});
 	emit this->postItemRemoved();
 
 	return true;
@@ -200,79 +215,52 @@ bool Gallery::deleteAt(const int &index)
 void Gallery::append(const QVariantMap &pic)
 {
 	emit this->preItemAppended();
-
-	for(const auto &key : pic.keys())
-		this->list << FMH::MODEL {{FMH::MODEL_NAME_KEY[key], pic[key].toString()}};
-
+	this->list << FMH::toModel (pic);
 	emit this->postItemAppended();
 }
 
 void Gallery::append(const QString &url)
 {
 	emit this->preItemAppended();
-
-
-		QFileInfo info(url);
-		auto title = info.baseName();
-		auto format = info.suffix();
-		auto sourceUrl = info.dir().path();
-
-		auto picMap = FMH::getFileInfoModel(url);
-		picMap[FMH::MODEL_KEY::URL] = url;
-		picMap[FMH::MODEL_KEY::TITLE] = title;
-		picMap[FMH::MODEL_KEY::LABEL] = title;
-		picMap[FMH::MODEL_KEY::FAV] = "0";
-		picMap[FMH::MODEL_KEY::RATE] = "0";
-		picMap[FMH::MODEL_KEY::COLOR] = QString();
-		picMap[FMH::MODEL_KEY::FORMAT] = format;
-		picMap[FMH::MODEL_KEY::DATE] =  info.birthTime().toString();
-		picMap[FMH::MODEL_KEY::SOURCE] = sourceUrl;
-
-		this->list << picMap;
-
+	this->list << FileLoader::picInfo (QUrl::fromUserInput (url));
 	emit this->postItemAppended();
-}
-
-void Gallery::refresh()
-{
-    this->setList();
 }
 
 void Gallery::clear()
 {
 	emit this->preListChanged();
-    this->list = {};
-    emit this->postListChanged();
+	this->list.clear ();
+	emit this->postListChanged();
 
-    this->m_folders = {};
-    emit foldersChanged();
+	this->m_folders.clear ();
+	emit foldersChanged();
 }
 
 void Gallery::rescan()
 {
-    this->clear();
-    this->scan(m_urls, m_recursive, m_limit);
+	this->clear();
+	this->scan(m_urls, m_recursive, m_limit);
 }
 
 void Gallery::reload()
 {
-    this->scan(m_urls, m_recursive, m_limit);
+	this->scan(m_urls, m_recursive, m_limit);
 }
 
 void Gallery::setRecursive(bool recursive)
 {
-    if (m_recursive == recursive)
-        return;
+	if (m_recursive == recursive)
+		return;
 
-    m_recursive = recursive;
-    emit recursiveChanged(m_recursive);
+	m_recursive = recursive;
+	emit recursiveChanged(m_recursive);
 }
 
 void Gallery::setlimit(int limit)
 {
-    if (m_limit == limit)
-        return;
+	if (m_limit == limit)
+		return;
 
-    m_limit = limit;
-    emit limitChanged(m_limit);
+	m_limit = limit;
+	emit limitChanged(m_limit);
 }

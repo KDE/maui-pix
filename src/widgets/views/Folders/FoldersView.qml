@@ -117,13 +117,9 @@ StackView
                                     {
                                         urls: folderPath
                                         autoReload: false
-                                        //                                autoScan: false
                                         recursive: false
                                         limit: 4
                                     }
-                                    recursiveFilteringEnabled: false
-                                    sortCaseSensitivity: Qt.CaseInsensitive
-                                    filterCaseSensitivity: Qt.CaseInsensitive
                                 }
 
                                 delegate: Rectangle
@@ -134,8 +130,8 @@ StackView
                                     Image
                                     {
                                         anchors.fill: parent
-                                        sourceSize.width: width
-                                        sourceSize.height: height
+                                        sourceSize.width: 80
+                                        sourceSize.height: 80
                                         asynchronous: true
                                         smooth: false
                                         source: model.url
@@ -162,9 +158,7 @@ StackView
                             }
                         }
                     }
-
                 }
-
 
                 Maui.ListItemTemplate
                 {
@@ -172,14 +166,8 @@ StackView
                     label1.text: model.label
                     label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
                     rightLabels.visible: true
-                    //                    label2.text: model.count
                     iconSource: model.icon
                     iconSizeHint: Maui.Style.iconSizes.small
-
-                    //                    horizontalAlignment: Qt.AlignLeft
-                    //                    font.bold: true
-                    //                    font.weight: Font.Bold
-                    //                    elide: Text.ElideMiddle
                 }
             }
         }

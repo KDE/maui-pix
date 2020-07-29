@@ -55,6 +55,21 @@ public:
 		emit this->start(urls, recursive, limit);
 	}
 
+	static FMH::MODEL picInfo(const QUrl & url)
+	{
+		const QFileInfo info(url.toLocalFile());
+		return FMH::MODEL
+		{
+			{FMH::MODEL_KEY::URL, url.toString()},
+			{FMH::MODEL_KEY::TITLE,  info.baseName()},
+			{FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+			{FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
+			{FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
+			{FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+			{FMH::MODEL_KEY::FORMAT, info.suffix()}
+		};
+	}
+
 private slots:
 	void getPics(QList<QUrl> paths, bool recursive, uint limit = 10)
 	{
@@ -77,17 +92,7 @@ private slots:
 				{
 					const auto url = QUrl::fromLocalFile(it.next());
 					urls << url;
-					const QFileInfo info(url.toLocalFile());
-					FMH::MODEL map =
-					{
-						{FMH::MODEL_KEY::URL, url.toString()},
-						{FMH::MODEL_KEY::TITLE,  info.baseName()},
-						{FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-						{FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
-						{FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
-						{FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-						{FMH::MODEL_KEY::FORMAT, info.suffix()}
-					};
+					FMH::MODEL map = picInfo(url);
 
 					emit itemReady(map);
 					res << map;
