@@ -1,4 +1,4 @@
-import QtQuick 2.15
+import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
@@ -23,6 +23,8 @@ StackView
     {
         id: foldersPage
         itemSize: Math.min(200, _stackView.width/3)
+        itemHeight: 200
+
         margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
 
         model: Maui.BaseModel
@@ -48,13 +50,27 @@ StackView
             visible: false
         }
 
-        delegate: Maui.ItemDelegate
+        delegate: CollageDelegate
         {
             id: _delegate
             property var folderPath : [model.path]
             height: foldersPage.cellHeight - Maui.Style.space.medium
             width: foldersPage.cellWidth - Maui.Style.space.medium
             isCurrentItem: GridView.isCurrentItem
+            function randomHexColor()
+            {
+               var color = '#', i = 5;
+               do{ color += "0123456789abcdef".substr(Math.random() * 16,1); }while(i--);
+               return color;
+           }
+
+            contentWidth: foldersPage.itemSize - 10
+            contentHeight: foldersPage.cellHeight - 20
+
+            list.urls: folderPath
+            template.label1.text: model.label
+            template.label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
+            template.iconSource: model.icon
 
             onClicked:
             {
@@ -81,93 +97,6 @@ StackView
                     picsView.title = folder.label
                     currentFolder = folder.path
                     picsView.list.urls = [currentFolder]
-                }
-            }
-
-            ColumnLayout
-            {
-                width: foldersPage.itemSize - 10
-                height: foldersPage.cellHeight - 20
-                anchors.centerIn: parent
-                spacing: Maui.Style.space.small
-
-                Item
-                {
-                    id: _collageLayout
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    Item
-                    {
-                        anchors.fill: parent
-
-                        GridLayout
-                        {
-                            anchors.fill: parent
-                            columns: 2
-                            rows: 2
-                            columnSpacing: 2
-                            rowSpacing: 2
-
-                            Repeater
-                            {
-                                model: Maui.BaseModel
-                                {
-                                    list: GalleryList
-                                    {
-                                        urls: folderPath
-                                        autoReload: false
-                                        recursive: false
-                                        limit: 4
-                                    }
-                                }
-
-                                delegate: Rectangle
-                                {
-                                    Layout.fillHeight: true
-                                    Layout.fillWidth: true
-                                    color: Qt.rgba(0,0,0,0.3)
-                                    Image
-                                    {
-                                        anchors.fill: parent
-                                        sourceSize.width: 80
-                                        sourceSize.height: 80
-                                        asynchronous: true
-                                        smooth: false
-                                        source: model.url
-                                        fillMode: Image.PreserveAspectCrop
-                                    }
-                                }
-                            }
-                        }
-
-                        layer.enabled: true
-                        layer.effect: OpacityMask
-                        {
-                            cached: true
-                            maskSource: Item
-                            {
-                                width: _collageLayout.width
-                                height: _collageLayout.height
-
-                                Rectangle
-                                {
-                                    anchors.fill: parent
-                                    radius: 8
-                                }
-                            }
-                        }
-                    }
-                }
-
-                Maui.ListItemTemplate
-                {
-                    Layout.fillWidth: true
-                    label1.text: model.label
-                    label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
-                    rightLabels.visible: true
-                    iconSource: model.icon
-                    iconSizeHint: Maui.Style.iconSizes.small
                 }
             }
         }
