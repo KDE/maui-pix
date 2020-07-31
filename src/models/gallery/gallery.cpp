@@ -137,17 +137,17 @@ void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &li
 
 void Gallery::scanTags(const QList<QUrl> & urls, const bool & recursive, const int & limit)
 {
-	FMH::MODEL_LIST res;
-	for(const auto &tagUrl : urls)
-	{
-			auto items = Tagging::getInstance ()->getUrls (tagUrl.toString ().replace ("tags:///", ""), true, limit, "image");
+    FMH::MODEL_LIST res;
+    for(const auto &tagUrl : urls)
+    {
+        auto items = Tagging::getInstance ()->getUrls(tagUrl.toString ().replace ("tags:///", ""), true, limit, "image");
 
-			for(const auto &item : items)
-			{
-				const auto url = QUrl(item.toMap ().value ("url").toString());
-				res << FileLoader::picInfo (url);
-			}
-	}
+        for(const auto &item : items)
+        {
+            const auto url = QUrl(item.toMap ().value ("url").toString());
+            res << FileLoader::picInfo (url);
+        }
+    }
 
 	emit this->preListChanged ();
 	list << res;

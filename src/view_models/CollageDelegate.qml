@@ -12,7 +12,6 @@ import GalleryList 1.0
 Maui.ItemDelegate
 {
     id: control
-    property var folderPath : [model.path]
     property alias list : _galleryList
     property alias template : _template
     property int contentWidth: Maui.Style.iconSizes.huge

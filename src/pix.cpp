@@ -59,11 +59,6 @@ void Pix::showInFolder(const QStringList &urls)
 		QDesktopServices::openUrl(FMH::fileDir(url));
 }
 
-QVariantList Pix::getTagUrls(const QString & tag, const int &limit)
-{
-	return Tagging::getInstance ()->getUrls (tag, true, limit, "image");
-}
-
 void Pix::addSources(const QStringList &paths)
 {
 	PIX::saveSourcePath(paths);

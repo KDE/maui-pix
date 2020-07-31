@@ -54,15 +54,17 @@ StackView
         {
             id: _delegate
             property var folderPath : [model.path]
-            height: foldersPage.cellHeight - Maui.Style.space.medium
-            width: foldersPage.cellWidth - Maui.Style.space.medium
-            isCurrentItem: GridView.isCurrentItem
+
             function randomHexColor()
             {
                var color = '#', i = 5;
                do{ color += "0123456789abcdef".substr(Math.random() * 16,1); }while(i--);
                return color;
            }
+
+            height: foldersPage.cellHeight - Maui.Style.space.medium
+            width: foldersPage.cellWidth - Maui.Style.space.medium
+            isCurrentItem: GridView.isCurrentItem
 
             contentWidth: foldersPage.itemSize - 10
             contentHeight: foldersPage.cellHeight - 20

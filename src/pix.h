@@ -56,9 +56,6 @@ public slots:
 	/*File actions*/
    static void showInFolder(const QStringList &urls);
 
-   QVariantList getTagUrls(const QString &tag, const int & limit = 9999);
-
-
 signals:
 	void refreshViews(QVariantMap tables);
 	void viewPics(QStringList pics);
