@@ -55,7 +55,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "mauimacos.h"
 #endif
 
+#ifdef Q_OS_MACOS
+#include <KF5/KI18n/KLocalizedContext>
+#else
 #include <KI18n/KLocalizedContext>
+#endif
+
 
 static const  QList<QUrl>  getFolderImages(const QString &path)
 {
