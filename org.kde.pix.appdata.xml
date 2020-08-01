@@ -77,7 +77,6 @@
   <url type="homepage">https://pix.kde.org/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=pix</url>
   <url type="donation">https://www.kde.org/community/donations</url>
-  <url type="help">https://docs.kde.org/trunk5/en/extragear-multimedia/pix/</url>
   <screenshots>
     <screenshot type="default">
       <caption>The Pix music player</caption>
