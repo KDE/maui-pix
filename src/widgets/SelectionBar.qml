@@ -44,7 +44,7 @@ MauiLab.SelectionBar
     Action
     {
         text: i18n("View")
-        icon.name: "quickview"
+        icon.name: "document-preview-archive"
         onTriggered: VIEWER.openExternalPics(control.uris, 0)
     }
 

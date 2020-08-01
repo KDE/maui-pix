@@ -40,6 +40,8 @@ StackView
         PixGrid
         {
             title: control.currentTag
+            list.urls : ["tags:///"+currentTag]
+            list.recursive: false
             holder.title: i18n("No Pics!")
             holder.body: i18n("There's no pics associated with the tag")
             holder.emojiSize: Maui.Style.iconSizes.huge
@@ -61,16 +63,6 @@ StackView
     function populateGrid(myTag)
     {
         control.push(tagsGrid)
-        control.currentItem.list.clear()
-
-        const urls = Pix.Collection.getTagUrls(myTag, true);
-        console.log(urls)
-        if(urls.length > 0)
-            for(const i in urls)
-            {
-                if(Maui.FM.checkFileType(Maui.FMList.IMAGE, urls[i].mime))
-                    control.currentItem.list.append(urls[i].url)
-            }
-
+        currentTag = myTag
     }
  }

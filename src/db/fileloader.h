@@ -49,20 +49,35 @@ public:
 		t.wait();
 	}
 
-    void requestPath(const QList<QUrl> &urls, const bool &recursive, const uint &limit)
+	void requestPath(const QList<QUrl> &urls, const bool &recursive, const uint &limit)
 	{
 		qDebug()<<"FROM file loader"<< urls;
-        emit this->start(urls, recursive, limit);
+		emit this->start(urls, recursive, limit);
+	}
+
+	static FMH::MODEL picInfo(const QUrl & url)
+	{
+		const QFileInfo info(url.toLocalFile());
+		return FMH::MODEL
+		{
+			{FMH::MODEL_KEY::URL, url.toString()},
+			{FMH::MODEL_KEY::TITLE,  info.baseName()},
+			{FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+			{FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
+			{FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
+			{FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+			{FMH::MODEL_KEY::FORMAT, info.suffix()}
+		};
 	}
 
 private slots:
-    void getPics(QList<QUrl> paths, bool recursive, uint limit = 10)
+	void getPics(QList<QUrl> paths, bool recursive, uint limit = 10)
 	{
 		qDebug()<<"GETTING IMAGES";
-        const uint m_bsize = 5000; //maximum batch size
-        uint count = 0; //total count
-        uint i = 0; //count per batch
-        uint batch = 0; //batches count
+		const uint m_bsize = 5000; //maximum batch size
+		uint count = 0; //total count
+		uint i = 0; //count per batch
+		uint batch = 0; //batches count
 		FMH::MODEL_LIST res;
 		FMH::MODEL_LIST res_batch;
 		QList<QUrl> urls;
@@ -77,23 +92,13 @@ private slots:
 				{
 					const auto url = QUrl::fromLocalFile(it.next());
 					urls << url;
-					const QFileInfo info(url.toLocalFile());
-					FMH::MODEL map =
-					{
-						{FMH::MODEL_KEY::URL, url.toString()},
-						{FMH::MODEL_KEY::TITLE,  info.baseName()},
-						{FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-						{FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
-						{FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
-						{FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-						{FMH::MODEL_KEY::FORMAT, info.suffix()}
-					};
+					FMH::MODEL map = picInfo(url);
 
 					emit itemReady(map);
 					res << map;
 					res_batch << map;
 					i++;
-                    count++;
+					count++;
 
 					if(i == m_bsize) //send a batch
 					{
@@ -103,13 +108,13 @@ private slots:
 						i = 0;
 					}
 
-                    if(count == limit)
-                        break;
+					if(count == limit)
+						break;
 				}
 			}
 
-            if(count == limit)
-                break;
+			if(count == limit)
+				break;
 		}
 		emit itemsReady(res_batch);
 		emit finished(res);
@@ -117,7 +122,7 @@ private slots:
 
 signals:
 	void finished(FMH::MODEL_LIST items);
-    void start(QList<QUrl> urls, bool recursive, uint limit);
+	void start(QList<QUrl> urls, bool recursive, uint limit);
 
 	void itemsReady(FMH::MODEL_LIST items);
 	void itemReady(FMH::MODEL item);

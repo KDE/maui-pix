@@ -1,15 +1,23 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import "../../../view_models"
-import org.kde.mauikit 1.0 as Maui
-import org.kde.kirigami 2.7 as Kirigami
+import QtQuick 2.14
+import QtQuick.Controls 2.14
+import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
 
-Maui.Page
+import org.kde.mauikit 1.2 as Maui
+import org.kde.kirigami 2.7 as Kirigami
+import org.maui.pix 1.0 as Pix
+
+import GalleryList 1.0
+
+import "../../../view_models"
+
+Maui.GridView
 {
     id: control
-    padding:0
-    title: i18n("Tags")
-    flickable: _tagsList.flickable
+    model: tagsModel
+    itemSize: Math.min(200, control.width/3)
+    itemHeight: 200
+    margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
 
     Maui.FloatingButton
     {
@@ -25,7 +33,7 @@ Maui.Page
 
     Maui.Holder
     {
-        visible: _tagsList.count === 0
+        visible: control.count === 0
         emoji: i18n("qrc:/assets/add-image.svg")
         isMask: false
         title :i18n("No Tags!")
@@ -35,56 +43,44 @@ Maui.Page
         onActionTriggered: newTagDialog.open()
     }
 
-    Maui.GridView
+
+    delegate: CollageDelegate
     {
-        id: _tagsList
-        anchors.fill: parent
-        model: tagsModel
-        itemSize: 100
-        adaptContent: true
+        id: _delegate
+        property string tag : model.tag
+        property url tagUrl : "tags:///"+model.tag
+        height: control.cellHeight - Maui.Style.space.medium
+        width: control.cellWidth- Maui.Style.space.medium
+        isCurrentItem: GridView.isCurrentItem
 
-        delegate: Maui.ItemDelegate
+        contentWidth: control.itemSize - 10
+        contentHeight: control.cellHeight - 20
+
+        list.urls: tagUrl
+
+        template.label1.text: model.tag
+        template.iconSource: model.icon
+
+        onClicked:
         {
-            id: delegate
-            isCurrentItem:  GridView.isCurrentItem
-            height: _tagsList.cellHeight
-            width: _tagsList.cellWidth
-            padding: Maui.Style.space.medium
-            background: Item {}
-
-            Maui.GridItemTemplate
+            control.currentIndex = index
+            if(Maui.Handy.singleClick)
             {
-                hovered: delegate.hovered
-                isCurrentItem: delegate.isCurrentItem
-                anchors.fill: parent
-                label1.text: model.tag
-                iconSource: model.icon
-            }
-
-            Connections
-            {
-                target: delegate
-                onClicked:
-                {
-                    _tagsList.currentIndex = index
-                    if(Maui.Handy.singleClick)
-                    {
-                        currentTag = tagsList.get(index).tag
-                        populateGrid(currentTag)
-                    }
-                }
-
-                onDoubleClicked:
-                {
-                    _tagsList.currentIndex = index
-                    if(!Maui.Handy.singleClick)
-                    {
-                        currentTag = tagsList.get(index).tag
-                        populateGrid(currentTag)
-                    }
-                }
+                currentTag = tagsList.get(index).tag
+                populateGrid(currentTag)
             }
         }
+
+        onDoubleClicked:
+        {
+            control.currentIndex = index
+            if(!Maui.Handy.singleClick)
+            {
+                currentTag = tagsList.get(index).tag
+                populateGrid(currentTag)
+            }
+        }
+
     }
 }
 
