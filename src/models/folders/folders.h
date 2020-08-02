@@ -20,10 +20,8 @@ public:
 	explicit Folders(QObject *parent = nullptr);
 	FMH::MODEL_LIST items() const override final;
 	void setFolders(const QList<QUrl> &folders);
-	QList<QUrl> folders () const
-	{
-		return m_folders;
-	}
+    QList<QUrl> folders () const;
+
 private:
 	FMH::MODEL_LIST list;
 	QList<QUrl> m_folders;

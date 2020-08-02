@@ -117,11 +117,11 @@ private slots:
 				break;
 		}
 		emit itemsReady(res_batch);
-		emit finished(res);
+        emit finished(res);
 	}
 
 signals:
-	void finished(FMH::MODEL_LIST items);
+    void finished(FMH::MODEL_LIST items);
 	void start(QList<QUrl> urls, bool recursive, uint limit);
 
 	void itemsReady(FMH::MODEL_LIST items);
