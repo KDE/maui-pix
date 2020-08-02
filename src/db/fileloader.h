@@ -37,16 +37,18 @@ class FileLoader : public QObject
 
 public:
 	FileLoader(QObject *parent = nullptr) : QObject(parent)
+      ,m_thread ( new QThread )
 	{
-		this->moveToThread(&t);
+        this->moveToThread(m_thread);
+        connect(m_thread, &QThread::finished, m_thread, &QObject::deleteLater);
 		connect(this, &FileLoader::start, this, &FileLoader::getPics);
-		this->t.start();
+        m_thread->start();
 	}
 
 	~FileLoader()
 	{
-		t.quit();
-		t.wait();
+        m_thread->quit();
+        m_thread->wait();
 	}
 
 	void requestPath(const QList<QUrl> &urls, const bool &recursive, const uint &limit)
@@ -128,7 +130,7 @@ signals:
 	void itemReady(FMH::MODEL item);
 
 private:
-	QThread t;
+    QThread *m_thread;
 
 };
 

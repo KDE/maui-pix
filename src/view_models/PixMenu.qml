@@ -136,8 +136,10 @@ Menu
             title: i18n("Delete file?")
             acceptButton.text: i18n("Accept")
             rejectButton.text: i18n("Cancel")
-            message: i18n("Are sure you want to delete %1".arg(control.model.get(index).url))
-            page.padding: Maui.Style.space.huge
+            message: i18n("Are sure you want to delete \n%1".arg(control.model.get(index).url))
+            page.padding: Maui.Style.space.big
+            template.iconSource: "emblem-warning"
+
             onRejected: close()
             onAccepted:
             {
