@@ -1,9 +1,7 @@
-QT *= qml \
-    quick \
-    svg
+QT *= qml quick svg positioning
 
 CONFIG += ordered
-CONFIG += c++17
+CONFIG += c++11
 
 TARGET = pix
 TEMPLATE = app
@@ -25,14 +23,6 @@ linux:unix:!android {
 
 } else {
 
-    android {
-        message(Building for Android)
-        QMAKE_LINK += -nostdlib++
-        ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
-        DISTFILES += $$PWD/android_files/AndroidManifest.xml
-        DEFINES *= ANDROID_OPENSSL
-     }
-
     DEFINES *= \
         COMPONENT_FM \
         COMPONENT_TAGGING \
@@ -42,7 +32,25 @@ linux:unix:!android {
     include($$PWD/3rdparty/mauikit/mauikit.pri)
 
     DEFINES += STATIC_KIRIGAMI
+
+    android {
+        message(Building for Android)
+        QMAKE_LINK += -nostdlib++
+        ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
+        DISTFILES += $$PWD/android_files/AndroidManifest.xml
+        DEFINES *= ANDROID_OPENSSL
+     }
+
+    macos {
+        message(Building for Macos)
+        LIBS += -L$$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/lib/ -lexiv2.0.27.3
+
+        INCLUDEPATH += $$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/include
+        DEPENDPATH += $$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/include
+    }
+
     win32 {
+        message(Building for Windows)
         RC_ICONS = $$PWD/windows_files/pix.ico
     }
 }
@@ -62,7 +70,8 @@ SOURCES += src/main.cpp \
     src/pix.cpp \
 #    src/db/dbactions.cpp \
     src/models/gallery/gallery.cpp \
-    src/models/folders/folders.cpp
+    src/models/folders/folders.cpp \
+    src/models/picinfomodel.cpp
 
 HEADERS += \
     src/pix.h \
@@ -70,7 +79,8 @@ HEADERS += \
 #    src/db/dbactions.h \
     src/utils/pic.h \
     src/models/gallery/gallery.h \
-    src/models/folders/folders.h
+    src/models/folders/folders.h \
+    src/models/picinfomodel.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -84,4 +94,3 @@ RESOURCES += \
 INCLUDEPATH += src/
 
 include(install.pri)
-

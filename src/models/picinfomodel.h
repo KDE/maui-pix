@@ -3,7 +3,13 @@
 
 #include <QObject>
 #include <QAbstractListModel>
+
+#ifdef STATIC_MAUIKIT
+#include "mauilist.h"
+#else
 #include <MauiKit/mauilist.h>
+#endif
+
 #include <QFileInfo>
 
 class ReverseGeoCoder;
