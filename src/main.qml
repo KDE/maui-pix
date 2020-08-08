@@ -285,8 +285,9 @@ Maui.ApplicationWindow
         title: i18n("Delete files?")
         acceptButton.text: i18n("Accept")
         rejectButton.text: i18n("Cancel")
-        message: i18n("Are sure you want to delete %1 files").arg(selectionBox.count)
-        page.padding: Maui.Style.space.huge
+        message: i18n("Are sure you want to delete %1 files", String(selectionBox.count))
+        page.margins: Maui.Style.space.big
+        template.iconSource: "emblem-warning"
         onRejected: close()
         onAccepted:
         {

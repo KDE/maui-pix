@@ -121,6 +121,7 @@ Maui.SettingsDialog
     Maui.SettingsSection
     {
         title: i18n("Viewer")
+        description: i18n("Adjust the viewer panels and settings")
 
         Switch
         {
@@ -154,13 +155,17 @@ Maui.SettingsDialog
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: Math.min(500, contentHeight)
-                model: Pix.Collection.sources
+                model: Pix.Collection.sourcesModel
                 delegate: Maui.ListDelegate
                 {
                     width: parent.width
-                    iconName: "folder"
-                    iconSize: Maui.Style.iconSizes.small
-                    label: modelData
+                    implicitHeight: Maui.Style.rowHeight * 1.2
+                    leftPadding: 0
+                    rightPadding: 0
+                    template.iconSource: modelData.icon
+                    template.iconSizeHint: Maui.Style.iconSizes.small
+                    template.label1.text: modelData.label
+                    template.label2.text: modelData.path
                     onClicked: _sourcesList.currentIndex = index
                 }
             }

@@ -38,15 +38,15 @@ using namespace std;
 class Pix : public QObject
 {
 	Q_OBJECT
-	Q_PROPERTY(QStringList sources READ sources NOTIFY sourcesChanged FINAL)
+    Q_PROPERTY(QVariantList sourcesModel READ sourcesModel NOTIFY sourcesChanged FINAL)
+    Q_PROPERTY(QStringList sources READ sources NOTIFY sourcesChanged FINAL)
+
 public:
 	explicit Pix(QObject* parent = nullptr);
 
 public slots:
-	QStringList sources() const
-	{
-		return PIX::getSourcePaths();
-	}
+    QVariantList sourcesModel() const;
+    QStringList sources() const;
 
 	void addSources(const QStringList &paths);
 	void removeSources(const QString &path);

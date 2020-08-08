@@ -42,9 +42,25 @@ Pix::Pix(QObject *parent) : QObject(parent)
 	qDebug() << "Getting settings info from: " << PIX::SettingPath;
 }
 
+QVariantList Pix::sourcesModel() const
+{
+    QVariantList res;
+    const auto sources = PIX::getSourcePaths();
+    return std::accumulate(sources.constBegin(), sources.constEnd(), res, [](QVariantList &res, const QString &url)
+    {
+        res << FMH::getDirInfo(url);
+        return res;
+    });
+}
+
+QStringList Pix::sources() const
+{
+    return PIX::getSourcePaths();
+}
+
 void Pix::openPics(const QList<QUrl> &pics)
 {
-	emit this->viewPics(QUrl::toStringList(pics));
+    emit this->viewPics(QUrl::toStringList(pics));
 }
 
 void Pix::refreshCollection()

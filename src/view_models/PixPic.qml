@@ -32,11 +32,12 @@ Maui.ItemDelegate
     Maui.GridItemTemplate
     {
         id: _template
-        maskRadius: control.radius
-        isCurrentItem: control.isCurrentItem
         anchors.fill: parent
         anchors.margins: 1
-        iconSizeHint: labelsVisible ? height * 0.7 : height
+
+        maskRadius: control.radius
+        isCurrentItem: control.isCurrentItem       
+        iconSizeHint: labelsVisible ? height * 0.6 : height
         imageHeight: height
         imageWidth: height
         label1.text: model.title
