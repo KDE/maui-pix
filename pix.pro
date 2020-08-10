@@ -1,7 +1,7 @@
 QT *= qml quick svg positioning
 
 CONFIG += ordered
-CONFIG += c++11
+CONFIG += c++17
 
 TARGET = pix
 TEMPLATE = app
@@ -43,6 +43,8 @@ linux:unix:!android {
 
     macos {
         message(Building for Macos)
+        ICON = $$PWD/macos_files/pix.icns
+
         LIBS += -L$$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/lib/ -lexiv2.0.27.3
 
         INCLUDEPATH += $$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/include
@@ -68,7 +70,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += src/main.cpp \
     src/pix.cpp \
-#    src/db/dbactions.cpp \
     src/models/gallery/gallery.cpp \
     src/models/folders/folders.cpp \
     src/models/picinfomodel.cpp
@@ -76,7 +77,6 @@ SOURCES += src/main.cpp \
 HEADERS += \
     src/pix.h \
     src/db/fileloader.h \
-#    src/db/dbactions.h \
     src/utils/pic.h \
     src/models/gallery/gallery.h \
     src/models/folders/folders.h \

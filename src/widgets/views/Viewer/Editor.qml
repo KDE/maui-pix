@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.0 as Maui
 import org.kde.mauikit 1.1 as MauiLab
-import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
+//import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
 
 Maui.Page
 {
@@ -157,42 +157,42 @@ Maui.Page
     }
 
 
-    KQuickImageEditor.ImageDocument
-    {
-        id: imageDoc
-        path: control.url
-    }
+//    KQuickImageEditor.ImageDocument
+//    {
+//        id: imageDoc
+//        path: control.url
+//    }
 
 
     Flickable
     {
         anchors.fill: parent
-        KQuickImageEditor.ImageItem
-        {
-            id: editImage
-            fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
-            image: imageDoc.image
-            anchors.fill: parent
-        }
+//        KQuickImageEditor.ImageItem
+//        {
+//            id: editImage
+//            fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
+//            image: imageDoc.image
+//            anchors.fill: parent
+//        }
     }
 
-    KQuickImageEditor.ResizeRectangle
-    {
-        id: resizeRectangle
-        visible: control.resizing
+//    KQuickImageEditor.ResizeRectangle
+//    {
+//        id: resizeRectangle
+//        visible: control.resizing
 
-        width: editImage.width
-        height: editImage.height
-        x: 0
-        y: 0
+//        width: editImage.width
+//        height: editImage.height
+//        x: 0
+//        y: 0
 
-//        insideX: 100
-//        insideY: 100
-//        insideWidth: 100
-//        insideHeight: 100
+////        insideX: 100
+////        insideY: 100
+////        insideWidth: 100
+////        insideHeight: 100
 
-        onAcceptSize: control.crop();
-    }
+//        onAcceptSize: control.crop();
+//    }
 
     function crop()
     {
