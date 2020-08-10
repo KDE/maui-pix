@@ -14,106 +14,130 @@ Maui.SettingsDialog
         title: i18n("Behavior")
         description: i18n("Configure the app behaviour.")
 
-        Switch
+        Maui.SettingTemplate
         {
-            checkable: true
-            checked: root.autoScan
-            Kirigami.FormData.label: i18n("Auto Scan on startup")
-            onToggled:
+            label1.text: i18n("Auto Scan")
+            label2.text: i18n("Gathers album and artists artwoks from online services")
+
+            Switch
             {
-                root.autoScan = !root.autoScan
-                Maui.FM.saveSettings("AUTOSCAN", fitPreviews, "SETTINGS")
+                checkable: true
+                checked: root.autoScan
+                onToggled:
+                {
+                    root.autoScan = !root.autoScan
+                    Maui.FM.saveSettings("AUTOSCAN", root.autoScan, "SETTINGS")
+                }
             }
         }
 
-        Switch
+        Maui.SettingTemplate
         {
-            checkable: true
-            checked: root.autoScan
-            Kirigami.FormData.label: i18n("Auto reaload on changes")
-            onToggled:
+            label1.text: i18n("Auto Reload")
+            label2.text: i18n("Gathers album and artists artwoks from online services")
+
+            Switch
             {
-                root.autoReload = !root.autoReload
-                Maui.FM.saveSettings("AUTORELOAD", autoReload, "SETTINGS")
+                checkable: true
+                checked: root.autoScan
+                onToggled:
+                {
+                    root.autoReload = !root.autoReload
+                    Maui.FM.saveSettings("AUTORELOAD", autoReload, "SETTINGS")
+                }
             }
         }
-
     }
+
     Maui.SettingsSection
     {
         title: i18n("Collection")
         description: i18n("Configure the app plugins and look & feel.")
 
-        Switch
+        Maui.SettingTemplate
         {
-            //                        visible: false //TODO to fix
-            icon.name: "image-preview"
-            checkable: true
-            checked: root.fitPreviews
-            Kirigami.FormData.label: i18n("Fit previews")
-            onToggled:
+            label1.text: i18n("Fit")
+            label2.text: i18n("Fit or fill the previews")
+
+            Switch
             {
-                root.fitPreviews = !root.fitPreviews
-                Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
+                //                        visible: false //TODO to fix
+                icon.name: "image-preview"
+                checkable: true
+                checked: root.fitPreviews
+                onToggled:
+                {
+                    root.fitPreviews = !root.fitPreviews
+                    Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
+                }
             }
         }
 
-        Switch
+        Maui.SettingTemplate
         {
-            Kirigami.FormData.label: i18n("Show labels")
-            checkable: true
-            checked: root.showLabels
-            onToggled:
+            label1.text: i18n("Titles")
+            label2.text: i18n("Show titles of the images")
+
+            Switch
             {
-                root.showLabels = !root.showLabels
-                Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
+                checkable: true
+                checked: root.showLabels
+                onToggled:
+                {
+                    root.showLabels = !root.showLabels
+                    Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
+                }
             }
         }
 
-        Maui.ToolActions
+        Maui.SettingTemplate
         {
-            id: _gridIconSizesGroup
-            Kirigami.FormData.label: i18n("Preview Size")
-            Layout.fillWidth: true
-            expanded: true
-            autoExclusive: true
-            display: ToolButton.TextOnly
+            label1.text: i18n("Preview Size")
+            label2.text: i18n("Gathers album and artists artwoks from online services")
 
-            Binding on currentIndex
+            Maui.ToolActions
             {
-                value:  switch(root.previewSize)
-                        {
-                        case previewSizes.small: return 0;
-                        case previewSizes.medium: return 1;
-                        case previewSizes.large: return 2;
-                        case previewSizes.extralarge: return 3;
-                        default: return -1;
-                        }
-                restoreMode: Binding.RestoreValue
-            }
+                id: _gridIconSizesGroup
+                expanded: true
+                autoExclusive: true
+                display: ToolButton.TextOnly
 
-            Action
-            {
-                text: i18n("S")
-                onTriggered: setPreviewSize(previewSizes.small)
-            }
+                Binding on currentIndex
+                {
+                    value:  switch(root.previewSize)
+                            {
+                            case previewSizes.small: return 0;
+                            case previewSizes.medium: return 1;
+                            case previewSizes.large: return 2;
+                            case previewSizes.extralarge: return 3;
+                            default: return -1;
+                            }
+                    restoreMode: Binding.RestoreValue
+                }
 
-            Action
-            {
-                text: i18n("M")
-                onTriggered: setPreviewSize(previewSizes.medium)
-            }
+                Action
+                {
+                    text: i18n("S")
+                    onTriggered: setPreviewSize(previewSizes.small)
+                }
 
-            Action
-            {
-                text: i18n("X")
-                onTriggered: setPreviewSize(previewSizes.large)
-            }
+                Action
+                {
+                    text: i18n("M")
+                    onTriggered: setPreviewSize(previewSizes.medium)
+                }
 
-            Action
-            {
-                text: i18n("XL")
-                onTriggered: setPreviewSize(previewSizes.extralarge)
+                Action
+                {
+                    text: i18n("X")
+                    onTriggered: setPreviewSize(previewSizes.large)
+                }
+
+                Action
+                {
+                    text: i18n("XL")
+                    onTriggered: setPreviewSize(previewSizes.extralarge)
+                }
             }
         }
     }
@@ -123,20 +147,30 @@ Maui.SettingsDialog
         title: i18n("Viewer")
         description: i18n("Adjust the viewer panels and settings")
 
-        Switch
+        Maui.SettingTemplate
         {
-            Kirigami.FormData.label: i18n("Show tag bar")
-            checkable: true
-            checked: pixViewer.tagBarVisible
-            onToggled: pixViewer.toogleTagbar()
+            label1.text: i18n("Tag Bar")
+            label2.text: i18n("Gathers album and artists artwoks from online services")
+
+            Switch
+            {
+                checkable: true
+                checked: pixViewer.tagBarVisible
+                onToggled: pixViewer.toogleTagbar()
+            }
         }
 
-        Switch
+        Maui.SettingTemplate
         {
-            Kirigami.FormData.label: i18n("Show preview bar")
-            checkable: true
-            checked: pixViewer.roll.visible
-            onToggled: pixViewer.tooglePreviewBar()
+            label1.text: i18n("Preview Bar")
+            label2.text: i18n("Gathers album and artists artwoks from online services")
+
+            Switch
+            {
+                checkable: true
+                checked: pixViewer.roll.visible
+                onToggled: pixViewer.tooglePreviewBar()
+            }
         }
     }
 
@@ -147,7 +181,7 @@ Maui.SettingsDialog
 
         ColumnLayout
         {
-            anchors.fill: parent
+            Layout.fillWidth: true
 
             Maui.ListBrowser
             {
