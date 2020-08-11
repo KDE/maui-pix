@@ -61,7 +61,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <KI18n/KLocalizedContext>
 #endif
 
-
 static const  QList<QUrl>  getFolderImages(const QString &path)
 {
 	QList<QUrl> urls;
