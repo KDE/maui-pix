@@ -167,14 +167,15 @@ MauiLab.AltBrowser
     Connections
     {
         target: control.currentView
+        ignoreUnknownSignals: true
 
-        onItemsSelected:
+        function onItemsSelected(indexes)
         {
             for(var i in indexes)
                 PIX.selectItem(pixModel.get(indexes[i]))
         }
 
-        onKeyPress:
+        function onKeyPress(event)
         {
             const index = control.currentIndex
             const item = control.model.get(index)
@@ -253,7 +254,9 @@ MauiLab.AltBrowser
     Connections
     {
         target: selectionBox
-        onUriRemoved:
+        ignoreUnknownSignals: true
+
+        function onUriRemoved(uri)
         {
             if(uri === model.url)
             {
@@ -261,7 +264,7 @@ MauiLab.AltBrowser
             }
         }
 
-        onUriAdded:
+        function onUriAdded(uri)
         {
             if(uri === model.url)
             {
@@ -269,7 +272,10 @@ MauiLab.AltBrowser
             }
         }
 
-        onCleared: _listDelegate.checked = false
+        function onCleared()
+        {
+            _listDelegate.checked = false
+        }
     }
 }
 
@@ -330,7 +336,9 @@ gridDelegate: PixPic
     Connections
     {
         target: selectionBox
-        onUriRemoved:
+        ignoreUnknownSignals: true
+
+        function onUriRemoved(uri)
         {
             if(uri === model.url)
             {
@@ -338,7 +346,7 @@ gridDelegate: PixPic
             }
         }
 
-        onUriAdded:
+        function onUriAdded(uri)
         {
             if(uri === model.url)
             {
@@ -346,7 +354,10 @@ gridDelegate: PixPic
             }
         }
 
-        onCleared: _gridDelegate.checked = false
+        function onCleared()
+        {
+             _gridDelegate.checked = false
+        }
     }
 }
 

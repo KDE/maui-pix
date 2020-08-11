@@ -83,7 +83,7 @@ Menu
 
     MenuItem
     {
-        visible: !isAndroid
+        visible: !Maui.Handy.isAndroid
         text: i18n("Show in folder")
         icon.name: "folder-open"
         onTriggered:
@@ -95,7 +95,6 @@ Menu
 
     MenuItem
     {
-        visible: !isAndroid
         text: i18n("Info")
         icon.name: "documentinfo"
         onTriggered:
