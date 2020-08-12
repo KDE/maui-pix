@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: BSD-3-Clause
 # - Find libssh
 # Find the native SSH headers and libraries.
 #
@@ -14,7 +15,7 @@ FIND_PATH(SSH_INCLUDE_DIR NAMES libssh/libssh.h)
 # Look for the library.
 FIND_LIBRARY(SSH_LIBRARY NAMES ssh libssh)
 
-# handle the QUIETLY and REQUIRED arguments and set SSH_FOUND to TRUE if 
+# handle the QUIETLY and REQUIRED arguments and set SSH_FOUND to TRUE if
 # all listed variables are TRUE
 INCLUDE(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(SSH DEFAULT_MSG SSH_LIBRARY SSH_INCLUDE_DIR)

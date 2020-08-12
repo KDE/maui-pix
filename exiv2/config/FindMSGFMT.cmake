@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: BSD-3-Clause
 # - FindMSGFMT.cmake for Hugin 0.7
 # file taken from rosegarden
 #
@@ -14,7 +15,7 @@
 #  ADD_TRANSLATIONS
 #
 # mod for Windows build 07Nov2007 TKSharpless --
-#   look in C:\MinGW after std. Unix places, that's where 
+#   look in C:\MinGW after std. Unix places, that's where
 #   gettext automatically installed itself on my system.
 # TODO find where else on Windows, Mac, etc gettext might be
 #

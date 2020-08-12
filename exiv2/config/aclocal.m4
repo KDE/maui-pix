@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 # libtool.m4 - Configure libtool for the host system. -*-Autoconf-*-
 #
 #   Copyright (C) 1996, 1997, 1998, 1999, 2000, 2001, 2003, 2004, 2005,
@@ -7915,7 +7917,7 @@ m4_define([lt_dict_filter],
 # included after everything else.  This provides aclocal with the
 # AC_DEFUNs it wants, but when m4 processes it, it doesn't do anything
 # because those macros already exist, or will be overwritten later.
-# We use AC_DEFUN over AU_DEFUN for compatibility with aclocal-1.6. 
+# We use AC_DEFUN over AU_DEFUN for compatibility with aclocal-1.6.
 #
 # Anytime we withdraw an AC_DEFUN or AU_DEFUN, remember to add it here.
 # Yes, that means every name once taken will need to remain here until
@@ -8036,7 +8038,7 @@ then
 	ZLIB_OLD_CPPFLAGS=$CPPFLAGS
 	#
 	# Adding /usr/lib or /usr/include to the flags/libs may
-	# hurt if using a compiler not installed in the standard 
+	# hurt if using a compiler not installed in the standard
 	# place.
 	#
         if test "${ZLIB_HOME}" != "/usr"

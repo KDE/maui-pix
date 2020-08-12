@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Generated from ltmain.m4sh.
 
 # ltmain.sh (GNU libtool) 2.2.6

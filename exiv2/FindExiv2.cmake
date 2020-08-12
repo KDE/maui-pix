@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: BSD-3-Clause
 # - Try to find the Exiv2 library
 #
 #  EXIV2_MIN_VERSION - You can set this variable to the minimum version you need

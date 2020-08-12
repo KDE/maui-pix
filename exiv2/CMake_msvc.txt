@@ -1,4 +1,10 @@
-#if (MSVC) 
+# Copyright 2018-2020 Camilo Higuita <milo.h@aol.com>
+# Copyright 2018-2020 Nitrux Latinoamericana S.C.
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+
+#if (MSVC)
 #	set_property(TARGET tgt PROPERTY CXX_STANDARD 11)
 #endif()
 
@@ -45,7 +51,7 @@ macro(msvc_runtime_configure bDynamic bDynamicRuntime)
         set(${variable} "${${variable}} /DXML_STATIC /D_LIB")
       endforeach()
     endif()
-    
+
     # remove /Ob2 and /Ob1 - they cause linker issues
     set(obs /Ob2 /Ob1)
     foreach(ob ${obs})

@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+
+# SPDX-License-Identifier: LGPL-2.0-or-later
+
 ##
 # tee.py
 # This little script was an effort tsort the dependancies
@@ -21,7 +24,7 @@ class GraphError(Exception):
 def tsort(partials):
     """
       Copyright Nathan Hurst 2001
-      Licenced under the LGNU GPL.  see COPYING for details.
+      Licenced under the LGNU GPL. see COPYING for details.
     """
     preds = {}
     succs = {}

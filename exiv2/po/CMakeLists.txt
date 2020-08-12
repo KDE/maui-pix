@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: BSD-3-Clause
 # CMake build system for exiv2 library and executables
 # Copyright 2008      by Patrick Spendrin <ps_ml@gmx.de>
 # Copyright 2010-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -22,7 +23,7 @@ ADD_CUSTOM_TARGET( pot-update
                                     -D ${CMAKE_CURRENT_SOURCE_DIR}/..
                                     -o ${PACKAGE_NAME}.pot
                                     -p ${CMAKE_CURRENT_SOURCE_DIR}/
-                                    --from-code=UTF-8 
+                                    --from-code=UTF-8
                                     --files-from=POTFILES.in
                                     -j
                                     --keyword=_

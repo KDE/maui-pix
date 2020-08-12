@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: BSD-3-Clause
 # CMake build system for exiv2 library and executables
 # Copyright 2012-     Robin Mills      <robin@clanmills.com>
 # Copyright 2010-2012 Gilles Caulier   <caulier dot gilles at gmail dot com>
