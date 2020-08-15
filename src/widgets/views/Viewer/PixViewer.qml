@@ -237,13 +237,14 @@ StackView
                     target: dialog
                     ignoreUnknownSignals: true
                     enabled: dialogLoader.sourceComponent === tagsDialogComponent
-                    onTagsReady: tagBar.list.refresh()
+                    function onTagsReady()
+                    {
+                        tagBar.list.refresh()
+                    }
                 }
             }
         }
-
     }
-
 
     function toogleTagbar()
     {

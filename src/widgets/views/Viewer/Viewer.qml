@@ -82,13 +82,8 @@ Item
             {
                 id: delegate
 
-                Connections
-                {
-                    target: delegate
-
-                    onPressAndHold: _picMenu.popup()
-                    onRightClicked: _picMenu.popup()
-                }
+                onPressAndHold: _picMenu.popup()
+                onRightClicked: _picMenu.popup()
             }
         }
     }
