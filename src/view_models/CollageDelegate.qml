@@ -24,6 +24,8 @@ Maui.ItemDelegate
         return color;
     }
 
+    background: Item {}
+
     ColumnLayout
     {
         width: control.contentWidth
@@ -109,12 +111,43 @@ Maui.ItemDelegate
             }
         }
 
-        Maui.ListItemTemplate
+        Item
         {
-            id: _template
             Layout.fillWidth: true
-            rightLabels.visible: true
-            iconSizeHint: Maui.Style.iconSizes.small
+            Layout.preferredHeight: Maui.Style.rowHeight
+
+            Rectangle
+            {
+                width: parent.width
+                height: parent.height
+                anchors.centerIn: parent
+                Behavior on color
+                {
+                    ColorAnimation
+                    {
+                        duration: Kirigami.Units.longDuration
+                    }
+                }
+
+                color: control.isCurrentItem || control.hovered ? Qt.rgba(control.Kirigami.Theme.highlightColor.r, control.Kirigami.Theme.highlightColor.g, control.Kirigami.Theme.highlightColor.b, 0.2) : control.Kirigami.Theme.backgroundColor
+
+                radius: Maui.Style.radiusV
+                border.color: control.isCurrentItem ? control.Kirigami.Theme.highlightColor : "transparent"
+            }
+
+
+            Maui.ListItemTemplate
+            {
+                id: _template
+                isCurrentItem: control.isCurrentItem
+                anchors.fill: parent
+//                label1.color: control.isCurrentItem ? control.Kirigami.Theme.highlightColor : control.Kirigami.Theme.textColor
+
+                rightLabels.visible: true
+                iconSizeHint: Maui.Style.iconSizes.small
+            }
         }
+
+
     }
 }

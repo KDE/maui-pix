@@ -104,18 +104,7 @@ Menu
         }
     }
 
-    //    Maui.MenuItem
-    //    {
-    //        text: i18n("Copy")
-    //        onTriggered:
-    //        {
-    //            Maui.Handy.copyToClipboard(paths.join(","))
-    //            control.close()
-    //        }
-    //    }
-
     MenuSeparator{}
-
 
     MenuItem
     {
@@ -146,7 +135,5 @@ Menu
                 close()
             }
         }
-
     }
-
 }

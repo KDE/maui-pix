@@ -30,6 +30,7 @@ MauiLab.AltBrowser
     enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
 
     gridView.itemSize : control.itemSize
+    gridView.itemHeight: showLabels ? control.itemSize * 1.5 : control.itemSize
     gridView.margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
 
     listView.topMargin: Maui.Style.contentMargins
@@ -356,7 +357,7 @@ gridDelegate: PixPic
 
         function onCleared()
         {
-             _gridDelegate.checked = false
+            _gridDelegate.checked = false
         }
     }
 }
