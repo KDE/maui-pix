@@ -38,7 +38,6 @@ import "view_models"
 import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
 
-import TagsModel 1.0
 import TagsList 1.0
 
 Maui.ApplicationWindow
@@ -301,7 +300,7 @@ Maui.ApplicationWindow
     Loader { id: dialogLoader }
 
     /***MODELS****/
-    TagsModel
+    Maui.BaseModel
     {
         id: tagsModel
         list: TagsList

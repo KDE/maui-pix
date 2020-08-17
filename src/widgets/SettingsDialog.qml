@@ -17,7 +17,7 @@ Maui.SettingsDialog
         Maui.SettingTemplate
         {
             label1.text: i18n("Auto Scan")
-            label2.text: i18n("Gathers album and artists artwoks from online services")
+            label2.text: i18n("Scan the collection sources on startup")
 
             Switch
             {
@@ -34,7 +34,7 @@ Maui.SettingsDialog
         Maui.SettingTemplate
         {
             label1.text: i18n("Auto Reload")
-            label2.text: i18n("Gathers album and artists artwoks from online services")
+            label2.text: i18n("Watch for changes in the collection sources")
 
             Switch
             {
@@ -57,7 +57,7 @@ Maui.SettingsDialog
         Maui.SettingTemplate
         {
             label1.text: i18n("Fit")
-            label2.text: i18n("Fit or fill the previews")
+            label2.text: i18n("Fit the previews")
 
             Switch
             {
@@ -93,7 +93,7 @@ Maui.SettingsDialog
         Maui.SettingTemplate
         {
             label1.text: i18n("Preview Size")
-            label2.text: i18n("Gathers album and artists artwoks from online services")
+            label2.text: i18n("Size of the thumbnails in the collection navigation views")
 
             Maui.ToolActions
             {
@@ -150,7 +150,7 @@ Maui.SettingsDialog
         Maui.SettingTemplate
         {
             label1.text: i18n("Tag Bar")
-            label2.text: i18n("Gathers album and artists artwoks from online services")
+            label2.text: i18n("Easy access to add, remove and modify tags to the current image")
 
             Switch
             {
@@ -163,7 +163,7 @@ Maui.SettingsDialog
         Maui.SettingTemplate
         {
             label1.text: i18n("Preview Bar")
-            label2.text: i18n("Gathers album and artists artwoks from online services")
+            label2.text: i18n("Show thumnail previews in the image viewer")
 
             Switch
             {

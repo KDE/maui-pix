@@ -145,7 +145,8 @@ void Gallery::scanTags(const QList<QUrl> & urls, const bool & recursive, const i
         for(const auto &item : items)
         {
             const auto url = QUrl(item.toMap ().value ("url").toString());
-            res << FileLoader::picInfo (url);
+            if(FMH::fileExists(url))
+                res << FileLoader::picInfo (url);
         }
     }
 
