@@ -11,7 +11,7 @@
 #include <MauiKit/mauilist.h>
 #endif
 
-#define MAX_LIMIT 20000
+#define PIX_QUERY_MAX_LIMIT 20000
 
 class QFileSystemWatcher;
 class FileLoader;
@@ -58,8 +58,8 @@ private:
 
 	FMH::MODEL_LIST list = {};
 
-	void scan(const QList<QUrl> &urls, const bool &recursive = true, const int &limit = MAX_LIMIT);
-	void scanTags(const QList<QUrl> &urls, const bool &recursive = true, const int &limit = MAX_LIMIT);
+    void scan(const QList<QUrl> &urls, const bool &recursive = true, const int &limit = PIX_QUERY_MAX_LIMIT);
+    void scanTags(const QList<QUrl> &urls, const bool &recursive = true, const int &limit = PIX_QUERY_MAX_LIMIT);
 
 	void insert(const FMH::MODEL_LIST &items);
 
@@ -67,7 +67,7 @@ private:
 
 	bool m_recursive;
 
-	int m_limit = MAX_LIMIT;
+    int m_limit = PIX_QUERY_MAX_LIMIT;
 	QList<QUrl> extractTags(const QList<QUrl> &urls);
 signals:
 	void urlsChanged();
