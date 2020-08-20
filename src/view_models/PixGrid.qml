@@ -27,7 +27,7 @@ MauiLab.AltBrowser
     padding: 0
     showTitle: false
 
-    enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
+//    enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
 
     gridView.itemSize : control.itemSize
     gridView.itemHeight: showLabels ? control.itemSize * 1.5 : control.itemSize
@@ -320,7 +320,6 @@ gridDelegate: PixPic
     onPressAndHold:
     {
         control.currentIndex = index
-        _picMenu.popup()
     }
 
     onRightClicked:
@@ -328,6 +327,7 @@ gridDelegate: PixPic
         control.currentIndex = index
         _picMenu.popup()
     }
+
     onToggled:
     {
         control.currentIndex = index
