@@ -136,12 +136,11 @@ StackView
             id: holder
             visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
 
-            emoji: viewer.count === 0 ? "qrc:/assets/add-image.svg" : "qrc:/assets/animat-image-color.gif"
+            emoji: "qrc:/assets/add-image.svg"
             isMask: true
-            isGif : viewer.currentItem.status !== Image.Ready
-            title : viewer.count === 0 ? i18n("No Pics!") : i18n("Loading...")
-            body: viewer.count === 0 ? i18n("Open an image from your collection") : i18n("Your pic is almost ready")
-            emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
+            title : i18n("No Pics!")
+            body: i18n("Open an image from your collection")
+            emojiSize: Maui.Style.iconSizes.huge
         }
 
         ColumnLayout

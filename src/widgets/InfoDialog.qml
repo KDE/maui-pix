@@ -70,12 +70,9 @@ Maui.Dialog
     {
         Layout.fillWidth: true
     }
-    ListView
-    {
-        Layout.preferredHeight: contentHeight
-        Layout.fillWidth: true
-        Layout.margins: 0
-        spacing: 0
+
+    Repeater
+    {        
         model: Maui.BaseModel
         {
             list: Pix.PicInfoModel
@@ -84,11 +81,11 @@ Maui.Dialog
             }
         }
 
-        delegate: Maui.AlternateListItem
+         Maui.AlternateListItem
         {
             visible: model.value.length
-            width: visible ? parent.width : 0
-            height: visible ? _delegateColumnInfo.implicitHeight + Maui.Style.space.large : 0
+            Layout.fillWidth: true
+            implicitHeight: visible ? _delegateColumnInfo.implicitHeight + Maui.Style.space.large : 0
 
             alt: index % 2 === 0
 
