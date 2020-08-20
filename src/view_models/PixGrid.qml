@@ -27,7 +27,8 @@ MauiLab.AltBrowser
     padding: 0
     showTitle: false
 
-//    enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
+    //    enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
+    enableLassoSelection: true
 
     gridView.itemSize : control.itemSize
     gridView.itemHeight: showLabels ? control.itemSize * 1.5 : control.itemSize
