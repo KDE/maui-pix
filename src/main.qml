@@ -44,6 +44,7 @@ Maui.ApplicationWindow
 {
     id: root
     title: i18n("Pix")
+    Maui.App.enableCSD: true
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 
     property alias dialog : dialogLoader.item
