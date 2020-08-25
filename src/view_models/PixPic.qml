@@ -24,7 +24,7 @@ Maui.ItemDelegate
     ToolTip.visible: control.hovered
     ToolTip.text: model.url
 
-    radius: labelsVisible ? Maui.Style.radiusV : 4
+    radius: Maui.Style.radiusV
 
     draggable: true
     background: Item {}
