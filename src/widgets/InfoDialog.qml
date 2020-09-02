@@ -15,10 +15,9 @@ Maui.Dialog
     maxHeight: 800
     maxWidth: 500
     defaultButtons: false
-    page.title: _infoModel.fileName
+    title: _infoModel.fileName
     headBar.visible: true
     spacing: 0
-
 
     Rectangle
     {
@@ -72,7 +71,7 @@ Maui.Dialog
     }
 
     Repeater
-    {        
+    {
         model: Maui.BaseModel
         {
             list: Pix.PicInfoModel
@@ -81,12 +80,12 @@ Maui.Dialog
             }
         }
 
-         Maui.AlternateListItem
+        Maui.AlternateListItem
         {
             visible: model.value.length
             Layout.fillWidth: true
             implicitHeight: visible ? _delegateColumnInfo.implicitHeight + Maui.Style.space.large : 0
-
+            lastOne: index === _infoModel.count-1
             alt: index % 2 === 0
 
             Maui.ListItemTemplate
