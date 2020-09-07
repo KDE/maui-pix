@@ -21,7 +21,7 @@ function view(index)
     pixViewer.currentPic = pixViewer.model.get(pixViewer.currentPicIndex)
 
     pixViewer.currentPicFav = Maui.FM.isFav(pixViewer.currentPic.url)
-    root.title = pixViewer.currentPic.title
+//    root.title = pixViewer.currentPic.title
     swipeView.currentIndex = views.viewer
     pixViewer.roll.position(pixViewer.currentPicIndex)
 }

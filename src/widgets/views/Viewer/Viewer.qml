@@ -45,24 +45,20 @@ Item
         snapMode: ListView.SnapOneItem
         cacheBuffer: width * 3
 
-        keyNavigationEnabled : true
-        keyNavigationWraps : true
         Keys.onPressed:
         {
             if((event.key == Qt.Key_Right))
             {
-                viewerList.incrementCurrentIndex()
-                VIEWER.view(currentIndex)
+                VIEWER.next()
             }
 
             if((event.key == Qt.Key_Left))
             {
-                viewerList.decrementCurrentIndex()
-                VIEWER.view(currentIndex)
+                VIEWER.previous()
             }
         }
 
-        onCurrentIndexChanged:viewerList.forceActiveFocus()
+        onCurrentIndexChanged: viewerList.forceActiveFocus()
 
         onMovementEnded:
         {

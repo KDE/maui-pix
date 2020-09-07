@@ -55,7 +55,6 @@ StackView
             model: control.model
         }
 
-
         footBar.visible: !holder.visible
         autoHideFooter: true
         autoHideFooterMargins: control.height
@@ -108,8 +107,7 @@ StackView
             }
 
             Action
-            {
-                text: i18n("Favorite")
+            {                text: i18n("Favorite")
 
                 icon.name: "love"
                 checked: pixViewer.currentPicFav
@@ -156,24 +154,16 @@ StackView
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                MouseArea
+                TapHandler
                 {
-                    width: parent.width
-                    height: parent.height * 0.3
-                    anchors.bottom: parent.bottom
-                    propagateComposedEvents: true
+                    grabPermissions: PointerHandler.CanTakeOverFromAnything
+                    acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-                    onPressed:
+                    onSingleTapped:
                     {
                         galleryRollBg.toogle()
-                        root.headBar.visible = !root.headBar.visible
-                        control.footBar.visible = !control.footBar.visible
+//                        root.headBar.visible = !root.headBar.visible
                         viewer.forceActiveFocus()
-                        mouse.accepted = false
-                    }
-
-                    onReleased:
-                    {
                         mouse.accepted = false
                     }
                 }

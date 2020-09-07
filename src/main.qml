@@ -308,8 +308,15 @@ Maui.ApplicationWindow
     Connections
     {
         target:  Pix.Collection
-        onRefreshViews: PIX.refreshViews()
-        onViewPics: VIEWER.openExternalPics(pics, 0)
+        function onRefreshViews()
+        {
+            PIX.refreshViews()
+        }
+
+        function onViewPics(pics)
+        {
+            VIEWER.openExternalPics(pics, 0)
+        }
     }
 
     function setPreviewSize(size)

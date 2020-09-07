@@ -36,7 +36,7 @@ ScrollView
         delegate: PixPic
         {
             id: delegate
-            height: parent.height
+            height: rollList.height
             width: height
 
             labelsVisible: false
