@@ -43,11 +43,11 @@ import TagsList 1.0
 Maui.ApplicationWindow
 {
     id: root
-    title: i18n("Pix")
+    title: pixViewer.currentPic.title || Maui.App.displayName
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 
     property alias dialog : dialogLoader.item
-    property alias pixViewer : _pixViewerLoader.item
+    property alias pixViewer : _pixViewer
 
     /*READONLY PROPS*/
     readonly property var views : ({ viewer: 0,
@@ -66,9 +66,9 @@ Maui.ApplicationWindow
     property int previewSize : Maui.FM.loadSettings("PREVIEWSIZE", "UI", previewSizes.medium)
 
     readonly property var previewSizes: ({small: Math.round(Maui.Style.iconSizes.huge * 1.2),
-                                         medium: Math.round(Maui.Style.iconSizes.huge * 1.5),
-                                         large: Math.round(Maui.Style.iconSizes.huge * 1.8),
-                                         extralarge: Math.round(Maui.Style.iconSizes.enormous * 1.2)})
+                                             medium: Math.round(Maui.Style.iconSizes.huge * 1.5),
+                                             large: Math.round(Maui.Style.iconSizes.huge * 1.8),
+                                             extralarge: Math.round(Maui.Style.iconSizes.enormous * 1.2)})
     flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
     mainMenu: [
@@ -130,46 +130,40 @@ Maui.ApplicationWindow
         anchors.fill: parent
         Component.onCompleted: swipeView.currentIndex = views.gallery
 
-        MauiLab.AppViewLoader
+        PixViewer
         {
-            id: _pixViewerLoader
+            id: _pixViewer
             MauiLab.AppView.title: i18n("Viewer")
             MauiLab.AppView.iconName: "document-preview-archive"
-            //                Kirigami.Theme.inherit: false
-            //                Kirigami.Theme.backgroundColor: "#333"
-            //                Kirigami.Theme.textColor: "#fafafa"
-
-            PixViewer
+            Rectangle
             {
-                Rectangle
+                anchors.fill: parent
+                visible: _dropArea.containsDrag
+
+                color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
+
+                MauiLab.Rectangle
                 {
                     anchors.fill: parent
-                    visible: _dropArea.containsDrag
+                    anchors.margins: Maui.Style.space.medium
+                    color: "transparent"
+                    borderColor: Kirigami.Theme.textColor
+                    solidBorder: false
 
-                    color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
-
-                    MauiLab.Rectangle
+                    Maui.Holder
                     {
                         anchors.fill: parent
-                        anchors.margins: Maui.Style.space.medium
-                        color: "transparent"
-                        borderColor: Kirigami.Theme.textColor
-                        solidBorder: false
+                        visible: true
+                        emoji: "qrc:/img/assets/add-image.svg"
+                        emojiSize: Maui.Style.iconSizes.huge
+                        title: i18n("Open images")
+                        body: i18n("Drag and drop images here")
 
-                        Maui.Holder
-                        {
-                            anchors.fill: parent
-                            visible: true
-                            emoji: "qrc:/img/assets/add-image.svg"
-                            emojiSize: Maui.Style.iconSizes.huge
-                            title: i18n("Open images")
-                            body: i18n("Drag and drop images here")
-
-                        }
                     }
                 }
             }
         }
+
 
         GalleryView
         {
