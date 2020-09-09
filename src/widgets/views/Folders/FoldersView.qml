@@ -13,16 +13,16 @@ import GalleryList 1.0
 
 StackView
 {
-    id: _stackView
+    id: control
 
     property string currentFolder : ""
-    property alias picsView : _stackView.currentItem
+    property alias picsView : control.currentItem
     property Flickable flickable : picsView.flickable
 
     initialItem: Maui.GridView
     {
         id: foldersPage
-        itemSize: Math.min(200, _stackView.width/3)
+        itemSize: Math.min(200, Math.max(120, control.width/3))
         itemHeight: 200
 
         margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
@@ -80,7 +80,7 @@ StackView
 
                 if(Maui.Handy.singleClick)
                 {
-                    _stackView.push(picsViewComponent)
+                    control.push(picsViewComponent)
                     var folder = folderModel.get(foldersPage.currentIndex)
                     picsView.title = folder.label
                     currentFolder = folder.path
@@ -94,7 +94,7 @@ StackView
 
                 if(!Maui.Handy.singleClick)
                 {
-                    _stackView.push(picsViewComponent)
+                    control.push(picsViewComponent)
                     var folder = folderModel.get(foldersPage.currentIndex)
                     picsView.title = folder.label
                     currentFolder = folder.path
@@ -114,7 +114,7 @@ StackView
             headBar.farLeftContent: ToolButton
             {
                 icon.name:"go-previous"
-                onClicked: _stackView.pop()
+                onClicked: control.pop()
             }
             list.recursive: false
 

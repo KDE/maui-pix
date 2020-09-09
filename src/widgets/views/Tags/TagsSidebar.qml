@@ -15,7 +15,7 @@ Maui.GridView
 {
     id: control
     model: tagsModel
-    itemSize: Math.min(200, control.width/3)
+    itemSize: Math.min(200, Math.max(120, control.width/3))
     itemHeight: 200
     margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
 
