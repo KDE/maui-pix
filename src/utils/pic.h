@@ -25,13 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 #include <QStandardPaths>
 #include <QFileInfo>
-#include <QImage>
-#include <QTime>
-#include <QSettings>
-#include <QDirIterator>
-#include <QVariantList>
-#include <QJsonDocument>
-#include <QJsonObject>
 
 #ifndef STATIC_MAUIKIT
 #include "../pix_version.h"
@@ -50,75 +43,7 @@ namespace PIX
 {
 //Q_NAMESPACE
 
-enum SearchT
-{
-    LIKE,
-    SIMILAR
-};
-
-typedef QMap<PIX::SearchT,QString> SEARCH;
-
-inline static const SEARCH SearchTMap
-{
-    { PIX::SearchT::LIKE, "like" },
-    { PIX::SearchT::SIMILAR, "similar" }
-};
-
-enum class W : uint_fast8_t
-{
-    ALL,
-    NONE,
-    LIKE,
-    TAG,
-    SIMILAR,
-    UNKNOWN,
-    DONE,
-    DESC,
-    ASC
-};
-
-inline static const QMap<W,QString> SLANG =
-{
-    {W::ALL, "ALL"},
-    {W::NONE, "NONE"},
-    {W::LIKE, "LIKE"},
-    {W::SIMILAR, "SIMILAR"},
-    {W::UNKNOWN, "UNKNOWN"},
-    {W::DONE, "DONE"},
-    {W::DESC, "DESC"},
-    {W::ASC,"ASC"},
-    {W::TAG,"TAG"}
-};
-
-enum class TABLE : uint8_t
-{
-    SOURCES,
-    IMAGES,
-    TAGS,
-    ALBUMS,
-    IMAGES_TAGS,
-    IMAGES_ALBUMS,
-    ALBUMS_TAGS,
-    IMAGES_NOTES,
-    ALL,
-    NONE
-};
-
-inline static const QMap<TABLE,QString> TABLEMAP =
-{
-    {TABLE::ALBUMS,"albums"},
-    {TABLE::SOURCES,"sources"},
-    {TABLE::IMAGES,"images"},
-    {TABLE::IMAGES_TAGS,"images_tags"},
-    {TABLE::IMAGES_ALBUMS,"images_albums"},
-    {TABLE::ALBUMS_TAGS,"albums_tags"},
-    {TABLE::IMAGES_NOTES,"images_notes"},
-    {TABLE::TAGS,"tags"}
-};
-
 inline const static auto SettingPath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)+"/pix/");
-inline const static auto CollectionDBPath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/pix/");
-inline const static auto CachePath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)+"/pix/");
 inline const static auto NotifyDir = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation));
 
 inline const static QString appName = QStringLiteral("pix");
@@ -130,89 +55,31 @@ inline const static QString orgDomain = QStringLiteral("org.maui.pix");
 
 inline const static QString DBName = "collection.db";
 
-inline const static QStringList MoodColors = {"#F0FF01","#01FF5B","#3DAEFD","#B401FF","#E91E63"};
-
-inline static const QString ucfirst(const QString &str)/*uppercase first letter*/
-{
-    if (str.isEmpty()) return "";
-
-    QStringList tokens;
-    QStringList result;
-    QString output;
-
-    if(str.contains(" "))
-    {
-        tokens = str.split(" ");
-
-        for(auto str : tokens)
-        {
-            str = str.toLower();
-            str[0] = str[0].toUpper();
-            result<<str;
-        }
-
-        output = result.join(" ");
-    }else output = str;
-
-    return output.simplified();
-}
-
-inline static const QString getQuery(const QString &key)
-{
-    QString json;
-    QFile file;
-    file.setFileName(":/db/Query.js");
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
-    json = file.readAll();
-    file.close();
-
-    qDebug()<< json;
-    QJsonParseError jsonParseError;
-    QJsonDocument jsonResponse = QJsonDocument::fromJson(json.toUtf8(), &jsonParseError);
-    qDebug()<< "trying to get query from key1"<< key;
-
-    if (jsonParseError.error != QJsonParseError::NoError)
-        return "";
-    qDebug()<< "trying to get query from key2"<< key;
-
-    if (!jsonResponse.isObject())
-        return "";
-
-    qDebug()<< "trying to get query from key3"<< key;
-    QJsonObject mainJsonObject(jsonResponse.object());
-    auto data = mainJsonObject.toVariantMap();
-    auto itemMap = data.value("Query").toMap();
-
-    if(itemMap.isEmpty()) return "";
-
-    return itemMap.value(key).toString();
-}
-
 inline static const QStringList getSourcePaths()
 {
-    static const QStringList defaultSources  = {FMH::PicturesPath, FMH::DownloadsPath};
-    const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
-    qDebug()<< "SOURCES" << sources;
-    return sources;
+	static const QStringList defaultSources  = {FMH::PicturesPath, FMH::DownloadsPath};
+	const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
+	qDebug()<< "SOURCES" << sources;
+	return sources;
 }
 
 inline static void saveSourcePath(QStringList const& paths)
 {
-    auto sources = PIX::getSourcePaths();
+	auto sources = PIX::getSourcePaths();
 
-    sources << paths;
-    sources.removeDuplicates();
+	sources << paths;
+	sources.removeDuplicates();
 
-    qDebug()<< "Saving new sources" << sources;
-    UTIL::saveSettings("Sources", sources, "Settings");
+	qDebug()<< "Saving new sources" << sources;
+	UTIL::saveSettings("Sources", sources, "Settings");
 }
 
 inline static void removeSourcePath(const QString &path)
 {
-    auto sources = PIX::getSourcePaths();
-    sources.removeOne(path);
+	auto sources = PIX::getSourcePaths();
+	sources.removeOne(path);
 
-    UTIL::saveSettings("Sources", sources, "Settings");
+	UTIL::saveSettings("Sources", sources, "Settings");
 }
 
 }

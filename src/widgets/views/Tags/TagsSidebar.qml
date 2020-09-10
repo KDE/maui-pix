@@ -7,8 +7,6 @@ import org.kde.mauikit 1.2 as Maui
 import org.kde.kirigami 2.7 as Kirigami
 import org.maui.pix 1.0 as Pix
 
-import GalleryList 1.0
-
 import "../../../view_models"
 
 Maui.GridView

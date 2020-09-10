@@ -9,10 +9,8 @@ import "../../../widgets/views/Pix.js" as PIX
 import "../.."
 
 import org.kde.kirigami 2.7 as Kirigami
-import org.kde.mauikit 1.0 as Maui
-import org.kde.mauikit 1.1 as MauiLab
+import org.kde.mauikit 1.2 as Maui
 import org.maui.pix 1.0 as Pix
-import GalleryList 1.0
 
 StackView
 {

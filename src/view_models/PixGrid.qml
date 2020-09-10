@@ -1,21 +1,20 @@
-import QtQuick.Controls 2.10
-import QtQuick 2.10
+import QtQuick.Controls 2.14
+import QtQuick 2.14
 import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.6 as Kirigami
-import org.kde.mauikit 1.0 as Maui
-import org.kde.mauikit 1.1 as MauiLab
-import GalleryList 1.0
+import org.kde.mauikit 1.2 as Maui
+import org.maui.pix 1.0
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../widgets/views/Pix.js" as PIX
 import "../widgets"
 
-MauiLab.AltBrowser
+Maui.AltBrowser
 {
     id: control
     focus: true
-    viewType: MauiLab.AltBrowser.ViewType.Grid
+    viewType: Maui.AltBrowser.ViewType.Grid
     property int itemSize : root.previewSize
 
     property alias list : pixList
@@ -64,21 +63,21 @@ MauiLab.AltBrowser
     {
         autoExclusive: true
         expanded: isWide
-        currentIndex : control.viewType === MauiLab.AltBrowser.ViewType.List ? 0 : 1
+        currentIndex : control.viewType === Maui.AltBrowser.ViewType.List ? 0 : 1
         enabled: list.count > 0
         display: ToolButton.TextBesideIcon
         Action
         {
             text: i18n("List")
             icon.name: "view-list-details"
-            onTriggered: control.viewType = MauiLab.AltBrowser.ViewType.List
+            onTriggered: control.viewType = Maui.AltBrowser.ViewType.List
         }
 
         Action
         {
             text: i18n("Grid")
             icon.name: "view-list-icons"
-            onTriggered: control.viewType= MauiLab.AltBrowser.ViewType.Grid
+            onTriggered: control.viewType= Maui.AltBrowser.ViewType.Grid
         }
     }
 

@@ -6,8 +6,7 @@ import QtGraphicalEffects 1.0
 import org.kde.kirigami 2.12 as Kirigami
 import org.kde.mauikit 1.2 as Maui
 
-import FoldersList 1.0
-import GalleryList 1.0
+import org.maui.pix 1.0
 
 Maui.ItemDelegate
 {

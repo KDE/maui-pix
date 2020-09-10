@@ -19,15 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
 #include "pix.h"
-#include <QFileSystemWatcher>
-#include <QTimer>
-#include <QApplication>
-#include <QDesktopWidget>
-#include <QDirIterator>
-#include <QtQml>
-#include <QPalette>
-#include <QWidget>
-#include <QColor>
 #include <QDesktopServices>
 
 using namespace PIX;
@@ -44,23 +35,23 @@ Pix::Pix(QObject *parent) : QObject(parent)
 
 QVariantList Pix::sourcesModel() const
 {
-    QVariantList res;
-    const auto sources = PIX::getSourcePaths();
-    return std::accumulate(sources.constBegin(), sources.constEnd(), res, [](QVariantList &res, const QString &url)
-    {
-        res << FMH::getDirInfo(url);
-        return res;
-    });
+	QVariantList res;
+	const auto sources = PIX::getSourcePaths();
+	return std::accumulate(sources.constBegin(), sources.constEnd(), res, [](QVariantList &res, const QString &url)
+	{
+		res << FMH::getDirInfo(url);
+		return res;
+	});
 }
 
 QStringList Pix::sources() const
 {
-    return PIX::getSourcePaths();
+	return PIX::getSourcePaths();
 }
 
 void Pix::openPics(const QList<QUrl> &pics)
 {
-    emit this->viewPics(QUrl::toStringList(pics));
+	emit this->viewPics(QUrl::toStringList(pics));
 }
 
 void Pix::refreshCollection()

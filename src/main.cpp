@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QQmlContext>
 #include <QIcon>
 #include <QFileInfo>
+
 #include "pix.h"
 
 #ifdef Q_OS_ANDROID
@@ -42,7 +43,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "mauiapp.h"
 #else
 #include <MauiKit/fmh.h>
-#include <MauiKit/tagging.h>
 #include <MauiKit/mauiapp.h>
 #endif
 
@@ -60,6 +60,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #else
 #include <KI18n/KLocalizedContext>
 #endif
+
+#define PIX_URI "org.maui.pix"
 
 static const  QList<QUrl>  getFolderImages(const QString &path)
 {
@@ -114,14 +116,14 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	app.setApplicationDisplayName(PIX::displayName);
 	app.setOrganizationName(PIX::orgName);
 	app.setOrganizationDomain(PIX::orgDomain);
-    app.setWindowIcon(QIcon(":/img/assets/pix.png"));
-    MauiApp::instance()->setHandleAccounts(false); //for now index can not handle cloud accounts
-    MauiApp::instance()->setCredits ({QVariantMap({{"name", "Camilo Higuita"}, {"email", "milo.h@aol.com"}, {"year", "2019-2020"}})});
-    MauiApp::instance()->setDescription("Pix lets you organize, browse, and edit your image collection");
-    MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
-    MauiApp::instance()->setHandleAccounts(false);
-    MauiApp::instance()->setWebPage("https://mauikit.org");
-    MauiApp::instance()->setReportPage("https://invent.kde.org/maui/pix/-/issues");
+	app.setWindowIcon(QIcon(":/img/assets/pix.png"));
+	MauiApp::instance()->setHandleAccounts(false); //for now index can not handle cloud accounts
+	MauiApp::instance()->setCredits ({QVariantMap({{"name", "Camilo Higuita"}, {"email", "milo.h@aol.com"}, {"year", "2019-2020"}})});
+	MauiApp::instance()->setDescription("Pix lets you organize, browse, and edit your image collection");
+	MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
+	MauiApp::instance()->setHandleAccounts(false);
+	MauiApp::instance()->setWebPage("https://mauikit.org");
+	MauiApp::instance()->setReportPage("https://invent.kde.org/maui/pix/-/issues");
 
 	QCommandLineParser parser;
 	parser.setApplicationDescription(PIX::description);
@@ -135,27 +137,20 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	if(!args.isEmpty())
 		pics = openFiles(args);
 
-	static auto pix = new Pix;
-
 	QQmlApplicationEngine engine;
 	QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
 	{
 		if(!pics.isEmpty())
-			pix->openPics(pics);
+			Pix::instance ()->openPics(pics);
 	});
 
-	qmlRegisterSingletonType<Pix>("org.maui.pix", 1, 0, "Collection",
-								  [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
-		Q_UNUSED(scriptEngine)
-        engine->setObjectOwnership(pix, QQmlEngine::CppOwnership);
-		return pix;
-	});
+	qmlRegisterSingletonInstance<Pix>(PIX_URI, 1, 0, "Collection", Pix::instance ());
 
-	qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
-    qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
-    qmlRegisterType<PicInfoModel>("org.maui.pix", 1, 0, "PicInfoModel");
+	qmlRegisterType<Gallery>(PIX_URI, 1, 0, "GalleryList");
+	qmlRegisterType<Folders>(PIX_URI, 1, 0, "FoldersList");
+	qmlRegisterType<PicInfoModel>(PIX_URI, 1, 0, "PicInfoModel");
 
-    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+	engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
 #ifdef STATIC_KIRIGAMI
 	KirigamiPlugin::getInstance().registerTypes();
