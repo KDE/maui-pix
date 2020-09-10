@@ -362,7 +362,6 @@ gridDelegate: PixPic
     }
 }
 
-
 function filterSelectedItems(path)
 {
     if(selectionBox && selectionBox.count > 0 && selectionBox.contains(path))

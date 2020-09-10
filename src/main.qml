@@ -24,8 +24,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
 import org.kde.kirigami 2.6 as Kirigami
-import org.kde.mauikit 1.0 as Maui
-import org.kde.mauikit 1.1 as MauiLab
+import org.kde.mauikit 1.2 as Maui
 import org.maui.pix 1.0 as Pix
 
 import "widgets"
@@ -124,7 +123,7 @@ Maui.ApplicationWindow
         checked: selectionMode
     }
 
-    MauiLab.AppViews
+    Maui.AppViews
     {
         id: swipeView
         anchors.fill: parent
@@ -133,8 +132,8 @@ Maui.ApplicationWindow
         PixViewer
         {
             id: _pixViewer
-            MauiLab.AppView.title: i18n("Viewer")
-            MauiLab.AppView.iconName: "document-preview-archive"
+            Maui.AppView.title: i18n("Viewer")
+            Maui.AppView.iconName: "document-preview-archive"
             Rectangle
             {
                 anchors.fill: parent
@@ -142,7 +141,7 @@ Maui.ApplicationWindow
 
                 color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
 
-                MauiLab.Rectangle
+                Maui.Rectangle
                 {
                     anchors.fill: parent
                     anchors.margins: Maui.Style.space.medium
@@ -168,22 +167,22 @@ Maui.ApplicationWindow
         GalleryView
         {
             id: _galleryView
-            MauiLab.AppView.title: i18n("Gallery")
-            MauiLab.AppView.iconName: "image-multiple"
+            Maui.AppView.title: i18n("Gallery")
+            Maui.AppView.iconName: "image-multiple"
         }
 
 
-        MauiLab.AppViewLoader
+        Maui.AppViewLoader
         {
-            MauiLab.AppView.title: i18n("Tags")
-            MauiLab.AppView.iconName: "tag"
+            Maui.AppView.title: i18n("Tags")
+            Maui.AppView.iconName: "tag"
             TagsView {}
         }
 
-        MauiLab.AppViewLoader
+        Maui.AppViewLoader
         {
-            MauiLab.AppView.title: i18n("Folders")
-            MauiLab.AppView.iconName: "image-folder-view"
+            Maui.AppView.title: i18n("Folders")
+            Maui.AppView.iconName: "image-folder-view"
             FoldersView {}
         }
     }
@@ -231,7 +230,7 @@ Maui.ApplicationWindow
     Component
     {
         id: shareDialogComponent
-        MauiLab.ShareDialog {}
+        Maui.ShareDialog {}
     }
 
     Component
