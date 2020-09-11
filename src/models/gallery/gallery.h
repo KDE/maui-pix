@@ -13,8 +13,12 @@
 
 #define PIX_QUERY_MAX_LIMIT 20000
 
-class QFileSystemWatcher;
+
+namespace FMH
+{
 class FileLoader;
+}
+class QFileSystemWatcher;
 
 class Gallery : public MauiList
 {
@@ -48,7 +52,7 @@ public:
 	int limit() const;
 
 private:
-	FileLoader *m_fileLoader;
+    FMH::FileLoader *m_fileLoader;
 	QFileSystemWatcher *m_watcher;
 
 	QList<QUrl> m_urls;

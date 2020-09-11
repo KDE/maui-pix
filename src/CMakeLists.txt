@@ -11,7 +11,6 @@ set(pix_SRCS
 
 set(pix_HDRS
     pix.h
-    db/fileloader.h
     utils/pic.h
     models/gallery/gallery.h
     models/folders/folders.h

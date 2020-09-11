@@ -1,30 +1,46 @@
 #include "gallery.h"
 #include <QFileSystemWatcher>
-#include "db/fileloader.h"
 
 #ifdef STATIC_MAUIKIT
 #include "tagging.h"
 #include "fmstatic.h"
+#include "fileloader.h
 #else
 #include <MauiKit/tagging.h>
 #include <MauiKit/fmstatic.h>
+#include <MauiKit/fileloader.h>
 #endif
 
+static FMH::MODEL picInfo(const QUrl & url)
+{
+    const QFileInfo info(url.toLocalFile());
+    return FMH::MODEL
+    {
+        {FMH::MODEL_KEY::URL, url.toString()},
+        {FMH::MODEL_KEY::TITLE,  info.baseName()},
+        {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+        {FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
+        {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
+        {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+        {FMH::MODEL_KEY::FORMAT, info.suffix()}
+    };
+}
+
 Gallery::Gallery(QObject *parent) : MauiList(parent)
-  , m_fileLoader(new FileLoader())
+  , m_fileLoader(new FMH::FileLoader())
   , m_watcher (new QFileSystemWatcher(this))
   , m_autoReload(true)
   , m_autoScan(true)
   , m_recursive (true)
 {
 	qDebug()<< "CREATING GALLERY LIST";
-
-	connect(m_fileLoader, &FileLoader::finished,[](FMH::MODEL_LIST items)
+    m_fileLoader->informer = &picInfo;
+    connect(m_fileLoader, &FMH::FileLoader::finished,[](FMH::MODEL_LIST items)
 	{
 		qDebug() << "Items finished" << items.size();
 	});
 
-	connect(m_fileLoader, &FileLoader::itemsReady,[this](FMH::MODEL_LIST items)
+    connect(m_fileLoader, &FMH::FileLoader::itemsReady,[this](FMH::MODEL_LIST items)
 	{
 		emit this->preListChanged();
 		this-> list << items;
@@ -32,7 +48,7 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
 		emit countChanged(); //TODO this is a bug from mauimodel not changing the count right //TODO
 	});
 
-	connect(m_fileLoader, &FileLoader::itemReady,[this](FMH::MODEL item)
+    connect(m_fileLoader, &FMH::FileLoader::itemReady,[this](FMH::MODEL item)
 	{
 		this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
 
@@ -132,7 +148,7 @@ int Gallery::limit() const
 void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &limit)
 {
 	this->scanTags (extractTags (urls), recursive, limit);
-	m_fileLoader->requestPath(urls, recursive, limit);
+    m_fileLoader->requestPath(urls, recursive, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, limit);
 }
 
 void Gallery::scanTags(const QList<QUrl> & urls, const bool & recursive, const int & limit)
@@ -146,7 +162,7 @@ void Gallery::scanTags(const QList<QUrl> & urls, const bool & recursive, const i
         {
             const auto url = QUrl(item.toMap ().value ("url").toString());
             if(FMH::fileExists(url))
-                res << FileLoader::picInfo (url);
+                res << picInfo (url);
         }
     }
 
@@ -223,7 +239,7 @@ void Gallery::append(const QVariantMap &pic)
 void Gallery::append(const QString &url)
 {
 	emit this->preItemAppended();
-	this->list << FileLoader::picInfo (QUrl::fromUserInput (url));
+    this->list << picInfo (QUrl::fromUserInput (url));
 	emit this->postItemAppended();
 }
 
