@@ -27,7 +27,7 @@ Maui.ItemDelegate
         anchors.fill: parent
         maskRadius: control.radius
         isCurrentItem: control.isCurrentItem
-        iconSizeHint: height * 0.7
+        iconSizeHint: height * 0.9
         imageHeight: height
         imageWidth: width
 

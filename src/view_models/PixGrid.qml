@@ -214,87 +214,87 @@ Maui.AltBrowser
         Drag.keys: ["text/uri-list"]
         Drag.mimeData: Drag.active ? {"text/uri-list": control.filterSelectedItems(model.url)} : {}
 
-    onClicked:
-    {
-        control.currentIndex = index
-        if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+        onClicked:
         {
-            control.currentView.itemsSelected([index])
-        }else if(Maui.Handy.singleClick)
-        {
-            openPic(index)
+            control.currentIndex = index
+            if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+            {
+                control.currentView.itemsSelected([index])
+            }else if(Maui.Handy.singleClick)
+            {
+                openPic(index)
+            }
         }
-    }
 
-    onDoubleClicked:
-    {
-        control.currentIndex = index
-        if(!Maui.Handy.singleClick && !selectionMode)
+        onDoubleClicked:
         {
-            openPic(index)
+            control.currentIndex = index
+            if(!Maui.Handy.singleClick && !selectionMode)
+            {
+                openPic(index)
+            }
         }
-    }
 
-    onPressAndHold:
-    {
-        control.currentIndex = index
-        _picMenu.popup()
-    }
-
-    onRightClicked:
-    {
-        control.currentIndex = index
-        _picMenu.popup()
-    }
-    onToggled:
-    {
-        control.currentIndex = index
-        PIX.selectItem(pixModel.get(index))
-    }
-
-    Connections
-    {
-        target: selectionBox
-        ignoreUnknownSignals: true
-
-        function onUriRemoved(uri)
+        onPressAndHold:
         {
-            if(uri === model.url)
+            control.currentIndex = index
+            _picMenu.popup()
+        }
+
+        onRightClicked:
+        {
+            control.currentIndex = index
+            _picMenu.popup()
+        }
+        onToggled:
+        {
+            control.currentIndex = index
+            PIX.selectItem(pixModel.get(index))
+        }
+
+        Connections
+        {
+            target: selectionBox
+            ignoreUnknownSignals: true
+
+            function onUriRemoved(uri)
+            {
+                if(uri === model.url)
+                {
+                    _listDelegate.checked = false
+                }
+            }
+
+            function onUriAdded(uri)
+            {
+                if(uri === model.url)
+                {
+                    _listDelegate.checked = true
+                }
+            }
+
+            function onCleared()
             {
                 _listDelegate.checked = false
             }
         }
-
-        function onUriAdded(uri)
-        {
-            if(uri === model.url)
-            {
-                _listDelegate.checked = true
-            }
-        }
-
-        function onCleared()
-        {
-            _listDelegate.checked = false
-        }
     }
-}
 
-gridDelegate: PixPic
-{
-    id: _gridDelegate
-    property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
-    fit: fitPreviews
-    labelsVisible: showLabels
-    height: control.gridView.cellHeight - spacing
-    width: control.gridView.cellWidth - spacing
-    checkable: selectionMode
+    gridDelegate: PixPic
+    {
+        id: _gridDelegate
+        property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
+        fit: fitPreviews
+        labelsVisible: showLabels
+        height: control.gridView.cellHeight - spacing
+        width: control.gridView.cellWidth - spacing
+        checkable: selectionMode
 
-    isCurrentItem: (GridView.isCurrentItem || checked)
-    checked: selectionBox.contains(model.url)
+        isCurrentItem: GridView.isCurrentItem
+        checked: selectionBox.contains(model.url)
 
-    Drag.keys: ["text/uri-list"]
-    Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
+        Drag.keys: ["text/uri-list"]
+        Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
 
     onClicked:
     {

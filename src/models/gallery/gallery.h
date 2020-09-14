@@ -13,11 +13,11 @@
 
 #define PIX_QUERY_MAX_LIMIT 20000
 
-
 namespace FMH
 {
 class FileLoader;
 }
+
 class QFileSystemWatcher;
 
 class Gallery : public MauiList
@@ -73,6 +73,7 @@ private:
 
     int m_limit = PIX_QUERY_MAX_LIMIT;
 	QList<QUrl> extractTags(const QList<QUrl> &urls);
+
 signals:
 	void urlsChanged();
 	void foldersChanged();

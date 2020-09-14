@@ -182,7 +182,7 @@ Maui.ApplicationWindow
         Maui.AppViewLoader
         {
             Maui.AppView.title: i18n("Folders")
-            Maui.AppView.iconName: "image-folder-view"
+            Maui.AppView.iconName: "folder"
             FoldersView {}
         }
     }
