@@ -39,11 +39,23 @@ Item
         clip: true
         focus: true
         interactive: Maui.Handy.isTouch
-        highlightFollowsCurrentItem: true
-        highlightMoveDuration: 0
-        highlightResizeDuration : 0
-        snapMode: ListView.SnapOneItem
         cacheBuffer: width * 3
+
+
+        snapMode: ListView.SnapOneItem
+        boundsBehavior: Flickable.StopAtBounds
+
+        preferredHighlightBegin: 0
+        preferredHighlightEnd: width
+
+        highlightRangeMode: ListView.StrictlyEnforceRange
+        highlightMoveDuration: 0
+        highlightFollowsCurrentItem: true
+        highlightResizeDuration: 0
+        highlightMoveVelocity: -1
+        highlightResizeVelocity: -1
+
+        maximumFlickVelocity: 4 * (viewerList.orientation === Qt.Horizontal ? width : height)
 
         Keys.onPressed:
         {

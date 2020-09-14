@@ -33,6 +33,8 @@ StackView
                 id: foldersList
                 folders: _galleryView.list.folders
             }
+            sortOrder: Qt.DescendingOrder
+            sort: "modified"
             recursiveFilteringEnabled: false
             sortCaseSensitivity: Qt.CaseInsensitive
             filterCaseSensitivity: Qt.CaseInsensitive
