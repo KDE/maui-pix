@@ -17,6 +17,12 @@ Maui.GridView
     itemHeight: 200
     margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
 
+    holder.visible: control.count === 0
+    holder.emoji: i18n("qrc:/assets/add-image.svg")
+    holder.title :i18n("No Tags!")
+    holder.body: i18n("You can create new tags to organize your gallery")
+    holder.emojiSize: Maui.Style.iconSizes.huge
+
     Maui.FloatingButton
     {
         id: _overlayButton
@@ -28,19 +34,7 @@ Maui.GridView
         icon.name : "list-add"
         onClicked: newTagDialog.open()
     }
-
-    Maui.Holder
-    {
-        visible: control.count === 0
-        emoji: i18n("qrc:/assets/add-image.svg")
-        isMask: false
-        title :i18n("No Tags!")
-        body: i18n("You can create new tags to organize your gallery")
-        emojiSize: Maui.Style.iconSizes.huge
-        z: 999
-        onActionTriggered: newTagDialog.open()
-    }
-
+//        onActionTriggered: newTagDialog.open()
 
     delegate: CollageDelegate
     {
@@ -58,14 +52,14 @@ Maui.GridView
 
         template.label1.text: model.tag
         template.iconSource: model.icon
+        template.iconVisible: true
 
         onClicked:
         {
             control.currentIndex = index
             if(Maui.Handy.singleClick)
             {
-                currentTag = tagsList.get(index).tag
-                populateGrid(currentTag)
+                populateGrid(model.tag)
             }
         }
 
@@ -74,8 +68,7 @@ Maui.GridView
             control.currentIndex = index
             if(!Maui.Handy.singleClick)
             {
-                currentTag = tagsList.get(index).tag
-                populateGrid(currentTag)
+                populateGrid(model.tag)
             }
         }
 

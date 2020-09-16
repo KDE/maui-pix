@@ -25,6 +25,12 @@ StackView
 
         margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
 
+        holder.emoji: "qrc:/assets/view-preview.svg"
+        holder.title : i18n("No Folders!")
+        holder.body: i18n("Add new image sources")
+        holder.emojiSize: Maui.Style.iconSizes.huge
+        holder.visible: foldersList.count === 0
+
         model: Maui.BaseModel
         {
             id: folderModel
@@ -40,27 +46,10 @@ StackView
             filterCaseSensitivity: Qt.CaseInsensitive
         }
 
-        Maui.Holder
-        {
-            id: holder
-            emoji: "qrc:/assets/view-preview.svg"
-            title : i18n("No Folders!")
-            body: i18n("Add new image sources")
-            emojiSize: Maui.Style.iconSizes.huge
-            visible: false
-        }
-
         delegate: CollageDelegate
         {
             id: _delegate
             property var folderPath : [model.path]
-
-            function randomHexColor()
-            {
-               var color = '#', i = 5;
-               do{ color += "0123456789abcdef".substr(Math.random() * 16,1); }while(i--);
-               return color;
-           }
 
             height: foldersPage.cellHeight - Maui.Style.space.medium
             width: foldersPage.cellWidth - Maui.Style.space.medium
@@ -81,9 +70,8 @@ StackView
                 if(Maui.Handy.singleClick)
                 {
                     control.push(picsViewComponent)
-                    var folder = folderModel.get(foldersPage.currentIndex)
-                    picsView.title = folder.label
-                    currentFolder = folder.path
+                    picsView.title = model.label
+                    currentFolder = model.path
                     picsView.list.urls = [currentFolder]
                 }
             }
@@ -95,14 +83,12 @@ StackView
                 if(!Maui.Handy.singleClick)
                 {
                     control.push(picsViewComponent)
-                    var folder = folderModel.get(foldersPage.currentIndex)
-                    picsView.title = folder.label
-                    currentFolder = folder.path
+                    picsView.title = model.label
+                    currentFolder = model.path
                     picsView.list.urls = [currentFolder]
                 }
             }
         }
-
     }
 
     Component

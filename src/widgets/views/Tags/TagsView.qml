@@ -37,6 +37,7 @@ StackView
     Component
     {
         id: tagsGrid
+
         PixGrid
         {
             title: control.currentTag
@@ -62,7 +63,7 @@ StackView
 
     function populateGrid(myTag)
     {
-        control.push(tagsGrid)
         currentTag = myTag
+        control.push(tagsGrid)
     }
  }
