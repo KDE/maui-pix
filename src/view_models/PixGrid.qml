@@ -33,8 +33,9 @@ Maui.AltBrowser
     gridView.itemHeight: showLabels ? control.itemSize * 1.5 : control.itemSize
     gridView.margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
 
-    listView.topMargin: Maui.Style.contentMargins
+//    listView.margins: Maui.Style.space.medium
     listView.spacing: Maui.Style.space.medium
+
     listView.section.criteria: model.sort === "title" ?  ViewSection.FirstCharacter : ViewSection.FullString
     listView.section.property: model.sort
     listView.section.delegate: Maui.LabelDelegate
