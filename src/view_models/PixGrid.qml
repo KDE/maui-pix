@@ -320,6 +320,7 @@ Maui.AltBrowser
     onPressAndHold:
     {
         control.currentIndex = index
+         _picMenu.popup()
     }
 
     onRightClicked:
