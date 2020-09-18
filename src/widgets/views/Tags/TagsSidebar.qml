@@ -15,7 +15,6 @@ Maui.GridView
     model: tagsModel
     itemSize: Math.min(200, Math.max(120, control.width/3))
     itemHeight: 200
-    margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
 
     holder.visible: control.count === 0
     holder.emoji: i18n("qrc:/assets/add-image.svg")

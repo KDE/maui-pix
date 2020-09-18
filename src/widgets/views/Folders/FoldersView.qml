@@ -23,8 +23,6 @@ StackView
         itemSize: Math.min(200, Math.max(120, control.width/3))
         itemHeight: 200
 
-        margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
-
         holder.emoji: "qrc:/assets/view-preview.svg"
         holder.title : i18n("No Folders!")
         holder.body: i18n("Add new image sources")

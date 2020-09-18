@@ -23,29 +23,23 @@ Maui.AltBrowser
 
     /*signals*/
     signal picClicked(int index)
-    padding: 0
     showTitle: false
 
-    //    enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
     enableLassoSelection: true
 
     gridView.itemSize : control.itemSize
     gridView.itemHeight: showLabels ? control.itemSize * 1.5 : control.itemSize
-    gridView.margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
 
-//    listView.margins: Maui.Style.space.medium
-    listView.spacing: Maui.Style.space.medium
-
+    //    listView.margins: Maui.Style.space.medium
     listView.section.criteria: model.sort === "title" ?  ViewSection.FirstCharacter : ViewSection.FullString
     listView.section.property: model.sort
-    listView.section.delegate: Maui.LabelDelegate
+    listView.section.delegate: Maui.ListItemTemplate
     {
         id: delegate
-        width: parent.width
+        width: ListView.view.width
         height: Maui.Style.toolBarHeightAlt
-        label: model.sort === "date" || model.sort === "modified" ? Maui.FM.formatDate(Date(section), "MM/dd/yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : String(section).toUpperCase())
-        labelTxt.font.pointSize: Maui.Style.fontSizes.big
-        isSection: true
+        label1.text: model.sort === "date" || model.sort === "modified" ? Maui.FM.formatDate(Date(section), "MM/dd/yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : String(section).toUpperCase())
+        label1.font.pointSize: Maui.Style.fontSizes.big
     }
 
     holder.visible: count === 0
@@ -204,98 +198,14 @@ Maui.AltBrowser
     listDelegate: PixPicList
     {
         id: _listDelegate
-        height: Maui.Style.rowHeight *1.5
-        width: parent.width
-        leftPadding: Maui.Style.space.small
-        rightPadding: Maui.Style.space.small
+        height: Maui.Style.rowHeight * 2
+        width: ListView.view.width
 
         isCurrentItem: (ListView.isCurrentItem || checked)
         checked: selectionBox.contains(model.url)
         checkable: selectionMode
         Drag.keys: ["text/uri-list"]
         Drag.mimeData: Drag.active ? {"text/uri-list": control.filterSelectedItems(model.url)} : {}
-
-        onClicked:
-        {
-            control.currentIndex = index
-            if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
-            {
-                control.currentView.itemsSelected([index])
-            }else if(Maui.Handy.singleClick)
-            {
-                openPic(index)
-            }
-        }
-
-        onDoubleClicked:
-        {
-            control.currentIndex = index
-            if(!Maui.Handy.singleClick && !selectionMode)
-            {
-                openPic(index)
-            }
-        }
-
-        onPressAndHold:
-        {
-            control.currentIndex = index
-            _picMenu.popup()
-        }
-
-        onRightClicked:
-        {
-            control.currentIndex = index
-            _picMenu.popup()
-        }
-        onToggled:
-        {
-            control.currentIndex = index
-            PIX.selectItem(pixModel.get(index))
-        }
-
-        Connections
-        {
-            target: selectionBox
-            ignoreUnknownSignals: true
-
-            function onUriRemoved(uri)
-            {
-                if(uri === model.url)
-                {
-                    _listDelegate.checked = false
-                }
-            }
-
-            function onUriAdded(uri)
-            {
-                if(uri === model.url)
-                {
-                    _listDelegate.checked = true
-                }
-            }
-
-            function onCleared()
-            {
-                _listDelegate.checked = false
-            }
-        }
-    }
-
-    gridDelegate: PixPic
-    {
-        id: _gridDelegate
-        property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
-        fit: fitPreviews
-        labelsVisible: showLabels
-        height: control.gridView.cellHeight - spacing
-        width: control.gridView.cellWidth - spacing
-        checkable: selectionMode
-
-        isCurrentItem: GridView.isCurrentItem
-        checked: selectionBox.contains(model.url)
-
-        Drag.keys: ["text/uri-list"]
-        Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
 
     onClicked:
     {
@@ -321,7 +231,7 @@ Maui.AltBrowser
     onPressAndHold:
     {
         control.currentIndex = index
-         _picMenu.popup()
+        _picMenu.popup()
     }
 
     onRightClicked:
@@ -329,12 +239,102 @@ Maui.AltBrowser
         control.currentIndex = index
         _picMenu.popup()
     }
-
     onToggled:
     {
         control.currentIndex = index
         PIX.selectItem(pixModel.get(index))
     }
+
+    Connections
+    {
+        target: selectionBox
+        ignoreUnknownSignals: true
+
+        function onUriRemoved(uri)
+        {
+            if(uri === model.url)
+            {
+                _listDelegate.checked = false
+            }
+        }
+
+        function onUriAdded(uri)
+        {
+            if(uri === model.url)
+            {
+                _listDelegate.checked = true
+            }
+        }
+
+        function onCleared()
+        {
+            _listDelegate.checked = false
+        }
+    }
+}
+
+gridDelegate: Item
+{
+//    property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
+    height: control.gridView.cellHeight
+    width: control.gridView.cellWidth
+    property bool isCurrentItem: GridView.isCurrentItem
+
+    PixPic
+    {
+        id: _gridDelegate
+       anchors.fill: parent
+        anchors.margins: Maui.Style.space.big
+
+        fit: fitPreviews
+        labelsVisible: showLabels
+        checkable: selectionMode
+
+        isCurrentItem: parent.isCurrentItem
+        checked: selectionBox.contains(model.url)
+
+        Drag.keys: ["text/uri-list"]
+        Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
+
+        onClicked:
+        {
+            control.currentIndex = index
+            if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+            {
+                control.currentView.itemsSelected([index])
+            }else if(Maui.Handy.singleClick)
+            {
+                openPic(index)
+            }
+        }
+        onDoubleClicked:
+        {
+            control.currentIndex = index
+            if(!Maui.Handy.singleClick && !selectionMode)
+            {
+                openPic(index)
+            }
+        }
+
+        onPressAndHold:
+        {
+            control.currentIndex = index
+            _picMenu.popup()
+        }
+
+        onRightClicked:
+        {
+            control.currentIndex = index
+            _picMenu.popup()
+        }
+
+        onToggled:
+        {
+            control.currentIndex = index
+            PIX.selectItem(pixModel.get(index))
+        }
+    }
+
 
     Connections
     {

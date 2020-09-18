@@ -9,8 +9,9 @@ Maui.ItemDelegate
 {
     id: control
 
-    property alias checkable : _template.checkable
     property alias checked : _template.checked
+    property alias checkable: _template.checkable
+
     property alias labelsVisible: _template.labelsVisible
     signal toggled(int index, bool state);
 
@@ -39,7 +40,6 @@ Maui.ItemDelegate
 
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
         hovered: control.hovered
-        checkable: control.checkable
         onToggled: control.toggled(index, state)
     }
 }

@@ -44,7 +44,6 @@ ScrollView
             labelsVisible: false
             fit: false
             checkable: false
-            dropShadow: true
             isCurrentItem: ListView.isCurrentItem
             radius:  Maui.Style.radiusV
             onClicked:
