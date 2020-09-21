@@ -156,13 +156,10 @@ void Gallery::scanTags(const QList<QUrl> & urls, const bool & recursive, const i
     FMH::MODEL_LIST res;
     for(const auto &tagUrl : urls)
     {
-        auto items = Tagging::getInstance ()->getUrls(tagUrl.toString ().replace ("tags:///", ""), true, limit, "image");
-
-        for(const auto &item : items)
+        const auto urls = FMStatic::getTagUrls(tagUrl.toString ().replace ("tags:///", ""), {}, true, limit, "image");
+        for(const auto &url : urls)
         {
-            const auto url = QUrl(item.toMap ().value ("url").toString());
-            if(FMH::fileExists(url))
-                res << picInfo (url);
+            res << picInfo (url);
         }
     }
 
