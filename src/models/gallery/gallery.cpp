@@ -4,7 +4,7 @@
 #ifdef STATIC_MAUIKIT
 #include "tagging.h"
 #include "fmstatic.h"
-#include "fileloader.h
+#include "fileloader.h"
 #else
 #include <MauiKit/tagging.h>
 #include <MauiKit/fmstatic.h>
