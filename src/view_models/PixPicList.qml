@@ -39,7 +39,7 @@ Maui.ItemDelegate
         label4.text:  Maui.FM.formatDate(model.modified, "MM/dd/yyyy")
 
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
-        hovered: control.hovered
+        hoverEnabled: true
         onToggled: control.toggled(index, state)
     }
 }
