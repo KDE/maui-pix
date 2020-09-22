@@ -125,9 +125,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
                      KAboutLicense::LGPL_V3, i18n("© 2019-2020 Nitrux Development Team"));
     about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
     about.setHomepage("https://mauikit.org");
-    about.setProductName("maui/index");
+    about.setProductName("maui/pix");
     about.setBugAddress("https://invent.kde.org/maui/pix/-/issues");
-    about.setOrganizationDomain("org.maui.index");
+    about.setOrganizationDomain("org.maui.pix");
     about.setProgramLogo(app.windowIcon());
 
     KAboutData::setApplicationData(about);
