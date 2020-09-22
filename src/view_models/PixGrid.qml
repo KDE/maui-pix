@@ -38,7 +38,7 @@ Maui.AltBrowser
         id: delegate
         width: ListView.view.width
         height: Maui.Style.toolBarHeightAlt
-        label1.text: model.sort === "date" || model.sort === "modified" ? Maui.FM.formatDate(Date(section), "MM/dd/yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : String(section).toUpperCase())
+        label1.text: model.sort === "date" || model.sort === "modified" ? Qt.formatDateTime(new Date(section), "d MMM yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : section)
         label1.font.pointSize: Maui.Style.fontSizes.big
     }
 
