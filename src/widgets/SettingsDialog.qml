@@ -21,6 +21,7 @@ Maui.SettingsDialog
 
             Switch
             {
+                Layout.fillHeight: true
                 checkable: true
                 checked: root.autoScan
                 onToggled:
@@ -38,6 +39,7 @@ Maui.SettingsDialog
 
             Switch
             {
+                Layout.fillHeight: true
                 checkable: true
                 checked: root.autoScan
                 onToggled:
@@ -61,7 +63,7 @@ Maui.SettingsDialog
 
             Switch
             {
-                //                        visible: false //TODO to fix
+                Layout.fillHeight: true
                 icon.name: "image-preview"
                 checkable: true
                 checked: root.fitPreviews
@@ -80,6 +82,7 @@ Maui.SettingsDialog
 
             Switch
             {
+                Layout.fillHeight: true
                 checkable: true
                 checked: root.showLabels
                 onToggled:
@@ -154,6 +157,7 @@ Maui.SettingsDialog
 
             Switch
             {
+                Layout.fillHeight: true
                 checkable: true
                 checked: pixViewer.tagBarVisible
                 onToggled: pixViewer.toogleTagbar()
@@ -164,9 +168,9 @@ Maui.SettingsDialog
         {
             label1.text: i18n("Preview Bar")
             label2.text: i18n("Show thumnail previews in the image viewer")
-
             Switch
             {
+                Layout.fillHeight: true
                 checkable: true
                 checked: pixViewer.roll.visible
                 onToggled: pixViewer.tooglePreviewBar()
@@ -194,7 +198,7 @@ Maui.SettingsDialog
                 delegate: Maui.ListDelegate
                 {
                     width: parent.width
-                    implicitHeight: Maui.Style.rowHeight * 1.2
+                    implicitHeight: Maui.Style.rowHeight * 1.5
                     leftPadding: 0
                     rightPadding: 0
                     template.iconSource: modelData.icon

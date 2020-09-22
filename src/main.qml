@@ -70,6 +70,8 @@ Maui.ApplicationWindow
                                              extralarge: 280})
     flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
+    floatingFooter: true
+
     mainMenu: [
 
         Action
