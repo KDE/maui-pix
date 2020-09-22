@@ -63,7 +63,7 @@ private:
 	FMH::MODEL_LIST list = {};
 
     void scan(const QList<QUrl> &urls, const bool &recursive = true, const int &limit = PIX_QUERY_MAX_LIMIT);
-    void scanTags(const QList<QUrl> &urls, const bool &recursive = true, const int &limit = PIX_QUERY_MAX_LIMIT);
+    void scanTags(const QList<QUrl> &urls, const int &limit = PIX_QUERY_MAX_LIMIT);
 
 	void insert(const FMH::MODEL_LIST &items);
 

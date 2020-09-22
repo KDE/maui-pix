@@ -68,9 +68,9 @@ Maui.ApplicationWindow
                                              medium: 180,
                                              large: 220,
                                              extralarge: 280})
-    flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
     floatingFooter: true
+    flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
     mainMenu: [
 
@@ -136,6 +136,7 @@ Maui.ApplicationWindow
             id: _pixViewer
             Maui.AppView.title: i18n("Viewer")
             Maui.AppView.iconName: "document-preview-archive"
+
             Rectangle
             {
                 anchors.fill: parent

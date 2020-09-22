@@ -24,8 +24,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QIcon>
 #include <QFileInfo>
 
-#include "pix.h"
-
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
 #else
@@ -44,12 +42,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #else
 #include <MauiKit/fmh.h>
 #include <MauiKit/mauiapp.h>
+#include "../pix_version.h"
 #endif
-
-#include "models/gallery/gallery.h"
-//#include "models/cloud/cloud.h"
-#include "models/folders/folders.h"
-#include "models/picinfomodel.h"
 
 #ifdef Q_OS_MACOS
 #include "mauimacos.h"
@@ -59,17 +53,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <KF5/KI18n/KLocalizedContext>
 #else
 #include <KI18n/KLocalizedContext>
+#include <KI18n/KLocalizedString>
 #endif
+
+#include "models/gallery/gallery.h"
+#include "models/folders/folders.h"
+#include "models/picinfomodel.h"
+#include "pix.h"
 
 #define PIX_URI "org.maui.pix"
 
-static const  QList<QUrl>  getFolderImages(const QString &path)
+static const QList<QUrl> getFolderImages(const QString &path)
 {
 	QList<QUrl> urls;
 
 	if (QFileInfo(path).isDir())
 	{
-		QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
+        QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::NoIteratorFlags);
 		while (it.hasNext())
 			urls << QUrl::fromLocalFile(it.next());
 
@@ -101,7 +101,10 @@ static const QList<QUrl> openFiles(const QStringList &files)
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QCoreApplication::setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
+    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager, true);
 
 #ifdef Q_OS_ANDROID
 	QGuiApplication app(argc, argv);
@@ -111,25 +114,29 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 #endif
 
-	app.setApplicationName(PIX::appName);
-	app.setApplicationVersion(PIX::version);
-	app.setApplicationDisplayName(PIX::displayName);
-	app.setOrganizationName(PIX::orgName);
-	app.setOrganizationDomain(PIX::orgDomain);
+    app.setOrganizationName(QStringLiteral("Maui"));
 	app.setWindowIcon(QIcon(":/img/assets/pix.png"));
-	MauiApp::instance()->setHandleAccounts(false); //for now index can not handle cloud accounts
-	MauiApp::instance()->setCredits ({QVariantMap({{"name", "Camilo Higuita"}, {"email", "milo.h@aol.com"}, {"year", "2019-2020"}})});
-	MauiApp::instance()->setDescription("Pix lets you organize, browse, and edit your image collection");
-	MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
-	MauiApp::instance()->setHandleAccounts(false);
-	MauiApp::instance()->setWebPage("https://mauikit.org");
-	MauiApp::instance()->setReportPage("https://invent.kde.org/maui/pix/-/issues");
 
-	QCommandLineParser parser;
-	parser.setApplicationDescription(PIX::description);
-	const QCommandLineOption versionOption = parser.addVersionOption();
-	parser.addOption(versionOption);
-	parser.process(app);
+    MauiApp::instance()->setHandleAccounts(false); //for now pix can not handle cloud accounts
+    MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
+
+    KLocalizedString::setApplicationDomain("pix");
+    KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Pix lets you organize, browse, and edit your image collection."),
+                     KAboutLicense::LGPL_V3, i18n("© 2019-2020 Nitrux Development Team"));
+    about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
+    about.setHomepage("https://mauikit.org");
+    about.setProductName("maui/index");
+    about.setBugAddress("https://invent.kde.org/maui/pix/-/issues");
+    about.setOrganizationDomain("org.maui.index");
+    about.setProgramLogo(app.windowIcon());
+
+    KAboutData::setApplicationData(about);
+
+    QCommandLineParser parser;
+    parser.process(app);
+
+    about.setupCommandLine(&parser);
+    about.processCommandLine(&parser);
 
 	const QStringList args = parser.positionalArguments();
 

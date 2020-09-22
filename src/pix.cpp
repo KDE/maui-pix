@@ -21,32 +21,58 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "pix.h"
 #include <QDesktopServices>
 
-using namespace PIX;
 #ifdef STATIC_MAUIKIT
 #include "tagging.h"
+#include "utils.h"
+#include "fmh.h"
 #else
 #include <MauiKit/tagging.h>
+#include <MauiKit/utils.h>
+#include <MauiKit/fmh.h>
 #endif
 
-Pix::Pix(QObject *parent) : QObject(parent)
+Pix::Pix(QObject *parent) : QObject(parent) {}
+
+const QStringList Pix::getSourcePaths()
 {
-	qDebug() << "Getting settings info from: " << PIX::SettingPath;
+    static const QStringList defaultSources  = {FMH::PicturesPath, FMH::DownloadsPath};
+    const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
+    qDebug()<< "SOURCES" << sources;
+    return sources;
+}
+
+void Pix::saveSourcePath(const QStringList &paths)
+{
+    auto sources = getSourcePaths();
+
+    sources << paths;
+    sources.removeDuplicates();
+
+    UTIL::saveSettings("Sources", sources, "Settings");
+}
+
+void Pix::removeSourcePath(const QString &path)
+{
+    auto sources = getSourcePaths();
+    sources.removeOne(path);
+
+    UTIL::saveSettings("Sources", sources, "Settings");
 }
 
 QVariantList Pix::sourcesModel() const
 {
-	QVariantList res;
-	const auto sources = PIX::getSourcePaths();
-	return std::accumulate(sources.constBegin(), sources.constEnd(), res, [](QVariantList &res, const QString &url)
-	{
-		res << FMH::getDirInfo(url);
-		return res;
-	});
+    QVariantList res;
+    const auto sources = getSourcePaths();
+    return std::accumulate(sources.constBegin(), sources.constEnd(), res, [](QVariantList &res, const QString &url)
+    {
+        res << FMH::getDirInfo(url);
+        return res;
+    });
 }
 
 QStringList Pix::sources() const
 {
-	return PIX::getSourcePaths();
+    return getSourcePaths();
 }
 
 void Pix::openPics(const QList<QUrl> &pics)
@@ -56,7 +82,7 @@ void Pix::openPics(const QList<QUrl> &pics)
 
 void Pix::refreshCollection()
 {
-	const auto sources = PIX::getSourcePaths();
+    const auto sources = getSourcePaths();
 	qDebug()<< "getting default sources to look up" << sources;
 }
 
@@ -68,12 +94,12 @@ void Pix::showInFolder(const QStringList &urls)
 
 void Pix::addSources(const QStringList &paths)
 {
-	PIX::saveSourcePath(paths);
+    saveSourcePath(paths);
 	emit sourcesChanged();
 }
 
 void Pix::removeSources(const QString &path)
 {
-	PIX::removeSourcePath(path);
+    removeSourcePath(path);
 	emit sourcesChanged();
 }

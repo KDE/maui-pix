@@ -147,11 +147,11 @@ int Gallery::limit() const
 
 void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &limit)
 {
-	this->scanTags (extractTags (urls), recursive, limit);
+    this->scanTags (extractTags (urls), limit);
     m_fileLoader->requestPath(urls, recursive, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, limit);
 }
 
-void Gallery::scanTags(const QList<QUrl> & urls, const bool & recursive, const int & limit)
+void Gallery::scanTags(const QList<QUrl> & urls, const int & limit)
 {
     FMH::MODEL_LIST res;
     for(const auto &tagUrl : urls)

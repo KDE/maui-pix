@@ -29,11 +29,10 @@ Maui.GridView
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins: Maui.Style.toolBarHeight
-        anchors.bottomMargin: Maui.Style.toolBarHeight
+        anchors.bottomMargin: Maui.Style.toolBarHeight + control.flickable.bottomMargin
         icon.name : "list-add"
         onClicked: newTagDialog.open()
     }
-//        onActionTriggered: newTagDialog.open()
 
     delegate: CollageDelegate
     {
