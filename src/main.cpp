@@ -69,7 +69,7 @@ static const QList<QUrl> getFolderImages(const QString &path)
 
 	if (QFileInfo(path).isDir())
 	{
-        QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::NoIteratorFlags);
+		QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::NoIteratorFlags);
 		while (it.hasNext())
 			urls << QUrl::fromLocalFile(it.next());
 
@@ -101,10 +101,10 @@ static const QList<QUrl> openFiles(const QStringList &files)
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QCoreApplication::setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager, true);
+	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+	QCoreApplication::setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
+	QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+	QCoreApplication::setAttribute(Qt::AA_DisableSessionManager, true);
 
 #ifdef Q_OS_ANDROID
 	QGuiApplication app(argc, argv);
@@ -114,29 +114,29 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 #endif
 
-    app.setOrganizationName(QStringLiteral("Maui"));
+	app.setOrganizationName(QStringLiteral("Maui"));
 	app.setWindowIcon(QIcon(":/img/assets/pix.png"));
 
-    MauiApp::instance()->setHandleAccounts(false); //for now pix can not handle cloud accounts
-    MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
+	MauiApp::instance()->setHandleAccounts(false); //for now pix can not handle cloud accounts
+	MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
 
-    KLocalizedString::setApplicationDomain("pix");
-    KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Pix lets you organize, browse, and edit your image collection."),
-                     KAboutLicense::LGPL_V3, i18n("© 2019-2020 Nitrux Development Team"));
-    about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
-    about.setHomepage("https://mauikit.org");
-    about.setProductName("maui/pix");
-    about.setBugAddress("https://invent.kde.org/maui/pix/-/issues");
-    about.setOrganizationDomain("org.maui.pix");
-    about.setProgramLogo(app.windowIcon());
+	KLocalizedString::setApplicationDomain("pix");
+	KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Pix lets you organize, browse, and edit your image collection."),
+					 KAboutLicense::LGPL_V3, i18n("© 2019-2020 Nitrux Development Team"));
+	about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
+	about.setHomepage("https://mauikit.org");
+	about.setProductName("maui/pix");
+	about.setBugAddress("https://invent.kde.org/maui/pix/-/issues");
+	about.setOrganizationDomain(PIX_URI);
+	about.setProgramLogo(app.windowIcon());
 
-    KAboutData::setApplicationData(about);
+	KAboutData::setApplicationData(about);
 
-    QCommandLineParser parser;
-    parser.process(app);
+	QCommandLineParser parser;
+	parser.process(app);
 
-    about.setupCommandLine(&parser);
-    about.processCommandLine(&parser);
+	about.setupCommandLine(&parser);
+	about.processCommandLine(&parser);
 
 	const QStringList args = parser.positionalArguments();
 
