@@ -26,7 +26,7 @@ Maui.AltBrowser
     showTitle: false
 
     enableLassoSelection: true
-
+    selectionMode: root.selectionMode
     gridView.itemSize : control.itemSize
     gridView.itemHeight: showLabels ? control.itemSize * 1.5 : control.itemSize
 
