@@ -17,7 +17,7 @@ class PicInfoModel : public MauiList
 {
 	Q_OBJECT
 		Q_PROPERTY (QUrl url READ url WRITE setUrl NOTIFY urlChanged)
-		Q_PROPERTY (QString fileName MEMBER m_fileName NOTIFY fileNameChanged CONSTANT)
+        Q_PROPERTY (QString fileName MEMBER m_fileName NOTIFY fileNameChanged FINAL)
 
 public:
 	enum ROLES

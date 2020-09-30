@@ -13,8 +13,8 @@ Maui.GridView
 {
     id: control
     model: tagsModel
-    itemSize: Math.min(200, Math.max(120, control.width/3))
-    itemHeight: 200
+    itemSize: Math.min(250, Math.max(100, Math.floor(width* 0.3)))
+    itemHeight: itemSize + Maui.Style.rowHeight
 
     holder.visible: control.count === 0
     holder.emoji: i18n("qrc:/assets/add-image.svg")
@@ -39,8 +39,8 @@ Maui.GridView
         id: _delegate
         property string tag : model.tag
         property url tagUrl : "tags:///"+model.tag
-        height: control.cellHeight - Maui.Style.space.medium
-        width: control.cellWidth- Maui.Style.space.medium
+        height: control.cellHeight
+        width: control.cellWidth
         isCurrentItem: GridView.isCurrentItem
 
         contentWidth: control.itemSize - 10

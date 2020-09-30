@@ -41,5 +41,6 @@ Maui.ItemDelegate
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
         hovered: parent.hovered
         onToggled: control.toggled(index, state)
+        leftMargin: iconVisible ? 0 : Maui.Style.space.medium
     }
 }

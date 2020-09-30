@@ -1,4 +1,10 @@
-QT *= qml quick svg positioning
+
+QT *= core \
+    quick \
+    positioning \
+    sql \
+    qml \
+    quickcontrols2
 
 CONFIG += ordered
 CONFIG += c++17
@@ -35,7 +41,6 @@ linux:unix:!android {
 
     android {
         message(Building for Android)
-        QMAKE_LINK += -nostdlib++
         ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
         DISTFILES += $$PWD/android_files/AndroidManifest.xml
         DEFINES *= ANDROID_OPENSSL
@@ -76,8 +81,6 @@ SOURCES += src/main.cpp \
 
 HEADERS += \
     src/pix.h \
-    src/db/fileloader.h \
-    src/utils/pic.h \
     src/models/gallery/gallery.h \
     src/models/folders/folders.h \
     src/models/picinfomodel.h
@@ -94,3 +97,13 @@ RESOURCES += \
 INCLUDEPATH += src/
 
 include(install.pri)
+
+ANDROID_ABIS = armeabi-v7a
+
+DISTFILES += \
+    android_files/build.gradle \
+    android_files/gradle/wrapper/gradle-wrapper.jar \
+    android_files/gradle/wrapper/gradle-wrapper.properties \
+    android_files/gradlew \
+    android_files/gradlew.bat \
+    android_files/res/values/libs.xml

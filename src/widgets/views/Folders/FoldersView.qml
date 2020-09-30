@@ -3,7 +3,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.9 as Kirigami
 import org.kde.mauikit 1.2 as Maui
 import org.maui.pix 1.0
 
@@ -20,8 +20,8 @@ StackView
     initialItem: Maui.GridView
     {
         id: foldersPage
-        itemSize: Math.min(200, Math.max(120, control.width/3))
-        itemHeight: 200
+        itemSize: Math.min(250, Math.max(100, Math.floor(width* 0.3)))
+        itemHeight: itemSize + Maui.Style.rowHeight
 
         holder.emoji: "qrc:/assets/view-preview.svg"
         holder.title : i18n("No Folders!")
@@ -49,8 +49,8 @@ StackView
             id: _delegate
             property var folderPath : [model.path]
 
-            height: foldersPage.cellHeight - Maui.Style.space.medium
-            width: foldersPage.cellWidth - Maui.Style.space.medium
+            height: foldersPage.cellHeight - Maui.Style.space.tiny
+            width: foldersPage.cellWidth
             isCurrentItem: GridView.isCurrentItem
 
             contentWidth: foldersPage.itemSize - 10

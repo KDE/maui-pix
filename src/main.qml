@@ -18,12 +18,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-import QtQuick 2.13
-import QtQuick.Controls 2.13
+import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
-import org.kde.kirigami 2.6 as Kirigami
+import org.kde.kirigami 2.8 as Kirigami
 import org.kde.mauikit 1.2 as Maui
 import org.maui.pix 1.0 as Pix
 
@@ -64,11 +64,12 @@ Maui.ApplicationWindow
     property bool selectionMode : false
     property int previewSize : Maui.FM.loadSettings("PREVIEWSIZE", "UI", previewSizes.medium)
 
-    readonly property var previewSizes: ({small: 140,
-                                             medium: 180,
-                                             large: 220,
-                                             extralarge: 280})
+    readonly property var previewSizes: ({small: 100,
+                                             medium: 120,
+                                             large: 160,
+                                             extralarge: 220})
 
+    altHeader: Kirigami.Settings.isMobile
     floatingFooter: true
     flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
@@ -117,7 +118,7 @@ Maui.ApplicationWindow
         onClicked:
         {
             selectionMode = !selectionMode
-            if(selectionMode)
+            if(selectionMode && swipeView.currentIndex === views.viewer)
                 swipeView.currentIndex = views.gallery
         }
 

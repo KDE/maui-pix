@@ -3,7 +3,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.9 as Kirigami
 import org.kde.mauikit 1.2 as Maui
 
 import org.maui.pix 1.0
@@ -24,6 +24,8 @@ Maui.ItemDelegate
     }
 
     background: Item {}
+
+
 
     ColumnLayout
     {
@@ -103,9 +105,29 @@ Maui.ItemDelegate
                         Rectangle
                         {
                             anchors.fill: parent
-                            radius: 8
+                            radius: Maui.Style.radiusV
                         }
                     }
+                }
+            }
+
+            Rectangle
+            {
+                anchors.fill: parent
+
+                color: "transparent"
+                radius: Maui.Style.radiusV
+                border.color: Qt.darker(Kirigami.Theme.backgroundColor, 2.7)
+                opacity: 0.6
+
+                Rectangle
+                {
+                    anchors.fill: parent
+                    color: "transparent"
+                    radius: parent.radius - 0.5
+                    border.color: Qt.lighter(Kirigami.Theme.backgroundColor, 2)
+                    opacity: 0.8
+                    anchors.margins: 1
                 }
             }
         }
@@ -142,11 +164,11 @@ Maui.ItemDelegate
                 anchors.fill: parent
 //                label1.color: control.isCurrentItem ? control.Kirigami.Theme.highlightColor : control.Kirigami.Theme.textColor
 
-                rightLabels.visible: true
+                rightLabels.visible: control.width > 200
                 iconSizeHint: Maui.Style.iconSizes.small
             }
         }
-
-
     }
+
+
 }

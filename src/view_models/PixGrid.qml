@@ -284,7 +284,7 @@ gridDelegate: Item
     {
         id: _gridDelegate
        anchors.fill: parent
-        anchors.margins: Maui.Style.space.big
+        anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.small : Maui.Style.space.big
 
         fit: fitPreviews
         labelsVisible: showLabels
