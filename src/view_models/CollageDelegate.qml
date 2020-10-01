@@ -82,8 +82,8 @@ Maui.ItemDelegate
                             Image
                             {
                                 anchors.fill: parent
-                                sourceSize.width: 80
-                                sourceSize.height: 80
+                                sourceSize.width: _repeater.count === 4 ? 100 : 200
+                                sourceSize.height: _repeater.count === 4 ? 100 : 200
                                 asynchronous: true
                                 smooth: false
                                 source: model.url
@@ -162,9 +162,7 @@ Maui.ItemDelegate
                 id: _template
                 isCurrentItem: control.isCurrentItem
                 anchors.fill: parent
-//                label1.color: control.isCurrentItem ? control.Kirigami.Theme.highlightColor : control.Kirigami.Theme.textColor
-
-                rightLabels.visible: control.width > 200
+                rightLabels.visible: control.width >= 200
                 iconSizeHint: Maui.Style.iconSizes.small
             }
         }

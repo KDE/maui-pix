@@ -16,24 +16,6 @@ Maui.SettingsDialog
 
         Maui.SettingTemplate
         {
-            label1.text: i18n("Auto Scan")
-            label2.text: i18n("Scan the collection sources on startup")
-
-            Switch
-            {
-                Layout.fillHeight: true
-                checkable: true
-                checked: root.autoScan
-                onToggled:
-                {
-                    root.autoScan = !root.autoScan
-                    Maui.FM.saveSettings("AUTOSCAN", root.autoScan, "SETTINGS")
-                }
-            }
-        }
-
-        Maui.SettingTemplate
-        {
             label1.text: i18n("Auto Reload")
             label2.text: i18n("Watch for changes in the collection sources")
 

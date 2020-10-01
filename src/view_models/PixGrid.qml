@@ -150,7 +150,6 @@ Maui.AltBrowser
         {
             id: pixList
             autoReload: root.autoReload
-            autoScan: root.autoScan
         }
 
         sort: "date"

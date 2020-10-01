@@ -26,7 +26,6 @@ class Gallery : public MauiList
 	Q_PROPERTY(QList<QUrl> urls READ urls WRITE setUrls NOTIFY urlsChanged)
 	Q_PROPERTY(QList<QUrl> folders READ folders NOTIFY foldersChanged FINAL)
 	Q_PROPERTY(bool recursive READ recursive WRITE setRecursive NOTIFY recursiveChanged)
-	Q_PROPERTY(bool autoScan READ autoScan WRITE setAutoScan NOTIFY autoScanChanged)
 	Q_PROPERTY(bool autoReload READ autoReload WRITE setAutoReload NOTIFY autoReloadChanged)
 	Q_PROPERTY(int limit READ limit WRITE setlimit NOTIFY limitChanged)
 
@@ -38,9 +37,6 @@ public:
 
 	void setUrls(const QList<QUrl> &urls);
 	QList<QUrl> urls() const;
-
-	void setAutoScan(const bool &value);
-	bool autoScan() const;
 
 	void setAutoReload(const bool &value);
 	bool autoReload() const;
@@ -58,7 +54,6 @@ private:
 	QList<QUrl> m_urls;
 	QList<QUrl> m_folders;
 	bool m_autoReload;
-	bool m_autoScan;
 
 	FMH::MODEL_LIST list = {};
 
@@ -78,8 +73,6 @@ signals:
 	void urlsChanged();
 	void foldersChanged();
 	void autoReloadChanged();
-	void autoScanChanged();
-
 	void recursiveChanged(bool recursive);
 
 	void limitChanged(int limit);

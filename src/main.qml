@@ -56,7 +56,6 @@ Maui.ApplicationWindow
     /*PROPS*/
     property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !Kirigami.Settings.isMobile) === "true" ? true : false
     property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", true) === "false" ?  false : true
-    property bool autoScan: Maui.FM.loadSettings("AUTOSCAN", "GRID", true) === "false" ?  false : true
 
     property bool autoReload: Maui.FM.loadSettings("AUTORELOAD", "GRID", true) === "false" ?  false : true
 
@@ -283,8 +282,7 @@ Maui.ApplicationWindow
         onRejected: close()
         onAccepted:
         {
-            for(var url of selectionBox.uris)
-                Maui.FM.removeFile(url)
+            Maui.FM.removeFiles(selectionBox.uris)
             selectionBox.clear()
             close()
         }

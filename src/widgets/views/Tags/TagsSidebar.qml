@@ -13,7 +13,7 @@ Maui.GridView
 {
     id: control
     model: tagsModel
-    itemSize: Math.min(250, Math.max(100, Math.floor(width* 0.3)))
+    itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
     itemHeight: itemSize + Maui.Style.rowHeight
 
     holder.visible: control.count === 0

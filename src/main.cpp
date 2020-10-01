@@ -51,6 +51,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #if defined Q_OS_MACOS || defined Q_OS_WIN
 #include <KF5/KI18n/KLocalizedContext>
+#include <KF5/KI18n/KLocalizedString>
 #else
 #include <KI18n/KLocalizedContext>
 #include <KI18n/KLocalizedString>

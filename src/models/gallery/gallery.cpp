@@ -30,23 +30,30 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
   , m_fileLoader(new FMH::FileLoader())
   , m_watcher (new QFileSystemWatcher(this))
   , m_autoReload(true)
-  , m_autoScan(true)
   , m_recursive (true)
 {
 	qDebug()<< "CREATING GALLERY LIST";
     m_fileLoader->informer = &picInfo;
-    connect(m_fileLoader, &FMH::FileLoader::finished,[](FMH::MODEL_LIST items)
-	{
+    m_fileLoader->setBatchCount(2000);
+    connect(m_fileLoader, &FMH::FileLoader::finished,[this](FMH::MODEL_LIST items)
+    {/*
 		qDebug() << "Items finished" << items.size();
+        emit this->preListChanged();
+        this-> list = items;
+        emit this->postListChanged();
+        emit countChanged(); //TODO this is a bug from mauimodel not changing the count right //TODO*/
 	});
 
     connect(m_fileLoader, &FMH::FileLoader::itemsReady,[this](FMH::MODEL_LIST items)
-	{
-		emit this->preListChanged();
-		this-> list << items;
-		emit this->postListChanged();
-		emit countChanged(); //TODO this is a bug from mauimodel not changing the count right //TODO
-	});
+    {
+        qDebug() << "Items ready" << items.size();
+        emit this->preListChanged();
+        this-> list << items;
+        emit this->postListChanged();
+        emit countChanged(); //TODO this is a bug from mauimodel not changing the count right //TODO*/
+
+
+    });
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady,[this](FMH::MODEL item)
 	{
@@ -90,30 +97,12 @@ void Gallery::setUrls(const QList<QUrl> &urls)
 	this->m_urls = urls;
 	this->clear();
 	emit this->urlsChanged();
-
-	if(m_autoScan)
-	{
-		this->scan(m_urls, m_recursive, m_limit);
-	}
+    this->scan(m_urls, m_recursive, m_limit);
 }
 
 QList<QUrl> Gallery::urls() const
 {
 	return m_urls;
-}
-
-void Gallery::setAutoScan(const bool &value)
-{
-	if(m_autoScan == value)
-		return;
-
-	m_autoScan = value;
-	emit autoScanChanged();
-}
-
-bool Gallery::autoScan() const
-{
-	return m_autoScan;
 }
 
 void Gallery::setAutoReload(const bool &value)
