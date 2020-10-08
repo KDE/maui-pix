@@ -16,8 +16,9 @@ Maui.SettingsDialog
 
         Maui.SettingTemplate
         {
+            enabled: false
             label1.text: i18n("Auto Reload")
-            label2.text: i18n("Watch for changes in the collection sources")
+            label2.text: i18n("Watch for changes in the collection sources.")
 
             Switch
             {
@@ -59,8 +60,8 @@ Maui.SettingsDialog
 
         Maui.SettingTemplate
         {
-            label1.text: i18n("Titles")
-            label2.text: i18n("Show titles of the images")
+            label1.text: i18n("Image Titles")
+            label2.text: i18n("Show the titles of the images.")
 
             Switch
             {
@@ -78,7 +79,7 @@ Maui.SettingsDialog
         Maui.SettingTemplate
         {
             label1.text: i18n("Preview Size")
-            label2.text: i18n("Size of the thumbnails in the collection navigation views")
+            label2.text: i18n("Size of the thumbnails in the collection views.")
 
             Maui.ToolActions
             {
@@ -130,12 +131,12 @@ Maui.SettingsDialog
     Maui.SettingsSection
     {
         title: i18n("Viewer")
-        description: i18n("Adjust the viewer panels and settings")
+        description: i18n("Adjust the viewer panels and settings.")
 
         Maui.SettingTemplate
         {
             label1.text: i18n("Tag Bar")
-            label2.text: i18n("Easy access to add, remove and modify tags to the current image")
+            label2.text: i18n("Easy way to add, remove and modify the tags of the current image.")
 
             Switch
             {
@@ -149,7 +150,7 @@ Maui.SettingsDialog
         Maui.SettingTemplate
         {
             label1.text: i18n("Preview Bar")
-            label2.text: i18n("Show thumnail previews in the image viewer")
+            label2.text: i18n("Show small thumbnail previews in the image viewer.")
             Switch
             {
                 Layout.fillHeight: true
@@ -164,7 +165,7 @@ Maui.SettingsDialog
     {
         title: i18n("Sources")
         lastOne: true
-        description: i18n("Add new sources to manage and browse your image collection")
+        description: i18n("Add new sources to manage and browse your image collection.")
 
         ColumnLayout
         {
@@ -200,7 +201,7 @@ Maui.SettingsDialog
                     text: i18n("Remove")
                     onClicked:
                     {
-                        Pix.Collection.removeSources(_sourcesList.model[_sourcesList.currentIndex])
+                        Pix.Collection.removeSources(_sourcesList.model[_sourcesList.currentIndex].path)
                     }
                 }
 

@@ -26,9 +26,10 @@ Maui.AltBrowser
     showTitle: false
 
     enableLassoSelection: true
-    selectionMode: root.selectionMode
+//    selectionMode: root.selectionMode
     gridView.itemSize : control.itemSize
     gridView.itemHeight: showLabels ? control.itemSize * 1.5 : control.itemSize
+//    gridView.margins: Kirigami.Settings.isMobile && !isWide ? 0 : Maui.Style.space.medium
 
     //    listView.margins: Maui.Style.space.medium
     listView.section.criteria: model.sort === "title" ?  ViewSection.FirstCharacter : ViewSection.FullString
@@ -152,7 +153,7 @@ Maui.AltBrowser
             autoReload: root.autoReload
         }
 
-        sort: "date"
+        sort: "modified"
         sortOrder: Qt.DescendingOrder
         recursiveFilteringEnabled: true
         sortCaseSensitivity: Qt.CaseInsensitive
@@ -202,14 +203,14 @@ Maui.AltBrowser
 
         isCurrentItem: (ListView.isCurrentItem || checked)
         checked: selectionBox.contains(model.url)
-        checkable: selectionMode
+        checkable: root.selectionMode
         Drag.keys: ["text/uri-list"]
         Drag.mimeData: Drag.active ? {"text/uri-list": control.filterSelectedItems(model.url)} : {}
 
     onClicked:
     {
         control.currentIndex = index
-        if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+        if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
         {
             control.currentView.itemsSelected([index])
         }else if(Maui.Handy.singleClick)
@@ -221,7 +222,7 @@ Maui.AltBrowser
     onDoubleClicked:
     {
         control.currentIndex = index
-        if(!Maui.Handy.singleClick && !selectionMode)
+        if(!Maui.Handy.singleClick && !root.selectionMode)
         {
             openPic(index)
         }
@@ -274,7 +275,6 @@ Maui.AltBrowser
 
 gridDelegate: Item
 {
-//    property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
     height: control.gridView.cellHeight
     width: control.gridView.cellWidth
     property bool isCurrentItem: GridView.isCurrentItem
@@ -283,12 +283,13 @@ gridDelegate: Item
     {
         id: _gridDelegate
        anchors.fill: parent
-        anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.small : Maui.Style.space.big
+        anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.tiny : Maui.Style.space.big
 
         fit: fitPreviews
         labelsVisible: showLabels
-        checkable: selectionMode
-
+        checkable: root.selectionMode
+        imageBorder: !Kirigami.Settings.isMobile
+        radius: Kirigami.Settings.isMobile ? 0 : Maui.Style.radiusV
         isCurrentItem: parent.isCurrentItem
         checked: selectionBox.contains(model.url)
 
@@ -298,7 +299,7 @@ gridDelegate: Item
         onClicked:
         {
             control.currentIndex = index
-            if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+            if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
             {
                 control.currentView.itemsSelected([index])
             }else if(Maui.Handy.singleClick)
@@ -309,7 +310,7 @@ gridDelegate: Item
         onDoubleClicked:
         {
             control.currentIndex = index
-            if(!Maui.Handy.singleClick && !selectionMode)
+            if(!Maui.Handy.singleClick && !root.selectionMode)
             {
                 openPic(index)
             }

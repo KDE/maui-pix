@@ -33,9 +33,37 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Pix::Pix(QObject *parent) : QObject(parent) {}
 
+const static QStringList findCameraCollection()
+{
+    QStringList res;
+    const static auto paths = QStringList {FMH::HomePath+"/DCIM", FMH::HomePath+"/Camera"};
+
+    for(const auto &path : paths)
+    {
+        if(FMH::fileExists(path))
+            res << path;
+    }
+
+    return res;
+}
+
+const static QStringList findScreenshotsCollection()
+{
+    QStringList res;
+    const static auto paths = QStringList {FMH::HomePath+"/Screenshots"};
+
+    for(const auto &path : paths)
+    {
+        if(FMH::fileExists(path))
+            res << path;
+    }
+
+    return res;
+}
+
 const QStringList Pix::getSourcePaths()
 {
-    static const QStringList defaultSources  = {FMH::PicturesPath, FMH::DownloadsPath};
+    static const auto defaultSources  = QStringList{FMH::PicturesPath, FMH::DownloadsPath} << findCameraCollection() + findScreenshotsCollection();
     const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
     qDebug()<< "SOURCES" << sources;
     return sources;

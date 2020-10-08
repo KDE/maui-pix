@@ -99,14 +99,15 @@ StackView
 
             Action
             {
+                enabled: Maui.Android.hasKeyboard()
                 text: i18n("Previous")
                 icon.name: "go-previous"
                 onTriggered: VIEWER.previous()
             }
 
             Action
-            {                text: i18n("Favorite")
-
+            {
+                text: i18n("Favorite")
                 icon.name: "love"
                 checked: pixViewer.currentPicFav
                 onTriggered:
@@ -122,6 +123,7 @@ StackView
 
             Action
             {
+                enabled: Maui.Android.hasKeyboard()
                 icon.name: "go-next"
                 onTriggered: VIEWER.next()
             }
