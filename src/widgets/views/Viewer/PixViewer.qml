@@ -76,9 +76,7 @@ StackView
                 icon.name: "document-share"
                 onClicked:
                 {
-                    dialogLoader.sourceComponent = shareDialogComponent
-                    dialog.urls = [control.currentPic.url]
-                    dialog.open()
+                    Maui.Platform.shareFiles([control.currentPic.url])
                 }
             }
         ]

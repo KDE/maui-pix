@@ -232,12 +232,6 @@ Maui.ApplicationWindow
 
     Component
     {
-        id: shareDialogComponent
-        Maui.ShareDialog {}
-    }
-
-    Component
-    {
         id: _infoDialogComponent
         InfoDialog {}
     }
