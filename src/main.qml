@@ -22,6 +22,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
+import Qt.labs.settings 1.0
 
 import org.kde.kirigami 2.8 as Kirigami
 import org.kde.mauikit 1.2 as Maui
@@ -54,19 +55,32 @@ Maui.ApplicationWindow
                                        tags: 2,
                                        folders: 3 })
     /*PROPS*/
-    property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !Kirigami.Settings.isMobile) === "true" ? true : false
-    property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", true) === "false" ?  false : true
 
-    property bool autoReload: Maui.FM.loadSettings("AUTORELOAD", "GRID", true) === "false" ?  false : true
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     property bool selectionMode : false
-    property int previewSize : Maui.FM.loadSettings("PREVIEWSIZE", "UI", previewSizes.medium)
 
     readonly property var previewSizes: ({small: 100,
                                              medium: 120,
                                              large: 160,
                                              extralarge: 220})
+    Settings
+    {
+        id: browserSettings
+        category: "Browser"
+        property bool showLabels : !Kirigami.Settings.isMobile
+        property bool fitPreviews : false
+        property bool autoReload: true
+        property int previewSize : previewSizes.medium
+    }
+
+    Settings
+    {
+        id: viewerSettings
+        category: "Viewer"
+        property bool tagBarVisible : true
+        property bool previewBarVisible : false
+    }
 
     altHeader: Kirigami.Settings.isMobile
     floatingFooter: true
@@ -311,8 +325,7 @@ Maui.ApplicationWindow
     function setPreviewSize(size)
     {
         console.log(size)
-        root.previewSize = size
-        Maui.FM.saveSettings("PREVIEWSIZE",  root.previewSize, "UI")
+        browserSettings.previewSize = size
     }
 
     function getFileInfo(url)

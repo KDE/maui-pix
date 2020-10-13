@@ -15,7 +15,7 @@ Maui.AltBrowser
     id: control
     focus: true
     viewType: Maui.AltBrowser.ViewType.Grid
-    property int itemSize : root.previewSize
+    property int itemSize : browserSettings.previewSize
 
     property alias list : pixList
     property alias menu : _picMenu
@@ -28,7 +28,7 @@ Maui.AltBrowser
     enableLassoSelection: true
 //    selectionMode: root.selectionMode
     gridView.itemSize : control.itemSize
-    gridView.itemHeight: showLabels ? control.itemSize * 1.5 : control.itemSize
+    gridView.itemHeight: browserSettings.showLabels ? control.itemSize * 1.5 : control.itemSize
 //    gridView.margins: Kirigami.Settings.isMobile && !isWide ? 0 : Maui.Style.space.medium
 
     //    listView.margins: Maui.Style.space.medium
@@ -150,7 +150,7 @@ Maui.AltBrowser
         list: GalleryList
         {
             id: pixList
-            autoReload: root.autoReload
+            autoReload: browserSettings.autoReload
         }
 
         sort: "modified"
@@ -285,8 +285,8 @@ gridDelegate: Item
        anchors.fill: parent
         anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.tiny : Maui.Style.space.big
 
-        fit: fitPreviews
-        labelsVisible: showLabels
+        fit: browserSettings.fitPreviews
+        labelsVisible: browserSettings.showLabels
         checkable: root.selectionMode
         imageBorder: !Kirigami.Settings.isMobile
         radius: Kirigami.Settings.isMobile ? 0 : Maui.Style.radiusV

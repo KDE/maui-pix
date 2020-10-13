@@ -29,6 +29,19 @@ StackView
         holder.emojiSize: Maui.Style.iconSizes.huge
         holder.visible: foldersList.count === 0
 
+        flickable.header: Maui.ToolBar
+        {
+            width: parent.width
+            middleContent: Maui.TextField
+            {
+                Layout.fillWidth: true
+                Layout.maximumWidth: 500
+                placeholderText: i18n("Filter")
+                onAccepted: folderModel.filter = text
+                onCleared: folderModel.filter = ""
+            }
+        }
+
         model: Maui.BaseModel
         {
             id: folderModel

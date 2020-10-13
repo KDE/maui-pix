@@ -26,8 +26,6 @@ StackView
     property var currentPic : ({})
     property int currentPicIndex : 0
     property alias model :viewer.model
-    property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
-    property bool previewBarVisible: Maui.FM.loadSettings("PREVIEWBAR", "PIX", true) === "true" ? true : false
     property bool doodle : false
 
     Component
@@ -57,7 +55,7 @@ StackView
         autoHideFooter: true
         autoHideFooterMargins: control.height
         autoHideFooterDelay: 3000
-        floatingFooter: !previewBarVisible && !tagBarVisible
+        floatingFooter: !viewerSettings.previewBarVisible && !viewerSettings.tagBarVisible
 
         footBar.rightContent: [
             ToolButton
@@ -172,7 +170,7 @@ StackView
                     width: parent.width
                     anchors.bottom: parent.bottom
                     height: Math.min(100, Math.max(parent.height * 0.12, 60))
-                    visible: control.previewBarVisible && galleryRoll.rollList.count > 0 && opacity> 0
+                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 0 && opacity> 0
                     color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.7)
                     Behavior on opacity
                     {
@@ -202,7 +200,7 @@ StackView
             Maui.TagsBar
             {
                 id: tagBar
-                visible: !holder.visible && tagBarVisible && !fullScreen
+                visible: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
                 Layout.fillWidth: true
                 position: ToolBar.Footer
                 allowEditMode: true
@@ -235,14 +233,12 @@ StackView
 
     function toogleTagbar()
     {
-        control.tagBarVisible = !control.tagBarVisible
-        Maui.FM.saveSettings("TAGBAR", tagBarVisible, "PIX")
+        viewerSettings.tagBarVisible = !viewerSettings.tagBarVisible
     }
 
     function tooglePreviewBar()
     {
-        control.previewBarVisible = !control.previewBarVisible
-        Maui.FM.saveSettings("PREVIEWBAR", previewBarVisible, "PIX")
+        viewerSettings.previewBarVisible = !viewerSettings.previewBarVisible
     }
 
     function toogleFullscreen()

@@ -22,6 +22,19 @@ Maui.GridView
     holder.body: i18n("You can create new tags to organize your gallery")
     holder.emojiSize: Maui.Style.iconSizes.huge
 
+    flickable.header: Maui.ToolBar
+    {
+        width: parent.width
+        middleContent: Maui.TextField
+        {
+            Layout.fillWidth: true
+            Layout.maximumWidth: 500
+            placeholderText: i18n("Filter")
+            onAccepted: tagsModel.filter = text
+            onCleared: tagsModel.filter = ""
+        }
+    }
+
     Maui.FloatingButton
     {
         id: _overlayButton

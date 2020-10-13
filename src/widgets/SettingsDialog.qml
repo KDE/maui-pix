@@ -16,7 +16,6 @@ Maui.SettingsDialog
 
         Maui.SettingTemplate
         {
-            enabled: false
             label1.text: i18n("Auto Reload")
             label2.text: i18n("Watch for changes in the collection sources.")
 
@@ -24,12 +23,8 @@ Maui.SettingsDialog
             {
                 Layout.fillHeight: true
                 checkable: true
-                checked: root.autoScan
-                onToggled:
-                {
-                    root.autoReload = !root.autoReload
-                    Maui.FM.saveSettings("AUTORELOAD", autoReload, "SETTINGS")
-                }
+                checked: browserSettings.autoReload
+                onToggled: browserSettings.autoReload = !browserSettings.autoReload
             }
         }
     }
@@ -49,12 +44,8 @@ Maui.SettingsDialog
                 Layout.fillHeight: true
                 icon.name: "image-preview"
                 checkable: true
-                checked: root.fitPreviews
-                onToggled:
-                {
-                    root.fitPreviews = !root.fitPreviews
-                    Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
-                }
+                checked: browserSettings.fitPreviews
+                onToggled: browserSettings.fitPreviews = !browserSettings.fitPreviews
             }
         }
 
@@ -67,12 +58,8 @@ Maui.SettingsDialog
             {
                 Layout.fillHeight: true
                 checkable: true
-                checked: root.showLabels
-                onToggled:
-                {
-                    root.showLabels = !root.showLabels
-                    Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
-                }
+                checked: browserSettings.showLabels
+                onToggled: browserSettings.showLabels = !browserSettings.showLabels
             }
         }
 
@@ -90,7 +77,7 @@ Maui.SettingsDialog
 
                 Binding on currentIndex
                 {
-                    value:  switch(root.previewSize)
+                    value:  switch(browserSettings.previewSize)
                             {
                             case previewSizes.small: return 0;
                             case previewSizes.medium: return 1;
@@ -142,7 +129,7 @@ Maui.SettingsDialog
             {
                 Layout.fillHeight: true
                 checkable: true
-                checked: pixViewer.tagBarVisible
+                checked: viewerSettings.tagBarVisible
                 onToggled: pixViewer.toogleTagbar()
             }
         }
@@ -155,7 +142,7 @@ Maui.SettingsDialog
             {
                 Layout.fillHeight: true
                 checkable: true
-                checked: pixViewer.roll.visible
+                checked: viewerSettings.previewBarVisible
                 onToggled: pixViewer.tooglePreviewBar()
             }
         }
