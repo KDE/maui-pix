@@ -17,86 +17,89 @@ StackView
     property alias picsView : control.currentItem
     property Flickable flickable : picsView.flickable
 
-    initialItem: Maui.GridView
+    initialItem: Maui.Page
     {
-        id: foldersPage
-        itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
-        itemHeight: itemSize + Maui.Style.rowHeight
+        id: _foldersPage
+        flickable: _foldersGrid.flickable
 
-        holder.emoji: "qrc:/assets/view-preview.svg"
-        holder.title : i18n("No Folders!")
-        holder.body: i18n("Add new image sources")
-        holder.emojiSize: Maui.Style.iconSizes.huge
-        holder.visible: foldersList.count === 0
-
-        flickable.header: Maui.ToolBar
+        headBar.middleContent: Maui.TextField
         {
-            width: parent.width
-            middleContent: Maui.TextField
-            {
-                Layout.fillWidth: true
-                Layout.maximumWidth: 500
-                placeholderText: i18n("Filter")
-                onAccepted: folderModel.filter = text
-                onCleared: folderModel.filter = ""
-            }
+            Layout.fillWidth: true
+            Layout.maximumWidth: 500
+            placeholderText: i18n("Filter")
+            onAccepted: folderModel.filter = text
+            onCleared: folderModel.filter = ""
         }
 
-        model: Maui.BaseModel
+        Maui.GridView
         {
-            id: folderModel
-            list: FoldersList
+            id: _foldersGrid
+            anchors.fill: parent
+            itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
+            itemHeight: itemSize + Maui.Style.rowHeight
+
+            holder.emoji: "qrc:/assets/view-preview.svg"
+            holder.title : i18n("No Folders!")
+            holder.body: i18n("Add new image sources")
+            holder.emojiSize: Maui.Style.iconSizes.huge
+            holder.visible: foldersList.count === 0
+
+            model: Maui.BaseModel
             {
-                id: foldersList
-                folders: _galleryView.list.folders
-            }
-            sortOrder: Qt.DescendingOrder
-            sort: "modified"
-            recursiveFilteringEnabled: false
-            sortCaseSensitivity: Qt.CaseInsensitive
-            filterCaseSensitivity: Qt.CaseInsensitive
-        }
-
-        delegate: CollageDelegate
-        {
-            id: _delegate
-            property var folderPath : [model.path]
-
-            height: foldersPage.cellHeight - Maui.Style.space.tiny
-            width: foldersPage.cellWidth
-            isCurrentItem: GridView.isCurrentItem
-
-            contentWidth: foldersPage.itemSize - 10
-            contentHeight: foldersPage.cellHeight - 20
-
-            list.urls: folderPath
-            template.label1.text: model.label
-            template.label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
-            template.iconSource: model.icon
-
-            onClicked:
-            {
-                foldersPage.currentIndex = index
-
-                if(Maui.Handy.singleClick)
+                id: folderModel
+                list: FoldersList
                 {
-                    control.push(picsViewComponent)
-                    picsView.title = model.label
-                    currentFolder = model.path
-                    picsView.list.urls = [currentFolder]
+                    id: foldersList
+                    folders: _galleryView.list.folders
                 }
+                sortOrder: Qt.DescendingOrder
+                sort: "modified"
+                recursiveFilteringEnabled: false
+                sortCaseSensitivity: Qt.CaseInsensitive
+                filterCaseSensitivity: Qt.CaseInsensitive
             }
 
-            onDoubleClicked:
+            delegate: CollageDelegate
             {
-                foldersPage.currentIndex = index
+                id: _delegate
+                property var folderPath : [model.path]
 
-                if(!Maui.Handy.singleClick)
+                height: _foldersGrid.cellHeight - Maui.Style.space.tiny
+                width: _foldersGrid.cellWidth
+                isCurrentItem: GridView.isCurrentItem
+
+                contentWidth: _foldersGrid.itemSize - 10
+                contentHeight: _foldersGrid.cellHeight - 20
+
+                list.urls: folderPath
+                template.label1.text: model.label
+                template.label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
+                template.iconSource: model.icon
+
+                onClicked:
                 {
-                    control.push(picsViewComponent)
-                    picsView.title = model.label
-                    currentFolder = model.path
-                    picsView.list.urls = [currentFolder]
+                    _foldersGrid.currentIndex = index
+
+                    if(Maui.Handy.singleClick)
+                    {
+                        control.push(picsViewComponent)
+                        picsView.title = model.label
+                        currentFolder = model.path
+                        picsView.list.urls = [currentFolder]
+                    }
+                }
+
+                onDoubleClicked:
+                {
+                    _foldersGrid.currentIndex = index
+
+                    if(!Maui.Handy.singleClick)
+                    {
+                        control.push(picsViewComponent)
+                        picsView.title = model.label
+                        currentFolder = model.path
+                        picsView.list.urls = [currentFolder]
+                    }
                 }
             }
         }

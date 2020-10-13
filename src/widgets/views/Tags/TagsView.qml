@@ -29,10 +29,7 @@ StackView
         onRejected: close()
     }
 
-    initialItem: TagsSidebar
-    {
-        id: tagsSidebar
-    }
+    initialItem: TagsSidebar { }
 
     Component
     {

@@ -9,30 +9,19 @@ import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
 
-Maui.GridView
+Maui.Page
 {
     id: control
-    model: tagsModel
-    itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
-    itemHeight: itemSize + Maui.Style.rowHeight
 
-    holder.visible: control.count === 0
-    holder.emoji: i18n("qrc:/assets/add-image.svg")
-    holder.title :i18n("No Tags!")
-    holder.body: i18n("You can create new tags to organize your gallery")
-    holder.emojiSize: Maui.Style.iconSizes.huge
+    flickable: _gridView.flickable
 
-    flickable.header: Maui.ToolBar
+    headBar.middleContent: Maui.TextField
     {
-        width: parent.width
-        middleContent: Maui.TextField
-        {
-            Layout.fillWidth: true
-            Layout.maximumWidth: 500
-            placeholderText: i18n("Filter")
-            onAccepted: tagsModel.filter = text
-            onCleared: tagsModel.filter = ""
-        }
+        Layout.fillWidth: true
+        Layout.maximumWidth: 500
+        placeholderText: i18n("Filter")
+        onAccepted: tagsModel.filter = text
+        onCleared: tagsModel.filter = ""
     }
 
     Maui.FloatingButton
@@ -42,47 +31,62 @@ Maui.GridView
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins: Maui.Style.toolBarHeight
-        anchors.bottomMargin: Maui.Style.toolBarHeight + control.flickable.bottomMargin
+        anchors.bottomMargin: Maui.Style.toolBarHeight + _gridView.flickable.bottomMargin
         icon.name : "list-add"
         onClicked: newTagDialog.open()
     }
 
-    delegate: CollageDelegate
+    Maui.GridView
     {
-        id: _delegate
-        property string tag : model.tag
-        property url tagUrl : "tags:///"+model.tag
-        height: control.cellHeight
-        width: control.cellWidth
-        isCurrentItem: GridView.isCurrentItem
+        id: _gridView
+        anchors.fill: parent
 
-        contentWidth: control.itemSize - 10
-        contentHeight: control.cellHeight - 20
+        model: tagsModel
+        itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
+        itemHeight: itemSize + Maui.Style.rowHeight
 
-        list.urls: tagUrl
+        holder.visible: _gridView.count === 0
+        holder.emoji: i18n("qrc:/assets/add-image.svg")
+        holder.title :i18n("No Tags!")
+        holder.body: i18n("You can create new tags to organize your gallery")
+        holder.emojiSize: Maui.Style.iconSizes.huge
 
-        template.label1.text: model.tag
-        template.iconSource: model.icon
-        template.iconVisible: true
-
-        onClicked:
+        delegate: CollageDelegate
         {
-            control.currentIndex = index
-            if(Maui.Handy.singleClick)
+            id: _delegate
+            property string tag : model.tag
+            property url tagUrl : "tags:///"+model.tag
+            height: _gridView.cellHeight
+            width: _gridView.cellWidth
+            isCurrentItem: GridView.isCurrentItem
+
+            contentWidth: _gridView.itemSize - 10
+            contentHeight: _gridView.cellHeight - 20
+
+            list.urls: tagUrl
+
+            template.label1.text: model.tag
+            template.iconSource: model.icon
+            template.iconVisible: true
+
+            onClicked:
             {
-                populateGrid(model.tag)
+                _gridView.currentIndex = index
+                if(Maui.Handy.singleClick)
+                {
+                    populateGrid(model.tag)
+                }
+            }
+
+            onDoubleClicked:
+            {
+                _gridView.currentIndex = index
+                if(!Maui.Handy.singleClick)
+                {
+                    populateGrid(model.tag)
+                }
             }
         }
-
-        onDoubleClicked:
-        {
-            control.currentIndex = index
-            if(!Maui.Handy.singleClick)
-            {
-                populateGrid(model.tag)
-            }
-        }
-
     }
 }
 
