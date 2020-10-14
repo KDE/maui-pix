@@ -26,10 +26,10 @@ Maui.AltBrowser
     showTitle: false
 
     enableLassoSelection: true
-//    selectionMode: root.selectionMode
+    //    selectionMode: root.selectionMode
     gridView.itemSize : control.itemSize
     gridView.itemHeight: browserSettings.showLabels ? control.itemSize * 1.5 : control.itemSize
-//    gridView.margins: Kirigami.Settings.isMobile && !isWide ? 0 : Maui.Style.space.medium
+    //    gridView.margins: Kirigami.Settings.isMobile && !isWide ? 0 : Maui.Style.space.medium
 
     //    listView.margins: Maui.Style.space.medium
     listView.section.criteria: model.sort === "title" ?  ViewSection.FirstCharacter : ViewSection.FullString
@@ -50,6 +50,7 @@ Maui.AltBrowser
     {
         enabled: list.count > 0
         Layout.fillWidth: true
+        Layout.maximumWidth: 500
         placeholderText: i18n("Search") + " " + count + " images"
         onAccepted: model.filter = text
         onCleared: model.filter = ""
@@ -62,6 +63,8 @@ Maui.AltBrowser
         currentIndex : control.viewType === Maui.AltBrowser.ViewType.List ? 0 : 1
         enabled: list.count > 0
         display: ToolButton.TextBesideIcon
+        cyclic: true
+
         Action
         {
             text: i18n("List")
@@ -77,73 +80,6 @@ Maui.AltBrowser
         }
     }
 
-    headBar.rightContent: [
-
-        Maui.ToolButtonMenu
-        {
-            enabled: list.count > 0
-            icon.name: "view-sort"
-            MenuItem
-            {
-                text: i18n("Title")
-                checkable: true
-                checked: pixModel.sort === "title"
-                onTriggered: pixModel.sort = "title"
-            }
-
-            MenuItem
-            {
-                text: i18n("Modified")
-                checkable: true
-                checked: pixModel.sort === "modified"
-                onTriggered: pixModel.sort = "modified"
-            }
-
-            MenuItem
-            {
-                text: i18n("Creation date")
-                checkable: true
-                checked: pixModel.sort === "date"
-                onTriggered: pixModel.sort = "date"
-            }
-
-            MenuItem
-            {
-                text: i18n("Format")
-                checkable: true
-                checked: pixModel.sort === "format"
-                onTriggered: pixModel.sort = "format"
-            }
-
-            MenuItem
-            {
-                text: i18n("Size")
-                checkable: true
-                checked: pixModel.sort === "size"
-                onTriggered: pixModel.sort = "size"
-            }
-
-            MenuSeparator {}
-
-            MenuItem
-            {
-                text: i18n("Ascending")
-                onTriggered: pixModel.sortOrder = Qt.AscendingOrder
-                checked: pixModel.sortOrder === Qt.AscendingOrder
-                checkable: true
-            }
-
-            MenuItem
-            {
-                text: i18n("Descending")
-                onTriggered: pixModel.sortOrder = Qt.DescendingOrder
-                checked: pixModel.sortOrder === Qt.DescendingOrder
-                checkable: true
-            }
-        }
-    ]
-
-
     model: Maui.BaseModel
     {
         id: pixModel
@@ -153,8 +89,8 @@ Maui.AltBrowser
             autoReload: browserSettings.autoReload
         }
 
-        sort: "modified"
-        sortOrder: Qt.DescendingOrder
+        sort: browserSettings.sortBy
+        sortOrder: browserSettings.sortOrder
         recursiveFilteringEnabled: true
         sortCaseSensitivity: Qt.CaseInsensitive
         filterCaseSensitivity: Qt.CaseInsensitive
@@ -282,7 +218,7 @@ gridDelegate: Item
     PixPic
     {
         id: _gridDelegate
-       anchors.fill: parent
+        anchors.fill: parent
         anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.tiny : Maui.Style.space.big
 
         fit: browserSettings.fitPreviews

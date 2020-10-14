@@ -72,6 +72,8 @@ Maui.ApplicationWindow
         property bool fitPreviews : false
         property bool autoReload: true
         property int previewSize : previewSizes.medium
+        property string sortBy : "modified"
+        property int sortOrder: Qt.DescendingOrder
     }
 
     Settings

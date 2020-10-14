@@ -113,6 +113,87 @@ Maui.SettingsDialog
                 }
             }
         }
+
+        Maui.SettingTemplate
+        {
+            label1.text: i18n("Sorting by")
+            label2.text: i18n("Change the sorting key.")
+
+            Maui.ToolActions
+            {
+                expanded: true
+                autoExclusive: true
+                display: ToolButton.TextOnly
+
+                Binding on currentIndex
+                {
+                    value:  switch(browserSettings.sortBy)
+                            {
+                            case "title": return 0;
+                            case "modified": return 1;
+                            case "size": return 2;
+                            default: return -1;
+                            }
+                    restoreMode: Binding.RestoreValue
+                }
+
+                Action
+                {
+                    text: i18n("Title")
+                    onTriggered: browserSettings.sortBy = "title"
+                }
+
+                Action
+                {
+                    text: i18n("Date")
+                    onTriggered: browserSettings.sortBy = "modified"
+                }
+
+                Action
+                {
+                    text: i18n("Size")
+                    onTriggered: browserSettings.sortBy = "size"
+                }
+            }
+        }
+
+        Maui.SettingTemplate
+        {
+            label1.text: i18n("Sort order")
+            label2.text: i18n("Change the sorting order.")
+
+            Maui.ToolActions
+            {
+                expanded: true
+                autoExclusive: true
+                display: ToolButton.IconOnly
+
+                Binding on currentIndex
+                {
+                    value:  switch(browserSettings.sortOrder)
+                            {
+                            case Qt.AscendingOrder: return 0;
+                            case Qt.DescendingOrder: return 1;
+                            default: return -1;
+                            }
+                    restoreMode: Binding.RestoreValue
+                }
+
+                Action
+                {
+                    text: i18n("Ascending")
+                    icon.name: "view-sort-ascending"
+                    onTriggered: browserSettings.sortOrder = Qt.AscendingOrder
+                }
+
+                Action
+                {
+                    text: i18n("Descending")
+                    icon.name: "view-sort-descending"
+                    onTriggered: browserSettings.sortOrder = Qt.DescendingOrder
+                }
+            }
+        }
     }
 
     Maui.SettingsSection
