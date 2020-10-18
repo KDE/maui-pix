@@ -31,14 +31,14 @@ Maui.Page
 
         Action
         {
-            text: qsTr("Save")
+            text: i18n("Save")
             icon.name: "document-save"
         }
 
         Action
         {
             icon.name: "document-save-as"
-            text: qsTr("Save as...")
+            text: i18n("Save as...")
         }
     }
 
