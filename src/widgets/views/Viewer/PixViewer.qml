@@ -28,6 +28,10 @@ StackView
     property alias model :viewer.model
     property bool doodle : false
 
+    Kirigami.Theme.inherit: false
+    Kirigami.Theme.backgroundColor: "#333"
+    Kirigami.Theme.textColor: "#fafafa"
+
     Component
     {
         id: _editorComponent
@@ -150,19 +154,18 @@ StackView
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                TapHandler
-                {
-                    grabPermissions: PointerHandler.CanTakeOverFromAnything
-                    acceptedButtons: Qt.LeftButton | Qt.RightButton
+//                TapHandler
+//                {
+//                    grabPermissions: PointerHandler.CanTakeOverFromAnything
+//                    acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-                    onSingleTapped:
-                    {
-                        galleryRollBg.toogle()
-//                        root.headBar.visible = !root.headBar.visible
-                        viewer.forceActiveFocus()
-                        mouse.accepted = false
-                    }
-                }
+//                    onSingleTapped:
+//                    {
+//                        galleryRollBg.toogle()
+////                        root.headBar.visible = !root.headBar.visible
+//                        viewer.forceActiveFocus()
+//                    }
+//                }
 
                 Rectangle
                 {
