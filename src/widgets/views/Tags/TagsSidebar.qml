@@ -20,8 +20,8 @@ Maui.Page
         Layout.fillWidth: true
         Layout.maximumWidth: 500
         placeholderText: i18n("Filter")
-        onAccepted: tagsModel.filter = text
-        onCleared: tagsModel.filter = ""
+        onAccepted: _tagsModel.filter = text
+        onCleared: _tagsModel.filter = ""
     }
 
     Maui.FloatingButton
@@ -41,7 +41,19 @@ Maui.Page
         id: _gridView
         anchors.fill: parent
 
-        model: tagsModel
+        model: Maui.BaseModel
+        {
+            id: _tagsModel
+            recursiveFilteringEnabled: true
+            sortCaseSensitivity: Qt.CaseInsensitive
+            filterCaseSensitivity: Qt.CaseInsensitive
+
+            list: Pix.TagsList
+            {
+                id: _tagsList
+            }
+        }
+
         itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
         itemHeight: itemSize + Maui.Style.rowHeight
 
@@ -54,8 +66,6 @@ Maui.Page
         delegate: CollageDelegate
         {
             id: _delegate
-            property string tag : model.tag
-            property url tagUrl : "tags:///"+model.tag
             height: _gridView.cellHeight
             width: _gridView.cellWidth
             isCurrentItem: GridView.isCurrentItem
@@ -63,7 +73,8 @@ Maui.Page
             contentWidth: _gridView.itemSize - 10
             contentHeight: _gridView.cellHeight - 20
 
-            list.urls: tagUrl
+//            list.urls: [tagUrl]
+            images: model.preview.split(",")
 
             template.label1.text: model.tag
             template.iconSource: model.icon

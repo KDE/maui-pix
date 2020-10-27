@@ -59,6 +59,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "models/gallery/gallery.h"
 #include "models/folders/folders.h"
+#include "models/tags/tagsmodel.h"
 #include "models/picinfomodel.h"
 #include "pix.h"
 
@@ -155,8 +156,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterSingletonInstance<Pix>(PIX_URI, 1, 0, "Collection", Pix::instance ());
 
 	qmlRegisterType<Gallery>(PIX_URI, 1, 0, "GalleryList");
-	qmlRegisterType<Folders>(PIX_URI, 1, 0, "FoldersList");
-	qmlRegisterType<PicInfoModel>(PIX_URI, 1, 0, "PicInfoModel");
+    qmlRegisterType<Folders>(PIX_URI, 1, 0, "FoldersList");
+    qmlRegisterType<TagsModel>(PIX_URI, 1, 0, "TagsList");
+    qmlRegisterType<PicInfoModel>(PIX_URI, 1, 0, "PicInfoModel");
 
 	engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 

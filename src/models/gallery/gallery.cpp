@@ -51,8 +51,6 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
         this-> list << items;
         emit this->postListChanged();
         emit countChanged(); //TODO this is a bug from mauimodel not changing the count right //TODO*/
-
-
     });
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady,[this](FMH::MODEL item)
@@ -75,6 +73,8 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
 	{
 		qDebug()<< "File changed" << file;
 	});
+
+    connect(this, &Gallery::postListChanged, this, &Gallery::filesChanged);
 }
 
 Gallery::~Gallery()
@@ -91,8 +91,8 @@ void Gallery::setUrls(const QList<QUrl> &urls)
 {
 	qDebug()<< "setting urls"<< this->m_urls << urls;
 
-	if(this->m_urls == urls)
-		return;
+//	if(this->m_urls == urls)
+//		return;
 
 	this->m_urls = urls;
 	this->clear();
@@ -132,6 +132,11 @@ bool Gallery::recursive() const
 int Gallery::limit() const
 {
 	return m_limit;
+}
+
+QStringList Gallery::files() const
+{
+    return FMH::modelToList(this->list, FMH::MODEL_KEY::URL);
 }
 
 void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &limit)

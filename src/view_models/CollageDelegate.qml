@@ -11,7 +11,7 @@ import org.maui.pix 1.0
 Maui.ItemDelegate
 {
     id: control
-    property alias list : _galleryList
+    property var images : []
     property alias template : _template
     property int contentWidth: Maui.Style.iconSizes.huge
     property int contentHeight: Maui.Style.iconSizes.huge
@@ -24,8 +24,6 @@ Maui.ItemDelegate
     }
 
     background: Item {}
-
-
 
     ColumnLayout
     {
@@ -63,16 +61,8 @@ Maui.ItemDelegate
                     Repeater
                     {
                         id: _repeater
-                        model: Maui.BaseModel
-                        {
-                            list: GalleryList
-                            {
-                                id: _galleryList
-                                autoReload: false
-                                recursive: false
-                                limit: 4
-                            }
-                        }
+
+                        model: control.images
 
                         delegate: Rectangle
                         {
@@ -86,7 +76,7 @@ Maui.ItemDelegate
                                 sourceSize.height: _repeater.count === 4 ? 100 : 200
                                 asynchronous: true
                                 smooth: false
-                                source: model.url
+                                source: modelData
                                 fillMode: Image.PreserveAspectCrop
                             }
                         }
