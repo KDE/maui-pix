@@ -29,9 +29,7 @@ Maui.AltBrowser
     //    selectionMode: root.selectionMode
     gridView.itemSize : control.itemSize
     gridView.itemHeight: browserSettings.showLabels ? control.itemSize * 1.5 : control.itemSize
-    //    gridView.margins: Kirigami.Settings.isMobile && !isWide ? 0 : Maui.Style.space.medium
 
-    //    listView.margins: Maui.Style.space.medium
     listView.section.criteria: model.sort === "title" ?  ViewSection.FirstCharacter : ViewSection.FullString
     listView.section.property: model.sort
     listView.section.delegate: Maui.ListItemTemplate
