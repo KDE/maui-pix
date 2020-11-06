@@ -77,12 +77,14 @@ SOURCES += src/main.cpp \
     src/pix.cpp \
     src/models/gallery/gallery.cpp \
     src/models/folders/folders.cpp \
+    src/models/tags/tagsmodel.cpp \
     src/models/picinfomodel.cpp
 
 HEADERS += \
     src/pix.h \
     src/models/gallery/gallery.h \
     src/models/folders/folders.h \
+    src/models/tags/tagsmodel.h \
     src/models/picinfomodel.h
 
 # Default rules for deployment.
