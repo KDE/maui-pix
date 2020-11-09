@@ -7,14 +7,13 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
-import org.kde.mauikit 1.0 as Maui
+import org.kde.mauikit 1.2 as Maui
 import org.kde.kirigami 2.6 as Kirigami
-import org.kde.mauikit 1.1 as MauiLab
 
 import "../widgets/views/Pix.js" as PIX
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 
-MauiLab.SelectionBar
+Maui.SelectionBar
 {
     id: control
 
@@ -29,7 +28,7 @@ MauiLab.SelectionBar
     {
         Kirigami.Theme.inherit: true
         height: Maui.Style.toolBarHeight
-        width: parent.width
+        width: ListView.view.width
 
         background: Item {}
 
@@ -50,7 +49,7 @@ MauiLab.SelectionBar
     Action
     {
         text: i18n("View")
-        icon.name: "quickview"
+        icon.name: "document-preview-archive"
         onTriggered: VIEWER.openExternalPics(control.uris, 0)
     }
 
@@ -79,9 +78,7 @@ MauiLab.SelectionBar
         icon.name: "document-share"
         onTriggered:
         {
-            dialogLoader.sourceComponent = shareDialogComponent
-            dialog.urls= control.uris
-            dialog.open()
+            Maui.Platform.shareFiles(control.uris)
         }
     }
 

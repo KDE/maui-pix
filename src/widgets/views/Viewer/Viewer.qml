@@ -8,7 +8,7 @@ import QtQuick 2.13
 import QtQuick.Controls 2.13
 import org.kde.mauikit 1.0 as Maui
 import org.kde.kirigami 2.7 as Kirigami
-import GalleryList 1.0
+import org.maui.pix 1.0
 
 import "../../"
 import "Viewer.js" as VIEWER
@@ -45,30 +45,38 @@ Item
         clip: true
         focus: true
         interactive: Maui.Handy.isTouch
-        highlightFollowsCurrentItem: true
-        highlightMoveDuration: 0
-        highlightResizeDuration : 0
-        snapMode: ListView.SnapOneItem
         cacheBuffer: width * 3
 
-        keyNavigationEnabled : true
-        keyNavigationWraps : true
+
+        snapMode: ListView.SnapOneItem
+        boundsBehavior: Flickable.StopAtBounds
+
+        preferredHighlightBegin: 0
+        preferredHighlightEnd: width
+
+        highlightRangeMode: ListView.StrictlyEnforceRange
+        highlightMoveDuration: 0
+        highlightFollowsCurrentItem: true
+        highlightResizeDuration: 0
+        highlightMoveVelocity: -1
+        highlightResizeVelocity: -1
+
+        maximumFlickVelocity: 4 * (viewerList.orientation === Qt.Horizontal ? width : height)
+
         Keys.onPressed:
         {
             if((event.key == Qt.Key_Right))
             {
-                viewerList.incrementCurrentIndex()
-                VIEWER.view(currentIndex)
+                VIEWER.next()
             }
 
             if((event.key == Qt.Key_Left))
             {
-                viewerList.decrementCurrentIndex()
-                VIEWER.view(currentIndex)
+                VIEWER.previous()
             }
         }
 
-        onCurrentIndexChanged:viewerList.forceActiveFocus()
+        onCurrentIndexChanged: viewerList.forceActiveFocus()
 
         onMovementEnded:
         {
@@ -88,13 +96,8 @@ Item
             {
                 id: delegate
 
-                Connections
-                {
-                    target: delegate
-
-                    onPressAndHold: _picMenu.popup()
-                    onRightClicked: _picMenu.popup()
-                }
+                onPressAndHold: _picMenu.popup()
+                onRightClicked: _picMenu.popup()
             }
         }
     }

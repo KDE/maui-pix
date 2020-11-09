@@ -1,28 +1,21 @@
-// Copyright 2018-2020 Camilo Higuita <milo.h@aol.com>
-// Copyright 2018-2020 Nitrux Latinoamericana S.C.
-//
-// SPDX-License-Identifier: GPL-3.0-or-later
-
-
-import QtQuick.Controls 2.10
-import QtQuick 2.10
+import QtQuick.Controls 2.14
+import QtQuick 2.14
 import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.6 as Kirigami
-import org.kde.mauikit 1.0 as Maui
-import org.kde.mauikit 1.1 as MauiLab
-import GalleryList 1.0
+import org.kde.mauikit 1.2 as Maui
+import org.maui.pix 1.0
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../widgets/views/Pix.js" as PIX
 import "../widgets"
 
-MauiLab.AltBrowser
+Maui.AltBrowser
 {
     id: control
     focus: true
-    viewType: MauiLab.AltBrowser.ViewType.Grid
-    property int itemSize : root.previewSize
+    viewType: Maui.AltBrowser.ViewType.Grid
+    property int itemSize : browserSettings.previewSize
 
     property alias list : pixList
     property alias menu : _picMenu
@@ -30,36 +23,32 @@ MauiLab.AltBrowser
 
     /*signals*/
     signal picClicked(int index)
-    padding: 0
     showTitle: false
 
-    enableLassoSelection: !Kirigami.Settings.hasTransientTouchInput
-
+    enableLassoSelection: true
+    //    selectionMode: root.selectionMode
     gridView.itemSize : control.itemSize
-    gridView.margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.big
+    gridView.itemHeight: browserSettings.showLabels ? control.itemSize * 1.5 : control.itemSize
 
-    listView.topMargin: Maui.Style.contentMargins
-    listView.spacing: Maui.Style.space.medium
     listView.section.criteria: model.sort === "title" ?  ViewSection.FirstCharacter : ViewSection.FullString
     listView.section.property: model.sort
-    listView.section.delegate: Maui.LabelDelegate
+    listView.section.delegate: Maui.ListItemTemplate
     {
         id: delegate
-        width: parent.width
+        width: ListView.view.width
         height: Maui.Style.toolBarHeightAlt
-        label: model.sort === "date" || model.sort === "modified" ? Maui.FM.formatDate(Date(section), "MM/dd/yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : String(section).toUpperCase())
-        labelTxt.font.pointSize: Maui.Style.fontSizes.big
-        isSection: true
+        label1.text: model.sort === "date" || model.sort === "modified" ? Qt.formatDateTime(new Date(section), "d MMM yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : section)
+        label1.font.pointSize: Maui.Style.fontSizes.big
     }
 
-    holder.visible: pixList.count === 0
-    holder.isMask: true
+    holder.visible: count === 0
     holder.emojiSize: Maui.Style.iconSizes.huge
 
     headBar.middleContent: Maui.TextField
     {
         enabled: list.count > 0
         Layout.fillWidth: true
+        Layout.maximumWidth: 500
         placeholderText: i18n("Search") + " " + count + " images"
         onAccepted: model.filter = text
         onCleared: model.filter = ""
@@ -69,103 +58,37 @@ MauiLab.AltBrowser
     {
         autoExclusive: true
         expanded: isWide
-        currentIndex : control.viewType === MauiLab.AltBrowser.ViewType.List ? 0 : 1
+        currentIndex : control.viewType === Maui.AltBrowser.ViewType.List ? 0 : 1
         enabled: list.count > 0
         display: ToolButton.TextBesideIcon
+        cyclic: true
+
         Action
         {
             text: i18n("List")
             icon.name: "view-list-details"
-            onTriggered: control.viewType = MauiLab.AltBrowser.ViewType.List
+            onTriggered: control.viewType = Maui.AltBrowser.ViewType.List
         }
 
         Action
         {
             text: i18n("Grid")
             icon.name: "view-list-icons"
-            onTriggered: control.viewType= MauiLab.AltBrowser.ViewType.Grid
+            onTriggered: control.viewType= Maui.AltBrowser.ViewType.Grid
         }
-    }
-
-    headBar.rightContent: [
-
-        Maui.ToolButtonMenu
-        {
-            enabled: list.count > 0
-            icon.name: "view-sort"
-            MenuItem
-            {
-                text: i18n("Title")
-                checkable: true
-                checked: pixModel.sort === "title"
-                onTriggered: pixModel.sort = "title"
-            }
-
-            MenuItem
-            {
-                text: i18n("Modified")
-                checkable: true
-                checked: pixModel.sort === "modified"
-                onTriggered: pixModel.sort = "modified"
-            }
-
-            MenuItem
-            {
-                text: i18n("Creation date")
-                checkable: true
-                checked: pixModel.sort === "date"
-                onTriggered: pixModel.sort = "date"
-            }
-
-            MenuItem
-            {
-                text: i18n("Format")
-                checkable: true
-                checked: pixModel.sort === "format"
-                onTriggered: pixModel.sort = "format"
-            }
-
-            MenuItem
-            {
-                text: i18n("Size")
-                checkable: true
-                checked: pixModel.sort === "size"
-                onTriggered: pixModel.sort = "size"
-            }
-
-            MenuSeparator {}
-
-            MenuItem
-            {
-                text: i18n("Ascending")
-                onTriggered: pixModel.sortOrder = Qt.AscendingOrder
-                checked: pixModel.sortOrder === Qt.AscendingOrder
-                checkable: true
-            }
-
-            MenuItem
-            {
-                text: i18n("Descending")
-                onTriggered: pixModel.sortOrder = Qt.DescendingOrder
-                checked: pixModel.sortOrder === Qt.DescendingOrder
-                checkable: true
-            }
-        }
-    ]
-
-    GalleryList
-    {
-        id: pixList
-        autoReload: root.autoReload
-        autoScan: root.autoScan
     }
 
     model: Maui.BaseModel
     {
         id: pixModel
-        list: pixList
-        sort: "date"
-        sortOrder: Qt.DescendingOrder
+        list: GalleryList
+        {
+            id: pixList
+            autoReload: browserSettings.autoReload
+        }
+
+        sort: browserSettings.sortBy
+        sortOrder: browserSettings.sortOrder
         recursiveFilteringEnabled: true
         sortCaseSensitivity: Qt.CaseInsensitive
         filterCaseSensitivity: Qt.CaseInsensitive
@@ -174,14 +97,15 @@ MauiLab.AltBrowser
     Connections
     {
         target: control.currentView
+        ignoreUnknownSignals: true
 
-        onItemsSelected:
+        function onItemsSelected(indexes)
         {
             for(var i in indexes)
                 PIX.selectItem(pixModel.get(indexes[i]))
         }
 
-        onKeyPress:
+        function onKeyPress(event)
         {
             const index = control.currentIndex
             const item = control.model.get(index)
@@ -208,21 +132,19 @@ MauiLab.AltBrowser
     listDelegate: PixPicList
     {
         id: _listDelegate
-        height: Maui.Style.rowHeight *1.5
-        width: parent.width
-        leftPadding: Maui.Style.space.small
-        rightPadding: Maui.Style.space.small
+        height: Maui.Style.rowHeight * 2
+        width: ListView.view.width
 
         isCurrentItem: (ListView.isCurrentItem || checked)
         checked: selectionBox.contains(model.url)
-        checkable: selectionMode
+        checkable: root.selectionMode
         Drag.keys: ["text/uri-list"]
         Drag.mimeData: Drag.active ? {"text/uri-list": control.filterSelectedItems(model.url)} : {}
 
     onClicked:
     {
         control.currentIndex = index
-        if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+        if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
         {
             control.currentView.itemsSelected([index])
         }else if(Maui.Handy.singleClick)
@@ -234,7 +156,7 @@ MauiLab.AltBrowser
     onDoubleClicked:
     {
         control.currentIndex = index
-        if(!Maui.Handy.singleClick && !selectionMode)
+        if(!Maui.Handy.singleClick && !root.selectionMode)
         {
             openPic(index)
         }
@@ -260,7 +182,9 @@ MauiLab.AltBrowser
     Connections
     {
         target: selectionBox
-        onUriRemoved:
+        ignoreUnknownSignals: true
+
+        function onUriRemoved(uri)
         {
             if(uri === model.url)
             {
@@ -268,7 +192,7 @@ MauiLab.AltBrowser
             }
         }
 
-        onUriAdded:
+        function onUriAdded(uri)
         {
             if(uri === model.url)
             {
@@ -276,68 +200,82 @@ MauiLab.AltBrowser
             }
         }
 
-        onCleared: _listDelegate.checked = false
+        function onCleared()
+        {
+            _listDelegate.checked = false
+        }
     }
 }
 
-gridDelegate: PixPic
+gridDelegate: Item
 {
-    id: _gridDelegate
-    property int spacing : Kirigami.Settings.isMobile ? 2 : Maui.Style.space.big*1.2
-    fit: fitPreviews
-    labelsVisible: showLabels
-    height: control.gridView.cellHeight - spacing
-    width: control.gridView.cellWidth - spacing
-    checkable: selectionMode
+    height: control.gridView.cellHeight
+    width: control.gridView.cellWidth
+    property bool isCurrentItem: GridView.isCurrentItem
 
-    isCurrentItem: (GridView.isCurrentItem || checked)
-    checked: selectionBox.contains(model.url)
-
-    Drag.keys: ["text/uri-list"]
-    Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
-
-    onClicked:
+    PixPic
     {
-        control.currentIndex = index
-        if(selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+        id: _gridDelegate
+        anchors.fill: parent
+        anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.tiny : Maui.Style.space.big
+
+        fit: browserSettings.fitPreviews
+        labelsVisible: browserSettings.showLabels
+        checkable: root.selectionMode
+        imageBorder: !Kirigami.Settings.isMobile
+        radius: Kirigami.Settings.isMobile ? 0 : Maui.Style.radiusV
+        isCurrentItem: parent.isCurrentItem
+        checked: selectionBox.contains(model.url)
+
+        Drag.keys: ["text/uri-list"]
+        Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
+
+        onClicked:
         {
-            control.currentView.itemsSelected([index])
-        }else if(Maui.Handy.singleClick)
+            control.currentIndex = index
+            if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+            {
+                control.currentView.itemsSelected([index])
+            }else if(Maui.Handy.singleClick)
+            {
+                openPic(index)
+            }
+        }
+        onDoubleClicked:
         {
-            openPic(index)
+            control.currentIndex = index
+            if(!Maui.Handy.singleClick && !root.selectionMode)
+            {
+                openPic(index)
+            }
+        }
+
+        onPressAndHold:
+        {
+            control.currentIndex = index
+            _picMenu.popup()
+        }
+
+        onRightClicked:
+        {
+            control.currentIndex = index
+            _picMenu.popup()
+        }
+
+        onToggled:
+        {
+            control.currentIndex = index
+            PIX.selectItem(pixModel.get(index))
         }
     }
 
-    onDoubleClicked:
-    {
-        control.currentIndex = index
-        if(!Maui.Handy.singleClick && !selectionMode)
-        {
-            openPic(index)
-        }
-    }
-
-    onPressAndHold:
-    {
-        control.currentIndex = index
-        _picMenu.popup()
-    }
-
-    onRightClicked:
-    {
-        control.currentIndex = index
-        _picMenu.popup()
-    }
-    onToggled:
-    {
-        control.currentIndex = index
-        PIX.selectItem(pixModel.get(index))
-    }
 
     Connections
     {
         target: selectionBox
-        onUriRemoved:
+        ignoreUnknownSignals: true
+
+        function onUriRemoved(uri)
         {
             if(uri === model.url)
             {
@@ -345,7 +283,7 @@ gridDelegate: PixPic
             }
         }
 
-        onUriAdded:
+        function onUriAdded(uri)
         {
             if(uri === model.url)
             {
@@ -353,10 +291,12 @@ gridDelegate: PixPic
             }
         }
 
-        onCleared: _gridDelegate.checked = false
+        function onCleared()
+        {
+            _gridDelegate.checked = false
+        }
     }
 }
-
 
 function filterSelectedItems(path)
 {

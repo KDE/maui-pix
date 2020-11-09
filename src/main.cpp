@@ -29,7 +29,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QQmlContext>
 #include <QIcon>
 #include <QFileInfo>
-#include "pix.h"
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -48,28 +47,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "mauiapp.h"
 #else
 #include <MauiKit/fmh.h>
-#include <MauiKit/tagging.h>
 #include <MauiKit/mauiapp.h>
+#include "../pix_version.h"
 #endif
-
-#include "models/gallery/gallery.h"
-//#include "models/cloud/cloud.h"
-#include "models/folders/folders.h"
-#include "models/picinfomodel.h"
 
 #ifdef Q_OS_MACOS
 #include "mauimacos.h"
 #endif
 
-#include <KI18n/KLocalizedContext>
+#if defined Q_OS_MACOS || defined Q_OS_WIN
+#include <KF5/KI18n/KLocalizedString>
+#else
+#include <KI18n/KLocalizedString>
+#endif
 
-static const  QList<QUrl>  getFolderImages(const QString &path)
+#include "models/gallery/gallery.h"
+#include "models/folders/folders.h"
+#include "models/tags/tagsmodel.h"
+#include "models/picinfomodel.h"
+#include "pix.h"
+
+#define PIX_URI "org.maui.pix"
+
+static const QList<QUrl> getFolderImages(const QString &path)
 {
 	QList<QUrl> urls;
 
 	if (QFileInfo(path).isDir())
 	{
-		QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::Subdirectories);
+		QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::NoIteratorFlags);
 		while (it.hasNext())
 			urls << QUrl::fromLocalFile(it.next());
 
@@ -102,6 +108,9 @@ static const QList<QUrl> openFiles(const QStringList &files)
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+	QCoreApplication::setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
+	QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+	QCoreApplication::setAttribute(Qt::AA_DisableSessionManager, true);
 
 #ifdef Q_OS_ANDROID
 	QGuiApplication app(argc, argv);
@@ -111,25 +120,29 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 #endif
 
-	app.setApplicationName(PIX::appName);
-	app.setApplicationVersion(PIX::version);
-	app.setApplicationDisplayName(PIX::displayName);
-	app.setOrganizationName(PIX::orgName);
-	app.setOrganizationDomain(PIX::orgDomain);
-    app.setWindowIcon(QIcon(":/img/assets/pix.png"));
-    MauiApp::instance()->setHandleAccounts(false); //for now index can not handle cloud accounts
-    MauiApp::instance()->setCredits ({QVariantMap({{"name", "Camilo Higuita"}, {"email", "milo.h@aol.com"}, {"year", "2019-2020"}})});
-    MauiApp::instance()->setDescription("Pix organizes and manages your images gallery collection");
-    MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
-    MauiApp::instance()->setHandleAccounts(false);
-    MauiApp::instance()->setWebPage("https://mauikit.org");
-    MauiApp::instance()->setReportPage("https://invent.kde.org/maui/index-fm/-/issues");
+	app.setOrganizationName(QStringLiteral("Maui"));
+	app.setWindowIcon(QIcon(":/img/assets/pix.png"));
+
+	MauiApp::instance()->setHandleAccounts(false); //for now pix can not handle cloud accounts
+	MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
+
+	KLocalizedString::setApplicationDomain("pix");
+	KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Pix lets you organize, browse, and edit your image collection."),
+					 KAboutLicense::LGPL_V3, i18n("© 2019-2020 Nitrux Development Team"));
+	about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
+	about.setHomepage("https://mauikit.org");
+	about.setProductName("maui/pix");
+	about.setBugAddress("https://invent.kde.org/maui/pix/-/issues");
+	about.setOrganizationDomain(PIX_URI);
+	about.setProgramLogo(app.windowIcon());
+
+	KAboutData::setApplicationData(about);
 
 	QCommandLineParser parser;
-	parser.setApplicationDescription(PIX::description);
-	const QCommandLineOption versionOption = parser.addVersionOption();
-	parser.addOption(versionOption);
 	parser.process(app);
+
+	about.setupCommandLine(&parser);
+	about.processCommandLine(&parser);
 
 	const QStringList args = parser.positionalArguments();
 
@@ -137,34 +150,26 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	if(!args.isEmpty())
 		pics = openFiles(args);
 
-	static auto pix = new Pix;
-
 	QQmlApplicationEngine engine;
 	QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
 	{
 		if(!pics.isEmpty())
-			pix->openPics(pics);
+			Pix::instance ()->openPics(pics);
 	});
 
-	qmlRegisterSingletonType<Pix>("org.maui.pix", 1, 0, "Collection",
-								  [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject* {
-		Q_UNUSED(scriptEngine)
-        engine->setObjectOwnership(pix, QQmlEngine::CppOwnership);
-		return pix;
-	});
+	qmlRegisterSingletonInstance<Pix>(PIX_URI, 1, 0, "Collection", Pix::instance ());
 
-	qmlRegisterType<Gallery>("GalleryList", 1, 0, "GalleryList");
-    qmlRegisterType<Folders>("FoldersList", 1, 0, "FoldersList");
-    qmlRegisterType<PicInfoModel>("org.maui.pix", 1, 0, "PicInfoModel");
-
-    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+	qmlRegisterType<Gallery>(PIX_URI, 1, 0, "GalleryList");
+	qmlRegisterType<Folders>(PIX_URI, 1, 0, "FoldersList");
+	qmlRegisterType<TagsModel>(PIX_URI, 1, 0, "TagsList");
+	qmlRegisterType<PicInfoModel>(PIX_URI, 1, 0, "PicInfoModel");
 
 #ifdef STATIC_KIRIGAMI
 	KirigamiPlugin::getInstance().registerTypes();
 #endif
 
 #ifdef STATIC_MAUIKIT
-	MauiKit::getInstance().registerTypes();
+    MauiKit::getInstance().registerTypes(&engine);
 #endif
 
 	engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

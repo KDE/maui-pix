@@ -1,146 +1,243 @@
-// Copyright 2018-2020 Camilo Higuita <milo.h@aol.com>
-// Copyright 2018-2020 Nitrux Latinoamericana S.C.
-//
-// SPDX-License-Identifier: GPL-3.0-or-later
-
-
-import QtQuick 2.13
-import QtQuick.Controls 2.13
+import QtQuick 2.14
+import QtQuick.Controls 2.14
+import QtQml 2.14
 import QtQuick.Layouts 1.3
-import QtQuick.Window 2.13
 
 import org.kde.kirigami 2.6 as Kirigami
-import org.kde.mauikit 1.0 as Maui
-import org.kde.mauikit 1.1 as MauiLab
+import org.kde.mauikit 1.2 as Maui
 import org.maui.pix 1.0 as Pix
 
-MauiLab.SettingsDialog
+Maui.SettingsDialog
 {
-    MauiLab.SettingsSection
+    Maui.SettingsSection
     {
         title: i18n("Behavior")
         description: i18n("Configure the app behaviour.")
 
-        Switch
+        Maui.SettingTemplate
         {
-            checkable: true
-            checked: root.autoScan
-            Kirigami.FormData.label: i18n("Auto Scan on startup")
-            onToggled:
+            label1.text: i18n("Auto Reload")
+            label2.text: i18n("Watch for changes in the collection sources.")
+
+            Switch
             {
-                root.autoScan = !root.autoScan
-                Maui.FM.saveSettings("AUTOSCAN", fitPreviews, "SETTINGS")
+                Layout.fillHeight: true
+                checkable: true
+                checked: browserSettings.autoReload
+                onToggled: browserSettings.autoReload = !browserSettings.autoReload
             }
         }
-
-        Switch
-        {
-            checkable: true
-            checked: root.autoScan
-            Kirigami.FormData.label: i18n("Auto reaload on changes")
-            onToggled:
-            {
-                root.autoReload = !root.autoReload
-                Maui.FM.saveSettings("AUTORELOAD", autoReload, "SETTINGS")
-            }
-        }
-
     }
-    MauiLab.SettingsSection
+
+    Maui.SettingsSection
     {
         title: i18n("Collection")
         description: i18n("Configure the app plugins and look & feel.")
 
-        Switch
+        Maui.SettingTemplate
         {
-            //                        visible: false //TODO to fix
-            icon.name: "image-preview"
-            checkable: true
-            checked: root.fitPreviews
-            Kirigami.FormData.label: i18n("Fit previews")
-            onToggled:
+            label1.text: i18n("Fit")
+            label2.text: i18n("Fit the previews")
+
+            Switch
             {
-                root.fitPreviews = !root.fitPreviews
-                Maui.FM.saveSettings("PREVIEWS_FIT", fitPreviews, "GRID")
+                Layout.fillHeight: true
+                icon.name: "image-preview"
+                checkable: true
+                checked: browserSettings.fitPreviews
+                onToggled: browserSettings.fitPreviews = !browserSettings.fitPreviews
             }
         }
 
-        Switch
+        Maui.SettingTemplate
         {
-            Kirigami.FormData.label: i18n("Show labels")
-            checkable: true
-            checked: root.showLabels
-            onToggled:
+            label1.text: i18n("Image Titles")
+            label2.text: i18n("Show the titles of the images.")
+
+            Switch
             {
-                root.showLabels = !root.showLabels
-                Maui.FM.saveSettings("SHOW_LABELS", showLabels, "GRID")
+                Layout.fillHeight: true
+                checkable: true
+                checked: browserSettings.showLabels
+                onToggled: browserSettings.showLabels = !browserSettings.showLabels
             }
         }
 
-        Maui.ToolActions
+        Maui.SettingTemplate
         {
-            id: _gridIconSizesGroup
-            Kirigami.FormData.label: i18n("Preview Size")
-            Layout.fillWidth: true
-            expanded: true
-            autoExclusive: true
-            display: ToolButton.TextOnly
+            label1.text: i18n("Preview Size")
+            label2.text: i18n("Size of the thumbnails in the collection views.")
 
-            Action
+            Maui.ToolActions
             {
-                text: i18n("S")
-                onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.2)
+                id: _gridIconSizesGroup
+                expanded: true
+                autoExclusive: true
+                display: ToolButton.TextOnly
+
+                Binding on currentIndex
+                {
+                    value:  switch(browserSettings.previewSize)
+                            {
+                            case previewSizes.small: return 0;
+                            case previewSizes.medium: return 1;
+                            case previewSizes.large: return 2;
+                            case previewSizes.extralarge: return 3;
+                            default: return -1;
+                            }
+                    restoreMode: Binding.RestoreValue
+                }
+
+                Action
+                {
+                    text: i18n("S")
+                    onTriggered: setPreviewSize(previewSizes.small)
+                }
+
+                Action
+                {
+                    text: i18n("M")
+                    onTriggered: setPreviewSize(previewSizes.medium)
+                }
+
+                Action
+                {
+                    text: i18n("X")
+                    onTriggered: setPreviewSize(previewSizes.large)
+                }
+
+                Action
+                {
+                    text: i18n("XL")
+                    onTriggered: setPreviewSize(previewSizes.extralarge)
+                }
             }
+        }
 
-            Action
+        Maui.SettingTemplate
+        {
+            label1.text: i18n("Sorting by")
+            label2.text: i18n("Change the sorting key.")
+
+            Maui.ToolActions
             {
-                text: i18n("M")
-                onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.5)
+                expanded: true
+                autoExclusive: true
+                display: ToolButton.TextOnly
+
+                Binding on currentIndex
+                {
+                    value:  switch(browserSettings.sortBy)
+                            {
+                            case "title": return 0;
+                            case "modified": return 1;
+                            case "size": return 2;
+                            default: return -1;
+                            }
+                    restoreMode: Binding.RestoreValue
+                }
+
+                Action
+                {
+                    text: i18n("Title")
+                    onTriggered: browserSettings.sortBy = "title"
+                }
+
+                Action
+                {
+                    text: i18n("Date")
+                    onTriggered: browserSettings.sortBy = "modified"
+                }
+
+                Action
+                {
+                    text: i18n("Size")
+                    onTriggered: browserSettings.sortBy = "size"
+                }
             }
+        }
 
-            Action
-            {
-                text: i18n("X")
-                onTriggered: setPreviewSize(Maui.Style.iconSizes.huge * 1.8 )
-            }
+        Maui.SettingTemplate
+        {
+            label1.text: i18n("Sort order")
+            label2.text: i18n("Change the sorting order.")
 
-            Action
+            Maui.ToolActions
             {
-                text: i18n("XL")
-                onTriggered: setPreviewSize(Maui.Style.iconSizes.enormous * 1.2)
+                expanded: true
+                autoExclusive: true
+                display: ToolButton.IconOnly
+
+                Binding on currentIndex
+                {
+                    value:  switch(browserSettings.sortOrder)
+                            {
+                            case Qt.AscendingOrder: return 0;
+                            case Qt.DescendingOrder: return 1;
+                            default: return -1;
+                            }
+                    restoreMode: Binding.RestoreValue
+                }
+
+                Action
+                {
+                    text: i18n("Ascending")
+                    icon.name: "view-sort-ascending"
+                    onTriggered: browserSettings.sortOrder = Qt.AscendingOrder
+                }
+
+                Action
+                {
+                    text: i18n("Descending")
+                    icon.name: "view-sort-descending"
+                    onTriggered: browserSettings.sortOrder = Qt.DescendingOrder
+                }
             }
         }
     }
 
-    MauiLab.SettingsSection
+    Maui.SettingsSection
     {
         title: i18n("Viewer")
+        description: i18n("Adjust the viewer panels and settings.")
 
-        Switch
+        Maui.SettingTemplate
         {
-            Kirigami.FormData.label: i18n("Show tag bar")
-            checkable: true
-            checked: pixViewer.tagBarVisible
-            onToggled: pixViewer.toogleTagbar()
+            label1.text: i18n("Tag Bar")
+            label2.text: i18n("Easy way to add, remove and modify the tags of the current image.")
+
+            Switch
+            {
+                Layout.fillHeight: true
+                checkable: true
+                checked: viewerSettings.tagBarVisible
+                onToggled: pixViewer.toogleTagbar()
+            }
         }
 
-        Switch
+        Maui.SettingTemplate
         {
-            Kirigami.FormData.label: i18n("Show preview bar")
-            checkable: true
-            checked: pixViewer.roll.visible
-            onToggled: pixViewer.tooglePreviewBar()
+            label1.text: i18n("Preview Bar")
+            label2.text: i18n("Show small thumbnail previews in the image viewer.")
+            Switch
+            {
+                Layout.fillHeight: true
+                checkable: true
+                checked: viewerSettings.previewBarVisible
+                onToggled: pixViewer.tooglePreviewBar()
+            }
         }
     }
 
-    MauiLab.SettingsSection
+    Maui.SettingsSection
     {
         title: i18n("Sources")
-        description: i18n("Add new sources to manage and browse your image collection")
+        lastOne: true
+        description: i18n("Add new sources to manage and browse your image collection.")
 
         ColumnLayout
         {
-            anchors.fill: parent
+            Layout.fillWidth: true
 
             Maui.ListBrowser
             {
@@ -148,13 +245,17 @@ MauiLab.SettingsDialog
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: Math.min(500, contentHeight)
-                model: Pix.Collection.sources
+                model: Pix.Collection.sourcesModel
                 delegate: Maui.ListDelegate
                 {
                     width: parent.width
-                    iconName: "folder"
-                    iconSize: Maui.Style.iconSizes.small
-                    label: modelData
+                    implicitHeight: Maui.Style.rowHeight * 1.5
+                    leftPadding: 0
+                    rightPadding: 0
+                    template.iconSource: modelData.icon
+                    template.iconSizeHint: Maui.Style.iconSizes.small
+                    template.label1.text: modelData.label
+                    template.label2.text: modelData.path
                     onClicked: _sourcesList.currentIndex = index
                 }
             }
@@ -168,7 +269,7 @@ MauiLab.SettingsDialog
                     text: i18n("Remove")
                     onClicked:
                     {
-                        Pix.Collection.removeSources(_sourcesList.model[_sourcesList.currentIndex])
+                        Pix.Collection.removeSources(_sourcesList.model[_sourcesList.currentIndex].path)
                     }
                 }
 

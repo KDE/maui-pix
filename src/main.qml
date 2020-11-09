@@ -24,14 +24,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-import QtQuick 2.13
-import QtQuick.Controls 2.13
+import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
+import Qt.labs.settings 1.0
 
-import org.kde.kirigami 2.6 as Kirigami
-import org.kde.mauikit 1.0 as Maui
-import org.kde.mauikit 1.1 as MauiLab
+import org.kde.kirigami 2.8 as Kirigami
+import org.kde.mauikit 1.2 as Maui
 import org.maui.pix 1.0 as Pix
 
 import "widgets"
@@ -44,17 +44,16 @@ import "view_models"
 import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
 
-import TagsModel 1.0
 import TagsList 1.0
 
 Maui.ApplicationWindow
 {
     id: root
-    title: i18n("Pix")
+    title: pixViewer.currentPic.title || Maui.App.displayName
     //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 
     property alias dialog : dialogLoader.item
-    property alias pixViewer : _pixViewerLoader.item
+    property alias pixViewer : _pixViewer
 
     /*READONLY PROPS*/
     readonly property var views : ({ viewer: 0,
@@ -62,23 +61,42 @@ Maui.ApplicationWindow
                                        tags: 2,
                                        folders: 3 })
     /*PROPS*/
-    property bool showLabels : Maui.FM.loadSettings("SHOW_LABELS", "GRID", !Kirigami.Settings.isMobile) === "true" ? true : false
-    property bool fitPreviews : Maui.FM.loadSettings("PREVIEWS_FIT", "GRID", true) === "false" ?  false : true
-    property bool autoScan: Maui.FM.loadSettings("AUTOSCAN", "GRID", true) === "false" ?  false : true
 
-    property bool autoReload: Maui.FM.loadSettings("AUTORELOAD", "GRID", true) === "false" ?  false : true
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     property bool selectionMode : false
-    property int previewSize : Maui.FM.loadSettings("PREVIEWSIZE", "UI", Maui.Style.iconSizes.huge * 1.5)
 
+    readonly property var previewSizes: ({small: 100,
+                                             medium: 120,
+                                             large: 160,
+                                             extralarge: 220})
+    Settings
+    {
+        id: browserSettings
+        category: "Browser"
+        property bool showLabels : !Kirigami.Settings.isMobile
+        property bool fitPreviews : false
+        property bool autoReload: true
+        property int previewSize : previewSizes.medium
+        property string sortBy : "modified"
+        property int sortOrder: Qt.DescendingOrder
+    }
+
+    Settings
+    {
+        id: viewerSettings
+        category: "Viewer"
+        property bool tagBarVisible : true
+        property bool previewBarVisible : false
+    }
+
+    altHeader: Kirigami.Settings.isMobile
+    floatingFooter: true
     flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
     mainMenu: [
 
-        MenuSeparator{},
-
-        MenuItem
+        Action
         {
             text: i18n("Open")
             icon.name: "folder-open"
@@ -96,9 +114,7 @@ Maui.ApplicationWindow
             }
         },
 
-        MenuSeparator{},
-
-        MenuItem
+        Action
         {
             text: i18n("Settings")
             icon.name: "settings-configure"
@@ -123,7 +139,7 @@ Maui.ApplicationWindow
         onClicked:
         {
             selectionMode = !selectionMode
-            if(selectionMode)
+            if(selectionMode && swipeView.currentIndex === views.viewer)
                 swipeView.currentIndex = views.gallery
         }
 
@@ -131,72 +147,67 @@ Maui.ApplicationWindow
         checked: selectionMode
     }
 
-    MauiLab.AppViews
+    Maui.AppViews
     {
         id: swipeView
         anchors.fill: parent
         Component.onCompleted: swipeView.currentIndex = views.gallery
 
-        MauiLab.AppViewLoader
+        PixViewer
         {
-            id: _pixViewerLoader
-            MauiLab.AppView.title: i18n("Viewer")
-            MauiLab.AppView.iconName: "document-preview-archive"
-            //                Kirigami.Theme.inherit: false
-            //                Kirigami.Theme.backgroundColor: "#333"
-            //                Kirigami.Theme.textColor: "#fafafa"
+            id: _pixViewer
+            Maui.AppView.title: i18n("Viewer")
+            Maui.AppView.iconName: "document-preview-archive"
 
-            PixViewer
+            Rectangle
             {
-                Rectangle
+                anchors.fill: parent
+                visible: _dropArea.containsDrag
+
+                color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
+
+                Maui.Rectangle
                 {
                     anchors.fill: parent
-                    visible: _dropArea.containsDrag
+                    anchors.margins: Maui.Style.space.medium
+                    color: "transparent"
+                    borderColor: Kirigami.Theme.textColor
+                    solidBorder: false
 
-                    color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
-
-                    MauiLab.Rectangle
+                    Maui.Holder
                     {
                         anchors.fill: parent
-                        anchors.margins: Maui.Style.space.medium
-                        color: "transparent"
-                        borderColor: Kirigami.Theme.textColor
-                        solidBorder: false
+                        visible: true
+                        emoji: "qrc:/img/assets/add-image.svg"
+                        emojiSize: Maui.Style.iconSizes.huge
+                        title: i18n("Open images")
+                        body: i18n("Drag and drop images here")
 
-                        Maui.Holder
-                        {
-                            anchors.fill: parent
-                            visible: true
-                            emoji: "qrc:/img/assets/add-image.svg"
-                            emojiSize: Maui.Style.iconSizes.huge
-                            title: i18n("Open images")
-                            body: i18n("Drag and drop images here")
-
-                        }
                     }
                 }
             }
         }
 
+
         GalleryView
         {
             id: _galleryView
-            MauiLab.AppView.title: i18n("Gallery")
-            MauiLab.AppView.iconName: "image-multiple"
+            Maui.AppView.title: i18n("Gallery")
+            Maui.AppView.iconName: "image-multiple"
         }
 
 
-        MauiLab.AppViewLoader
+        Maui.AppViewLoader
         {
-            MauiLab.AppView.title: i18n("Tags")
-            MauiLab.AppView.iconName: "tag"
+            Maui.AppView.title: i18n("Tags")
+            Maui.AppView.iconName: "tag"
             TagsView {}
         }
 
-        MauiLab.AppViewLoader
+        Maui.AppViewLoader
         {
-            MauiLab.AppView.title: i18n("Folders")
-            MauiLab.AppView.iconName: "image-folder-view"
+            Maui.AppView.title: i18n("Folders")
+            Maui.AppView.iconName: "folder"
             FoldersView {}
         }
     }
@@ -243,12 +254,6 @@ Maui.ApplicationWindow
 
     Component
     {
-        id: shareDialogComponent
-        MauiLab.ShareDialog {}
-    }
-
-    Component
-    {
         id: _infoDialogComponent
         InfoDialog {}
     }
@@ -287,13 +292,13 @@ Maui.ApplicationWindow
         title: i18n("Delete files?")
         acceptButton.text: i18n("Accept")
         rejectButton.text: i18n("Cancel")
-        message: i18n("Are sure you want to delete %1 files").arg(selectionBox.count)
-        page.padding: Maui.Style.space.huge
+        message: i18n("Are sure you want to delete %1 files", String(selectionBox.count))
+        page.margins: Maui.Style.space.big
+        template.iconSource: "emblem-warning"
         onRejected: close()
         onAccepted:
         {
-            for(var url of selectionBox.uris)
-                Maui.FM.removeFile(url)
+            Maui.FM.removeFiles(selectionBox.uris)
             selectionBox.clear()
             close()
         }
@@ -302,7 +307,7 @@ Maui.ApplicationWindow
     Loader { id: dialogLoader }
 
     /***MODELS****/
-    TagsModel
+    Maui.BaseModel
     {
         id: tagsModel
         list: TagsList
@@ -314,14 +319,21 @@ Maui.ApplicationWindow
     Connections
     {
         target:  Pix.Collection
-        onRefreshViews: PIX.refreshViews()
-        onViewPics: VIEWER.openExternalPics(pics, 0)
+        function onRefreshViews()
+        {
+            PIX.refreshViews()
+        }
+
+        function onViewPics(pics)
+        {
+            VIEWER.openExternalPics(pics, 0)
+        }
     }
 
     function setPreviewSize(size)
     {
-        root.previewSize = size
-        Maui.FM.saveSettings("PREVIEWSIZE",  root.previewSize, "UI")
+        console.log(size)
+        browserSettings.previewSize = size
     }
 
     function getFileInfo(url)

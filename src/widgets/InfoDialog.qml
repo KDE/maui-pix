@@ -21,117 +21,95 @@ Maui.Dialog
     maxHeight: 800
     maxWidth: 500
     defaultButtons: false
-    page.title: _infoModel.fileName
+    title: _infoModel.fileName
     headBar.visible: true
-    page.flickable: _infoContent.flickable
+    spacing: 0
 
-    Kirigami.ScrollablePage
+    Rectangle
     {
-        id: _infoContent
-        anchors.fill: parent
+        Layout.fillWidth: true
+        Layout.preferredHeight: 200
+        color: Qt.darker(Kirigami.Theme.backgroundColor, 1.1)
 
-        Kirigami.Theme.backgroundColor: "transparent"
-        padding:  0
-        leftPadding: padding
-        rightPadding: padding
-        topPadding: padding
-        bottomPadding: padding
-
-        ColumnLayout
+        Image
         {
-            width: parent.width
-            spacing: 0
+            id: _img
+            anchors.fill: parent
+            source: control.url
+            fillMode: Image.PreserveAspectCrop
 
             Rectangle
             {
-                Layout.fillWidth: true
-                Layout.preferredHeight: 200
-                color: Qt.darker(Kirigami.Theme.backgroundColor, 1.1)
-
-                Image
-                {
-                    id: _img
-                    anchors.fill: parent
-                    source: control.url
-                    fillMode: Image.PreserveAspectCrop
-
-                    Rectangle
-                    {
-                        color: "#333"
-                        opacity: 0.5
-                        anchors.fill: parent
-                    }
-
-                    Rectangle
-                    {
-                        anchors.centerIn: parent
-                        color: "#333"
-                        radius: Maui.Style.radiusV
-                        width: 100
-                        height: 32
-                        Label
-                        {
-                            anchors.centerIn: parent
-                            text: _img.sourceSize.height + " x " + _img.sourceSize.width
-                            color: "white"
-                        }
-                    }
-                }
+                color: "#333"
+                opacity: 0.5
+                anchors.fill: parent
             }
 
-            Maui.TagsBar
+            Rectangle
             {
-                Layout.fillWidth: true
-                position: ToolBar.Footer
-                allowEditMode: false
-                list.urls: [control.url]
-                list.strict: false
-            }
-
-            Kirigami.Separator
-            {
-                Layout.fillWidth: true
-            }
-            ListView
-            {
-                Layout.preferredHeight: contentHeight
-                Layout.fillWidth: true
-                Layout.margins: 0
-                spacing: 0
-                model: Maui.BaseModel
+                anchors.centerIn: parent
+                color: "#333"
+                radius: Maui.Style.radiusV
+                width: 100
+                height: 32
+                Label
                 {
-                    list: Pix.PicInfoModel
-                    {
-                        id:_infoModel
-                    }
+                    anchors.centerIn: parent
+                    text: _img.sourceSize.height + " x " + _img.sourceSize.width
+                    color: "white"
                 }
+            }
+        }
+    }
 
-                delegate: Maui.AlternateListItem
-                {
-                    visible: model.value.length
-                    width: visible ? parent.width : 0
-                    height: visible ? _delegateColumnInfo.implicitHeight + Maui.Style.space.large : 0
+    Maui.TagsBar
+    {
+        Layout.fillWidth: true
+        position: ToolBar.Footer
+        allowEditMode: false
+        list.urls: [control.url]
+        list.strict: false
+    }
 
-                    alt: index % 2 === 0
+    Kirigami.Separator
+    {
+        Layout.fillWidth: true
+    }
 
-                    Maui.ListItemTemplate
-                    {
-                        id: _delegateColumnInfo
-                        width: parent.width
+    Repeater
+    {
+        model: Maui.BaseModel
+        {
+            list: Pix.PicInfoModel
+            {
+                id:_infoModel
+            }
+        }
 
-                        iconSource: model.icon
-                        iconSizeHint: Maui.Style.iconSizes.medium
-                        spacing: Maui.Style.space.medium
-                        anchors.centerIn: parent
-                        anchors.margins: Maui.Style.space.medium
+        Maui.AlternateListItem
+        {
+            visible: model.value.length
+            Layout.fillWidth: true
+            implicitHeight: visible ? _delegateColumnInfo.implicitHeight + Maui.Style.space.large : 0
+            lastOne: index === _infoModel.count-1
+            alt: index % 2 === 0
 
-                        label1.text: model.key
-                        label1.font.weight: Font.Bold
-                        label1.font.bold: true
-                        label2.text: model.value
-                        label2.font.weight: Font.Light
-                    }
-                }
+            Maui.ListItemTemplate
+            {
+                id: _delegateColumnInfo
+                width: parent.width
+
+                iconSource: model.icon
+                iconSizeHint: Maui.Style.iconSizes.medium
+                spacing: Maui.Style.space.medium
+                anchors.centerIn: parent
+                anchors.margins: Maui.Style.space.medium
+
+                label1.text: model.key
+                label1.font.weight: Font.Bold
+                label1.font.bold: true
+                label2.text: model.value
+                label2.font.weight: Font.Light
             }
         }
     }

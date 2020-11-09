@@ -23,39 +23,40 @@ function openExternalPics(pics, index)
 
 function view(index)
 {
-    pixViewer.currentPicIndex = index
-    pixViewer.currentPic = pixViewer.model.get(pixViewer.currentPicIndex)
+    if(pixViewer.viewer.count > 0 && index >= 0 && index < pixViewer.viewer.count)
+    {
+        pixViewer.currentPicIndex = index
+        pixViewer.currentPic = pixViewer.model.get(pixViewer.currentPicIndex)
 
-    pixViewer.currentPicFav = Maui.FM.isFav(pixViewer.currentPic.url)
-    root.title = pixViewer.currentPic.title
-    swipeView.currentIndex = views.viewer
-    pixViewer.roll.position(pixViewer.currentPicIndex)
+        pixViewer.currentPicFav = Maui.FM.isFav(pixViewer.currentPic.url)
+        root.title = pixViewer.currentPic.title
+        swipeView.currentIndex = views.viewer
+        pixViewer.roll.position(pixViewer.currentPicIndex)
+    }
 }
 
 function next()
 {
-    if(pixViewer.viewer.count > 0)
-    {
-        if(pixViewer.currentPicIndex < pixViewer.viewer.count)
-            pixViewer.currentPicIndex++
-        else
-            pixViewer.currentPicIndex = 0
+    var index = pixViewer.currentPicIndex
 
-        view(pixViewer.currentPicIndex)
-    }
+    if(index < pixViewer.viewer.count-1)
+        index++
+    else
+        index= 0
+
+    view(index)
 }
 
 function previous()
 {
-    if(pixViewer.viewer.count > 0)
-    {
-        if(pixViewer.currentPicIndex > 0)
-            pixViewer.currentPicIndex--
-        else
-            pixViewer.currentPicIndex = pixViewer.viewer.count-1
+    var index = pixViewer.currentPicIndex
 
-        view(pixViewer.currentPicIndex)
-    }
+    if(index > 0)
+        index--
+    else
+        index = pixViewer.viewer.count-1
+
+    view(index)
 }
 
 function fav(urls)

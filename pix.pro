@@ -1,12 +1,10 @@
-# Copyright 2018-2020 Camilo Higuita <milo.h@aol.com>
-# Copyright 2018-2020 Nitrux Latinoamericana S.C.
-#
-# SPDX-License-Identifier: GPL-3.0-or-later
 
-
-QT *= qml \
+QT *= core \
     quick \
-    svg
+    positioning \
+    sql \
+    qml \
+    quickcontrols2
 
 CONFIG += ordered
 CONFIG += c++17
@@ -31,14 +29,6 @@ linux:unix:!android {
 
 } else {
 
-    android {
-        message(Building for Android)
-        QMAKE_LINK += -nostdlib++
-        ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
-        DISTFILES += $$PWD/android_files/AndroidManifest.xml
-        DEFINES *= ANDROID_OPENSSL
-     }
-
     DEFINES *= \
         COMPONENT_FM \
         COMPONENT_TAGGING \
@@ -48,7 +38,26 @@ linux:unix:!android {
     include($$PWD/3rdparty/mauikit/mauikit.pri)
 
     DEFINES += STATIC_KIRIGAMI
+
+    android {
+        message(Building for Android)
+        ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
+        DISTFILES += $$PWD/android_files/AndroidManifest.xml
+        DEFINES *= ANDROID_OPENSSL
+     }
+
+    macos {
+        message(Building for Macos)
+        ICON = $$PWD/macos_files/pix.icns
+
+        LIBS += -L$$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/lib/ -lexiv2.0.27.3
+
+        INCLUDEPATH += $$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/include
+        DEPENDPATH += $$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/include
+    }
+
     win32 {
+        message(Building for Windows)
         RC_ICONS = $$PWD/windows_files/pix.ico
     }
 }
@@ -66,17 +75,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += src/main.cpp \
     src/pix.cpp \
-#    src/db/dbactions.cpp \
     src/models/gallery/gallery.cpp \
-    src/models/folders/folders.cpp
+    src/models/folders/folders.cpp \
+    src/models/tags/tagsmodel.cpp \
+    src/models/picinfomodel.cpp
 
 HEADERS += \
     src/pix.h \
-    src/db/fileloader.h \
-#    src/db/dbactions.h \
-    src/utils/pic.h \
     src/models/gallery/gallery.h \
-    src/models/folders/folders.h
+    src/models/folders/folders.h \
+    src/models/tags/tagsmodel.h \
+    src/models/picinfomodel.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -91,3 +100,12 @@ INCLUDEPATH += src/
 
 include(install.pri)
 
+ANDROID_ABIS = armeabi-v7a
+
+DISTFILES += \
+    android_files/build.gradle \
+    android_files/gradle/wrapper/gradle-wrapper.jar \
+    android_files/gradle/wrapper/gradle-wrapper.properties \
+    android_files/gradlew \
+    android_files/gradlew.bat \
+    android_files/res/values/libs.xml

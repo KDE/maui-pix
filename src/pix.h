@@ -27,47 +27,52 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef PIX_H
 #define PIX_H
 
-
 #include <QString>
-#include <QDebug>
-#include <QStandardPaths>
-#include <QFileInfo>
-#include <QImage>
-#include <QTime>
-#include <QSettings>
-#include <QDirIterator>
 #include <QVariantList>
-#include "utils/pic.h"
+#include <QUrl>
 
 using namespace std;
 
 class Pix : public QObject
 {
-	Q_OBJECT
-    Q_PROPERTY(QStringList sources READ sources NOTIFY sourcesChanged FINAL)
-public:
-	explicit Pix(QObject* parent = nullptr);
+		Q_OBJECT
+		Q_PROPERTY(QVariantList sourcesModel READ sourcesModel NOTIFY sourcesChanged FINAL)
+		Q_PROPERTY(QStringList sources READ sources NOTIFY sourcesChanged FINAL)
 
-public slots:
-    QStringList sources() const
-    {
-        return PIX::getSourcePaths();
-    }
+	public:
+		static Pix * instance()
+		{
+			static Pix pix;
+			return &pix;
+		}
 
-	void addSources(const QStringList &paths);
-    void removeSources(const QString &path);
+		Pix(const Pix &) = delete;
+		Pix &operator=(const Pix &) = delete;
+		Pix(Pix &&) = delete;
+		Pix &operator=(Pix &&) = delete;
 
-    void openPics(const QList<QUrl> &pics);
-	void refreshCollection();
-	/*File actions*/
-   static void showInFolder(const QStringList &urls);
+        inline static const QStringList getSourcePaths();
+        inline static void saveSourcePath(QStringList const& paths);
+        inline static void removeSourcePath(const QString &path);
 
-   QVariantList getTagUrls(const QString &tag);
+	public slots:
+		QVariantList sourcesModel() const;
+		QStringList sources() const;
 
+		void addSources(const QStringList &paths);
+		void removeSources(const QString &path);
 
-signals:
-	void refreshViews(QVariantMap tables);
-	void viewPics(QStringList pics);
-    void sourcesChanged();
+		void openPics(const QList<QUrl> &pics);
+		void refreshCollection();
+		/*File actions*/
+		static void showInFolder(const QStringList &urls);
+
+	private:
+		explicit Pix(QObject* parent = nullptr);
+
+	signals:
+		void refreshViews(QVariantMap tables);
+		void viewPics(QStringList pics);
+		void sourcesChanged();
 };
 #endif // PIX_H

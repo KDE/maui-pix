@@ -15,8 +15,9 @@ Maui.ItemDelegate
 {
     id: control
 
-    property alias checkable : _template.checkable
     property alias checked : _template.checked
+    property alias checkable: _template.checkable
+
     property alias labelsVisible: _template.labelsVisible
     signal toggled(int index, bool state);
 
@@ -33,7 +34,7 @@ Maui.ItemDelegate
         anchors.fill: parent
         maskRadius: control.radius
         isCurrentItem: control.isCurrentItem
-        iconSizeHint: height * 0.7
+        iconSizeHint: height * 0.9
         imageHeight: height
         imageWidth: width
 
@@ -44,8 +45,8 @@ Maui.ItemDelegate
         label4.text:  Maui.FM.formatDate(model.modified, "MM/dd/yyyy")
 
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
-        hovered: control.hovered
-        checkable: control.checkable
+        hovered: parent.hovered
         onToggled: control.toggled(index, state)
+        leftMargin: iconVisible ? 0 : Maui.Style.space.medium
     }
 }

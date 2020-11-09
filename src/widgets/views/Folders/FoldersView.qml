@@ -1,83 +1,115 @@
-// Copyright 2018-2020 Camilo Higuita <milo.h@aol.com>
-// Copyright 2018-2020 Nitrux Latinoamericana S.C.
-//
-// SPDX-License-Identifier: GPL-3.0-or-later
-
-
-import QtQuick 2.0
-import QtQuick.Controls 2.2
-import org.kde.kirigami 2.2 as Kirigami
-import org.kde.mauikit 1.0 as Maui
+import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
+
+import org.kde.kirigami 2.9 as Kirigami
+import org.kde.mauikit 1.2 as Maui
+import org.maui.pix 1.0
 
 import "../../../view_models"
 
-import FoldersList 1.0
-
 StackView
 {
-    id: _stackView
+    id: control
 
     property string currentFolder : ""
-    property alias picsView : _stackView.currentItem
+    property alias picsView : control.currentItem
     property Flickable flickable : picsView.flickable
 
-    initialItem: Maui.GridBrowser
+    initialItem: Maui.Page
     {
-        id: foldersPage
-        checkable: false
-        model: folderModel
+        id: _foldersPage
+        flickable: _foldersGrid.flickable
 
-        Maui.Holder
+        headBar.middleContent: Maui.TextField
         {
-            id: holder
-            emoji: "qrc:/assets/view-preview.svg"
-            title : i18n("No Folders!")
-            body: i18n("Add new image sources")
-            emojiSize: Maui.Style.iconSizes.huge
-            visible: false
+            Layout.fillWidth: true
+            Layout.maximumWidth: 500
+            placeholderText: i18n("Filter")
+            onAccepted: folderModel.filter = text
+            onCleared: folderModel.filter = ""
         }
 
-        Maui.BaseModel
+        Maui.GridView
         {
-            id: folderModel
-            list: foldersList
-            recursiveFilteringEnabled: false
-            sortCaseSensitivity: Qt.CaseInsensitive
-            filterCaseSensitivity: Qt.CaseInsensitive
-        }
+            id: _foldersGrid
+            anchors.fill: parent
+            itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
+            itemHeight: itemSize + Maui.Style.rowHeight
 
-        FoldersList
-        {
-            id: foldersList
-            folders: _galleryView.list.folders
-        }
+            holder.emoji: "qrc:/assets/view-preview.svg"
+            holder.title : i18n("No Folders!")
+            holder.body: i18n("Add new image sources")
+            holder.emojiSize: Maui.Style.iconSizes.huge
+            holder.visible: foldersList.count === 0
 
-        onItemClicked:
-        {
-            foldersPage.currentIndex = index
-
-            if(Maui.Handy.singleClick)
+            model: Maui.BaseModel
             {
-                _stackView.push(picsViewComponent)
-                var folder = folderModel.get(foldersPage.currentIndex)
-                picsView.title = folder.label
-                currentFolder = folder.path
-                picsView.list.urls = [currentFolder]
+                id: folderModel
+                list: FoldersList
+                {
+                    id: foldersList
+                    folders: _galleryView.list.folders
+                }
+                sortOrder: Qt.DescendingOrder
+                sort: "modified"
+                recursiveFilteringEnabled: false
+                sortCaseSensitivity: Qt.CaseInsensitive
+                filterCaseSensitivity: Qt.CaseInsensitive
             }
-        }
 
-        onItemDoubleClicked:
-        {
-            foldersPage.currentIndex = index
-
-            if(!Maui.Handy.singleClick)
+            delegate: CollageDelegate
             {
-                _stackView.push(picsViewComponent)
-                var folder = folderModel.get(foldersPage.currentIndex)
-                picsView.title = folder.label
-                currentFolder = folder.path
-                picsView.list.urls = [currentFolder]
+                id: _delegate
+                readonly property var folderPath : [model.path]
+
+                height: _foldersGrid.cellHeight - Maui.Style.space.tiny
+                width: _foldersGrid.cellWidth
+                isCurrentItem: GridView.isCurrentItem
+
+                contentWidth: _foldersGrid.itemSize - 10
+                contentHeight: _foldersGrid.cellHeight - 20
+
+                images: _galleryList.files
+                template.label1.text: model.label
+                template.label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
+                template.iconSource: model.icon
+
+                GalleryList
+                {
+                    id: _galleryList
+                    urls: folderPath
+                    autoReload: false
+                    recursive: false
+                    limit: 4
+                }
+
+                onClicked:
+                {
+                    _foldersGrid.currentIndex = index
+
+                    if(Maui.Handy.singleClick)
+                    {
+                        control.push(picsViewComponent)
+                        picsView.title = model.label
+                        currentFolder = model.path
+                        picsView.list.urls = [currentFolder]
+                    }
+                }
+
+                onDoubleClicked:
+                {
+                    _foldersGrid.currentIndex = index
+
+                    if(!Maui.Handy.singleClick)
+                    {
+                        control.push(picsViewComponent)
+                        picsView.title = model.label
+                        currentFolder = model.path
+                        picsView.list.urls = [currentFolder]
+                    }
+                }
             }
         }
     }
@@ -85,13 +117,14 @@ StackView
     Component
     {
         id: picsViewComponent
+
         PixGrid
         {
             headBar.visible: true
             headBar.farLeftContent: ToolButton
             {
                 icon.name:"go-previous"
-                onClicked: _stackView.pop()
+                onClicked: control.pop()
             }
             list.recursive: false
 

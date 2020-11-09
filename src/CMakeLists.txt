@@ -9,6 +9,7 @@ set(pix_SRCS
     pix.cpp
     models/gallery/gallery.cpp
     models/folders/folders.cpp
+    models/tags/tagsmodel.cpp
     models/picinfomodel.cpp
     utils/picinfo/exiv2extractor.cpp
     utils/picinfo/reversegeocoder.cpp
@@ -17,10 +18,9 @@ set(pix_SRCS
 
 set(pix_HDRS
     pix.h
-    db/fileloader.h
-    utils/pic.h
     models/gallery/gallery.h
     models/folders/folders.h
+    models/tags/tagsmodel.h
     models/picinfomodel.h
     utils/picinfo/exiv2extractor.h
     utils/picinfo/reversegeocoder.h

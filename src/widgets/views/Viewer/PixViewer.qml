@@ -15,10 +15,8 @@ import "../../../widgets/views/Pix.js" as PIX
 import "../.."
 
 import org.kde.kirigami 2.7 as Kirigami
-import org.kde.mauikit 1.0 as Maui
-import org.kde.mauikit 1.1 as MauiLab
+import org.kde.mauikit 1.2 as Maui
 import org.maui.pix 1.0 as Pix
-import GalleryList 1.0
 
 StackView
 {
@@ -34,9 +32,11 @@ StackView
     property var currentPic : ({})
     property int currentPicIndex : 0
     property alias model :viewer.model
-    property bool tagBarVisible : Maui.FM.loadSettings("TAGBAR", "PIX", true) === "true" ? true : false
-    property bool previewBarVisible: Maui.FM.loadSettings("PREVIEWBAR", "PIX", true) === "true" ? true : false
     property bool doodle : false
+
+    Kirigami.Theme.inherit: false
+    Kirigami.Theme.backgroundColor: "#333"
+    Kirigami.Theme.textColor: "#fafafa"
 
     Component
     {
@@ -61,12 +61,11 @@ StackView
             model: control.model
         }
 
-
         footBar.visible: !holder.visible
         autoHideFooter: true
         autoHideFooterMargins: control.height
         autoHideFooterDelay: 3000
-        floatingFooter: !previewBarVisible && !tagBarVisible
+        floatingFooter: !viewerSettings.previewBarVisible && !viewerSettings.tagBarVisible
 
         footBar.rightContent: [
             ToolButton
@@ -85,9 +84,7 @@ StackView
                 icon.name: "document-share"
                 onClicked:
                 {
-                    dialogLoader.sourceComponent = shareDialogComponent
-                    dialog.urls = [control.currentPic.url]
-                    dialog.open()
+                    Maui.Platform.shareFiles([control.currentPic.url])
                 }
             }
         ]
@@ -108,6 +105,7 @@ StackView
 
             Action
             {
+                enabled: Maui.Android.hasKeyboard()
                 text: i18n("Previous")
                 icon.name: "go-previous"
                 onTriggered: VIEWER.previous()
@@ -116,7 +114,6 @@ StackView
             Action
             {
                 text: i18n("Favorite")
-
                 icon.name: "love"
                 checked: pixViewer.currentPicFav
                 onTriggered:
@@ -132,6 +129,7 @@ StackView
 
             Action
             {
+                enabled: Maui.Android.hasKeyboard()
                 icon.name: "go-next"
                 onTriggered: VIEWER.next()
             }
@@ -142,12 +140,11 @@ StackView
             id: holder
             visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
 
-            emoji: viewer.count === 0 ? "qrc:/assets/add-image.svg" : "qrc:/assets/animat-image-color.gif"
+            emoji: "qrc:/assets/add-image.svg"
             isMask: true
-            isGif : viewer.currentItem.status !== Image.Ready
-            title : viewer.count === 0 ? i18n("No Pics!") : i18n("Loading...")
-            body: viewer.count === 0 ? i18n("Open an image from your collection") : i18n("Your pic is almost ready")
-            emojiSize: isGif ? Maui.Style.iconSizes.enormous : Maui.Style.iconSizes.huge
+            title : i18n("No Pics!")
+            body: i18n("Open an image from your collection")
+            emojiSize: Maui.Style.iconSizes.huge
         }
 
         ColumnLayout
@@ -163,27 +160,18 @@ StackView
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                MouseArea
-                {
-                    width: parent.width
-                    height: parent.height * 0.3
-                    anchors.bottom: parent.bottom
-                    propagateComposedEvents: true
+//                TapHandler
+//                {
+//                    grabPermissions: PointerHandler.CanTakeOverFromAnything
+//                    acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-                    onPressed:
-                    {
-                        galleryRollBg.toogle()
-                        root.headBar.visible = !root.headBar.visible
-                        control.footBar.visible = !control.footBar.visible
-                        viewer.forceActiveFocus()
-                        mouse.accepted = false
-                    }
-
-                    onReleased:
-                    {
-                        mouse.accepted = false
-                    }
-                }
+//                    onSingleTapped:
+//                    {
+//                        galleryRollBg.toogle()
+////                        root.headBar.visible = !root.headBar.visible
+//                        viewer.forceActiveFocus()
+//                    }
+//                }
 
                 Rectangle
                 {
@@ -191,7 +179,7 @@ StackView
                     width: parent.width
                     anchors.bottom: parent.bottom
                     height: Math.min(100, Math.max(parent.height * 0.12, 60))
-                    visible: control.previewBarVisible && galleryRoll.rollList.count > 0 && opacity> 0
+                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 0 && opacity> 0
                     color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.7)
                     Behavior on opacity
                     {
@@ -221,7 +209,7 @@ StackView
             Maui.TagsBar
             {
                 id: tagBar
-                visible: !holder.visible && tagBarVisible && !fullScreen
+                visible: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
                 Layout.fillWidth: true
                 position: ToolBar.Footer
                 allowEditMode: true
@@ -243,24 +231,23 @@ StackView
                     target: dialog
                     ignoreUnknownSignals: true
                     enabled: dialogLoader.sourceComponent === tagsDialogComponent
-                    onTagsReady: tagBar.list.refresh()
+                    function onTagsReady()
+                    {
+                        tagBar.list.refresh()
+                    }
                 }
             }
         }
-
     }
-
 
     function toogleTagbar()
     {
-        control.tagBarVisible = !control.tagBarVisible
-        Maui.FM.saveSettings("TAGBAR", tagBarVisible, "PIX")
+        viewerSettings.tagBarVisible = !viewerSettings.tagBarVisible
     }
 
     function tooglePreviewBar()
     {
-        control.previewBarVisible = !control.previewBarVisible
-        Maui.FM.saveSettings("PREVIEWBAR", previewBarVisible, "PIX")
+        viewerSettings.previewBarVisible = !viewerSettings.previewBarVisible
     }
 
     function toogleFullscreen()

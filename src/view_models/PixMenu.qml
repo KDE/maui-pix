@@ -1,14 +1,8 @@
-// Copyright 2018-2020 Camilo Higuita <milo.h@aol.com>
-// Copyright 2018-2020 Nitrux Latinoamericana S.C.
-//
-// SPDX-License-Identifier: GPL-3.0-or-later
-
-
-import QtQuick 2.9
-import QtQuick.Controls 2.3
+import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
-import org.kde.mauikit 1.0 as Maui
-import org.kde.kirigami 2.6 as Kirigami
+import org.kde.mauikit 1.2 as Maui
+import org.kde.kirigami 2.8 as Kirigami
 import org.maui.pix 1.0 as Pix
 import "../widgets/views/Pix.js" as PIX
 
@@ -62,9 +56,7 @@ Menu
         icon.name: "document-share"
         onTriggered:
         {
-            dialogLoader.sourceComponent = shareDialogComponent
-            dialog.urls= [control.model.get(index).url]
-            dialog.open()
+            Maui.Platform.shareFiles([control.model.get(index).url])
         }
     }
 
@@ -89,7 +81,7 @@ Menu
 
     MenuItem
     {
-        visible: !isAndroid
+        visible: !Maui.Handy.isAndroid
         text: i18n("Show in folder")
         icon.name: "folder-open"
         onTriggered:
@@ -101,7 +93,6 @@ Menu
 
     MenuItem
     {
-        visible: !isAndroid
         text: i18n("Info")
         icon.name: "documentinfo"
         onTriggered:
@@ -111,18 +102,7 @@ Menu
         }
     }
 
-    //    Maui.MenuItem
-    //    {
-    //        text: i18n("Copy")
-    //        onTriggered:
-    //        {
-    //            Maui.Handy.copyToClipboard(paths.join(","))
-    //            control.close()
-    //        }
-    //    }
-
     MenuSeparator{}
-
 
     MenuItem
     {
@@ -142,8 +122,10 @@ Menu
             title: i18n("Delete file?")
             acceptButton.text: i18n("Accept")
             rejectButton.text: i18n("Cancel")
-            message: i18n("Are sure you want to delete %1".arg(control.model.get(index).url))
-            page.padding: Maui.Style.space.huge
+            message: i18n("Are sure you want to delete \n%1", control.model.get(index).url)
+            page.margins: Maui.Style.space.big
+            template.iconSource: "emblem-warning"
+
             onRejected: close()
             onAccepted:
             {
@@ -151,7 +133,5 @@ Menu
                 close()
             }
         }
-
     }
-
 }

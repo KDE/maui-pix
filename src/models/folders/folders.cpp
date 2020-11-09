@@ -28,6 +28,11 @@ void Folders::setFolders(const QList<QUrl> &folders)
     emit foldersChanged();
 }
 
+QList<QUrl> Folders::folders() const
+{
+    return m_folders;
+}
+
 QVariantMap Folders::get(const int &index) const
 {
     if(index >= this->list.size() || index < 0)

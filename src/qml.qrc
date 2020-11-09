@@ -28,5 +28,6 @@
         <file>widgets/InfoDialog.qml</file>
         <file>widgets/SettingsDialog.qml</file>
         <file>widgets/views/Viewer/Editor.qml</file>
+        <file>view_models/CollageDelegate.qml</file>
     </qresource>
 </RCC>

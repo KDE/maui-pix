@@ -1,21 +1,28 @@
-// Copyright 2018-2020 Camilo Higuita <milo.h@aol.com>
-// Copyright 2018-2020 Nitrux Latinoamericana S.C.
-//
-// SPDX-License-Identifier: GPL-3.0-or-later
+import QtQuick 2.14
+import QtQuick.Controls 2.14
+import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
 
-
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import "../../../view_models"
-import org.kde.mauikit 1.0 as Maui
+import org.kde.mauikit 1.2 as Maui
 import org.kde.kirigami 2.7 as Kirigami
+import org.maui.pix 1.0 as Pix
+
+import "../../../view_models"
 
 Maui.Page
 {
     id: control
-    padding:0
-    title: i18n("Tags")
-    flickable: _tagsList.flickable
+
+    flickable: _gridView.flickable
+
+    headBar.middleContent: Maui.TextField
+    {
+        Layout.fillWidth: true
+        Layout.maximumWidth: 500
+        placeholderText: i18n("Filter")
+        onAccepted: _tagsModel.filter = text
+        onCleared: _tagsModel.filter = ""
+    }
 
     Maui.FloatingButton
     {
@@ -24,70 +31,70 @@ Maui.Page
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins: Maui.Style.toolBarHeight
-        anchors.bottomMargin: Maui.Style.toolBarHeight
+        anchors.bottomMargin: Maui.Style.toolBarHeight + _gridView.flickable.bottomMargin
         icon.name : "list-add"
         onClicked: newTagDialog.open()
     }
 
-    Maui.Holder
-    {
-        visible: _tagsList.count === 0
-        emoji: i18n("qrc:/assets/add-image.svg")
-        isMask: false
-        title :i18n("No Tags!")
-        body: i18n("You can create new tags to organize your gallery")
-        emojiSize: Maui.Style.iconSizes.huge
-        z: 999
-        onActionTriggered: newTagDialog.open()
-    }
-
     Maui.GridView
     {
-        id: _tagsList
+        id: _gridView
         anchors.fill: parent
-        model: tagsModel
-        itemSize: 100
-        adaptContent: true
 
-        delegate: Maui.ItemDelegate
+        model: Maui.BaseModel
         {
-            id: delegate
-            isCurrentItem:  GridView.isCurrentItem
-            height: _tagsList.cellHeight
-            width: _tagsList.cellWidth
-            padding: Maui.Style.space.medium
-            background: Item {}
+            id: _tagsModel
+            recursiveFilteringEnabled: true
+            sortCaseSensitivity: Qt.CaseInsensitive
+            filterCaseSensitivity: Qt.CaseInsensitive
 
-            Maui.GridItemTemplate
+            list: Pix.TagsList
             {
-                hovered: delegate.hovered
-                isCurrentItem: delegate.isCurrentItem
-                anchors.fill: parent
-                label1.text: model.tag
-                iconSource: model.icon
+                id: _tagsList
+            }
+        }
+
+        itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
+        itemHeight: itemSize + Maui.Style.rowHeight
+
+        holder.visible: _gridView.count === 0
+        holder.emoji: i18n("qrc:/assets/add-image.svg")
+        holder.title :i18n("No Tags!")
+        holder.body: i18n("You can create new tags to organize your gallery")
+        holder.emojiSize: Maui.Style.iconSizes.huge
+
+        delegate: CollageDelegate
+        {
+            id: _delegate
+            height: _gridView.cellHeight
+            width: _gridView.cellWidth
+            isCurrentItem: GridView.isCurrentItem
+
+            contentWidth: _gridView.itemSize - 10
+            contentHeight: _gridView.cellHeight - 20
+
+//            list.urls: [tagUrl]
+            images: model.preview.split(",")
+
+            template.label1.text: model.tag
+            template.iconSource: model.icon
+            template.iconVisible: true
+
+            onClicked:
+            {
+                _gridView.currentIndex = index
+                if(Maui.Handy.singleClick)
+                {
+                    populateGrid(model.tag)
+                }
             }
 
-            Connections
+            onDoubleClicked:
             {
-                target: delegate
-                onClicked:
+                _gridView.currentIndex = index
+                if(!Maui.Handy.singleClick)
                 {
-                    _tagsList.currentIndex = index
-                    if(Maui.Handy.singleClick)
-                    {
-                        currentTag = tagsList.get(index).tag
-                        populateGrid(currentTag)
-                    }
-                }
-
-                onDoubleClicked:
-                {
-                    _tagsList.currentIndex = index
-                    if(!Maui.Handy.singleClick)
-                    {
-                        currentTag = tagsList.get(index).tag
-                        populateGrid(currentTag)
-                    }
+                    populateGrid(model.tag)
                 }
             }
         }

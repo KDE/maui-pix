@@ -18,7 +18,8 @@ Maui.ImageViewer
     readonly property string currentImageSource: model.url
 
     source : currentImageSource
-
+    imageWidth: 1000
+    imageHeight: 1000
     width: itemWidth
     height: itemHeight
     animated: model.format === "gif"
