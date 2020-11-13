@@ -32,7 +32,8 @@ add_executable(pix
     ${pix_ASSETS}
     )
 
-target_link_libraries(pix MauiKit Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Positioning KF5::I18n LibExiv2::LibExiv2)
+#target_link_libraries(pix MauiKit Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Positioning KF5::I18n LibExiv2::LibExiv2)
+target_link_libraries(pix MauiKit Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Positioning KF5::I18n)
 
 if(ANDROID)
     target_link_libraries(pix Qt5::AndroidExtras)
@@ -43,7 +44,7 @@ install(TARGETS pix ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES org.kde.pix.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
 #TODO: port to ecm_install_icons()
-install(FILES assets/pix.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
+install(FILES assets/pix9882.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
 
 #
 # Reverse GeoLookup Data
