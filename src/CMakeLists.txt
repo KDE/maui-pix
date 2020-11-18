@@ -50,7 +50,7 @@ install(TARGETS pix ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES org.kde.pix.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
 #TODO: port to ecm_install_icons()
-install(FILES assets/pix.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
+install(FILES assets/pix9882.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
 
 #
 # Reverse GeoLookup Data
@@ -90,7 +90,7 @@ install(FILES assets/pix.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable
 
 #if (NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/admin2Codes.txt)
 #    file (DOWNLOAD "http://download.geonames.org/export/dump/admin2Codes.txt"
-#                ${CMAKE_CURRENT_BINARY_DIhR}/admin2Codes.txt
+#                ${CMAKE_CURRENT_BINARY_DIR}/admin2Codes.txt
 #        SHOW_PROGRESS
 #    )
 #endif()
