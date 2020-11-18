@@ -54,8 +54,8 @@ Maui.Page
             }
         }
 
-        itemSize: Math.min(260, Math.max(140, Math.floor(width* 0.3)))
-        itemHeight: itemSize
+        itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
+        itemHeight: itemSize + Maui.Style.rowHeight
 
         holder.visible: _gridView.count === 0
         holder.emoji: i18n("qrc:/assets/add-image.svg")
@@ -63,18 +63,21 @@ Maui.Page
         holder.body: i18n("You can create new tags to organize your gallery")
         holder.emojiSize: Maui.Style.iconSizes.huge
 
-        delegate: Maui.GalleryRollItem
+        delegate: CollageDelegate
         {
             id: _delegate
             height: _gridView.cellHeight
             width: _gridView.cellWidth
             isCurrentItem: GridView.isCurrentItem
 
+            contentWidth: _gridView.itemSize - 10
+            contentHeight: _gridView.cellHeight - 20
+
 //            list.urls: [tagUrl]
             images: model.preview.split(",")
 
-            label1.text: model.tag
-            iconSource: model.icon
+            template.label1.text: model.tag
+            template.iconSource: model.icon
             template.iconVisible: true
 
             onClicked:
