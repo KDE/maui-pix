@@ -22,6 +22,8 @@ StackView
         id: _foldersPage
         flickable: _foldersGrid.flickable
 
+        headerBackground.color: "transparent"
+        headBar.visible: true
         headBar.middleContent: Maui.TextField
         {
             Layout.fillWidth: true

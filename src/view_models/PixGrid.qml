@@ -44,6 +44,7 @@ Maui.AltBrowser
     holder.visible: count === 0
     holder.emojiSize: Maui.Style.iconSizes.huge
 
+    headerBackground.color: "transparent"
     headBar.middleContent: Maui.TextField
     {
         enabled: list.count > 0
