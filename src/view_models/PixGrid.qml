@@ -61,7 +61,7 @@ Maui.AltBrowser
         expanded: isWide
         currentIndex : control.viewType === Maui.AltBrowser.ViewType.List ? 0 : 1
         enabled: list.count > 0
-        display: ToolButton.TextBesideIcon
+//        display: ToolButton.TextBesideIcon
         cyclic: true
 
         Action
