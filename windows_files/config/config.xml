@@ -1,15 +1,9 @@
-<!-- Copyright 2018-2020 Camilo Higuita <milo.h@aol.com> -->
-<!-- Copyright 2018-2020 Nitrux Latinoamericana S.C. -->
-
-<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <Installer>
     <Name>Pix</Name>
-    <Version>1.1.0</Version>
-    <Title>Pix Image Viewer</Title>
+    <Version>1.2.1</Version>
+    <Title>Pix Image Gallery Viewer</Title>
     <Publisher>Maui</Publisher>
     <StartMenuDir>Pix</StartMenuDir>
-    <TargetDir>@ApplicationsDir@/pix</TargetDir>
+    <TargetDir>@ApplicationsDir@/Pix</TargetDir>
 </Installer>

@@ -1,15 +1,12 @@
-<!-- Copyright 2018-2020 Camilo Higuita <milo.h@aol.com> -->
-<!-- Copyright 2018-2020 Nitrux Latinoamericana S.C. -->
-
-<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>Pix</DisplayName>
-    <Description>Pix Image Viewer</Description>
-    <Version>1.1.0-1</Version>
-    <ReleaseDate>2020-04-04</ReleaseDate>
+    <Description>Pix Image Gallery Viewer</Description>
+    <Version>1.2.1</Version>
+    <ReleaseDate>2020-11-20</ReleaseDate>
+    <Licenses>
+        <License name="GPLv3" file="license.txt" />
+    </Licenses>
     <Default>true</Default>
     <Script>installscript.qs</Script>
 </Package>

@@ -1,6 +1,7 @@
 
 QT *= core \
     quick \
+    positioning \
     sql \
     qml \
     quickcontrols2

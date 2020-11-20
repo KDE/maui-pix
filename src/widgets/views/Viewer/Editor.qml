@@ -9,7 +9,7 @@ import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.mauikit 1.2 as Maui
-import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
+//import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
 
 Maui.Page
 {
@@ -281,24 +281,24 @@ Maui.Page
     //    }
 
 
-    KQuickImageEditor.ImageDocument
-    {
-        id: imageDoc
-        path: control.url
-    }
+//    KQuickImageEditor.ImageDocument
+//    {
+//        id: imageDoc
+//        path: control.url
+//    }
 
 
     Flickable
     {
         anchors.fill: parent
-        KQuickImageEditor.ImageItem
-        {
-            id: editImage
-            rotation: _freeRotation.checked ? _freeRotationSlider.value : 0
-            fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
-            image: imageDoc.image
-            anchors.fill: parent
-        }
+//        KQuickImageEditor.ImageItem
+//        {
+//            id: editImage
+//            rotation: _freeRotation.checked ? _freeRotationSlider.value : 0
+//            fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
+//            image: imageDoc.image
+//            anchors.fill: parent
+//        }
     }
 
 //    Item
@@ -308,24 +308,24 @@ Maui.Page
 //        Column
 //    }
 
-    KQuickImageEditor.ResizeRectangle
-    {
-        id: resizeRectangle
-        anchors.centerIn: parent
-        visible: control.resizing
+//    KQuickImageEditor.ResizeRectangle
+//    {
+//        id: resizeRectangle
+//        anchors.centerIn: parent
+//        visible: control.resizing
 
-        width: editImage.paintedWidth
-        height: editImage.paintedHeight
-        x: 0
-        y: editImage.verticalPadding
+//        width: editImage.paintedWidth
+//        height: editImage.paintedHeight
+//        x: 0
+//        y: editImage.verticalPadding
 
-        insideX: 100
-        insideY: 100
-        insideWidth: 100
-        insideHeight: 100
+//        insideX: 100
+//        insideY: 100
+//        insideWidth: 100
+//        insideHeight: 100
 
-        onAcceptSize: control.crop();
-    }
+//        onAcceptSize: control.crop();
+//    }
 
     function crop()
     {

@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: LGPL-3.0-or-later
-
 /**************************************************************************
 **
 ** Copyright (C) 2015 The Qt Company Ltd.
@@ -41,12 +39,13 @@ function Component()
 
 Component.prototype.createOperations = function()
 {
-    // call default implementation to actually install README.txt!
-    component.createOperations();
-
-    if (systemInfo.productType === "windows") {
-        component.addOperation("CreateShortcut", "@TargetDir@/pix.exe", "@StartMenuDir@/pix.lnk",
-            "workingDirectory=@TargetDir@", "iconPath=%SystemRoot%/system32/SHELL32.dll",
-            "iconId=2");
+ 	component.createOperations();
+      if (systemInfo.productType === "windows") {
+        component.addOperation("CreateShortcut", 
+                            "@TargetDir@/pix.exe",// target
+                            "@DesktopDir@/Pix.lnk",// link-path
+                            "workingDirectory=@TargetDir@",// working-dir
+                            "iconPath=@TargetDir@/pix.exe", "iconId=0",// icon
+                            "description=Image Gallery Viewer");// description
     }
 }
