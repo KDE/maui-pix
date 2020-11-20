@@ -59,10 +59,10 @@ linux:unix:!android {
         message(Building for Macos)
         ICON = $$PWD/macos_files/pix.icns
 
-        LIBS += -L$$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/lib/ -lexiv2.0.27.3
+        LIBS += -L/usr/local/Cellar/exiv2/0.27.3/lib/ -lexiv2.0.27.3
 
-        INCLUDEPATH += $$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/include
-        DEPENDPATH += $$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/include
+        INCLUDEPATH += /usr/local/Cellar/exiv2/0.27.3/include
+        DEPENDPATH += /usr/local/Cellar/exiv2/0.27.3/include
     }
 
     win32 {
@@ -86,12 +86,14 @@ SOURCES += src/main.cpp \
     src/pix.cpp \
     src/models/gallery/gallery.cpp \
     src/models/folders/folders.cpp \
+    src/models/tags/tagsmodel.cpp \
     src/models/picinfomodel.cpp
 
 HEADERS += \
     src/pix.h \
     src/models/gallery/gallery.h \
     src/models/folders/folders.h \
+    src/models/tags/tagsmodel.h \
     src/models/picinfomodel.h
 
 # Default rules for deployment.

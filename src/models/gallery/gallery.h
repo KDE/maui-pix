@@ -28,6 +28,7 @@ class Gallery : public MauiList
 	Q_PROPERTY(bool recursive READ recursive WRITE setRecursive NOTIFY recursiveChanged)
 	Q_PROPERTY(bool autoReload READ autoReload WRITE setAutoReload NOTIFY autoReloadChanged)
 	Q_PROPERTY(int limit READ limit WRITE setlimit NOTIFY limitChanged)
+    Q_PROPERTY(QStringList files READ files NOTIFY filesChanged FINAL)
 
 public:
 	explicit Gallery(QObject *parent = nullptr);
@@ -46,6 +47,8 @@ public:
 	bool recursive() const;
 
 	int limit() const;
+
+    QStringList files() const;
 
 private:
     FMH::FileLoader *m_fileLoader;
@@ -76,6 +79,8 @@ signals:
 	void recursiveChanged(bool recursive);
 
 	void limitChanged(int limit);
+
+    void filesChanged();
 
 public slots:
 	QVariantMap get(const int &index) const;

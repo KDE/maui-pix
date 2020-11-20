@@ -25,6 +25,7 @@ public:
 private:
 	FMH::MODEL_LIST list;
 	QList<QUrl> m_folders;
+    void packPreviewImages(FMH::MODEL &folder);
 
 public slots:
 	QVariantMap get(const int &index) const;

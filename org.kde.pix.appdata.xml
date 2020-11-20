@@ -8,11 +8,13 @@
   <name xml:lang="ca-valencia">Pix</name>
   <name xml:lang="cs">Pix</name>
   <name xml:lang="de">Pix</name>
+  <name xml:lang="en-GB">Pix</name>
   <name xml:lang="es">Pix</name>
   <name xml:lang="et">Pix</name>
   <name xml:lang="fi">Pix</name>
   <name xml:lang="fr">Pix</name>
   <name xml:lang="gl">Pix</name>
+  <name xml:lang="hi">पिक्स (Pix)</name>
   <name xml:lang="id">Pix</name>
   <name xml:lang="it">Pix</name>
   <name xml:lang="ko">Pix</name>
@@ -24,7 +26,7 @@
   <name xml:lang="sk">Pix</name>
   <name xml:lang="sl">Pix</name>
   <name xml:lang="sv">Pix</name>
-  <name xml:lang="uk">Pix</name>
+  <name xml:lang="uk">Пікс</name>
   <name xml:lang="x-test">xxPixxx</name>
   <name xml:lang="zh-TW">Pix</name>
   <summary>Play your music collection</summary>
@@ -32,11 +34,13 @@
   <summary xml:lang="ca-valencia">Reprodueix la vostra col·lecció de música</summary>
   <summary xml:lang="cs">Přehrávejte svou hudební sbírku</summary>
   <summary xml:lang="de">Wiedergabe Ihrer Musik-Sammlung</summary>
+  <summary xml:lang="en-GB">Play your music collection</summary>
   <summary xml:lang="es">Reproduce su colección de música</summary>
   <summary xml:lang="et">Muusikakogu esitamine</summary>
   <summary xml:lang="fi">Soita musiikkikokoelmaasi</summary>
   <summary xml:lang="fr">Jouez votre collection musicale</summary>
   <summary xml:lang="gl">Reproducir a súa colección de música</summary>
+  <summary xml:lang="hi">अपना संगीत संग्रह बजाएँ</summary>
   <summary xml:lang="id">Putar koleksi musikmu</summary>
   <summary xml:lang="it">Riproduce la tua collezione musicale</summary>
   <summary xml:lang="ko">내 음악 모음집 재생</summary>
@@ -55,11 +59,13 @@
     <p> Convergent image and gallery viewer. </p>
     <p xml:lang="ca">Visor convergent d'imatges i galeries.</p>
     <p xml:lang="ca-valencia">Visor convergent d'imatges i galeries.</p>
+    <p xml:lang="en-GB">Convergent image and gallery viewer.</p>
     <p xml:lang="es">Visor convergente de imágenes y galería.</p>
     <p xml:lang="et">Pildi- ja galeriinäitaja kombinatsioon.</p>
     <p xml:lang="fi">Tuttavallinen kuva- ja galleriakatselin.</p>
     <p xml:lang="fr">Images convergentes et afficheur de galerie.</p>
     <p xml:lang="gl">Visor converxente de imaxes e galerías.</p>
+    <p xml:lang="hi">संमिलित छवि व दीर्घा प्रदर्शक.</p>
     <p xml:lang="id">Penampil galeri dan citra yang konvergen</p>
     <p xml:lang="it">Visualizzatore convergente di immagini e galleria.</p>
     <p xml:lang="ko">이미지와 갤러리 통합 뷰어입니다.</p>
@@ -77,7 +83,6 @@
   <url type="homepage">https://pix.kde.org/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=pix</url>
   <url type="donation">https://www.kde.org/community/donations</url>
-  <url type="help">https://docs.kde.org/trunk5/en/extragear-multimedia/pix/</url>
   <screenshots>
     <screenshot type="default">
       <caption>The Pix music player</caption>
@@ -85,11 +90,13 @@
       <caption xml:lang="ca-valencia">El reproductor de música Pix</caption>
       <caption xml:lang="cs">Přehrávač hudby Pix</caption>
       <caption xml:lang="de">Pix-Musikwiedergabe</caption>
+      <caption xml:lang="en-GB">The Pix music player</caption>
       <caption xml:lang="es">El reproductor de música Pix</caption>
       <caption xml:lang="et">Muusikamängija Pix</caption>
       <caption xml:lang="fi">Pix-musiikkisoitin</caption>
       <caption xml:lang="fr">Le lecteur de musique Pix</caption>
       <caption xml:lang="gl">O reprodutor de música Pix</caption>
+      <caption xml:lang="hi">पिक्स संगीत चालक</caption>
       <caption xml:lang="id">Pemutar musik Pix</caption>
       <caption xml:lang="it">Il lettore musicale Pix</caption>
       <caption xml:lang="ko">Pix 음악 재생기</caption>

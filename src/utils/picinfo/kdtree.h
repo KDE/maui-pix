@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: BSD-3-Clause
+
 /*
 This file is part of ``kdtree'', a library for working with kd-trees.
 Copyright (C) 2007-2011 John Tsiombikas <nuclear@member.fsf.org>

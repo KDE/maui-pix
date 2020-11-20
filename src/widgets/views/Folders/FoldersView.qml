@@ -22,6 +22,8 @@ StackView
         id: _foldersPage
         flickable: _foldersGrid.flickable
 
+        headerBackground.color: "transparent"
+        headBar.visible: true
         headBar.middleContent: Maui.TextField
         {
             Layout.fillWidth: true
@@ -62,7 +64,7 @@ StackView
             delegate: CollageDelegate
             {
                 id: _delegate
-                property var folderPath : [model.path]
+                readonly property var folderPath : [model.path]
 
                 height: _foldersGrid.cellHeight - Maui.Style.space.tiny
                 width: _foldersGrid.cellWidth
@@ -71,10 +73,19 @@ StackView
                 contentWidth: _foldersGrid.itemSize - 10
                 contentHeight: _foldersGrid.cellHeight - 20
 
-                list.urls: folderPath
+                images: _galleryList.files
                 template.label1.text: model.label
                 template.label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
                 template.iconSource: model.icon
+
+                GalleryList
+                {
+                    id: _galleryList
+                    urls: folderPath
+                    autoReload: false
+                    recursive: false
+                    limit: 4
+                }
 
                 onClicked:
                 {
@@ -108,6 +119,7 @@ StackView
     Component
     {
         id: picsViewComponent
+
         PixGrid
         {
             headBar.visible: true

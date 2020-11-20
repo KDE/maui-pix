@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: LGPL-3.0-or-later
+
 /*
     Copyright (C) 2012-15  Vishesh Handa <vhanda@kde.org>
 
