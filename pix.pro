@@ -1,7 +1,6 @@
 
 QT *= core \
     quick \
-    positioning \
     sql \
     qml \
     quickcontrols2
@@ -14,7 +13,7 @@ TEMPLATE = app
 
 VERSION_MAJOR = 1
 VERSION_MINOR = 2
-VERSION_BUILD = 0
+VERSION_BUILD = 1
 
 VERSION = $${VERSION_MAJOR}.$${VERSION_MINOR}.$${VERSION_BUILD}
 
@@ -44,6 +43,16 @@ linux:unix:!android {
         ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android_files
         DISTFILES += $$PWD/android_files/AndroidManifest.xml
         DEFINES *= ANDROID_OPENSSL
+
+        ANDROID_ABIS = armeabi-v7a
+
+        DISTFILES += \
+            android_files/build.gradle \
+            android_files/gradle/wrapper/gradle-wrapper.jar \
+            android_files/gradle/wrapper/gradle-wrapper.properties \
+            android_files/gradlew \
+            android_files/gradlew.bat \
+            android_files/res/values/libs.xml
      }
 
     macos {
@@ -98,12 +107,3 @@ INCLUDEPATH += src/
 
 include(install.pri)
 
-ANDROID_ABIS = armeabi-v7a
-
-DISTFILES += \
-    android_files/build.gradle \
-    android_files/gradle/wrapper/gradle-wrapper.jar \
-    android_files/gradle/wrapper/gradle-wrapper.properties \
-    android_files/gradlew \
-    android_files/gradlew.bat \
-    android_files/res/values/libs.xml
