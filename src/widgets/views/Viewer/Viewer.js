@@ -5,7 +5,7 @@
 
 
 .import "../Pix.js" as PIX
-.import org.kde.mauikit 1.0 as Maui
+.import org.kde.mauikit 1.2 as Maui
 .import org.maui.pix 1.0 as Pix
 
 function open(model, index)

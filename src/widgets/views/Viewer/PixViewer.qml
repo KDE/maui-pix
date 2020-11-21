@@ -11,7 +11,6 @@ import QtQuick.Window 2.13
 
 import "../../../view_models"
 import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
-import "../../../widgets/views/Pix.js" as PIX
 import "../.."
 
 import org.kde.kirigami 2.7 as Kirigami
@@ -34,9 +33,9 @@ StackView
     property alias model :viewer.model
     property bool doodle : false
 
-    Kirigami.Theme.inherit: false
-    Kirigami.Theme.backgroundColor: "#333"
-    Kirigami.Theme.textColor: "#fafafa"
+//    Kirigami.Theme.inherit: false
+//    Kirigami.Theme.backgroundColor: "#333"
+//    Kirigami.Theme.textColor: "#fafafa"
 
     Component
     {
@@ -215,7 +214,7 @@ StackView
                 allowEditMode: true
                 list.urls: [currentPic.url]
                 list.strict: false
-//                onTagClicked: PIX.searchFor(tag)
+
                 onAddClicked:
                 {
                     dialogLoader.sourceComponent = tagsDialogComponent
