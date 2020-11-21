@@ -1,9 +1,12 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
-import org.kde.mauikit 1.2 as Maui
+
+import org.kde.mauikit 1.3 as Maui
 import org.kde.kirigami 2.8 as Kirigami
+
 import org.maui.pix 1.0 as Pix
+
 import "../widgets/views/Pix.js" as PIX
 
 Menu
@@ -115,16 +118,15 @@ Menu
             close()
         }
 
-        Maui.Dialog
+        Maui.FileListingDialog
         {
             id: removeDialog
 
+            urls: [control.model.get(index).url]
             title: i18n("Delete file?")
             acceptButton.text: i18n("Accept")
             rejectButton.text: i18n("Cancel")
-            message: i18n("Are sure you want to delete \n%1", control.model.get(index).url)
-            page.margins: Maui.Style.space.big
-            template.iconSource: "emblem-warning"
+            message: i18n("Are sure you want to delete this file? This action can not be undone.")
 
             onRejected: close()
             onAccepted:

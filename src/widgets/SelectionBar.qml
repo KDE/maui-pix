@@ -105,7 +105,8 @@ Maui.SelectionBar
         Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
         onTriggered:
         {
-            removeDialog.open()
+            dialogLoader.sourceComponent = _removeDialogComponent
+            dialog.open()
         }
     }
 }

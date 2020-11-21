@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
 import org.kde.kirigami 2.9 as Kirigami
-import org.kde.mauikit 1.2 as Maui
+import org.kde.mauikit 1.3 as Maui
 import org.maui.pix 1.0
 
 import "../../../view_models"
@@ -61,7 +61,7 @@ StackView
                 filterCaseSensitivity: Qt.CaseInsensitive
             }
 
-            delegate: CollageDelegate
+            delegate: Maui.CollageItem
             {
                 id: _delegate
                 readonly property var folderPath : [model.path]

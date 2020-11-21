@@ -1,9 +1,3 @@
-<!-- Copyright 2018-2020 Camilo Higuita <milo.h@aol.com> -->
-<!-- Copyright 2018-2020 Nitrux Latinoamericana S.C. -->
-
-<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-
-
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
@@ -28,6 +22,5 @@
         <file>widgets/InfoDialog.qml</file>
         <file>widgets/SettingsDialog.qml</file>
         <file>widgets/views/Viewer/Editor.qml</file>
-        <file>view_models/CollageDelegate.qml</file>
     </qresource>
 </RCC>

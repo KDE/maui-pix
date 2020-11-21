@@ -31,7 +31,7 @@ import QtQuick.Window 2.13
 import Qt.labs.settings 1.0
 
 import org.kde.kirigami 2.8 as Kirigami
-import org.kde.mauikit 1.2 as Maui
+import org.kde.mauikit 1.3 as Maui
 import org.maui.pix 1.0 as Pix
 
 import "widgets"
@@ -285,22 +285,26 @@ Maui.ApplicationWindow
         SettingsDialog {}
     }
 
-    Maui.Dialog
+    Component
     {
-        id: removeDialog
+        id: _removeDialogComponent
 
-        title: i18n("Delete files?")
-        acceptButton.text: i18n("Accept")
-        rejectButton.text: i18n("Cancel")
-        message: i18n("Are sure you want to delete %1 files", String(selectionBox.count))
-        page.margins: Maui.Style.space.big
-        template.iconSource: "emblem-warning"
-        onRejected: close()
-        onAccepted:
+        Maui.FileListingDialog
         {
-            Maui.FM.removeFiles(selectionBox.uris)
-            selectionBox.clear()
-            close()
+            id: removeDialog
+            urls: selectionBox.uris
+            title: i18n("Delete %1 files?", urls.length)
+            acceptButton.text: i18n("Cancel")
+            rejectButton.text: i18n("Accept")
+            message: i18n("Are sure you want to delete this files? This action can not be undone.")
+
+            onAccepted: close()
+            onRejected:
+            {
+                Maui.FM.removeFiles(removeDialog.urls)
+                selectionBox.clear()
+                close()
+            }
         }
     }
 
