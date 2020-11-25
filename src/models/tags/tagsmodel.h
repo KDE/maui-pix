@@ -15,7 +15,7 @@ class TagsModel : public MauiList
 
 public:
     explicit TagsModel(QObject *parent = nullptr);
-    FMH::MODEL_LIST items() const override;
+    const FMH::MODEL_LIST &items() const override;
     void componentComplete() override;
 
 private:

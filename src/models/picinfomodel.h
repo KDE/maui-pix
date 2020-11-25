@@ -23,7 +23,7 @@ class PicInfoModel : public MauiList
 {
 	Q_OBJECT
 		Q_PROPERTY (QUrl url READ url WRITE setUrl NOTIFY urlChanged)
-        Q_PROPERTY (QString fileName MEMBER m_fileName NOTIFY fileNameChanged FINAL)
+	Q_PROPERTY (QString fileName MEMBER m_fileName NOTIFY fileNameChanged FINAL)
 
 public:
 	enum ROLES
@@ -71,7 +71,7 @@ signals:
 	void fileNameChanged();
 	// MauiList interface
 public:
-	FMH::MODEL_LIST items() const override;
+	const FMH::MODEL_LIST &items() const override;
 };
 
 #endif // PICINFOMODEL_H

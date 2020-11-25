@@ -69,7 +69,7 @@ Gallery::~Gallery()
     delete m_fileLoader;
 }
 
-FMH::MODEL_LIST Gallery::items() const
+const FMH::MODEL_LIST &Gallery::items() const
 {
     return this->list;
 }

@@ -34,7 +34,7 @@ public:
     explicit Gallery(QObject *parent = nullptr);
     ~Gallery();
 
-    FMH::MODEL_LIST items() const override final;
+    const FMH::MODEL_LIST &items() const override final;
 
     void setUrls(const QList<QUrl> &urls);
     QList<QUrl> urls() const;

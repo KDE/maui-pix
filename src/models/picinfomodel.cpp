@@ -80,7 +80,7 @@ void PicInfoModel::parse()
     emit postListChanged();
 }
 
-FMH::MODEL_LIST PicInfoModel::items() const
+const FMH::MODEL_LIST &PicInfoModel::items() const
 {
     return m_data;
 }

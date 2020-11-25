@@ -5,7 +5,7 @@ Folders::Folders(QObject *parent) : MauiList(parent)
     qDebug()<< "CREATING GALLERY LIST";
 }
 
-FMH::MODEL_LIST Folders::items() const
+const FMH::MODEL_LIST &Folders::items() const
 {
     return this->list;
 }
