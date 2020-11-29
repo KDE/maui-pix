@@ -39,8 +39,6 @@ ScrollView
         focus: true
         interactive: true
 
-        model: pixViewer.model
-
         delegate: PixPic
         {
             id: delegate

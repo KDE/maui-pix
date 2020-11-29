@@ -3,15 +3,14 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import QtQuick 2.14
+import QtQuick.Controls 2.14
 
-import QtQuick 2.13
-import QtQuick.Controls 2.13
-import org.kde.mauikit 1.0 as Maui
+import org.kde.mauikit 1.3 as Maui
 import org.kde.kirigami 2.7 as Kirigami
 import org.maui.pix 1.0
 
 import "../../"
-import "Viewer.js" as VIEWER
 
 Item
 {
@@ -67,12 +66,12 @@ Item
         {
             if((event.key == Qt.Key_Right))
             {
-                VIEWER.next()
+                next()
             }
 
             if((event.key == Qt.Key_Left))
             {
-                VIEWER.previous()
+                previous()
             }
         }
 
@@ -82,7 +81,7 @@ Item
         {
             const index = indexAt(contentX, contentY)
             if(index !== currentPicIndex)
-                VIEWER.view(index)
+                view(index)
         }
 
         delegate: Loader

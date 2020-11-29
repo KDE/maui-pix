@@ -10,7 +10,6 @@ import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
 import "../../../view_models"
-import "../../../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../.."
 
 import org.kde.kirigami 2.7 as Kirigami
@@ -52,7 +51,18 @@ StackView
         id: _viewer
         padding: 0
         Kirigami.Theme.colorSet: Kirigami.Theme.View
-
+        floatingHeader: true
+        autoHideHeader: true
+        headBar.visible: true
+        headBar.farLeftContent: [
+            ToolButton
+            {
+                icon.name: "go-previous"
+                text: "Gallery"
+                display: ToolButton.TextBesideIcon
+                onClicked: _stackView.pop()
+            }
+]
         PixMenu
         {
             id: _picMenu
@@ -107,7 +117,7 @@ StackView
                 enabled: Maui.Android.hasKeyboard()
                 text: i18n("Previous")
                 icon.name: "go-previous"
-                onTriggered: VIEWER.previous()
+                onTriggered: previous()
             }
 
             Action
@@ -130,7 +140,7 @@ StackView
             {
                 enabled: Maui.Android.hasKeyboard()
                 icon.name: "go-next"
-                onTriggered: VIEWER.next()
+                onTriggered: next()
             }
         }
 
@@ -195,7 +205,8 @@ StackView
                         height: parent.height -Maui.Style.space.small
                         width: parent.width
                         anchors.centerIn: parent
-                        onPicClicked: VIEWER.view(index)
+                        model: control.model
+                        onPicClicked: view(index)
                     }
 
                     function toogle()
@@ -259,6 +270,43 @@ StackView
             Window.window.showFullScreen()
         }
 
+    }
+
+    function next()
+    {
+        var index = control.currentPicIndex
+
+        if(index < control.viewer.count-1)
+            index++
+        else
+            index= 0
+
+        view(index)
+    }
+
+    function previous()
+    {
+        var index = control.currentPicIndex
+
+        if(index > 0)
+            index--
+        else
+            index = control.viewer.count-1
+
+        view(index)
+    }
+
+    function view(index)
+    {
+        if(control.viewer.count > 0 && index >= 0 && index < control.viewer.count)
+        {
+            control.currentPicIndex = index
+            control.currentPic = control.model.get(control.currentPicIndex)
+
+            control.currentPicFav = Maui.FM.isFav(control.currentPic.url)
+            root.title = control.currentPic.title
+            control.roll.position(control.currentPicIndex)
+        }
     }
 
 }

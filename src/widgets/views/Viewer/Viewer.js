@@ -4,59 +4,22 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
-.import "../Pix.js" as PIX
 .import org.kde.mauikit 1.2 as Maui
-.import org.maui.pix 1.0 as Pix
 
 function open(model, index)
 {
-    pixViewer.model = model
-    view(index)
+    _stackView.push(_pixViewer)
+    _stackView.currentItem.model = model
+    _stackView.currentItem.view(index)
 }
 
 function openExternalPics(pics, index)
 {
-    var oldIndex = pixViewer.viewer.count
-    pixViewer.viewer.appendPics(pics)
-    view(Math.max(oldIndex, 0))
-}
+    _stackView.push(_pixViewer)
 
-function view(index)
-{
-    if(pixViewer.viewer.count > 0 && index >= 0 && index < pixViewer.viewer.count)
-    {
-        pixViewer.currentPicIndex = index
-        pixViewer.currentPic = pixViewer.model.get(pixViewer.currentPicIndex)
-
-        pixViewer.currentPicFav = Maui.FM.isFav(pixViewer.currentPic.url)
-        root.title = pixViewer.currentPic.title
-        swipeView.currentIndex = views.viewer
-        pixViewer.roll.position(pixViewer.currentPicIndex)
-    }
-}
-
-function next()
-{
-    var index = pixViewer.currentPicIndex
-
-    if(index < pixViewer.viewer.count-1)
-        index++
-    else
-        index= 0
-
-    view(index)
-}
-
-function previous()
-{
-    var index = pixViewer.currentPicIndex
-
-    if(index > 0)
-        index--
-    else
-        index = pixViewer.viewer.count-1
-
-    view(index)
+    var oldIndex = _stackView.currentItem.viewer.count
+    _stackView.currentItem.viewer.appendPics(pics)
+    _stackView.currentItem.view(Math.max(oldIndex, 0))
 }
 
 function fav(urls)

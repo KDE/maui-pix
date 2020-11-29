@@ -50,19 +50,14 @@ Maui.ApplicationWindow
 {
     id: root
     title: pixViewer.currentPic.title || Maui.App.displayName
-    //    visibility: fullScreen ? ApplicationWindow.FullScreen : ApplicationWindow.Windowed
 
     property alias dialog : dialogLoader.item
-    property alias pixViewer : _pixViewer
 
     /*READONLY PROPS*/
-    readonly property var views : ({ viewer: 0,
-                                       gallery: 1,
-                                       tags: 2,
-                                       folders: 3 })
+    readonly property var views : ({ gallery: 0,
+                                       tags: 1,
+                                       folders: 2 })
     /*PROPS*/
-
-
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     property bool selectionMode : false
 
@@ -126,10 +121,7 @@ Maui.ApplicationWindow
         }
     ]
 
-    headBar.visible: !fullScreen
-
-    floatingHeader: swipeView.currentIndex === views.viewer ? !pixViewer.editing : false
-    autoHideHeader: swipeView.currentIndex === views.viewer
+    headBar.visible: !fullScreen && swipeView.visible
     headerPositioning: ListView.InlineHeader
 
     headBar.rightContent: ToolButton
@@ -147,17 +139,46 @@ Maui.ApplicationWindow
         checked: selectionMode
     }
 
-    Maui.AppViews
+    StackView
     {
-        id: swipeView
+        id: _stackView
         anchors.fill: parent
-        Component.onCompleted: swipeView.currentIndex = views.gallery
+
+        initialItem: Maui.AppViews
+        {
+            id: swipeView
+
+            GalleryView
+            {
+                id: _galleryView
+                Maui.AppView.title: i18n("Gallery")
+                Maui.AppView.iconName: "image-multiple"
+            }
+
+
+            Maui.AppViewLoader
+            {
+                Maui.AppView.title: i18n("Tags")
+                Maui.AppView.iconName: "tag"
+                TagsView {}
+            }
+
+            Maui.AppViewLoader
+            {
+                Maui.AppView.title: i18n("Folders")
+                Maui.AppView.iconName: "folder"
+                FoldersView {}
+            }
+        }
+
+    }
+
+    Component
+    {
+        id: _pixViewer
 
         PixViewer
         {
-            id: _pixViewer
-            Maui.AppView.title: i18n("Viewer")
-            Maui.AppView.iconName: "document-preview-archive"
 
             Rectangle
             {
@@ -188,29 +209,8 @@ Maui.ApplicationWindow
             }
         }
 
-
-        GalleryView
-        {
-            id: _galleryView
-            Maui.AppView.title: i18n("Gallery")
-            Maui.AppView.iconName: "image-multiple"
-        }
-
-
-        Maui.AppViewLoader
-        {
-            Maui.AppView.title: i18n("Tags")
-            Maui.AppView.iconName: "tag"
-            TagsView {}
-        }
-
-        Maui.AppViewLoader
-        {
-            Maui.AppView.title: i18n("Folders")
-            Maui.AppView.iconName: "folder"
-            FoldersView {}
-        }
     }
+
 
     footer: SelectionBar
     {
