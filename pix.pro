@@ -46,14 +46,6 @@ linux:unix:!android {
         DEFINES *= ANDROID_OPENSSL
 
         ANDROID_ABIS = armeabi-v7a
-
-        DISTFILES += \
-            android_files/build.gradle \
-            android_files/gradle/wrapper/gradle-wrapper.jar \
-            android_files/gradle/wrapper/gradle-wrapper.properties \
-            android_files/gradlew \
-            android_files/gradlew.bat \
-            android_files/res/values/libs.xml
      }
 
     macos {

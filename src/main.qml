@@ -208,13 +208,12 @@ Maui.ApplicationWindow
                 }
             }
         }
-
     }
-
 
     footer: SelectionBar
     {
         id: selectionBox
+        visible: count > 0 && _stackView.depth === 1
         anchors.horizontalCenter: parent.horizontalCenter
         width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
         padding: Maui.Style.space.big
