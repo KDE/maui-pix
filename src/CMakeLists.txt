@@ -90,7 +90,7 @@ install(FILES assets/pix.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable
 
 #if (NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/admin2Codes.txt)
 #    file (DOWNLOAD "http://download.geonames.org/export/dump/admin2Codes.txt"
-#                ${CMAKE_CURRENT_BINARY_DIhR}/admin2Codes.txt
+#                ${CMAKE_CURRENT_BINARY_DIR}/admin2Codes.txt
 #        SHOW_PROGRESS
 #    )
 #endif()

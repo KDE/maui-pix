@@ -3,12 +3,14 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14
+
+import QtQuick 2.13
+import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.6 as Kirigami
-import org.kde.mauikit 1.2 as Maui
+
+import org.kde.mauikit 1.3 as Maui
 //import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
 
 Maui.Page
@@ -17,35 +19,15 @@ Maui.Page
     property url url
     property bool resizing : false
 
+    title: i18n("Edit")
     leftPadding: 0
     rightPadding: 0
 
-    headBar.farLeftContent: [
-        ToolButton
-        {
-            icon.name: "go-previous"
-            onClicked: control.parent.pop()
-        },
-
-        Maui.ToolActions
-        {
-            expanded: true
-            autoExclusive: true
-            checkable: false
-
-            Action
-            {
-                icon.name: "edit-undo"
-                onTriggered: imageDoc.undo();
-                enabled: imageDoc.edited
-            }
-
-            Action
-            {
-                icon.name: "edit-redo"
-            }
-        }
-    ]
+    headBar.farLeftContent: ToolButton
+    {
+        icon.name: "go-previous"
+        onClicked: control.parent.pop()
+    }
 
     headBar.rightContent: Maui.ToolActions
     {
@@ -66,6 +48,24 @@ Maui.Page
         }
     }
 
+    footBar.leftContent: Maui.ToolActions
+    {
+        expanded: true
+        autoExclusive: true
+        checkable: false
+
+        Action
+        {
+            icon.name: "edit-undo"
+            onTriggered: imageDoc.undo();
+            enabled: imageDoc.edited
+        }
+
+        Action
+        {
+            icon.name: "edit-redo"
+        }
+    }
 
     //    Kirigami.Action {
     //                           iconName: rootEditorView.resizing ? "dialog-cancel" : "transform-crop"
@@ -79,206 +79,88 @@ Maui.Page
     //        onTriggered: rootEditorView.crop();
     //    },
 
-    //    footBar.rightContent: [
-    //        ToolButton
-    //        {
-    //            icon.name: "draw-freehand"
-    //            onClicked:
-    //            {
-    //                _doodleDialog.sourceItem = editImage
-    //                _doodleDialog.open()
-    //            }
-    //        }
-    //    ]
-
-    footBar.middleContent:
-        [
-
-        Maui.ToolActions
+    footBar.rightContent: [
+        ToolButton
         {
-
-            id: _editBar
-            expanded: true
-            autoExclusive: true
-            checkable: false
-            display: ToolButton.TextBesideIcon
-
-        Action
-        {
-            icon.name: "configure"
-                text: _editBar.currentIndex
-//            checkable: true
-//            checked: _transformBar.visible
-//            onTriggered: _transformBar.visible = !_transformBar.visible
-        }
-
-        Action
-        {
-            icon.name: "edit-opacity"
-//            checkable: true
-//            checked: _colorBar.visible
-//            onTriggered: _colorBar.visible = !_colorBar.visible
-        }
-
-        Action
-        {
-            icon.name: "layer-visible-on"
-//            checkable: true
-//            checked: _transformBar.visible
-//            onClicked: _transformBar.visible = !_transformBar.visible
-        }
+            icon.name: "draw-freehand"
+            onClicked:
+            {
+                _doodleDialog.sourceItem = editImage
+                _doodleDialog.open()
+            }
         }
     ]
 
-    footerColumn: [
+    footBar.middleContent: [
 
-        Maui.ToolBar
+        Maui.ToolActions
         {
-            visible: _freeRotation.checked
-            width: parent.width
+            expanded: true
+            autoExclusive: false
+            checkable: false
+            display: ToolButton.TextBesideIcon
 
-            leftContent: ToolButton
+            Action
             {
-                icon.name: "checkmark"
-                onClicked:
-                {
-                    _freeRotation.checked = false
-                    imageDoc.rotate(_freeRotationSlider.value)
-                    _freeRotationSlider.value = 0
-                }
+                icon.name: "object-rotate-left"
+                text: i18nc("@action:button Rotate an image to the left", "Rotate left");
+                onTriggered: imageDoc.rotate(-90);
+                enabled: !control.resizing
             }
 
-            rightContent: ToolButton
+            Action
             {
-                icon.name: "edit-delete-remove"
-            }
-
-            middleContent: Slider
-            {
-                id: _freeRotationSlider
-
-                Layout.fillWidth: true
-                from: -180
-                to: 180
-                value: 0
-                stepSize: 1
-                snapMode: Slider.SnapOnRelease
-
-//                onValueChanged: imageDoc.rotate(value)
+                icon.name: "object-rotate-right"
+                text: i18nc("@action:button Rotate an image to the right", "Rotate right");
+                onTriggered: imageDoc.rotate(90);
+                enabled: !control.resizing
             }
         },
 
-        Maui.ToolBar
+        Maui.ToolActions
         {
-            id: _colorBar
-            visible: _editBar.currentIndex === 1
-            position: ToolBar.Footer
-            width: parent.width
-            middleContent: [
+            expanded: true
+            autoExclusive: false
+            checkable: false
+            display: ToolButton.TextBesideIcon
 
-                RoundButton
-                {
-                    icon.name: "contrast"
-                },
+            Action
+            {
+                icon.name: "object-flip-vertical"
+                text: i18nc("@action:button Mirror an image vertically", "Flip");
+                onTriggered: imageDoc.mirror(false, true);
+                enabled: !control.resizing
+            }
 
-                RoundButton
-                {
-                    icon.name: "tool_flood_fill"
-                },
-
-                RoundButton
-                {
-                    icon.name: "layer-visible-on"
-                }
-            ]
+            Action
+            {
+                icon.name: "object-flip-horizontal"
+                text: i18nc("@action:button Mirror an image horizontally", "Mirror");
+                onTriggered: imageDoc.mirror(true, false);
+                enabled: !control.resizing
+            }
         },
 
-        Maui.ToolBar
+        Maui.ToolActions
         {
-            id: _transformBar
-            visible: _editBar.currentIndex === 0
-            position: ToolBar.Footer
-            width: parent.width
-            middleContent: [
+            expanded: true
+            autoExclusive: false
+            checkable: false
+            display: ToolButton.TextBesideIcon
 
-                ToolButton
-                {
-                    id: _freeRotation
-                    checkable: true
-                    checked: false
-                    icon.name: "transform-rotate"
-                    text: i18n("Free rotation")
-                },
+            Action
+            {
+                icon.name: control.resizing ? "dialog-cancel" : "transform-crop"
+                text: control.resizing ? i18n("Cancel") : i18nc("@action:button Crop an image", "Crop");
+                onTriggered: control.resizing = !control.resizing;
+            }
+        }
+    ]
 
-                Maui.ToolActions
-                {
-                    expanded: true
-                    autoExclusive: false
-                    checkable: false
-                    display: ToolButton.TextBesideIcon
-
-                    Action
-                    {
-                        icon.name: "object-rotate-left"
-                        text: i18nc("@action:button Rotate an image to the left", "Rotate left");
-                        onTriggered: imageDoc.rotate(-90);
-                        enabled: !control.resizing
-                    }
-
-                    Action
-                    {
-                        icon.name: "object-rotate-right"
-                        text: i18nc("@action:button Rotate an image to the right", "Rotate right");
-                        onTriggered: imageDoc.rotate(90);
-                        enabled: !control.resizing
-                    }
-                },
-
-                Maui.ToolActions
-                {
-                    expanded: true
-                    autoExclusive: false
-                    checkable: false
-                    display: ToolButton.TextBesideIcon
-
-                    Action
-                    {
-                        icon.name: "object-flip-vertical"
-                        text: i18nc("@action:button Mirror an image vertically", "Flip");
-                        onTriggered: imageDoc.mirror(false, true);
-                        enabled: !control.resizing
-                    }
-
-                    Action
-                    {
-                        icon.name: "object-flip-horizontal"
-                        text: i18nc("@action:button Mirror an image horizontally", "Mirror");
-                        onTriggered: imageDoc.mirror(true, false);
-                        enabled: !control.resizing
-                    }
-                },
-
-                Maui.ToolActions
-                {
-                    expanded: true
-                    autoExclusive: false
-                    checkable: false
-                    display: ToolButton.TextBesideIcon
-
-                    Action
-                    {
-                        icon.name: control.resizing ? "dialog-cancel" : "transform-crop"
-                        text: control.resizing ? i18n("Cancel") : i18nc("@action:button Crop an image", "Crop");
-                        onTriggered: control.resizing = !control.resizing;
-                    }
-                }
-            ]
-        }]
-
-    //    MauiLab.Doodle
-    //    {
-    //        id: _doodleDialog
-    //    }
+    Maui.Doodle
+    {
+        id: _doodleDialog
+    }
 
 
 //    KQuickImageEditor.ImageDocument
@@ -294,35 +176,28 @@ Maui.Page
 //        KQuickImageEditor.ImageItem
 //        {
 //            id: editImage
-//            rotation: _freeRotation.checked ? _freeRotationSlider.value : 0
+
 //            fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
 //            image: imageDoc.image
 //            anchors.fill: parent
 //        }
     }
 
-//    Item
-//    {
-//        id: _grid
-
-//        Column
-//    }
-
 //    KQuickImageEditor.ResizeRectangle
 //    {
 //        id: resizeRectangle
-//        anchors.centerIn: parent
 //        visible: control.resizing
 
-//        width: editImage.paintedWidth
-//        height: editImage.paintedHeight
-//        x: 0
-//        y: editImage.verticalPadding
 
-//        insideX: 100
-//        insideY: 100
-//        insideWidth: 100
-//        insideHeight: 100
+//        width: editImage.width
+//        height: editImage.height
+//        x: 0
+//        y: 0
+
+////        insideX: 100
+////        insideY: 100
+////        insideWidth: 100
+////        insideHeight: 100
 
 //        onAcceptSize: control.crop();
 //    }

@@ -114,7 +114,7 @@ StackView
 
             Action
             {
-                enabled: Maui.Android.hasKeyboard()
+                enabled: Maui.Platform.hasKeyboard()
                 text: i18n("Previous")
                 icon.name: "go-previous"
                 onTriggered: previous()
@@ -124,15 +124,15 @@ StackView
             {
                 text: i18n("Favorite")
                 icon.name: "love"
-                checked: pixViewer.currentPicFav
+                checked: control.currentPicFav
                 onTriggered:
                 {
-                    if(pixViewer.currentPicFav)
+                    if(control.currentPicFav)
                         tagBar.list.removeFromUrls("fav")
                     else
                         tagBar.list.insertToUrls("fav")
 
-                    pixViewer.currentPicFav = !pixViewer.currentPicFav
+                    control.currentPicFav = !control.currentPicFav
                 }
             }
 

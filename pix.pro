@@ -52,10 +52,10 @@ linux:unix:!android {
         message(Building for Macos)
         ICON = $$PWD/macos_files/pix.icns
 
-        LIBS += -L/usr/local/Cellar/exiv2/0.27.3/lib/ -lexiv2.0.27.3
+        LIBS += -L$$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/lib/ -lexiv2.0.27.3
 
-        INCLUDEPATH += /usr/local/Cellar/exiv2/0.27.3/include
-        DEPENDPATH += /usr/local/Cellar/exiv2/0.27.3/include
+        INCLUDEPATH += $$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/include
+        DEPENDPATH += $$PWD/../../../../usr/local/Cellar/exiv2/0.27.3/include
     }
 
     win32 {

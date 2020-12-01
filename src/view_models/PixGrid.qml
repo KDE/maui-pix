@@ -44,8 +44,6 @@ Maui.AltBrowser
     holder.visible: count === 0
     holder.emojiSize: Maui.Style.iconSizes.huge
 
-    headerBackground.color: "transparent"
-    headBar.visible: true
     headBar.middleContent: Maui.TextField
     {
         enabled: list.count > 0
@@ -62,7 +60,7 @@ Maui.AltBrowser
         expanded: isWide
         currentIndex : control.viewType === Maui.AltBrowser.ViewType.List ? 0 : 1
         enabled: list.count > 0
-//        display: ToolButton.TextBesideIcon
+        display: ToolButton.TextBesideIcon
         cyclic: true
 
         Action
