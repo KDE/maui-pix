@@ -34,6 +34,8 @@ public:
     explicit Gallery(QObject *parent = nullptr);
     ~Gallery();
 
+    void componentComplete() override;
+
     const FMH::MODEL_LIST &items() const override final;
 
     void setUrls(const QList<QUrl> &urls);
@@ -64,7 +66,6 @@ private:
     void scanTags(const QList<QUrl> &urls, const int &limit = PIX_QUERY_MAX_LIMIT);
 
     void insert(const FMH::MODEL_LIST &items);
-    void appendToList(const FMH::MODEL_LIST &list);
 
     void insertFolder(const QUrl &path);
 
@@ -91,7 +92,6 @@ public slots:
 
     void append(const QVariantMap &pic);
     void append(const QString &url);
-//    void appendAt(const QString &url, const int &pos);
 
     void clear();
     void rescan();
@@ -100,9 +100,6 @@ public slots:
     void setRecursive(bool recursive);
     void setlimit(int limit);
 
-    // QQmlParserStatus interface
-public:
-    void componentComplete() override;
 
 };
 #endif // GALLERY_H

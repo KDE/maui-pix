@@ -213,16 +213,6 @@ void Gallery::append(const QVariantMap &pic)
     emit this->postItemAppended();
 }
 
-void Gallery::appendToList(const FMH::MODEL_LIST &list)
-{
-    for (const auto &item : list) {
-        emit this->preItemAppended();
-        this->list << item;
-
-        emit this->postItemAppended();
-    }
-}
-
 void Gallery::append(const QString &url)
 {
     emit this->preItemAppended();
