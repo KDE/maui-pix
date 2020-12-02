@@ -13,7 +13,6 @@
         <file>widgets/views/Pix.js</file>
         <file>widgets/views/Viewer/GalleryRoll.qml</file>
         <file>widgets/views/Tags/TagsSidebar.qml</file>
-        <file>widgets/views/Viewer/ViewerDelegate.qml</file>
         <file>view_models/PixMenu.qml</file>
         <file>widgets/SelectionBar.qml</file>
         <file>widgets/views/Cloud/CloudView.qml</file>

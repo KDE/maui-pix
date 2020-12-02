@@ -14,6 +14,8 @@ import "../../"
 
 Item
 {
+    id: control
+
     property bool autoSaveTransformation : false
     property real picContrast : 0
     property real picBrightness : 0
@@ -45,7 +47,6 @@ Item
         focus: true
         interactive: Maui.Handy.isTouch
         cacheBuffer: width * 3
-
 
         snapMode: ListView.SnapOneItem
         boundsBehavior: Flickable.StopAtBounds
@@ -86,18 +87,18 @@ Item
 
         delegate: Loader
         {
-            height: viewerList.height
-            width: viewerList.width
+            height: ListView.view.height
+            width: ListView.view.width
+            active : ListView.isCurrentItem
 
-            active: ListView.isCurrentItem || index === 1-viewerList.currentIndex ||  index === 1+viewerList.currentIndex
-
-            sourceComponent: ViewerDelegate
+            sourceComponent: Maui.ImageViewer
             {
-                id: delegate
-
-                onPressAndHold: _picMenu.popup()
-                onRightClicked: _picMenu.popup()
+                source: model.url
+                imageWidth: 1000
+                imageHeight: 1000
+                animated: model.format === "gif"
             }
+
         }
     }
 
