@@ -31,25 +31,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QFileInfo>
 
 #ifdef Q_OS_ANDROID
+#include <QQuickStyle>
 #include <QGuiApplication>
 #else
 #include <QApplication>
 #endif
 
-#ifdef STATIC_KIRIGAMI
-#include "3rdparty/kirigami/src/kirigamiplugin.h"
-#endif
-
-#ifdef STATIC_MAUIKIT
-#include "3rdparty/mauikit/src/mauikit.h"
-#include "fmh.h"
-#include "tagging.h"
-#include "mauiapp.h"
-#else
 #include <MauiKit/fmh.h>
 #include <MauiKit/mauiapp.h>
 #include "../pix_version.h"
-#endif
 
 #ifdef Q_OS_MACOS
 #include "mauimacos.h"
@@ -114,6 +104,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 #ifdef Q_OS_ANDROID
 	QGuiApplication app(argc, argv);
+    QQuickStyle::setStyle("maui-style");
+
 	if (!MAUIAndroid::checkRunTimePermissions({"android.permission.WRITE_EXTERNAL_STORAGE"}))
 		return -1;
 #else
@@ -163,14 +155,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<Folders>(PIX_URI, 1, 0, "FoldersList");
 	qmlRegisterType<TagsModel>(PIX_URI, 1, 0, "TagsList");
 	qmlRegisterType<PicInfoModel>(PIX_URI, 1, 0, "PicInfoModel");
-
-#ifdef STATIC_KIRIGAMI
-	KirigamiPlugin::getInstance().registerTypes();
-#endif
-
-#ifdef STATIC_MAUIKIT
-    MauiKit::getInstance().registerTypes(&engine);
-#endif
 
 	engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 	if (engine.rootObjects().isEmpty())

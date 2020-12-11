@@ -1,11 +1,16 @@
 <?xml version="1.0"?>
-<manifest package="org.maui.pix" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1" android:versionCode="1" android:installLocation="auto">
+<manifest package="org.maui.pix" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.2.1" android:versionCode="1" android:installLocation="auto">
+    <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
+         Remove the comment if you do not require these default permissions. -->
+
+
+    <!-- The following comment will be replaced upon deployment with default features based on the dependencies of the application.
+         Remove the comment if you do not require these default features. -->
+    <!-- %%INSERT_FEATURES -->
 
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
-
     <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Pix" android:extractNativeLibs="true" android:icon="@drawable/icon">
-        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
-        android:name="org.qtproject.qt5.android.bindings.QtActivity" android:label="Pix" android:screenOrientation="unspecified" android:launchMode="singleTop">
+        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density" android:name="org.qtproject.qt5.android.bindings.QtActivity" android:label="Pix" android:screenOrientation="unspecified" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -61,16 +66,15 @@
                 * minimal - useful for Quick Controls 2 apps, it is much faster than "full"
                 * none - useful for apps that don't use any of the above Qt modules
                 -->
-            <meta-data android:name="android.app.extract_android_style" android:value="default"/>
+            <meta-data android:name="android.app.extract_android_style" android:value="none"/>
             <!-- extract android style -->
         </activity>
         <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->
         <provider android:name="android.support.v4.content.FileProvider" android:authorities="org.maui.pix.fileprovider" android:grantUriPermissions="true" android:exported="false">
-    <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
-    </provider>
+           <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+           </provider>
     </application>
 
-<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -82,4 +86,6 @@
 <uses-permission android:name="android.permission.STATUS_BAR"/>
 <uses-permission android:name="android.permission.SET_WALLPAPER"/>
 <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
+
+<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28"/>
 </manifest>

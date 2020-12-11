@@ -3,13 +3,8 @@
 
 #include <QObject>
 
-#ifdef STATIC_MAUIKIT
-#include "fmh.h"
-#include "mauilist.h"
-#else
 #include <MauiKit/fmh.h>
 #include <MauiKit/mauilist.h>
-#endif
 
 #define PIX_QUERY_MAX_LIMIT 20000
 

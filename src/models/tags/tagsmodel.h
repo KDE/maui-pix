@@ -1,13 +1,8 @@
 #ifndef TAGSMODEL_H
 #define TAGSMODEL_H
 
-#ifdef STATIC_MAUIKIT
-#include "fmh.h"
-#include "mauilist.h"
-#else
 #include <MauiKit/fmh.h>
 #include <MauiKit/mauilist.h>
-#endif
 
 class TagsModel : public MauiList
 {

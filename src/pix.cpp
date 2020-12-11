@@ -27,15 +27,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "pix.h"
 #include <QDesktopServices>
 
-#ifdef STATIC_MAUIKIT
-#include "tagging.h"
-#include "utils.h"
-#include "fmh.h"
-#else
 #include <MauiKit/tagging.h>
 #include <MauiKit/utils.h>
 #include <MauiKit/fmh.h>
-#endif
 
 Pix::Pix(QObject *parent) : QObject(parent) {}
 
