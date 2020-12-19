@@ -16,6 +16,11 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+<<<<<<< HEAD
+=======
+cmake_minimum_required(VERSION 3.0)
+set(PIX_VERSION 1.2.1)
+>>>>>>> 12421cc2d2d00569cf68c3d558c59cfb190d2b3f
 project(pix VERSION ${PIX_VERSION})
 
 set(REQUIRED_QT_VERSION 5.10.0)
@@ -28,6 +33,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Qml Quick Sql Svg QuickControls2 Positioning Concurrent)
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
+
 find_package(MauiKit REQUIRED)
 #find_package(LibExiv2 0.21 REQUIRED)
 

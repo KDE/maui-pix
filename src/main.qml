@@ -155,6 +155,39 @@ Maui.ApplicationWindow
                 FoldersView {}
             }
         }
+    }
+
+    StackView
+    {
+        id: _stackView
+        anchors.fill: parent
+
+        initialItem: Maui.AppViews
+        {
+            id: swipeView
+
+            GalleryView
+            {
+                id: _galleryView
+                Maui.AppView.title: i18n("Gallery")
+                Maui.AppView.iconName: "image-multiple"
+            }
+
+
+            Maui.AppViewLoader
+            {
+                Maui.AppView.title: i18n("Tags")
+                Maui.AppView.iconName: "tag"
+                TagsView {}
+            }
+
+            Maui.AppViewLoader
+            {
+                Maui.AppView.title: i18n("Folders")
+                Maui.AppView.iconName: "folder"
+                FoldersView {}
+            }
+        }
 
     }
 
@@ -280,7 +313,8 @@ Maui.ApplicationWindow
             title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
             acceptButton.text: i18n("Cancel")
             rejectButton.text: i18n("Accept")
-            message: i18np("Are sure you want to delete this files? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
+
+            message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
 
             onAccepted: close()
             onRejected:
