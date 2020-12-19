@@ -16,11 +16,9 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-<<<<<<< HEAD
-=======
 cmake_minimum_required(VERSION 3.0)
 set(PIX_VERSION 1.2.1)
->>>>>>> 12421cc2d2d00569cf68c3d558c59cfb190d2b3f
+
 project(pix VERSION ${PIX_VERSION})
 
 set(REQUIRED_QT_VERSION 5.10.0)

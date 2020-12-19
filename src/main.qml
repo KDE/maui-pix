@@ -91,23 +91,23 @@ Maui.ApplicationWindow
 
     mainMenu: [
 
-        Action
-        {
-            text: i18n("Open")
-            icon.name: "folder-open"
-            onTriggered:
-            {
-                dialogLoader.sourceComponent= fmDialogComponent
-                dialog.mode = dialog.modes.OPEN
-                dialog.settings.filterType= Maui.FMList.IMAGE
-                dialog.settings.onlyDirs= false
-                dialog.show(function(paths)
-                {
-                    console.log("OPEN THIS PATHS", paths)
-                    Pix.Collection.openPics(paths)
-                });
-            }
-        },
+//        Action
+//        {
+//            text: i18n("Open")
+//            icon.name: "folder-open"
+//            onTriggered:
+//            {
+//                dialogLoader.sourceComponent= fmDialogComponent
+//                dialog.mode = dialog.modes.OPEN
+//                dialog.settings.filterType= Maui.FMList.IMAGE
+//                dialog.settings.onlyDirs= false
+//                dialog.show(function(paths)
+//                {
+//                    console.log("OPEN THIS PATHS", paths)
+//                    Pix.Collection.openPics(paths)
+//                });
+//            }
+//        },
 
         Action
         {
@@ -155,40 +155,6 @@ Maui.ApplicationWindow
                 FoldersView {}
             }
         }
-    }
-
-    StackView
-    {
-        id: _stackView
-        anchors.fill: parent
-
-        initialItem: Maui.AppViews
-        {
-            id: swipeView
-
-            GalleryView
-            {
-                id: _galleryView
-                Maui.AppView.title: i18n("Gallery")
-                Maui.AppView.iconName: "image-multiple"
-            }
-
-
-            Maui.AppViewLoader
-            {
-                Maui.AppView.title: i18n("Tags")
-                Maui.AppView.iconName: "tag"
-                TagsView {}
-            }
-
-            Maui.AppViewLoader
-            {
-                Maui.AppView.title: i18n("Folders")
-                Maui.AppView.iconName: "folder"
-                FoldersView {}
-            }
-        }
-
     }
 
     Component
