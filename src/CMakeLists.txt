@@ -32,70 +32,35 @@ set(pix_ASSETS
     imgs.qrc
     )
 
-add_executable(pix
-    ${pix_SRCS}
-    ${pix_HDRS}
-    ${pix_ASSETS}
-    )
+if(ANDROID)
+    add_library(pix SHARED
+        ${pix_SRCS}
+        ${pix_HDRS}
+        ${pix_ASSETS}
+        )
+else()
+    add_executable(pix
+        ${pix_SRCS}
+        ${pix_HDRS}
+        ${pix_ASSETS}
+        )
+endif()
 
 #target_link_libraries(pix MauiKit Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Positioning KF5::I18n LibExiv2::LibExiv2)
-target_link_libraries(pix MauiKit Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Positioning KF5::I18n)
+
+target_compile_definitions(pix
+  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+
+target_link_libraries(pix MauiKit Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Concurrent Qt5::QuickControls2 Qt5::Positioning KF5::I18n)
 
 if(ANDROID)
     target_link_libraries(pix Qt5::AndroidExtras)
     kde_source_files_enable_exceptions(pix pix.cpp)
 endif()
 
-install(TARGETS pix ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES org.kde.pix.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-
-#TODO: port to ecm_install_icons()
-install(FILES assets/pix.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
-
-#
-# Reverse GeoLookup Data
-#
-# Packagers can download the file and put it in the tarball
-#if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/cities1000.zip)
-#    file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/cities1000.zip DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-#endif()
-
-#if (NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/cities1000.zip)
-#    file (DOWNLOAD "http://download.geonames.org/export/dump/cities1000.zip"
-#                ${CMAKE_CURRENT_BINARY_DIR}/cities1000.zip
-#        SHOW_PROGRESS
-#    )
-#endif()
-
-#execute_process(
-#    COMMAND ${CMAKE_COMMAND} -E tar -xzf ${CMAKE_CURRENT_BINARY_DIR}/cities1000.zip
-#    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-#)
-
-#if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/admin1CodesASCII.txt)
-#    file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/admin1CodesASCII.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-#endif()
-
-#if (NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/admin1CodesASCII.txt)
-#    file (DOWNLOAD "http://download.geonames.org/export/dump/admin1CodesASCII.txt"
-#                ${CMAKE_CURRENT_BINARY_DIR}/admin1CodesASCII.txt
-#        SHOW_PROGRESS
-#    )
-#endif()
-#file(RENAME ${CMAKE_CURRENT_BINARY_DIR}/admin1CodesASCII.txt ${CMAKE_CURRENT_BINARY_DIR}/admin1Codes.txt)
-
-#if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/admin2Codes.txt)
-#    file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/admin2Codes.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-#endif()
-
-#if (NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/admin2Codes.txt)
-#    file (DOWNLOAD "http://download.geonames.org/export/dump/admin2Codes.txt"
-#                ${CMAKE_CURRENT_BINARY_DIR}/admin2Codes.txt
-#        SHOW_PROGRESS
-#    )
-#endif()
-
-#install (FILES ${CMAKE_CURRENT_BINARY_DIR}/cities1000.txt DESTINATION ${DATA_INSTALL_DIR}/pix)
-#install (FILES ${CMAKE_CURRENT_BINARY_DIR}/admin1Codes.txt DESTINATION ${DATA_INSTALL_DIR}/pix)
-#install (FILES ${CMAKE_CURRENT_BINARY_DIR}/admin2Codes.txt DESTINATION ${DATA_INSTALL_DIR}/pix)
-#install (FILES countries.csv DESTINATION ${DATA_INSTALL_DIR}/pix)
+if(UNIX AND NOT APPLE AND NOT ANDROID)
+    install(TARGETS pix ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+    install(FILES org.kde.pix.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+    #TODO: port to ecm_install_icons()
+    install(FILES assets/pix.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
+endif()

@@ -1,15 +1,9 @@
 #include "gallery.h"
 #include <QFileSystemWatcher>
 
-#ifdef STATIC_MAUIKIT
-#include "tagging.h"
-#include "fmstatic.h"
-#include "fileloader.h"
-#else
 #include <MauiKit/tagging.h>
 #include <MauiKit/fmstatic.h>
 #include <MauiKit/fileloader.h>
-#endif
 
 static FMH::MODEL picInfo(const QUrl & url)
 {

@@ -124,21 +124,6 @@ Maui.ApplicationWindow
     headBar.visible: !fullScreen && swipeView.visible
     headerPositioning: ListView.InlineHeader
 
-    headBar.rightContent: ToolButton
-    {
-        visible: Maui.Handy.isTouch
-        icon.name: "item-select"
-        onClicked:
-        {
-            selectionMode = !selectionMode
-            if(selectionMode && swipeView.currentIndex === views.viewer)
-                swipeView.currentIndex = views.gallery
-        }
-
-        checkable: true
-        checked: selectionMode
-    }
-
     StackView
     {
         id: _stackView

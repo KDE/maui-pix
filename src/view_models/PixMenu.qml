@@ -26,7 +26,7 @@ Menu
         onTriggered:
         {
             if(Kirigami.Settings.isMobile)
-                selectionMode = true
+                root.selectionMode = true
 
             PIX.selectItem(control.model.get(index))
         }

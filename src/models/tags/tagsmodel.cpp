@@ -1,12 +1,7 @@
 #include "tagsmodel.h"
 
-#ifdef STATIC_MAUIKIT
-#include "tagging.h"
-#include "fmstatic.h"
-#else
 #include <MauiKit/tagging.h>
 #include <MauiKit/fmstatic.h>
-#endif
 
 TagsModel::TagsModel(QObject *parent) : MauiList(parent)
 {
