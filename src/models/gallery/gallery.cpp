@@ -28,6 +28,8 @@ Gallery::Gallery(QObject *parent)
     m_fileLoader->informer = &picInfo;
     m_fileLoader->setBatchCount(4000);
     connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
+        Q_UNUSED(items)
+        
         emit this->filesChanged();
     });
 
