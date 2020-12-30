@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-
 /***
 Pix  Copyright (C) 2018  Camilo Higuita
 This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
@@ -27,20 +26,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "pix.h"
 #include <QDesktopServices>
 
+#include <MauiKit/fmh.h>
 #include <MauiKit/tagging.h>
 #include <MauiKit/utils.h>
-#include <MauiKit/fmh.h>
 
-Pix::Pix(QObject *parent) : QObject(parent) {}
+Pix::Pix(QObject *parent)
+    : QObject(parent)
+{
+}
 
 const static QStringList findCameraCollection()
 {
     QStringList res;
-    const static auto paths = QStringList {FMH::HomePath+"/DCIM", FMH::HomePath+"/Camera"};
+    const static auto paths = QStringList{FMH::HomePath + "/DCIM", FMH::HomePath + "/Camera"};
 
-    for(const auto &path : paths)
-    {
-        if(FMH::fileExists(path))
+    for (const auto &path : paths) {
+        if (FMH::fileExists(path))
             res << path;
     }
 
@@ -50,11 +51,10 @@ const static QStringList findCameraCollection()
 const static QStringList findScreenshotsCollection()
 {
     QStringList res;
-    const static auto paths = QStringList {FMH::HomePath+"/Screenshots"};
+    const static auto paths = QStringList{FMH::HomePath + "/Screenshots"};
 
-    for(const auto &path : paths)
-    {
-        if(FMH::fileExists(path))
+    for (const auto &path : paths) {
+        if (FMH::fileExists(path))
             res << path;
     }
 
@@ -63,9 +63,9 @@ const static QStringList findScreenshotsCollection()
 
 const QStringList Pix::getSourcePaths()
 {
-    static const auto defaultSources  = QStringList{FMH::PicturesPath, FMH::DownloadsPath} << findCameraCollection() + findScreenshotsCollection();
+    static const auto defaultSources = QStringList{FMH::PicturesPath, FMH::DownloadsPath} << findCameraCollection() + findScreenshotsCollection();
     const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
-    qDebug()<< "SOURCES" << sources;
+    qDebug() << "SOURCES" << sources;
     return sources;
 }
 
@@ -91,8 +91,7 @@ QVariantList Pix::sourcesModel() const
 {
     QVariantList res;
     const auto sources = getSourcePaths();
-    return std::accumulate(sources.constBegin(), sources.constEnd(), res, [](QVariantList &res, const QString &url)
-    {
+    return std::accumulate(sources.constBegin(), sources.constEnd(), res, [](QVariantList &res, const QString &url) {
         res << FMH::getDirInfo(url);
         return res;
     });
@@ -105,29 +104,29 @@ QStringList Pix::sources() const
 
 void Pix::openPics(const QList<QUrl> &pics)
 {
-	emit this->viewPics(QUrl::toStringList(pics));
+    emit this->viewPics(QUrl::toStringList(pics));
 }
 
 void Pix::refreshCollection()
 {
     const auto sources = getSourcePaths();
-	qDebug()<< "getting default sources to look up" << sources;
+    qDebug() << "getting default sources to look up" << sources;
 }
 
 void Pix::showInFolder(const QStringList &urls)
 {
-	for(const auto &url : urls)
-		QDesktopServices::openUrl(FMH::fileDir(url));
+    for (const auto &url : urls)
+        QDesktopServices::openUrl(FMH::fileDir(url));
 }
 
 void Pix::addSources(const QStringList &paths)
 {
     saveSourcePath(paths);
-	emit sourcesChanged();
+    emit sourcesChanged();
 }
 
 void Pix::removeSources(const QString &path)
 {
     removeSourcePath(path);
-	emit sourcesChanged();
+    emit sourcesChanged();
 }

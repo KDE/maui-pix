@@ -1,8 +1,8 @@
 #ifndef CLOUD_H
 #define CLOUD_H
 
-#include <QObject>
 #include "models/baselist.h"
+#include <QObject>
 
 class FM;
 class Cloud : public BaseList
@@ -10,16 +10,16 @@ class Cloud : public BaseList
     Q_OBJECT
     Q_PROPERTY(QString account READ getAccount WRITE setAccount NOTIFY accountChanged)
 
-public:   
-    enum SORTBY : uint_fast8_t
-    {
+public:
+    enum SORTBY : uint_fast8_t {
         SIZE = FMH::MODEL_KEY::SIZE,
         MODIFIED = FMH::MODEL_KEY::MODIFIED,
         DATE = FMH::MODEL_KEY::DATE,
         LABEL = FMH::MODEL_KEY::LABEL,
         MIME = FMH::MODEL_KEY::MIME
 
-    }; Q_ENUM(SORTBY)
+    };
+    Q_ENUM(SORTBY)
 
     explicit Cloud(QObject *parent = nullptr);
     FMH::MODEL_LIST items() const override;

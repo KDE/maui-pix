@@ -1,44 +1,40 @@
 #include "gallery.h"
 #include <QFileSystemWatcher>
 
-#include <MauiKit/tagging.h>
-#include <MauiKit/fmstatic.h>
 #include <MauiKit/fileloader.h>
+#include <MauiKit/fmstatic.h>
+#include <MauiKit/tagging.h>
 
-static FMH::MODEL picInfo(const QUrl & url)
+static FMH::MODEL picInfo(const QUrl &url)
 {
     const QFileInfo info(url.toLocalFile());
-    return FMH::MODEL
-    {
-        {FMH::MODEL_KEY::URL, url.toString()},
-        {FMH::MODEL_KEY::TITLE,  info.baseName()},
-        {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-        {FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
-        {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
-        {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-        {FMH::MODEL_KEY::FORMAT, info.suffix()}
-    };
+    return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
+                      {FMH::MODEL_KEY::TITLE, info.baseName()},
+                      {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+                      {FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
+                      {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
+                      {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+                      {FMH::MODEL_KEY::FORMAT, info.suffix()}};
 }
 
-Gallery::Gallery(QObject *parent) : MauiList(parent)
-  , m_fileLoader(new FMH::FileLoader())
-  , m_watcher (new QFileSystemWatcher(this))
-  , m_autoReload(true)
-  , m_recursive (true)
+Gallery::Gallery(QObject *parent)
+    : MauiList(parent)
+    , m_fileLoader(new FMH::FileLoader())
+    , m_watcher(new QFileSystemWatcher(this))
+    , m_autoReload(true)
+    , m_recursive(true)
 {
-    qDebug()<< "CREATING GALLERY LIST";
+    qDebug() << "CREATING GALLERY LIST";
     m_fileLoader->informer = &picInfo;
     m_fileLoader->setBatchCount(4000);
-    connect(m_fileLoader, &FMH::FileLoader::finished,[this](FMH::MODEL_LIST items)
-    {
+    connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
         emit this->filesChanged();
     });
 
-    connect(m_fileLoader, &FMH::FileLoader::itemsReady,[this](FMH::MODEL_LIST items)
-    {
+    connect(m_fileLoader, &FMH::FileLoader::itemsReady, [this](FMH::MODEL_LIST items) {
         qDebug() << "Items ready" << items.size();
 
-        if(items.isEmpty())
+        if (items.isEmpty())
             return;
 
         emit preItemsAppended(items.size());
@@ -46,14 +42,12 @@ Gallery::Gallery(QObject *parent) : MauiList(parent)
         emit postItemAppended();
     });
 
-    connect(m_fileLoader, &FMH::FileLoader::itemReady,[this](FMH::MODEL item)
-    {
+    connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
         this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
     });
 
-    connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir)
-    {
-        qDebug()<< "Dir changed" << dir;
+    connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
+        qDebug() << "Dir changed" << dir;
         this->rescan();
     });
 }
@@ -70,10 +64,10 @@ const FMH::MODEL_LIST &Gallery::items() const
 
 void Gallery::setUrls(const QList<QUrl> &urls)
 {
-    qDebug()<< "setting urls"<< this->m_urls << urls;
+    qDebug() << "setting urls" << this->m_urls << urls;
 
-//	if(this->m_urls == urls)
-//		return;
+    //	if(this->m_urls == urls)
+    //		return;
 
     this->m_urls = urls;
     this->clear();
@@ -87,7 +81,7 @@ QList<QUrl> Gallery::urls() const
 
 void Gallery::setAutoReload(const bool &value)
 {
-    if(m_autoReload == value)
+    if (m_autoReload == value)
         return;
 
     m_autoReload = value;
@@ -121,36 +115,32 @@ QStringList Gallery::files() const
 
 void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &limit)
 {
-    this->scanTags (extractTags (urls), limit);
+    this->scanTags(extractTags(urls), limit);
     m_fileLoader->requestPath(urls, recursive, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, limit);
 }
 
-void Gallery::scanTags(const QList<QUrl> & urls, const int & limit)
+void Gallery::scanTags(const QList<QUrl> &urls, const int &limit)
 {
     FMH::MODEL_LIST res;
-    for(const auto &tagUrl : urls)
-    {
-        const auto urls = FMStatic::getTagUrls(tagUrl.toString ().replace ("tags:///", ""), {}, true, limit, "image");
-        for(const auto &url : urls)
-        {
-            res << picInfo (url);
+    for (const auto &tagUrl : urls) {
+        const auto urls = FMStatic::getTagUrls(tagUrl.toString().replace("tags:///", ""), {}, true, limit, "image");
+        for (const auto &url : urls) {
+            res << picInfo(url);
         }
     }
 
-    emit this->preListChanged ();
+    emit this->preListChanged();
     list << res;
-    emit this->postListChanged ();
+    emit this->postListChanged();
     emit countChanged();
 }
 
 void Gallery::insertFolder(const QUrl &path)
 {
-    if(!m_folders.contains(path))
-    {
+    if (!m_folders.contains(path)) {
         m_folders << path;
 
-        if(m_autoReload)
-        {
+        if (m_autoReload) {
             this->m_watcher->addPath(path.toLocalFile());
         }
 
@@ -158,13 +148,11 @@ void Gallery::insertFolder(const QUrl &path)
     }
 }
 
-QList<QUrl> Gallery::extractTags(const QList<QUrl> & urls)
+QList<QUrl> Gallery::extractTags(const QList<QUrl> &urls)
 {
     QList<QUrl> res;
-    return std::accumulate(urls.constBegin (), urls.constEnd (), res, [](QList<QUrl> &list, const QUrl &url)
-    {
-        if(FMH::getPathType (url) == FMH::PATHTYPE_KEY::TAGS_PATH)
-        {
+    return std::accumulate(urls.constBegin(), urls.constEnd(), res, [](QList<QUrl> &list, const QUrl &url) {
+        if (FMH::getPathType(url) == FMH::PATHTYPE_KEY::TAGS_PATH) {
             list << url;
         }
 
@@ -174,27 +162,27 @@ QList<QUrl> Gallery::extractTags(const QList<QUrl> & urls)
 
 QVariantMap Gallery::get(const int &index) const
 {
-    if(index >= this->list.size() || index < 0)
+    if (index >= this->list.size() || index < 0)
         return QVariantMap();
-    return FMH::toMap(this->list.at( this->mappedIndex(index)));
+    return FMH::toMap(this->list.at(this->mappedIndex(index)));
 }
 
 bool Gallery::remove(const int &index)
 {
-    Q_UNUSED (index)
+    Q_UNUSED(index)
     return false;
 }
 
 bool Gallery::deleteAt(const int &index)
 {
-    if(index >= this->list.size() || index < 0)
+    if (index >= this->list.size() || index < 0)
         return false;
 
     const auto index_ = this->mappedIndex(index);
 
     emit this->preItemRemoved(index_);
     auto item = this->list.takeAt(index_);
-    FMStatic::removeFiles ({item[FMH::MODEL_KEY::URL]});
+    FMStatic::removeFiles({item[FMH::MODEL_KEY::URL]});
     emit this->postItemRemoved();
 
     return true;
@@ -203,24 +191,24 @@ bool Gallery::deleteAt(const int &index)
 void Gallery::append(const QVariantMap &pic)
 {
     emit this->preItemAppended();
-    this->list << FMH::toModel (pic);
+    this->list << FMH::toModel(pic);
     emit this->postItemAppended();
 }
 
 void Gallery::append(const QString &url)
 {
     emit this->preItemAppended();
-    this->list << picInfo (QUrl::fromUserInput (url));
+    this->list << picInfo(QUrl::fromUserInput(url));
     emit this->postItemAppended();
 }
 
 void Gallery::clear()
 {
     emit this->preListChanged();
-    this->list.clear ();
+    this->list.clear();
     emit this->postListChanged();
 
-    this->m_folders.clear ();
+    this->m_folders.clear();
     emit foldersChanged();
 }
 
