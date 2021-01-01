@@ -94,7 +94,5 @@ public slots:
 
     void setRecursive(bool recursive);
     void setlimit(int limit);
-
-
 };
 #endif // GALLERY_H

@@ -43,11 +43,10 @@ public:
     QVariantMap lookup(double lat, double lon) const;
 
 private:
-    kdtree* m_tree;
+    kdtree *m_tree;
     QMap<QString, QString> m_countryMap;
     QMap<QString, QString> m_admin1Map;
     QMap<QString, QString> m_admin2Map;
 };
-
 
 #endif // KOKO_REVERSEGEOCODER_H

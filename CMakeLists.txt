@@ -51,6 +51,7 @@ if(UNIX AND NOT APPLE AND NOT ANDROID)
 endif()
 
 include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDEClangFormat)
 include(ECMSetupVersion)
 include(FeatureSummary)
 
@@ -68,3 +69,6 @@ install(FILES org.kde.pix.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
