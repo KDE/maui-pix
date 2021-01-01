@@ -280,13 +280,7 @@ Maui.SettingsDialog
                     onClicked:
                     {
                         dialogLoader.sourceComponent= fmDialogComponent
-                        dialog.mode = dialog.modes.OPEN
-                        dialog.settings.onlyDirs= true
-                        dialog.show(function(paths)
-                        {
-                            console.log("ADD THIS PATHS", paths)
-                            Pix.Collection.addSources(paths)
-                        });
+                        dialog.open()
                     }
                 }
             }

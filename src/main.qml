@@ -256,9 +256,13 @@ Maui.ApplicationWindow
         id: fmDialogComponent
         Maui.FileDialog
         {
-            mode: modes.SAVE
             settings.filterType: Maui.FMList.IMAGE
-            settings.onlyDirs: false
+            settings.onlyDirs: true
+            mode: modes.OPEN
+            onUrlsSelected:
+            {
+                Pix.Collection.addSources(urls)
+            }
         }
     }
 
