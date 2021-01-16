@@ -114,7 +114,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
 
     KLocalizedString::setApplicationDomain("pix");
-    KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Pix lets you organize, browse, and edit your image collection."), KAboutLicense::LGPL_V3, i18n("© 2019-2020 Nitrux Development Team"));
+    KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Pix lets you organize, browse, and edit your image collection."), KAboutLicense::LGPL_V3, i18n("© 2019-%1 Nitrux Development Team", QString::number(QDate::currentDate().year())));
     about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
     about.setHomepage("https://mauikit.org");
     about.setProductName("maui/pix");
