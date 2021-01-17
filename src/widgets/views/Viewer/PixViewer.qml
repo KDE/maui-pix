@@ -58,7 +58,7 @@ StackView
             ToolButton
             {
                 icon.name: "go-previous"
-                text: "Gallery"
+                text: i18n("Gallery")
                 display: ToolButton.TextBesideIcon
                 onClicked: _stackView.pop()
             }
