@@ -280,6 +280,11 @@ Maui.SettingsDialog
                     onClicked:
                     {
                         dialogLoader.sourceComponent= fmDialogComponent
+                        dialog.callback = function(urls)
+                        {
+                            Pix.Collection.addSources(urls)
+                        }
+
                         dialog.open()
                     }
                 }

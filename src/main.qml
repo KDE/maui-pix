@@ -91,23 +91,24 @@ Maui.ApplicationWindow
 
     mainMenu: [
 
-//        Action
-//        {
-//            text: i18n("Open")
-//            icon.name: "folder-open"
-//            onTriggered:
-//            {
-//                dialogLoader.sourceComponent= fmDialogComponent
-//                dialog.mode = dialog.modes.OPEN
-//                dialog.settings.filterType= Maui.FMList.IMAGE
-//                dialog.settings.onlyDirs= false
-//                dialog.show(function(paths)
-//                {
-//                    console.log("OPEN THIS PATHS", paths)
-//                    Pix.Collection.openPics(paths)
-//                });
-//            }
-//        },
+        Action
+        {
+            text: i18n("Open")
+            icon.name: "folder-open"
+            onTriggered:
+            {
+                dialogLoader.sourceComponent= fmDialogComponent
+                dialog.mode = dialog.modes.OPEN
+                dialog.settings.filterType= Maui.FMList.IMAGE
+                dialog.settings.onlyDirs= false
+                dialog.callback = function(paths)
+                {
+                    console.log("OPEN THIS PATHS", paths)
+                    Pix.Collection.openPics(paths)
+                };
+                dialog.open()
+            }
+        },
 
         Action
         {
@@ -258,11 +259,7 @@ Maui.ApplicationWindow
         {
             settings.filterType: Maui.FMList.IMAGE
             settings.onlyDirs: true
-            mode: modes.OPEN
-            onUrlsSelected:
-            {
-                Pix.Collection.addSources(urls)
-            }
+            mode: modes.OPEN            
         }
     }
 
