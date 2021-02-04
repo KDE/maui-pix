@@ -86,7 +86,6 @@ Maui.ApplicationWindow
         property bool previewBarVisible : false
     }
 
-    altHeader: Kirigami.Settings.isMobile
     floatingFooter: true
     flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
