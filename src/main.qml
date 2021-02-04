@@ -50,6 +50,7 @@ Maui.ApplicationWindow
 {
     id: root
     title: pixViewer.currentPic.title || Maui.App.displayName
+    altHeader: Kirigami.Settings.isMobile
 
     property alias dialog : dialogLoader.item
 
