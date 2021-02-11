@@ -51,8 +51,8 @@ StackView
         id: _viewer
         padding: 0
         Kirigami.Theme.colorSet: Kirigami.Theme.View
-        floatingHeader: true
-        autoHideHeader: true
+//        floatingHeader: true
+//        autoHideHeader: true
         headBar.visible: true
         headBar.farLeftContent: [
             ToolButton
