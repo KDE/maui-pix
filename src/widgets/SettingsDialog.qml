@@ -42,7 +42,6 @@ Maui.SettingsDialog
             Switch
             {
                 Layout.fillHeight: true
-                icon.name: "image-preview"
                 checkable: true
                 checked: browserSettings.fitPreviews
                 onToggled: browserSettings.fitPreviews = !browserSettings.fitPreviews
