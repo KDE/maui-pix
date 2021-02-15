@@ -68,9 +68,6 @@ StackView
                 width: _foldersGrid.cellWidth
                 isCurrentItem: GridView.isCurrentItem
 
-                contentWidth: _foldersGrid.itemSize - 10
-                contentHeight: _foldersGrid.cellHeight - 20
-
                 images: _galleryList.files
                 template.label1.text: model.label
                 template.label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")

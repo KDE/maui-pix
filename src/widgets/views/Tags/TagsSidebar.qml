@@ -71,7 +71,6 @@ Maui.Page
             width: _gridView.cellWidth
             isCurrentItem: GridView.isCurrentItem
 
-//            list.urls: [tagUrl]
             images: model.preview.split(",")
 
             label1.text: model.tag

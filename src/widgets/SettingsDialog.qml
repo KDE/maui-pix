@@ -9,6 +9,8 @@ import org.maui.pix 1.0 as Pix
 
 Maui.SettingsDialog
 {
+    id: control
+
     Maui.SettingsSection
     {
         title: i18n("Behavior")
@@ -247,7 +249,7 @@ Maui.SettingsDialog
                 model: Pix.Collection.sourcesModel
                 delegate: Maui.ListDelegate
                 {
-                    width: parent.width
+                    width: ListView.view.width
                     implicitHeight: Maui.Style.rowHeight * 1.5
                     leftPadding: 0
                     rightPadding: 0
@@ -256,36 +258,33 @@ Maui.SettingsDialog
                     template.label1.text: modelData.label
                     template.label2.text: modelData.path
                     onClicked: _sourcesList.currentIndex = index
+
+                    template.content: ToolButton
+                    {
+                        icon.name: "edit-clear"
+                        flat: true
+                        onClicked:
+                        {
+                            Pix.Collection.removeSources(modelData.path)
+                        }
+                    }
                 }
             }
 
-            RowLayout
+            Button
             {
                 Layout.fillWidth: true
-                Button
+                text: i18n("Add")
+                flat: true
+                onClicked:
                 {
-                    Layout.fillWidth: true
-                    text: i18n("Remove")
-                    onClicked:
+                    dialogLoader.sourceComponent= fmDialogComponent
+                    dialog.callback = function(urls)
                     {
-                        Pix.Collection.removeSources(_sourcesList.model[_sourcesList.currentIndex].path)
+                        Pix.Collection.addSources(urls)
                     }
-                }
 
-                Button
-                {
-                    Layout.fillWidth: true
-                    text: i18n("Add")
-                    onClicked:
-                    {
-                        dialogLoader.sourceComponent= fmDialogComponent
-                        dialog.callback = function(urls)
-                        {
-                            Pix.Collection.addSources(urls)
-                        }
-
-                        dialog.open()
-                    }
+                    dialog.open()
                 }
             }
         }
