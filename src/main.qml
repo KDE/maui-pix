@@ -81,7 +81,6 @@ Maui.ApplicationWindow
     Settings
     {
         id: viewerSettings
-        category: "Viewer"
         property bool tagBarVisible : true
         property bool previewBarVisible : false
     }
@@ -158,38 +157,35 @@ Maui.ApplicationWindow
         }
     }
 
-    Component
+    PixViewer
     {
         id: _pixViewer
+        visible: StackView.status === StackView.Active
 
-        PixViewer
+        Rectangle
         {
+            anchors.fill: parent
+            visible: _dropArea.containsDrag
 
-            Rectangle
+            color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
+
+            Maui.Rectangle
             {
                 anchors.fill: parent
-                visible: _dropArea.containsDrag
+                anchors.margins: Maui.Style.space.medium
+                color: "transparent"
+                borderColor: Kirigami.Theme.textColor
+                solidBorder: false
 
-                color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
-
-                Maui.Rectangle
+                Maui.Holder
                 {
                     anchors.fill: parent
-                    anchors.margins: Maui.Style.space.medium
-                    color: "transparent"
-                    borderColor: Kirigami.Theme.textColor
-                    solidBorder: false
+                    visible: true
+                    emoji: "qrc:/img/assets/add-image.svg"
+                    emojiSize: Maui.Style.iconSizes.huge
+                    title: i18n("Open images")
+                    body: i18n("Drag and drop images here")
 
-                    Maui.Holder
-                    {
-                        anchors.fill: parent
-                        visible: true
-                        emoji: "qrc:/img/assets/add-image.svg"
-                        emojiSize: Maui.Style.iconSizes.huge
-                        title: i18n("Open images")
-                        body: i18n("Drag and drop images here")
-
-                    }
                 }
             }
         }
@@ -259,7 +255,7 @@ Maui.ApplicationWindow
         {
             settings.filterType: Maui.FMList.IMAGE
             settings.onlyDirs: true
-            mode: modes.OPEN            
+            mode: modes.OPEN
         }
     }
 
@@ -330,5 +326,27 @@ Maui.ApplicationWindow
         dialogLoader.sourceComponent= _infoDialogComponent
         dialog.url = url
         dialog.open()
+    }
+
+    function toogleTagbar()
+    {
+        viewerSettings.tagBarVisible = !viewerSettings.tagBarVisible
+    }
+
+    function tooglePreviewBar()
+    {
+        viewerSettings.previewBarVisible = !viewerSettings.previewBarVisible
+    }
+
+    function toogleFullscreen()
+    {
+        if(Window.window.visibility === Window.FullScreen)
+        {
+            Window.window.showNormal()
+        }else
+        {
+            Window.window.showFullScreen()
+        }
+
     }
 }

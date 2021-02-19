@@ -102,7 +102,7 @@ StackView
         {
             visible: !Kirigami.Settings.isMobile
             icon.name: "view-fullscreen"
-            onClicked: control.toogleFullscreen()
+            onClicked: toogleFullscreen()
             checked: fullScreen
         }
 
@@ -248,28 +248,6 @@ StackView
                 }
             }
         }
-    }
-
-    function toogleTagbar()
-    {
-        viewerSettings.tagBarVisible = !viewerSettings.tagBarVisible
-    }
-
-    function tooglePreviewBar()
-    {
-        viewerSettings.previewBarVisible = !viewerSettings.previewBarVisible
-    }
-
-    function toogleFullscreen()
-    {
-        if(Window.window.visibility === Window.FullScreen)
-        {
-            Window.window.showNormal()
-        }else
-        {
-            Window.window.showFullScreen()
-        }
-
     }
 
     function next()

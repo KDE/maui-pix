@@ -212,7 +212,7 @@ Maui.SettingsDialog
                 Layout.fillHeight: true
                 checkable: true
                 checked: viewerSettings.tagBarVisible
-                onToggled: pixViewer.toogleTagbar()
+                onToggled: toogleTagbar()
             }
         }
 
@@ -225,7 +225,7 @@ Maui.SettingsDialog
                 Layout.fillHeight: true
                 checkable: true
                 checked: viewerSettings.previewBarVisible
-                onToggled: pixViewer.tooglePreviewBar()
+                onToggled: tooglePreviewBar()
             }
         }
     }
