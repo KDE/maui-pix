@@ -25,7 +25,7 @@ Menu
         icon.name: "item-select"
         onTriggered:
         {
-            if(Kirigami.Settings.isMobile)
+            if(Maui.Handy.isTouch)
                 root.selectionMode = true
 
             PIX.selectItem(control.model.get(index))
