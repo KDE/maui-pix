@@ -126,7 +126,7 @@ Menu
             title: i18n("Delete file?")
             acceptButton.text: i18n("Accept")
             rejectButton.text: i18n("Cancel")
-            message: i18n("Are sure you want to delete this file? This action can not be undone.")
+            message: i18nc("Remove one file", "Are sure you want to delete this file? This action can not be undone.")
 
             onRejected: close()
             onAccepted:
