@@ -4,11 +4,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
-import QtQuick 2.9
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
-import org.kde.kirigami 2.2 as Kirigami
-import org.kde.mauikit 1.0 as Maui
+import QtQuick 2.14
+import QtQuick.Layouts 1.12
+import QtQuick.Controls 2.14
+
+import org.kde.kirigami 2.14 as Kirigami
+import org.kde.mauikit 1.3 as Maui
+
 import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
@@ -21,18 +23,10 @@ StackView
     property string currentTag : ""
     property Flickable flickable : currentItem.flickable
 
-    Maui.NewDialog
+    Maui.NewTagDialog
     {
         id: newTagDialog
-        title: i18n("New tag")
-        message: i18n("Create a new tag to organize your gallery")
-        acceptButton.text : i18n("Add")
-        onFinished:
-        {
-            tagsList.insert(text)
-        }
 
-        onRejected: close()
     }
 
     initialItem: TagsSidebar { }
