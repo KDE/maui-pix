@@ -75,7 +75,8 @@ Maui.Page
 
             label1.text: model.tag
             iconSource: model.icon
-            template.iconVisible: true
+            template.iconVisible: width > 150
+            template.iconSizeHint: Maui.Style.iconSizes.medium
 
             onClicked:
             {

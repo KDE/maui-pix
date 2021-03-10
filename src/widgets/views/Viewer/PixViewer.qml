@@ -221,7 +221,6 @@ StackView
                 id: tagBar
                 visible: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
                 Layout.fillWidth: true
-                position: ToolBar.Footer
                 allowEditMode: true
                 list.urls: [currentPic.url]
                 list.strict: false

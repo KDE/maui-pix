@@ -65,7 +65,6 @@ Maui.Dialog
     Maui.TagsBar
     {
         Layout.fillWidth: true
-        position: ToolBar.Footer
         allowEditMode: false
         list.urls: [control.url]
         list.strict: false
