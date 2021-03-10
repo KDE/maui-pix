@@ -48,7 +48,7 @@ Menu
         onTriggered:
         {
             dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.composerList.urls = [control.model.get(index).url]
+            dialog.composerList.urls = filterSelection(control.model.get(index).url)
             dialog.open()
         }
     }
@@ -59,7 +59,7 @@ Menu
         icon.name: "document-share"
         onTriggered:
         {
-            Maui.Platform.shareFiles([control.model.get(index).url])
+            Maui.Platform.shareFiles(filterSelection(control.model.get(index).url))
         }
     }
 
@@ -89,7 +89,7 @@ Menu
         icon.name: "folder-open"
         onTriggered:
         {
-            Pix.Collection.showInFolder([control.model.get(index).url])
+            Pix.Collection.showInFolder(filterSelection(control.model.get(index).url))
             close()
         }
     }
@@ -122,7 +122,7 @@ Menu
         {
             id: removeDialog
 
-            urls: [control.model.get(index).url]
+            urls: filterSelection(control.model.get(index).url)
             title: i18n("Delete file?")
             acceptButton.text: i18n("Accept")
             rejectButton.text: i18n("Cancel")

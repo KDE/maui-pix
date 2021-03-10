@@ -347,6 +347,17 @@ Maui.ApplicationWindow
         {
             Window.window.showFullScreen()
         }
-
     }
+
+    function filterSelection(url)
+    {
+        if(selectionBox.contains(url))
+        {
+            return selectionBox.uris
+        }else
+        {
+            return [url]
+        }
+    }
+
 }
