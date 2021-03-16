@@ -1,9 +1,10 @@
-import QtQuick.Controls 2.14
 import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 
-import org.kde.kirigami 2.6 as Kirigami
-import org.kde.mauikit 1.2 as Maui
+import org.kde.kirigami 2.14 as Kirigami
+import org.kde.mauikit 1.3 as Maui
+
 import org.maui.pix 1.0
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
@@ -95,6 +96,36 @@ Maui.AltBrowser
         filterCaseSensitivity: Qt.CaseInsensitive
     }
 
+    property string typingQuery
+
+     Maui.Chip
+     {
+         z: control.z + 99999
+         Kirigami.Theme.colorSet:Kirigami.Theme.Complementary
+         visible: _typingTimer.running
+         label.text: typingQuery
+         anchors.left: parent.left
+         anchors.bottom: parent.bottom
+         showCloseButton: false
+         anchors.margins: Maui.Style.space.medium
+     }
+
+     Timer
+     {
+         id: _typingTimer
+         interval: 250
+         onTriggered:
+         {
+             const index = pixList.indexOfName(typingQuery)
+             if(index > -1)
+             {
+                 control.currentIndex = index
+             }
+
+             typingQuery = ""
+         }
+     }
+
     Connections
     {
         target: control.currentView
@@ -110,6 +141,13 @@ Maui.AltBrowser
         {
             const index = control.currentIndex
             const item = control.model.get(index)
+
+            var pat = /^([a-zA-Z0-9 _-]+)$/
+            if(event.count === 1 && pat.test(event.text))
+            {
+                typingQuery += event.text
+                _typingTimer.restart()
+            }
 
             if((event.key == Qt.Key_Left || event.key == Qt.Key_Right || event.key == Qt.Key_Down || event.key == Qt.Key_Up) && (event.modifiers & Qt.ControlModifier) && (event.modifiers & Qt.ShiftModifier))
             {

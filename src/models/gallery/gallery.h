@@ -94,5 +94,7 @@ public slots:
 
     void setRecursive(bool recursive);
     void setlimit(int limit);
+
+    int indexOfName(const QString &query);
 };
 #endif // GALLERY_H

@@ -243,6 +243,18 @@ void Gallery::setlimit(int limit)
     emit limitChanged(m_limit);
 }
 
+int Gallery::indexOfName(const QString &query)
+{
+    const auto it = std::find_if(this->items().constBegin(), this->items().constEnd(), [&](const FMH::MODEL &item) -> bool {
+            return item[FMH::MODEL_KEY::TITLE].startsWith(query, Qt::CaseInsensitive);
+        });
+
+        if (it != this->items().constEnd())
+            return this->mappedIndexFromSource(std::distance(this->items().constBegin(), it));
+        else
+            return -1;
+}
+
 void Gallery::componentComplete()
 {
     connect(this, &Gallery::urlsChanged, this, &Gallery::rescan);

@@ -27,14 +27,6 @@ function addTagsToPic(tags, url)
         addTagToPic(tags[i], url)
 }
 
-//function searchFor(query)
-//{
-//    if(currentView !== views.search)
-//        currentView = views.search
-
-//    searchView.runSearch(query)
-//}
-
 function selectItem(item)
 {
     if(selectionBox.contains(item.url))
