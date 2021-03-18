@@ -14,7 +14,6 @@ Maui.Page
     id: control
 
     flickable: _gridView.flickable
-    headerBackground.color: "transparent"
     headBar.visible: true
     headBar.middleContent: Maui.TextField
     {

@@ -39,6 +39,7 @@ StackView
     Component
     {
         id: _editorComponent
+
         Editor
         {
             objectName: "imageEditor"
@@ -62,7 +63,16 @@ StackView
                 display: ToolButton.TextBesideIcon
                 onClicked: _stackView.pop()
             }
-]
+        ]
+
+        headBar.rightContent: ToolButton
+        {
+            visible: !Kirigami.Settings.isMobile
+            icon.name: "view-fullscreen"
+            onClicked: toogleFullscreen()
+            checked: fullScreen
+        }
+
         PixMenu
         {
             id: _picMenu
@@ -79,17 +89,6 @@ StackView
         footBar.rightContent: [
             ToolButton
             {
-                icon.name: "draw-freehand"
-                onClicked:
-                {
-//                    _doodleDialog.sourceItem = control.viewer.currentItem
-//                    _doodleDialog.open()
-                    control.push(_editorComponent,({} ), StackView.Immediate)
-                }
-            },
-
-            ToolButton
-            {
                 icon.name: "document-share"
                 onClicked:
                 {
@@ -100,10 +99,13 @@ StackView
 
         footBar.leftContent: ToolButton
         {
-            visible: !Kirigami.Settings.isMobile
-            icon.name: "view-fullscreen"
-            onClicked: toogleFullscreen()
-            checked: fullScreen
+            icon.name: "draw-freehand"
+            onClicked:
+            {
+//                    _doodleDialog.sourceItem = control.viewer.currentItem
+//                    _doodleDialog.open()
+                control.push(_editorComponent,({} ), StackView.Immediate)
+            }
         }
 
         footBar.middleContent: Maui.ToolActions
