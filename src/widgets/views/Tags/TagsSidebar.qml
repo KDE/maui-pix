@@ -24,14 +24,8 @@ Maui.Page
         onCleared: _tagsModel.filter = ""
     }
 
-    Maui.FloatingButton
-    {
-        id: _overlayButton
-        z: 999
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.margins: Maui.Style.toolBarHeight
-        anchors.bottomMargin: Maui.Style.toolBarHeight + _gridView.flickable.bottomMargin
+    headBar.rightContent: ToolButton
+    {      
         icon.name : "list-add"
         onClicked: newTagDialog.open()
     }

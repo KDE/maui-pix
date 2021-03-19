@@ -4,12 +4,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
-import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 
-import org.kde.kirigami 2.7 as Kirigami
-import org.kde.mauikit 1.0 as Maui
+import org.kde.kirigami 2.14 as Kirigami
+import org.kde.mauikit 1.3 as Maui
 import org.maui.pix 1.0
 
 import "../../../view_models"
@@ -36,8 +36,11 @@ ScrollView
         clip: true
         spacing: Maui.Style.space.medium
 
+        boundsBehavior: Flickable.StopAtBounds
+        boundsMovement :Flickable.StopAtBounds
+
         focus: true
-        interactive: true
+        interactive: Kirigami.Settings.hasTransientTouchInput
 
         delegate: PixPic
         {
@@ -45,11 +48,10 @@ ScrollView
             height: rollList.height
             width: height
 
-            labelsVisible: false
+            showLabel: false
             fit: false
             checkable: false
             isCurrentItem: ListView.isCurrentItem
-            radius:  Maui.Style.radiusV
             onClicked:
             {
                 rollList.currentIndex = index

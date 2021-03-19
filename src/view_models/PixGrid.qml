@@ -259,9 +259,9 @@ gridDelegate: Item
         anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.tiny : Maui.Style.space.big
 
         fit: browserSettings.fitPreviews
-        labelsVisible: browserSettings.showLabels
+        showLabel: browserSettings.showLabels
         checkable: root.selectionMode
-        imageBorder: !Kirigami.Settings.isMobile
+        template.imageBorder: !Kirigami.Settings.isMobile
         radius: Kirigami.Settings.isMobile ? 0 : Maui.Style.radiusV
         isCurrentItem: parent.isCurrentItem
         checked: selectionBox.contains(model.url)
@@ -280,6 +280,7 @@ gridDelegate: Item
                 openPic(index)
             }
         }
+
         onDoubleClicked:
         {
             control.currentIndex = index
