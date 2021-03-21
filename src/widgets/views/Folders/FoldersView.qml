@@ -71,7 +71,7 @@ StackView
                 images: _galleryList.files
                 template.label1.text: model.label
                 template.label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
-                template.iconSource: model.icon
+//                template.iconSource: model.icon
 
                 GalleryList
                 {

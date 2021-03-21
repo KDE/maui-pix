@@ -340,12 +340,12 @@ Maui.ApplicationWindow
 
     function toogleFullscreen()
     {
-        if(Window.window.visibility === Window.FullScreen)
+        if(root.visibility === Window.FullScreen)
         {
-            Window.window.showNormal()
+            root.showNormal()
         }else
         {
-            Window.window.showFullScreen()
+            root.showFullScreen()
         }
     }
 
@@ -359,5 +359,4 @@ Maui.ApplicationWindow
             return [url]
         }
     }
-
 }
