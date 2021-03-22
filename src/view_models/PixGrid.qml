@@ -158,6 +158,11 @@ Maui.AltBrowser
             {
                 getFileInfo(item.url)
             }
+
+            if(event.key === Qt.Key_Return)
+            {
+                openPic(index)
+            }
         }
     }
 

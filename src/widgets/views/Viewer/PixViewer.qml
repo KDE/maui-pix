@@ -10,7 +10,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
 import "../../../view_models"
-import "../.."
+import "editor"
 
 import org.kde.kirigami 2.7 as Kirigami
 import org.kde.mauikit 1.2 as Maui
@@ -32,18 +32,23 @@ StackView
     property alias model :viewer.model
     property bool doodle : false
 
-//    Kirigami.Theme.inherit: false
-//    Kirigami.Theme.backgroundColor: "#333"
-//    Kirigami.Theme.textColor: "#fafafa"
-
     Component
     {
         id: _editorComponent
 
-        Editor
+        EditorView
         {
             objectName: "imageEditor"
             url: control.currentPic.url
+
+            headBar.farLeftContent:  ToolButton
+            {
+                icon.name: "go-previous"
+                onClicked:
+                {
+                    control.pop()
+                }
+            }
         }
     }
 
@@ -80,7 +85,7 @@ StackView
             model: control.model
         }
 
-        footBar.visible: !holder.visible
+        footBar.visible: !holder.visible && root.visibility !== Window.FullScreen
         autoHideFooter: true
         autoHideFooterMargins: control.height
         autoHideFooterDelay: 3000
