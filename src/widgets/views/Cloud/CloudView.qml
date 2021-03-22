@@ -78,13 +78,13 @@ PixGrid
             onPressAndHold:
             {
                 control.grid.currentIndex = index
-                _picMenu.popup()
+                _picMenu.open()
             }
 
             onRightClicked:
             {
                 control.grid.currentIndex = index
-                _picMenu.popup()
+                _picMenu.open()
             }
             onEmblemClicked:
             {

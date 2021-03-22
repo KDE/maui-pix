@@ -9,7 +9,7 @@ import org.maui.pix 1.0 as Pix
 
 import "../widgets/views/Pix.js" as PIX
 
-Menu
+Maui.ContextualMenu
 {
     id: control
 
