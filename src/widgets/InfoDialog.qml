@@ -91,7 +91,6 @@ Maui.Dialog
             Layout.fillWidth: true
             implicitHeight: visible ? _delegateColumnInfo.implicitHeight + Maui.Style.space.large : 0
             lastOne: index === _infoModel.count-1
-            alt: index % 2 === 0
 
             Maui.ListItemTemplate
             {
