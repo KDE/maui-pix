@@ -56,27 +56,14 @@ Maui.AltBrowser
         onCleared: model.filter = ""
     }
 
-    headBar.leftContent: Maui.ToolActions
+    headBar.leftContent: ToolButton
     {
-        autoExclusive: true
-        expanded: isWide
-        currentIndex : control.viewType === Maui.AltBrowser.ViewType.List ? 0 : 1
         enabled: list.count > 0
-//        display: ToolButton.TextBesideIcon
-        cyclic: true
+       icon.name: control.viewType === Maui.AltBrowser.ViewType.List ? "view-list-icons" : "view-list-details"
 
-        Action
+        onClicked:
         {
-            text: i18n("List")
-            icon.name: "view-list-details"
-            onTriggered: control.viewType = Maui.AltBrowser.ViewType.List
-        }
-
-        Action
-        {
-            text: i18n("Grid")
-            icon.name: "view-list-icons"
-            onTriggered: control.viewType= Maui.AltBrowser.ViewType.Grid
+            control.viewType =  control.viewType === Maui.AltBrowser.ViewType.List ? Maui.AltBrowser.ViewType.Grid : Maui.AltBrowser.ViewType.List
         }
     }
 
