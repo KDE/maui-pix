@@ -1,4 +1,5 @@
 #include "models/folders/folders.h"
+#include <MauiKit/FileBrowsing/fmstatic.h>
 
 Folders::Folders(QObject *parent)
     : MauiList(parent)
@@ -22,7 +23,7 @@ void Folders::setFolders(const QList<QUrl> &folders)
     this->list.clear();
 
     for (const auto &folder : m_folders) {
-        this->list << FMH::getDirInfoModel(folder);
+        this->list << FMStatic::getDirInfoModel(folder);
     }
     emit this->postListChanged();
     emit foldersChanged();

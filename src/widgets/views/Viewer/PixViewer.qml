@@ -9,12 +9,14 @@ import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
-import "../../../view_models"
-import "editor"
-
 import org.kde.kirigami 2.7 as Kirigami
 import org.kde.mauikit 1.2 as Maui
+import org.mauikit.filebrowsing 1.3 as FB
+
 import org.maui.pix 1.0 as Pix
+
+import "../../../view_models"
+import "editor"
 
 StackView
 {
@@ -30,7 +32,7 @@ StackView
     property var currentPic : ({})
     property int currentPicIndex : 0
     property alias model :viewer.model
-    property bool doodle : false
+    property bool doodle : false    
 
     Component
     {
@@ -223,7 +225,7 @@ StackView
                 }
             }
 
-            Maui.TagsBar
+            FB.TagsBar
             {
                 id: tagBar
                 visible: !holder.visible && viewerSettings.tagBarVisible && !fullScreen

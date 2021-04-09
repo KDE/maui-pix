@@ -51,7 +51,7 @@ endif()
 target_compile_definitions(pix
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
-target_link_libraries(pix MauiKit Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Concurrent Qt5::QuickControls2 Qt5::Positioning KF5::I18n)
+target_link_libraries(pix MauiKit MauiKit::FileBrowsing Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Concurrent Qt5::QuickControls2 Qt5::Positioning KF5::I18n)
 
 if(ANDROID)
     target_link_libraries(pix Qt5::AndroidExtras)

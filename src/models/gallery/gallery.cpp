@@ -1,9 +1,9 @@
 #include "gallery.h"
 #include <QFileSystemWatcher>
 
-#include <MauiKit/fileloader.h>
-#include <MauiKit/fmstatic.h>
-#include <MauiKit/tagging.h>
+#include <MauiKit/FileBrowsing/fileloader.h>
+#include <MauiKit/FileBrowsing/fmstatic.h>
+#include <MauiKit/FileBrowsing/tagging.h>
 
 static FMH::MODEL picInfo(const QUrl &url)
 {
@@ -11,7 +11,7 @@ static FMH::MODEL picInfo(const QUrl &url)
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
                       {FMH::MODEL_KEY::TITLE, info.baseName()},
                       {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-                      {FMH::MODEL_KEY::SOURCE, FMH::fileDir(url)},
+                      {FMH::MODEL_KEY::SOURCE, FMStatic::fileDir(url)},
                       {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
                       {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
                       {FMH::MODEL_KEY::FORMAT, info.suffix()}};
@@ -125,7 +125,7 @@ void Gallery::scanTags(const QList<QUrl> &urls, const int &limit)
 {
     FMH::MODEL_LIST res;
     for (const auto &tagUrl : urls) {
-        const auto urls = FMStatic::getTagUrls(tagUrl.toString().replace("tags:///", ""), {}, true, limit, "image");
+        const auto urls = Tagging::getInstance()->getTagUrls(tagUrl.toString().replace("tags:///", ""), {}, true, limit, "image");
         for (const auto &url : urls) {
             res << picInfo(url);
         }

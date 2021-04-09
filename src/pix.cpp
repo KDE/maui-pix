@@ -27,7 +27,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDesktopServices>
 
 #include <MauiKit/fmh.h>
-#include <MauiKit/tagging.h>
+#include <MauiKit/FileBrowsing/tagging.h>
+#include <MauiKit/FileBrowsing/fmstatic.h>
 #include <MauiKit/utils.h>
 
 Pix::Pix(QObject *parent)
@@ -92,7 +93,7 @@ QVariantList Pix::sourcesModel() const
     QVariantList res;
     const auto sources = getSourcePaths();
     return std::accumulate(sources.constBegin(), sources.constEnd(), res, [](QVariantList &res, const QString &url) {
-        res << FMH::getDirInfo(url);
+        res << FMStatic::getDirInfo(url);
         return res;
     });
 }
@@ -116,7 +117,7 @@ void Pix::refreshCollection()
 void Pix::showInFolder(const QStringList &urls)
 {
     for (const auto &url : urls)
-        QDesktopServices::openUrl(FMH::fileDir(url));
+        QDesktopServices::openUrl(FMStatic::fileDir(url));
 }
 
 void Pix::addSources(const QStringList &paths)

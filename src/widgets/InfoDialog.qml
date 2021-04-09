@@ -8,10 +8,11 @@ import QtQuick 2.13
 
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
-import QtQuick.Shapes 1.12
 
-import org.kde.mauikit 1.2 as Maui
 import org.kde.kirigami 2.8 as Kirigami
+import org.kde.mauikit 1.2 as Maui
+import org.mauikit.filebrowsing 1.3 as FB
+
 import org.maui.pix 1.0 as Pix
 
 Maui.Dialog
@@ -62,7 +63,7 @@ Maui.Dialog
         }
     }
 
-    Maui.TagsBar
+    FB.TagsBar
     {
         Layout.fillWidth: true
         allowEditMode: false

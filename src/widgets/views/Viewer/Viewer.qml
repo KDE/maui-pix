@@ -8,6 +8,8 @@ import QtQuick.Controls 2.14
 
 import org.kde.mauikit 1.3 as Maui
 import org.kde.kirigami 2.7 as Kirigami
+import org.mauikit.imagetools 1.0 as IT
+
 import org.maui.pix 1.0
 
 import "../../"
@@ -91,7 +93,7 @@ Item
             width: ListView.view.width
             active : ListView.isCurrentItem
 
-            sourceComponent: Maui.ImageViewer
+            sourceComponent: IT.ImageViewer
             {
                 source: model.url
                 imageWidth: 1000

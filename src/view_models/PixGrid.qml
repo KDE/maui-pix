@@ -59,7 +59,7 @@ Maui.AltBrowser
     headBar.leftContent: ToolButton
     {
         enabled: list.count > 0
-       icon.name: control.viewType === Maui.AltBrowser.ViewType.List ? "view-list-icons" : "view-list-details"
+        icon.name: control.viewType === Maui.AltBrowser.ViewType.List ? "view-list-icons" : "view-list-details"
 
         onClicked:
         {
@@ -85,33 +85,33 @@ Maui.AltBrowser
 
     property string typingQuery
 
-     Maui.Chip
-     {
-         z: control.z + 99999
-         Kirigami.Theme.colorSet:Kirigami.Theme.Complementary
-         visible: _typingTimer.running
-         label.text: typingQuery
-         anchors.left: parent.left
-         anchors.bottom: parent.bottom
-         showCloseButton: false
-         anchors.margins: Maui.Style.space.medium
-     }
+    Maui.Chip
+    {
+        z: control.z + 99999
+        Kirigami.Theme.colorSet:Kirigami.Theme.Complementary
+        visible: _typingTimer.running
+        label.text: typingQuery
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        showCloseButton: false
+        anchors.margins: Maui.Style.space.medium
+    }
 
-     Timer
-     {
-         id: _typingTimer
-         interval: 250
-         onTriggered:
-         {
-             const index = pixList.indexOfName(typingQuery)
-             if(index > -1)
-             {
-                 control.currentIndex = index
-             }
+    Timer
+    {
+        id: _typingTimer
+        interval: 250
+        onTriggered:
+        {
+            const index = pixList.indexOfName(typingQuery)
+            if(index > -1)
+            {
+                control.currentIndex = index
+            }
 
-             typingQuery = ""
-         }
-     }
+            typingQuery = ""
+        }
+    }
 
     Connections
     {
