@@ -28,6 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QIcon>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QDirIterator>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -37,8 +38,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #include "../pix_version.h"
-#include <MauiKit/fmh.h>
-#include <MauiKit/mauiapp.h>
+#include <MauiKit/FileBrowsing/fmstatic.h>
+#include <MauiKit/Core/mauiapp.h>
 
 #ifdef Q_OS_MACOS
 #include "mauimacos.h"
@@ -63,7 +64,7 @@ static const QList<QUrl> getFolderImages(const QString &path)
     QList<QUrl> urls;
 
     if (QFileInfo(path).isDir()) {
-        QDirIterator it(path, FMH::FILTER_LIST[FMH::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::NoIteratorFlags);
+        QDirIterator it(path, FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::NoIteratorFlags);
         while (it.hasNext())
             urls << QUrl::fromLocalFile(it.next());
 

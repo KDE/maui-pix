@@ -7,6 +7,10 @@
 //#include "utils/picinfo/exiv2extractor.h"
 //#include "utils/picinfo/reversegeocoder.h"
 #include <QGeoAddress>
+#include <QDateTime>
+#include <QDebug>
+
+#include <MauiKit/FileBrowsing/fmstatic.h>
 
 PicInfoModel::PicInfoModel(QObject *parent)
     : MauiList(parent)
@@ -28,7 +32,7 @@ static FMH::MODEL_LIST basicInfo(const QUrl &url)
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Path"}, {FMH::MODEL_KEY::VALUE, url.toLocalFile()}, {FMH::MODEL_KEY::ICON, "folder"}};
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Last Modified"}, {FMH::MODEL_KEY::VALUE, file.lastModified().toString()}, {FMH::MODEL_KEY::ICON, "view-media-recent"}};
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Date"}, {FMH::MODEL_KEY::VALUE, file.birthTime().toString()}, {FMH::MODEL_KEY::ICON, "view-calendar-birthday"}};
-    res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Type"}, {FMH::MODEL_KEY::VALUE, FMH::getMime(url)}, {FMH::MODEL_KEY::ICON, "documentinfo"}};
+    res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Type"}, {FMH::MODEL_KEY::VALUE, FMStatic::getMime(url)}, {FMH::MODEL_KEY::ICON, "documentinfo"}};
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Location"}, {FMH::MODEL_KEY::VALUE, "Blah"}, {FMH::MODEL_KEY::ICON, "gps"}};
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Aperture"}, {FMH::MODEL_KEY::VALUE, "Blah"}, {FMH::MODEL_KEY::ICON, "documentinfo"}};
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Camera"}, {FMH::MODEL_KEY::VALUE, "Blah"}, {FMH::MODEL_KEY::ICON, "camera-video"}};

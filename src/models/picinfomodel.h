@@ -9,7 +9,7 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-#include <MauiKit/mauilist.h>
+#include <MauiKit/Core/mauilist.h>
 
 #include <QFileInfo>
 

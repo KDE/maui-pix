@@ -3,7 +3,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.14 as Kirigami
-import org.kde.mauikit 1.3 as Maui
+import org.mauikit.controls 1.3 as Maui
 
 import org.maui.pix 1.0
 
@@ -38,7 +38,7 @@ Maui.AltBrowser
         id: delegate
         width: ListView.view.width
         height: Maui.Style.toolBarHeightAlt
-        label1.text: model.sort === "date" || model.sort === "modified" ? Qt.formatDateTime(new Date(section), "d MMM yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : section)
+        label1.text: model.sort === "date" || model.sort === "modified" ? Qt.formatDateTime(new Date(section), "d MMM yyyy") : (model.sort === "size" ? Maui.Handy.formatSize(section)  : section)
         label1.font.pointSize: Maui.Style.fontSizes.big
     }
 

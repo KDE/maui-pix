@@ -10,7 +10,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
 import org.kde.kirigami 2.7 as Kirigami
-import org.kde.mauikit 1.2 as Maui
+import org.mauikit.controls 1.2 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 
 import org.maui.pix 1.0 as Pix
@@ -123,7 +123,7 @@ StackView
 
             Action
             {
-                enabled: Maui.Platform.hasKeyboard()
+                enabled: Maui.Platform.hasKeyboard
                 text: i18n("Previous")
                 icon.name: "go-previous"
                 onTriggered: previous()
@@ -147,7 +147,7 @@ StackView
 
             Action
             {
-                enabled: Maui.Android.hasKeyboard()
+                enabled: Maui.Android.hasKeyboard
                 icon.name: "go-next"
                 onTriggered: next()
             }

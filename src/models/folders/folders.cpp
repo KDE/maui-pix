@@ -1,4 +1,7 @@
-#include "models/folders/folders.h"
+#include "folders.h"
+
+#include <QDebug>
+
 #include <MauiKit/FileBrowsing/fmstatic.h>
 
 Folders::Folders(QObject *parent)

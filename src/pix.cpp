@@ -26,10 +26,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "pix.h"
 #include <QDesktopServices>
 
-#include <MauiKit/fmh.h>
+#include <MauiKit/Core/fmh.h>
+#include <MauiKit/Core/utils.h>
+
 #include <MauiKit/FileBrowsing/tagging.h>
 #include <MauiKit/FileBrowsing/fmstatic.h>
-#include <MauiKit/utils.h>
 
 Pix::Pix(QObject *parent)
     : QObject(parent)
@@ -39,7 +40,7 @@ Pix::Pix(QObject *parent)
 const static QStringList findCameraCollection()
 {
     QStringList res;
-    const static auto paths = QStringList{FMH::HomePath + "/DCIM", FMH::HomePath + "/Camera"};
+    const static auto paths = QStringList{FMStatic::HomePath + "/DCIM", FMStatic::HomePath + "/Camera"};
 
     for (const auto &path : paths) {
         if (FMH::fileExists(path))
@@ -52,7 +53,7 @@ const static QStringList findCameraCollection()
 const static QStringList findScreenshotsCollection()
 {
     QStringList res;
-    const static auto paths = QStringList{FMH::HomePath + "/Screenshots"};
+    const static auto paths = QStringList{FMStatic::HomePath + "/Screenshots"};
 
     for (const auto &path : paths) {
         if (FMH::fileExists(path))
@@ -64,7 +65,7 @@ const static QStringList findScreenshotsCollection()
 
 const QStringList Pix::getSourcePaths()
 {
-    static const auto defaultSources = QStringList{FMH::PicturesPath, FMH::DownloadsPath} << findCameraCollection() + findScreenshotsCollection();
+    static const auto defaultSources = QStringList{FMStatic::PicturesPath, FMStatic::DownloadsPath} << findCameraCollection() + findScreenshotsCollection();
     const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
     qDebug() << "SOURCES" << sources;
     return sources;

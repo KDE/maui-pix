@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Extras 1.4
 import QtQuick.Controls.Styles 1.4
 
-import org.kde.mauikit 1.2 as Maui
+import org.mauikit.controls 1.2 as Maui
 import org.kde.kirigami 2.8 as Kirigami
 
 Slider

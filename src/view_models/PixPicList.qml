@@ -8,7 +8,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
-import org.kde.mauikit 1.0 as Maui
+import org.mauikit.controls 1.0 as Maui
 import org.kde.kirigami 2.7 as Kirigami
 
 Maui.ItemDelegate
@@ -42,7 +42,7 @@ Maui.ItemDelegate
         label2.text: model.url
 
         label3.text:  model.format
-        label4.text:  Maui.FM.formatDate(model.modified, "MM/dd/yyyy")
+        label4.text:  Maui.Handy.formatDate(model.modified, "MM/dd/yyyy")
 
         imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
         hovered: parent.hovered

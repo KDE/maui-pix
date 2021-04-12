@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
 import org.kde.kirigami 2.9 as Kirigami
-import org.kde.mauikit 1.3 as Maui
+import org.mauikit.controls 1.3 as Maui
 import org.maui.pix 1.0
 
 import "../../../view_models"
@@ -70,7 +70,7 @@ StackView
 
                 images: _galleryList.files
                 template.label1.text: model.label
-                template.label3.text: Maui.FM.formatDate(model.modified, "dd/MM/yyyy")
+                template.label3.text: Maui.Handy.formatDate(model.modified, "dd/MM/yyyy")
 //                template.iconSource: model.icon
 
                 GalleryList

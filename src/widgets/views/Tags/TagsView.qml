@@ -9,7 +9,7 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.14
 
 import org.kde.kirigami 2.14 as Kirigami
-import org.kde.mauikit 1.3 as Maui
+import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 
 import org.maui.pix 1.0 as Pix

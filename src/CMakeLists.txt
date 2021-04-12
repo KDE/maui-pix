@@ -46,6 +46,14 @@ else()
         )
 endif()
 
+if(UNIX AND NOT APPLE AND NOT ANDROID)
+    target_link_libraries(pix
+        KF5::KIOCore
+        KF5::KIOFileWidgets
+        )
+
+endif()
+
 #target_link_libraries(pix MauiKit Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Positioning KF5::I18n LibExiv2::LibExiv2)
 
 target_compile_definitions(pix
