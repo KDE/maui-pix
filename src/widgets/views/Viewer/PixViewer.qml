@@ -10,13 +10,14 @@ import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
 import org.kde.kirigami 2.7 as Kirigami
+
 import org.mauikit.controls 1.2 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
+import org.mauikit.imagetools 1.0 as IT
 
 import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
-import "editor"
 
 StackView
 {
@@ -38,7 +39,7 @@ StackView
     {
         id: _editorComponent
 
-        EditorView
+        IT.ImageEditor
         {
             objectName: "imageEditor"
             url: control.currentPic.url
@@ -289,7 +290,7 @@ StackView
             control.currentPicIndex = index
             control.currentPic = control.model.get(control.currentPicIndex)
 
-            control.currentPicFav = Maui.FM.isFav(control.currentPic.url)
+            control.currentPicFav = FB.Tagging.isFav(control.currentPic.url)
             root.title = control.currentPic.title
             control.roll.position(control.currentPicIndex)
         }

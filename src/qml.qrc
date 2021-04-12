@@ -18,9 +18,5 @@
         <file>view_models/PixPicList.qml</file>
         <file>widgets/InfoDialog.qml</file>
         <file>widgets/SettingsDialog.qml</file>
-        <file>widgets/views/Viewer/editor/ColourBar.qml</file>
-        <file>widgets/views/Viewer/editor/EditorView.qml</file>
-        <file>widgets/views/Viewer/editor/TransformationBar.qml</file>
-        <file>widgets/views/Viewer/editor/Ruler.qml</file>
     </qresource>
 </RCC>

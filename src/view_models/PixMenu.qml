@@ -3,6 +3,8 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 
 import org.mauikit.controls 1.3 as Maui
+import org.mauikit.filebrowsing 1.3 as FB
+
 import org.kde.kirigami 2.8 as Kirigami
 
 import org.maui.pix 1.0 as Pix
@@ -17,7 +19,7 @@ Maui.ContextualMenu
     property int index : -1
     property Maui.BaseModel model : null
 
-    onOpened: isFav = Maui.FM.isFav(control.model.get(index).url)
+    onOpened: isFav = FB.FM.isFav(control.model.get(index).url)
 
     MenuItem
     {
@@ -38,7 +40,7 @@ Maui.ContextualMenu
     {
         text: i18n(isFav ? "UnFav it": "Fav it")
         icon.name: "love"
-        onTriggered: Maui.FM.toggleFav(control.model.get(index).url)
+        onTriggered: FB.Tagging.toggleFav(control.model.get(index).url)
     }
 
     MenuItem
@@ -83,11 +85,11 @@ Maui.ContextualMenu
             var pic = control.model.get(index).url
             dialogLoader.sourceComponent= fmDialogComponent
             dialog.mode = dialog.modes.SAVE
-            dialog.suggestedFileName= Maui.FM.getFileInfo(control.model.get(index).url).label
+            dialog.suggestedFileName= FB.FM.getFileInfo(control.model.get(index).url).label
             dialog.show(function(paths)
             {
                 for(var i in paths)
-                    Maui.FM.copy(pic, paths[i])
+                    FB.FM.copy(pic, paths[i])
             });
             close()
         }

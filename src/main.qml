@@ -98,7 +98,7 @@ Maui.ApplicationWindow
             {
                 dialogLoader.sourceComponent= fmDialogComponent
                 dialog.mode = dialog.modes.OPEN
-                dialog.settings.filterType= Maui.FMList.IMAGE
+                dialog.settings.filterType= FB.FMList.IMAGE
                 dialog.settings.onlyDirs= false
                 dialog.callback = function(paths)
                 {
@@ -253,7 +253,7 @@ Maui.ApplicationWindow
         id: fmDialogComponent
         FB.FileDialog
         {
-            settings.filterType: Maui.FMList.IMAGE
+            settings.filterType: FB.FMList.IMAGE
             settings.onlyDirs: true
             mode: modes.OPEN
         }
@@ -282,7 +282,7 @@ Maui.ApplicationWindow
             onAccepted: close()
             onRejected:
             {
-                Maui.FM.removeFiles(removeDialog.urls)
+                FB.FM.removeFiles(removeDialog.urls)
                 selectionBox.clear()
                 close()
             }
