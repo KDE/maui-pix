@@ -91,7 +91,6 @@ Maui.ContextualMenu
                 for(var i in paths)
                     FB.FM.copy(pic, paths[i])
             });
-            close()
         }
     }
 
@@ -103,7 +102,6 @@ Maui.ContextualMenu
         onTriggered:
         {
             Pix.Collection.showInFolder(filterSelection(control.model.get(index).url))
-            close()
         }
     }
 
@@ -114,7 +112,6 @@ Maui.ContextualMenu
         onTriggered:
         {
             getFileInfo(control.model.get(index).url)
-            close()
         }
     }
 
@@ -128,7 +125,6 @@ Maui.ContextualMenu
         onTriggered:
         {
             removeDialog.open()
-            close()
         }
 
         Maui.FileListingDialog
