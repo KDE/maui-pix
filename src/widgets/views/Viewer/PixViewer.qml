@@ -9,12 +9,15 @@ import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
-import "../../../view_models"
-import "editor"
-
 import org.kde.kirigami 2.7 as Kirigami
-import org.kde.mauikit 1.2 as Maui
+
+import org.mauikit.controls 1.2 as Maui
+import org.mauikit.filebrowsing 1.3 as FB
+import org.mauikit.imagetools 1.0 as IT
+
 import org.maui.pix 1.0 as Pix
+
+import "../../../view_models"
 
 StackView
 {
@@ -30,13 +33,13 @@ StackView
     property var currentPic : ({})
     property int currentPicIndex : 0
     property alias model :viewer.model
-    property bool doodle : false
+    property bool doodle : false    
 
     Component
     {
         id: _editorComponent
 
-        EditorView
+        IT.ImageEditor
         {
             objectName: "imageEditor"
             url: control.currentPic.url
@@ -121,7 +124,7 @@ StackView
 
             Action
             {
-                enabled: Maui.Platform.hasKeyboard()
+                enabled: Maui.Platform.hasKeyboard
                 text: i18n("Previous")
                 icon.name: "go-previous"
                 onTriggered: previous()
@@ -145,7 +148,7 @@ StackView
 
             Action
             {
-                enabled: Maui.Android.hasKeyboard()
+                enabled: Maui.Android.hasKeyboard
                 icon.name: "go-next"
                 onTriggered: next()
             }
@@ -223,7 +226,7 @@ StackView
                 }
             }
 
-            Maui.TagsBar
+            FB.TagsBar
             {
                 id: tagBar
                 visible: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
@@ -287,7 +290,7 @@ StackView
             control.currentPicIndex = index
             control.currentPic = control.model.get(control.currentPicIndex)
 
-            control.currentPicFav = Maui.FM.isFav(control.currentPic.url)
+            control.currentPicFav = FB.Tagging.isFav(control.currentPic.url)
             root.title = control.currentPic.title
             control.roll.position(control.currentPicIndex)
         }

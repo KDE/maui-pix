@@ -7,7 +7,10 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
-import org.kde.mauikit 1.2 as Maui
+
+import org.mauikit.controls 1.2 as Maui
+import org.mauikit.filebrowsing 1.3 as FB
+
 import org.kde.kirigami 2.6 as Kirigami
 
 import "../widgets/views/Pix.js" as PIX
@@ -93,7 +96,7 @@ Maui.SelectionBar
             dialog.show(function(paths)
             {
                 for(var i in paths)
-                    Maui.FM.copy(pics, paths[i])
+                    FB.FM.copy(pics, paths[i])
             });
         }
     }

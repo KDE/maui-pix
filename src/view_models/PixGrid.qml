@@ -3,7 +3,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.14 as Kirigami
-import org.kde.mauikit 1.3 as Maui
+import org.mauikit.controls 1.3 as Maui
 
 import org.maui.pix 1.0
 
@@ -38,7 +38,7 @@ Maui.AltBrowser
         id: delegate
         width: ListView.view.width
         height: Maui.Style.toolBarHeightAlt
-        label1.text: model.sort === "date" || model.sort === "modified" ? Qt.formatDateTime(new Date(section), "d MMM yyyy") : (model.sort === "size" ? Maui.FM.formatSize(section)  : section)
+        label1.text: model.sort === "date" || model.sort === "modified" ? Qt.formatDateTime(new Date(section), "d MMM yyyy") : (model.sort === "size" ? Maui.Handy.formatSize(section)  : section)
         label1.font.pointSize: Maui.Style.fontSizes.big
     }
 
@@ -59,7 +59,7 @@ Maui.AltBrowser
     headBar.leftContent: ToolButton
     {
         enabled: list.count > 0
-       icon.name: control.viewType === Maui.AltBrowser.ViewType.List ? "view-list-icons" : "view-list-details"
+        icon.name: control.viewType === Maui.AltBrowser.ViewType.List ? "view-list-icons" : "view-list-details"
 
         onClicked:
         {
@@ -85,33 +85,33 @@ Maui.AltBrowser
 
     property string typingQuery
 
-     Maui.Chip
-     {
-         z: control.z + 99999
-         Kirigami.Theme.colorSet:Kirigami.Theme.Complementary
-         visible: _typingTimer.running
-         label.text: typingQuery
-         anchors.left: parent.left
-         anchors.bottom: parent.bottom
-         showCloseButton: false
-         anchors.margins: Maui.Style.space.medium
-     }
+    Maui.Chip
+    {
+        z: control.z + 99999
+        Kirigami.Theme.colorSet:Kirigami.Theme.Complementary
+        visible: _typingTimer.running
+        label.text: typingQuery
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        showCloseButton: false
+        anchors.margins: Maui.Style.space.medium
+    }
 
-     Timer
-     {
-         id: _typingTimer
-         interval: 250
-         onTriggered:
-         {
-             const index = pixList.indexOfName(typingQuery)
-             if(index > -1)
-             {
-                 control.currentIndex = index
-             }
+    Timer
+    {
+        id: _typingTimer
+        interval: 250
+        onTriggered:
+        {
+            const index = pixList.indexOfName(typingQuery)
+            if(index > -1)
+            {
+                control.currentIndex = index
+            }
 
-             typingQuery = ""
-         }
-     }
+            typingQuery = ""
+        }
+    }
 
     Connections
     {

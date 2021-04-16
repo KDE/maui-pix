@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
-.import org.kde.mauikit 1.2 as Maui
+.import org.mauikit.filebrowsing 1.2 as FB
 
 function open(model, index)
 {
@@ -25,7 +25,7 @@ function openExternalPics(pics, index)
 function fav(urls)
 {
     for(const i in urls)
-        Maui.FM.toggleFav(urls[i])
+        FB.Tagging.toggleFav(urls[i])
 }
 
 

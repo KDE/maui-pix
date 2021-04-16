@@ -31,7 +31,9 @@ import QtQuick.Window 2.13
 import Qt.labs.settings 1.0
 
 import org.kde.kirigami 2.8 as Kirigami
-import org.kde.mauikit 1.3 as Maui
+import org.mauikit.controls 1.3 as Maui
+import org.mauikit.filebrowsing 1.3 as FB
+
 import org.maui.pix 1.0 as Pix
 
 import "widgets"
@@ -43,8 +45,6 @@ import "view_models"
 
 import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
-
-import TagsList 1.0
 
 Maui.ApplicationWindow
 {
@@ -98,7 +98,7 @@ Maui.ApplicationWindow
             {
                 dialogLoader.sourceComponent= fmDialogComponent
                 dialog.mode = dialog.modes.OPEN
-                dialog.settings.filterType= Maui.FMList.IMAGE
+                dialog.settings.filterType= FB.FMList.IMAGE
                 dialog.settings.onlyDirs= false
                 dialog.callback = function(paths)
                 {
@@ -241,7 +241,7 @@ Maui.ApplicationWindow
     Component
     {
         id: tagsDialogComponent
-        Maui.TagsDialog
+        FB.TagsDialog
         {
             onTagsReady: composerList.updateToUrls(tags)
             composerList.strict: false
@@ -251,9 +251,9 @@ Maui.ApplicationWindow
     Component
     {
         id: fmDialogComponent
-        Maui.FileDialog
+        FB.FileDialog
         {
-            settings.filterType: Maui.FMList.IMAGE
+            settings.filterType: FB.FMList.IMAGE
             settings.onlyDirs: true
             mode: modes.OPEN
         }
@@ -282,7 +282,7 @@ Maui.ApplicationWindow
             onAccepted: close()
             onRejected:
             {
-                Maui.FM.removeFiles(removeDialog.urls)
+                FB.FM.removeFiles(removeDialog.urls)
                 selectionBox.clear()
                 close()
             }
@@ -291,11 +291,16 @@ Maui.ApplicationWindow
 
     Loader { id: dialogLoader }
 
+    FB.OpenWithDialog
+    {
+        id: _openWithDialog
+    }
+
     /***MODELS****/
     Maui.BaseModel
     {
         id: tagsModel
-        list: TagsList
+        list: FB.TagsListModel
         {
             id: tagsList
         }
