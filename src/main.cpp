@@ -29,6 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QDirIterator>
+#include <QDate>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
