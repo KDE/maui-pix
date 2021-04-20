@@ -19,7 +19,7 @@ Maui.ContextualMenu
     property int index : -1
     property Maui.BaseModel model : null
 
-    onOpened: isFav = FB.FM.isFav(control.model.get(index).url)
+    onOpened: isFav = FB.Tagging.isFav(control.model.get(index).url)
 
     MenuItem
     {

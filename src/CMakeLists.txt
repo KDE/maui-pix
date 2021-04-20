@@ -10,10 +10,6 @@ set(pix_SRCS
     models/gallery/gallery.cpp
     models/folders/folders.cpp
     models/tags/tagsmodel.cpp
-    models/picinfomodel.cpp
-#    utils/picinfo/exiv2extractor.cpp
-#    utils/picinfo/reversegeocoder.cpp
-#    utils/picinfo/kdtree.c
     )
 
 set(pix_HDRS
@@ -21,10 +17,6 @@ set(pix_HDRS
     models/gallery/gallery.h
     models/folders/folders.h
     models/tags/tagsmodel.h
-    models/picinfomodel.h
-#    utils/picinfo/exiv2extractor.h
-#    utils/picinfo/reversegeocoder.h
-#    utils/picinfo/kdtree.h
     )
 
 set(pix_ASSETS

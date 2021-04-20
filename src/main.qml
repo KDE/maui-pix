@@ -31,8 +31,10 @@ import QtQuick.Window 2.13
 import Qt.labs.settings 1.0
 
 import org.kde.kirigami 2.8 as Kirigami
+
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
+import org.mauikit.imagetools 1.3 as IT
 
 import org.maui.pix 1.0 as Pix
 
@@ -235,7 +237,7 @@ Maui.ApplicationWindow
     Component
     {
         id: _infoDialogComponent
-        InfoDialog {}
+        IT.ImageInfoDialog {}
     }
 
     Component
