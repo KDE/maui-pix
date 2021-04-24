@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
-#include <QQuickStyle>
+#include <MauiKit/Core/mauiandroid.h>
 #else
 #include <QApplication>
 #endif
@@ -100,8 +100,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
-    QQuickStyle::setStyle("maui-style");
-
     if (!MAUIAndroid::checkRunTimePermissions({"android.permission.WRITE_EXTERNAL_STORAGE"}))
         return -1;
 #else
