@@ -322,6 +322,16 @@ Maui.ApplicationWindow
         }
     }
 
+    Component.onCompleted:
+    {
+        if(Maui.Handy.isAndroid)
+        {
+            Maui.Android.statusbarColor(headBar.Kirigami.Theme.backgroundColor, false)
+            Maui.Android.navBarColor(headBar.visible ? headBar.Kirigami.Theme.backgroundColor : Kirigami.Theme.backgroundColor, false)
+
+        }
+    }
+
     function setPreviewSize(size)
     {
         console.log(size)
