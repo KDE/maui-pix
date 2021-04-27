@@ -52,6 +52,37 @@ StackView
                     control.pop()
                 }
             }
+
+            headBar.rightContent:  Maui.ToolButtonMenu
+            {
+                icon.name: "document-save"
+
+                MenuItem
+                {
+                    text: i18n("Save as")
+                    icon.name: "document-save-as"
+                    onTriggered:
+                    {
+                        dialogLoader.sourceComponent= fmDialogComponent
+                        dialog.mode = dialog.modes.SAVE
+                        dialog.settings.onlyDirs= false
+                        dialog.singleSelection = true
+                        dialog.callback = function(paths)
+                        {
+                            console.log("Save edit to", paths)
+                            editor.saveAs(paths[0])
+                        };
+                        dialog.open()
+                    }
+                }
+
+                MenuItem
+                {
+                    text: i18n("Save")
+                    icon.name: "document-save"
+                    onTriggered: editor.save()
+                }
+            }
         }
     }
 

@@ -248,13 +248,13 @@ gridDelegate: Item
     {
         id: _gridDelegate
         anchors.fill: parent
-        anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.tiny : Maui.Style.space.big
+        anchors.margins: !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.big
 
         fit: browserSettings.fitPreviews
         showLabel: browserSettings.showLabels
         checkable: root.selectionMode
-        template.imageBorder: !Kirigami.Settings.isMobile
-        radius: Kirigami.Settings.isMobile ? 0 : Maui.Style.radiusV
+        template.imageBorder: root.isWide
+        radius: !root.isWide  ? 0 : Maui.Style.radiusV
         isCurrentItem: parent.isCurrentItem
         checked: selectionBox.contains(model.url)
 
