@@ -254,7 +254,7 @@ gridDelegate: Item
         showLabel: browserSettings.showLabels
         checkable: root.selectionMode
         radius: !root.isWide  ? 0 : Maui.Style.radiusV
-        isCurrentItem: parent.isCurrentItem
+        isCurrentItem: parent.isCurrentItem || checked
         checked: selectionBox.contains(model.url)
 
         Drag.keys: ["text/uri-list"]
