@@ -16,6 +16,7 @@ Maui.AltBrowser
     id: control
     focus: true
     viewType: Maui.AltBrowser.ViewType.Grid
+
     property int itemSize : browserSettings.previewSize
 
     property alias list : pixList
