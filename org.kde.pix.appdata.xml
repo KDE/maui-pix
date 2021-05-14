@@ -124,12 +124,12 @@
       <caption xml:lang="zh-TW">Pix 音樂播放器</caption>
     </screenshot>
     <screenshot type="default">
-      <image type="source" width="1440" height="720">
+      <image type="source" width="720" height="1440">
           https://cdn.kde.org/screenshots/pix/pix-2.png
       </image>
     </screenshot>
     <screenshot type="default">
-      <image type="source" width="1440" height="720">
+      <image type="source" width="720" height="1440">
           https://cdn.kde.org/screenshots/pix/pix-3.png
       </image>
     </screenshot>
