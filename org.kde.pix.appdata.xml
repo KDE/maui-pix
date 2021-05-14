@@ -91,7 +91,7 @@
   <url type="donation">https://kde.org/community/donations</url>
   <screenshots>
     <screenshot type="default">
-      <image type="source" width="1440" height="720">
+      <image type="source" width="720" height="1440">
           https://cdn.kde.org/screenshots/pix/pix.png
       </image>
       <caption>The Pix music player</caption>
@@ -139,6 +139,7 @@
     <control>keyboard</control>
     <control>touch</control>
   </recommends>
+  <content_rating type="oars-1.0" />
   <categories>
     <category>Graphics</category>
   </categories>
