@@ -140,9 +140,6 @@
     <control>touch</control>
   </recommends>
   <content_rating type="oars-1.0"/>
-  <categories>
-    <category>Graphics</category>
-  </categories>
   <provides>
     <binary>pix</binary>
   </provides>
