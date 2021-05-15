@@ -139,7 +139,7 @@
     <control>keyboard</control>
     <control>touch</control>
   </recommends>
-  <content_rating type="oars-1.0" />
+  <content_rating type="oars-1.0"/>
   <categories>
     <category>Graphics</category>
   </categories>
