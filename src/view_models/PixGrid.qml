@@ -205,6 +205,7 @@ Maui.AltBrowser
         control.currentIndex = index
         _picMenu.open()
     }
+
     onToggled:
     {
         control.currentIndex = index

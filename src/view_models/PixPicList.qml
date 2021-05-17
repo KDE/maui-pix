@@ -11,42 +11,19 @@ import QtGraphicalEffects 1.0
 import org.mauikit.controls 1.0 as Maui
 import org.kde.kirigami 2.7 as Kirigami
 
-Maui.ItemDelegate
+Maui.ListBrowserDelegate
 {
     id: control
 
-    property alias checked : _template.checked
-    property alias checkable: _template.checkable
+    iconSizeHint: height * 0.9
+//    template.imageHeight: height
+//    template.imageWidth: width
 
-    property alias labelsVisible: _template.labelsVisible
-    signal toggled(int index, bool state);
+    label1.text: model.title
+    label2.text: model.url
 
-    ToolTip.delay: 1000
-    ToolTip.timeout: 5000
-    ToolTip.visible: control.hovered
-    ToolTip.text: model.url
+    label3.text:  model.format
+    label4.text:  Maui.Handy.formatDate(model.modified, "MM/dd/yyyy")
 
-    draggable: true
-
-    Maui.ListItemTemplate
-    {
-        id: _template
-        anchors.fill: parent
-        maskRadius: control.radius
-        isCurrentItem: control.isCurrentItem
-        iconSizeHint: height * 0.9
-        imageHeight: height
-        imageWidth: width
-
-        label1.text: model.title
-        label2.text: model.url
-
-        label3.text:  model.format
-        label4.text:  Maui.Handy.formatDate(model.modified, "MM/dd/yyyy")
-
-        imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
-        hovered: parent.hovered
-        onToggled: control.toggled(index, state)
-        leftMargin: iconVisible ? 0 : Maui.Style.space.medium
-    }
+    imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/img/assets/image-x-generic.svg"
 }

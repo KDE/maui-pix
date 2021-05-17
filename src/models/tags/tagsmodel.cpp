@@ -26,7 +26,7 @@ TagsModel::TagsModel(QObject *parent)
 
         item[FMH::MODEL_KEY::PREVIEW] = previews.join(",");
         this->list[index] = item;
-        this->updateModel(index, {});
+        emit this->updateModel(index, {});
     });
 }
 
