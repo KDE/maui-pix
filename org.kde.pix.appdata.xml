@@ -31,7 +31,7 @@
   <name xml:lang="uk">Пікс</name>
   <name xml:lang="x-test">xxPixxx</name>
   <name xml:lang="zh-TW">Pix</name>
-  <summary>Play your music collection</summary>
+  <summary>Image Gallery</summary>
   <summary xml:lang="ca">Reprodueix la vostra col·lecció de música</summary>
   <summary xml:lang="ca-valencia">Reprodueix la vostra col·lecció de música</summary>
   <summary xml:lang="cs">Přehrávejte svou hudební sbírku</summary>
@@ -60,7 +60,7 @@
   <summary xml:lang="x-test">xxPlay your music collectionxx</summary>
   <summary xml:lang="zh-TW">播放您的音樂集合</summary>
   <description>
-    <p> Convergent image and gallery viewer. </p>
+    <p>Pix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.</p>
     <p xml:lang="ca">Visor convergent d'imatges i galeries.</p>
     <p xml:lang="ca-valencia">Visor convergent d'imatges i galeries.</p>
     <p xml:lang="en-GB">Convergent image and gallery viewer.</p>
