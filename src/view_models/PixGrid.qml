@@ -31,6 +31,7 @@ Maui.AltBrowser
     //    selectionMode: root.selectionMode
     gridView.itemSize : control.itemSize
     gridView.itemHeight: browserSettings.showLabels ? control.itemSize * 1.5 : control.itemSize
+    gridView.cacheBuffer: control.height * 5
 
     listView.section.criteria: model.sort === "title" ?  ViewSection.FirstCharacter : ViewSection.FullString
     listView.section.property: model.sort
