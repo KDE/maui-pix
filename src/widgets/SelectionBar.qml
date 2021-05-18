@@ -27,26 +27,21 @@ Maui.SelectionBar
         clear()
     }
 
-    listDelegate: Maui.ItemDelegate
+    listDelegate: Maui.ListBrowserDelegate
     {
         Kirigami.Theme.inherit: true
         height: Maui.Style.toolBarHeight
         width: ListView.view.width
 
-        background: Item {}
+        label1.text: model.title
+        label2.text: model.url
+        imageSource: model.url
+        iconSizeHint: height * 0.9
+        checkable: true
+        checked: true
+        onToggled: control.removeAtIndex(index)
 
-        Maui.ListItemTemplate
-        {
-            id: _template
-            anchors.fill: parent
-            label1.text: model.title
-            label2.text: model.url
-            imageSource: model.url
-            iconSizeHint: height * 0.9
-            checkable: true
-            checked: true
-            onToggled: control.removeAtIndex(index)
-        }
+        background: Item {}
     }
 
     Action

@@ -16,8 +16,6 @@ Maui.ListBrowserDelegate
     id: control
 
     iconSizeHint: height * 0.9
-//    template.imageHeight: height
-//    template.imageWidth: width
 
     label1.text: model.title
     label2.text: model.url

@@ -256,7 +256,7 @@ gridDelegate: Item
         fit: browserSettings.fitPreviews
         showLabel: browserSettings.showLabels
         checkable: root.selectionMode
-        radius: !root.isWide  ? 0 : Maui.Style.radiusV
+        template.maskRadius: !root.isWide  ? 0 : Maui.Style.radiusV
         isCurrentItem: parent.isCurrentItem || checked
         checked: selectionBox.contains(model.url)
 

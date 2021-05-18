@@ -14,12 +14,11 @@ Maui.GridBrowserDelegate
 
     template.maskRadius: radius
     tooltipText: model.url
-    iconSizeHint: showLabel ? height * 0.6 : height
+    iconSizeHint: Maui.Style.iconSizes.small
 
-    template.imageHeight: height
-    template.imageWidth: height
     label1.text: model.title
 
+    iconSource: "image-x-generic"
     imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/assets/image-x-generic.svg"
     template.fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
 }
