@@ -32,59 +32,8 @@
   <name xml:lang="x-test">xxPixxx</name>
   <name xml:lang="zh-TW">Pix</name>
   <summary>Image Gallery</summary>
-  <summary xml:lang="ca">Reprodueix la vostra col·lecció de música</summary>
-  <summary xml:lang="ca-valencia">Reprodueix la vostra col·lecció de música</summary>
-  <summary xml:lang="cs">Přehrávejte svou hudební sbírku</summary>
-  <summary xml:lang="de">Wiedergabe Ihrer Musik-Sammlung</summary>
-  <summary xml:lang="en-GB">Play your music collection</summary>
-  <summary xml:lang="es">Reproduce su colección de música</summary>
-  <summary xml:lang="et">Muusikakogu esitamine</summary>
-  <summary xml:lang="fi">Soita musiikkikokoelmaasi</summary>
-  <summary xml:lang="fr">Jouez votre collection musicale</summary>
-  <summary xml:lang="gl">Reproducir a súa colección de música</summary>
-  <summary xml:lang="hi">अपना संगीत संग्रह बजाएँ</summary>
-  <summary xml:lang="hu">Játssza le zenei gyűjteményét</summary>
-  <summary xml:lang="id">Putar koleksi musikmu</summary>
-  <summary xml:lang="it">Riproduce la tua collezione musicale</summary>
-  <summary xml:lang="ko">내 음악 모음집 재생</summary>
-  <summary xml:lang="nl">Uw muziekcollectie afspelen</summary>
-  <summary xml:lang="nn">Spel av musikksamlinga di</summary>
-  <summary xml:lang="pa">ਆਪਣੇ ਸੰਗੀਤ ਭੰਡਾਰ ਨੂੰ ਸੁਣੋ</summary>
-  <summary xml:lang="pl">Odtwarza swój zbiór muzyki</summary>
-  <summary xml:lang="pt">Tocar a sua colecção de música</summary>
-  <summary xml:lang="pt-BR">Reproduza sua coleção de músicas</summary>
-  <summary xml:lang="sk">Prehrať vašu hudobnú kolekciu</summary>
-  <summary xml:lang="sl">Predvajajte svojo glasbeno zbirko</summary>
-  <summary xml:lang="sv">Spela din musiksamling</summary>
-  <summary xml:lang="uk">Відтворення вашої музичної збірки</summary>
-  <summary xml:lang="x-test">xxPlay your music collectionxx</summary>
-  <summary xml:lang="zh-TW">播放您的音樂集合</summary>
   <description>
     <p>Pix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.</p>
-    <p xml:lang="ca">Visor convergent d'imatges i galeries.</p>
-    <p xml:lang="ca-valencia">Visor convergent d'imatges i galeries.</p>
-    <p xml:lang="en-GB">Convergent image and gallery viewer.</p>
-    <p xml:lang="es">Visor convergente de imágenes y galería.</p>
-    <p xml:lang="et">Pildi- ja galeriinäitaja kombinatsioon.</p>
-    <p xml:lang="fi">Tuttavallinen kuva- ja galleriakatselin.</p>
-    <p xml:lang="fr">Images convergentes et afficheur de galerie.</p>
-    <p xml:lang="gl">Visor converxente de imaxes e galerías.</p>
-    <p xml:lang="hi">संमिलित छवि व दीर्घा प्रदर्शक.</p>
-    <p xml:lang="hu">Konvergens kép- és galériamegjelenítő.</p>
-    <p xml:lang="id">Penampil galeri dan citra yang konvergen</p>
-    <p xml:lang="it">Visualizzatore convergente di immagini e galleria.</p>
-    <p xml:lang="ko">이미지와 갤러리 통합 뷰어입니다.</p>
-    <p xml:lang="nl">Viewer voor convergente afbeeldingen en galerij.</p>
-    <p xml:lang="nn">Bilet-/gallerivising for fleire brukarflater.</p>
-    <p xml:lang="pa">ਸਾਂਝਾ ਚਿੱਤਰ ਤੇ ਗੈਲਰੀ ਦਰਸ਼ਕ ਹੈ।</p>
-    <p xml:lang="pl">Przeglądarka galerii obrazów i galerii.</p>
-    <p xml:lang="pt">Visualizador convergente de imagens e galerias.</p>
-    <p xml:lang="pt-BR">Visualizador de imagens e galeria convergente.</p>
-    <p xml:lang="sk">Konvergentný prehliadať obrázkov a galéria.</p>
-    <p xml:lang="sl">Konvergentni pregledovalnik slik in galerij.</p>
-    <p xml:lang="sv">Konvergent bild- och gallerivisning.</p>
-    <p xml:lang="uk">Зручна програма для перегляду зображень і галерей.</p>
-    <p xml:lang="x-test">xxConvergent image and gallery viewer.xx</p>
   </description>
   <url type="homepage">https://apps.kde.org/pix</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=pix</url>
