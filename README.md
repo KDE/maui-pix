@@ -4,6 +4,8 @@ Image gallery manager for Nitrux
 Pix is an image gallery manager made for Maui.
 Pix is a convergent and multiplatform app that works under Android and GNU Linux distros.
 
+<a href='https://flathub.org/apps/details/org.kde.pix'><img width='190px' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
+
 ## Build
 
 ### Dependencies
