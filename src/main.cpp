@@ -112,7 +112,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     app.setOrganizationName(QStringLiteral("Maui"));
     app.setWindowIcon(QIcon(":/assets/pix.png"));
 
-    MauiApp::instance()->setHandleAccounts(false); // for now pix can not handle cloud accounts
     MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
 
     KLocalizedString::setApplicationDomain("pix");
