@@ -34,6 +34,7 @@
   <summary>Image Gallery</summary>
   <summary xml:lang="ca">Galeria d'imatges</summary>
   <summary xml:lang="nl">Afbeeldingsgalerij</summary>
+  <summary xml:lang="pt">Galeria de Imagens</summary>
   <summary xml:lang="sv">Bildgalleri</summary>
   <summary xml:lang="uk">Галерея зображень</summary>
   <summary xml:lang="x-test">xxImage Galleryxx</summary>
@@ -41,6 +42,7 @@
     <p>Pix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.</p>
     <p xml:lang="ca">El Pix és una galeria d'imatges i un visualitzador d'imatges. El Pix es pot usar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes als fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
     <p xml:lang="nl">Pix is een afbeeldingsgalerij en afbeeldingsviewer. Pix kan gebruikt worden om afbeeldingen met andere toepassingen, zoals een afbeeldingsbewerker, te openen, tags aan de bestanden en annotaties aan afbeeldingen toe te voegen, ze te roteren en ze te delen.</p>
+    <p xml:lang="pt">O Pix é uma galeria de imagens e um visualizador das mesmas. O Pix pode ser usado para abrir imagens com outras aplicações como um editor de imagens, adicionar marcas aos ficheiros, anotações às imagens, rodá-las e partilhá-las.</p>
     <p xml:lang="sv">Pix är ett bildgalleri och bildvisare. Pix kan användas för att öppna bilder med andra program som en bildeditor, lägga till taggar i filerna och kommentarer i bilder, samt rotera och dela dem.</p>
     <p xml:lang="uk">Пікс — галерея зображень і програма для перегляду зображень. Пікс можна скористатися для відкриття зображень за допомогою інших програм, зокрема редактора зображень, додавання міток до файлів, додавання анотацій до зображень, обертання зображень та оприлюднення зображень.</p>
     <p xml:lang="x-test">xxPix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.xx</p>
