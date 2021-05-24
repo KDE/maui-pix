@@ -12,7 +12,6 @@ Maui.GridBrowserDelegate
 
     draggable: true
 
-    template.maskRadius: radius
     tooltipText: model.url
     iconSizeHint: Maui.Style.iconSizes.small
 
