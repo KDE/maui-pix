@@ -92,7 +92,7 @@ Item
             height: ListView.view.height
             width: ListView.view.width
             active : ListView.isCurrentItem
-
+            asynchronous: true
             sourceComponent: IT.ImageViewer
             {
                 source: model.url
