@@ -94,7 +94,7 @@ QVariantList Pix::sourcesModel() const
     QVariantList res;
     const auto sources = getSourcePaths();
     return std::accumulate(sources.constBegin(), sources.constEnd(), res, [](QVariantList &res, const QString &url) {
-        res << FMStatic::getDirInfo(url);
+        res << FMStatic::getFileInfo(url);
         return res;
     });
 }

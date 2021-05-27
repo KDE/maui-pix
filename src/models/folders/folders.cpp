@@ -26,7 +26,7 @@ void Folders::setFolders(const QList<QUrl> &folders)
     this->list.clear();
 
     for (const auto &folder : std::as_const(m_folders)) {
-        this->list << FMStatic::getDirInfoModel(folder);
+        this->list << FMStatic::getFileInfoModel(folder);
     }
     emit this->postListChanged();
     emit foldersChanged();
