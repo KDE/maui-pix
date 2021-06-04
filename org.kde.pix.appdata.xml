@@ -37,6 +37,7 @@
   <summary xml:lang="cs">Galerie obrázků</summary>
   <summary xml:lang="de">Bildergalerie</summary>
   <summary xml:lang="es">Galería de imágenes</summary>
+  <summary xml:lang="fr">Galerie d'images</summary>
   <summary xml:lang="it">Galleria d'immagini</summary>
   <summary xml:lang="ko">그림 갤러리</summary>
   <summary xml:lang="nl">Afbeeldingsgalerij</summary>
@@ -52,6 +53,7 @@
     <p xml:lang="ca-valencia">El Pix és una galeria d'imatges i un visualitzador d'imatges. El Pix es pot usar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes als fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
     <p xml:lang="de">Pix ist eine Bildergalerie und ein Bildbetrachter. Pix kann verwendet werden, um Bilder mit anderen Anwendungen wie einem Bildbearbeitungsprogramm zu öffnen, Stichwörter zu Dateien hinzufügen, Bilder drehen und teilen.</p>
     <p xml:lang="es">Pix es una galería de imágenes y visor de imágenes. Se puede usar Pix para abrir imágenes con otras aplicaciones como editores de imágenes, añadir etiquetas a los archivos, añadir anotaciones a las imágenes, rotarlas y compartirlas.</p>
+    <p xml:lang="fr">Pix est une galerie d'images et un afficheur d'images. Pix peut être utilisé pour ouvrir des images avec d'autres applications comme un éditeur d'images, ajouter des étiquettes aux fichiers, ajouter des annotations aux images, les faire pivoter et les partager.</p>
     <p xml:lang="it">Pix è una galleria d'immagini e un visore d'immagini. Può essere utilizzato per aprire immagini con altre applicazioni come un'editor d'immagine, per aggiungere etichette ai file o le annotazioni alle immagini, per ruotarle o per condividerle.</p>
     <p xml:lang="ko">Pix는 그림 갤러리이자 뷰어입니다. Pix는 그림 편집기 등 다른 프로그램으로 그림 열기, 파일에 태그 추가, 그림에 주석 달기, 회전, 공유 등을 지원합니다.</p>
     <p xml:lang="nl">Pix is een afbeeldingsgalerij en afbeeldingsviewer. Pix kan gebruikt worden om afbeeldingen met andere toepassingen, zoals een afbeeldingsbewerker, te openen, tags aan de bestanden en annotaties aan afbeeldingen toe te voegen, ze te roteren en ze te delen.</p>
