@@ -40,10 +40,10 @@ StackView
             title: control.currentTag
             list.urls : ["tags:///"+currentTag]
             list.recursive: false
-            holder.title: i18n("No Pics!")
+            holder.title: i18n("No Pics in %1!", currentTag)
             holder.body: i18n("There's no pics associated with the tag")
             holder.emojiSize: Maui.Style.iconSizes.huge
-            holder.emoji: "qrc:/img/assets/add-image.svg"
+            holder.emoji: "qrc:/assets/add-image.svg"
             headBar.visible: true
             headBar.farLeftContent: ToolButton
             {

@@ -39,18 +39,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #include "../pix_version.h"
-#include <MauiKit/FileBrowsing/fmstatic.h>
+
 #include <MauiKit/Core/mauiapp.h>
+#include <MauiKit/FileBrowsing/fmstatic.h>
 
 #ifdef Q_OS_MACOS
-#include "mauimacos.h"
+#include <MauiKit/Core/mauimacos.h>
 #endif
 
-#if defined Q_OS_MACOS || defined Q_OS_WIN
-#include <KF5/KI18n/KLocalizedString>
-#else
 #include <KI18n/KLocalizedString>
-#endif
 
 #include "models/folders/folders.h"
 #include "models/gallery/gallery.h"
@@ -99,9 +96,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_DisableSessionManager, true);
 
 #ifdef Q_OS_ANDROID
-
-//    QObject::connect(&app, SIGNAL(applicationStateChanged(Qt::ApplicationState)), &appui, SLOT(onApplicationStateChanged(Qt::ApplicationState)));
-
     QGuiApplication app(argc, argv);
     if (!MAUIAndroid::checkRunTimePermissions({"android.permission.WRITE_EXTERNAL_STORAGE"}))
         return -1;

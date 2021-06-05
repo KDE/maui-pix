@@ -124,6 +124,7 @@ void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &li
 
 void Gallery::scanTags(const QList<QUrl> &urls, const int &limit)
 {
+    qDebug() << "SCANNING TAGS URLS" << urls;
     FMH::MODEL_LIST res;
     for (const auto &tagUrl : urls) {
         const auto urls = Tagging::getInstance()->getTagUrls(tagUrl.toString().replace("tags:///", ""), {}, true, limit, "image");
