@@ -49,7 +49,7 @@ Maui.Page
         }
 
         itemSize: Math.min(260, Math.max(140, Math.floor(width* 0.3)))
-        itemHeight: itemSize
+        itemHeight: itemSize* 1.5
 
         holder.visible: _gridView.count === 0
         holder.emoji: i18n("qrc:/assets/add-image.svg")

@@ -59,52 +59,54 @@ StackView
                 filterCaseSensitivity: Qt.CaseInsensitive
             }
 
-            delegate: Maui.CollageItem
+            delegate: Item
             {
-                id: _delegate
-                readonly property var folderPath : [model.path]
+                height: GridView.view.cellHeight - Maui.Style.space.tiny
+                width: GridView.view.cellWidth
 
-                height: _foldersGrid.cellHeight - Maui.Style.space.tiny
-                width: _foldersGrid.cellWidth
-                isCurrentItem: GridView.isCurrentItem
-
-                images: _galleryList.files
-                template.label1.text: model.label
-                template.label3.text: Maui.Handy.formatDate(model.modified, "dd/MM/yyyy")
-//                template.iconSource: model.icon
-
-                GalleryList
+                Maui.CollageItem
                 {
-                    id: _galleryList
-                    urls: folderPath
-                    autoReload: false
-                    recursive: false
-                    limit: 4
-                }
+                    anchors.fill: parent
+                    anchors.margins : isWide ? Maui.Style.space.medium : Maui.Style.space.tiny
 
-                onClicked:
-                {
-                    _foldersGrid.currentIndex = index
+                    isCurrentItem: parent.GridView.isCurrentItem
 
-                    if(Maui.Handy.singleClick)
+                    images: _galleryList.files
+                    template.label1.text: model.label
+
+                    GalleryList
                     {
-                        control.push(picsViewComponent)
-                        picsView.title = model.label
-                        currentFolder = model.path
-                        picsView.list.urls = [currentFolder]
+                        id: _galleryList
+                        urls:  [model.path]
+                        autoReload: false
+                        recursive: false
+                        limit: 4
                     }
-                }
 
-                onDoubleClicked:
-                {
-                    _foldersGrid.currentIndex = index
-
-                    if(!Maui.Handy.singleClick)
+                    onClicked:
                     {
-                        control.push(picsViewComponent)
-                        picsView.title = model.label
-                        currentFolder = model.path
-                        picsView.list.urls = [currentFolder]
+                        _foldersGrid.currentIndex = index
+
+                        if(Maui.Handy.singleClick)
+                        {
+                            control.push(picsViewComponent)
+                            picsView.title = model.label
+                            currentFolder = model.path
+                            picsView.list.urls = [currentFolder]
+                        }
+                    }
+
+                    onDoubleClicked:
+                    {
+                        _foldersGrid.currentIndex = index
+
+                        if(!Maui.Handy.singleClick)
+                        {
+                            control.push(picsViewComponent)
+                            picsView.title = model.label
+                            currentFolder = model.path
+                            picsView.list.urls = [currentFolder]
+                        }
                     }
                 }
             }
