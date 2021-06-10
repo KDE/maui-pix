@@ -20,6 +20,9 @@ StackView
     initialItem: Maui.Page
     {
         id: _foldersPage
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorGroup: Kirigami.Theme.View
+
         flickable: _foldersGrid.flickable
 
         headBar.middleContent: Maui.TextField

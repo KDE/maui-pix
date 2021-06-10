@@ -13,6 +13,9 @@ Maui.Page
 {
     id: control
 
+    Kirigami.Theme.inherit: false
+    Kirigami.Theme.colorGroup: Kirigami.Theme.View
+
     flickable: _gridView.flickable
     headBar.visible: true
     headBar.middleContent: Maui.TextField
