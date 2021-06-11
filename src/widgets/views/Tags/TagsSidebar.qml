@@ -28,7 +28,7 @@ Maui.Page
     }
 
     headBar.rightContent: ToolButton
-    {      
+    {
         icon.name : "list-add"
         onClicked: newTagDialog.open()
     }
@@ -60,35 +60,43 @@ Maui.Page
         holder.body: i18n("You can create new tags to organize your gallery")
         holder.emojiSize: Maui.Style.iconSizes.huge
 
-        delegate: Maui.GalleryRollItem
+        delegate: Item
         {
-            id: _delegate
-            height: _gridView.cellHeight
-            width: _gridView.cellWidth
-            isCurrentItem: GridView.isCurrentItem
+            height: GridView.view.cellHeight
+            width: GridView.view.cellWidth
 
-            images: model.preview.split(",")
-
-            label1.text: model.tag
-            iconSource: model.icon
-            template.iconVisible: width > 150
-            template.iconSizeHint: Maui.Style.iconSizes.medium
-
-            onClicked:
+            Maui.GalleryRollItem
             {
-                _gridView.currentIndex = index
-                if(Maui.Handy.singleClick)
+                id: _delegate
+                anchors.fill: parent
+                anchors.margins: Maui.Style.space.medium
+                isCurrentItem: parent.GridView.isCurrentItem
+
+                images: model.preview.split(",")
+
+                label1.text: model.tag
+                label1.font.bold: true
+                label1.font.weight: Font.Bold
+                iconSource: model.icon
+                template.iconVisible: width > 150
+                template.iconSizeHint: Maui.Style.iconSizes.medium
+
+                onClicked:
                 {
-                    populateGrid(model.tag)
+                    _gridView.currentIndex = index
+                    if(Maui.Handy.singleClick)
+                    {
+                        populateGrid(model.tag)
+                    }
                 }
-            }
 
-            onDoubleClicked:
-            {
-                _gridView.currentIndex = index
-                if(!Maui.Handy.singleClick)
+                onDoubleClicked:
                 {
-                    populateGrid(model.tag)
+                    _gridView.currentIndex = index
+                    if(!Maui.Handy.singleClick)
+                    {
+                        populateGrid(model.tag)
+                    }
                 }
             }
         }

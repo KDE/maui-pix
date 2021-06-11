@@ -243,21 +243,22 @@ Maui.AltBrowser
 
 gridDelegate: Item
 {
-    height: control.gridView.cellHeight
-    width: control.gridView.cellWidth
-    property bool isCurrentItem: GridView.isCurrentItem
+    height: GridView.view.cellHeight
+    width: GridView.view.cellWidth
 
     PixPic
     {
         id: _gridDelegate
+
         anchors.fill: parent
-        anchors.margins: !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.big
+        anchors.margins: !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.medium
 
         fit: browserSettings.fitPreviews
         showLabel: browserSettings.showLabels
         checkable: root.selectionMode
         template.maskRadius: !root.isWide  ? 0 : Maui.Style.radiusV
-        isCurrentItem: parent.isCurrentItem || checked
+
+        isCurrentItem: parent.GridView.isCurrentItem || checked
         checked: selectionBox.contains(model.url)
 
         Drag.keys: ["text/uri-list"]
