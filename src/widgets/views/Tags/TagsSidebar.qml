@@ -51,8 +51,8 @@ Maui.Page
             }
         }
 
-        itemSize: Math.min(260, Math.max(140, Math.floor(width* 0.3)))
-        itemHeight: itemSize* 1.5
+        itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
+        itemHeight: itemSize + Maui.Style.rowHeight
 
         holder.visible: _gridView.count === 0
         holder.emoji: i18n("qrc:/assets/add-image.svg")
@@ -67,9 +67,11 @@ Maui.Page
 
             Maui.GalleryRollItem
             {
-                id: _delegate
-                anchors.fill: parent
-                anchors.margins: Maui.Style.space.medium
+                width: _gridView.itemSize - Maui.Style.space.medium
+                height: _gridView.itemHeight  - Maui.Style.space.medium
+
+                anchors.centerIn: parent
+
                 isCurrentItem: parent.GridView.isCurrentItem
 
                 images: model.preview.split(",")
@@ -77,9 +79,8 @@ Maui.Page
                 label1.text: model.tag
                 label1.font.bold: true
                 label1.font.weight: Font.Bold
+
                 iconSource: model.icon
-                template.iconVisible: width > 150
-                template.iconSizeHint: Maui.Style.iconSizes.medium
 
                 onClicked:
                 {

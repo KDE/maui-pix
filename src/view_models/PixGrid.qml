@@ -250,8 +250,10 @@ gridDelegate: Item
     {
         id: _gridDelegate
 
-        anchors.fill: parent
-        anchors.margins: !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.medium
+        width: control.gridView.itemSize - ( !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.medium)
+        height:control.gridView.itemHeight  - ( !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.medium)
+
+        anchors.centerIn: parent
 
         fit: browserSettings.fitPreviews
         showLabel: browserSettings.showLabels

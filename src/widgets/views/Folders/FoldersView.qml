@@ -69,8 +69,10 @@ StackView
 
                 Maui.CollageItem
                 {
-                    anchors.fill: parent
-                    anchors.margins : isWide ? Maui.Style.space.medium : Maui.Style.space.tiny
+                    width: _foldersGrid.itemSize - Maui.Style.space.medium
+                    height: _foldersGrid.itemHeight  - Maui.Style.space.medium
+
+                    anchors.centerIn: parent
 
                     isCurrentItem: parent.GridView.isCurrentItem
 
