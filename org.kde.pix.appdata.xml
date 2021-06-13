@@ -36,6 +36,7 @@
   <summary xml:lang="ca-valencia">Galeria d'imatges</summary>
   <summary xml:lang="cs">Galerie obrázků</summary>
   <summary xml:lang="de">Bildergalerie</summary>
+  <summary xml:lang="en-GB">Image Gallery</summary>
   <summary xml:lang="es">Galería de imágenes</summary>
   <summary xml:lang="fr">Galerie d'images</summary>
   <summary xml:lang="it">Galleria d'immagini</summary>
@@ -52,6 +53,7 @@
     <p xml:lang="ca">El Pix és una galeria d'imatges i un visualitzador d'imatges. El Pix es pot usar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes als fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
     <p xml:lang="ca-valencia">El Pix és una galeria d'imatges i un visualitzador d'imatges. El Pix es pot usar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes als fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
     <p xml:lang="de">Pix ist eine Bildergalerie und ein Bildbetrachter. Pix kann verwendet werden, um Bilder mit anderen Anwendungen wie einem Bildbearbeitungsprogramm zu öffnen, Stichwörter zu Dateien hinzufügen, Bilder drehen und teilen.</p>
+    <p xml:lang="en-GB">Pix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.</p>
     <p xml:lang="es">Pix es una galería de imágenes y visor de imágenes. Se puede usar Pix para abrir imágenes con otras aplicaciones como editores de imágenes, añadir etiquetas a los archivos, añadir anotaciones a las imágenes, rotarlas y compartirlas.</p>
     <p xml:lang="fr">Pix est une galerie d'images et un afficheur d'images. Pix peut être utilisé pour ouvrir des images avec d'autres applications comme un éditeur d'images, ajouter des étiquettes aux fichiers, ajouter des annotations aux images, les faire pivoter et les partager.</p>
     <p xml:lang="it">Pix è una galleria d'immagini e un visore d'immagini. Può essere utilizzato per aprire immagini con altre applicazioni come un'editor d'immagine, per aggiungere etichette ai file o le annotazioni alle immagini, per ruotarle o per condividerle.</p>
