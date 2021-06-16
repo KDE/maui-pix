@@ -48,7 +48,7 @@ ScrollView
             height: rollList.height
             width: height
 
-            showLabel: false
+            labelsVisible: false
             fit: false
             checkable: false
             isCurrentItem: ListView.isCurrentItem

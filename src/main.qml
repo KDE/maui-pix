@@ -64,10 +64,10 @@ Maui.ApplicationWindow
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     property bool selectionMode : false
 
-    readonly property var previewSizes: ({small: 100,
-                                             medium: 120,
-                                             large: 160,
-                                             extralarge: 220})
+    readonly property var previewSizes: ({small: 72,
+                                             medium: 90,
+                                             large: 120,
+                                             extralarge: 160})
     Settings
     {
         id: browserSettings

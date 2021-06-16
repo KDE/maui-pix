@@ -256,9 +256,9 @@ gridDelegate: Item
         anchors.centerIn: parent
 
         fit: browserSettings.fitPreviews
-        showLabel: browserSettings.showLabels
+        labelsVisible: browserSettings.showLabels
         checkable: root.selectionMode
-        template.maskRadius: !root.isWide  ? 0 : Maui.Style.radiusV
+        maskRadius: !root.isWide  ? 0 : Maui.Style.radiusV
 
         isCurrentItem: parent.GridView.isCurrentItem || checked
         checked: selectionBox.contains(model.url)

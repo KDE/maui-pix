@@ -77,7 +77,9 @@ StackView
                     isCurrentItem: parent.GridView.isCurrentItem
 
                     images: _galleryList.files
-                    template.label1.text: model.label
+                    label1.text: model.label
+                    label1.font.bold: true
+                    label1.font.weight: Font.Bold
 
                     GalleryList
                     {

@@ -85,8 +85,8 @@ Maui.ContextualMenu
 
     MenuItem
     {
-        text: i18n("Open with")
-        icon.name: "quickopen"
+        text: i18n("Open With")
+        icon.name: "document-open"
         onTriggered:
         {
             _openWithDialog.urls = filterSelection(control.model.get(index).url)
