@@ -17,7 +17,9 @@ Maui.Page
     Kirigami.Theme.colorGroup: Kirigami.Theme.View
 
     flickable: _gridView.flickable
+
     headBar.visible: true
+    headBar.forceCenterMiddleContent: false
     headBar.middleContent: Maui.TextField
     {
         Layout.fillWidth: true
