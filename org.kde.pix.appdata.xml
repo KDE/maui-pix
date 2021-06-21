@@ -45,6 +45,7 @@
   <summary xml:lang="nl">Afbeeldingsgalerij</summary>
   <summary xml:lang="pl">Galeria obrazów</summary>
   <summary xml:lang="pt">Galeria de Imagens</summary>
+  <summary xml:lang="pt-BR">Galeria de imagens</summary>
   <summary xml:lang="sl">Galerija slik</summary>
   <summary xml:lang="sv">Bildgalleri</summary>
   <summary xml:lang="uk">Галерея зображень</summary>
@@ -62,6 +63,7 @@
     <p xml:lang="ko">Pix는 그림 갤러리이자 뷰어입니다. Pix는 그림 편집기 등 다른 프로그램으로 그림 열기, 파일에 태그 추가, 그림에 주석 달기, 회전, 공유 등을 지원합니다.</p>
     <p xml:lang="nl">Pix is een afbeeldingsgalerij en afbeeldingsviewer. Pix kan gebruikt worden om afbeeldingen met andere toepassingen, zoals een afbeeldingsbewerker, te openen, tags aan de bestanden en annotaties aan afbeeldingen toe te voegen, ze te roteren en ze te delen.</p>
     <p xml:lang="pt">O Pix é uma galeria de imagens e um visualizador das mesmas. O Pix pode ser usado para abrir imagens com outras aplicações como um editor de imagens, adicionar marcas aos ficheiros, anotações às imagens, rodá-las e partilhá-las.</p>
+    <p xml:lang="pt-BR">O Pix é uma galeria e um visualizador de imagens. O Pix pode ser usado para abrir imagens por meio de outros aplicativos como um editor de imagens, adicionar tags aos seus arquivos, inserir anotações, rotacionar e compartilhar suas imagens.</p>
     <p xml:lang="sl">Pix je galerija slik in pregledovalnik slik. Pix lahko uporabite za odpiranje slik z drugimi aplikacijami kot npr. z urejevalniki slik, lahko dodajate oznake datotek, napise k slikam, jih lahko zavrtite in delite z drugimi.</p>
     <p xml:lang="sv">Pix är ett bildgalleri och bildvisare. Pix kan användas för att öppna bilder med andra program som en bildeditor, lägga till taggar i filerna och kommentarer i bilder, samt rotera och dela dem.</p>
     <p xml:lang="uk">Пікс — галерея зображень і програма для перегляду зображень. Пікс можна скористатися для відкриття зображень за допомогою інших програм, зокрема редактора зображень, додавання міток до файлів, додавання анотацій до зображень, обертання зображень та оприлюднення зображень.</p>
