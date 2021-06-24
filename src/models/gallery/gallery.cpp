@@ -5,6 +5,7 @@
 #include <MauiKit/FileBrowsing/fileloader.h>
 #include <MauiKit/FileBrowsing/fmstatic.h>
 #include <MauiKit/FileBrowsing/tagging.h>
+#include <MauiKit/ImageTools/cities.h>
 
 static FMH::MODEL picInfo(const QUrl &url)
 {
@@ -52,6 +53,12 @@ Gallery::Gallery(QObject *parent)
     connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
         qDebug() << "Dir changed" << dir;
         this->rescan();
+    });
+
+    auto cities = Cities::instance ();
+    connect(cities, &Cities::citiesReady, []()
+    {
+        qDebug() << "Cities Ready!";
     });
 }
 

@@ -32,16 +32,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <MauiKit/FileBrowsing/tagging.h>
 #include <MauiKit/FileBrowsing/fmstatic.h>
 
-#include <MauiKit/ImageTools/Cities.h>
-
 Pix::Pix(QObject *parent)
     : QObject(parent)
 {
-  auto cities = Cities::instance ();
-  connect(cities, &Cities::citiesReady, []()
-  {
-      qDebug() << "Cities Ready!";
-    });
 }
 
 const static QStringList findCameraCollection()
