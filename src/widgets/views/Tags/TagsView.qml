@@ -19,7 +19,6 @@ import "../../../view_models"
 StackView
 {
     id: control
-    clip: true
 
     property string currentTag : ""
     property Flickable flickable : currentItem.flickable

@@ -14,7 +14,6 @@ import "../widgets"
 Maui.AltBrowser
 {
     id: control
-    focus: true
     viewType: Maui.AltBrowser.ViewType.Grid
 
     property int itemSize : browserSettings.previewSize
@@ -32,7 +31,7 @@ Maui.AltBrowser
     gridView.itemSize : control.itemSize
     gridView.itemHeight: browserSettings.showLabels ? control.itemSize * 1.5 : control.itemSize
     gridView.cacheBuffer: control.height * 5
-
+//    floatingHeader: true
     listView.section.criteria: model.sort === "title" ?  ViewSection.FirstCharacter : ViewSection.FullString
     listView.section.property: model.sort
     listView.section.delegate: Maui.ListItemTemplate
