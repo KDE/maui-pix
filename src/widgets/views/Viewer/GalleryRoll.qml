@@ -58,8 +58,8 @@ ScrollView
                 picClicked(index)
             }
 
-            onPressAndHold: _picMenu.open()
-            onRightClicked: _picMenu.open()
+            onPressAndHold: _picMenu.show()
+            onRightClicked: _picMenu.show()
         }
     }
 

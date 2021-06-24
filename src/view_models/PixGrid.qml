@@ -199,13 +199,13 @@ Maui.AltBrowser
     onPressAndHold:
     {
         control.currentIndex = index
-        _picMenu.open()
+        _picMenu.show()
     }
 
     onRightClicked:
     {
         control.currentIndex = index
-        _picMenu.open()
+        _picMenu.show()
     }
 
     onToggled:
@@ -291,13 +291,13 @@ gridDelegate: Item
         onPressAndHold:
         {
             control.currentIndex = index
-            _picMenu.open()
+            _picMenu.show()
         }
 
         onRightClicked:
         {
             control.currentIndex = index
-            _picMenu.open()
+            _picMenu.show()
         }
 
         onToggled:
