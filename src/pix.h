@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QString>
 #include <QUrl>
 #include <QVariantList>
-#include <MauiKit/ImageTools/Cities.h>
+
 
 using namespace std;
 
@@ -55,7 +55,6 @@ public:
     inline static const QStringList getSourcePaths();
     inline static void saveSourcePath(QStringList const &paths);
     inline static void removeSourcePath(const QString &path);
-    static Cities cities;
 
 public slots:
     QVariantList sourcesModel() const;
