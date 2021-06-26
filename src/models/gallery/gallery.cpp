@@ -13,7 +13,7 @@ static FMH::MODEL picInfo(const QUrl &url)
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
                       {FMH::MODEL_KEY::TITLE, info.baseName()},
                       {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-                      {FMH::MODEL_KEY::SOURCE, FMStatic::fileDir(url)},
+                      {FMH::MODEL_KEY::SOURCE, FMStatic::fileDir(url).toString ()},
                       {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
                       {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
                       {FMH::MODEL_KEY::FORMAT, info.suffix()}};
@@ -31,7 +31,7 @@ Gallery::Gallery(QObject *parent)
     m_fileLoader->setBatchCount(4000);
     connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
         Q_UNUSED(items)
-        
+
         emit this->filesChanged();
     });
 
