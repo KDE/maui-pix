@@ -13,14 +13,13 @@ static FMH::MODEL picInfo(const QUrl &url)
     const Exiv2Extractor exiv2(url);
 
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
-                      {FMH::MODEL_KEY::TITLE, info.baseName()},
-                      {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-                      {FMH::MODEL_KEY::SOURCE, FMStatic::fileDir(url).toString ()},
-                      {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
+        {FMH::MODEL_KEY::TITLE, info.baseName()},
+        {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+        {FMH::MODEL_KEY::SOURCE, FMStatic::fileDir(url).toString ()},
+        {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
         {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
         {FMH::MODEL_KEY::CITY, exiv2.cityId()},
-        {FMH::MODEL_KEY::LATITUDE, info.lastModified().toString(Qt::TextDate)},
-                      {FMH::MODEL_KEY::FORMAT, info.suffix()}};
+        {FMH::MODEL_KEY::FORMAT, info.suffix()}};
 }
 
 Gallery::Gallery(QObject *parent)
@@ -51,8 +50,9 @@ Gallery::Gallery(QObject *parent)
     });
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
-      this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
-      this->insertCity(item[FMH::MODEL_KEY::CITY]);
+        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
+
+        this->insertCity(item[FMH::MODEL_KEY::CITY]);
     });
 
     connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
@@ -155,15 +155,17 @@ void Gallery::insertFolder(const QUrl &path)
         }
 
         emit foldersChanged();
-      }
+    }
 }
 
 void Gallery::insertCity(const QString & cityId)
 {
-  if (!m_cities.contains(cityId) && !cityId.isEmpty ()) {
-      m_cities << cityId;
+    if (!m_cities.contains(cityId) && !cityId.isEmpty ()) {
 
-      emit citiesChanged ();
+        qDebug() << "FOUND CITY <<" << cityId;
+        m_cities << cityId;
+
+        emit citiesChanged ();
     }
 }
 
@@ -256,13 +258,13 @@ void Gallery::setlimit(int limit)
 int Gallery::indexOfName(const QString &query)
 {
     const auto it = std::find_if(this->items().constBegin(), this->items().constEnd(), [&](const FMH::MODEL &item) -> bool {
-            return item[FMH::MODEL_KEY::TITLE].startsWith(query, Qt::CaseInsensitive);
-        });
+        return item[FMH::MODEL_KEY::TITLE].startsWith(query, Qt::CaseInsensitive);
+    });
 
-        if (it != this->items().constEnd())
-            return (std::distance(this->items().constBegin(), it));
-        else
-            return -1;
+    if (it != this->items().constEnd())
+        return (std::distance(this->items().constBegin(), it));
+    else
+        return -1;
 }
 
 void Gallery::componentComplete()
@@ -273,5 +275,5 @@ void Gallery::componentComplete()
 
 const QStringList &Gallery::cities() const
 {
-  return m_cities;
+    return m_cities;
 }

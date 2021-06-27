@@ -5,6 +5,7 @@
 
 
 import QtQuick.Controls 2.10
+import QtQuick.Layouts 1.12
 import QtQuick 2.10
 
 import org.maui.pix 1.0 as Pix
@@ -26,36 +27,58 @@ PixGrid
     holder.emojiSize: Maui.Style.iconSizes.huge
 
 
-    footerColumn: Maui.ListBrowser
+    footerColumn: RowLayout
     {
-       width: parent.width
-        orientation: Qt.Horizontal
-        implicitHeight: 100
+        width: parent.width
+        height: 80
+        spacing: Maui.Style.space.medium
 
-        model: Maui.BaseModel
+        ToolButton
         {
-            list: Pix.CitiesList
+            Layout.margins: Maui.Style.space.medium
+            visible: _geoFilterList.currentIndex >= 0
+            icon.name: "go-previous"
+            onClicked:
             {
-                cities: _galleryView.list.cities
+                _geoFilterList.currentIndex = -1
+                _galleryView.filterCity("")
             }
         }
 
-        delegate: Item
+        Maui.ListBrowser
         {
-            height: 64
-            width: 140
+            id:  _geoFilterList
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            orientation: Qt.Horizontal
 
-            Maui.ListBrowserDelegate
+            model: Maui.BaseModel
             {
-                anchors.fill: parent
-                anchors.margins: Maui.Style.space.medium
-                iconSource: "mark-location"
-                label1.text: model.name
-                label2.text: model.country
-
-                onClicked:
+                list: Pix.CitiesList
                 {
-                    _galleryView.filterCity(model.id)
+                    cities: _galleryView.list.cities
+                }
+            }
+
+            delegate: Item
+            {
+                height: 60
+                width: 160
+
+                Maui.ListBrowserDelegate
+                {
+                    isCurrentItem: parent.ListView.isCurrentItem
+                    anchors.fill: parent
+                    anchors.margins: Maui.Style.space.medium
+                    iconSource: "mark-location"
+                    label1.text: model.name
+                    label2.text: model.country
+                    iconVisible: true
+                    onClicked:
+                    {
+                        onClicked: _geoFilterList.currentIndex = index
+                        _galleryView.filterCity(model.id)
+                    }
                 }
             }
         }
