@@ -24,7 +24,7 @@ Maui.ContextualMenu
     Maui.FileListingDialog
     {
         id: removeDialog
-
+        parent: control.parent
         urls: filterSelection(control.model.get(index).url)
         title: i18n("Delete file?")
         acceptButton.text: i18n("Accept")
@@ -34,7 +34,7 @@ Maui.ContextualMenu
         onRejected: close()
         onAccepted:
         {
-            control.model.list.deleteAt(control.index)
+            control.model.list.deleteAt(model.mappedToSource(control.index))
             close()
         }
     }
@@ -144,6 +144,5 @@ Maui.ContextualMenu
         {
             removeDialog.open()
         }
-
     }
 }

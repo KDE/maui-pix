@@ -52,6 +52,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "models/folders/folders.h"
 #include "models/gallery/gallery.h"
 #include "models/tags/tagsmodel.h"
+#include "models/cities/citiesmodel.h"
+
 #include "pix.h"
 
 #define PIX_URI "org.maui.pix"
@@ -141,6 +143,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     qmlRegisterType<Gallery>(PIX_URI, 1, 0, "GalleryList");
     qmlRegisterType<Folders>(PIX_URI, 1, 0, "FoldersList");
+    qmlRegisterType<CitiesModel>(PIX_URI, 1, 0, "CitiesList");
     qmlRegisterType<TagsModel>(PIX_URI, 1, 0, "TagsList");
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

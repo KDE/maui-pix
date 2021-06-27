@@ -10,6 +10,7 @@ set(pix_SRCS
     models/gallery/gallery.cpp
     models/folders/folders.cpp
     models/tags/tagsmodel.cpp
+    models/cities/citiesmodel.cpp
     )
 
 set(pix_HDRS
@@ -17,6 +18,7 @@ set(pix_HDRS
     models/gallery/gallery.h
     models/folders/folders.h
     models/tags/tagsmodel.h
+    models/cities/citiesmodel.h
     )
 
 set(pix_ASSETS
@@ -43,11 +45,10 @@ if(UNIX AND NOT APPLE AND NOT ANDROID)
         KF5::KIOCore
         KF5::KIOFileWidgets
         )
-
 endif()
 
 target_compile_definitions(pix
-  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
 target_link_libraries(pix MauiKit MauiKit::FileBrowsing MauiKit::ImageTools Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Concurrent Qt5::QuickControls2 Qt5::Positioning KF5::I18n)
 

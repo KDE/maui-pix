@@ -19,6 +19,7 @@ Maui.AltBrowser
     property int itemSize : browserSettings.previewSize
 
     property alias list : pixList
+    property alias listModel : pixModel
     property alias menu : _picMenu
     property alias count: pixList.count
 
@@ -108,7 +109,7 @@ Maui.AltBrowser
             const index = pixList.indexOfName(typingQuery)
             if(index > -1)
             {
-                control.currentIndex = index
+                control.currentIndex = pixModel.mappedFromSource(index)
             }
 
             typingQuery = ""

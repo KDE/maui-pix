@@ -13,7 +13,7 @@ TagsModel::TagsModel(QObject *parent)
     });
 
     connect(Tagging::getInstance(), &Tagging::urlTagged, [this](QString url, QString tag) {
-        const auto index = this->mappedIndex(this->indexOf(FMH::MODEL_KEY::TAG, tag));
+        const auto index = (this->indexOf(FMH::MODEL_KEY::TAG, tag));
         auto item = this->list[index];
         auto previews = item[FMH::MODEL_KEY::PREVIEW].split(",", Qt::SkipEmptyParts);
 

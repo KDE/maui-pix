@@ -5,17 +5,21 @@
 #include <MauiKit/FileBrowsing/fileloader.h>
 #include <MauiKit/FileBrowsing/fmstatic.h>
 #include <MauiKit/FileBrowsing/tagging.h>
-#include <MauiKit/ImageTools/cities.h>
+#include <MauiKit/ImageTools/exiv2extractor.h>
 
 static FMH::MODEL picInfo(const QUrl &url)
 {
     const QFileInfo info(url.toLocalFile());
+    const Exiv2Extractor exiv2(url);
+
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
                       {FMH::MODEL_KEY::TITLE, info.baseName()},
                       {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
                       {FMH::MODEL_KEY::SOURCE, FMStatic::fileDir(url).toString ()},
                       {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
-                      {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+        {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+        {FMH::MODEL_KEY::CITY, exiv2.cityId()},
+        {FMH::MODEL_KEY::LATITUDE, info.lastModified().toString(Qt::TextDate)},
                       {FMH::MODEL_KEY::FORMAT, info.suffix()}};
 }
 
@@ -28,7 +32,7 @@ Gallery::Gallery(QObject *parent)
 {
     qDebug() << "CREATING GALLERY LIST";
     m_fileLoader->informer = &picInfo;
-    m_fileLoader->setBatchCount(4000);
+    m_fileLoader->setBatchCount(200);
     connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
         Q_UNUSED(items)
 
@@ -47,18 +51,13 @@ Gallery::Gallery(QObject *parent)
     });
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
-        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
+      this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
+      this->insertCity(item[FMH::MODEL_KEY::CITY]);
     });
 
     connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
         qDebug() << "Dir changed" << dir;
         this->rescan();
-    });
-
-    auto cities = Cities::instance ();
-    connect(cities, &Cities::citiesReady, []()
-    {
-        qDebug() << "Cities Ready!";
     });
 }
 
@@ -156,6 +155,15 @@ void Gallery::insertFolder(const QUrl &path)
         }
 
         emit foldersChanged();
+      }
+}
+
+void Gallery::insertCity(const QString & cityId)
+{
+  if (!m_cities.contains(cityId) && !cityId.isEmpty ()) {
+      m_cities << cityId;
+
+      emit citiesChanged ();
     }
 }
 
@@ -171,13 +179,6 @@ QList<QUrl> Gallery::extractTags(const QList<QUrl> &urls)
     });
 }
 
-QVariantMap Gallery::get(const int &index) const
-{
-    if (index >= this->list.size() || index < 0)
-        return QVariantMap();
-    return FMH::toMap(this->list.at(this->mappedIndex(index)));
-}
-
 bool Gallery::remove(const int &index)
 {
     Q_UNUSED(index)
@@ -189,7 +190,7 @@ bool Gallery::deleteAt(const int &index)
     if (index >= this->list.size() || index < 0)
         return false;
 
-    const auto index_ = this->mappedIndex(index);
+    const auto index_ = index;
 
     emit this->preItemRemoved(index_);
     auto item = this->list.takeAt(index_);
@@ -259,7 +260,7 @@ int Gallery::indexOfName(const QString &query)
         });
 
         if (it != this->items().constEnd())
-            return this->mappedIndexFromSource(std::distance(this->items().constBegin(), it));
+            return (std::distance(this->items().constBegin(), it));
         else
             return -1;
 }
@@ -268,4 +269,9 @@ void Gallery::componentComplete()
 {
     connect(this, &Gallery::urlsChanged, this, &Gallery::rescan);
     this->reload();
+}
+
+const QStringList &Gallery::cities() const
+{
+  return m_cities;
 }

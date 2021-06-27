@@ -16,18 +16,21 @@ public:
     const FMH::MODEL_LIST &items() const override final;
     void setFolders(const QList<QUrl> &folders);
     QList<QUrl> folders() const;
+    void componentComplete() override final;
 
 private:
     FMH::MODEL_LIST list;
     QList<QUrl> m_folders;
     void packPreviewImages(FMH::MODEL &folder);
 
+    void setList();
+
 public slots:
-    QVariantMap get(const int &index) const;
     void refresh();
 
 signals:
     void foldersChanged();
+
 };
 
 #endif // ALBUMS_H

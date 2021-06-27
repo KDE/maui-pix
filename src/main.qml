@@ -142,7 +142,6 @@ Maui.ApplicationWindow
                 Maui.AppView.iconName: "image-multiple"
             }
 
-
             Maui.AppViewLoader
             {
                 Maui.AppView.title: i18n("Tags")

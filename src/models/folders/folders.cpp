@@ -22,13 +22,6 @@ void Folders::setFolders(const QList<QUrl> &folders)
 
     m_folders = folders;
 
-    emit this->preListChanged();
-    this->list.clear();
-
-    for (const auto &folder : std::as_const(m_folders)) {
-        this->list << FMStatic::getFileInfoModel(folder);
-    }
-    emit this->postListChanged();
     emit foldersChanged();
 }
 
@@ -37,14 +30,27 @@ QList<QUrl> Folders::folders() const
     return m_folders;
 }
 
-QVariantMap Folders::get(const int &index) const
-{
-    if (index >= this->list.size() || index < 0)
-        return QVariantMap();
-    return FMH::toMap(this->list.at(this->mappedIndex(index)));
-}
-
 void Folders::refresh()
 {
     this->setFolders(m_folders);
 }
+
+void Folders::componentComplete()
+{
+  connect (this, &Folders::foldersChanged, this, &Folders::setList);
+  setList();
+}
+
+void Folders::setList()
+{
+
+  emit this->preListChanged();
+  this->list.clear();
+
+  for (const auto &folder : std::as_const(m_folders)) {
+      this->list << FMStatic::getFileInfoModel(folder);
+  }
+  emit this->postListChanged();
+}
+
+

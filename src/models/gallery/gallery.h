@@ -2,7 +2,7 @@
 #define GALLERY_H
 
 #include <QObject>
-
+#include <QStringList>
 #include <MauiKit/Core/fmh.h>
 #include <MauiKit/Core/mauilist.h>
 
@@ -10,91 +10,97 @@
 
 namespace FMH
 {
-class FileLoader;
+  class FileLoader;
 }
 
 class QFileSystemWatcher;
 
 class Gallery : public MauiList
 {
-    Q_OBJECT
-    Q_PROPERTY(QList<QUrl> urls READ urls WRITE setUrls NOTIFY urlsChanged)
-    Q_PROPERTY(QList<QUrl> folders READ folders NOTIFY foldersChanged FINAL)
-    Q_PROPERTY(bool recursive READ recursive WRITE setRecursive NOTIFY recursiveChanged)
-    Q_PROPERTY(bool autoReload READ autoReload WRITE setAutoReload NOTIFY autoReloadChanged)
-    Q_PROPERTY(int limit READ limit WRITE setlimit NOTIFY limitChanged)
-    Q_PROPERTY(QStringList files READ files NOTIFY filesChanged FINAL)
+  Q_OBJECT
+  Q_PROPERTY(QList<QUrl> urls READ urls WRITE setUrls NOTIFY urlsChanged)
+  Q_PROPERTY(QList<QUrl> folders READ folders NOTIFY foldersChanged FINAL)
+  Q_PROPERTY(QStringList cities READ cities NOTIFY citiesChanged FINAL)
+  Q_PROPERTY(bool recursive READ recursive WRITE setRecursive NOTIFY recursiveChanged)
+  Q_PROPERTY(bool autoReload READ autoReload WRITE setAutoReload NOTIFY autoReloadChanged)
+  Q_PROPERTY(int limit READ limit WRITE setlimit NOTIFY limitChanged)
+  Q_PROPERTY(QStringList files READ files NOTIFY filesChanged FINAL)
 
 public:
-    explicit Gallery(QObject *parent = nullptr);
-    ~Gallery();
+  explicit Gallery(QObject * = nullptr);
+  ~Gallery();
 
-    void componentComplete() override;
+  void componentComplete() override;
 
-    const FMH::MODEL_LIST &items() const override final;
+  const FMH::MODEL_LIST &items() const override final;
 
-    void setUrls(const QList<QUrl> &urls);
-    QList<QUrl> urls() const;
+  void setUrls(const QList<QUrl> &);
+  QList<QUrl> urls() const;
 
-    void setAutoReload(const bool &value);
-    bool autoReload() const;
+  void setAutoReload(const bool &);
+  bool autoReload() const;
 
-    QList<QUrl> folders() const;
+  QList<QUrl> folders() const;
 
-    bool recursive() const;
+  bool recursive() const;
 
-    int limit() const;
+  int limit() const;
 
-    QStringList files() const;
+  QStringList files() const;
+
+  const QStringList &cities() const;
 
 private:
-    FMH::FileLoader *m_fileLoader;
-    QFileSystemWatcher *m_watcher;
+  FMH::FileLoader *m_fileLoader;
+  QFileSystemWatcher *m_watcher;
 
-    QList<QUrl> m_urls;
-    QList<QUrl> m_folders;
-    bool m_autoReload;
+  QList<QUrl> m_urls;
+  QStringList m_cities;
+  QList<QUrl> m_folders;
 
-    FMH::MODEL_LIST list = {};
+  bool m_autoReload;
 
-    void scan(const QList<QUrl> &urls, const bool &recursive = true, const int &limit = PIX_QUERY_MAX_LIMIT);
-    void scanTags(const QList<QUrl> &urls, const int &limit = PIX_QUERY_MAX_LIMIT);
+  FMH::MODEL_LIST list = {};
 
-    void insert(const FMH::MODEL_LIST &items);
+  void scan(const QList<QUrl> &, const bool & = true, const int & = PIX_QUERY_MAX_LIMIT);
+  void scanTags(const QList<QUrl> &, const int & = PIX_QUERY_MAX_LIMIT);
 
-    void insertFolder(const QUrl &path);
+  void insert(const FMH::MODEL_LIST &);
 
-    bool m_recursive;
+  void insertFolder(const QUrl &);
+  void insertCity(const QString &);
 
-    int m_limit = PIX_QUERY_MAX_LIMIT;
-    QList<QUrl> extractTags(const QList<QUrl> &urls);
+  bool m_recursive;
+
+  int m_limit = PIX_QUERY_MAX_LIMIT;
+  QList<QUrl> extractTags(const QList<QUrl> &);
 
 signals:
-    void urlsChanged();
-    void foldersChanged();
-    void autoReloadChanged();
-    void recursiveChanged(bool recursive);
+  void urlsChanged();
+  void foldersChanged();
+  void autoReloadChanged();
+  void recursiveChanged(bool recursive);
 
-    void limitChanged(int limit);
+  void limitChanged(int limit);
 
-    void filesChanged();
+  void filesChanged();
+
+  void citiesChanged();
 
 public slots:
-    QVariantMap get(const int &index) const;
+  bool remove(const int &);
+  bool deleteAt(const int &);
 
-    bool remove(const int &index);
-    bool deleteAt(const int &index);
+  void append(const QVariantMap &);
+  void append(const QString &);
 
-    void append(const QVariantMap &pic);
-    void append(const QString &url);
+  void clear();
+  void rescan();
+  void reload();
 
-    void clear();
-    void rescan();
-    void reload();
+  void setRecursive(bool);
+  void setlimit(int);
 
-    void setRecursive(bool recursive);
-    void setlimit(int limit);
-
-    int indexOfName(const QString &query);
+  int indexOfName(const QString &);
 };
 #endif // GALLERY_H
