@@ -36,6 +36,7 @@ Gallery::Gallery(QObject *parent)
         Q_UNUSED(items)
 
         emit this->filesChanged();
+        this->setStatus(Status::Ready);
     });
 
     connect(m_fileLoader, &FMH::FileLoader::itemsReady, [this](FMH::MODEL_LIST items) {
@@ -47,11 +48,11 @@ Gallery::Gallery(QObject *parent)
         emit preItemsAppended(items.size());
         this->list << items;
         emit postItemAppended();
+        emit this->countChanged();
     });
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
         this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
-
         this->insertCity(item[FMH::MODEL_KEY::CITY]);
     });
 
@@ -79,7 +80,6 @@ void Gallery::setUrls(const QList<QUrl> &urls)
     //		return;
 
     this->m_urls = urls;
-    this->clear();
     emit this->urlsChanged();
 }
 
@@ -124,8 +124,16 @@ QStringList Gallery::files() const
 
 void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &limit)
 {
+    if(m_urls.isEmpty())
+    {
+        this->setStatus(Status::Error, "No sources found to scan.");
+        return;
+    }
+
+    this->setStatus(Status::Loading);
     this->scanTags(extractTags(urls), limit);
     m_fileLoader->requestPath(urls, recursive, FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, limit);
+
 }
 
 void Gallery::scanTags(const QList<QUrl> &urls, const int &limit)
@@ -166,6 +174,20 @@ void Gallery::insertCity(const QString & cityId)
         m_cities << cityId;
 
         emit citiesChanged ();
+    }
+}
+
+void Gallery::setStatus(const Gallery::Status &status, const QString &error)
+{
+    qDebug() << "Setting up status" << status;
+        this->m_status = status;
+        emit this->statusChanged();
+
+
+    if(error != m_error)
+    {
+        this->m_error = error;
+        emit this->errorChanged(m_error);
     }
 }
 
@@ -276,4 +298,14 @@ void Gallery::componentComplete()
 const QStringList &Gallery::cities() const
 {
     return m_cities;
+}
+
+Gallery::Status Gallery::status() const
+{
+    return m_status;
+}
+
+QString Gallery::error() const
+{
+    return m_error;
 }

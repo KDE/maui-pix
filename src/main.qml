@@ -45,7 +45,6 @@ import "widgets/views/Tags"
 import "widgets/views/Viewer"
 import "view_models"
 
-import "widgets/views/Pix.js" as PIX
 import "widgets/views/Viewer/Viewer.js" as VIEWER
 
 Maui.ApplicationWindow
@@ -162,42 +161,43 @@ Maui.ApplicationWindow
                 Maui.AppView.iconName: "folder"
                 FoldersView {}
             }
-        }
-    }
+        }        
 
-    PixViewer
-    {
-        id: _pixViewer
-        visible: StackView.status === StackView.Active
-
-        Rectangle
+        PixViewer
         {
-            anchors.fill: parent
-            visible: _dropArea.containsDrag
+            id: _pixViewer
+            visible: StackView.status === StackView.Active
 
-            color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
-
-            Maui.Rectangle
+            Rectangle
             {
                 anchors.fill: parent
-                anchors.margins: Maui.Style.space.medium
-                color: "transparent"
-                borderColor: Kirigami.Theme.textColor
-                solidBorder: false
+                visible: _dropArea.containsDrag
 
-                Maui.Holder
+                color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
+
+                Maui.Rectangle
                 {
                     anchors.fill: parent
-                    visible: true
-                    emoji: "qrc:/img/assets/add-image.svg"
-                    emojiSize: Maui.Style.iconSizes.huge
-                    title: i18n("Open images")
-                    body: i18n("Drag and drop images here")
+                    anchors.margins: Maui.Style.space.medium
+                    color: "transparent"
+                    borderColor: Kirigami.Theme.textColor
+                    solidBorder: false
 
+                    Maui.Holder
+                    {
+                        anchors.fill: parent
+                        visible: true
+                        emoji: "qrc:/img/assets/add-image.svg"
+                        emojiSize: Maui.Style.iconSizes.huge
+                        title: i18n("Open images")
+                        body: i18n("Drag and drop images here")
+
+                    }
                 }
             }
         }
     }
+
 
     footer: SelectionBar
     {
@@ -207,6 +207,7 @@ Maui.ApplicationWindow
         width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
         padding: Maui.Style.space.big
         maxListHeight: swipeView.height - Maui.Style.space.medium
+
     }
 
     DropArea
@@ -317,10 +318,6 @@ Maui.ApplicationWindow
     Connections
     {
         target:  Pix.Collection
-        function onRefreshViews()
-        {
-            PIX.refreshViews()
-        }
 
         function onViewPics(pics)
         {
@@ -381,5 +378,16 @@ Maui.ApplicationWindow
         {
             return [url]
         }
+    }
+
+    function selectItem(item)
+    {
+        if(selectionBox.contains(item.url))
+        {
+            selectionBox.removeAtUri(item.url)
+            return
+        }
+
+        selectionBox.append(item.url, item)
     }
 }

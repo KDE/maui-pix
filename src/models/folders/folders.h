@@ -3,7 +3,6 @@
 
 #include <QObject>
 
-#include <MauiKit/Core/fmh.h>
 #include <MauiKit/Core/mauilist.h>
 
 class Folders : public MauiList
@@ -21,8 +20,6 @@ public:
 private:
     FMH::MODEL_LIST list;
     QList<QUrl> m_folders;
-    void packPreviewImages(FMH::MODEL &folder);
-
     void setList();
 
 public slots:

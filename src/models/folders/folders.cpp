@@ -21,8 +21,7 @@ void Folders::setFolders(const QList<QUrl> &folders)
         return;
 
     m_folders = folders;
-
-    emit foldersChanged();
+    emit this->foldersChanged();
 }
 
 QList<QUrl> Folders::folders() const
@@ -43,14 +42,16 @@ void Folders::componentComplete()
 
 void Folders::setList()
 {
-
   emit this->preListChanged();
   this->list.clear();
 
-  for (const auto &folder : std::as_const(m_folders)) {
+  for (const auto &folder : std::as_const(m_folders))
+  {
       this->list << FMStatic::getFileInfoModel(folder);
   }
+
   emit this->postListChanged();
+  emit this->countChanged();
 }
 
 

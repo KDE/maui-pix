@@ -9,8 +9,6 @@ import org.kde.kirigami 2.8 as Kirigami
 
 import org.maui.pix 1.0 as Pix
 
-import "../widgets/views/Pix.js" as PIX
-
 Maui.ContextualMenu
 {
     id: control
@@ -48,7 +46,7 @@ Maui.ContextualMenu
             if(Maui.Handy.isTouch)
                 root.selectionMode = true
 
-            PIX.selectItem(control.model.get(index))
+            selectItem(control.model.get(index))
         }
     }
 

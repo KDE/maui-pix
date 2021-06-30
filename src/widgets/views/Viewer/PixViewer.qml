@@ -5,6 +5,7 @@
 
 
 import QtQuick 2.13
+
 import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
@@ -33,7 +34,7 @@ StackView
     property var currentPic : ({})
     property int currentPicIndex : 0
     property alias model :viewer.model
-    property bool doodle : false    
+    property bool doodle : false
 
     Component
     {
@@ -95,8 +96,15 @@ StackView
         showTitle: root.isWide
         headBar.visible: true
         headerColorSet: Kirigami.Theme.Header
-                floatingHeader: true
-                autoHideHeader: true
+
+        floatingHeader: true
+        autoHideHeader: true
+        footBar.visible: !holder.visible && root.visibility !== Window.FullScreen
+        autoHideFooter: true
+        autoHideFooterMargins: control.height
+        autoHideFooterDelay: 3000
+        floatingFooter: !viewerSettings.previewBarVisible && !viewerSettings.tagBarVisible
+
         headBar.farLeftContent: [
             ToolButton
             {
@@ -122,12 +130,6 @@ StackView
             model: control.model
         }
 
-        footBar.visible: !holder.visible && root.visibility !== Window.FullScreen
-        autoHideFooter: true
-        autoHideFooterMargins: control.height
-        autoHideFooterDelay: 3000
-        floatingFooter: !viewerSettings.previewBarVisible && !viewerSettings.tagBarVisible
-
         footBar.rightContent: [
             ToolButton
             {
@@ -144,8 +146,6 @@ StackView
             icon.name: "draw-freehand"
             onClicked:
             {
-//                    _doodleDialog.sourceItem = control.viewer.currentItem
-//                    _doodleDialog.open()
                 control.push(_editorComponent,({} ), StackView.Immediate)
             }
         }
@@ -213,19 +213,6 @@ StackView
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-//                TapHandler
-//                {
-//                    grabPermissions: PointerHandler.CanTakeOverFromAnything
-//                    acceptedButtons: Qt.LeftButton | Qt.RightButton
-
-//                    onSingleTapped:
-//                    {
-//                        galleryRollBg.toogle()
-////                        root.headBar.visible = !root.headBar.visible
-//                        viewer.forceActiveFocus()
-//                    }
-//                }
-
                 Rectangle
                 {
                     id: galleryRollBg
@@ -251,11 +238,6 @@ StackView
                         anchors.centerIn: parent
                         model: control.model
                         onPicClicked: view(index)
-                    }
-
-                    function toogle()
-                    {
-                        galleryRollBg.opacity = !galleryRollBg.opacity
                     }
                 }
             }
@@ -329,7 +311,6 @@ StackView
             control.roll.position(control.currentPicIndex)
         }
     }
-
 }
 
 

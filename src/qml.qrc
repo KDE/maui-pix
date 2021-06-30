@@ -9,7 +9,6 @@
         <file>widgets/views/Viewer/PixViewer.qml</file>
         <file>widgets/views/Viewer/Viewer.qml</file>
         <file>widgets/views/Viewer/Viewer.js</file>
-        <file>widgets/views/Pix.js</file>
         <file>widgets/views/Viewer/GalleryRoll.qml</file>
         <file>widgets/views/Tags/TagsSidebar.qml</file>
         <file>view_models/PixMenu.qml</file>

@@ -132,12 +132,12 @@ StackView
                 icon.name:"go-previous"
                 onClicked: control.pop()
             }
+
             list.recursive: false
 
             holder.emoji: "qrc:/assets/add-image.svg"
             holder.title : i18n("Folder is empty!")
             holder.body: i18n("There's not images in this folder")
-            holder.emojiSize: Maui.Style.iconSizes.huge
         }
     }
 

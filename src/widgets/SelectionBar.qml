@@ -13,7 +13,6 @@ import org.mauikit.filebrowsing 1.3 as FB
 
 import org.kde.kirigami 2.6 as Kirigami
 
-import "../widgets/views/Pix.js" as PIX
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 
 Maui.SelectionBar

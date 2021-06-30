@@ -30,9 +30,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QUrl>
 #include <QVariantList>
 
-
-using namespace std;
-
 class Pix : public QObject
 {
     Q_OBJECT
@@ -42,9 +39,13 @@ class Pix : public QObject
 public:
     static Pix *instance()
     {
-        static Pix pix;
+        if(m_instance)
+        {
+            return m_instance;
+        }
 
-        return &pix;
+        m_instance = new Pix();
+        return m_instance;
     }
 
     Pix(const Pix &) = delete;
@@ -53,27 +54,26 @@ public:
     Pix &operator=(Pix &&) = delete;
 
     inline static const QStringList getSourcePaths();
-    inline static void saveSourcePath(QStringList const &paths);
-    inline static void removeSourcePath(const QString &path);
+    inline static void saveSourcePath(QStringList const &);
+    inline static void removeSourcePath(const QString &);
 
 public slots:
     QVariantList sourcesModel() const;
     QStringList sources() const;
 
-    void addSources(const QStringList &paths);
-    void removeSources(const QString &path);
+    void addSources(const QStringList &);
+    void removeSources(const QString &);
 
-    void openPics(const QList<QUrl> &pics);
+    void openPics(const QList<QUrl> &);
     void refreshCollection();
     /*File actions*/
-    static void showInFolder(const QStringList &urls);
-
+    static void showInFolder(const QStringList &);
 
 private:
-    explicit Pix(QObject *parent = nullptr);
+    explicit Pix(QObject * = nullptr);
+    static Pix * m_instance;
 
 signals:
-    void refreshViews(QVariantMap tables);
     void viewPics(QStringList pics);
     void sourcesChanged();
 };

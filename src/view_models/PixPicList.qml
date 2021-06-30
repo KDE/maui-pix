@@ -6,14 +6,13 @@
 
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
 import org.mauikit.controls 1.0 as Maui
-import org.kde.kirigami 2.7 as Kirigami
 
 Maui.ListBrowserDelegate
 {
     id: control
+
+    implicitHeight: Maui.Style.rowHeight * 2
 
     iconSizeHint: height * 0.9
 

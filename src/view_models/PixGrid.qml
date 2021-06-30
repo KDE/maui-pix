@@ -1,4 +1,5 @@
 import QtQuick 2.14
+
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 
@@ -8,31 +9,26 @@ import org.mauikit.controls 1.3 as Maui
 import org.maui.pix 1.0
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
-import "../widgets/views/Pix.js" as PIX
 import "../widgets"
 
 Maui.AltBrowser
 {
     id: control
-    viewType: Maui.AltBrowser.ViewType.Grid
 
     property int itemSize : browserSettings.previewSize
 
     property alias list : pixList
     property alias listModel : pixModel
     property alias menu : _picMenu
-    property alias count: pixList.count
 
-    /*signals*/
-    signal picClicked(int index)
+    viewType: Maui.AltBrowser.ViewType.Grid
     showTitle: false
-
     enableLassoSelection: true
-    //    selectionMode: root.selectionMode
+
     gridView.itemSize : control.itemSize
     gridView.itemHeight: browserSettings.showLabels ? control.itemSize * 1.5 : control.itemSize
     gridView.cacheBuffer: control.height * 5
-//    floatingHeader: true
+
     listView.section.criteria: model.sort === "title" ?  ViewSection.FirstCharacter : ViewSection.FullString
     listView.section.property: model.sort
     listView.section.delegate: Maui.ListItemTemplate
@@ -54,7 +50,7 @@ Maui.AltBrowser
         enabled: list.count > 0
         Layout.fillWidth: true
         Layout.maximumWidth: 500
-        placeholderText: i18n("Search") + " " + count + " images"
+        placeholderText: i18n("Search") + " " + pixList.count + " images"
         onAccepted: model.filter = text
         onCleared: model.filter = ""
     }
@@ -68,6 +64,13 @@ Maui.AltBrowser
         {
             control.viewType =  control.viewType === Maui.AltBrowser.ViewType.List ? Maui.AltBrowser.ViewType.Grid : Maui.AltBrowser.ViewType.List
         }
+    }
+
+    Maui.ProgressIndicator
+    {
+        width: parent.width
+        anchors.bottom: parent.bottom
+        visible: pixList.status === GalleryList.Loading
     }
 
     model: Maui.BaseModel
@@ -124,7 +127,7 @@ Maui.AltBrowser
         function onItemsSelected(indexes)
         {
             for(var i in indexes)
-                PIX.selectItem(pixModel.get(indexes[i]))
+                selectItem(pixModel.get(indexes[i]))
         }
 
         function onKeyPress(event)
@@ -166,10 +169,9 @@ Maui.AltBrowser
     listDelegate: PixPicList
     {
         id: _listDelegate
-        height: Maui.Style.rowHeight * 2
         width: ListView.view.width
 
-        isCurrentItem: (ListView.isCurrentItem || checked)
+        isCurrentItem: ListView.isCurrentItem || checked
         checked: selectionBox.contains(model.url)
         checkable: root.selectionMode
         Drag.keys: ["text/uri-list"]
@@ -211,7 +213,7 @@ Maui.AltBrowser
     onToggled:
     {
         control.currentIndex = index
-        PIX.selectItem(pixModel.get(index))
+        selectItem(pixModel.get(index))
     }
 
     Connections
@@ -303,7 +305,7 @@ gridDelegate: Item
         onToggled:
         {
             control.currentIndex = index
-            PIX.selectItem(pixModel.get(index))
+            selectItem(pixModel.get(index))
         }
     }
 
