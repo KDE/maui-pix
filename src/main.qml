@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.3
+
 import QtQuick.Window 2.13
 import Qt.labs.settings 1.0
 
@@ -92,7 +92,7 @@ Maui.ApplicationWindow
 
     mainMenu: [
 
-        Action
+        MenuItem
         {
             text: i18n("Open")
             icon.name: "folder-open"
@@ -111,7 +111,7 @@ Maui.ApplicationWindow
             }
         },
 
-        Action
+        MenuItem
         {
             text: i18n("Settings")
             icon.name: "settings-configure"
@@ -120,6 +120,13 @@ Maui.ApplicationWindow
                 dialogLoader.sourceComponent = _settingsDialogComponent
                 dialog.open()
             }
+        },
+
+        MenuItem
+        {
+            text: i18n("About")
+            icon.name: "documentinfo"
+            onTriggered: root.about()
         }
     ]
 
