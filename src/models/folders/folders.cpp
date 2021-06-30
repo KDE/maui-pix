@@ -6,9 +6,7 @@
 
 Folders::Folders(QObject *parent)
     : MauiList(parent)
-{
-    qDebug() << "CREATING GALLERY LIST";
-}
+{}
 
 const FMH::MODEL_LIST &Folders::items() const
 {
@@ -36,22 +34,22 @@ void Folders::refresh()
 
 void Folders::componentComplete()
 {
-  connect (this, &Folders::foldersChanged, this, &Folders::setList);
-  setList();
+    connect (this, &Folders::foldersChanged, this, &Folders::setList);
+    setList();
 }
 
 void Folders::setList()
 {
-  emit this->preListChanged();
-  this->list.clear();
+    emit this->preListChanged();
+    this->list.clear();
 
-  for (const auto &folder : std::as_const(m_folders))
-  {
-      this->list << FMStatic::getFileInfoModel(folder);
-  }
+    for (const auto &folder : std::as_const(m_folders))
+    {
+        this->list << FMStatic::getFileInfoModel(folder);
+    }
 
-  emit this->postListChanged();
-  emit this->countChanged();
+    emit this->postListChanged();
+    emit this->countChanged();
 }
 
 

@@ -161,7 +161,7 @@ Maui.ApplicationWindow
                 Maui.AppView.iconName: "folder"
                 FoldersView {}
             }
-        }        
+        }
 
         PixViewer
         {
