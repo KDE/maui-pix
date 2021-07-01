@@ -89,7 +89,9 @@ Maui.ApplicationWindow
     floatingFooter: true
     flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
 
-    mainMenu: [
+    headBar.leftContent: Maui.ToolButtonMenu
+    {
+        icon.name: "application-menu"
 
         MenuItem
         {
@@ -108,7 +110,7 @@ Maui.ApplicationWindow
                 };
                 dialog.open()
             }
-        },
+        }
 
         MenuItem
         {
@@ -119,7 +121,7 @@ Maui.ApplicationWindow
                 dialogLoader.sourceComponent = _settingsDialogComponent
                 dialog.open()
             }
-        },
+        }
 
         MenuItem
         {
@@ -127,7 +129,7 @@ Maui.ApplicationWindow
             icon.name: "documentinfo"
             onTriggered: root.about()
         }
-    ]
+    }
 
     headBar.visible: !fullScreen && swipeView.visible
     headerPositioning: ListView.InlineHeader
