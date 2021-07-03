@@ -37,9 +37,9 @@ void CitiesModel::setList()
 {
     emit this->preListChanged();
     this->m_list.clear();
-    Cities cities;
+    auto cities = Cities::getInstance();
     for (const auto &cityId : std::as_const(m_cities)) {
-        const auto city = cities.city(cityId);
+        const auto city = cities->city(cityId);
         this->m_list << FMH::MODEL( {
                                         {FMH::MODEL_KEY::COUNTRY, city.country()},
                                         {FMH::MODEL_KEY::ID, city.id()},

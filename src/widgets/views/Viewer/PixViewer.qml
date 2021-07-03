@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-
 import QtQuick 2.13
 
 import QtQuick.Controls 2.13
@@ -95,15 +94,20 @@ StackView
         title: currentPic.title
         showTitle: root.isWide
         headBar.visible: true
-        headerColorSet: Kirigami.Theme.Header
 
-        floatingHeader: true
-        autoHideHeader: true
-        footBar.visible: !holder.visible && root.visibility !== Window.FullScreen
+        footBar.visible: !holder.visible && root.visibility !== Window.FullScreen && (!Kirigami.Settings.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode
+
         autoHideFooter: true
         autoHideFooterMargins: control.height
         autoHideFooterDelay: 3000
         floatingFooter: !viewerSettings.previewBarVisible && !viewerSettings.tagBarVisible
+
+        PixMenu
+        {
+            id: _picMenu
+            index: viewer.currentIndex
+            model: control.model
+        }
 
         headBar.farLeftContent: [
             ToolButton
@@ -115,22 +119,23 @@ StackView
             }
         ]
 
-        headBar.rightContent: ToolButton
-        {
-            visible: !Kirigami.Settings.isMobile
-            icon.name: "view-fullscreen"
-            onClicked: toogleFullscreen()
-            checked: fullScreen
-        }
+        headBar.rightContent: [
+            ToolButton
+            {
+                //                text: i18n("Favorite")
+                icon.name: "love"
+                checked: control.currentPicFav
+                onClicked:
+                {
+                    if(control.currentPicFav)
+                        tagBar.list.removeFromUrls("fav")
+                    else
+                        tagBar.list.insertToUrls("fav")
 
-        PixMenu
-        {
-            id: _picMenu
-            index: viewer.currentIndex
-            model: control.model
-        }
+                    control.currentPicFav = !control.currentPicFav
+                }
+            },
 
-        footBar.rightContent: [
             ToolButton
             {
                 icon.name: "document-share"
@@ -138,16 +143,23 @@ StackView
                 {
                     Maui.Platform.shareFiles([control.currentPic.url])
                 }
+            },
+
+            ToolButton
+            {
+                icon.name: "draw-freehand"
+                onClicked:
+                {
+                    control.push(_editorComponent,({} ), StackView.Immediate)
+                }
             }
         ]
 
-        footBar.leftContent: ToolButton
+        footBar.rightContent: ToolButton
         {
-            icon.name: "draw-freehand"
-            onClicked:
-            {
-                control.push(_editorComponent,({} ), StackView.Immediate)
-            }
+            icon.name: "view-fullscreen"
+            onClicked: toogleFullscreen()
+            checked: fullScreen
         }
 
         footBar.middleContent: Maui.ToolActions
@@ -158,7 +170,6 @@ StackView
 
             Action
             {
-                enabled: Maui.Platform.hasKeyboard
                 text: i18n("Previous")
                 icon.name: "go-previous"
                 onTriggered: previous()
@@ -166,23 +177,6 @@ StackView
 
             Action
             {
-                text: i18n("Favorite")
-                icon.name: "love"
-                checked: control.currentPicFav
-                onTriggered:
-                {
-                    if(control.currentPicFav)
-                        tagBar.list.removeFromUrls("fav")
-                    else
-                        tagBar.list.insertToUrls("fav")
-
-                    control.currentPicFav = !control.currentPicFav
-                }
-            }
-
-            Action
-            {
-                enabled: Maui.Android.hasKeyboard
                 icon.name: "go-next"
                 onTriggered: next()
             }

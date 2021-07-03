@@ -253,8 +253,8 @@ gridDelegate: Item
     {
         id: _gridDelegate
 
-        width: control.gridView.itemSize - ( !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.medium)
-        height:control.gridView.itemHeight  - ( !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.medium)
+        width: !root.isWide ? parent.width : (control.gridView.itemSize - Maui.Style.space.medium)
+        height:  !root.isWide ? parent.height : (control.gridView.itemHeight  - Maui.Style.space.medium)
 
         anchors.centerIn: parent
 
