@@ -28,8 +28,9 @@ PixGrid
 
     footerColumn: RowLayout
     {
+        visible: _geoFilterList.count > 0
         width: parent.width
-        height: 80
+        height: visible ? 80 : 0
         spacing: Maui.Style.space.medium
 
         ToolButton

@@ -36,6 +36,9 @@ Gallery::Gallery(QObject *parent)
         Q_UNUSED(items)
 
         emit this->filesChanged();
+        emit this->citiesChanged();
+        emit this->foldersChanged();
+
         this->setStatus(Status::Ready);
     });
 
@@ -161,8 +164,6 @@ void Gallery::insertFolder(const QUrl &path)
         if (m_autoReload) {
             this->m_watcher->addPath(path.toLocalFile());
         }
-
-        emit foldersChanged();
     }
 }
 
@@ -172,8 +173,6 @@ void Gallery::insertCity(const QString & cityId)
 
         qDebug() << "FOUND CITY <<" << cityId;
         m_cities << cityId;
-
-        emit citiesChanged ();
     }
 }
 

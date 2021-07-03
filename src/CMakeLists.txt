@@ -53,7 +53,8 @@ target_compile_definitions(pix
 target_link_libraries(pix MauiKit MauiKit::FileBrowsing MauiKit::ImageTools Qt5::Sql Qt5::Qml Qt5::Svg Qt5::Concurrent Qt5::QuickControls2 Qt5::Positioning KF5::I18n)
 
 if(ANDROID)
-    target_link_libraries(pix Qt5::AndroidExtras)
+    find_package(OpenSSL REQUIRED)
+    target_link_libraries(pix Qt5::AndroidExtras OpenSSL::SSL)
     kde_source_files_enable_exceptions(pix pix.cpp)
 endif()
 
