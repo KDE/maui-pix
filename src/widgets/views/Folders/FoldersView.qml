@@ -128,6 +128,7 @@ StackView
         PixGrid
         {
             headBar.visible: true
+
             headBar.farLeftContent: ToolButton
             {
                 icon.name:"go-previous"

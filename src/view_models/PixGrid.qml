@@ -33,6 +33,7 @@ Maui.Page
         emojiSize: Maui.Style.iconSizes.huge
     }
 
+    showTitle: false
     headBar.forceCenterMiddleContent: false
     headBar.visible: true
     headBar.middleContent: Maui.TextField
