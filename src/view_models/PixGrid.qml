@@ -160,15 +160,16 @@ Maui.Page
             {
                 id: _gridDelegate
 
-                width: !root.isWide ? parent.width : (_gridView.itemSize - Maui.Style.space.medium)
-                height:  !root.isWide ? parent.height : (_gridView.itemHeight  - Maui.Style.space.medium)
+                template.imageWidth: _gridView.itemSize
+                template.imageHeight: _gridView.itemSize
 
-                anchors.centerIn: parent
+                anchors.fill: parent
+                anchors.margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.medium
 
                 fit: browserSettings.fitPreviews
                 labelsVisible: browserSettings.showLabels
                 checkable: root.selectionMode
-                maskRadius: !root.isWide  ? 0 : Maui.Style.radiusV
+                maskRadius: Kirigami.Settings.isMobile ? 0 : Maui.Style.radiusV
 
                 isCurrentItem: parent.GridView.isCurrentItem || checked
                 checked: selectionBox.contains(model.url)
@@ -179,8 +180,6 @@ Maui.Page
             onClicked:
             {
                 control.currentIndex = index
-                _gridView.forceActiveFocus()
-
                 if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
                 {
                     control.currentView.itemsSelected([index])
@@ -194,7 +193,6 @@ Maui.Page
             onDoubleClicked:
             {
                 control.currentIndex = index
-                _gridView.forceActiveFocus()
 
                 if(!Maui.Handy.singleClick && !root.selectionMode)
                 {
@@ -220,7 +218,6 @@ Maui.Page
                 selectItem(pixModel.get(index))
             }
         }
-
 
         Connections
         {

@@ -86,8 +86,7 @@ Maui.ApplicationWindow
         property bool previewBarVisible : false
     }
 
-    floatingFooter: true
-    flickable: swipeView.currentItem.item ? swipeView.currentItem.item.flickable || null : swipeView.currentItem.flickable || null
+
 
     headBar.leftContent: Maui.ToolButtonMenu
     {
@@ -138,30 +137,48 @@ Maui.ApplicationWindow
     {
         id: _stackView
         anchors.fill: parent
+        focus: true
 
-        initialItem: Maui.AppViews
+        initialItem: Maui.Page
         {
-            id: swipeView
+            headBar.visible:false
+            floatingFooter: true
+            flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
 
-            GalleryView
+            Maui.AppViews
             {
-                id: _galleryView
-                Maui.AppView.title: i18n("Gallery")
-                Maui.AppView.iconName: "image-multiple"
+                id: swipeView
+                anchors.fill: parent
+
+                GalleryView
+                {
+                    id: _galleryView
+                    Maui.AppView.title: i18n("Gallery")
+                    Maui.AppView.iconName: "image-multiple"
+                }
+
+                Maui.AppViewLoader
+                {
+                    Maui.AppView.title: i18n("Tags")
+                    Maui.AppView.iconName: "tag"
+                    TagsView {}
+                }
+
+                Maui.AppViewLoader
+                {
+                    Maui.AppView.title: i18n("Folders")
+                    Maui.AppView.iconName: "folder"
+                    FoldersView {}
+                }
             }
 
-            Maui.AppViewLoader
+            footer: SelectionBar
             {
-                Maui.AppView.title: i18n("Tags")
-                Maui.AppView.iconName: "tag"
-                TagsView {}
-            }
-
-            Maui.AppViewLoader
-            {
-                Maui.AppView.title: i18n("Folders")
-                Maui.AppView.iconName: "folder"
-                FoldersView {}
+                id: selectionBox
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
+                padding: Maui.Style.space.big
+                maxListHeight: swipeView.height - Maui.Style.space.medium
             }
         }
 
@@ -198,18 +215,6 @@ Maui.ApplicationWindow
                 }
             }
         }
-    }
-
-
-    footer: SelectionBar
-    {
-        id: selectionBox
-        visible: count > 0 && _stackView.depth === 1
-        anchors.horizontalCenter: parent.horizontalCenter
-        width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
-        padding: Maui.Style.space.big
-        maxListHeight: swipeView.height - Maui.Style.space.medium
-
     }
 
     DropArea

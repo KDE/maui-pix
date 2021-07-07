@@ -69,10 +69,11 @@ StackView
 
                 Maui.CollageItem
                 {
-                    width: _foldersGrid.itemSize - Maui.Style.space.medium
-                    height: _foldersGrid.itemHeight  - Maui.Style.space.medium
+                    imageWidth: 120
+                    imageHeight: 120
 
-                    anchors.centerIn: parent
+                    anchors.fill: parent
+                    anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.small : Maui.Style.space.medium
 
                     isCurrentItem: parent.GridView.isCurrentItem
 

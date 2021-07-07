@@ -38,7 +38,6 @@ Maui.Page
     {
         id: _gridView
         anchors.fill: parent
-
         model: Maui.BaseModel
         {
             id: _tagsModel
@@ -68,10 +67,11 @@ Maui.Page
 
             Maui.GalleryRollItem
             {
-                width: _gridView.itemSize - Maui.Style.space.medium
-                height: _gridView.itemHeight  - Maui.Style.space.medium
+                anchors.fill: parent
+                anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.small : Maui.Style.space.medium
 
-                anchors.centerIn: parent
+                imageWidth: 120
+                imageHeight: 120
 
                 isCurrentItem: parent.GridView.isCurrentItem
 
