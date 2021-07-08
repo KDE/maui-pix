@@ -162,7 +162,7 @@ StackView
             checked: fullScreen
         }
 
-        footBar.middleContent: Maui.ToolActions
+        footBar.leftContent: Maui.ToolActions
         {
             expanded: true
             autoExclusive: false
