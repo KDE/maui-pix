@@ -86,8 +86,6 @@ Maui.ApplicationWindow
         property bool previewBarVisible : false
     }
 
-
-
     headBar.leftContent: Maui.ToolButtonMenu
     {
         icon.name: "application-menu"
@@ -229,14 +227,6 @@ Maui.ApplicationWindow
             }
         }
 
-        onExited:
-        {
-            if(swipeView.currentIndex === views.viewer)
-            {
-                swipeView.goBack()
-            }
-        }
-
         onEntered:
         {
             if(drag.source)
@@ -244,7 +234,7 @@ Maui.ApplicationWindow
                 return
             }
 
-            swipeView.currentIndex = views.viewer
+            _stackView.push(_pixViewer)
         }
     }
 

@@ -19,7 +19,7 @@ Maui.SelectionBar
 {
     id: control
 
-    visible: count > 0 && swipeView.currentIndex !== views.viewer
+    visible: count > 0
     onExitClicked:
     {
         selectionMode = false

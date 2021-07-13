@@ -8,18 +8,17 @@
 
 function open(model, index)
 {
+    _pixViewer.model = model
+    _pixViewer.view(index)
     _stackView.push(_pixViewer)
-    _stackView.currentItem.model = model
-    _stackView.currentItem.view(index)
 }
 
 function openExternalPics(pics, index)
 {
-    _stackView.push(_pixViewer)
-
     var oldIndex = _stackView.currentItem.viewer.count
-    _stackView.currentItem.viewer.appendPics(pics)
-    _stackView.currentItem.view(Math.max(oldIndex, 0))
+    _pixViewer.viewer.appendPics(pics)
+    _pixViewer.view(Math.max(oldIndex, 0))
+    _stackView.push(_pixViewer)
 }
 
 function fav(urls)

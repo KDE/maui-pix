@@ -187,14 +187,12 @@ Maui.Page
                 }else if(Maui.Handy.singleClick)
                 {
                     openPic(index)
-
                 }
             }
 
             onDoubleClicked:
             {
                 control.currentIndex = index
-
                 if(!Maui.Handy.singleClick && !root.selectionMode)
                 {
                     openPic(index)
@@ -264,6 +262,4 @@ function openPic(index)
 {
     VIEWER.open(pixModel, index)
 }
-
-
 }
