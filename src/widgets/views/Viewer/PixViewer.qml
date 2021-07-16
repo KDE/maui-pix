@@ -186,7 +186,7 @@ StackView
         {
             id: holder
             visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
-
+            anchors.fill: parent
             emoji: "qrc:/assets/add-image.svg"
             isMask: true
             title : i18n("No Pics!")
