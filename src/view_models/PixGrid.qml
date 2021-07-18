@@ -30,7 +30,7 @@ Maui.Page
     {
         id: _holder
         anchors.fill: parent
-        visible: count === 0
+        visible: _gridView.count === 0
         emojiSize: Maui.Style.iconSizes.huge
     }
 
