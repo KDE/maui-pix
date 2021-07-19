@@ -29,7 +29,7 @@ StackView
         {
             Layout.fillWidth: true
             Layout.maximumWidth: 500
-            placeholderText: i18n("Filter")
+            placeholderText: i18np("Filter %1 folder", "Filter %1 folders", foldersList.count)
             onAccepted: folderModel.filter = text
             onCleared: folderModel.filter = ""
         }
