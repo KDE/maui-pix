@@ -15,7 +15,7 @@ function open(model, index)
 
 function openExternalPics(pics, index)
 {
-    var oldIndex = _stackView.currentItem.viewer.count
+    var oldIndex = _pixViewer.viewer.count
     _pixViewer.viewer.appendPics(pics)
     _pixViewer.view(Math.max(oldIndex, 0))
     _stackView.push(_pixViewer)
