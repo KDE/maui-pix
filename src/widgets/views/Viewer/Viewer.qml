@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.14
+import QtQml 2.14
 import QtQuick.Controls 2.14
 
 import org.mauikit.controls 1.3 as Maui
@@ -44,7 +45,13 @@ Item
         height: parent.height
         width: parent.width
         orientation: ListView.Horizontal
-        currentIndex: currentPicIndex
+
+        Binding on currentIndex
+        {
+            value: currentPicIndex
+            restoreMode: Binding.RestoreBindingOrValue
+        }
+
         clip: true
         focus: true
         interactive: Maui.Handy.isTouch
@@ -91,8 +98,9 @@ Item
         {
             height: ListView.view.height
             width: ListView.view.width
-            active : ListView.isCurrentItem
+//            active : ListView.isCurrentItem
             asynchronous: true
+
             sourceComponent: IT.ImageViewer
             {
                 source: model.url
@@ -119,5 +127,4 @@ Item
                 _defaultModel.list.append(pics[i])
 
     }
-
 }

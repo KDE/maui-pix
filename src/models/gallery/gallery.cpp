@@ -31,7 +31,7 @@ Gallery::Gallery(QObject *parent)
 {
     qDebug() << "CREATING GALLERY LIST";
     m_fileLoader->informer = &picInfo;
-    m_fileLoader->setBatchCount(200);
+    m_fileLoader->setBatchCount(500);
     connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
         Q_UNUSED(items)
 
