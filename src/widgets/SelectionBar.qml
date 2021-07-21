@@ -50,12 +50,6 @@ Maui.SelectionBar
         onTriggered: VIEWER.openExternalPics(control.uris, 0)
     }
 
-    Action
-    {
-        text: i18n("Un/Fav")
-        icon.name: "love"
-        onTriggered: VIEWER.fav(control.uris)
-    }
 
     Action
     {
@@ -79,32 +73,42 @@ Maui.SelectionBar
         }
     }
 
-    Action
-    {
-        text: i18n("Export")
-        icon.name: "document-save"
-        onTriggered:
+    hiddenActions:
+        [
+        Action
         {
-            const pics = control.uris
-            dialogLoader.sourceComponent= fmDialogComponent
-            dialog.show(function(paths)
-            {
-                for(var i in paths)
-                    FB.FM.copy(pics, paths[i])
-            });
-        }
-    }
+            text: i18n("Un/Fav")
+            icon.name: "love"
+            onTriggered: VIEWER.fav(control.uris)
+        },
 
-    Action
-    {
-        text: i18n("Remove")
-        icon.name: "edit-delete"
-        Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
-        onTriggered:
+        Action
         {
-            dialogLoader.sourceComponent = _removeDialogComponent
-            dialog.open()
+            text: i18n("Export")
+            icon.name: "document-save"
+            onTriggered:
+            {
+                const pics = control.uris
+                dialogLoader.sourceComponent= fmDialogComponent
+                dialog.show(function(paths)
+                {
+                    for(var i in paths)
+                        FB.FM.copy(pics, paths[i])
+                });
+            }
+        },
+
+        Action
+        {
+            text: i18n("Remove")
+            icon.name: "edit-delete"
+            Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
+            onTriggered:
+            {
+                dialogLoader.sourceComponent = _removeDialogComponent
+                dialog.open()
+            }
         }
-    }
+    ]
 }
 
