@@ -76,7 +76,7 @@ StackView
                     anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.small : Maui.Style.space.medium
 
                     isCurrentItem: parent.GridView.isCurrentItem
-
+                    template.labelSizeHint: 32
                     images: _galleryList.files
                     label1.text: model.label
                     label1.font.bold: true
