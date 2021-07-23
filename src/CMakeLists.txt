@@ -27,39 +27,34 @@ set(pix_ASSETS
     )
 
 if(ANDROID)
-    add_library(pix SHARED
+    add_library(${PROJECT_NAME} SHARED
         ${pix_SRCS}
         ${pix_HDRS}
         ${pix_ASSETS}
         )
 else()
-    add_executable(pix
+    add_executable(${PROJECT_NAME}
         ${pix_SRCS}
         ${pix_HDRS}
         ${pix_ASSETS}
         )
 endif()
 
-if(UNIX AND NOT APPLE AND NOT ANDROID)
-    target_link_libraries(pix
-        KF5::KIOCore
-        KF5::KIOFileWidgets
-        )
-endif()
-
-target_compile_definitions(pix
+target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
-target_link_libraries(pix MauiKit MauiKit::FileBrowsing MauiKit::ImageTools Qt5::Qml Qt5::QuickControls2 Qt5::Positioning KF5::I18n)
+target_link_libraries(${PROJECT_NAME} MauiKit MauiKit::FileBrowsing MauiKit::ImageTools Qt5::Qml Qt5::Positioning KF5::I18n)
 
 if(ANDROID)
     find_package(OpenSSL REQUIRED)
-    target_link_libraries(pix Qt5::AndroidExtras OpenSSL::SSL)
+    target_link_libraries(${PROJECT_NAME} Qt5::AndroidExtras Qt5::QuickControls2 OpenSSL::SSL)
     kde_source_files_enable_exceptions(pix pix.cpp)
+else()
+    target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
 endif()
 
 if(UNIX AND NOT APPLE AND NOT ANDROID)
-    install(TARGETS pix ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+    install(TARGETS ${PROJECT_NAME} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
     install(FILES org.kde.pix.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
     #TODO: port to ecm_install_icons()
     install(FILES assets/pix.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
