@@ -14,6 +14,8 @@ import "../widgets"
 Maui.Page
 {
     id: control
+    Kirigami.Theme.inherit: false
+    Kirigami.Theme.colorGroup: Kirigami.Theme.View
 
     property int itemSize : browserSettings.previewSize
 
