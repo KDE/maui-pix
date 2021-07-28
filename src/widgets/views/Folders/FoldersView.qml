@@ -139,7 +139,7 @@ StackView
 
             holder.emoji: "qrc:/assets/add-image.svg"
             holder.title : i18n("Folder is empty!")
-            holder.body: i18n("There's not images in this folder")
+            holder.body: i18n("There're not images in this folder")
         }
     }
 
