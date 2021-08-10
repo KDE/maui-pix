@@ -24,6 +24,7 @@ Maui.Page
     property alias menu : _picMenu
     property alias holder : _holder
     property alias model: _gridView.model
+    property alias gridView: _gridView
 
     property alias currentIndex: _gridView.currentIndex
     property string typingQuery
