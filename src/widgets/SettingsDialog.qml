@@ -276,7 +276,6 @@ Maui.SettingsDialog
             {
                 Layout.fillWidth: true
                 text: i18n("Add")
-                flat: true
                 onClicked:
                 {
                     dialogLoader.sourceComponent= fmDialogComponent

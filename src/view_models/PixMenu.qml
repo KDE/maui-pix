@@ -37,6 +37,44 @@ Maui.ContextualMenu
         }
     }
 
+
+    Maui.MenuItemActionRow
+    {
+        Action
+        {
+            //            text: i18n(isFav ? "UnFav it": "Fav it")
+            checked: isFav
+            checkable: true
+            icon.name: "love"
+            onTriggered: FB.Tagging.toggleFav(control.model.get(index).url)
+        }
+
+        Action
+        {
+            //            text: i18n("Tags")
+            icon.name: "tag"
+            onTriggered:
+            {
+                dialogLoader.sourceComponent = tagsDialogComponent
+                dialog.composerList.urls = filterSelection(control.model.get(index).url)
+                dialog.open()
+            }
+        }
+
+        Action
+        {
+            //            text: i18n("Share")
+            icon.name: "document-share"
+            onTriggered:
+            {
+                Maui.Platform.shareFiles(filterSelection(control.model.get(index).url))
+            }
+        }
+
+    }
+
+    MenuSeparator{}
+
     MenuItem
     {
         text: i18n("Select")
@@ -54,41 +92,11 @@ Maui.ContextualMenu
 
     MenuItem
     {
-        text: i18n(isFav ? "UnFav it": "Fav it")
-        icon.name: "love"
-        onTriggered: FB.Tagging.toggleFav(control.model.get(index).url)
-    }
-
-    MenuItem
-    {
-        text: i18n("Tags")
-        icon.name: "tag"
+        text: i18n("Info")
+        icon.name: "documentinfo"
         onTriggered:
         {
-            dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.composerList.urls = filterSelection(control.model.get(index).url)
-            dialog.open()
-        }
-    }
-
-    MenuItem
-    {
-        text: i18n("Share")
-        icon.name: "document-share"
-        onTriggered:
-        {
-            Maui.Platform.shareFiles(filterSelection(control.model.get(index).url))
-        }
-    }
-
-    MenuItem
-    {
-        text: i18n("Open With")
-        icon.name: "document-open"
-        onTriggered:
-        {
-            _openWithDialog.urls = filterSelection(control.model.get(index).url)
-            _openWithDialog.open()
+            getFileInfo(control.model.get(index).url)
         }
     }
 
@@ -112,22 +120,23 @@ Maui.ContextualMenu
 
     MenuItem
     {
+        text: i18n("Open With")
+        icon.name: "document-open"
+        onTriggered:
+        {
+            _openWithDialog.urls = filterSelection(control.model.get(index).url)
+            _openWithDialog.open()
+        }
+    }
+
+    MenuItem
+    {
         visible: !Maui.Handy.isAndroid
         text: i18n("Show in folder")
         icon.name: "folder-open"
         onTriggered:
         {
             Pix.Collection.showInFolder(filterSelection(control.model.get(index).url))
-        }
-    }
-
-    MenuItem
-    {
-        text: i18n("Info")
-        icon.name: "documentinfo"
-        onTriggered:
-        {
-            getFileInfo(control.model.get(index).url)
         }
     }
 
