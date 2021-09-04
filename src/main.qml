@@ -51,7 +51,7 @@ Maui.ApplicationWindow
 {
     id: root
     title: _pixViewer.currentPic.title || Maui.App.displayName
-    altHeader: Kirigami.Settings.isMobile
+    headBar.visible:false
 
     property alias dialog : dialogLoader.item
 
@@ -86,89 +86,62 @@ Maui.ApplicationWindow
         property bool previewBarVisible : false
     }
 
-    headBar.leftContent: Maui.ToolButtonMenu
-    {
-        icon.name: "application-menu"
-
-        MenuItem
-        {
-            text: i18n("Open")
-            icon.name: "folder-open"
-            onTriggered:
-            {
-                dialogLoader.sourceComponent= fmDialogComponent
-                dialog.mode = dialog.modes.OPEN
-                dialog.settings.filterType= FB.FMList.IMAGE
-                dialog.settings.onlyDirs= false
-                dialog.callback = function(paths)
-                {
-                    console.log("OPEN THIS PATHS", paths)
-                    Pix.Collection.openPics(paths)
-                };
-                dialog.open()
-            }
-        }
-
-        MenuItem
-        {
-            text: i18n("Settings")
-            icon.name: "settings-configure"
-            onTriggered:
-            {
-                dialogLoader.sourceComponent = _settingsDialogComponent
-                dialog.open()
-            }
-        }
-
-        MenuItem
-        {
-            text: i18n("About")
-            icon.name: "documentinfo"
-            onTriggered: root.about()
-        }
-    }
-
-    headBar.visible: !fullScreen && swipeView.visible
-    headerPositioning: ListView.InlineHeader
-
     StackView
     {
         id: _stackView
         anchors.fill: parent
         focus: true
 
-        initialItem: Maui.Page
+        initialItem: Maui.AppViews
         {
-            headBar.visible:false
+            id: swipeView
+            altHeader: Kirigami.Settings.isMobile
+
             floatingFooter: true
             flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
 
-            Maui.AppViews
+            headBar.leftContent: Maui.ToolButtonMenu
             {
-                id: swipeView
-                anchors.fill: parent
+                icon.name: "application-menu"
 
-                GalleryView
+                MenuItem
                 {
-                    id: _galleryView
-                    Maui.AppView.title: i18n("Gallery")
-                    Maui.AppView.iconName: "image-multiple"
+                    text: i18n("Open")
+                    icon.name: "folder-open"
+                    onTriggered:
+                    {
+                        dialogLoader.sourceComponent= fmDialogComponent
+                        dialog.mode = dialog.modes.OPEN
+                        dialog.settings.filterType= FB.FMList.IMAGE
+                        dialog.settings.onlyDirs= false
+                        dialog.callback = function(paths)
+                        {
+                            console.log("OPEN THIS PATHS", paths)
+                            Pix.Collection.openPics(paths)
+                        };
+                        dialog.open()
+                    }
                 }
 
-                Maui.AppViewLoader
+                MenuItem
                 {
-                    Maui.AppView.title: i18n("Tags")
-                    Maui.AppView.iconName: "tag"
-                    TagsView {}
+                    text: i18n("Settings")
+                    icon.name: "settings-configure"
+                    onTriggered:
+                    {
+                        dialogLoader.sourceComponent = _settingsDialogComponent
+                        dialog.open()
+                    }
                 }
 
-                Maui.AppViewLoader
+                MenuItem
                 {
-                    Maui.AppView.title: i18n("Folders")
-                    Maui.AppView.iconName: "folder"
-                    FoldersView {}
+                    text: i18n("About")
+                    icon.name: "documentinfo"
+                    onTriggered: root.about()
                 }
             }
+
 
             footer: SelectionBar
             {
@@ -178,7 +151,29 @@ Maui.ApplicationWindow
                 padding: Maui.Style.space.big
                 maxListHeight: swipeView.height - Maui.Style.space.medium
             }
+            GalleryView
+            {
+                id: _galleryView
+                Maui.AppView.title: i18n("Gallery")
+                Maui.AppView.iconName: "image-multiple"
+            }
+
+            Maui.AppViewLoader
+            {
+                Maui.AppView.title: i18n("Tags")
+                Maui.AppView.iconName: "tag"
+                TagsView {}
+            }
+
+            Maui.AppViewLoader
+            {
+                Maui.AppView.title: i18n("Folders")
+                Maui.AppView.iconName: "folder"
+                FoldersView {}
+            }
         }
+
+
 
         PixViewer
         {

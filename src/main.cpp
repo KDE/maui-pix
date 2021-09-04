@@ -120,9 +120,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     KAboutData::setApplicationData(about);
 
     QCommandLineParser parser;
-    parser.process(app);
 
     about.setupCommandLine(&parser);
+    parser.process(app);
+
     about.processCommandLine(&parser);
 
     const QStringList args = parser.positionalArguments();
