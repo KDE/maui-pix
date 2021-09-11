@@ -19,6 +19,7 @@
   <name xml:lang="id">Pix</name>
   <name xml:lang="it">Pix</name>
   <name xml:lang="ko">Pix</name>
+  <name xml:lang="lt">Pix</name>
   <name xml:lang="nl">Pix</name>
   <name xml:lang="nn">Pix</name>
   <name xml:lang="pa">ਪਿਕਸ</name>
@@ -43,6 +44,7 @@
   <summary xml:lang="fr">Galerie d'images</summary>
   <summary xml:lang="it">Galleria d'immagini</summary>
   <summary xml:lang="ko">그림 갤러리</summary>
+  <summary xml:lang="lt">Paveikslų galerija</summary>
   <summary xml:lang="nl">Afbeeldingsgalerij</summary>
   <summary xml:lang="pl">Galeria obrazów</summary>
   <summary xml:lang="pt">Galeria de Imagens</summary>
@@ -63,6 +65,7 @@
     <p xml:lang="fr">Pix est une galerie d'images et un afficheur d'images. Pix peut être utilisé pour ouvrir des images avec d'autres applications comme un éditeur d'images, ajouter des étiquettes aux fichiers, ajouter des annotations aux images, les faire pivoter et les partager.</p>
     <p xml:lang="it">Pix è una galleria d'immagini e un visore d'immagini. Può essere utilizzato per aprire immagini con altre applicazioni come un'editor d'immagine, per aggiungere etichette ai file o le annotazioni alle immagini, per ruotarle o per condividerle.</p>
     <p xml:lang="ko">Pix는 그림 갤러리이자 뷰어입니다. Pix는 그림 편집기 등 다른 프로그램으로 그림 열기, 파일에 태그 추가, 그림에 주석 달기, 회전, 공유 등을 지원합니다.</p>
+    <p xml:lang="lt">Pix yra paveikslų galerija ir paveikslų žiūryklė. Pix gali būti naudojama, norint atverti paveikslus kitose programėlėse, tokiose kaip paveikslų redaktorius, pridėti žymes į failus, pridėti anotacijas paveikslams, pasukti juos ir bendrinti.</p>
     <p xml:lang="nl">Pix is een afbeeldingsgalerij en afbeeldingsviewer. Pix kan gebruikt worden om afbeeldingen met andere toepassingen, zoals een afbeeldingsbewerker, te openen, tags aan de bestanden en annotaties aan afbeeldingen toe te voegen, ze te roteren en ze te delen.</p>
     <p xml:lang="pt">O Pix é uma galeria de imagens e um visualizador das mesmas. O Pix pode ser usado para abrir imagens com outras aplicações como um editor de imagens, adicionar marcas aos ficheiros, anotações às imagens, rodá-las e partilhá-las.</p>
     <p xml:lang="pt-BR">O Pix é uma galeria e um visualizador de imagens. O Pix pode ser usado para abrir imagens por meio de outros aplicativos como um editor de imagens, adicionar tags aos seus arquivos, inserir anotações, rotacionar e compartilhar suas imagens.</p>
@@ -96,6 +99,7 @@
       <caption xml:lang="id">Pemutar musik Pix</caption>
       <caption xml:lang="it">Il lettore musicale Pix</caption>
       <caption xml:lang="ko">Pix 음악 재생기</caption>
+      <caption xml:lang="lt">Pix muzikos grotuvas</caption>
       <caption xml:lang="nl">De muziekspeler Pix</caption>
       <caption xml:lang="nn">Pix musikkspelar</caption>
       <caption xml:lang="pa">ਪਿਕਸ ਸੰਗੀਤ ਪਲੇਅਰ</caption>
