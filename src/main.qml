@@ -96,7 +96,7 @@ Maui.ApplicationWindow
         {
             id: swipeView
             altHeader: Kirigami.Settings.isMobile
-
+            interactive: Kirigami.Settings.isMobile
             floatingFooter: true
             flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
 
@@ -151,6 +151,7 @@ Maui.ApplicationWindow
                 padding: Maui.Style.space.big
                 maxListHeight: swipeView.height - Maui.Style.space.medium
             }
+
             GalleryView
             {
                 id: _galleryView
@@ -172,8 +173,6 @@ Maui.ApplicationWindow
                 FoldersView {}
             }
         }
-
-
 
         PixViewer
         {

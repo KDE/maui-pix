@@ -68,7 +68,7 @@ Maui.Page
             Maui.GalleryRollItem
             {
                 anchors.fill: parent
-                anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.small : Maui.Style.space.medium
+                anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.tiny : Maui.Style.space.medium
 
                 imageWidth: 120
                 imageHeight: 120

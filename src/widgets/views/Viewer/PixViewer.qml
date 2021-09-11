@@ -43,13 +43,14 @@ StackView
         {
             objectName: "imageEditor"
             url: control.currentPic.url
+            onGoBackTriggered: control.pop(StackView.Immediate)
 
             headBar.farLeftContent:  ToolButton
             {
                 icon.name: "go-previous"
                 onClicked:
                 {
-                    control.pop()
+                    control.pop(StackView.Immediate)
                 }
             }
 
@@ -101,6 +102,8 @@ StackView
         autoHideFooterMargins: control.height
         autoHideFooterDelay: 3000
         floatingFooter: !viewerSettings.previewBarVisible && !viewerSettings.tagBarVisible
+
+        onGoBackTriggered: _stackView.pop()
 
         PixMenu
         {

@@ -79,6 +79,7 @@ private:
     bool m_autoReload;
     bool m_recursive;
     int m_limit = PIX_QUERY_MAX_LIMIT;
+    bool m_geolocationTags = false;
 
     Status m_status = Status::Error;
     QString m_error;

@@ -10,6 +10,18 @@
 static FMH::MODEL picInfo(const QUrl &url)
 {
     const QFileInfo info(url.toLocalFile());
+    return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
+        {FMH::MODEL_KEY::TITLE, info.baseName()},
+        {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+        {FMH::MODEL_KEY::SOURCE, FMStatic::fileDir(url).toString ()},
+        {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
+        {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+        {FMH::MODEL_KEY::FORMAT, info.suffix()}};
+}
+
+static FMH::MODEL picInfo2(const QUrl &url)
+{
+    const QFileInfo info(url.toLocalFile());
     const Exiv2Extractor exiv2(url);
 
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
@@ -30,7 +42,7 @@ Gallery::Gallery(QObject *parent)
     , m_recursive(true)
 {
     qDebug() << "CREATING GALLERY LIST";
-    m_fileLoader->informer = &picInfo;
+    m_fileLoader->informer = m_geolocationTags ? &picInfo2 : &picInfo;
     m_fileLoader->setBatchCount(500);
     connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
         Q_UNUSED(items)
@@ -56,7 +68,10 @@ Gallery::Gallery(QObject *parent)
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
         this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
-        this->insertCity(item[FMH::MODEL_KEY::CITY]);
+        if(m_geolocationTags)
+        {
+            this->insertCity(item[FMH::MODEL_KEY::CITY]);
+        }
     });
 
     connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
