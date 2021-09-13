@@ -99,6 +99,7 @@ Maui.ApplicationWindow
             interactive: Kirigami.Settings.isMobile
             floatingFooter: true
             flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
+            showCSDControls: true
 
             headBar.leftContent: Maui.ToolButtonMenu
             {
