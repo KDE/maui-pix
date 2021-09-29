@@ -42,7 +42,7 @@ Maui.ContextualMenu
     {
         Action
         {
-            //            text: i18n(isFav ? "UnFav it": "Fav it")
+            text: i18n(isFav ? "UnFav it": "Fav it")
             checked: isFav
             checkable: true
             icon.name: "love"
@@ -51,7 +51,7 @@ Maui.ContextualMenu
 
         Action
         {
-            //            text: i18n("Tags")
+            text: i18n("Tags")
             icon.name: "tag"
             onTriggered:
             {
@@ -63,7 +63,17 @@ Maui.ContextualMenu
 
         Action
         {
-            //            text: i18n("Share")
+            text: i18n("Info")
+            icon.name: "documentinfo"
+            onTriggered:
+            {
+                getFileInfo(control.model.get(index).url)
+            }
+        }
+
+        Action
+        {
+            text: i18n("Share")
             icon.name: "document-share"
             onTriggered:
             {
@@ -90,15 +100,6 @@ Maui.ContextualMenu
 
     MenuSeparator{}
 
-    MenuItem
-    {
-        text: i18n("Info")
-        icon.name: "documentinfo"
-        onTriggered:
-        {
-            getFileInfo(control.model.get(index).url)
-        }
-    }
 
     MenuItem
     {
