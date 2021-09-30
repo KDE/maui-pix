@@ -3,7 +3,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-
 set(pix_SRCS
     main.cpp
     pix.cpp
@@ -22,21 +21,28 @@ set(pix_HDRS
     )
 
 set(pix_ASSETS
-    qml.qrc
     imgs.qrc
     )
+
+if(QUICK_COMPILER)
+    qtquick_compiler_add_resources(pix_QML_QRC qml.qrc)
+else()
+    qt5_add_resources(pix_QML_QRC qml.qrc)
+endif()
 
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED
         ${pix_SRCS}
         ${pix_HDRS}
         ${pix_ASSETS}
+        ${pix_QML_QRC}
         )
 else()
     add_executable(${PROJECT_NAME}
         ${pix_SRCS}
         ${pix_HDRS}
         ${pix_ASSETS}
+        ${pix_QML_QRC}
         )
 endif()
 
