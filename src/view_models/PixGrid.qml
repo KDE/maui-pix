@@ -19,7 +19,6 @@ Maui.Page
 
     property int itemSize : browserSettings.previewSize
 
-    property alias list : pixList
     property alias listModel : pixModel
     property alias menu : _picMenu
     property alias holder : _holder
@@ -28,6 +27,12 @@ Maui.Page
 
     property alias currentIndex: _gridView.currentIndex
     property string typingQuery
+
+
+    property GalleryList list : GalleryList
+    {
+        autoReload: browserSettings.autoReload
+    }
 
     Maui.Holder
     {
@@ -40,14 +45,20 @@ Maui.Page
     showTitle: false
     headBar.forceCenterMiddleContent: false
     headBar.visible: true
-    headBar.middleContent: Maui.TextField
+    headBar.middleContent:Loader
     {
-        enabled: list.count > 0
+        asynchronous: true
         Layout.fillWidth: true
         Layout.maximumWidth: 500
-        placeholderText: i18n("Search") + " " + pixList.count + " images"
-        onAccepted: model.filter = text
-        onCleared: model.filter = ""
+
+        sourceComponent: Maui.TextField
+        {
+            enabled: control.list.count > 0
+
+            placeholderText: i18n("Search") + " " + control.list.count + " images"
+            onAccepted: model.filter = text
+            onCleared: model.filter = ""
+        }
     }
 
     Maui.GridView
@@ -64,17 +75,13 @@ Maui.Page
         {
             width: parent.width
             anchors.bottom: parent.bottom
-            visible: pixList.status === GalleryList.Loading
+            visible: control.list.status === GalleryList.Loading
         }
 
         model: Maui.BaseModel
         {
             id: pixModel
-            list: GalleryList
-            {
-                id: pixList
-                autoReload: browserSettings.autoReload
-            }
+            list: control.list
 
             sort: browserSettings.sortBy
             sortOrder: browserSettings.sortOrder
@@ -82,7 +89,6 @@ Maui.Page
             sortCaseSensitivity: Qt.CaseInsensitive
             filterCaseSensitivity: Qt.CaseInsensitive
         }
-
 
         Maui.Chip
         {
@@ -102,7 +108,7 @@ Maui.Page
             interval: 250
             onTriggered:
             {
-                const index = pixList.indexOfName(typingQuery)
+                const index = control.list.indexOfName(typingQuery)
                 if(index > -1)
                 {
                     control.currentIndex = pixModel.mappedFromSource(index)

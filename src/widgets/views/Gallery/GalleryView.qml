@@ -18,13 +18,10 @@ PixGrid
 {
     id: control
 
-    list.urls: Pix.Collection.sources
-    list.recursive: true
-
     holder.emoji: "qrc:/assets/image-multiple.svg"
     holder.emojiSize: Maui.Style.iconSizes.huge
     holder.title : i18n("No Pics!")
-    holder.body: list.status === GalleryList.Error ? list.error : i18n("Nothing here. Try something different!")
+    holder.body: mainGalleryList.status === GalleryList.Error ? mainGalleryList.error : i18n("Nothing here. Try something different!")
 
     footerColumn: RowLayout
     {
@@ -41,7 +38,7 @@ PixGrid
             onClicked:
             {
                 _geoFilterList.currentIndex = -1
-                _galleryView.filterCity("")
+                control.filterCity("")
             }
         }
 
@@ -56,7 +53,7 @@ PixGrid
             {
                 list: Pix.CitiesList
                 {
-                    cities: _galleryView.list.cities
+                    cities: mainGalleryList.cities
                 }
             }
 
@@ -77,7 +74,7 @@ PixGrid
                     onClicked:
                     {
                         onClicked: _geoFilterList.currentIndex = index
-                        _galleryView.filterCity(model.id)
+                        control.filterCity(model.id)
                     }
                 }
             }

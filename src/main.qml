@@ -86,6 +86,15 @@ Maui.ApplicationWindow
         property bool previewBarVisible : false
     }
 
+
+    Pix.GalleryList
+    {
+        id: mainGalleryList
+        autoReload: browserSettings.autoReload
+        urls: Pix.Collection.sources
+        recursive: true
+    }
+
     StackView
     {
         id: _stackView
@@ -147,7 +156,6 @@ Maui.ApplicationWindow
                 }
             }
 
-
             footer: SelectionBar
             {
                 id: selectionBox
@@ -158,11 +166,16 @@ Maui.ApplicationWindow
                 display: ToolButton.IconOnly
             }
 
-            GalleryView
+            Maui.AppViewLoader
             {
-                id: _galleryView
                 Maui.AppView.title: i18n("Gallery")
                 Maui.AppView.iconName: "image-multiple"
+
+                GalleryView
+                {
+                    list: mainGalleryList
+
+                }
             }
 
             Maui.AppViewLoader

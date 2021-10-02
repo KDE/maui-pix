@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "pix.h"
 #include <QDesktopServices>
+#include <QCoreApplication>
 
 #include <MauiKit/Core/fmh.h>
 #include <MauiKit/Core/utils.h>
@@ -37,6 +38,11 @@ Pix *Pix::m_instance = nullptr;
 Pix::Pix(QObject *parent)
     : QObject(parent)
 {
+  connect(qApp, &QCoreApplication::aboutToQuit, []()
+     {
+         delete m_instance;
+         m_instance = nullptr;
+     });
 }
 
 const static QStringList findCameraCollection()
@@ -109,12 +115,6 @@ QStringList Pix::sources() const
 void Pix::openPics(const QList<QUrl> &pics)
 {
     emit this->viewPics(QUrl::toStringList(pics));
-}
-
-void Pix::refreshCollection()
-{
-    const auto sources = getSourcePaths();
-    qDebug() << "getting default sources to look up" << sources;
 }
 
 void Pix::showInFolder(const QStringList &urls)

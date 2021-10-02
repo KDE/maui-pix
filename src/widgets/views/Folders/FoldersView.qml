@@ -53,7 +53,7 @@ StackView
                 list: FoldersList
                 {
                     id: foldersList
-                    folders: _galleryView.list.folders
+                    folders: mainGalleryList.folders
                 }
                 sortOrder: Qt.DescendingOrder
                 sort: "modified"

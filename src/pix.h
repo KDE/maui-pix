@@ -65,7 +65,7 @@ public slots:
     void removeSources(const QString &);
 
     void openPics(const QList<QUrl> &);
-    void refreshCollection();
+
     /*File actions*/
     static void showInFolder(const QStringList &);
 
