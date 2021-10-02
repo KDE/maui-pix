@@ -101,45 +101,49 @@ Maui.ApplicationWindow
             flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
             showCSDControls: true
 
-            headBar.leftContent: Maui.ToolButtonMenu
+            headBar.leftContent: Loader
             {
-                icon.name: "application-menu"
-
-                MenuItem
+                asynchronous: true
+                sourceComponent: Maui.ToolButtonMenu
                 {
-                    text: i18n("Open")
-                    icon.name: "folder-open"
-                    onTriggered:
+                    icon.name: "application-menu"
+
+                    MenuItem
                     {
-                        dialogLoader.sourceComponent= fmDialogComponent
-                        dialog.mode = dialog.modes.OPEN
-                        dialog.settings.filterType= FB.FMList.IMAGE
-                        dialog.settings.onlyDirs= false
-                        dialog.callback = function(paths)
+                        text: i18n("Open")
+                        icon.name: "folder-open"
+                        onTriggered:
                         {
-                            console.log("OPEN THIS PATHS", paths)
-                            Pix.Collection.openPics(paths)
-                        };
-                        dialog.open()
+                            dialogLoader.sourceComponent= fmDialogComponent
+                            dialog.mode = dialog.modes.OPEN
+                            dialog.settings.filterType= FB.FMList.IMAGE
+                            dialog.settings.onlyDirs= false
+                            dialog.callback = function(paths)
+                            {
+                                console.log("OPEN THIS PATHS", paths)
+                                Pix.Collection.openPics(paths)
+                            };
+                            dialog.open()
+                        }
                     }
-                }
 
-                MenuItem
-                {
-                    text: i18n("Settings")
-                    icon.name: "settings-configure"
-                    onTriggered:
+                    MenuItem
                     {
-                        dialogLoader.sourceComponent = _settingsDialogComponent
-                        dialog.open()
+                        text: i18n("Settings")
+                        icon.name: "settings-configure"
+                        onTriggered:
+                        {
+                            dialogLoader.sourceComponent = _settingsDialogComponent
+                            dialog.open()
+                        }
                     }
-                }
 
-                MenuItem
-                {
-                    text: i18n("About")
-                    icon.name: "documentinfo"
-                    onTriggered: root.about()
+                    MenuItem
+                    {
+                        text: i18n("About")
+                        icon.name: "documentinfo"
+                        onTriggered: root.about()
+                    }
                 }
             }
 
