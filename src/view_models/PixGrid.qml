@@ -28,7 +28,6 @@ Maui.Page
     property alias currentIndex: _gridView.currentIndex
     property string typingQuery
 
-
     property GalleryList list : GalleryList
     {
         autoReload: browserSettings.autoReload
@@ -45,7 +44,7 @@ Maui.Page
     showTitle: false
     headBar.forceCenterMiddleContent: false
     headBar.visible: true
-    headBar.middleContent:Loader
+    headBar.middleContent: Loader
     {
         asynchronous: true
         Layout.fillWidth: true
@@ -71,11 +70,13 @@ Maui.Page
         itemHeight: browserSettings.showLabels ? _gridView.itemSize * 1.5 : _gridView.itemSize
         cacheBuffer: control.height * 5
 
-        Maui.ProgressIndicator
+        Loader
         {
             width: parent.width
             anchors.bottom: parent.bottom
-            visible: control.list.status === GalleryList.Loading
+            active: control.list.status === GalleryList.Loading
+            visible: active
+            sourceComponent: Maui.ProgressIndicator {}
         }
 
         model: Maui.BaseModel

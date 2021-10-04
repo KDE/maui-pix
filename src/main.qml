@@ -165,11 +165,11 @@ Maui.ApplicationWindow
                 width: Math.min(parent.width-(Maui.Style.space.medium*2), item.implicitWidth)
 
                 sourceComponent: SelectionBar
-            {
-                padding: Maui.Style.space.big
-                maxListHeight: swipeView.height - Maui.Style.space.medium
-                display: ToolButton.IconOnly
-            }
+                {
+                    padding: Maui.Style.space.big
+                    maxListHeight: swipeView.height - Maui.Style.space.medium
+                    display: ToolButton.IconOnly
+                }
             }
 
             Maui.AppViewLoader
@@ -180,7 +180,6 @@ Maui.ApplicationWindow
                 GalleryView
                 {
                     list: mainGalleryList
-
                 }
             }
 
