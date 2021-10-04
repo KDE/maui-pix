@@ -54,6 +54,7 @@ Maui.ApplicationWindow
     headBar.visible:false
 
     property alias dialog : dialogLoader.item
+    property alias selectionBox : _selectionBarLoader.item
 
     /*READONLY PROPS*/
     readonly property var views : ({ gallery: 0,
@@ -156,14 +157,19 @@ Maui.ApplicationWindow
                 }
             }
 
-            footer: SelectionBar
+            footer: Loader
             {
-                id: selectionBox
+                id: _selectionBarLoader
+                asynchronous: true
                 anchors.horizontalCenter: parent.horizontalCenter
-                width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
+                width: Math.min(parent.width-(Maui.Style.space.medium*2), item.implicitWidth)
+
+                sourceComponent: SelectionBar
+            {
                 padding: Maui.Style.space.big
                 maxListHeight: swipeView.height - Maui.Style.space.medium
                 display: ToolButton.IconOnly
+            }
             }
 
             Maui.AppViewLoader

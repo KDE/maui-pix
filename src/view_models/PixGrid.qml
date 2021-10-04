@@ -193,7 +193,7 @@ Maui.Page
                 control.currentIndex = index
                 if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
                 {
-                    control.currentView.itemsSelected([index])
+                   _gridView.itemsSelected([index])
                 }else if(Maui.Handy.singleClick)
                 {
                     openPic(index)
