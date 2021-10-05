@@ -54,7 +54,7 @@ Maui.ApplicationWindow
     headBar.visible:false
 
     property alias dialog : dialogLoader.item
-    property alias selectionBox : _selectionBarLoader.item
+    property alias selectionBox : _selectionBar
 
     /*READONLY PROPS*/
     readonly property var views : ({ gallery: 0,
@@ -86,7 +86,6 @@ Maui.ApplicationWindow
         property bool tagBarVisible : true
         property bool previewBarVisible : false
     }
-
 
     Pix.GalleryList
     {
@@ -157,19 +156,15 @@ Maui.ApplicationWindow
                 }
             }
 
-            footer: Loader
+            footer: SelectionBar
             {
-                id: _selectionBarLoader
-                asynchronous: true
+                id: _selectionBar
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: Math.min(parent.width-(Maui.Style.space.medium*2), item.implicitWidth)
 
-                sourceComponent: SelectionBar
-                {
-                    padding: Maui.Style.space.big
-                    maxListHeight: swipeView.height - Maui.Style.space.medium
-                    display: ToolButton.IconOnly
-                }
+                padding: Maui.Style.space.big
+                maxListHeight: swipeView.height - Maui.Style.space.medium
+                display: ToolButton.IconOnly
             }
 
             Maui.AppViewLoader
