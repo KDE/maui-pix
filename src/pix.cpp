@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "pix.h"
 #include <QDesktopServices>
+#include <QDebug>
 #include <QCoreApplication>
 
 #include <MauiKit/Core/fmh.h>

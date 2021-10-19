@@ -1,7 +1,7 @@
 #include "gallery.h"
 #include <QFileSystemWatcher>
 #include <QDateTime>
-
+#include <QDebug>
 #include <MauiKit/FileBrowsing/fileloader.h>
 #include <MauiKit/FileBrowsing/fmstatic.h>
 #include <MauiKit/FileBrowsing/tagging.h>
