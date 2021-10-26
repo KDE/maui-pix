@@ -37,7 +37,6 @@ Maui.ContextualMenu
         }
     }
 
-
     Maui.MenuItemActionRow
     {
         Action

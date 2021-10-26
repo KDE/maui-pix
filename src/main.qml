@@ -164,7 +164,7 @@ Maui.ApplicationWindow
             {
                 id: _selectionBar
                 anchors.horizontalCenter: parent.horizontalCenter
-                width: Math.min(parent.width-(Maui.Style.space.medium*2), item.implicitWidth)
+                width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
 
                 padding: Maui.Style.space.big
                 maxListHeight: swipeView.height - Maui.Style.space.medium

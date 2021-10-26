@@ -18,6 +18,6 @@ Maui.GridBrowserDelegate
     label1.text: model.title
 
     iconSource: "image-x-generic"
-    imageSource: (model.url && model.url.length>0) ? model.url : "qrc:/assets/image-x-generic.svg"
+    imageSource: model.url
     template.fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
 }

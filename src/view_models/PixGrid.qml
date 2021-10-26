@@ -174,7 +174,6 @@ Maui.Page
 
                 template.imageWidth: _gridView.itemSize
                 template.imageHeight: _gridView.itemSize
-
                 anchors.fill: parent
                 anchors.margins: Kirigami.Settings.isMobile ? 0 : Maui.Style.space.medium
 

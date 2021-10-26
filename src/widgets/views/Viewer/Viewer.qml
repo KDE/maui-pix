@@ -98,17 +98,31 @@ Item
         {
             height: ListView.view.height
             width: ListView.view.width
-//            active : ListView.isCurrentItem
+            //            active : ListView.isCurrentItem
             asynchronous: true
 
-            sourceComponent: IT.ImageViewer
+            sourceComponent: model.format === "gif" ? _animatedImgComponent : _imgComponent
+
+            Component
             {
-                source: model.url
-                imageWidth: 1000
-                imageHeight: 1000
-                animated: model.format === "gif"
+                id: _animatedImgComponent
+                Maui.AnimatedImageViewer
+                {
+                    source: model.url
+
+                }
             }
 
+            Component
+            {
+                id: _imgComponent
+                IT.ImageViewer
+                {
+                    source: model.url
+                    imageWidth: 1000
+                    imageHeight: 1000
+                }
+            }
         }
     }
 
