@@ -2,6 +2,7 @@
 #include <QFileSystemWatcher>
 #include <QDateTime>
 #include <QDebug>
+#include <QDir>
 #include <MauiKit/FileBrowsing/fileloader.h>
 #include <MauiKit/FileBrowsing/fmstatic.h>
 #include <MauiKit/FileBrowsing/tagging.h>
@@ -11,12 +12,12 @@ static FMH::MODEL picInfo(const QUrl &url)
 {
     const QFileInfo info(url.toLocalFile());
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
-        {FMH::MODEL_KEY::TITLE, info.baseName()},
+        {FMH::MODEL_KEY::TITLE, info.fileName()},
         {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-        {FMH::MODEL_KEY::SOURCE, FMStatic::fileDir(url).toString ()},
+        {FMH::MODEL_KEY::SOURCE, QUrl::fromLocalFile(info.absoluteDir().absolutePath()).toString ()},
         {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
         {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-        {FMH::MODEL_KEY::FORMAT, info.suffix()}};
+        {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
 }
 
 static FMH::MODEL picInfo2(const QUrl &url)
@@ -25,13 +26,13 @@ static FMH::MODEL picInfo2(const QUrl &url)
     const Exiv2Extractor exiv2(url);
 
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
-        {FMH::MODEL_KEY::TITLE, info.baseName()},
+        {FMH::MODEL_KEY::TITLE, info.fileName()},
         {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-        {FMH::MODEL_KEY::SOURCE, FMStatic::fileDir(url).toString ()},
+        {FMH::MODEL_KEY::SOURCE,QUrl::fromLocalFile(info.absoluteDir().absolutePath()).toString ()},
         {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
         {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
         {FMH::MODEL_KEY::CITY, exiv2.cityId()},
-        {FMH::MODEL_KEY::FORMAT, info.suffix()}};
+        {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
 }
 
 Gallery::Gallery(QObject *parent)

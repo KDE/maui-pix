@@ -33,14 +33,6 @@ Maui.Page
         autoReload: browserSettings.autoReload
     }
 
-    Maui.Holder
-    {
-        id: _holder
-        anchors.fill: parent
-        visible: _gridView.count === 0
-        emojiSize: Maui.Style.iconSizes.huge
-    }
-
     showTitle: false
     headBar.forceCenterMiddleContent: false
     headBar.visible: true
@@ -255,6 +247,14 @@ Maui.Page
             }
         }
     }
+}
+
+Maui.Holder
+{
+    id: _holder
+    anchors.fill: parent
+    visible: _gridView.count === 0
+    emojiSize: Maui.Style.iconSizes.huge
 }
 
 function filterSelectedItems(path)

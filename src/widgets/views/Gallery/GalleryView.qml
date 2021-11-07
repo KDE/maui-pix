@@ -21,7 +21,20 @@ PixGrid
     holder.emoji: "qrc:/assets/image-multiple.svg"
     holder.emojiSize: Maui.Style.iconSizes.huge
     holder.title : i18n("No Pics!")
-    holder.body: mainGalleryList.status === GalleryList.Error ? mainGalleryList.error : i18n("Nothing here. Try something different!")
+    holder.body: mainGalleryList.status === GalleryList.Error ? mainGalleryList.error : i18n("Nothing here. You can add new sources or open an image.")
+    holder.actions:[
+    Action
+        {
+            text: i18n("Open")
+            onTriggered: openFileDialog()
+        },
+
+        Action
+        {
+            text: i18n("Add sources")
+            onTriggered: openSettingsDialog()
+        }
+    ]
 
     footerColumn: RowLayout
     {

@@ -125,30 +125,15 @@ Maui.ApplicationWindow
                         {
                             text: i18n("Open")
                             icon.name: "folder-open"
-                            onTriggered:
-                            {
-                                dialogLoader.sourceComponent= fmDialogComponent
-                                dialog.mode = dialog.modes.OPEN
-                                dialog.settings.filterType= FB.FMList.IMAGE
-                                dialog.settings.onlyDirs= false
-                                dialog.callback = function(paths)
-                                {
-                                    console.log("OPEN THIS PATHS", paths)
-                                    Pix.Collection.openPics(paths)
-                                };
-                                dialog.open()
-                            }
+                            onTriggered: openFileDialog()
+
                         }
 
                         MenuItem
                         {
                             text: i18n("Settings")
                             icon.name: "settings-configure"
-                            onTriggered:
-                            {
-                                dialogLoader.sourceComponent = _settingsDialogComponent
-                                dialog.open()
-                            }
+                            onTriggered: openSettingsDialog()
                         }
 
                         MenuItem
@@ -404,5 +389,25 @@ Maui.ApplicationWindow
         }
 
         selectionBox.append(item.url, item)
+    }
+
+    function openFileDialog()
+    {
+        dialogLoader.sourceComponent= fmDialogComponent
+        dialog.mode = dialog.modes.OPEN
+        dialog.settings.filterType= FB.FMList.IMAGE
+        dialog.settings.onlyDirs= false
+        dialog.callback = function(paths)
+        {
+            Pix.Collection.openPics(paths)
+            dialogLoader.sourceComponent = null
+        };
+        dialog.open()
+    }
+
+    function openSettingsDialog()
+    {
+        dialogLoader.sourceComponent = _settingsDialogComponent
+        dialog.open()
     }
 }
