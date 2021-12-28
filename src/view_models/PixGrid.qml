@@ -32,7 +32,7 @@ Maui.Page
     {
         autoReload: browserSettings.autoReload
     }
-
+    flickable: _gridView.flickable
     showTitle: false
     headBar.forceCenterMiddleContent: false
     headBar.visible: true
