@@ -19,7 +19,6 @@ Maui.SelectionBar
 {
     id: control
 
-    visible: count > 0
     onExitClicked:
     {
         selectionMode = false
