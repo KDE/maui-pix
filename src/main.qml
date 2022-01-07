@@ -52,6 +52,7 @@ Maui.ApplicationWindow
     id: root
     title: _pixViewer.currentPic.title || Maui.App.displayName
     headBar.visible:false
+    Maui.App.darkMode: browserSettings.darkMode
 
     property alias dialog : dialogLoader.item
     property alias selectionBox : _selectionBar
@@ -78,6 +79,7 @@ Maui.ApplicationWindow
         property int previewSize : previewSizes.medium
         property string sortBy : "modified"
         property int sortOrder: Qt.DescendingOrder
+        property bool darkMode : true
     }
 
     Settings
@@ -328,9 +330,16 @@ Maui.ApplicationWindow
     {
         if(Maui.Handy.isAndroid)
         {
-            Maui.Android.statusbarColor(headBar.Kirigami.Theme.backgroundColor, false)
-            Maui.Android.navBarColor(headBar.visible ? headBar.Kirigami.Theme.backgroundColor : Kirigami.Theme.backgroundColor, false)
+            setAndroidStatusBarColor()
+        }
+    }
 
+    function setAndroidStatusBarColor()
+    {
+        if(Maui.Handy.isAndroid)
+        {
+            Maui.Android.statusbarColor( Kirigami.Theme.backgroundColor, !Maui.App.darkMode)
+            Maui.Android.navBarColor(headBar.visible ? headBar.Kirigami.Theme.backgroundColor : Kirigami.Theme.backgroundColor, !Maui.App.darkMode)
         }
     }
 
