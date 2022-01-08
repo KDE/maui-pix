@@ -32,6 +32,7 @@ Maui.Page
     {
         autoReload: browserSettings.autoReload
     }
+
     flickable: _gridView.flickable
     showTitle: false
     headBar.forceCenterMiddleContent: false
@@ -41,6 +42,7 @@ Maui.Page
         asynchronous: true
         Layout.fillWidth: true
         Layout.maximumWidth: 500
+        Layout.alignment: Qt.AlignCenter
 
         sourceComponent: Maui.TextField
         {

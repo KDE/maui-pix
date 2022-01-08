@@ -111,7 +111,7 @@ Maui.ApplicationWindow
             floatingFooter: true
             flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
             showCSDControls: true
-            headBar.forceCenterMiddleContent: root.isWide
+//            headBar.forceCenterMiddleContent: root.isWide
 
             headBar.leftContent: Loader
             {

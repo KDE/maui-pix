@@ -23,6 +23,8 @@ Maui.Page
     {
         Layout.fillWidth: true
         Layout.maximumWidth: 500
+        Layout.alignment: Qt.AlignCenter
+
         placeholderText: i18np("Filter %1 tag", "Filter %1 tags", _tagsList.count)
         onAccepted: _tagsModel.filter = text
         onCleared: _tagsModel.filter = ""

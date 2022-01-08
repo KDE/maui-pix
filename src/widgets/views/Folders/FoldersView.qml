@@ -29,6 +29,8 @@ StackView
         {
             Layout.fillWidth: true
             Layout.maximumWidth: 500
+            Layout.alignment: Qt.AlignCenter
+
             placeholderText: i18np("Filter %1 folder", "Filter %1 folders", foldersList.count)
             onAccepted: folderModel.filter = text
             onCleared: folderModel.filter = ""
