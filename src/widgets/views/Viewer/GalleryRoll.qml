@@ -60,6 +60,16 @@ ScrollView
 
             onPressAndHold: _picMenu.show()
             onRightClicked: _picMenu.show()
+
+            Behavior on width
+            {
+                NumberAnimation
+                {
+                    duration: Kirigami.Units.longDuration
+                    easing.type: Easing.InQuad
+                }
+            }
+
         }
     }
 

@@ -174,7 +174,7 @@ Maui.Page
                 fit: browserSettings.fitPreviews
                 labelsVisible: browserSettings.showLabels
                 checkable: root.selectionMode
-                maskRadius: Kirigami.Settings.isMobile ? 0 : Maui.Style.radiusV
+                radius: Kirigami.Settings.isMobile ? 0 : Maui.Style.radiusV
 
                 isCurrentItem: parent.GridView.isCurrentItem || checked
                 checked: selectionBox.contains(model.url)
