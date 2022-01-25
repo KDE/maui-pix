@@ -19,7 +19,7 @@ Maui.Page
 
     headBar.visible: true
     headBar.forceCenterMiddleContent: false
-    headBar.middleContent: Maui.TextField
+    headBar.middleContent: Maui.SearchField
     {
         Layout.fillWidth: true
         Layout.maximumWidth: 500

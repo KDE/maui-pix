@@ -44,7 +44,7 @@ Maui.Page
         Layout.maximumWidth: 500
         Layout.alignment: Qt.AlignCenter
 
-        sourceComponent: Maui.TextField
+        sourceComponent: Maui.SearchField
         {
             enabled: control.list.count > 0
 

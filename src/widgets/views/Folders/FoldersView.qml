@@ -25,7 +25,7 @@ StackView
 
         flickable: _foldersGrid.flickable
 
-        headBar.middleContent: Maui.TextField
+        headBar.middleContent: Maui.SearchField
         {
             Layout.fillWidth: true
             Layout.maximumWidth: 500
