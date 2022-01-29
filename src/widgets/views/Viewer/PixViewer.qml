@@ -194,7 +194,6 @@ StackView
             isMask: true
             title : i18n("No Pics!")
             body: i18n("Open an image from your collection")
-            emojiSize: Maui.Style.iconSizes.huge
         }
 
         ColumnLayout

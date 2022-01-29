@@ -46,7 +46,6 @@ StackView
             holder.emoji: "qrc:/assets/view-preview.svg"
             holder.title : i18n("No Folders!")
             holder.body: i18n("Add new image sources")
-            holder.emojiSize: Maui.Style.iconSizes.huge
             holder.visible: foldersList.count === 0
 
             model: Maui.BaseModel

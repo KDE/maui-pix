@@ -60,7 +60,6 @@ Maui.Page
         holder.emoji: i18n("qrc:/assets/add-image.svg")
         holder.title :i18n("No Tags!")
         holder.body: i18n("You can create new tags to organize your gallery")
-        holder.emojiSize: Maui.Style.iconSizes.huge
 
         delegate: Item
         {

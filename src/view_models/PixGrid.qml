@@ -256,7 +256,6 @@ Maui.Holder
     id: _holder
     anchors.fill: parent
     visible: _gridView.count === 0
-    emojiSize: Maui.Style.iconSizes.huge
 }
 
 function filterSelectedItems(path)
