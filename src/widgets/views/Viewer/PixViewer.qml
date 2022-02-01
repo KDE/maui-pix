@@ -94,6 +94,7 @@ StackView
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         title: currentPic.title
         showTitle: root.isWide
+        altHeader: Kirigami.Settings.isMobile
         headBar.visible: true
 
         footBar.visible: !holder.visible && root.visibility !== Window.FullScreen && (!Kirigami.Settings.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode

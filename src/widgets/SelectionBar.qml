@@ -21,8 +21,16 @@ Maui.SelectionBar
 
     onExitClicked:
     {
-        selectionMode = false
+        root.selectionMode = false
         clear()
+    }
+
+    onVisibleChanged:
+    {
+        if(!visible)
+        {
+            root.selectionMode = false
+        }
     }
 
     listDelegate: Maui.ListBrowserDelegate
