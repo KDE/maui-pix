@@ -126,6 +126,19 @@ Item
         }
     }
 
+    MouseArea
+    {
+        anchors.fill: parent
+        onPressed:
+        {
+
+            galleryRollBg.visible = !galleryRollBg.visible
+            mouse.accepted = false
+        }
+        propagateComposedEvents: true
+        preventStealing: false
+    }
+
     Maui.BaseModel
     {
         id: _defaultModel
