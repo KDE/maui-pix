@@ -20,4 +20,5 @@ Maui.GridBrowserDelegate
     iconSource: "image-x-generic"
     imageSource: model.url
     template.fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
+    template.autoTransform: true
 }

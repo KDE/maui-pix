@@ -109,7 +109,6 @@ Item
                 Maui.AnimatedImageViewer
                 {
                     source: model.url
-
                 }
             }
 
@@ -119,8 +118,9 @@ Item
                 IT.ImageViewer
                 {
                     source: model.url
-                    imageWidth: 1000
-                    imageHeight: 1000
+//                    imageWidth: 1000
+//                    imageHeight: 1000
+                    image.autoTransform: true
                 }
             }
         }
