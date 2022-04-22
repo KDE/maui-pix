@@ -87,9 +87,7 @@
   <url type="donation">https://kde.org/community/donations</url>
   <screenshots>
     <screenshot type="default">
-      <image type="source" width="720" height="1440">
-          https://cdn.kde.org/screenshots/pix/pix.png
-      </image>
+      <image type="source">https://cdn.kde.org/screenshots/pix/pix.png</image>
       <caption>The Pix music player</caption>
       <caption xml:lang="ca">El reproductor de música Pix</caption>
       <caption xml:lang="ca-valencia">El reproductor de música Pix</caption>
@@ -123,14 +121,10 @@
       <caption xml:lang="zh-TW">Pix 音樂播放器</caption>
     </screenshot>
     <screenshot type="default">
-      <image type="source" width="720" height="1440">
-          https://cdn.kde.org/screenshots/pix/pix-2.png
-      </image>
+      <image type="source">https://cdn.kde.org/screenshots/pix/pix-2.png</image>
     </screenshot>
     <screenshot type="default">
-      <image type="source" width="720" height="1440">
-          https://cdn.kde.org/screenshots/pix/pix-3.png
-      </image>
+      <image type="source">https://cdn.kde.org/screenshots/pix/pix-3.png</image>
     </screenshot>
   </screenshots>
   <recommends>
