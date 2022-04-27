@@ -101,7 +101,7 @@ Item
             //            active : ListView.isCurrentItem
             asynchronous: true
 
-            sourceComponent: model.format === "gif" ? _animatedImgComponent : _imgComponent
+            sourceComponent: model.format === "gif" || model.format === "avif" ? _animatedImgComponent : _imgComponent
 
             Component
             {
