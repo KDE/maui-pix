@@ -43,7 +43,7 @@ Gallery::Gallery(QObject *parent)
     , m_recursive(true)
 {
     qDebug() << "CREATING GALLERY LIST";
-    m_fileLoader->informer = m_geolocationTags ? &picInfo2 : &picInfo;
+    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
     m_fileLoader->setBatchCount(500);
     connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
         Q_UNUSED(items)
@@ -69,7 +69,7 @@ Gallery::Gallery(QObject *parent)
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
         this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
-        if(m_geolocationTags)
+        if(m_activeGeolocationTags)
         {
             this->insertCity(item[FMH::MODEL_KEY::CITY]);
         }
@@ -304,6 +304,15 @@ int Gallery::indexOfName(const QString &query)
         return -1;
 }
 
+void Gallery::setActiveGeolocationTags(bool activeGeolocationTags)
+{
+    if (m_activeGeolocationTags == activeGeolocationTags)
+        return;
+
+    m_activeGeolocationTags = activeGeolocationTags;
+    emit activeGeolocationTagsChanged(m_activeGeolocationTags);
+}
+
 void Gallery::componentComplete()
 {
     connect(this, &Gallery::urlsChanged, this, &Gallery::rescan);
@@ -323,4 +332,9 @@ Gallery::Status Gallery::status() const
 QString Gallery::error() const
 {
     return m_error;
+}
+
+bool Gallery::activeGeolocationTags() const
+{
+    return m_activeGeolocationTags;
 }

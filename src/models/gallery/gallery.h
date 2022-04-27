@@ -30,6 +30,8 @@ class Gallery : public MauiList
     Q_PROPERTY(Status status READ status NOTIFY statusChanged FINAL)
     Q_PROPERTY(QString error READ error NOTIFY errorChanged FINAL)
 
+    Q_PROPERTY(bool activeGeolocationTags READ activeGeolocationTags WRITE setActiveGeolocationTags NOTIFY activeGeolocationTagsChanged)
+
 public:
     enum Status
     {
@@ -66,6 +68,8 @@ public:
 
     QString error() const;
 
+    bool activeGeolocationTags() const;
+
 private:
     FMH::FileLoader *m_fileLoader;
     QFileSystemWatcher *m_watcher;
@@ -79,7 +83,6 @@ private:
     bool m_autoReload;
     bool m_recursive;
     int m_limit = PIX_QUERY_MAX_LIMIT;
-    bool m_geolocationTags = false;
 
     Status m_status = Status::Error;
     QString m_error;
@@ -96,6 +99,8 @@ private:
 
     void setStatus(const Gallery::Status &, const QString& = QString());
 
+    bool m_activeGeolocationTags = false;
+
 signals:
     void urlsChanged();
     void foldersChanged();
@@ -110,6 +115,8 @@ signals:
 
     void statusChanged();
     void errorChanged(QString error);
+
+    void activeGeolocationTagsChanged(bool activeGeolocationTags);
 
 public slots:
     bool remove(const int &);
@@ -126,5 +133,6 @@ public slots:
     void setlimit(int);
 
     int indexOfName(const QString &);
+    void setActiveGeolocationTags(bool activeGeolocationTags);
 };
 #endif // GALLERY_H

@@ -9,7 +9,7 @@ import QtQuick.Controls 2.10
 import QtQuick.Layouts 1.12
 
 import org.maui.pix 1.0 as Pix
-import org.mauikit.controls 1.0 as Maui
+import org.mauikit.controls 1.3 as Maui
 import org.maui.pix 1.0
 
 import "../../../view_models"
@@ -17,6 +17,8 @@ import "../../../view_models"
 PixGrid
 {
     id: control
+
+    list.activeGeolocationTags: true
 
     holder.emoji: "qrc:/assets/image-multiple.svg"
     holder.title : i18n("No Pics!")
@@ -35,7 +37,56 @@ PixGrid
         }
     ]
 
-    footerColumn: RowLayout
+    footerColumn: [
+
+        Row
+        {
+            width: parent.width
+//            height: visible ? 80 : 0
+            spacing: Maui.Style.space.medium
+
+            ToolButton
+            {
+                visible: control.model.filters.length > 0
+                icon.name: "go-previous"
+                onClicked:
+                {
+                    control.model.clearFilters()
+                }
+            }
+
+            Maui.Chip
+            {
+                iconSource: "player_play"
+                text: i18n("Animated")
+                color: "pink"
+//                label2.text: i18n ("GIF, AVIF")
+                onClicked:
+                {
+//                    control.model.filterRole = "format"
+                    control.model.filters = ["gif","avif"]
+                }
+            }
+
+            Maui.Chip
+            {
+                iconSource: "monitor"
+                text: i18n("Screenshots")
+                color: "orange"
+//                label2.text: i18n ("GIF, AVIF")
+                onClicked: control.model.filters = ["screenshot","screen"]
+            }
+
+            Maui.Chip
+            {
+                iconSource: "animal"
+                text: i18n("Animals")
+                color: "yellow"
+//                label2.text: i18n ("GIF, AVIF")
+            }
+        },
+
+        RowLayout
     {
         visible: _geoFilterList.count > 0
         width: parent.width
@@ -50,7 +101,7 @@ PixGrid
             onClicked:
             {
                 _geoFilterList.currentIndex = -1
-                control.filterCity("")
+                control.model.clearFilters()
             }
         }
 
@@ -69,29 +120,26 @@ PixGrid
                 }
             }
 
-            delegate: Item
+            delegate: Maui.ListBrowserDelegate
             {
                 height: 60
-                width: 160
-
-                Maui.ListBrowserDelegate
+                width: 200
+                isCurrentItem: ListView.isCurrentItem
+                iconSource: "mark-location"
+                label1.text: model.name
+                label2.text: model.country
+                iconVisible: true
+                onClicked:
                 {
-                    isCurrentItem: parent.ListView.isCurrentItem
-                    anchors.fill: parent
-                    anchors.margins: Maui.Style.space.medium
-                    iconSource: "mark-location"
-                    label1.text: model.name
-                    label2.text: model.country
-                    iconVisible: true
-                    onClicked:
-                    {
-                        onClicked: _geoFilterList.currentIndex = index
-                        control.filterCity(model.id)
-                    }
+                    onClicked: _geoFilterList.currentIndex = index
+                    control.filterCity(model.id)
+                    ListView.view.currentIndex = index
                 }
             }
         }
-    }
+    }]
+
+
 
     function filterCity(cityId)
     {

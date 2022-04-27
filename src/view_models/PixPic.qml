@@ -19,6 +19,51 @@ Maui.GridBrowserDelegate
 
     iconSource: "image-x-generic"
     imageSource: model.url
-    template.fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
-    template.autoTransform: true
+
+    fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
+
+    template.iconComponent: (model.format === "gif" || model.format === "avif" ) && control.hovered ? _animatedComponent :  _iconComponent
+
+    Component
+    {
+        id: _iconComponent
+        Maui.IconItem
+        {
+            id: _iconItem
+            iconSource: control.iconSource
+            imageSource: control.imageSource
+
+            highlighted: control.isCurrentItem
+            hovered: control.hovered
+            smooth: control.smooth
+            iconSizeHint: control.iconSizeHint
+            imageSizeHint: control.imageSizeHint
+
+            fillMode: control.fillMode
+            maskRadius: control.maskRadius
+
+            imageWidth: control.imageWidth
+            imageHeight: control.imageHeight
+
+            isMask: control.isMask
+            image.autoTransform: true
+            Component.onCompleted: control.label2.text =  Qt.binding(function () { return _iconItem.image.implicitWidth + " x " + _iconItem.image.implicitHeight})
+
+        }
+    }
+
+    Component
+    {
+        id: _animatedComponent
+        AnimatedImage
+        {
+            source: control.imageSource
+            fillMode:  control.fillMode
+            autoTransform: true
+            asynchronous: true
+            onStatusChanged: playing = (status == AnimatedImage.Ready)
+            horizontalAlignment: Qt.AlignHCenter
+            verticalAlignment: Qt.AlignVCenter
+        }
+    }
 }

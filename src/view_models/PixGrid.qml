@@ -49,8 +49,18 @@ Maui.Page
             enabled: control.list.count > 0
 
             placeholderText: i18n("Search") + " " + control.list.count + " images"
-            onAccepted: model.filter = text
-            onCleared: model.filter = ""
+            onAccepted:
+            {
+                if(text.includes(","))
+                {
+                    model.filters = text.split(",")
+                }else
+                {
+                    model.filter = text
+                }
+            }
+
+            onCleared: model.clearFilters()
         }
     }
 
@@ -181,13 +191,12 @@ Maui.Page
 
                 Drag.keys: ["text/uri-list"]
                 Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
-
             onClicked:
             {
                 control.currentIndex = index
                 if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
                 {
-                   _gridView.itemsSelected([index])
+                    _gridView.itemsSelected([index])
                 }else if(Maui.Handy.singleClick)
                 {
                     openPic(index)
