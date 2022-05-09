@@ -216,7 +216,7 @@ StackView
                     width: parent.width
                     anchors.bottom: parent.bottom
                     height: Math.min(100, Math.max(parent.height * 0.12, 60))
-                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 0 && opacity> 0
+                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1 && opacity> 0
                     color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.7)
                     Behavior on opacity
                     {

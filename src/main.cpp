@@ -59,20 +59,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define PIX_URI "org.maui.pix"
 
-static const QList<QUrl> getFolderImages(const QString &path)
-{
-    QList<QUrl> urls;
+//static const QList<QUrl> getFolderImages(const QString &path)
+//{
+//    QList<QUrl> urls;
 
-    if (QFileInfo(path).isDir()) {
-        QDirIterator it(path, FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::NoIteratorFlags);
-        while (it.hasNext())
-            urls << QUrl::fromLocalFile(it.next());
+//    if (QFileInfo(path).isDir()) {
+//        QDirIterator it(path, FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::NoIteratorFlags);
+//        while (it.hasNext())
+//            urls << QUrl::fromLocalFile(it.next());
 
-    } else if (QFileInfo(path).isFile())
-        urls << path;
+//    } else if (QFileInfo(path).isFile())
+//        urls << path;
 
-    return urls;
-}
+//    return urls;
+//}
 
 static const QPair<QString, QList<QUrl>> openFiles(const QStringList &files)
 {
@@ -98,9 +98,9 @@ static const QPair<QString, QList<QUrl>> openFiles(const QStringList &files)
         }else
         {
             module = "viewer";
-            auto folder = QFileInfo(files.first()).dir().absolutePath();
-            urls = getFolderImages(folder);
-            urls.removeOne(QUrl::fromLocalFile(files.first()));
+//            auto folder = QFileInfo(files.first()).dir().absolutePath();
+//            urls = getFolderImages(folder);
+//            urls.removeOne(QUrl::fromLocalFile(files.first()));
             urls.insert(0, QUrl::fromLocalFile(files.first()));
         }
     }

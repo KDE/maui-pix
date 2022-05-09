@@ -128,10 +128,10 @@ Item
 
     MouseArea
     {
+        enabled: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
         anchors.fill: parent
         onPressed:
         {
-
             galleryRollBg.visible = !galleryRollBg.visible
             mouse.accepted = false
         }
