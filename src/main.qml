@@ -103,20 +103,14 @@ Maui.ApplicationWindow
         anchors.fill: parent
         focus: true
 
-        initialItem: _pixViewer
+        initialItem: initModule === "viewer" ? _pixViewer : swipeView
 
-        Component.onCompleted:
-        {
-            if(initModule !== "viewer")
-            {
-                toggleViewer()
-
-                if(initModule === "folder")
-                {
-                    swipeView.currentIndex = views.folders;
-                }
-            }
-        }
+//        Component.onCompleted:
+//        {
+//            if(initModule === "folder")
+//            {
+//            }
+//        }
 
         pushEnter: Transition {
             PropertyAnimation {
@@ -155,6 +149,7 @@ Maui.ApplicationWindow
         {
             id: swipeView
             visible: StackView.status === StackView.Active
+            currentIndex: initModule === "folder" ? views.folders : views.gallery
 
             altHeader: Kirigami.Settings.isMobile
             interactive: Kirigami.Settings.isMobile
