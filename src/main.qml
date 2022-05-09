@@ -103,15 +103,65 @@ Maui.ApplicationWindow
         anchors.fill: parent
         focus: true
 
-        initialItem: Maui.AppViews
+        initialItem: _pixViewer
+
+        Component.onCompleted:
+        {
+            if(initModule !== "viewer")
+            {
+                toggleViewer()
+
+                if(initModule === "folder")
+                {
+                    swipeView.currentIndex = views.folders;
+                }
+            }
+        }
+
+        pushEnter: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 0
+                to:1
+                duration: 200
+            }
+        }
+        pushExit: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 1
+                to:0
+                duration: 200
+            }
+        }
+        popEnter: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 0
+                to:1
+                duration: 200
+            }
+        }
+        popExit: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 1
+                to:0
+                duration: 200
+            }
+        }
+
+        Maui.AppViews
         {
             id: swipeView
+            visible: StackView.status === StackView.Active
+
             altHeader: Kirigami.Settings.isMobile
             interactive: Kirigami.Settings.isMobile
             floatingFooter: true
             flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
             showCSDControls: true
-//            headBar.forceCenterMiddleContent: root.isWide
+            //            headBar.forceCenterMiddleContent: root.isWide
 
             headBar.leftContent: Loader
             {
@@ -375,6 +425,27 @@ Maui.ApplicationWindow
         {
             root.showFullScreen()
         }
+    }
+
+    function toggleViewer()
+    {
+        if(_pixViewer.visible)
+        {
+            if(_stackView.depth === 1)
+            {
+                _stackView.replace(_pixViewer, swipeView)
+
+            }else
+            {
+                _stackView.pop()
+            }
+
+        }else
+        {
+            _stackView.push(_pixViewer)
+        }
+
+        _stackView.currentItem.forceActiveFocus()
     }
 
     function filterSelection(url)

@@ -11,7 +11,10 @@ function open(model, index)
 {
     _pixViewer.model = model
     _pixViewer.view(index)
-    _stackView.push(_pixViewer, QQC2.StackView.ReplaceTransition)
+    if(!_pixViewer.visible)
+    {
+        toggleViewer()
+    }
 }
 
 function openExternalPics(pics, index)
@@ -19,7 +22,10 @@ function openExternalPics(pics, index)
     var oldIndex = _pixViewer.viewer.count
     _pixViewer.viewer.appendPics(pics)
     _pixViewer.view(Math.max(oldIndex, 0))
-    _stackView.push(_pixViewer)
+    if(!_pixViewer.visible)
+    {
+        toggleViewer()
+    }
 }
 
 function fav(urls)

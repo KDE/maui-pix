@@ -119,7 +119,7 @@ StackView
                 icon.name: "go-previous"
                 text: i18n("Gallery")
                 display: ToolButton.TextBesideIcon
-                onClicked: _stackView.pop()
+                onClicked: toggleViewer()
             }
         ]
 

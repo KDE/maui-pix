@@ -29,6 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QDirIterator>
+#include <QPair>
 #include <QDate>
 
 #ifdef Q_OS_ANDROID
@@ -73,21 +74,38 @@ static const QList<QUrl> getFolderImages(const QString &path)
     return urls;
 }
 
-static const QList<QUrl> openFiles(const QStringList &files)
+static const QPair<QString, QList<QUrl>> openFiles(const QStringList &files)
 {
     QList<QUrl> urls;
+    QString module;
 
-    if (files.size() > 1) {
+    if (files.size() > 1)
+    {
+        module = "viewer";
         for (const auto &file : files)
+        {
+            if(FMStatic::isDir(QUrl::fromUserInput(file)))
+                continue;
+
             urls << QUrl::fromUserInput(file);
-    } else if (files.size() == 1) {
-        auto folder = QFileInfo(files.first()).dir().absolutePath();
-        urls = getFolderImages(folder);
-        urls.removeOne(QUrl::fromLocalFile(files.first()));
-        urls.insert(0, QUrl::fromLocalFile(files.first()));
+        }
+    } else if (files.size() == 1)
+    {
+        if(FMStatic::isDir(QUrl::fromUserInput(files.first())))
+        {
+            module = "folder";
+            urls << QUrl::fromUserInput(files.first());
+        }else
+        {
+            module = "viewer";
+            auto folder = QFileInfo(files.first()).dir().absolutePath();
+            urls = getFolderImages(folder);
+            urls.removeOne(QUrl::fromLocalFile(files.first()));
+            urls.insert(0, QUrl::fromLocalFile(files.first()));
+        }
     }
 
-    return urls;
+    return {module, urls};
 }
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
@@ -128,15 +146,34 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     const QStringList args = parser.positionalArguments();
 
-    QList<QUrl> pics;
+    QPair<QString, QList<QUrl>> arguments;
+    arguments.first = "gallery";
+
     if (!args.isEmpty())
-        pics = openFiles(args);
+    {
+        arguments = openFiles(args);
+    }
 
     QQmlApplicationEngine engine;
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]() {
-        if (!pics.isEmpty())
-            Pix::instance()->openPics(pics);
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
+    {
+        auto module = arguments.first;
+        auto data = arguments.second;
+
+        if (!data.isEmpty() )
+        {
+            if(module == "viewer")
+            {
+                Pix::instance()->openPics(data);
+            }else if(module == " folder")
+            {
+
+            }
+        }
     });
+
+    engine.rootContext()->setContextProperty("initModule", arguments.first);
+    engine.rootContext()->setContextProperty("initData", QUrl::toStringList(arguments.second));
 
     qmlRegisterSingletonInstance<Pix>(PIX_URI, 1, 0, "Collection", Pix::instance());
 
@@ -150,8 +187,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         return -1;
 
 #ifdef Q_OS_MACOS
-//    MAUIMacOS::removeTitlebarFromWindow();
-//    MauiApp::instance()->setEnableCSD(true); //for now index can not handle cloud accounts
+    //    MAUIMacOS::removeTitlebarFromWindow();
+    //    MauiApp::instance()->setEnableCSD(true); //for now index can not handle cloud accounts
 #endif
 
     return app.exec();

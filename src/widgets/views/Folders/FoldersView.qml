@@ -17,6 +17,14 @@ StackView
     property alias picsView : control.currentItem
     property Flickable flickable : picsView.flickable
 
+    Component.onCompleted:
+    {
+        if(initModule === "folder")
+        {
+            openFolder(initData)
+        }
+    }
+
     initialItem: Maui.Page
     {
         id: _foldersPage
@@ -98,10 +106,8 @@ StackView
 
                         if(Maui.Handy.singleClick)
                         {
-                            control.push(picsViewComponent)
-                            picsView.title = model.label
                             currentFolder = model.path
-                            picsView.list.urls = [currentFolder]
+                            openFolder([currentFolder])
                         }
                     }
 
@@ -111,10 +117,8 @@ StackView
 
                         if(!Maui.Handy.singleClick)
                         {
-                            control.push(picsViewComponent)
-                            picsView.title = model.label
                             currentFolder = model.path
-                            picsView.list.urls = [currentFolder]
+                            openFolder([currentFolder])
                         }
                     }
                 }
@@ -147,5 +151,12 @@ StackView
     function refresh()
     {
         foldersList.refresh()
+    }
+
+    function openFolder(urls)
+    {
+        control.push(picsViewComponent)
+//        picsView.title = model.label
+        picsView.list.urls = urls
     }
 }
