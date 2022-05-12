@@ -19,7 +19,7 @@ import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
 
-StackView
+Maui.StackView
 {
     id: control
 
@@ -36,50 +36,6 @@ StackView
     property bool doodle : false
 
     property alias showCSDControls: _viewer.showCSDControls
-
-    pushEnter: Transition
-    {
-        PropertyAnimation
-        {
-            property: "opacity"
-            from: 0
-            to:1
-            duration: 200
-        }
-    }
-
-    pushExit: Transition
-    {
-        PropertyAnimation
-        {
-            property: "opacity"
-            from: 1
-            to:0
-            duration: 200
-        }
-    }
-
-    popEnter: Transition
-    {
-        PropertyAnimation
-        {
-            property: "opacity"
-            from: 0
-            to:1
-            duration: 200
-        }
-    }
-
-    popExit: Transition
-    {
-        PropertyAnimation
-        {
-            property: "opacity"
-            from: 1
-            to:0
-            duration: 200
-        }
-    }
 
     Component
     {

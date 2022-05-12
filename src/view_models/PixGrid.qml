@@ -165,6 +165,12 @@ Maui.Page
                 openPic(index)
                 event.accepted = true
             }
+
+            if(event.key === Qt.Key_A && (event.modifiers & Qt.ControlModifier))
+            {
+                selectAll()
+                event.accepted = true
+            }
         }
 
         delegate: Item
@@ -191,6 +197,7 @@ Maui.Page
 
                 Drag.keys: ["text/uri-list"]
                 Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
+
             onClicked:
             {
                 control.currentIndex = index
@@ -276,6 +283,14 @@ function filterSelectedItems(path)
     }
 
     return path
+}
+
+function selectAll()
+{
+    for(var item of pixModel.getAll())
+    {
+        selectionBox.append(item.url, item)
+    }
 }
 
 function openPic(index)

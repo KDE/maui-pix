@@ -1,27 +1,31 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import org.kde.kirigami 2.9 as Kirigami
+import org.kde.kirigami 2.14 as Kirigami
 import org.mauikit.controls 1.3 as Maui
+
+import org.mauikit.filebrowsing 1.3 as FB
+
 import org.maui.pix 1.0
 
 import "../../../view_models"
 
-StackView
+Maui.StackView
 {
     id: control
 
-    property string currentFolder : ""
+    property string currentFolder : initData
+    readonly property var folderInfo : FB.FM.getFileInfo(currentFolder)
     property alias picsView : control.currentItem
     property Flickable flickable : picsView.flickable
 
     Component.onCompleted:
     {
-        if(initModule === "folder")
+        if(_foldersViewLoader.pendingFolder.length > 0)
         {
-            openFolder(initData)
+            openFolder(_foldersViewLoader.pendingFolder)
         }
     }
 
@@ -106,8 +110,7 @@ StackView
 
                         if(Maui.Handy.singleClick)
                         {
-                            currentFolder = model.path
-                            openFolder([currentFolder])
+                            openFolder(model.path)
                         }
                     }
 
@@ -117,8 +120,7 @@ StackView
 
                         if(!Maui.Handy.singleClick)
                         {
-                            currentFolder = model.path
-                            openFolder([currentFolder])
+                            openFolder(model.path)
                         }
                     }
                 }
@@ -132,7 +134,9 @@ StackView
 
         PixGrid
         {
+            id: _picsView
             headBar.visible: true
+            title: control.folderInfo.label
 
             headBar.farLeftContent: ToolButton
             {
@@ -145,6 +149,24 @@ StackView
             holder.emoji: "qrc:/assets/add-image.svg"
             holder.title : i18n("Folder is empty!")
             holder.body: i18n("There're no images in this folder")
+
+            gridView.header: Maui.SectionDropDown
+            {
+                width: parent.width
+                padding: Maui.Style.space.big
+                label1.text: control.folderInfo.label
+                label2.text: (control.folderInfo.url).replace(FB.FM.homePath(), "")
+                template.label3.text: _picsView.gridView.count
+                template.label4.text: Qt.formatDateTime(new Date(control.folderInfo.modified), "d MMM yyyy")
+                template.iconSource: control.folderInfo.icon
+
+                template.content: ToolButton
+                {
+                    icon.name: "folder-open"
+                    onClicked: Pix.Collection.showInFolder([control.currentFolder])
+                }
+
+            }
         }
     }
 
@@ -153,10 +175,10 @@ StackView
         foldersList.refresh()
     }
 
-    function openFolder(urls)
+    function openFolder(url)
     {
+        control.currentFolder = url
         control.push(picsViewComponent)
-//        picsView.title = model.label
-        picsView.list.urls = urls
+        picsView.list.urls = [url]
     }
 }

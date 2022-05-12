@@ -16,7 +16,7 @@ import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
 
-StackView
+Maui.StackView
 {
     id: control
 

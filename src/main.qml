@@ -97,57 +97,12 @@ Maui.ApplicationWindow
         recursive: true
     }
 
-    StackView
+    Maui.StackView
     {
         id: _stackView
         anchors.fill: parent
-        focus: true
 
         initialItem: initModule === "viewer" ? _pixViewer : swipeView
-
-        pushEnter: Transition
-        {
-            PropertyAnimation
-            {
-                property: "opacity"
-                from: 0
-                to:1
-                duration: 200
-            }
-        }
-
-        pushExit: Transition
-        {
-            PropertyAnimation
-            {
-                property: "opacity"
-                from: 1
-                to:0
-                duration: 200
-            }
-        }
-
-        popEnter: Transition
-        {
-            PropertyAnimation
-            {
-                property: "opacity"
-                from: 0
-                to:1
-                duration: 200
-            }
-        }
-
-        popExit: Transition
-        {
-            PropertyAnimation
-            {
-                property: "opacity"
-                from: 1
-                to:0
-                duration: 200
-            }
-        }
 
         Maui.AppViews
         {
@@ -236,8 +191,11 @@ Maui.ApplicationWindow
 
             Maui.AppViewLoader
             {
+                id: _foldersViewLoader
                 Maui.AppView.title: i18n("Folders")
                 Maui.AppView.iconName: "folder"
+                property string pendingFolder : initModule === "folder" ? initData : ""
+
                 FoldersView {}
             }
         }

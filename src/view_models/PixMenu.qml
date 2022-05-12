@@ -137,8 +137,29 @@ Maui.ContextualMenu
 
     MenuItem
     {
-        visible: !Maui.Handy.isAndroid
         text: i18n("Show in folder")
+        icon.name: "folder-open"
+        onTriggered:
+        {
+            swipeView.currentIndex = views.folders
+
+            var url = FB.FM.fileDir(item.url)
+
+            console.log("SHWO FOLDER FOR ", url)
+            if(_foldersViewLoader.item)
+            {
+                _foldersViewLoader.item.openFolder(url)
+            }else
+            {
+                _foldersViewLoader.pendingFolder = url
+            }
+        }
+    }
+
+    MenuItem
+    {
+        visible: !Maui.Handy.isAndroid
+        text: i18n("Open location")
         icon.name: "folder-open"
         onTriggered:
         {
