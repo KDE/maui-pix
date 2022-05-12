@@ -16,14 +16,20 @@ Maui.ContextualMenu
     property bool isFav : false
     property int index : -1
     property Maui.BaseModel model : null
+    readonly property var item : control.model.get(index)
 
-    onOpened: isFav = FB.Tagging.isFav(control.model.get(index).url)
+    onOpened: isFav = FB.Tagging.isFav(item.url)
+
+    title: control.item.title
+    subtitle: Maui.Handy.formatSize(control.item.size)
+    titleImageSource: control.item.url
+    titleIconSource: control.item.icon
 
     Maui.FileListingDialog
     {
         id: removeDialog
         parent: control.parent
-        urls: filterSelection(control.model.get(index).url)
+        urls: filterSelection(item.url)
         title: i18n("Delete file?")
         acceptButton.text: i18n("Accept")
         rejectButton.text: i18n("Cancel")
@@ -45,7 +51,7 @@ Maui.ContextualMenu
             checked: isFav
             checkable: true
             icon.name: "love"
-            onTriggered: FB.Tagging.toggleFav(control.model.get(index).url)
+            onTriggered: FB.Tagging.toggleFav(item.url)
         }
 
         Action
@@ -55,7 +61,7 @@ Maui.ContextualMenu
             onTriggered:
             {
                 dialogLoader.sourceComponent = tagsDialogComponent
-                dialog.composerList.urls = filterSelection(control.model.get(index).url)
+                dialog.composerList.urls = filterSelection(item.url)
                 dialog.open()
             }
         }
@@ -66,7 +72,7 @@ Maui.ContextualMenu
             icon.name: "documentinfo"
             onTriggered:
             {
-                getFileInfo(control.model.get(index).url)
+                getFileInfo(item.url)
             }
         }
 
@@ -76,7 +82,7 @@ Maui.ContextualMenu
             icon.name: "document-share"
             onTriggered:
             {
-                Maui.Platform.shareFiles(filterSelection(control.model.get(index).url))
+                Maui.Platform.shareFiles(filterSelection(item.url))
             }
         }
 
@@ -93,7 +99,7 @@ Maui.ContextualMenu
             if(Maui.Handy.isTouch)
                 root.selectionMode = true
 
-            selectItem(control.model.get(index))
+            selectItem(item)
         }
     }
 
@@ -106,10 +112,10 @@ Maui.ContextualMenu
         icon.name: "document-save-as"
         onTriggered:
         {
-            var pic = control.model.get(index).url
+            var pic = item.url
             dialogLoader.sourceComponent= fmDialogComponent
             dialog.mode = dialog.modes.SAVE
-            dialog.suggestedFileName= FB.FM.getFileInfo(control.model.get(index).url).label
+            dialog.suggestedFileName= FB.FM.getFileInfo(item.url).label
             dialog.show(function(paths)
             {
                 for(var i in paths)
@@ -124,7 +130,7 @@ Maui.ContextualMenu
         icon.name: "document-open"
         onTriggered:
         {
-            _openWithDialog.urls = filterSelection(control.model.get(index).url)
+            _openWithDialog.urls = filterSelection(item.url)
             _openWithDialog.open()
         }
     }
@@ -136,7 +142,7 @@ Maui.ContextualMenu
         icon.name: "folder-open"
         onTriggered:
         {
-            Pix.Collection.showInFolder(filterSelection(control.model.get(index).url))
+            Pix.Collection.showInFolder(filterSelection(item.url))
         }
     }
 

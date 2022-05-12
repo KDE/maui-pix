@@ -105,39 +105,43 @@ Maui.ApplicationWindow
 
         initialItem: initModule === "viewer" ? _pixViewer : swipeView
 
-//        Component.onCompleted:
-//        {
-//            if(initModule === "folder")
-//            {
-//            }
-//        }
-
-        pushEnter: Transition {
-            PropertyAnimation {
+        pushEnter: Transition
+        {
+            PropertyAnimation
+            {
                 property: "opacity"
                 from: 0
                 to:1
                 duration: 200
             }
         }
-        pushExit: Transition {
-            PropertyAnimation {
+
+        pushExit: Transition
+        {
+            PropertyAnimation
+            {
                 property: "opacity"
                 from: 1
                 to:0
                 duration: 200
             }
         }
-        popEnter: Transition {
-            PropertyAnimation {
+
+        popEnter: Transition
+        {
+            PropertyAnimation
+            {
                 property: "opacity"
                 from: 0
                 to:1
                 duration: 200
             }
         }
-        popExit: Transition {
-            PropertyAnimation {
+
+        popExit: Transition
+        {
+            PropertyAnimation
+            {
                 property: "opacity"
                 from: 1
                 to:0
@@ -155,43 +159,52 @@ Maui.ApplicationWindow
             interactive: Kirigami.Settings.isMobile
             floatingFooter: true
             flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
-            showCSDControls: true
+            showCSDControls:  initModule !== "viewer"
             //            headBar.forceCenterMiddleContent: root.isWide
 
-            headBar.leftContent: Loader
-            {
-                asynchronous: true
-                sourceComponent: Loader
+            headBar.leftContent: [Loader
                 {
                     asynchronous: true
-                    sourceComponent: Maui.ToolButtonMenu
+                    sourceComponent: Loader
                     {
-                        icon.name: "application-menu"
-
-                        MenuItem
+                        asynchronous: true
+                        sourceComponent: Maui.ToolButtonMenu
                         {
-                            text: i18n("Open")
-                            icon.name: "folder-open"
-                            onTriggered: openFileDialog()
+                            icon.name: "application-menu"
 
-                        }
+                            MenuItem
+                            {
+                                text: i18n("Open")
+                                icon.name: "folder-open"
+                                onTriggered: openFileDialog()
 
-                        MenuItem
-                        {
-                            text: i18n("Settings")
-                            icon.name: "settings-configure"
-                            onTriggered: openSettingsDialog()
-                        }
+                            }
 
-                        MenuItem
-                        {
-                            text: i18n("About")
-                            icon.name: "documentinfo"
-                            onTriggered: root.about()
+                            MenuItem
+                            {
+                                text: i18n("Settings")
+                                icon.name: "settings-configure"
+                                onTriggered: openSettingsDialog()
+                            }
+
+                            MenuItem
+                            {
+                                text: i18n("About")
+                                icon.name: "documentinfo"
+                                onTriggered: root.about()
+                            }
                         }
                     }
+                },
+
+                ToolButton
+                {
+                    visible: _pixViewer.viewer.count
+                    icon.name: "quickview"
+                    text: _pixViewer.viewer.count
+                    onClicked: toggleViewer()
                 }
-            }
+            ]
 
             footer: SelectionBar
             {
@@ -206,7 +219,7 @@ Maui.ApplicationWindow
             Maui.AppViewLoader
             {
                 Maui.AppView.title: i18n("Gallery")
-                Maui.AppView.iconName: "image-multiple"
+                Maui.AppView.iconName: "folder_pictures" //"image-multiple"
 
                 GalleryView
                 {
@@ -233,6 +246,7 @@ Maui.ApplicationWindow
         {
             id: _pixViewer
             visible: StackView.status === StackView.Active
+            showCSDControls:  initModule === "viewer"
 
             Rectangle
             {

@@ -98,9 +98,9 @@ static const QPair<QString, QList<QUrl>> openFiles(const QStringList &files)
         }else
         {
             module = "viewer";
-//            auto folder = QFileInfo(files.first()).dir().absolutePath();
-//            urls = getFolderImages(folder);
-//            urls.removeOne(QUrl::fromLocalFile(files.first()));
+            //            auto folder = QFileInfo(files.first()).dir().absolutePath();
+            //            urls = getFolderImages(folder);
+            //            urls.removeOne(QUrl::fromLocalFile(files.first()));
             urls.insert(0, QUrl::fromLocalFile(files.first()));
         }
     }
@@ -143,7 +143,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     parser.process(app);
 
     about.processCommandLine(&parser);
-
     const QStringList args = parser.positionalArguments();
 
     QPair<QString, QList<QUrl>> arguments;
@@ -155,8 +154,15 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     }
 
     QQmlApplicationEngine engine;
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&]()
-    {
+    QUrl url(QStringLiteral("qrc:/main.qml"));
+    QObject::connect(
+                &engine,
+                &QQmlApplicationEngine::objectCreated,
+                &app,
+                [url, arguments](QObject *obj, const QUrl &objUrl) {
+        if (!obj && url == objUrl)
+            QCoreApplication::exit(-1);
+
         auto module = arguments.first;
         auto data = arguments.second;
 
@@ -170,7 +176,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
             }
         }
-    });
+    },
+    Qt::QueuedConnection);
 
     engine.rootContext()->setContextProperty("initModule", arguments.first);
     engine.rootContext()->setContextProperty("initData", QUrl::toStringList(arguments.second));
@@ -182,9 +189,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<CitiesModel>(PIX_URI, 1, 0, "CitiesList");
     qmlRegisterType<TagsModel>(PIX_URI, 1, 0, "TagsList");
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (engine.rootObjects().isEmpty())
-        return -1;
+    engine.load(url);
 
 #ifdef Q_OS_MACOS
     //    MAUIMacOS::removeTitlebarFromWindow();

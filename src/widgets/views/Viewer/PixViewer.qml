@@ -35,6 +35,52 @@ StackView
     property alias model :viewer.model
     property bool doodle : false
 
+    property alias showCSDControls: _viewer.showCSDControls
+
+    pushEnter: Transition
+    {
+        PropertyAnimation
+        {
+            property: "opacity"
+            from: 0
+            to:1
+            duration: 200
+        }
+    }
+
+    pushExit: Transition
+    {
+        PropertyAnimation
+        {
+            property: "opacity"
+            from: 1
+            to:0
+            duration: 200
+        }
+    }
+
+    popEnter: Transition
+    {
+        PropertyAnimation
+        {
+            property: "opacity"
+            from: 0
+            to:1
+            duration: 200
+        }
+    }
+
+    popExit: Transition
+    {
+        PropertyAnimation
+        {
+            property: "opacity"
+            from: 1
+            to:0
+            duration: 200
+        }
+    }
+
     Component
     {
         id: _editorComponent
@@ -90,13 +136,14 @@ StackView
     initialItem: Maui.Page
     {
         id: _viewer
+
         padding: 0
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
+
         title: currentPic.title
         showTitle: root.isWide
         altHeader: Kirigami.Settings.isMobile
-        headBar.visible: true
 
+        headBar.visible: true
         footBar.visible: !holder.visible && root.visibility !== Window.FullScreen && (!Kirigami.Settings.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode
 
         autoHideFooter: true
