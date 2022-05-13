@@ -52,7 +52,7 @@ Maui.ApplicationWindow
     id: root
     title: _pixViewer.currentPic.title || Maui.App.displayName
     headBar.visible:false
-    Maui.App.darkMode: browserSettings.darkMode
+    Maui.App.darkMode: _pixViewer.visible ? true :  browserSettings.darkMode
 
     property alias dialog : dialogLoader.item
     property alias selectionBox : _selectionBar

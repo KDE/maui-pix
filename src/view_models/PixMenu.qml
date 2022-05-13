@@ -137,15 +137,18 @@ Maui.ContextualMenu
 
     MenuItem
     {
-        text: i18n("Show in folder")
+        text: i18n("Go to folder")
         icon.name: "folder-open"
         onTriggered:
         {
+            if(_pixViewer.visible)
+            {
+                toggleViewer()
+            }
+
             swipeView.currentIndex = views.folders
 
             var url = FB.FM.fileDir(item.url)
-
-            console.log("SHWO FOLDER FOR ", url)
             if(_foldersViewLoader.item)
             {
                 _foldersViewLoader.item.openFolder(url)
