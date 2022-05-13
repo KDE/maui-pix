@@ -39,50 +39,56 @@ PixGrid
 
     footerColumn: [
 
-        Row
+        Control
         {
             width: parent.width
-            //            height: visible ? 80 : 0
-            spacing: Maui.Style.space.medium
-
-            ToolButton
+            height: _tagsRow.implicitHeight + topPadding+ bottomPadding
+            padding: Maui.Style.space.medium
+            contentItem: Row
             {
-                visible: control.model.filters.length > 0
-                icon.name: "go-previous"
-                onClicked:
+                id: _tagsRow
+                //            height: visible ? 80 : 0
+                spacing: Maui.Style.space.medium
+
+                ToolButton
                 {
-                    control.model.clearFilters()
+                    visible: control.model.filters.length > 0
+                    icon.name: "go-previous"
+                    onClicked:
+                    {
+                        control.model.clearFilters()
+                    }
                 }
-            }
 
-            Maui.Chip
-            {
-                iconSource: "player_play"
-                text: i18n("Animated")
-                color: "pink"
-                //                label2.text: i18n ("GIF, AVIF")
-                onClicked:
+                Maui.Chip
                 {
-                    //                    control.model.filterRole = "format"
-                    control.model.filters = ["gif","avif"]
+                    iconSource: "player_play"
+                    text: i18n("Animated")
+                    color: "pink"
+                    //                label2.text: i18n ("GIF, AVIF")
+                    onClicked:
+                    {
+                        //                    control.model.filterRole = "format"
+                        control.model.filters = ["gif","avif"]
+                    }
                 }
-            }
 
-            Maui.Chip
-            {
-                iconSource: "monitor"
-                text: i18n("Screenshots")
-                color: "orange"
-                //                label2.text: i18n ("GIF, AVIF")
-                onClicked: control.model.filters = ["screenshot","screen"]
-            }
+                Maui.Chip
+                {
+                    iconSource: "monitor"
+                    text: i18n("Screenshots")
+                    color: "orange"
+                    //                label2.text: i18n ("GIF, AVIF")
+                    onClicked: control.model.filters = ["screenshot","screen"]
+                }
 
-            Maui.Chip
-            {
-                iconSource: "animal"
-                text: i18n("Animals")
-                color: "yellow"
-                //                label2.text: i18n ("GIF, AVIF")
+                Maui.Chip
+                {
+                    iconSource: "animal"
+                    text: i18n("Animals")
+                    color: "yellow"
+                    //                label2.text: i18n ("GIF, AVIF")
+                }
             }
         },
 
