@@ -174,7 +174,7 @@ Maui.ApplicationWindow
             Maui.AppViewLoader
             {
                 Maui.AppView.title: i18n("Gallery")
-                Maui.AppView.iconName: "folder_pictures" //"image-multiple"
+                Maui.AppView.iconName: "image-multiple"
 
                 GalleryView
                 {

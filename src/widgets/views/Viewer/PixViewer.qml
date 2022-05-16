@@ -11,7 +11,7 @@ import QtQuick.Window 2.13
 
 import org.kde.kirigami 2.7 as Kirigami
 
-import org.mauikit.controls 1.2 as Maui
+import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.0 as IT
 
@@ -108,13 +108,6 @@ Maui.StackView
         floatingFooter: !viewerSettings.previewBarVisible && !viewerSettings.tagBarVisible
 
         onGoBackTriggered: _stackView.pop()
-
-        PixMenu
-        {
-            id: _picMenu
-            index: viewer.currentIndex
-            model: control.model
-        }
 
         headBar.farLeftContent: [
             ToolButton
