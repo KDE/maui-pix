@@ -32,8 +32,8 @@ Maui.StackView
     initialItem: Maui.Page
     {
         id: _foldersPage
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorGroup: Kirigami.Theme.View
+        Maui.Theme.inherit: false
+        Maui.Theme.colorGroup: Maui.Theme.View
 
         flickable: _foldersGrid.flickable
 

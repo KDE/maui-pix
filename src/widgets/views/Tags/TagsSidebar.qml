@@ -12,8 +12,8 @@ Maui.Page
 {
     id: control
 
-    Kirigami.Theme.inherit: false
-    Kirigami.Theme.colorGroup: Kirigami.Theme.View
+    Maui.Theme.inherit: false
+    Maui.Theme.colorGroup: Maui.Theme.View
 
     flickable: _gridView.flickable
 

@@ -94,7 +94,6 @@ Maui.StackView
         id: _viewer
 
         padding: 0
-
         title: currentPic.title
         showTitle: root.isWide
         altHeader: Kirigami.Settings.isMobile
@@ -213,12 +212,13 @@ Maui.StackView
                     anchors.bottom: parent.bottom
                     height: Math.min(100, Math.max(parent.height * 0.12, 60))
                     visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1 && opacity> 0
-                    color: Qt.rgba(control.Kirigami.Theme.backgroundColor.r, control.Kirigami.Theme.backgroundColor.g, control.Kirigami.Theme.backgroundColor.b, 0.7)
+                    color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.7)
+
                     Behavior on opacity
                     {
                         NumberAnimation
                         {
-                            duration: Kirigami.Units.longDuration
+                            duration: Maui.Style.units.longDuration
                             easing.type: Easing.InOutQuad
                         }
                     }

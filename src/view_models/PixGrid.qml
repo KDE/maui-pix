@@ -14,8 +14,8 @@ import "../widgets"
 Maui.Page
 {
     id: control
-    Kirigami.Theme.inherit: false
-    Kirigami.Theme.colorGroup: Kirigami.Theme.View
+    Maui.Theme.inherit: false
+    Maui.Theme.colorGroup: Maui.Theme.View
 
     property int itemSize : browserSettings.previewSize
 
@@ -98,7 +98,7 @@ Maui.Page
         Maui.Chip
         {
             z: parent.z + 99999
-            Kirigami.Theme.colorSet:Kirigami.Theme.Complementary
+            Maui.Theme.colorSet:Maui.Theme.Complementary
             visible: _typingTimer.running
             label.text: typingQuery
             anchors.left: parent.left

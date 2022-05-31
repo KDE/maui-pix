@@ -11,8 +11,6 @@ import QtQuick.Layouts 1.3
 import org.mauikit.controls 1.2 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 
-import org.kde.kirigami 2.6 as Kirigami
-
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 
 Maui.SelectionBar
@@ -35,7 +33,7 @@ Maui.SelectionBar
 
     listDelegate: Maui.ListBrowserDelegate
     {
-        Kirigami.Theme.inherit: true
+        Maui.Theme.inherit: true
         height: Maui.Style.toolBarHeight
         width: ListView.view.width
 
@@ -109,7 +107,7 @@ Maui.SelectionBar
         {
             text: i18n("Remove")
             icon.name: "edit-delete"
-            Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
+            Maui.Theme.textColor: Maui.Theme.negativeTextColor
             onTriggered:
             {
                 dialogLoader.sourceComponent = _removeDialogComponent

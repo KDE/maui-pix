@@ -5,8 +5,6 @@ import QtQuick.Layouts 1.3
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 
-import org.kde.kirigami 2.8 as Kirigami
-
 import org.maui.pix 1.0 as Pix
 
 Maui.ContextualMenu
@@ -176,7 +174,7 @@ Maui.ContextualMenu
     {
         text: i18n("Remove")
         icon.name: "edit-delete"
-        Kirigami.Theme.textColor: Kirigami.Theme.negativeTextColor
+        Maui.Theme.textColor: Maui.Theme.negativeTextColor
         onTriggered:
         {
             removeDialog.open()

@@ -52,8 +52,8 @@ Maui.ApplicationWindow
     id: root
     title: _pixViewer.currentPic.title || Maui.App.displayName
     headBar.visible:false
-    Maui.App.darkMode: _pixViewer.visible ? true :  browserSettings.darkMode
 
+//    Maui.Style.styleType: _pixViewer.visible ? Maui.Style.Dark : undefined
     property alias dialog : dialogLoader.item
     property alias selectionBox : _selectionBar
 
@@ -211,14 +211,14 @@ Maui.ApplicationWindow
                 anchors.fill: parent
                 visible: _dropArea.containsDrag
 
-                color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.95)
+                color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.95)
 
                 Maui.Rectangle
                 {
                     anchors.fill: parent
                     anchors.margins: Maui.Style.space.medium
                     color: "transparent"
-                    borderColor: Kirigami.Theme.textColor
+                    borderColor: Maui.Theme.textColor
                     solidBorder: false
 
                     Maui.Holder
@@ -355,8 +355,8 @@ Maui.ApplicationWindow
     {
         if(Maui.Handy.isAndroid)
         {
-            Maui.Android.statusbarColor( Kirigami.Theme.backgroundColor, !Maui.App.darkMode)
-            Maui.Android.navBarColor(headBar.visible ? headBar.Kirigami.Theme.backgroundColor : Kirigami.Theme.backgroundColor, !Maui.App.darkMode)
+            Maui.Android.statusbarColor( Maui.Theme.backgroundColor, !Maui.App.darkMode)
+            Maui.Android.navBarColor(headBar.visible ? headBar.Maui.Theme.backgroundColor : Maui.Theme.backgroundColor, !Maui.App.darkMode)
         }
     }
 

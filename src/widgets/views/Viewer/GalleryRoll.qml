@@ -65,7 +65,7 @@ ScrollView
             {
                 NumberAnimation
                 {
-                    duration: Kirigami.Units.longDuration
+                    duration: Maui.Style.units.longDuration
                     easing.type: Easing.InQuad
                 }
             }
