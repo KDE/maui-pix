@@ -30,8 +30,6 @@ import QtQuick.Controls 2.14
 import QtQuick.Window 2.13
 import Qt.labs.settings 1.0
 
-import org.kde.kirigami 2.8 as Kirigami
-
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.3 as IT
@@ -73,7 +71,7 @@ Maui.ApplicationWindow
     {
         id: browserSettings
         category: "Browser"
-        property bool showLabels : !Kirigami.Settings.isMobile
+        property bool showLabels : !Maui.Handy.isMobile
         property bool fitPreviews : false
         property bool autoReload: true
         property int previewSize : previewSizes.medium
@@ -110,8 +108,8 @@ Maui.ApplicationWindow
             visible: StackView.status === StackView.Active
             currentIndex: initModule === "folder" ? views.folders : views.gallery
 
-            altHeader: Kirigami.Settings.isMobile
-            interactive: Kirigami.Settings.isMobile
+            altHeader: Maui.Handy.isMobile
+            interactive: Maui.Handy.isMobile
             floatingFooter: true
             flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
             showCSDControls:  initModule !== "viewer"

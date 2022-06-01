@@ -3,7 +3,6 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 
 import org.mauikit.controls 1.3 as Maui
-import org.kde.kirigami 2.7 as Kirigami
 import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
@@ -69,7 +68,7 @@ Maui.Page
             Maui.GalleryRollItem
             {
                 anchors.fill: parent
-                anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.tiny : Maui.Style.space.medium
+                anchors.margins: Maui.Handy.isMobile ? Maui.Style.space.tiny : Maui.Style.space.medium
 
                 imageWidth: 120
                 imageHeight: 120

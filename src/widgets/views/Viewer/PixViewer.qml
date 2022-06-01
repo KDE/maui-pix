@@ -9,8 +9,6 @@ import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.13
 
-import org.kde.kirigami 2.7 as Kirigami
-
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.0 as IT
@@ -96,10 +94,10 @@ Maui.StackView
         padding: 0
         title: currentPic.title
         showTitle: root.isWide
-        altHeader: Kirigami.Settings.isMobile
+        altHeader: Maui.Handy.isMobile
 
         headBar.visible: true
-        footBar.visible: !holder.visible && root.visibility !== Window.FullScreen && (!Kirigami.Settings.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode
+        footBar.visible: !holder.visible && root.visibility !== Window.FullScreen && (!Maui.Handy.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode
 
         autoHideFooter: true
         autoHideFooterMargins: control.height

@@ -60,7 +60,7 @@ PixGrid
 
                 if(selectionMode)
                     PIX.selectItem(pixList.get(index))
-                else if(Kirigami.Settings.isMobile)
+                else if(Maui.Handy.isMobile)
                     VIEWER.open(_cloudList, index)
             }
 
@@ -68,7 +68,7 @@ PixGrid
             {
                 control.grid.currentIndex = index
                 //picClicked(index)
-                if(!Kirigami.Settings.isMobile)
+                if(!Maui.Handy.isMobile)
                     VIEWER.open(_cloudList, index)
                 //                    else
                 //                        selectionBox.append(gridModel.get(index))

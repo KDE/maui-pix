@@ -1,9 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
 
-import org.kde.kirigami 2.14 as Kirigami
 import org.mauikit.controls 1.3 as Maui
 
 import org.mauikit.filebrowsing 1.3 as FB
@@ -86,7 +84,7 @@ Maui.StackView
                     imageHeight: 120
 
                     anchors.fill: parent
-                    anchors.margins: Kirigami.Settings.isMobile ? Maui.Style.space.tiny : Maui.Style.space.medium
+                    anchors.margins: Maui.Handy.isMobile ? Maui.Style.space.tiny : Maui.Style.space.medium
 
                     isCurrentItem: parent.GridView.isCurrentItem
                     template.labelSizeHint: 32
