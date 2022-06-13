@@ -37,7 +37,7 @@ Name[zh_CN]=Pix
 Name[zh_TW]=Pix
 Comment=Image gallery viewer
 Comment[ca]=Visor de galeria d'imatges
-Comment[ca@valencia]=Visor de galeria d'imàgens
+Comment[ca@valencia]=Visor de galeria d'imatges
 Comment[cs]=Prohlížeč galerie obrázků
 Comment[de]=Bildergalerieanzeige
 Comment[en_GB]=Image gallery viewer
@@ -76,7 +76,7 @@ MimeType=image/gif;image/avif;image/jpeg;image/png;image/bmp;image/x-eps;image/x
 # Generic name with translations
 GenericName=Image Gallery
 GenericName[ca]=Galeria d'imatges
-GenericName[ca@valencia]=Galeria d'imàgens
+GenericName[ca@valencia]=Galeria d'imatges
 GenericName[cs]=Galerie obrázků
 GenericName[de]=Bildergalerie
 GenericName[en_GB]=Image Gallery
