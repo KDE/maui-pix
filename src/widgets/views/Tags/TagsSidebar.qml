@@ -74,12 +74,9 @@ Maui.Page
                 imageHeight: 120
 
                 isCurrentItem: parent.GridView.isCurrentItem
-                template.labelSizeHint: 32
                 images: model.preview.split(",")
 
                 label1.text: model.tag
-                label1.font.bold: true
-                label1.font.weight: Font.Bold
 
                 iconSource: model.icon
 

@@ -87,11 +87,12 @@ Maui.StackView
                     anchors.margins: Maui.Handy.isMobile ? Maui.Style.space.tiny : Maui.Style.space.medium
 
                     isCurrentItem: parent.GridView.isCurrentItem
-                    template.labelSizeHint: 32
                     images: _galleryList.files
-                    label1.text: model.label
-                    label1.font.bold: true
-                    label1.font.weight: Font.Bold
+                    label1.text: model.label                
+                    draggable: true
+
+                    Drag.keys: ["text/uri-list"]
+                    Drag.mimeData: Drag.active ? { "text/uri-list": model.path } : {}
 
                     GalleryList
                     {
