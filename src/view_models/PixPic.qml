@@ -2,7 +2,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 
 import org.mauikit.controls 1.3 as Maui
-import org.kde.kirigami 2.7 as Kirigami
 
 Maui.GridBrowserDelegate
 {
@@ -10,6 +9,7 @@ Maui.GridBrowserDelegate
 
     property bool fit : false
 
+    maskRadius: 0
     draggable: true
 
     tooltipText: model.url
