@@ -77,6 +77,8 @@ Maui.Page
                 images: model.preview.split(",")
 
                 label1.text: model.tag
+                label2.text: model.adddate
+                template.alignment: Qt.AlignLeft
 
                 iconSource: model.icon
 

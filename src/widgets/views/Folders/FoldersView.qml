@@ -88,7 +88,10 @@ Maui.StackView
 
                     isCurrentItem: parent.GridView.isCurrentItem
                     images: _galleryList.files
-                    label1.text: model.label                
+                    label1.text: model.label
+                    label2.text: Qt.formatDateTime(new Date(model.modified), "d MMM yyyy")
+                    template.alignment: Qt.AlignLeft
+
                     draggable: true
 
                     Drag.keys: ["text/uri-list"]

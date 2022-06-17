@@ -106,7 +106,7 @@ Maui.ApplicationWindow
         {
             id: swipeView
             visible: StackView.status === StackView.Active
-            currentIndex: initModule === "folder" ? views.folders : views.gallery
+            currentIndex: initModule === "folder" ? views.folders : views.folders
 
             altHeader: Maui.Handy.isMobile
             interactive: Maui.Handy.isMobile
