@@ -68,11 +68,11 @@ Maui.Page
             Maui.GalleryRollItem
             {
                 anchors.fill: parent
-                anchors.margins: Maui.Handy.isMobile ? Maui.Style.space.tiny : Maui.Style.space.medium
+                anchors.margins: Maui.Handy.isMobile ? Maui.Style.space.tiny : Maui.Style.space.big
 
                 imageWidth: 120
                 imageHeight: 120
-
+flat: true
                 isCurrentItem: parent.GridView.isCurrentItem
                 images: model.preview.split(",")
 

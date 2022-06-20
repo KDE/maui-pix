@@ -82,9 +82,10 @@ Maui.StackView
                 {
                     imageWidth: 120
                     imageHeight: 120
+                    flat: true
 
                     anchors.fill: parent
-                    anchors.margins: Maui.Handy.isMobile ? Maui.Style.space.tiny : Maui.Style.space.medium
+                    anchors.margins: Maui.Handy.isMobile ? Maui.Style.space.tiny : Maui.Style.space.big
 
                     isCurrentItem: parent.GridView.isCurrentItem
                     images: _galleryList.files
