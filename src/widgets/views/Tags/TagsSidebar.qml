@@ -77,7 +77,7 @@ flat: true
                 images: model.preview.split(",")
 
                 label1.text: model.tag
-                label2.text: model.adddate
+                label2.text: Qt.formatDateTime(new Date(model.adddate), "d MMM yyyy")
                 template.alignment: Qt.AlignLeft
 
                 iconSource: model.icon

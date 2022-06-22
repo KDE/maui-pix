@@ -22,7 +22,7 @@ Maui.GridBrowserDelegate
 
     fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
     template.labelSizeHint: 40
-    template.alignment: Qt.AlignLeft
+//    template.alignment: Qt.AlignLeft
     template.iconComponent: (model.format === "gif" || model.format === "avif" ) && control.hovered ? _animatedComponent :  _iconComponent
 
     Component
