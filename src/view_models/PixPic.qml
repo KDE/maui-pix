@@ -25,6 +25,25 @@ Maui.GridBrowserDelegate
 //    template.alignment: Qt.AlignLeft
     template.iconComponent: (model.format === "gif" || model.format === "avif" ) && control.hovered ? _animatedComponent :  _iconComponent
 
+
+    Rectangle
+    {
+        visible: (model.format === "gif" || model.format === "avif" ) && !control.hovered
+        anchors.centerIn: parent
+height: 32
+width: 32
+color: Maui.Theme.backgroundColor
+radius: height/2
+    Maui.Icon
+    {
+        source: "media-playback-start"
+        color : Maui.Theme.textColor
+        height: 16
+        width: 16
+        anchors.centerIn: parent
+    }
+    }
+
     Component
     {
         id: _iconComponent
@@ -46,7 +65,7 @@ Maui.GridBrowserDelegate
             imageWidth: control.imageWidth
             imageHeight: control.imageHeight
 
-            isMask: control.isMask
+            isMask: true
             image.autoTransform: true
             Component.onCompleted: control.label2.text =  Qt.binding(function () { return _iconItem.image.implicitWidth + " x " + _iconItem.image.implicitHeight})
 
