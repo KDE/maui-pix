@@ -43,7 +43,7 @@ void Folders::setList()
     emit this->preListChanged();
     this->list.clear();
 
-    for (const auto &folder : std::as_const(m_folders))
+    for (const auto &folder : (m_folders))
     {
         this->list << FMStatic::getFileInfoModel(folder);
     }

@@ -50,7 +50,7 @@ Maui.ApplicationWindow
     id: root
     title: _pixViewer.currentPic.title || Maui.App.displayName
 
-//    Maui.Style.styleType: _pixViewer.visible ? Maui.Style.Dark : undefined
+    Maui.Style.styleType: Maui.Handy.isAndroid ? (appSettings.darkMode ? Maui.Style.Dark : Maui.Style.Light) : undefined
     property alias dialog : dialogLoader.item
     property alias selectionBox : _selectionBar
 
@@ -352,8 +352,8 @@ Maui.ApplicationWindow
     {
         if(Maui.Handy.isAndroid)
         {
-            Maui.Android.statusbarColor( Maui.Theme.backgroundColor, !Maui.App.darkMode)
-            Maui.Android.navBarColor(headBar.visible ? headBar.Maui.Theme.backgroundColor : Maui.Theme.backgroundColor, !Maui.App.darkMode)
+            Maui.Android.statusbarColor( Maui.Theme.backgroundColor, !browserSettings.darkMode)
+            Maui.Android.navBarColor(Maui.Theme.backgroundColor, !browserSettings.darkMode)
         }
     }
 

@@ -38,7 +38,7 @@ void CitiesModel::setList()
     emit this->preListChanged();
     this->m_list.clear();
     auto cities = Cities::getInstance();
-    for (const auto &cityId : std::as_const(m_cities)) {
+    for (const auto &cityId : (m_cities)) {
         std::unique_ptr<City>city(cities->city(cityId));
 
         if(!city)

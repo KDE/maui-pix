@@ -10,6 +10,7 @@ set(pix_SRCS
     models/folders/folders.cpp
     models/tags/tagsmodel.cpp
     models/cities/citiesmodel.cpp
+    pixserver.cpp
     )
 
 set(pix_HDRS
