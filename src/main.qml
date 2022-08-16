@@ -50,7 +50,7 @@ Maui.ApplicationWindow
     id: root
     title: _pixViewer.currentPic.title || Maui.App.displayName
 
-    Maui.Style.styleType: Maui.Handy.isAndroid ? (appSettings.darkMode ? Maui.Style.Dark : Maui.Style.Light) : undefined
+    Maui.Style.styleType: Maui.Handy.isAndroid ? (browserSettings.darkMode ? Maui.Style.Dark : Maui.Style.Light) : undefined
     property alias dialog : dialogLoader.item
     property alias selectionBox : _selectionBar
 
