@@ -43,42 +43,7 @@ Gallery::Gallery(QObject *parent)
     , m_recursive(true)
 {
     qDebug() << "CREATING GALLERY LIST";
-    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
-    m_fileLoader->setBatchCount(500);
-    connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
-        Q_UNUSED(items)
 
-        emit this->filesChanged();
-        emit this->citiesChanged();
-        emit this->foldersChanged();
-
-        this->setStatus(Status::Ready);
-    });
-
-    connect(m_fileLoader, &FMH::FileLoader::itemsReady, [this](FMH::MODEL_LIST items) {
-        qDebug() << "Items ready" << items.size();
-
-        if (items.isEmpty())
-            return;
-
-        emit preItemsAppended(items.size());
-        this->list << items;
-        emit postItemAppended();
-        emit this->countChanged();
-    });
-
-    connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
-        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
-        if(m_activeGeolocationTags)
-        {
-            this->insertCity(item[FMH::MODEL_KEY::CITY]);
-        }
-    });
-
-    connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
-        qDebug() << "Dir changed" << dir;
-        this->rescan();
-    });
 }
 
 Gallery::~Gallery()
@@ -315,7 +280,55 @@ void Gallery::setActiveGeolocationTags(bool activeGeolocationTags)
 
 void Gallery::componentComplete()
 {
+    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
+    m_fileLoader->setBatchCount(500);
+
+    connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
+        Q_UNUSED(items)
+
+        emit this->filesChanged();
+        emit this->citiesChanged();
+        emit this->foldersChanged();
+
+        this->setStatus(Status::Ready);
+    });
+
+    connect(m_fileLoader, &FMH::FileLoader::itemsReady, [this](FMH::MODEL_LIST items) {
+        qDebug() << "Items ready" << items.size();
+
+        if (items.isEmpty())
+            return;
+
+        emit preItemsAppended(items.size());
+        this->list << items;
+        emit postItemAppended();
+        emit this->countChanged();
+    });
+
+    connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
+        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
+        if(m_activeGeolocationTags)
+        {
+            this->insertCity(item[FMH::MODEL_KEY::CITY]);
+        }
+    });
+
+    connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
+        qDebug() << "Dir changed" << dir;
+        this->rescan();
+    });
+
     connect(this, &Gallery::urlsChanged, this, &Gallery::rescan);
+    connect(this, &Gallery::activeGeolocationTagsChanged, [this](bool state)
+    {
+        m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
+
+       if(state)
+       {
+           this->rescan();
+       }
+    });
+
     this->reload();
 }
 

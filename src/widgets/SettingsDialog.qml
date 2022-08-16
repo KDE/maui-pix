@@ -211,6 +211,21 @@ Maui.SettingsDialog
                 }
             }
         }
+
+
+        Maui.SettingTemplate
+        {
+            label1.text: i18n("GPS Tags")
+            label2.text: i18n("Show GPS tags.")
+
+            Switch
+            {
+                Layout.fillHeight: true
+                checkable: true
+                checked: browserSettings.gpsTags
+                onToggled: browserSettings.gpsTags = !browserSettings.gpsTags
+            }
+        }
     }
 
     Maui.SettingsSection

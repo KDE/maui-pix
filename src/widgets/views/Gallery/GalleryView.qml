@@ -94,7 +94,7 @@ PixGrid
 
         RowLayout
         {
-            visible: _geoFilterList.count > 0
+//            visible: _geoFilterList.count > 0
             width: parent.width
             height: visible ? 80 : 0
             spacing: Maui.Style.space.medium

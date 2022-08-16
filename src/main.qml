@@ -77,6 +77,7 @@ Maui.ApplicationWindow
         property string sortBy : "modified"
         property int sortOrder: Qt.DescendingOrder
         property bool darkMode : true
+        property alias gpsTags : mainGalleryList.activeGeolocationTags
     }
 
     Settings
@@ -92,6 +93,7 @@ Maui.ApplicationWindow
         autoReload: browserSettings.autoReload
         urls: Pix.Collection.sources
         recursive: true
+        activeGeolocationTags: true
     }
 
     Maui.StackView

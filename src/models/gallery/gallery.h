@@ -99,7 +99,7 @@ private:
 
     void setStatus(const Gallery::Status &, const QString& = QString());
 
-    bool m_activeGeolocationTags = false;
+    bool m_activeGeolocationTags = true;
 
 signals:
     void urlsChanged();
