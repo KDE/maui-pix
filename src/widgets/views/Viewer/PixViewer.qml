@@ -30,10 +30,17 @@ Maui.StackView
     property bool currentPicFav: false
     property var currentPic : ({})
     property int currentPicIndex : 0
-    property alias model :viewer.model
+    property alias model : viewer.model
     property bool doodle : false
 
     property alias showCSDControls: _viewer.showCSDControls
+
+    PixMenu
+    {
+        id: _picMenu
+        index: control.currentPicIndex
+        model: viewer.model
+    }
 
     Component
     {
