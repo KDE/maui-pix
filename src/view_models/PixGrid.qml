@@ -20,9 +20,10 @@ Maui.Page
 
     property alias listModel : pixModel
     property alias menu : _picMenu
-    property alias holder : _holder
+    property alias holder : _gridView.holder
     property alias model: _gridView.model
     property alias gridView: _gridView
+    property alias count: _gridView.count
 
     property alias currentIndex: _gridView.currentIndex
     property string typingQuery
@@ -68,6 +69,7 @@ Maui.Page
         id: _gridView
         anchors.fill: parent
         enableLassoSelection: true
+        holder.visible: _gridView.count === 0
 
         itemSize : control.itemSize
         itemHeight: browserSettings.showLabels ? _gridView.itemSize * 1.5 : _gridView.itemSize
@@ -266,12 +268,6 @@ Maui.Page
     }
 }
 
-Maui.Holder
-{
-    id: _holder
-    anchors.fill: parent
-    visible: _gridView.count === 0
-}
 
 function filterSelectedItems(path)
 {

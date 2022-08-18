@@ -20,6 +20,7 @@ Maui.StackView
     id: control
 
     property string currentTag : ""
+    property var currentFilters : []
     property Flickable flickable : currentItem.flickable
 
     FB.NewTagDialog
@@ -52,6 +53,30 @@ Maui.StackView
         }
     }
 
+    Component
+    {
+        id: gpsGrid
+
+        PixGrid
+        {
+            id: _gpsList
+            title: control.currentFilters
+            list: mainGalleryList
+            listModel.filters : control.currentFilters
+            headBar.visible: true
+            headBar.farLeftContent: ToolButton
+            {
+                icon.name: "go-previous"
+                onClicked: control.pop()
+            }
+            holder.visible: count === 0
+
+            holder.emoji: "qrc:/assets/image-multiple.svg"
+            holder.title : list.count > 0 ? i18n("EMpty filter") : i18n("No Pics!")
+            holder.body: mainGalleryList.status === GalleryList.Error ? mainGalleryList.error : i18n("Nothing here. You can add new sources or open an image.")
+
+        }
+    }
     function refreshPics()
     {
         tagsGrid.list.refresh()
@@ -62,4 +87,11 @@ Maui.StackView
         currentTag = myTag
         control.push(tagsGrid)
     }
+
+    function populateByFilter(filters)
+    {
+        currentFilters = filters
+        control.push(gpsGrid)
+    }
  }
+

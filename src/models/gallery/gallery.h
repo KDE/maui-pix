@@ -99,7 +99,7 @@ private:
 
     void setStatus(const Gallery::Status &, const QString& = QString());
 
-    bool m_activeGeolocationTags = true;
+    bool m_activeGeolocationTags = false;
 
 signals:
     void urlsChanged();
@@ -127,7 +127,7 @@ public slots:
 
     void clear();
     void rescan();
-    void reload();
+    void load();
 
     void setRecursive(bool);
     void setlimit(int);

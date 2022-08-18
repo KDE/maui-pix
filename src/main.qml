@@ -93,7 +93,6 @@ Maui.ApplicationWindow
         autoReload: browserSettings.autoReload
         urls: Pix.Collection.sources
         recursive: true
-        activeGeolocationTags: true
     }
 
     Maui.StackView

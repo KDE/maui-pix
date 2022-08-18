@@ -37,18 +37,17 @@ static FMH::MODEL picInfo2(const QUrl &url)
 
 Gallery::Gallery(QObject *parent)
     : MauiList(parent)
-    , m_fileLoader(new FMH::FileLoader())
+    , m_fileLoader(new FMH::FileLoader(this))
     , m_watcher(new QFileSystemWatcher(this))
     , m_autoReload(true)
     , m_recursive(true)
 {
     qDebug() << "CREATING GALLERY LIST";
-
 }
 
 Gallery::~Gallery()
 {
-    delete m_fileLoader;
+//    delete m_fileLoader;
 }
 
 const FMH::MODEL_LIST &Gallery::items() const
@@ -231,11 +230,15 @@ void Gallery::clear()
 void Gallery::rescan()
 {
     this->clear();
-    this->reload();
+    this->load();
 }
 
-void Gallery::reload()
-{
+void Gallery::load()
+{    
+    qDebug() << "ASK TO LOAD GALLERY" << m_activeGeolocationTags;
+    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
+    m_fileLoader->setBatchCount(500);
+
     this->scan(m_urls, m_recursive, m_limit);
 }
 
@@ -280,9 +283,6 @@ void Gallery::setActiveGeolocationTags(bool activeGeolocationTags)
 
 void Gallery::componentComplete()
 {
-    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
-    m_fileLoader->setBatchCount(500);
-
     connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
         Q_UNUSED(items)
 
@@ -321,15 +321,13 @@ void Gallery::componentComplete()
     connect(this, &Gallery::urlsChanged, this, &Gallery::rescan);
     connect(this, &Gallery::activeGeolocationTagsChanged, [this](bool state)
     {
-        m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
-
        if(state)
        {
            this->rescan();
        }
     });
 
-    this->reload();
+    this->load();
 }
 
 const QStringList &Gallery::cities() const
