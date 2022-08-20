@@ -60,7 +60,7 @@ Maui.StackView
         PixGrid
         {
             id: _gpsList
-            title: control.currentFilters
+//            title: control.currentFilters
             list: mainGalleryList
             listModel.filters : control.currentFilters
             headBar.visible: true
@@ -72,11 +72,11 @@ Maui.StackView
             holder.visible: count === 0
 
             holder.emoji: "qrc:/assets/image-multiple.svg"
-            holder.title : list.count > 0 ? i18n("EMpty filter") : i18n("No Pics!")
-            holder.body: mainGalleryList.status === GalleryList.Error ? mainGalleryList.error : i18n("Nothing here. You can add new sources or open an image.")
-
+            holder.title :  i18n("No Pics!")
+            holder.body: mainGalleryList.status === Pix.GalleryList.Error ? mainGalleryList.error : (list.count > 0 ? i18n("No results found.") : i18n("Nothing here. You can add new sources or open an image."))
         }
     }
+
     function refreshPics()
     {
         tagsGrid.list.refresh()

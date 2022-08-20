@@ -200,9 +200,9 @@ Maui.Page
                         Maui.Chip
                         {
                             iconSource: "draw-brush"
-                            text: i18n("GIMP")
+                            text: i18n("Paint")
                             color: "#5e35b1"
-                            onClicked: populateByFilter([".xfc"])
+                            onClicked: populateByFilter([".xcf", ".kra"])
                         }
 
                         Maui.Chip
