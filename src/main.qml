@@ -53,6 +53,7 @@ Maui.ApplicationWindow
     Maui.Style.styleType: Maui.Handy.isAndroid ? (browserSettings.darkMode ? Maui.Style.Dark : Maui.Style.Light) : undefined
     property alias dialog : dialogLoader.item
     property alias selectionBox : _selectionBar
+    property alias mainGalleryList : _mainGalleryListLoader.item
 
     /*READONLY PROPS*/
     readonly property var views : ({ gallery: 0,
@@ -77,7 +78,7 @@ Maui.ApplicationWindow
         property string sortBy : "modified"
         property int sortOrder: Qt.DescendingOrder
         property bool darkMode : true
-        property alias gpsTags : mainGalleryList.activeGeolocationTags
+        property bool gpsTags : false
     }
 
     Settings
@@ -87,13 +88,21 @@ Maui.ApplicationWindow
         property bool previewBarVisible : false
     }
 
-    Pix.GalleryList
+    Loader
     {
-        id: mainGalleryList
-        autoReload: browserSettings.autoReload
-        urls: Pix.Collection.sources
-        recursive: true
+        id: _mainGalleryListLoader
+        asynchronous: true
+        active: swipeView.visible || item
+        sourceComponent:   Pix.GalleryList
+        {
+            autoReload: browserSettings.autoReload
+            urls: Pix.Collection.sources
+            recursive: true
+            activeGeolocationTags: browserSettings.gpsTags
+        }
     }
+
+
 
     Maui.StackView
     {
