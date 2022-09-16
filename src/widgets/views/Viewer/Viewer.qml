@@ -51,7 +51,6 @@ Item
             restoreMode: Binding.RestoreBindingOrValue
         }
 
-        clip: true
         focus: true
         interactive: Maui.Handy.isTouch
         cacheBuffer: width * 3
