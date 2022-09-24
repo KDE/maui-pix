@@ -171,6 +171,7 @@ StackView
             expanded: true
             autoExclusive: false
             checkable: false
+            display: ToolButton.IconOnly
 
             Action
             {
