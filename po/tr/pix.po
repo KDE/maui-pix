@@ -1,0 +1,568 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the maui-pix package.
+#
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: maui-pix\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-25 00:43+0000\n"
+"PO-Revision-Date: 2022-08-21 11:55+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.04.3\n"
+
+#: src/main.cpp:130
+#, kde-format
+msgid "Pix"
+msgstr "Piks"
+
+#: src/main.cpp:130
+#, kde-format
+msgid "Organize, browse, and edit your images."
+msgstr "Görsellerinize göz atın, organize edin ve önları düzenleyin."
+
+#: src/main.cpp:130
+#, kde-format
+msgid "© 2019-%1 Maui Development Team"
+msgstr "© 2019-%1 Maui Geliştirme Takımı"
+
+#: src/main.cpp:131
+#, kde-format
+msgid "Camilo Higuita"
+msgstr "Camilo Higuita"
+
+#: src/main.cpp:131
+#, kde-format
+msgid "Developer"
+msgstr "Geliştirici"
+
+#: src/main.qml:139 src/widgets/views/Gallery/GalleryView.qml:26
+#, kde-format
+msgid "Open"
+msgstr "Aç"
+
+#: src/main.qml:147
+#, kde-format
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: src/main.qml:154
+#, kde-format
+msgid "About"
+msgstr "Hakkında"
+
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:120
+#, kde-format
+msgid "Gallery"
+msgstr "Galeri"
+
+#: src/main.qml:194 src/view_models/PixMenu.qml:57
+#, kde-format
+msgid "Tags"
+msgstr "Etiketler"
+
+#: src/main.qml:202
+#, kde-format
+msgid "Folders"
+msgstr "Klasörler"
+
+#: src/main.qml:237
+#, kde-format
+msgid "Open images"
+msgstr "Görsel Aç"
+
+#: src/main.qml:238
+#, kde-format
+msgid "Drag and drop images here"
+msgstr "Görselleri buraya sürükleyip bırakın"
+
+#: src/main.qml:310
+#, kde-format
+msgid "Delete %1 file?"
+msgid_plural "Delete %1 files?"
+msgstr[0] "%1 dosya silinsin mi?"
+msgstr[1] "%1 dosya silinsin mi?"
+
+#: src/main.qml:311 src/view_models/PixMenu.qml:33
+#, kde-format
+msgid "Cancel"
+msgstr "İptal"
+
+#: src/main.qml:312 src/view_models/PixMenu.qml:32
+#, kde-format
+msgid "Accept"
+msgstr "Kabul Et"
+
+#: src/main.qml:314
+#, kde-format
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgid_plural ""
+"Are sure you want to delete these files? This action can not be undone."
+msgstr[0] ""
+"Bu dosyayı silmek istediğinize emin misiniz? Bu eylem geri alınamaz."
+msgstr[1] ""
+"Bu dosyaları silmek istediğinize emin misiniz? Bu eylem geri alınamaz."
+
+#: src/view_models/PixGrid.qml:51
+#, kde-format
+msgid "Search"
+msgstr "Arama"
+
+#: src/view_models/PixMenu.qml:31
+#, kde-format
+msgid "Delete file?"
+msgstr "Dosya silinsin mi?"
+
+#: src/view_models/PixMenu.qml:34
+#, kde-format
+msgctxt "Remove one file"
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgstr "Bu dosyayı silmek istediğinize emin misiniz? Bu eylem geri alınamaz."
+
+#: src/view_models/PixMenu.qml:48
+#, kde-format
+msgid "UnFav it"
+msgstr "Yer İmlerinden Çıkar"
+
+#: src/view_models/PixMenu.qml:69
+#, kde-format
+msgid "Info"
+msgstr "Bilgi"
+
+#: src/view_models/PixMenu.qml:79 src/widgets/SelectionBar.qml:72
+#, kde-format
+msgid "Share"
+msgstr "Paylaş"
+
+#: src/view_models/PixMenu.qml:93
+#, kde-format
+msgid "Select"
+msgstr "Seç"
+
+#: src/view_models/PixMenu.qml:109 src/widgets/SelectionBar.qml:91
+#, kde-format
+msgid "Export"
+msgstr "Dışa Aktar"
+
+#: src/view_models/PixMenu.qml:127
+#, kde-format
+msgid "Open With"
+msgstr "Birlikte Aç"
+
+#: src/view_models/PixMenu.qml:138
+#, kde-format
+msgid "Go to folder"
+msgstr "Klasöre git"
+
+#: src/view_models/PixMenu.qml:163
+#, kde-format
+msgid "Open location"
+msgstr "Konum aç"
+
+#: src/view_models/PixMenu.qml:175 src/widgets/SelectionBar.qml:107
+#, kde-format
+msgid "Remove"
+msgstr "Kaldır"
+
+#: src/widgets/SelectionBar.qml:52
+#, kde-format
+msgid "View"
+msgstr "Görüntüle"
+
+#: src/widgets/SelectionBar.qml:60
+#, kde-format
+msgid "Tag"
+msgstr "Etiketle"
+
+#: src/widgets/SelectionBar.qml:84
+#, kde-format
+msgid "Un/Fav"
+msgstr "Yer İmlerine Ekle/Kaldır"
+
+#: src/widgets/SettingsDialog.qml:15
+#, kde-format
+msgid "Behavior"
+msgstr "Davranış"
+
+#: src/widgets/SettingsDialog.qml:16
+#, kde-format
+msgid "Configure the app behaviour."
+msgstr "Uygulama davranışını yapılandırın."
+
+#: src/widgets/SettingsDialog.qml:20
+#, kde-format
+msgid "Auto Reload"
+msgstr "Otomatik Yeniden Yükle"
+
+#: src/widgets/SettingsDialog.qml:21
+#, kde-format
+msgid "Watch for changes in the collection sources."
+msgstr "Koleksiyon kaynaklarındaki değişiklikleri izle."
+
+#: src/widgets/SettingsDialog.qml:34
+#, kde-format
+msgid "Dark Mode"
+msgstr "Koyu Kip"
+
+#: src/widgets/SettingsDialog.qml:35
+#, kde-format
+msgid "Switch between light and dark colorscheme"
+msgstr "Açık ve koyu renk şeması arasında geçiş yap"
+
+#: src/widgets/SettingsDialog.qml:52
+#, kde-format
+msgid "Collection"
+msgstr "Koleksiyon"
+
+#: src/widgets/SettingsDialog.qml:53
+#, kde-format
+msgid "Configure the app plugins and look & feel."
+msgstr "Uygulama eklentilerini ve uygulama görünüm ve hisini yapılandırın."
+
+#: src/widgets/SettingsDialog.qml:57
+#, kde-format
+msgid "Fit"
+msgstr "Sığdır"
+
+#: src/widgets/SettingsDialog.qml:58
+#, kde-format
+msgid "Fit the previews"
+msgstr "Önizlemeleri Sığdır"
+
+#: src/widgets/SettingsDialog.qml:71
+#, kde-format
+msgid "Image Titles"
+msgstr "Görsel Başlıkları"
+
+#: src/widgets/SettingsDialog.qml:72
+#, kde-format
+msgid "Show the titles of the images."
+msgstr "Görsellerin başlıklarını göster."
+
+#: src/widgets/SettingsDialog.qml:85
+#, kde-format
+msgid "Preview Size"
+msgstr "Önizleme Boyutu"
+
+#: src/widgets/SettingsDialog.qml:86
+#, kde-format
+msgid "Size of the thumbnails in the collection views."
+msgstr "Koleksiyon görünümlerindeki küçük görsel boyutunu ayarlayın."
+
+#: src/widgets/SettingsDialog.qml:110
+#, kde-format
+msgid "S"
+msgstr "K"
+
+#: src/widgets/SettingsDialog.qml:116
+#, kde-format
+msgid "M"
+msgstr "O"
+
+#: src/widgets/SettingsDialog.qml:122
+#, kde-format
+msgid "X"
+msgstr "B"
+
+#: src/widgets/SettingsDialog.qml:128
+#, kde-format
+msgid "XL"
+msgstr "ÇB"
+
+#: src/widgets/SettingsDialog.qml:136
+#, kde-format
+msgid "Sorting by"
+msgstr "Sıralama Ölçütü"
+
+#: src/widgets/SettingsDialog.qml:137
+#, kde-format
+msgid "Change the sorting key."
+msgstr "Sıralama ölçütünü değiştirin."
+
+#: src/widgets/SettingsDialog.qml:159
+#, kde-format
+msgid "Title"
+msgstr "Başlık"
+
+#: src/widgets/SettingsDialog.qml:165
+#, kde-format
+msgid "Date"
+msgstr "Tarih"
+
+#: src/widgets/SettingsDialog.qml:171
+#, kde-format
+msgid "Size"
+msgstr "Boyut"
+
+#: src/widgets/SettingsDialog.qml:179
+#, kde-format
+msgid "Sort order"
+msgstr "Sıralama Ölçütü"
+
+#: src/widgets/SettingsDialog.qml:180
+#, kde-format
+msgid "Change the sorting order."
+msgstr "Sıralama ölçütünü değiştirin."
+
+#: src/widgets/SettingsDialog.qml:201
+#, kde-format
+msgid "Ascending"
+msgstr "Artan"
+
+#: src/widgets/SettingsDialog.qml:208
+#, kde-format
+msgid "Descending"
+msgstr "Azalan"
+
+#: src/widgets/SettingsDialog.qml:218
+#, kde-format
+msgid "GPS Tags"
+msgstr "GPS Etiketleri"
+
+#: src/widgets/SettingsDialog.qml:219
+#, kde-format
+msgid "Show GPS tags."
+msgstr "GPS etiketlerini göster."
+
+#: src/widgets/SettingsDialog.qml:233
+#, kde-format
+msgid "Viewer"
+msgstr "Görüntüleyici"
+
+#: src/widgets/SettingsDialog.qml:234
+#, kde-format
+msgid "Adjust the viewer panels and settings."
+msgstr "Görüntüleyici panellerini ve ayarlarını değiştirin."
+
+#: src/widgets/SettingsDialog.qml:238
+#, kde-format
+msgid "Tag Bar"
+msgstr "Etiket Çubuğu"
+
+#: src/widgets/SettingsDialog.qml:239
+#, kde-format
+msgid "Easy way to add, remove and modify the tags of the current image."
+msgstr ""
+"Geçerli görsele etiket ekleme, kaldırma ve etiketleri değiştirmenin kolay "
+"yolu."
+
+#: src/widgets/SettingsDialog.qml:252
+#, kde-format
+msgid "Preview Bar"
+msgstr "Önizleme Çubuğu"
+
+#: src/widgets/SettingsDialog.qml:253
+#, kde-format
+msgid "Show small thumbnail previews in the image viewer."
+msgstr "Görsel görüntüleyicide küçük görseller gösterir."
+
+#: src/widgets/SettingsDialog.qml:266
+#, kde-format
+msgid "Sources"
+msgstr "Kaynaklar"
+
+#: src/widgets/SettingsDialog.qml:267
+#, kde-format
+msgid "Add new sources to manage and browse your image collection."
+msgstr "Görsel koleksiyonunuza yeni kaynaklar ekleyin ve onları yönetin."
+
+#: src/widgets/SettingsDialog.qml:308
+#, kde-format
+msgid "Add"
+msgstr "Ekle"
+
+#: src/widgets/views/Cloud/CloudView.qml:33
+#, kde-format
+msgid "Loading content!"
+msgstr "İçerik yükleniyor!"
+
+#: src/widgets/views/Cloud/CloudView.qml:35
+#, kde-format
+msgid "Nothing here"
+msgstr "Burada bir şey yok"
+
+#: src/widgets/views/Cloud/CloudView.qml:38
+#, kde-format
+msgid "Almost ready!"
+msgstr "Neredeyse hazır!"
+
+#: src/widgets/views/Cloud/CloudView.qml:40
+#, kde-format
+msgid "Make sure you're online and your cloud account is working"
+msgstr "Çevrimiçi olduğunuzdan ve bulut hesabınızın çalıştığından emin olun"
+
+#: src/widgets/views/Folders/FoldersView.qml:44
+#, kde-format
+msgid "Filter %1 folder"
+msgid_plural "Filter %1 folders"
+msgstr[0] "%1 klasörü süz"
+msgstr[1] "%1 klasörü süz"
+
+#: src/widgets/views/Folders/FoldersView.qml:57
+#, kde-format
+msgid "No Folders!"
+msgstr "Klasör Yok!"
+
+#: src/widgets/views/Folders/FoldersView.qml:58
+#, kde-format
+msgid "Add new image sources"
+msgstr "Yeni görsel kaynakları ekle"
+
+#: src/widgets/views/Folders/FoldersView.qml:160
+#, kde-format
+msgid "Folder is empty!"
+msgstr "Klasör boş!"
+
+#: src/widgets/views/Folders/FoldersView.qml:161
+#, kde-format
+msgid "There're no images in this folder"
+msgstr "Bu klasörde görsel yok"
+
+#: src/widgets/views/Gallery/GalleryView.qml:21
+#: src/widgets/views/Tags/TagsView.qml:75
+#: src/widgets/views/Viewer/PixViewer.qml:197
+#, kde-format
+msgid "No Pics!"
+msgstr "Resim Yok!"
+
+#: src/widgets/views/Gallery/GalleryView.qml:22
+#: src/widgets/views/Tags/TagsView.qml:76
+#, kde-format
+msgid "Nothing here. You can add new sources or open an image."
+msgstr ""
+"Burada bir şey yok. Yeni kaynaklar ekleyebilir veya bir görsel açabilirsiniz."
+
+#: src/widgets/views/Gallery/GalleryView.qml:32
+#, kde-format
+msgid "Add sources"
+msgstr "Kaynaklar Ekle"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:28
+#, kde-format
+msgid "Filter %1 tag"
+msgid_plural "Filter %1 tags"
+msgstr[0] "%1 etiketi süz"
+msgstr[1] "%1 etiketi süz"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:37
+#, kde-format
+msgid "New tag"
+msgstr "Yeni etiket"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:76
+#, kde-format
+msgid "qrc:/assets/add-image.svg"
+msgstr "qrc:/varlıklar/görsel-ekle.svg"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:77
+#, kde-format
+msgid "No Tags!"
+msgstr "Etiket Yok!"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:78
+#, kde-format
+msgid "You can create new tags to organize your gallery"
+msgstr "Galerinizi organize etmek için yeni etiketler oluşturabilirsiniz"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:97
+#, kde-format
+msgid "Places"
+msgstr "Yerler"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:98
+#: src/widgets/views/Tags/TagsSidebar.qml:138
+#, kde-format
+msgid "GPS based locations"
+msgstr "GPS tabanlı konumlar"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:137
+#, kde-format
+msgid "Filters"
+msgstr "Süzgeçler"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:150
+#, kde-format
+msgid "Animated"
+msgstr "Canlandırılmış"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:163
+#, kde-format
+msgid "Screenshots"
+msgstr "Ekran Görüntüleri"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:171
+#, kde-format
+msgid "Sunday"
+msgstr "Pazar"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:179
+#, kde-format
+msgid "PNGs"
+msgstr "PNG'ler"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:187
+#, kde-format
+msgid "PSD"
+msgstr "PSD"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:195
+#, kde-format
+msgid "Vectors"
+msgstr "Vektörler"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:203
+#, kde-format
+msgid "Paint"
+msgstr "Boya"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:211
+#, kde-format
+msgid "Animals"
+msgstr "Hayvanlar"
+
+#: src/widgets/views/Tags/TagsView.qml:43
+#, kde-format
+msgid "No Pics in %1!"
+msgstr "%1 İçinde Resim Yok!"
+
+#: src/widgets/views/Tags/TagsView.qml:44
+#, kde-format
+msgid "There're no pics associated with the tag"
+msgstr "Bu etiketle ilişkilendirilmiş resim yok"
+
+#: src/widgets/views/Tags/TagsView.qml:76
+#, kde-format
+msgid "No results found."
+msgstr "Sonuç bulunamadı."
+
+#: src/widgets/views/Viewer/PixViewer.qml:70
+#, kde-format
+msgid "Save as"
+msgstr "Farklı Kaydet"
+
+#: src/widgets/views/Viewer/PixViewer.qml:89
+#, kde-format
+msgid "Save"
+msgstr "Kaydet"
+
+#: src/widgets/views/Viewer/PixViewer.qml:178
+#, kde-format
+msgid "Previous"
+msgstr "Önceki"
+
+#: src/widgets/views/Viewer/PixViewer.qml:198
+#, kde-format
+msgid "Open an image from your collection"
+msgstr "Koleksiyonunuzdan bir görsel açın"
+
+#~ msgid "GIMP"
+#~ msgstr "GIMP"
+
+#~ msgid "EMpty filter"
+#~ msgstr "Boş süzgeç"

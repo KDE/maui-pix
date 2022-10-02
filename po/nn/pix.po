@@ -1,0 +1,562 @@
+# Translation of pix to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: maui-pix\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-25 00:43+0000\n"
+"PO-Revision-Date: 2021-01-18 20:17+0100\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.03.70\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: src/main.cpp:130
+#, kde-format
+msgid "Pix"
+msgstr "Pix"
+
+#: src/main.cpp:130
+#, kde-format
+msgid "Organize, browse, and edit your images."
+msgstr ""
+
+#: src/main.cpp:130
+#, kde-format
+msgid "© 2019-%1 Maui Development Team"
+msgstr ""
+
+#: src/main.cpp:131
+#, kde-format
+msgid "Camilo Higuita"
+msgstr "Camilo Higuita"
+
+#: src/main.cpp:131
+#, kde-format
+msgid "Developer"
+msgstr "Utviklar"
+
+#: src/main.qml:139 src/widgets/views/Gallery/GalleryView.qml:26
+#, kde-format
+msgid "Open"
+msgstr "Opna"
+
+#: src/main.qml:147
+#, kde-format
+msgid "Settings"
+msgstr "Innstillingar"
+
+#: src/main.qml:154
+#, kde-format
+msgid "About"
+msgstr ""
+
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:120
+#, kde-format
+msgid "Gallery"
+msgstr "Galleri"
+
+#: src/main.qml:194 src/view_models/PixMenu.qml:57
+#, kde-format
+msgid "Tags"
+msgstr "Merkelappar"
+
+#: src/main.qml:202
+#, kde-format
+msgid "Folders"
+msgstr "Mapper"
+
+#: src/main.qml:237
+#, kde-format
+msgid "Open images"
+msgstr "Opna bilete"
+
+#: src/main.qml:238
+#, kde-format
+msgid "Drag and drop images here"
+msgstr "Dreg og slepp bilete her"
+
+#: src/main.qml:310
+#, kde-format
+msgid "Delete %1 file?"
+msgid_plural "Delete %1 files?"
+msgstr[0] "Sletta %1 fil?"
+msgstr[1] "Sletta %1 filer?"
+
+#: src/main.qml:311 src/view_models/PixMenu.qml:33
+#, kde-format
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/main.qml:312 src/view_models/PixMenu.qml:32
+#, kde-format
+msgid "Accept"
+msgstr "Godta"
+
+#: src/main.qml:314
+#, kde-format
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgid_plural ""
+"Are sure you want to delete these files? This action can not be undone."
+msgstr[0] ""
+"Er du sikker på at du vil sletta denne fila? Du kan ikkje angra slettinga."
+msgstr[1] ""
+"Er du sikker på at du vil sletta desse filene? Du kan ikkje angra slettinga."
+
+#: src/view_models/PixGrid.qml:51
+#, kde-format
+msgid "Search"
+msgstr "Søk"
+
+#: src/view_models/PixMenu.qml:31
+#, kde-format
+msgid "Delete file?"
+msgstr "Sletta fil?"
+
+#: src/view_models/PixMenu.qml:34
+#, kde-format
+msgctxt "Remove one file"
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgstr ""
+
+#: src/view_models/PixMenu.qml:48
+#, kde-format
+msgid "UnFav it"
+msgstr "Fjern som favoritt"
+
+#: src/view_models/PixMenu.qml:69
+#, kde-format
+msgid "Info"
+msgstr "Info"
+
+#: src/view_models/PixMenu.qml:79 src/widgets/SelectionBar.qml:72
+#, kde-format
+msgid "Share"
+msgstr "Del"
+
+#: src/view_models/PixMenu.qml:93
+#, kde-format
+msgid "Select"
+msgstr "Vel"
+
+#: src/view_models/PixMenu.qml:109 src/widgets/SelectionBar.qml:91
+#, kde-format
+msgid "Export"
+msgstr "Eksporter"
+
+#: src/view_models/PixMenu.qml:127
+#, kde-format
+msgid "Open With"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:138
+#, kde-format
+msgid "Go to folder"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:163
+#, kde-format
+msgid "Open location"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:175 src/widgets/SelectionBar.qml:107
+#, kde-format
+msgid "Remove"
+msgstr "Fjern"
+
+#: src/widgets/SelectionBar.qml:52
+#, kde-format
+msgid "View"
+msgstr "Vis"
+
+#: src/widgets/SelectionBar.qml:60
+#, kde-format
+msgid "Tag"
+msgstr "Merkelapp"
+
+#: src/widgets/SelectionBar.qml:84
+#, kde-format
+msgid "Un/Fav"
+msgstr "(Av)fav"
+
+#: src/widgets/SettingsDialog.qml:15
+#, kde-format
+msgid "Behavior"
+msgstr "Åtferd"
+
+#: src/widgets/SettingsDialog.qml:16
+#, kde-format
+msgid "Configure the app behaviour."
+msgstr "Sett opp appåtferd."
+
+#: src/widgets/SettingsDialog.qml:20
+#, kde-format
+msgid "Auto Reload"
+msgstr "Last automatisk inn på nytt"
+
+#: src/widgets/SettingsDialog.qml:21
+#, kde-format
+msgid "Watch for changes in the collection sources."
+msgstr "Overvak for endringar i samlingskjelder."
+
+#: src/widgets/SettingsDialog.qml:34
+#, kde-format
+msgid "Dark Mode"
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:35
+#, kde-format
+msgid "Switch between light and dark colorscheme"
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:52
+#, kde-format
+msgid "Collection"
+msgstr "Samling"
+
+#: src/widgets/SettingsDialog.qml:53
+#, kde-format
+msgid "Configure the app plugins and look & feel."
+msgstr "Sett opp programtillegg og utsjånad for appen."
+
+#: src/widgets/SettingsDialog.qml:57
+#, kde-format
+msgid "Fit"
+msgstr "Tilpass"
+
+#: src/widgets/SettingsDialog.qml:58
+#, kde-format
+msgid "Fit the previews"
+msgstr "Tilpass førehandsvising"
+
+#: src/widgets/SettingsDialog.qml:71
+#, kde-format
+msgid "Image Titles"
+msgstr "Bilettitlar"
+
+#: src/widgets/SettingsDialog.qml:72
+#, kde-format
+msgid "Show the titles of the images."
+msgstr "Vis titlar til bilete."
+
+#: src/widgets/SettingsDialog.qml:85
+#, kde-format
+msgid "Preview Size"
+msgstr "Storleik på førehandsvising"
+
+#: src/widgets/SettingsDialog.qml:86
+#, kde-format
+msgid "Size of the thumbnails in the collection views."
+msgstr "Storleiken på miniatyr­bilete i samlingsvisingar."
+
+#: src/widgets/SettingsDialog.qml:110
+#, kde-format
+msgid "S"
+msgstr "S"
+
+#: src/widgets/SettingsDialog.qml:116
+#, kde-format
+msgid "M"
+msgstr "M"
+
+#: src/widgets/SettingsDialog.qml:122
+#, kde-format
+msgid "X"
+msgstr "X"
+
+#: src/widgets/SettingsDialog.qml:128
+#, kde-format
+msgid "XL"
+msgstr "XL"
+
+#: src/widgets/SettingsDialog.qml:136
+#, kde-format
+msgid "Sorting by"
+msgstr "Sorterer etter"
+
+#: src/widgets/SettingsDialog.qml:137
+#, kde-format
+msgid "Change the sorting key."
+msgstr "Endra sorteringsnøkkel."
+
+#: src/widgets/SettingsDialog.qml:159
+#, kde-format
+msgid "Title"
+msgstr "Tittel"
+
+#: src/widgets/SettingsDialog.qml:165
+#, kde-format
+msgid "Date"
+msgstr "Dato"
+
+#: src/widgets/SettingsDialog.qml:171
+#, kde-format
+msgid "Size"
+msgstr "Storleik"
+
+#: src/widgets/SettingsDialog.qml:179
+#, kde-format
+msgid "Sort order"
+msgstr "Sorteringsrekkjefølgje"
+
+#: src/widgets/SettingsDialog.qml:180
+#, kde-format
+msgid "Change the sorting order."
+msgstr "Endra sorteringsrekkjefølgje."
+
+#: src/widgets/SettingsDialog.qml:201
+#, kde-format
+msgid "Ascending"
+msgstr "Stigande"
+
+#: src/widgets/SettingsDialog.qml:208
+#, kde-format
+msgid "Descending"
+msgstr "Synkande"
+
+#: src/widgets/SettingsDialog.qml:218
+#, kde-format
+msgid "GPS Tags"
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:219
+#, kde-format
+msgid "Show GPS tags."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:233
+#, kde-format
+msgid "Viewer"
+msgstr "Visar"
+
+#: src/widgets/SettingsDialog.qml:234
+#, kde-format
+msgid "Adjust the viewer panels and settings."
+msgstr "Juster visingspanel og -innstillingar."
+
+#: src/widgets/SettingsDialog.qml:238
+#, kde-format
+msgid "Tag Bar"
+msgstr "Merkelapp-linje"
+
+#: src/widgets/SettingsDialog.qml:239
+#, kde-format
+msgid "Easy way to add, remove and modify the tags of the current image."
+msgstr ""
+"Enkel måte å leggja til, fjerna og endra merkelappar til gjeldande bilete."
+
+#: src/widgets/SettingsDialog.qml:252
+#, kde-format
+msgid "Preview Bar"
+msgstr "Fane for førehandsvising"
+
+#: src/widgets/SettingsDialog.qml:253
+#, kde-format
+msgid "Show small thumbnail previews in the image viewer."
+msgstr "Vis små miniatyrbilete som førehandsvising i biletvisaren."
+
+#: src/widgets/SettingsDialog.qml:266
+#, kde-format
+msgid "Sources"
+msgstr "Kjelder"
+
+#: src/widgets/SettingsDialog.qml:267
+#, kde-format
+msgid "Add new sources to manage and browse your image collection."
+msgstr "Legg til nye kjelder for å handsama og bla gjennom biletsamlinga di."
+
+#: src/widgets/SettingsDialog.qml:308
+#, kde-format
+msgid "Add"
+msgstr "Legg til"
+
+#: src/widgets/views/Cloud/CloudView.qml:33
+#, kde-format
+msgid "Loading content!"
+msgstr "Lastar innhald"
+
+#: src/widgets/views/Cloud/CloudView.qml:35
+#, kde-format
+msgid "Nothing here"
+msgstr "Ingenting her"
+
+#: src/widgets/views/Cloud/CloudView.qml:38
+#, kde-format
+msgid "Almost ready!"
+msgstr "Snart klar …"
+
+#: src/widgets/views/Cloud/CloudView.qml:40
+#, kde-format
+msgid "Make sure you're online and your cloud account is working"
+msgstr "Kontroller at du er tilkopla og at skykontoen verkar"
+
+#: src/widgets/views/Folders/FoldersView.qml:44
+#, kde-format
+msgid "Filter %1 folder"
+msgid_plural "Filter %1 folders"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/widgets/views/Folders/FoldersView.qml:57
+#, kde-format
+msgid "No Folders!"
+msgstr "Ingen mapper"
+
+#: src/widgets/views/Folders/FoldersView.qml:58
+#, kde-format
+msgid "Add new image sources"
+msgstr "Legg til nye biletkjelder"
+
+#: src/widgets/views/Folders/FoldersView.qml:160
+#, kde-format
+msgid "Folder is empty!"
+msgstr "Mappa er tom"
+
+#: src/widgets/views/Folders/FoldersView.qml:161
+#, kde-format
+msgid "There're no images in this folder"
+msgstr ""
+
+#: src/widgets/views/Gallery/GalleryView.qml:21
+#: src/widgets/views/Tags/TagsView.qml:75
+#: src/widgets/views/Viewer/PixViewer.qml:197
+#, kde-format
+msgid "No Pics!"
+msgstr "Ingen bilete"
+
+#: src/widgets/views/Gallery/GalleryView.qml:22
+#: src/widgets/views/Tags/TagsView.qml:76
+#, kde-format
+msgid "Nothing here. You can add new sources or open an image."
+msgstr ""
+
+#: src/widgets/views/Gallery/GalleryView.qml:32
+#, kde-format
+msgid "Add sources"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:28
+#, kde-format
+msgid "Filter %1 tag"
+msgid_plural "Filter %1 tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:37
+#, kde-format
+msgid "New tag"
+msgstr "Ny merkelapp"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:76
+#, kde-format
+msgid "qrc:/assets/add-image.svg"
+msgstr "qrc:/assets/add-image.svg"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:77
+#, kde-format
+msgid "No Tags!"
+msgstr "Ingen merkelappar"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:78
+#, kde-format
+msgid "You can create new tags to organize your gallery"
+msgstr "Du kan leggja til nye merkelappar for å organisera galleriet"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:97
+#, kde-format
+msgid "Places"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:98
+#: src/widgets/views/Tags/TagsSidebar.qml:138
+#, kde-format
+msgid "GPS based locations"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:137
+#, kde-format
+msgid "Filters"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:150
+#, kde-format
+msgid "Animated"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:163
+#, kde-format
+msgid "Screenshots"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:171
+#, kde-format
+msgid "Sunday"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:179
+#, kde-format
+msgid "PNGs"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:187
+#, kde-format
+msgid "PSD"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:195
+#, kde-format
+msgid "Vectors"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:203
+#, kde-format
+msgid "Paint"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:211
+#, kde-format
+msgid "Animals"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsView.qml:43
+#, kde-format
+msgid "No Pics in %1!"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsView.qml:44
+#, kde-format
+msgid "There're no pics associated with the tag"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsView.qml:76
+#, kde-format
+msgid "No results found."
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:70
+#, kde-format
+msgid "Save as"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:89
+#, kde-format
+msgid "Save"
+msgstr "Lagra"
+
+#: src/widgets/views/Viewer/PixViewer.qml:178
+#, kde-format
+msgid "Previous"
+msgstr "Førre"
+
+#: src/widgets/views/Viewer/PixViewer.qml:198
+#, kde-format
+msgid "Open an image from your collection"
+msgstr "Opna eit bilete i samlinga"

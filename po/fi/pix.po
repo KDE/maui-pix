@@ -1,0 +1,696 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the maui-pix package.
+# Tommi Nieminen <translator@legisign.org>, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: maui-pix\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-25 00:43+0000\n"
+"PO-Revision-Date: 2022-06-05 20:15+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: src/main.cpp:130
+#, kde-format
+msgid "Pix"
+msgstr "Pix"
+
+#: src/main.cpp:130
+#, kde-format
+msgid "Organize, browse, and edit your images."
+msgstr "Järjestä, selaa ja muokkaa kuvia."
+
+#: src/main.cpp:130
+#, kde-format
+msgid "© 2019-%1 Maui Development Team"
+msgstr "© 2019-%1 Maui-kehitysryhmä"
+
+#: src/main.cpp:131
+#, kde-format
+msgid "Camilo Higuita"
+msgstr "Camilo Higuita"
+
+#: src/main.cpp:131
+#, kde-format
+msgid "Developer"
+msgstr "Kehittäjä"
+
+#: src/main.qml:139 src/widgets/views/Gallery/GalleryView.qml:26
+#, kde-format
+msgid "Open"
+msgstr "Avaa"
+
+#: src/main.qml:147
+#, kde-format
+msgid "Settings"
+msgstr "Asetukset"
+
+#: src/main.qml:154
+#, kde-format
+msgid "About"
+msgstr "Tietoa"
+
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:120
+#, kde-format
+msgid "Gallery"
+msgstr "Galleria"
+
+#: src/main.qml:194 src/view_models/PixMenu.qml:57
+#, kde-format
+msgid "Tags"
+msgstr "Tunnisteet"
+
+#: src/main.qml:202
+#, kde-format
+msgid "Folders"
+msgstr "Kansiot"
+
+#: src/main.qml:237
+#, kde-format
+msgid "Open images"
+msgstr "Avaa kuvia"
+
+#: src/main.qml:238
+#, kde-format
+msgid "Drag and drop images here"
+msgstr "Vedä ja pudota kuvia tähän"
+
+#: src/main.qml:310
+#, kde-format
+msgid "Delete %1 file?"
+msgid_plural "Delete %1 files?"
+msgstr[0] "Poistetaanko %1 tiedosto?"
+msgstr[1] "Poistetaanko %1 tiedostoa?"
+
+#: src/main.qml:311 src/view_models/PixMenu.qml:33
+#, kde-format
+msgid "Cancel"
+msgstr "Peru"
+
+#: src/main.qml:312 src/view_models/PixMenu.qml:32
+#, kde-format
+msgid "Accept"
+msgstr "Hyväksy"
+
+#: src/main.qml:314
+#, kde-format
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgid_plural ""
+"Are sure you want to delete these files? This action can not be undone."
+msgstr[0] "Haluatko varmasti poistaa tämän tiedoston? Toimintoa ei voi kumota."
+msgstr[1] "Haluatko varmasti poistaa nämä tiedostot? Toimintoa ei voi kumota."
+
+#: src/view_models/PixGrid.qml:51
+#, kde-format
+msgid "Search"
+msgstr "Etsi"
+
+#: src/view_models/PixMenu.qml:31
+#, kde-format
+msgid "Delete file?"
+msgstr "Poistetaanko tiedosto?"
+
+#: src/view_models/PixMenu.qml:34
+#, kde-format
+msgctxt "Remove one file"
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgstr "Haluatko varmasti poistaa tämän tiedoston? Toimintoa ei voi kumota."
+
+#: src/view_models/PixMenu.qml:48
+#, kde-format
+msgid "UnFav it"
+msgstr "Poista suosikeista"
+
+#: src/view_models/PixMenu.qml:69
+#, kde-format
+msgid "Info"
+msgstr "Tietoa"
+
+#: src/view_models/PixMenu.qml:79 src/widgets/SelectionBar.qml:72
+#, kde-format
+msgid "Share"
+msgstr "Jaa"
+
+#: src/view_models/PixMenu.qml:93
+#, kde-format
+msgid "Select"
+msgstr "Valitse"
+
+#: src/view_models/PixMenu.qml:109 src/widgets/SelectionBar.qml:91
+#, kde-format
+msgid "Export"
+msgstr "Vie"
+
+#: src/view_models/PixMenu.qml:127
+#, kde-format
+msgid "Open With"
+msgstr "Avaa ohjelmalla"
+
+#: src/view_models/PixMenu.qml:138
+#, kde-format
+msgid "Go to folder"
+msgstr "Siirry kansioon"
+
+#: src/view_models/PixMenu.qml:163
+#, kde-format
+msgid "Open location"
+msgstr "Avaa sijainti"
+
+#: src/view_models/PixMenu.qml:175 src/widgets/SelectionBar.qml:107
+#, kde-format
+msgid "Remove"
+msgstr "Poista"
+
+#: src/widgets/SelectionBar.qml:52
+#, kde-format
+msgid "View"
+msgstr "Näkymä"
+
+#: src/widgets/SelectionBar.qml:60
+#, kde-format
+msgid "Tag"
+msgstr "Luokittelu"
+
+#: src/widgets/SelectionBar.qml:84
+#, kde-format
+msgid "Un/Fav"
+msgstr "Suosikki/ei suosikki"
+
+#: src/widgets/SettingsDialog.qml:15
+#, kde-format
+msgid "Behavior"
+msgstr "Toiminta"
+
+#: src/widgets/SettingsDialog.qml:16
+#, kde-format
+msgid "Configure the app behaviour."
+msgstr "Sovelluksen toiminnan asetukset."
+
+#: src/widgets/SettingsDialog.qml:20
+#, kde-format
+msgid "Auto Reload"
+msgstr "Lataa automaattisesti uudelleen"
+
+#: src/widgets/SettingsDialog.qml:21
+#, kde-format
+msgid "Watch for changes in the collection sources."
+msgstr "Tarkkaile kokoelmalähteiden muutoksia."
+
+#: src/widgets/SettingsDialog.qml:34
+#, kde-format
+msgid "Dark Mode"
+msgstr "Tumma tila"
+
+#: src/widgets/SettingsDialog.qml:35
+#, kde-format
+msgid "Switch between light and dark colorscheme"
+msgstr "Vaihda vaalean ja tumman värimallin välillä"
+
+#: src/widgets/SettingsDialog.qml:52
+#, kde-format
+msgid "Collection"
+msgstr "Kokoelma"
+
+#: src/widgets/SettingsDialog.qml:53
+#, kde-format
+msgid "Configure the app plugins and look & feel."
+msgstr "Aseta sovelluksen liitännäiset, ulkoasu ja tuntuma."
+
+#: src/widgets/SettingsDialog.qml:57
+#, kde-format
+msgid "Fit"
+msgstr "Sovita"
+
+#: src/widgets/SettingsDialog.qml:58
+#, kde-format
+msgid "Fit the previews"
+msgstr "Sovita esikatselut"
+
+#: src/widgets/SettingsDialog.qml:71
+#, kde-format
+msgid "Image Titles"
+msgstr "Kuvaotsikot"
+
+#: src/widgets/SettingsDialog.qml:72
+#, kde-format
+msgid "Show the titles of the images."
+msgstr "Näytä kuvien otsikot."
+
+#: src/widgets/SettingsDialog.qml:85
+#, kde-format
+msgid "Preview Size"
+msgstr "Esikatselun koko"
+
+#: src/widgets/SettingsDialog.qml:86
+#, kde-format
+msgid "Size of the thumbnails in the collection views."
+msgstr "Pienoiskuvien koko kokoelmanäkymissä."
+
+#: src/widgets/SettingsDialog.qml:110
+#, kde-format
+msgid "S"
+msgstr "S"
+
+#: src/widgets/SettingsDialog.qml:116
+#, kde-format
+msgid "M"
+msgstr "M"
+
+#: src/widgets/SettingsDialog.qml:122
+#, kde-format
+msgid "X"
+msgstr "X"
+
+#: src/widgets/SettingsDialog.qml:128
+#, kde-format
+msgid "XL"
+msgstr "XL"
+
+#: src/widgets/SettingsDialog.qml:136
+#, kde-format
+msgid "Sorting by"
+msgstr "Lajittelutapa"
+
+#: src/widgets/SettingsDialog.qml:137
+#, kde-format
+msgid "Change the sorting key."
+msgstr "Vaihda lajittelutapaa."
+
+#: src/widgets/SettingsDialog.qml:159
+#, kde-format
+msgid "Title"
+msgstr "Otsikko"
+
+#: src/widgets/SettingsDialog.qml:165
+#, kde-format
+msgid "Date"
+msgstr "Päiväys"
+
+#: src/widgets/SettingsDialog.qml:171
+#, kde-format
+msgid "Size"
+msgstr "Koko"
+
+#: src/widgets/SettingsDialog.qml:179
+#, kde-format
+msgid "Sort order"
+msgstr "Lajittelujärjestys"
+
+#: src/widgets/SettingsDialog.qml:180
+#, kde-format
+msgid "Change the sorting order."
+msgstr "Vaihda lajittelujärjestystä."
+
+#: src/widgets/SettingsDialog.qml:201
+#, kde-format
+msgid "Ascending"
+msgstr "Nouseva"
+
+#: src/widgets/SettingsDialog.qml:208
+#, kde-format
+msgid "Descending"
+msgstr "Laskeva"
+
+#: src/widgets/SettingsDialog.qml:218
+#, fuzzy, kde-format
+#| msgid "Tags"
+msgid "GPS Tags"
+msgstr "Tunnisteet"
+
+#: src/widgets/SettingsDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "Show tag bar"
+msgid "Show GPS tags."
+msgstr "Näytä luokittelurivi"
+
+#: src/widgets/SettingsDialog.qml:233
+#, kde-format
+msgid "Viewer"
+msgstr "Katselin"
+
+#: src/widgets/SettingsDialog.qml:234
+#, kde-format
+msgid "Adjust the viewer panels and settings."
+msgstr "Säädä katselimen paneeleja ja asetuksia."
+
+#: src/widgets/SettingsDialog.qml:238
+#, kde-format
+msgid "Tag Bar"
+msgstr "Luokitusrivi"
+
+#: src/widgets/SettingsDialog.qml:239
+#, kde-format
+msgid "Easy way to add, remove and modify the tags of the current image."
+msgstr "Helppo tapa lisätä, poistaa ja muokata nykyisen kuvan luokituksia."
+
+#: src/widgets/SettingsDialog.qml:252
+#, kde-format
+msgid "Preview Bar"
+msgstr "Esikatselurivi"
+
+#: src/widgets/SettingsDialog.qml:253
+#, kde-format
+msgid "Show small thumbnail previews in the image viewer."
+msgstr "Näytä kuvakatselimessa pienoiskuvaesikatselu."
+
+#: src/widgets/SettingsDialog.qml:266
+#, kde-format
+msgid "Sources"
+msgstr "Lähteet"
+
+#: src/widgets/SettingsDialog.qml:267
+#, kde-format
+msgid "Add new sources to manage and browse your image collection."
+msgstr "Lisää hallintaan uusia lähteitä ja selaa kuvakokoelmaa."
+
+#: src/widgets/SettingsDialog.qml:308
+#, kde-format
+msgid "Add"
+msgstr "Lisää"
+
+#: src/widgets/views/Cloud/CloudView.qml:33
+#, kde-format
+msgid "Loading content!"
+msgstr "Ladataan sisältöä!"
+
+#: src/widgets/views/Cloud/CloudView.qml:35
+#, kde-format
+msgid "Nothing here"
+msgstr "Ei mitään täällä"
+
+#: src/widgets/views/Cloud/CloudView.qml:38
+#, kde-format
+msgid "Almost ready!"
+msgstr "Lähes valmista!"
+
+#: src/widgets/views/Cloud/CloudView.qml:40
+#, kde-format
+msgid "Make sure you're online and your cloud account is working"
+msgstr "Varmista, että olet verkossa ja että pilvitilisi toimii"
+
+#: src/widgets/views/Folders/FoldersView.qml:44
+#, kde-format
+msgid "Filter %1 folder"
+msgid_plural "Filter %1 folders"
+msgstr[0] "Suodata %1 kansio"
+msgstr[1] "Suodata %1 kansiota"
+
+#: src/widgets/views/Folders/FoldersView.qml:57
+#, kde-format
+msgid "No Folders!"
+msgstr "Ei kansioita!"
+
+#: src/widgets/views/Folders/FoldersView.qml:58
+#, kde-format
+msgid "Add new image sources"
+msgstr "Lisää uusia kuvalähteitä"
+
+#: src/widgets/views/Folders/FoldersView.qml:160
+#, kde-format
+msgid "Folder is empty!"
+msgstr "Kansio on tyhjä!"
+
+#: src/widgets/views/Folders/FoldersView.qml:161
+#, kde-format
+msgid "There're no images in this folder"
+msgstr "Tässä kansiossa ei ole kuvia"
+
+#: src/widgets/views/Gallery/GalleryView.qml:21
+#: src/widgets/views/Tags/TagsView.qml:75
+#: src/widgets/views/Viewer/PixViewer.qml:197
+#, kde-format
+msgid "No Pics!"
+msgstr "Ei kuvia!"
+
+#: src/widgets/views/Gallery/GalleryView.qml:22
+#: src/widgets/views/Tags/TagsView.qml:76
+#, kde-format
+msgid "Nothing here. You can add new sources or open an image."
+msgstr "Täällä ei ole mitään. Voit lisätä lähteitä tai avata kuvan."
+
+#: src/widgets/views/Gallery/GalleryView.qml:32
+#, kde-format
+msgid "Add sources"
+msgstr "Lisää lähteitä"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:28
+#, kde-format
+msgid "Filter %1 tag"
+msgid_plural "Filter %1 tags"
+msgstr[0] "Suodata %1 luokitus"
+msgstr[1] "Suodata %1 luokitusta"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:37
+#, kde-format
+msgid "New tag"
+msgstr "Uusi luokitus…"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:76
+#, kde-format
+msgid "qrc:/assets/add-image.svg"
+msgstr "qrc:/assets/add-image.svg"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:77
+#, kde-format
+msgid "No Tags!"
+msgstr "Ei luokituksia!"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:78
+#, kde-format
+msgid "You can create new tags to organize your gallery"
+msgstr "Gallerian järjestämiseksi voi lisätä uusia luokituksia"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:97
+#, kde-format
+msgid "Places"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:98
+#: src/widgets/views/Tags/TagsSidebar.qml:138
+#, fuzzy, kde-format
+#| msgid "Open location"
+msgid "GPS based locations"
+msgstr "Avaa sijainti"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:137
+#, fuzzy, kde-format
+#| msgid "Filter %1 tag"
+#| msgid_plural "Filter %1 tags"
+msgid "Filters"
+msgstr "Suodata %1 luokitus"
+
+# *** TARKISTA: Oletan kuuluvan yhteen muiden monikkomuotoisten kanssa
+#: src/widgets/views/Tags/TagsSidebar.qml:150
+#, kde-format
+msgid "Animated"
+msgstr "Animoidut"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:163
+#, kde-format
+msgid "Screenshots"
+msgstr "Ruutukaappaukset"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:171
+#, kde-format
+msgid "Sunday"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:179
+#, kde-format
+msgid "PNGs"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:187
+#, kde-format
+msgid "PSD"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:195
+#, kde-format
+msgid "Vectors"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:203
+#, kde-format
+msgid "Paint"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:211
+#, kde-format
+msgid "Animals"
+msgstr "Eläimet"
+
+#: src/widgets/views/Tags/TagsView.qml:43
+#, kde-format
+msgid "No Pics in %1!"
+msgstr "Ei kuvia kansiossa %1!"
+
+#: src/widgets/views/Tags/TagsView.qml:44
+#, kde-format
+msgid "There're no pics associated with the tag"
+msgstr "Tähän luokitukseen ei ole kytketty kuvia"
+
+#: src/widgets/views/Tags/TagsView.qml:76
+#, kde-format
+msgid "No results found."
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:70
+#, kde-format
+msgid "Save as"
+msgstr "Tallenna nimellä"
+
+#: src/widgets/views/Viewer/PixViewer.qml:89
+#, kde-format
+msgid "Save"
+msgstr "Tallenna"
+
+#: src/widgets/views/Viewer/PixViewer.qml:178
+#, kde-format
+msgid "Previous"
+msgstr "Edellinen"
+
+#: src/widgets/views/Viewer/PixViewer.qml:198
+#, kde-format
+msgid "Open an image from your collection"
+msgstr "Avaa kokoelmasta kuva"
+
+#~ msgid "Nothing here. Try something different!"
+#~ msgstr "Täällä ei mitään. Yritä jotain muuta!"
+
+#~ msgid "Favorite"
+#~ msgstr "Suosikki"
+
+#~ msgid "Add new sources to browse your image collection "
+#~ msgstr "Lisää uusia lähteitä kuvakokoelman selaukseen"
+
+#, fuzzy
+#~| msgid "Saturation"
+#~ msgctxt "@action:button Crop an image"
+#~ msgid "Saturation"
+#~ msgstr "Kylläisyys"
+
+#, fuzzy
+#~| msgid "Contrast"
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Contrast"
+#~ msgstr "Kontrasti"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Exposure"
+#~ msgstr "Vie"
+
+#, fuzzy
+#~| msgid "Brightness"
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Brightness"
+#~ msgstr "Kirkkaus"
+
+#~ msgid "Color"
+#~ msgstr "Väri"
+
+#~ msgctxt "@action:button Mirror an image vertically"
+#~ msgid "Flip"
+#~ msgstr "Käännä ylösalaisin"
+
+#~ msgctxt "@action:button Mirror an image horizontally"
+#~ msgid "Mirror"
+#~ msgstr "Peilaa"
+
+#, fuzzy
+#~| msgctxt "@action:button Rotate an image to the left"
+#~| msgid "Rotate left"
+#~ msgctxt "@action:button Rotate an image 90°"
+#~ msgid "Rotate 90°"
+#~ msgstr "Käännä vasemmalle"
+
+#~ msgctxt "@action:button Crop an image"
+#~ msgid "Crop"
+#~ msgstr "Rajaa"
+
+#, fuzzy
+#~| msgctxt "@action:button Rotate an image to the left"
+#~| msgid "Rotate left"
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Rotate"
+#~ msgstr "Käännä vasemmalle"
+
+#~ msgid "List"
+#~ msgstr "Luettelo"
+
+#~ msgid "Grid"
+#~ msgstr "Ruudukko"
+
+#~ msgid "Edit"
+#~ msgstr "Muokkaa"
+
+#~ msgctxt "@action:button Rotate an image to the right"
+#~ msgid "Rotate right"
+#~ msgstr "Käännä oikealle"
+
+#~ msgid "Hue"
+#~ msgstr "Sävy"
+
+#~ msgid "Lightness"
+#~ msgstr "Valoisuus"
+
+#~ msgid "Create a new tag to organize your gallery"
+#~ msgstr "Luo gallerian järjestämiseksi uusi luokitus"
+
+#, fuzzy
+#~| msgid "Are sure you want to delete %1 files"
+#~ msgid ""
+#~ "Are sure you want to delete this files? This action can not be undone."
+#~ msgid_plural ""
+#~ "Are sure you want to delete these files? This action can not be undone."
+#~ msgstr[0] "Haluatko varmasti poistaa %1 tiedostoa"
+#~ msgstr[1] "Haluatko varmasti poistaa %1 tiedostoa"
+
+#, fuzzy
+#~| msgid "Are sure you want to delete %1"
+#~ msgid ""
+#~ "Are sure you want to delete \n"
+#~ "%1"
+#~ msgstr "Haluatko varmasti poistaa kohteen %1"
+
+#~ msgid "Next"
+#~ msgstr "Seuraava"
+
+#~ msgid "Search..."
+#~ msgstr "Etsi…"
+
+#~ msgid "Modified"
+#~ msgstr "Muutettu"
+
+#~ msgid "Creation date"
+#~ msgstr "Luontipäivä"
+
+#~ msgid "Format"
+#~ msgstr "Muoto"
+
+#~ msgid "Auto Scan on startup"
+#~ msgstr "Etsi automaattisesti käynnistettäessä"
+
+#~ msgid "Auto reaload on changes"
+#~ msgstr "Lataa automaattisesti uudelleen muutosten jälkeen"
+
+#~ msgid "Show labels"
+#~ msgstr "Näytä nimikkeet"
+
+#~ msgid "Show preview bar"
+#~ msgstr "Näytä esikatselurivi"
+
+#~ msgid "Loading..."
+#~ msgstr "Ladataan…"
+
+#~ msgid "Your pic is almost ready"
+#~ msgstr "Kuva on lähes valmis"
