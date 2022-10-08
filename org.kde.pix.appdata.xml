@@ -46,6 +46,7 @@
   <summary xml:lang="eu">Irudien galeria</summary>
   <summary xml:lang="fi">Kuvagalleria</summary>
   <summary xml:lang="fr">Galerie d'images</summary>
+  <summary xml:lang="id">Galeri Gambar</summary>
   <summary xml:lang="it">Galleria d'immagini</summary>
   <summary xml:lang="ko">그림 갤러리</summary>
   <summary xml:lang="lt">Paveikslų galerija</summary>
@@ -71,6 +72,7 @@
     <p xml:lang="eu">Pix, irudien galeria bat eta irudi erakusle bat da. Pix erabil daiteke irudiak beste aplikazio batzuekin irekitzeko, irudi-editore batekin adibidez, fitxategiei etiketak gehitzeko, argazkiei idatzoharrak gehitzeko, biratzeko eta partekatzeko.</p>
     <p xml:lang="fi">Pix on kuvagalleria ja -katselin. Pixiä voi käyttää avaamaan toisten sovellusten kuten kuvankäsittelyohjelmien kuvat, lisäämään kuviin luokituksia ja merkintöjä sekä kääntämään ja jakamaan kuvia.</p>
     <p xml:lang="fr">Pix est une galerie d'images et un afficheur d'images. Pix peut être utilisé pour ouvrir des images avec d'autres applications comme un éditeur d'images, ajouter des étiquettes aux fichiers, ajouter des annotations aux images, les faire pivoter et les partager.</p>
+    <p xml:lang="id">Pix adalah galeri gambar dan penampil gambar. Pix bisa digunakan untuk membuka gambar dengan aplikasi lain seperti editor gambar, menambahkan tag ke file, menambahkan anotasi ke gambar, memutar dan membagikannya.</p>
     <p xml:lang="it">Pix è una galleria d'immagini e un visore d'immagini. Può essere utilizzato per aprire immagini con altre applicazioni come un'editor d'immagine, per aggiungere etichette ai file o le annotazioni alle immagini, per ruotarle o per condividerle.</p>
     <p xml:lang="ko">Pix는 그림 갤러리이자 뷰어입니다. Pix는 그림 편집기 등 다른 프로그램으로 그림 열기, 파일에 태그 추가, 그림에 주석 달기, 회전, 공유 등을 지원합니다.</p>
     <p xml:lang="lt">Pix yra paveikslų galerija ir paveikslų žiūryklė. Pix gali būti naudojama, norint atverti paveikslus kitose programėlėse, tokiose kaip paveikslų redaktorius, pridėti žymes į failus, pridėti anotacijas paveikslams, pasukti juos ir bendrinti.</p>
