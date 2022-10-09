@@ -19,6 +19,7 @@
   <name xml:lang="hu">Pix</name>
   <name xml:lang="id">Pix</name>
   <name xml:lang="it">Pix</name>
+  <name xml:lang="ka">Pix</name>
   <name xml:lang="ko">Pix</name>
   <name xml:lang="lt">Pix</name>
   <name xml:lang="my">ပစ်ဇ်</name>
@@ -48,6 +49,7 @@
   <summary xml:lang="fr">Galerie d'images</summary>
   <summary xml:lang="id">Galeri Gambar</summary>
   <summary xml:lang="it">Galleria d'immagini</summary>
+  <summary xml:lang="ka">სურათების გალერეა</summary>
   <summary xml:lang="ko">그림 갤러리</summary>
   <summary xml:lang="lt">Paveikslų galerija</summary>
   <summary xml:lang="my">ပုံရိပ်ခင်းကျင်းပြတိုက်</summary>
@@ -109,6 +111,7 @@
       <caption xml:lang="hu">A Pix zenelejátszó</caption>
       <caption xml:lang="id">Pemutar musik Pix</caption>
       <caption xml:lang="it">Il lettore musicale Pix</caption>
+      <caption xml:lang="ka">Pix მუსიკის დამკვრელი</caption>
       <caption xml:lang="ko">Pix 음악 재생기</caption>
       <caption xml:lang="lt">Pix muzikos grotuvas</caption>
       <caption xml:lang="nl">De muziekspeler Pix</caption>
