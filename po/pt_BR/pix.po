@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-25 00:43+0000\n"
-"PO-Revision-Date: 2022-08-19 15:21-0300\n"
+"PO-Revision-Date: 2022-10-19 15:45-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -521,7 +521,7 @@ msgstr "Vetores"
 #: src/widgets/views/Tags/TagsSidebar.qml:203
 #, kde-format
 msgid "Paint"
-msgstr ""
+msgstr "Pintar"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:211
 #, kde-format
@@ -541,7 +541,7 @@ msgstr "Não há imagens associadas a esta etiqueta"
 #: src/widgets/views/Tags/TagsView.qml:76
 #, kde-format
 msgid "No results found."
-msgstr ""
+msgstr "Nenhum resultado encontrado."
 
 #: src/widgets/views/Viewer/PixViewer.qml:70
 #, kde-format
