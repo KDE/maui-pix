@@ -104,12 +104,6 @@ StackView
         altHeader: Maui.Handy.isMobile
 
         headBar.visible: true
-        footBar.visible: !holder.visible && root.visibility !== Window.FullScreen && (!Maui.Handy.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode
-
-        autoHideFooter: true
-        autoHideFooterMargins: control.height
-        autoHideFooterDelay: 3000
-        floatingFooter: !viewerSettings.previewBarVisible && !viewerSettings.tagBarVisible
 
         onGoBackTriggered: _stackView.pop()
 
@@ -120,7 +114,30 @@ StackView
                 text: i18n("Gallery")
                 display: ToolButton.TextBesideIcon
                 onClicked: toggleViewer()
-            }
+            },
+
+            Maui.ToolActions
+                    {
+               visible: !holder.visible && (!Maui.Handy.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode
+
+                        expanded: true
+                        autoExclusive: false
+                        checkable: false
+                        display: ToolButton.IconOnly
+
+                        Action
+                        {
+                            text: i18n("Previous")
+                            icon.name: "go-previous"
+                            onTriggered: previous()
+                        }
+
+                        Action
+                        {
+                            icon.name: "go-next"
+                            onTriggered: next()
+                        }
+                    }
         ]
 
         headBar.rightContent: [
@@ -156,36 +173,15 @@ StackView
                 {
                     control.push(_editorComponent,({} ), StackView.Immediate)
                 }
-            }
+            },
+
+            ToolButton
+                    {
+                        icon.name: "view-fullscreen"
+                        onClicked: toogleFullscreen()
+                        checked: fullScreen
+                    }
         ]
-
-        footBar.rightContent: ToolButton
-        {
-            icon.name: "view-fullscreen"
-            onClicked: toogleFullscreen()
-            checked: fullScreen
-        }
-
-        footBar.leftContent: Maui.ToolActions
-        {
-            expanded: true
-            autoExclusive: false
-            checkable: false
-            display: ToolButton.IconOnly
-
-            Action
-            {
-                text: i18n("Previous")
-                icon.name: "go-previous"
-                onTriggered: previous()
-            }
-
-            Action
-            {
-                icon.name: "go-next"
-                onTriggered: next()
-            }
-        }
 
         Maui.Holder
         {
