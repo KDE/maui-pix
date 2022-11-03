@@ -277,14 +277,13 @@ Maui.SettingsDialog
                 Layout.fillWidth: true
                 Layout.minimumHeight: Math.min(500, contentHeight)
                 model: Pix.Collection.sourcesModel
+                padding: 0
                 currentIndex: -1
 
                 delegate: Maui.ListDelegate
                 {
                     width: ListView.view.width
-                    implicitHeight: Maui.Style.rowHeight * 1.5
-                    leftPadding: 0
-                    rightPadding: 0
+
                     template.iconSource: modelData.icon
                     template.iconSizeHint: Maui.Style.iconSizes.small
                     template.label1.text: modelData.label
