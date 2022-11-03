@@ -50,7 +50,7 @@ Maui.StackView
         {
             id: _foldersGrid
             anchors.fill: parent
-            itemSize: Math.min(200, Math.max(100, Math.floor(width* 0.3)))
+            itemSize: Math.min(260, Math.max(100, Math.floor(width* 0.3)))
             itemHeight: itemSize + Maui.Style.rowHeight
             currentIndex: -1
             holder.emoji: "qrc:/assets/view-preview.svg"
