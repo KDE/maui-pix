@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-25 00:43+0000\n"
+"POT-Creation-Date: 2022-11-04 00:44+0000\n"
 "PO-Revision-Date: 2022-10-30 07:48\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -57,7 +57,7 @@ msgstr "设置"
 msgid "About"
 msgstr "关于"
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:120
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:114
 #, kde-format
 msgid "Gallery"
 msgstr "相册"
@@ -419,7 +419,7 @@ msgstr "此文件夹不包含图像"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsView.qml:75
-#: src/widgets/views/Viewer/PixViewer.qml:197
+#: src/widgets/views/Viewer/PixViewer.qml:193
 #, kde-format
 msgid "No Pics!"
 msgstr "没有图像"
@@ -542,12 +542,12 @@ msgstr "另存为"
 msgid "Save"
 msgstr "保存"
 
-#: src/widgets/views/Viewer/PixViewer.qml:178
+#: src/widgets/views/Viewer/PixViewer.qml:130
 #, kde-format
 msgid "Previous"
 msgstr "返回"
 
-#: src/widgets/views/Viewer/PixViewer.qml:198
+#: src/widgets/views/Viewer/PixViewer.qml:194
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-25 00:43+0000\n"
+"POT-Creation-Date: 2022-11-04 00:44+0000\n"
 "PO-Revision-Date: 2022-09-07 18:39+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -60,7 +60,7 @@ msgstr "Configuració"
 msgid "About"
 msgstr "Quant a"
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:120
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:114
 #, kde-format
 msgid "Gallery"
 msgstr "Galeria"
@@ -432,7 +432,7 @@ msgstr "No hi ha cap imatge en esta carpeta"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsView.qml:75
-#: src/widgets/views/Viewer/PixViewer.qml:197
+#: src/widgets/views/Viewer/PixViewer.qml:193
 #, kde-format
 msgid "No Pics!"
 msgstr "Sense imatges!"
@@ -556,12 +556,12 @@ msgstr "Anomena i guarda"
 msgid "Save"
 msgstr "Guarda"
 
-#: src/widgets/views/Viewer/PixViewer.qml:178
+#: src/widgets/views/Viewer/PixViewer.qml:130
 #, kde-format
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/widgets/views/Viewer/PixViewer.qml:198
+#: src/widgets/views/Viewer/PixViewer.qml:194
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obri una imatge de la col·lecció"

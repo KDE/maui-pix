@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-25 00:43+0000\n"
+"POT-Creation-Date: 2022-11-04 00:44+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -58,7 +58,7 @@ msgstr "ਸੈਟਿੰਗਾਂ"
 msgid "About"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:120
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:114
 #, kde-format
 msgid "Gallery"
 msgstr "ਗੈਲਰੀ"
@@ -428,7 +428,7 @@ msgstr "ਇਸ ਫੋਲਡਰ ਵਿੱਚ ਕੋਈ ਚਿੱਤਰ ਨਹੀ�
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsView.qml:75
-#: src/widgets/views/Viewer/PixViewer.qml:197
+#: src/widgets/views/Viewer/PixViewer.qml:193
 #, kde-format
 msgid "No Pics!"
 msgstr "ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ!"
@@ -557,12 +557,12 @@ msgstr "ਇੰਞ ਸੰਭਾਲੋ"
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:178
+#: src/widgets/views/Viewer/PixViewer.qml:130
 #, kde-format
 msgid "Previous"
 msgstr "ਪਿੱਛੇ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:198
+#: src/widgets/views/Viewer/PixViewer.qml:194
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "ਆਪਣੇ ਭੰਡਾਰ ਤੋਂ ਚਿੱਤਰ ਖੋਲ੍ਹੋ"

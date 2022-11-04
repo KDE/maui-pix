@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-25 00:43+0000\n"
+"POT-Creation-Date: 2022-11-04 00:44+0000\n"
 "PO-Revision-Date: 2022-05-16 00:01+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -57,7 +57,7 @@ msgstr "설정"
 msgid "About"
 msgstr "정보"
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:120
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:114
 #, kde-format
 msgid "Gallery"
 msgstr "갤러리"
@@ -420,7 +420,7 @@ msgstr "이 폴더에 그림이 없음"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsView.qml:75
-#: src/widgets/views/Viewer/PixViewer.qml:197
+#: src/widgets/views/Viewer/PixViewer.qml:193
 #, kde-format
 msgid "No Pics!"
 msgstr "그림이 없습니다!"
@@ -546,12 +546,12 @@ msgstr "다른 이름으로 저장"
 msgid "Save"
 msgstr "저장"
 
-#: src/widgets/views/Viewer/PixViewer.qml:178
+#: src/widgets/views/Viewer/PixViewer.qml:130
 #, kde-format
 msgid "Previous"
 msgstr "이전"
 
-#: src/widgets/views/Viewer/PixViewer.qml:198
+#: src/widgets/views/Viewer/PixViewer.qml:194
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "모음집에서 그림 열기"
