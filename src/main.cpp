@@ -127,6 +127,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
 
     KLocalizedString::setApplicationDomain("pix");
+
     KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Organize, browse, and edit your images."), KAboutLicense::LGPL_V3, i18n("© 2019-%1 Maui Development Team", QString::number(QDate::currentDate().year())), QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
     about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
     about.setHomepage("https://mauikit.org");
@@ -178,6 +179,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         }
     },
     Qt::QueuedConnection);
+
+    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
     engine.rootContext()->setContextProperty("initModule", arguments.first);
     engine.rootContext()->setContextProperty("initData", QUrl::toStringList(arguments.second));

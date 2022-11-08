@@ -98,6 +98,8 @@ kde_enable_exceptions()
 
 add_subdirectory(src)
 
+ki18n_install(po)
+
 if(UNIX AND NOT APPLE AND NOT ANDROID)
     install(FILES org.kde.pix.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 endif()
