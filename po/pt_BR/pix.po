@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:44+0000\n"
+"POT-Creation-Date: 2022-11-09 00:46+0000\n"
 "PO-Revision-Date: 2022-10-19 15:45-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Pix"
 msgstr "Pix"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organize, navegue e edite suas imagens."
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "© 2019-%1 Maui Development Team"
 msgstr "© 2019-%1 Equipe de desenvolvimento do Maui"
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Developer"
 msgstr "Desenvolvedor"
@@ -374,7 +374,7 @@ msgid "Add new sources to manage and browse your image collection."
 msgstr ""
 "Adiciona novas fontes para gerenciar e navegar por sua coleção de imagens."
 
-#: src/widgets/SettingsDialog.qml:308
+#: src/widgets/SettingsDialog.qml:307
 #, kde-format
 msgid "Add"
 msgstr "Adicionar"

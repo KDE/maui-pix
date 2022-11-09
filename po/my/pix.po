@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:44+0000\n"
+"POT-Creation-Date: 2022-11-09 00:46+0000\n"
 "PO-Revision-Date: 2021-09-19 13:24+0630\n"
 "Last-Translator: \n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -18,28 +18,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Pix"
 msgstr ""
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr ""
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, fuzzy, kde-format
 #| msgid "© 2019-%1 Nitrux Development Team"
 msgid "© 2019-%1 Maui Development Team"
 msgstr "© ၂၀၁၉ - %1 နစ်ထရက်တိုးတက်ရေးအဖွဲ့"
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "ခမီလိုဟီဂီတာ"
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Developer"
 msgstr ""
@@ -368,7 +368,7 @@ msgstr ""
 msgid "Add new sources to manage and browse your image collection."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:308
+#: src/widgets/SettingsDialog.qml:307
 #, kde-format
 msgid "Add"
 msgstr "ထည့်မည်"

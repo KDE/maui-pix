@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:44+0000\n"
+"POT-Creation-Date: 2022-11-09 00:46+0000\n"
 "PO-Revision-Date: 2022-08-26 15:24+0200\n"
 "Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.08.0\n"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Pix"
 msgstr "Pix"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organizza, sfoglia e modifica la tue immagini."
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "© 2019-%1 Maui Development Team"
 msgstr "© 2019-%1 La squadra di sviluppo di Maui"
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Developer"
 msgstr "Sviluppatore"
@@ -378,7 +378,7 @@ msgstr ""
 "Aggiungi nuove fonti per gestire e per sfogliare la tua collezione di "
 "immagini."
 
-#: src/widgets/SettingsDialog.qml:308
+#: src/widgets/SettingsDialog.qml:307
 #, kde-format
 msgid "Add"
 msgstr "Aggiungi"
