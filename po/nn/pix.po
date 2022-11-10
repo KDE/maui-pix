@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:44+0000\n"
+"POT-Creation-Date: 2022-11-09 00:46+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -19,27 +19,27 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Pix"
 msgstr "Pix"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr ""
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "© 2019-%1 Maui Development Team"
 msgstr ""
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Developer"
 msgstr "Utviklar"
@@ -373,7 +373,7 @@ msgstr "Kjelder"
 msgid "Add new sources to manage and browse your image collection."
 msgstr "Legg til nye kjelder for å handsama og bla gjennom biletsamlinga di."
 
-#: src/widgets/SettingsDialog.qml:308
+#: src/widgets/SettingsDialog.qml:307
 #, kde-format
 msgid "Add"
 msgstr "Legg til"
