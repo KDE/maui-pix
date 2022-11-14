@@ -71,7 +71,7 @@ Maui.ApplicationWindow
     {
         id: browserSettings
         category: "Browser"
-        property bool showLabels : !Maui.Handy.isMobile
+        property bool showLabels : false
         property bool fitPreviews : false
         property bool autoReload: true
         property int previewSize : previewSizes.medium

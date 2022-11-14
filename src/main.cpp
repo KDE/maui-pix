@@ -124,8 +124,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     app.setOrganizationName(QStringLiteral("Maui"));
     app.setWindowIcon(QIcon(":/assets/pix.png"));
 
-    MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
-
     KLocalizedString::setApplicationDomain("pix");
 
     KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Organize, browse, and edit your images."), KAboutLicense::LGPL_V3, i18n("© 2019-%1 Maui Development Team", QString::number(QDate::currentDate().year())), QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
@@ -136,7 +134,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     about.setOrganizationDomain(PIX_URI);
     about.setProgramLogo(app.windowIcon());
 
+    about.addComponent("Exiv2");
+
     KAboutData::setApplicationData(about);
+    MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
 
     QCommandLineParser parser;
 
