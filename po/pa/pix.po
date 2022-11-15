@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-09 00:46+0000\n"
+"POT-Creation-Date: 2022-11-15 00:45+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -17,28 +17,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.04.3\n"
 
-#: src/main.cpp:131
+#: src/main.cpp:129
 #, kde-format
 msgid "Pix"
 msgstr "ਪਿਕਸ"
 
-#: src/main.cpp:131
+#: src/main.cpp:129
 #, fuzzy, kde-format
 #| msgid "Pix lets you organize, browse, and edit your image collection."
 msgid "Organize, browse, and edit your images."
 msgstr "ਪਿਕਸ ਐਪ ਤੁਹਾਨੂੰ ਚਿੱਤਰ ਭੰਡਾਰ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰਨ, ਝਲਕ ਵੇਖਣ ਤੇ ਸੋਧਣ ਦਿੰਦੀ ਹੈ।"
 
-#: src/main.cpp:131
+#: src/main.cpp:129
 #, kde-format
 msgid "© 2019-%1 Maui Development Team"
 msgstr "© 2019-%1 Maui Development Team"
 
-#: src/main.cpp:132
+#: src/main.cpp:130
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:132
+#: src/main.cpp:130
 #, kde-format
 msgid "Developer"
 msgstr "ਡਿਵੈਲਪਰ"
