@@ -137,7 +137,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     about.addComponent("Exiv2");
 
     KAboutData::setApplicationData(about);
-    MauiApp::instance()->setIconName("qrc:/assets/pix.svg");
+    MauiApp::instance()->setIconName("qrc:/assets/pix.png");
 
     QCommandLineParser parser;
 
