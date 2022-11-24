@@ -133,7 +133,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     about.setBugAddress("https://invent.kde.org/maui/pix/-/issues");
     about.setOrganizationDomain(PIX_URI);
     about.setProgramLogo(app.windowIcon());
-
     about.addComponent("Exiv2");
 
     KAboutData::setApplicationData(about);
