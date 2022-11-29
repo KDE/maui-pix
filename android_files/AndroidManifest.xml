@@ -10,7 +10,7 @@
 
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
     <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Pix" android:extractNativeLibs="true" android:icon="@drawable/icon">
-        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density" android:name="org.pix.examples.sharex.QShareActivity" android:label="Pix" android:screenOrientation="unspecified" android:launchMode="singleInstance" android:taskAffinity="">
+        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density" android:name="org.qtproject.qt5.android.bindings.QtActivity" android:label="Pix" android:screenOrientation="unspecified" android:launchMode="singleInstance" android:taskAffinity="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -79,7 +79,7 @@
             <meta-data android:name="android.app.splash_screen_drawable_landscape" android:resource="@drawable/logo_landscape"/>
         </activity>
         <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->
-        <provider android:name="android.support.v4.content.FileProvider" android:authorities="org.maui.pix.fileprovider" android:grantUriPermissions="true" android:exported="false">
+        <provider android:name="androidx.core.content.FileProvider" android:authorities="org.maui.pix.fileprovider" android:grantUriPermissions="true" android:exported="false">
            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
            </provider>
     </application>
