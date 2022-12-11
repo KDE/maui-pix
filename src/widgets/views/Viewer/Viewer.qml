@@ -115,11 +115,15 @@ Item
                 id: _imgComponent
                 IT.ImageViewer
                 {
+                    id: _imgV
                     source: model.url
 //                    imageWidth: 1000
 //                    imageHeight: 1000
                     image.autoTransform: true
-                }
+
+
+
+            }
             }
         }
     }

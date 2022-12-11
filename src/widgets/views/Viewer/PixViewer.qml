@@ -11,7 +11,8 @@ import QtQuick.Window 2.13
 
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
-import org.mauikit.imagetools 1.0 as IT
+import org.mauikit.imagetools 1.3 as IT
+import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
 
 import org.maui.pix 1.0 as Pix
 
@@ -35,11 +36,31 @@ StackView
 
     property alias showCSDControls: _viewer.showCSDControls
 
+
     PixMenu
     {
         id: _picMenu
         index: control.currentPicIndex
         model: viewer.model
+    }
+
+    Component
+    {
+        id: _ocrComponent
+
+        IT.OCRPage
+        {
+            url: control.currentPic.url
+            headBar.farLeftContent:  ToolButton
+            {
+                icon.name: "go-previous"
+                onClicked:
+                {
+                    control.pop()
+                }
+            }
+        }
+
     }
 
     Component
@@ -50,7 +71,7 @@ StackView
         {
             objectName: "imageEditor"
             url: control.currentPic.url
-            onGoBackTriggered: control.pop(StackView.Immediate)
+            onGoBackTriggered: control.pop()
 
             headBar.farLeftContent:  ToolButton
             {
@@ -171,9 +192,20 @@ StackView
                 icon.name: "draw-freehand"
                 onClicked:
                 {
-                    control.push(_editorComponent,({} ), StackView.Immediate)
+                    control.push(_editorComponent)
                 }
             },
+
+            ToolButton
+            {
+                icon.name: "format-text-bold"
+                onClicked:
+                {
+                    control.push(_ocrComponent)
+                }
+
+            },
+
 
             ToolButton
                     {
