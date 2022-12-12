@@ -70,6 +70,7 @@ public:
 
     bool activeGeolocationTags() const;
 
+
 private:
     FMH::FileLoader *m_fileLoader;
     QFileSystemWatcher *m_watcher;
@@ -134,5 +135,7 @@ public slots:
 
     int indexOfName(const QString &);
     void setActiveGeolocationTags(bool activeGeolocationTags);
+    void scanImagesText();
+
 };
 #endif // GALLERY_H

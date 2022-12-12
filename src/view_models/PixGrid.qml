@@ -51,6 +51,7 @@ Maui.Page
             placeholderText: i18n("Search") + " " + control.list.count + " images"
             onAccepted:
             {
+                control.list.scanImagesText()
                 if(text.includes(","))
                 {
                     model.filters = text.split(",")
@@ -61,6 +62,24 @@ Maui.Page
             }
 
             onCleared: model.clearFilters()
+
+            rightContent: Maui.ToolButtonMenu
+            {
+                icon.name: "view-filter"
+
+                MenuItem
+                {
+                    text: i18n("Filter")
+                    checkable: true
+                    checked: true
+                }
+
+                MenuItem
+                {
+                    text: i18n("Image Text")
+                    checkable: true
+                }
+            }
         }
     }
 

@@ -7,6 +7,9 @@
 #include <MauiKit/FileBrowsing/fmstatic.h>
 #include <MauiKit/FileBrowsing/tagging.h>
 #include <MauiKit/ImageTools/exiv2extractor.h>
+#include <MauiKit/ImageTools/textscanner.h>
+
+static QHash<QString, QString> TextInImages;
 
 static FMH::MODEL picInfo(const QUrl &url)
 {
@@ -47,7 +50,7 @@ Gallery::Gallery(QObject *parent)
 
 Gallery::~Gallery()
 {
-//    delete m_fileLoader;
+    //    delete m_fileLoader;
 }
 
 const FMH::MODEL_LIST &Gallery::items() const
@@ -159,8 +162,8 @@ void Gallery::insertCity(const QString & cityId)
 void Gallery::setStatus(const Gallery::Status &status, const QString &error)
 {
     qDebug() << "Setting up status" << status;
-        this->m_status = status;
-        emit this->statusChanged();
+    this->m_status = status;
+    emit this->statusChanged();
 
 
     if(error != m_error)
@@ -321,10 +324,10 @@ void Gallery::componentComplete()
     connect(this, &Gallery::urlsChanged, this, &Gallery::rescan);
     connect(this, &Gallery::activeGeolocationTagsChanged, [this](bool state)
     {
-       if(state)
-       {
-           this->rescan();
-       }
+        if(state)
+        {
+            this->rescan();
+        }
     });
 
     this->load();
@@ -348,4 +351,38 @@ QString Gallery::error() const
 bool Gallery::activeGeolocationTags() const
 {
     return m_activeGeolocationTags;
+}
+
+void Gallery::scanImagesText()
+{
+    TextScanner scanner;
+    int i = 0;
+
+    for(auto &item : this->list)
+    {
+        if(!QString(item[FMH::MODEL_KEY::CONTEXT]).isEmpty())
+        {
+            qDebug() << "EXISTING TEXT" << item[FMH::MODEL_KEY::CONTEXT];
+            continue;
+        }
+
+        QString text;
+        QString url = item[FMH::MODEL_KEY::URL];
+
+        if(TextInImages.contains(url))
+        {
+            text = TextInImages.value(url);
+        }else
+        {
+            scanner.setUrl(url);
+            text = scanner.getText();
+            TextInImages.insert(url, text);
+        }
+
+        item[FMH::MODEL_KEY::CONTEXT] = text.isEmpty() ? "---" : text;
+        qDebug() << "FOUND TEXT" << item[FMH::MODEL_KEY::CONTEXT];
+
+        this->updateModel(i, {FMH::MODEL_KEY::CONTEXT});
+        i++;
+    }
 }
