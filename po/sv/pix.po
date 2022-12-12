@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:45+0000\n"
+"POT-Creation-Date: 2022-12-12 00:46+0000\n"
 "PO-Revision-Date: 2022-09-24 16:03+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -57,7 +57,7 @@ msgstr "Inställningar"
 msgid "About"
 msgstr "Om"
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:114
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:135
 #, kde-format
 msgid "Gallery"
 msgstr "Galleri"
@@ -425,7 +425,7 @@ msgstr "Det finns inga bilder i katalogen"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsView.qml:75
-#: src/widgets/views/Viewer/PixViewer.qml:193
+#: src/widgets/views/Viewer/PixViewer.qml:225
 #, kde-format
 msgid "No Pics!"
 msgstr "Inga bilder."
@@ -539,22 +539,22 @@ msgstr "Det finns inga bilder som hör ihop med etiketten"
 msgid "No results found."
 msgstr "Inga resultat hittades."
 
-#: src/widgets/views/Viewer/PixViewer.qml:70
+#: src/widgets/views/Viewer/PixViewer.qml:91
 #, kde-format
 msgid "Save as"
 msgstr "Spara som"
 
-#: src/widgets/views/Viewer/PixViewer.qml:89
+#: src/widgets/views/Viewer/PixViewer.qml:110
 #, kde-format
 msgid "Save"
 msgstr "Spara"
 
-#: src/widgets/views/Viewer/PixViewer.qml:130
+#: src/widgets/views/Viewer/PixViewer.qml:151
 #, kde-format
 msgid "Previous"
 msgstr "Föregående"
 
-#: src/widgets/views/Viewer/PixViewer.qml:194
+#: src/widgets/views/Viewer/PixViewer.qml:226
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Öppna en bild från din samling"

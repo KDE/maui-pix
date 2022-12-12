@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:45+0000\n"
+"POT-Creation-Date: 2022-12-12 00:46+0000\n"
 "PO-Revision-Date: 2021-11-15 17:54+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -55,7 +55,7 @@ msgstr "Nastavenia"
 msgid "About"
 msgstr "O aplikácii"
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:114
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:135
 #, kde-format
 msgid "Gallery"
 msgstr "Galéria"
@@ -429,7 +429,7 @@ msgstr ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsView.qml:75
-#: src/widgets/views/Viewer/PixViewer.qml:193
+#: src/widgets/views/Viewer/PixViewer.qml:225
 #, kde-format
 msgid "No Pics!"
 msgstr ""
@@ -545,22 +545,22 @@ msgstr ""
 msgid "No results found."
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:70
+#: src/widgets/views/Viewer/PixViewer.qml:91
 #, kde-format
 msgid "Save as"
 msgstr "Uložiť ako"
 
-#: src/widgets/views/Viewer/PixViewer.qml:89
+#: src/widgets/views/Viewer/PixViewer.qml:110
 #, fuzzy, kde-format
 msgid "Save"
 msgstr "Uložiť"
 
-#: src/widgets/views/Viewer/PixViewer.qml:130
+#: src/widgets/views/Viewer/PixViewer.qml:151
 #, kde-format
 msgid "Previous"
 msgstr "Predchádzajúci"
 
-#: src/widgets/views/Viewer/PixViewer.qml:194
+#: src/widgets/views/Viewer/PixViewer.qml:226
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""

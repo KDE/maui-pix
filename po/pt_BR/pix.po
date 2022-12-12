@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:45+0000\n"
+"POT-Creation-Date: 2022-12-12 00:46+0000\n"
 "PO-Revision-Date: 2022-10-19 15:45-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -58,7 +58,7 @@ msgstr "Configurações"
 msgid "About"
 msgstr "Sobre"
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:114
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:135
 #, kde-format
 msgid "Gallery"
 msgstr "Galeria"
@@ -429,7 +429,7 @@ msgstr "Não há imagens nesta pasta"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsView.qml:75
-#: src/widgets/views/Viewer/PixViewer.qml:193
+#: src/widgets/views/Viewer/PixViewer.qml:225
 #, kde-format
 msgid "No Pics!"
 msgstr "Nenhuma imagem!"
@@ -543,22 +543,22 @@ msgstr "Não há imagens associadas a esta etiqueta"
 msgid "No results found."
 msgstr "Nenhum resultado encontrado."
 
-#: src/widgets/views/Viewer/PixViewer.qml:70
+#: src/widgets/views/Viewer/PixViewer.qml:91
 #, kde-format
 msgid "Save as"
 msgstr "Salvar como"
 
-#: src/widgets/views/Viewer/PixViewer.qml:89
+#: src/widgets/views/Viewer/PixViewer.qml:110
 #, kde-format
 msgid "Save"
 msgstr "Salvar"
 
-#: src/widgets/views/Viewer/PixViewer.qml:130
+#: src/widgets/views/Viewer/PixViewer.qml:151
 #, kde-format
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/widgets/views/Viewer/PixViewer.qml:194
+#: src/widgets/views/Viewer/PixViewer.qml:226
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir uma imagem da sua coleção"
