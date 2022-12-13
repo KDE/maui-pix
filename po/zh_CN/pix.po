@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-12 00:46+0000\n"
+"POT-Creation-Date: 2022-12-13 00:54+0000\n"
 "PO-Revision-Date: 2022-12-01 06:53\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -109,6 +109,19 @@ msgstr[0] "您确定要删除这些文件吗？此操作无法撤消。"
 #, kde-format
 msgid "Search"
 msgstr "搜索"
+
+#: src/view_models/PixGrid.qml:72
+#, fuzzy, kde-format
+#| msgid "Filter %1 tag"
+#| msgid_plural "Filter %1 tags"
+msgid "Filter"
+msgstr "在 %1 个标签中筛选"
+
+#: src/view_models/PixGrid.qml:79
+#, fuzzy, kde-format
+#| msgid "Image Titles"
+msgid "Image Text"
+msgstr "图像标题"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format

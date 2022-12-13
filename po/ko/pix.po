@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-12 00:46+0000\n"
+"POT-Creation-Date: 2022-12-13 00:54+0000\n"
 "PO-Revision-Date: 2022-05-16 00:01+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -109,6 +109,19 @@ msgstr[0] "파일을 삭제하시겠습니까? 실행 취소할 수 없습니다
 #, kde-format
 msgid "Search"
 msgstr "검색"
+
+#: src/view_models/PixGrid.qml:72
+#, fuzzy, kde-format
+#| msgid "Filter %1 tag"
+#| msgid_plural "Filter %1 tags"
+msgid "Filter"
+msgstr "태그 %1개 필터"
+
+#: src/view_models/PixGrid.qml:79
+#, fuzzy, kde-format
+#| msgid "Image Titles"
+msgid "Image Text"
+msgstr "그림 제목"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format

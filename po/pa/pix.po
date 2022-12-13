@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-12 00:46+0000\n"
+"POT-Creation-Date: 2022-12-13 00:54+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -112,6 +112,18 @@ msgstr[1] "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ�
 #, kde-format
 msgid "Search"
 msgstr "ਖੋਜੋ"
+
+#: src/view_models/PixGrid.qml:72
+#, fuzzy, kde-format
+#| msgid "Filter"
+msgid "Filter"
+msgstr "ਫਿਲਟਰ"
+
+#: src/view_models/PixGrid.qml:79
+#, fuzzy, kde-format
+#| msgid "Image Titles"
+msgid "Image Text"
+msgstr "ਚਿੱਤਰਾਂ ਦੇ ਟਾਈਟਲ"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
