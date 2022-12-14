@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-13 00:54+0000\n"
-"PO-Revision-Date: 2022-08-21 09:25+0300\n"
+"PO-Revision-Date: 2022-12-13 14:46+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -124,16 +124,14 @@ msgid "Search"
 msgstr "Шукати"
 
 #: src/view_models/PixGrid.qml:72
-#, fuzzy, kde-format
-#| msgid "Filters"
+#, kde-format
 msgid "Filter"
-msgstr "Фільтри"
+msgstr "Фільтр"
 
 #: src/view_models/PixGrid.qml:79
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image Text"
-msgstr "Заголовки зображень"
+msgstr "Текст зображення"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
