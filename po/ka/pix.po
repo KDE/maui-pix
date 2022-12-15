@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-13 00:54+0000\n"
-"PO-Revision-Date: 2022-11-25 23:09+0100\n"
+"PO-Revision-Date: 2022-12-14 07:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: src/main.cpp:129
 #, kde-format
@@ -117,16 +117,14 @@ msgid "Search"
 msgstr "ძებნა"
 
 #: src/view_models/PixGrid.qml:72
-#, fuzzy, kde-format
-#| msgid "Filters"
+#, kde-format
 msgid "Filter"
-msgstr "ფილტრები"
+msgstr "ფილტრი"
 
 #: src/view_models/PixGrid.qml:79
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image Text"
-msgstr "გამოსახულების სათაურები"
+msgstr "გამოსახულების ტექსტი"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
