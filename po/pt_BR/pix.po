@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-13 00:54+0000\n"
-"PO-Revision-Date: 2022-10-19 15:45-0300\n"
+"PO-Revision-Date: 2022-12-15 11:18-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -116,16 +116,14 @@ msgid "Search"
 msgstr "Pesquisar"
 
 #: src/view_models/PixGrid.qml:72
-#, fuzzy, kde-format
-#| msgid "Filters"
+#, kde-format
 msgid "Filter"
-msgstr "Filtros"
+msgstr "Filtrar"
 
 #: src/view_models/PixGrid.qml:79
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image Text"
-msgstr "Nomes de imagem"
+msgstr "Texto da imagem"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
