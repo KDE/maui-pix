@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:45+0000\n"
+"POT-Creation-Date: 2022-12-13 00:54+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -59,7 +59,7 @@ msgstr "Innstillingar"
 msgid "About"
 msgstr ""
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:114
+#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:135
 #, kde-format
 msgid "Gallery"
 msgstr "Galleri"
@@ -115,6 +115,16 @@ msgstr[1] ""
 #, kde-format
 msgid "Search"
 msgstr "Søk"
+
+#: src/view_models/PixGrid.qml:72
+#, kde-format
+msgid "Filter"
+msgstr "Filter"
+
+#: src/view_models/PixGrid.qml:79
+#, kde-format
+msgid "Image Text"
+msgstr ""
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -427,7 +437,7 @@ msgstr ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsView.qml:75
-#: src/widgets/views/Viewer/PixViewer.qml:193
+#: src/widgets/views/Viewer/PixViewer.qml:225
 #, kde-format
 msgid "No Pics!"
 msgstr "Ingen bilete"
@@ -541,22 +551,22 @@ msgstr ""
 msgid "No results found."
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:70
+#: src/widgets/views/Viewer/PixViewer.qml:91
 #, kde-format
 msgid "Save as"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:89
+#: src/widgets/views/Viewer/PixViewer.qml:110
 #, kde-format
 msgid "Save"
 msgstr "Lagra"
 
-#: src/widgets/views/Viewer/PixViewer.qml:130
+#: src/widgets/views/Viewer/PixViewer.qml:151
 #, kde-format
 msgid "Previous"
 msgstr "Førre"
 
-#: src/widgets/views/Viewer/PixViewer.qml:194
+#: src/widgets/views/Viewer/PixViewer.qml:226
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Opna eit bilete i samlinga"
