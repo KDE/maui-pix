@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-13 00:54+0000\n"
-"PO-Revision-Date: 2022-12-13 12:21\n"
+"PO-Revision-Date: 2022-12-24 11:42\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -111,17 +111,14 @@ msgid "Search"
 msgstr "搜索"
 
 #: src/view_models/PixGrid.qml:72
-#, fuzzy, kde-format
-#| msgid "Filter %1 tag"
-#| msgid_plural "Filter %1 tags"
+#, kde-format
 msgid "Filter"
-msgstr "在 %1 个标签中筛选"
+msgstr ""
 
 #: src/view_models/PixGrid.qml:79
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image Text"
-msgstr "图像标题"
+msgstr ""
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
