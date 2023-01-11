@@ -93,7 +93,7 @@ Maui.ApplicationWindow
         id: _mainGalleryListLoader
         asynchronous: true
         active: swipeView.visible || item
-        sourceComponent:   Pix.GalleryList
+        sourceComponent: Pix.GalleryList
         {
             autoReload: browserSettings.autoReload
             urls: Pix.Collection.sources
@@ -102,9 +102,7 @@ Maui.ApplicationWindow
         }
     }
 
-
-
-    Maui.StackView
+    StackView
     {
         id: _stackView
         anchors.fill: parent

@@ -3,6 +3,8 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
+#include <QTimer>
+
 #include <MauiKit/FileBrowsing/fileloader.h>
 #include <MauiKit/FileBrowsing/fmstatic.h>
 #include <MauiKit/FileBrowsing/tagging.h>
@@ -42,10 +44,12 @@ Gallery::Gallery(QObject *parent)
     : MauiList(parent)
     , m_fileLoader(new FMH::FileLoader(this))
     , m_watcher(new QFileSystemWatcher(this))
+    , m_scanTimer(new QTimer(this))
     , m_autoReload(true)
     , m_recursive(true)
 {
     qDebug() << "CREATING GALLERY LIST";
+    m_scanTimer->setInterval(15000); //wait 15 secs after a new image is found and before the rescan
 }
 
 Gallery::~Gallery()
@@ -318,6 +322,10 @@ void Gallery::componentComplete()
 
     connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
         qDebug() << "Dir changed" << dir;
+        this->m_scanTimer->start();
+    });
+
+    connect(m_scanTimer, &QTimer::timeout, [this]() {
         this->rescan();
     });
 

@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-
 import QtQuick 2.14
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.14
@@ -15,7 +14,7 @@ import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
 
-Maui.StackView
+StackView
 {
     id: control
 

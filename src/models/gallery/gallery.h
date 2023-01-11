@@ -14,6 +14,7 @@ class FileLoader;
 }
 
 class QFileSystemWatcher;
+class QTimer;
 
 class Gallery : public MauiList
 {
@@ -74,7 +75,7 @@ public:
 private:
     FMH::FileLoader *m_fileLoader;
     QFileSystemWatcher *m_watcher;
-
+    QTimer *m_scanTimer;
     FMH::MODEL_LIST list = {};
 
     QList<QUrl> m_urls;
