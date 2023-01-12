@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-12 00:54+0000\n"
 "PO-Revision-Date: 2022-12-13 14:18+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -45,64 +45,64 @@ msgstr "Camilo Higuita"
 msgid "Developer"
 msgstr "Desenvolupador"
 
-#: src/main.qml:139 src/widgets/views/Gallery/GalleryView.qml:26
+#: src/main.qml:137 src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Obri"
 
-#: src/main.qml:147
+#: src/main.qml:145
 #, kde-format
 msgid "Settings"
 msgstr "Configuració"
 
-#: src/main.qml:154
+#: src/main.qml:152
 #, kde-format
 msgid "About"
 msgstr "Quant a"
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:135
+#: src/main.qml:181 src/widgets/views/Viewer/PixViewer.qml:135
 #, kde-format
 msgid "Gallery"
 msgstr "Galeria"
 
-#: src/main.qml:194 src/view_models/PixMenu.qml:57
+#: src/main.qml:192 src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
 msgstr "Etiquetes"
 
-#: src/main.qml:202
+#: src/main.qml:200
 #, kde-format
 msgid "Folders"
 msgstr "Carpetes"
 
-#: src/main.qml:237
+#: src/main.qml:235
 #, kde-format
 msgid "Open images"
 msgstr "Obri imatges"
 
-#: src/main.qml:238
+#: src/main.qml:236
 #, kde-format
 msgid "Drag and drop images here"
 msgstr "Arrossegueu i deixeu anar ací les imatges"
 
-#: src/main.qml:310
+#: src/main.qml:308
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Voleu suprimir %1 fitxer?"
 msgstr[1] "Voleu suprimir %1 fitxers?"
 
-#: src/main.qml:311 src/view_models/PixMenu.qml:33
+#: src/main.qml:309 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/main.qml:312 src/view_models/PixMenu.qml:32
+#: src/main.qml:310 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/main.qml:314
+#: src/main.qml:312
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -442,14 +442,14 @@ msgid "There're no images in this folder"
 msgstr "No hi ha cap imatge en esta carpeta"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
-#: src/widgets/views/Tags/TagsView.qml:75
+#: src/widgets/views/Tags/TagsView.qml:74
 #: src/widgets/views/Viewer/PixViewer.qml:225
 #, kde-format
 msgid "No Pics!"
 msgstr "Sense imatges!"
 
 #: src/widgets/views/Gallery/GalleryView.qml:22
-#: src/widgets/views/Tags/TagsView.qml:76
+#: src/widgets/views/Tags/TagsView.qml:75
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr "Ací no hi ha res. Podeu afegir fonts noves o obrir una imatge."
@@ -542,17 +542,17 @@ msgstr "Pintura"
 msgid "Animals"
 msgstr "Animals"
 
-#: src/widgets/views/Tags/TagsView.qml:43
+#: src/widgets/views/Tags/TagsView.qml:42
 #, kde-format
 msgid "No Pics in %1!"
 msgstr "Cap imatge a %1!"
 
-#: src/widgets/views/Tags/TagsView.qml:44
+#: src/widgets/views/Tags/TagsView.qml:43
 #, kde-format
 msgid "There're no pics associated with the tag"
 msgstr "No hi ha cap imatge associada amb l'etiqueta"
 
-#: src/widgets/views/Tags/TagsView.qml:76
+#: src/widgets/views/Tags/TagsView.qml:75
 #, kde-format
 msgid "No results found."
 msgstr "No s'ha trobat cap resultat."

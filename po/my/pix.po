@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-12 00:54+0000\n"
 "PO-Revision-Date: 2021-09-19 13:24+0630\n"
 "Last-Translator: \n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -44,63 +44,63 @@ msgstr "ခမီလိုဟီဂီတာ"
 msgid "Developer"
 msgstr ""
 
-#: src/main.qml:139 src/widgets/views/Gallery/GalleryView.qml:26
+#: src/main.qml:137 src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "ဖွင့်မည်"
 
-#: src/main.qml:147
+#: src/main.qml:145
 #, kde-format
 msgid "Settings"
 msgstr ""
 
-#: src/main.qml:154
+#: src/main.qml:152
 #, kde-format
 msgid "About"
 msgstr "အကြောင်း"
 
-#: src/main.qml:183 src/widgets/views/Viewer/PixViewer.qml:135
+#: src/main.qml:181 src/widgets/views/Viewer/PixViewer.qml:135
 #, kde-format
 msgid "Gallery"
 msgstr ""
 
-#: src/main.qml:194 src/view_models/PixMenu.qml:57
+#: src/main.qml:192 src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
 msgstr ""
 
-#: src/main.qml:202
+#: src/main.qml:200
 #, kde-format
 msgid "Folders"
 msgstr ""
 
-#: src/main.qml:237
+#: src/main.qml:235
 #, kde-format
 msgid "Open images"
 msgstr ""
 
-#: src/main.qml:238
+#: src/main.qml:236
 #, kde-format
 msgid "Drag and drop images here"
 msgstr ""
 
-#: src/main.qml:310
+#: src/main.qml:308
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] ""
 
-#: src/main.qml:311 src/view_models/PixMenu.qml:33
+#: src/main.qml:309 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "ပယ်ဖျက်မည်"
 
-#: src/main.qml:312 src/view_models/PixMenu.qml:32
+#: src/main.qml:310 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "လက်ခံမည်"
 
-#: src/main.qml:314
+#: src/main.qml:312
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -430,14 +430,14 @@ msgid "There're no images in this folder"
 msgstr ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
-#: src/widgets/views/Tags/TagsView.qml:75
+#: src/widgets/views/Tags/TagsView.qml:74
 #: src/widgets/views/Viewer/PixViewer.qml:225
 #, kde-format
 msgid "No Pics!"
 msgstr ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:22
-#: src/widgets/views/Tags/TagsView.qml:76
+#: src/widgets/views/Tags/TagsView.qml:75
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr ""
@@ -529,17 +529,17 @@ msgstr ""
 msgid "Animals"
 msgstr ""
 
-#: src/widgets/views/Tags/TagsView.qml:43
+#: src/widgets/views/Tags/TagsView.qml:42
 #, kde-format
 msgid "No Pics in %1!"
 msgstr ""
 
-#: src/widgets/views/Tags/TagsView.qml:44
+#: src/widgets/views/Tags/TagsView.qml:43
 #, kde-format
 msgid "There're no pics associated with the tag"
 msgstr ""
 
-#: src/widgets/views/Tags/TagsView.qml:76
+#: src/widgets/views/Tags/TagsView.qml:75
 #, kde-format
 msgid "No results found."
 msgstr ""
