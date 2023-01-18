@@ -14,60 +14,61 @@ import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
 
-StackView
+
+PixGrid
 {
     id: control
-
-    property string currentTag : ""
+    property string currentTag
     property var currentFilters : []
-    property Flickable flickable : currentItem.flickable
-
     FB.NewTagDialog
     {
         id: newTagDialog
     }
 
-    initialItem: TagsSidebar { }
+
+    title: currentTag
+    list.urls : ["tags:///"+currentTag]
+    list.recursive: false
+
+    holder.title: i18n("No Pics in %1!", currentTag)
+    holder.body: i18n("There're no pics associated with the tag")
+    holder.emoji: "qrc:/assets/add-image.svg"
+
+    headBar.visible: true
 
 
-    Component
-    {
-        id: gpsGrid
+    //        Component
+    //        {
+    //            id: gpsGrid
 
-        PixGrid
-        {
-            id: _gpsList
-//            title: control.currentFilters
-            list: mainGalleryList
-            listModel.filters : control.currentFilters
-            headBar.visible: true
-            headBar.farLeftContent: ToolButton
-            {
-                icon.name: "go-previous"
-                onClicked: control.pop()
-            }
-            holder.visible: count === 0
+    //            PixGrid
+    //            {
+    //                id: _gpsList
+    //    //            title: control.currentFilters
+    //                list: mainGalleryList
+    //                listModel.filters : control.currentFilters
+    //                headBar.visible: true
+    //                headBar.farLeftContent: ToolButton
+    //                {
+    //                    icon.name: "go-previous"
+    //                    onClicked: control.pop()
+    //                }
+    //                holder.visible: count === 0
 
-            holder.emoji: "qrc:/assets/image-multiple.svg"
-            holder.title :  i18n("No Pics!")
-            holder.body: mainGalleryList.status === Pix.GalleryList.Error ? mainGalleryList.error : (list.count > 0 ? i18n("No results found.") : i18n("Nothing here. You can add new sources or open an image."))
-        }
-    }
+    //                holder.emoji: "qrc:/assets/image-multiple.svg"
+    //                holder.title :  i18n("No Pics!")
+    //                holder.body: mainGalleryList.status === Pix.GalleryList.Error ? mainGalleryList.error : (list.count > 0 ? i18n("No results found.") : i18n("Nothing here. You can add new sources or open an image."))
+    //            }
+    //        }
 
     function refreshPics()
     {
-        tagsGrid.list.refresh()
+        control.list.refresh()
     }
 
     function populateGrid(myTag)
     {
-        if(control.depth === 1)
-        {
-            control.push(tagsGrid, {currentTag: myTag})
-        }else
-        {
-            control.currentItem.currentTag = myTag
-        }
+        control.currentTag = myTag
     }
 
     function populateByFilter(filters)
@@ -75,5 +76,8 @@ StackView
         currentFilters = filters
         control.push(gpsGrid)
     }
- }
+
+}
+
+
 

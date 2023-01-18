@@ -51,7 +51,7 @@ Maui.Page
             placeholderText: i18n("Search") + " " + control.list.count + " images"
             onAccepted:
             {
-                control.list.scanImagesText()
+//                control.list.scanImagesText()
                 if(text.includes(","))
                 {
                     model.filters = text.split(",")

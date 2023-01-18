@@ -34,7 +34,7 @@ import Qt.labs.settings 1.0
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.3 as IT
-
+ import Qt.labs.platform 1.0 as Labs
 import org.maui.pix 1.0 as Pix
 
 import "widgets"
@@ -103,31 +103,6 @@ Maui.ApplicationWindow
         }
     }
 
-    Component
-    {
-        id: tagsGrid
-
-        PixGrid
-        {
-            id: _tagsGrid
-            property string currentTag
-            title: currentTag
-            list.urls : ["tags:///"+currentTag]
-            list.recursive: false
-
-            holder.title: i18n("No Pics in %1!", currentTag)
-            holder.body: i18n("There're no pics associated with the tag")
-            holder.emoji: "qrc:/assets/add-image.svg"
-
-            headBar.visible: true
-            headBar.farLeftContent: ToolButton
-            {
-                icon.name: "go-previous"
-                onClicked: _tagsGrid.StackView.view.pop()
-            }
-        }
-    }
-
     StackView
     {
         id: _stackView
@@ -146,14 +121,14 @@ Maui.ApplicationWindow
                 anchors.fill: parent
 
                 background: null
-padding: 0
+                padding: 0
 
                 Maui.ListBrowser
                 {
                     anchors.fill: parent
 
                     flickable.topMargin: Maui.Style.space.medium
-                           flickable.bottomMargin: Maui.Style.space.medium
+                    flickable.bottomMargin: Maui.Style.space.medium
                     flickable.header: GridLayout
                     {
                         width: Math.min(parent.width, 180)
@@ -163,38 +138,161 @@ padding: 0
                         rowSpacing: Maui.Style.space.small
 
 
-                        Repeater
+                        Maui.GridBrowserDelegate
                         {
-                            model: ListModel
+                            isCurrentItem: swipeView.currentIndex === views.tags && swipeView.currentItem.item.currentTag === "fav"
+                            Layout.columnSpan: 2
+
+                            Layout.preferredHeight: 50
+                            Layout.preferredWidth: 50
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            iconSource: "love"
+                            labelsVisible: false
+                            tooltipText: i18n("Favorites")
+                            flat: false
+
+                            iconSizeHint: Maui.Style.iconSize
+                            template.isMask: true
+
+                            onClicked: openTag("fav")
+                        }
+
+                        Maui.GridBrowserDelegate
+                        {
+                            isCurrentItem: swipeView.currentIndex === views.folders
+
+                            Layout.preferredHeight: 50
+                            Layout.preferredWidth: 50
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            iconSource: "folder"
+                            labelsVisible: false
+                            tooltipText: i18n("Folders")
+                            flat: false
+
+                            iconSizeHint: Maui.Style.iconSize
+                            template.isMask: true
+
+                            onClicked: swipeView.currentIndex = views.folders
+                        }
+
+                        Maui.GridBrowserDelegate
+                        {
+                            isCurrentItem: swipeView.currentIndex === views.recent
+
+                            Layout.preferredHeight: 50
+                            Layout.preferredWidth: 50
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            iconSource: "view-media-recent"
+                            labelsVisible: false
+                            tooltipText: "Recent"
+                            flat: false
+
+                            iconSizeHint: Maui.Style.iconSize
+                            template.isMask: true
+
+                            onClicked: swipeView.currentIndex = views.recent
+                        }
+
+                        Maui.GridBrowserDelegate
+                        {
+                            isCurrentItem: swipeView.currentIndex === views.gallery
+                            Layout.columnSpan: 2
+
+                            Layout.preferredHeight: 50
+                            Layout.preferredWidth: 50
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            iconSource: "viewimage"
+                            labelsVisible: false
+                            tooltipText: i18n("Collection")
+                            flat: false
+
+                            iconSizeHint: Maui.Style.iconSize
+                            template.isMask: true
+
+                            onClicked:
                             {
-                                ListElement{label: "Favorites"; viewIndex: "1"; icon:"love"}
-                                ListElement{label: "Folders"; viewIndex: "2"; icon:"folder"}
-                                ListElement{label: "Tags"; viewIndex: "1"; icon:"tag"}
-                                ListElement{label: "Gallery"; viewIndex: "0"; icon:"viewimage"}
-                                ListElement{label: "Places"; viewIndex: "0"; icon:"pin"}
-                            }
+                                _foldersViewLoader.item.pop()
 
-                            delegate: Maui.GridBrowserDelegate
-                            {
-                                Layout.columnSpan: model.label === "Favorites" ? 2 : 1
+                                swipeView.currentIndex = views.gallery
 
-                                Layout.preferredHeight: 50
-                                Layout.preferredWidth: 50
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
 
-                                iconSource: model.icon
-                                labelsVisible: false
-                                tooltipText: model.label
-                                flat: false
 
-                                iconSizeHint: Maui.Style.iconSize
-                                template.isMask: true
-
-                                onClicked: swipeView.currentIndex = model.viewIndex
                             }
                         }
 
+                        Maui.GridBrowserDelegate
+                        {
+                            readonly property string url : Labs.StandardPaths.writableLocation(Labs.StandardPaths.DownloadLocation)
+                            isCurrentItem: swipeView.currentIndex === views.folders && swipeView.currentItem.item.currentFolder === url
+
+                            Layout.preferredHeight: 50
+                            Layout.preferredWidth: 50
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            iconSource: "folder-downloads"
+                            labelsVisible: false
+                            tooltipText: "Downloads"
+                            flat: false
+
+                            iconSizeHint: Maui.Style.iconSize
+                            template.isMask: true
+
+                            onClicked:
+                            {
+                                swipeView.currentIndex = views.folders
+                                openFolder(url)
+                            }
+                        }
+
+                        Maui.GridBrowserDelegate
+                        {
+                            isCurrentItem: swipeView.currentIndex === model.viewIndex
+
+                            Layout.preferredHeight: 50
+                            Layout.preferredWidth: 50
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            iconSource: model.icon
+                            labelsVisible: false
+                            tooltipText: model.label
+                            flat: false
+
+                            iconSizeHint: Maui.Style.iconSize
+                            template.isMask: true
+
+                            onClicked: swipeView.currentIndex = model.viewIndex
+                        }
+
+
+                        Maui.GridBrowserDelegate
+                        {
+                            isCurrentItem: swipeView.currentIndex === model.viewIndex
+
+                            Layout.preferredHeight: 50
+                            Layout.preferredWidth: 50
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            iconSource: model.icon
+                            labelsVisible: false
+                            tooltipText: model.label
+                            flat: false
+
+                            iconSizeHint: Maui.Style.iconSize
+                            template.isMask: true
+
+                            onClicked: swipeView.currentIndex = model.viewIndex
+                        }
 
                     }
 
@@ -209,7 +307,7 @@ padding: 0
 
                     delegate: Maui.ListDelegate
                     {
-                        isCurrentItem: ListView.isCurrentItem
+                        isCurrentItem: model.tag === swipeView.currentItem.item.currentTag
                         width: ListView.view.width
 
                         iconSize: Maui.Style.iconSize
@@ -217,30 +315,18 @@ padding: 0
                         iconName: model.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
                         iconVisible: true
                         template.isMask: iconSize <= Maui.Style.iconSizes.medium
-                        onClicked:
-                        {
-                           if( swipeView.currentIndex === views.tags)
-                           {
-
-                            swipeView.currentItem.item.currentTag = model.tag
-                           }else
-                           {
-                               _tagsViewLoader.pendingTag = model.tag
-
-                               swipeView.currentIndex = views.tags
-                           }
-                        }
+                        onClicked: openTag(model.tag)
                     }
 
                     section.property: "type"
-                            section.criteria: ViewSection.FullString
-                            section.delegate: Maui.LabelDelegate
-                            {
-                                width: ListView.view.width
-                                label: i18n("Tags")
-                                isSection: true
-                                //                height: Maui.Style.toolBarHeightAlt
-                            }
+                    section.criteria: ViewSection.FullString
+                    section.delegate: Maui.LabelDelegate
+                    {
+                        width: ListView.view.width
+                        label: i18n("Tags")
+                        isSection: true
+                        //                height: Maui.Style.toolBarHeightAlt
+                    }
                 }
 
             }
@@ -255,7 +341,19 @@ padding: 0
                 showCSDControls:  initModule !== "viewer"
                 //            headBar.forceCenterMiddleContent: root.isWide
 
-                headBar.leftContent: [Loader
+                headBar.leftContent: [
+
+                    ToolButton
+                    {
+                        icon.name: _collectionView.sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
+                        onClicked: _collectionView.sideBar.toggle()
+                        checked: _collectionView.sideBar.visible
+                        ToolTip.delay: 1000
+                        ToolTip.timeout: 5000
+                        ToolTip.visible: hovered
+                        ToolTip.text: i18n("Toggle sidebar")
+                    },
+                    Loader
                     {
                         asynchronous: true
                         sourceComponent: Loader
@@ -338,7 +436,7 @@ padding: 0
                             Component.onCompleted:
                             {
                                 if(_tagsViewLoader.pendingTag)
-                                populateGrid(_tagsViewLoader.pendingTag)
+                                    populateGrid(_tagsViewLoader.pendingTag)
                             }
                         }
                     }
@@ -611,5 +709,30 @@ padding: 0
     {
         dialogLoader.sourceComponent = _settingsDialogComponent
         dialog.open()
+    }
+
+    function openTag(tag)
+    {
+        if( swipeView.currentIndex === views.tags)
+        {
+            swipeView.currentItem.item.populateGrid(tag)
+            swipeView.currentItem.refreshPics()
+        }else
+        {
+            _tagsViewLoader.pendingTag = tag
+            swipeView.currentIndex = views.tags
+        }
+    }
+
+    function openFolder(url)
+    {
+        if(_foldersViewLoader.item)
+        {
+            _foldersViewLoader.item.openFolder(url)
+        }else
+        {
+            _foldersViewLoader.pendingFolder = url
+        }
+        swipeView.currentIndex = views.folders
     }
 }

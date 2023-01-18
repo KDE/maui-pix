@@ -84,7 +84,7 @@ StackView
             delegate: Item
             {
                 readonly property string path : model.path
-                height: GridView.view.cellHeight - Maui.Style.space.tiny
+                height: GridView.view.cellHeight
                 width: GridView.view.cellWidth
 
                 Maui.CollageItem
@@ -151,7 +151,11 @@ StackView
             headBar.farLeftContent: ToolButton
             {
                 icon.name:"go-previous"
-                onClicked: control.pop()
+                onClicked:
+                {
+                    control.pop()
+                    control.currentFolder = ""
+                }
             }
 
             list.recursive: false
@@ -188,7 +192,12 @@ StackView
     function openFolder(url)
     {
         control.currentFolder = url
-        control.push(picsViewComponent)
+
+        if(control.depth == 1)
+       {
+            control.push(picsViewComponent)
+}
         picsView.list.urls = [url]
+
     }
 }
