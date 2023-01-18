@@ -29,28 +29,6 @@ StackView
 
     initialItem: TagsSidebar { }
 
-    Component
-    {
-        id: tagsGrid
-
-        PixGrid
-        {
-            title: control.currentTag
-            list.urls : ["tags:///"+currentTag]
-            list.recursive: false
-
-            holder.title: i18n("No Pics in %1!", currentTag)
-            holder.body: i18n("There're no pics associated with the tag")
-            holder.emoji: "qrc:/assets/add-image.svg"
-
-            headBar.visible: true
-            headBar.farLeftContent: ToolButton
-            {
-                icon.name: "go-previous"
-                onClicked: control.pop()
-            }
-        }
-    }
 
     Component
     {
@@ -83,8 +61,13 @@ StackView
 
     function populateGrid(myTag)
     {
-        currentTag = myTag
-        control.push(tagsGrid)
+        if(control.depth === 1)
+        {
+            control.push(tagsGrid, {currentTag: myTag})
+        }else
+        {
+            control.currentItem.currentTag = myTag
+        }
     }
 
     function populateByFilter(filters)
