@@ -84,7 +84,7 @@ StackView
             delegate: Item
             {
                 readonly property string path : model.path
-                height: GridView.view.cellHeight - Maui.Style.space.tiny
+                height: GridView.view.cellHeight
                 width: GridView.view.cellWidth
 
                 Maui.CollageItem

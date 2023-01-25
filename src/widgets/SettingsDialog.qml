@@ -149,6 +149,7 @@ Maui.SettingsDialog
                             case "title": return 0;
                             case "modified": return 1;
                             case "size": return 2;
+                            case "date": return 3;
                             default: return -1;
                             }
                     restoreMode: Binding.RestoreValue
@@ -170,6 +171,12 @@ Maui.SettingsDialog
                 {
                     text: i18n("Size")
                     onTriggered: browserSettings.sortBy = "size"
+                }
+
+                Action
+                {
+                    text: i18n("Date")
+                    onTriggered: browserSettings.sortBy = "date"
                 }
             }
         }
