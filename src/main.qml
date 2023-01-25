@@ -34,7 +34,7 @@ import Qt.labs.settings 1.0
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.3 as IT
- import Qt.labs.platform 1.0 as Labs
+import Qt.labs.platform 1.0 as Labs
 import org.maui.pix 1.0 as Pix
 
 import "widgets"
@@ -80,6 +80,7 @@ Maui.ApplicationWindow
         property int sortOrder: Qt.DescendingOrder
         property bool darkMode : true
         property bool gpsTags : false
+        property bool showSidebar : !Maui.Handy.isMobile
     }
 
     Settings
@@ -115,6 +116,7 @@ Maui.ApplicationWindow
             id: _collectionView
             visible: StackView.status === StackView.Active
 
+            sideBar.enabled: browserSettings.showSidebar
 
             sideBar.content: Pane
             {
@@ -331,9 +333,12 @@ Maui.ApplicationWindow
 
             }
 
-            Maui.Page
+            Maui.AppViews
             {
+                id: swipeView
                 anchors.fill: parent
+                currentIndex: initModule === "folder" ? views.folders : views.folders
+                actionGroup: !browserSettings.showSidebar
 
                 altHeader: Maui.Handy.isMobile
                 floatingFooter: true
@@ -353,6 +358,7 @@ Maui.ApplicationWindow
                         ToolTip.visible: hovered
                         ToolTip.text: i18n("Toggle sidebar")
                     },
+
                     Loader
                     {
                         asynchronous: true
@@ -407,51 +413,46 @@ Maui.ApplicationWindow
                     display: ToolButton.IconOnly
                 }
 
-                SwipeView
+
+                Maui.AppViewLoader
                 {
-                    id: swipeView
-                    anchors.fill: parent
-                    currentIndex: initModule === "folder" ? views.folders : views.folders
+                    Maui.AppView.title: i18n("Gallery")
+                    Maui.AppView.iconName: "image-multiple"
 
-                    Maui.AppViewLoader
+                    GalleryView
                     {
-                        Maui.AppView.title: i18n("Gallery")
-                        Maui.AppView.iconName: "image-multiple"
-
-                        GalleryView
-                        {
-                            list: mainGalleryList
-                        }
-                    }
-
-                    Maui.AppViewLoader
-                    {
-                        id: _tagsViewLoader
-                        Maui.AppView.title: i18n("Tags")
-                        Maui.AppView.iconName: "tag"
-
-                        property string pendingTag
-                        TagsView
-                        {
-                            Component.onCompleted:
-                            {
-                                if(_tagsViewLoader.pendingTag)
-                                    populateGrid(_tagsViewLoader.pendingTag)
-                            }
-                        }
-                    }
-
-                    Maui.AppViewLoader
-                    {
-                        id: _foldersViewLoader
-                        Maui.AppView.title: i18n("Folders")
-                        Maui.AppView.iconName: "folder"
-                        property string pendingFolder : initModule === "folder" ? initData : ""
-
-                        FoldersView {}
+                        list: mainGalleryList
                     }
                 }
+
+                Maui.AppViewLoader
+                {
+                    id: _tagsViewLoader
+                    Maui.AppView.title: i18n("Tags")
+                    Maui.AppView.iconName: "tag"
+
+                    property string pendingTag
+                    TagsView
+                    {
+                        Component.onCompleted:
+                        {
+                            if(_tagsViewLoader.pendingTag)
+                                populateGrid(_tagsViewLoader.pendingTag)
+                        }
+                    }
+                }
+
+                Maui.AppViewLoader
+                {
+                    id: _foldersViewLoader
+                    Maui.AppView.title: i18n("Folders")
+                    Maui.AppView.iconName: "folder"
+                    property string pendingFolder : initModule === "folder" ? initData : ""
+
+                    FoldersView {}
+                }
             }
+
         }
 
         PixViewer

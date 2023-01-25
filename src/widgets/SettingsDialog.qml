@@ -17,6 +17,20 @@ Maui.SettingsDialog
 
         Maui.SettingTemplate
         {
+            label1.text: i18n("Sidebar")
+            label2.text: i18n("Sidebar navigation.")
+
+            Switch
+            {
+                Layout.fillHeight: true
+                checkable: true
+                checked: browserSettings.showSidebar
+                onToggled: browserSettings.showSidebar = !browserSettings.showSidebar
+            }
+        }
+
+        Maui.SettingTemplate
+        {
             label1.text: i18n("Auto Reload")
             label2.text: i18n("Watch for changes in the collection sources.")
 
