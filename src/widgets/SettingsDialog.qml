@@ -17,8 +17,8 @@ Maui.SettingsDialog
 
         Maui.SettingTemplate
         {
-            label1.text: i18n("Sidebar")
-            label2.text: i18n("Sidebar navigation.")
+            label1.text: i18n("Places Sidebar")
+            label2.text: i18n("Enable places navigation in the folders view.")
 
             Switch
             {

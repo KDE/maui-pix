@@ -34,7 +34,6 @@ import Qt.labs.settings 1.0
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.3 as IT
-import Qt.labs.platform 1.0 as Labs
 import org.maui.pix 1.0 as Pix
 
 import "widgets"
@@ -94,7 +93,7 @@ Maui.ApplicationWindow
     {
         id: _mainGalleryListLoader
         asynchronous: true
-        active: _collectionView.visible || item
+        active: swipeView.visible || item
         sourceComponent: Pix.GalleryList
         {
             autoReload: browserSettings.autoReload
@@ -109,387 +108,158 @@ Maui.ApplicationWindow
         id: _stackView
         anchors.fill: parent
 
-        initialItem: initModule === "viewer" ? _pixViewer : _collectionView
+        initialItem: initModule === "viewer" ? _pixViewer : swipeView
 
-        Maui.SideBarView
+        Maui.AppViews
         {
-            id: _collectionView
+            id: swipeView
             visible: StackView.status === StackView.Active
 
-            sideBar.enabled: browserSettings.showSidebar
+            currentIndex: initModule === "folder" ? views.folders : views.folders
+            //                actionGroup: !browserSettings.showSidebar
 
-            sideBar.content: Pane
-            {
-                anchors.fill: parent
+            altHeader: Maui.Handy.isMobile
+            floatingFooter: true
+            flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
+            showCSDControls:  initModule !== "viewer"
+            //            headBar.forceCenterMiddleContent: root.isWide
 
-                background: null
-                padding: 0
+            headBar.leftContent: [
 
-                Maui.ListBrowser
+
+                Loader
                 {
-                    anchors.fill: parent
-
-                    flickable.topMargin: Maui.Style.space.medium
-                    flickable.bottomMargin: Maui.Style.space.medium
-                    flickable.header: GridLayout
-                    {
-                        width: Math.min(parent.width, 180)
-                        rows: 3
-                        columns: 3
-                        columnSpacing: Maui.Style.space.small
-                        rowSpacing: Maui.Style.space.small
-
-
-                        Maui.GridBrowserDelegate
-                        {
-                            isCurrentItem: swipeView.currentIndex === views.tags && swipeView.currentItem.item.currentTag === "fav"
-                            Layout.columnSpan: 2
-
-                            Layout.preferredHeight: 50
-                            Layout.preferredWidth: 50
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-
-                            iconSource: "love"
-                            labelsVisible: false
-                            tooltipText: i18n("Favorites")
-                            flat: false
-
-                            iconSizeHint: Maui.Style.iconSize
-                            template.isMask: true
-
-                            onClicked: openTag("fav")
-                        }
-
-                        Maui.GridBrowserDelegate
-                        {
-                            isCurrentItem: swipeView.currentIndex === views.folders
-
-                            Layout.preferredHeight: 50
-                            Layout.preferredWidth: 50
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-
-                            iconSource: "folder"
-                            labelsVisible: false
-                            tooltipText: i18n("Folders")
-                            flat: false
-
-                            iconSizeHint: Maui.Style.iconSize
-                            template.isMask: true
-
-                            onClicked: swipeView.currentIndex = views.folders
-                        }
-
-                        Maui.GridBrowserDelegate
-                        {
-                            isCurrentItem: swipeView.currentIndex === views.recent
-
-                            Layout.preferredHeight: 50
-                            Layout.preferredWidth: 50
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-
-                            iconSource: "view-media-recent"
-                            labelsVisible: false
-                            tooltipText: "Recent"
-                            flat: false
-
-                            iconSizeHint: Maui.Style.iconSize
-                            template.isMask: true
-
-                            onClicked: swipeView.currentIndex = views.recent
-                        }
-
-                        Maui.GridBrowserDelegate
-                        {
-                            isCurrentItem: swipeView.currentIndex === views.gallery
-                            Layout.columnSpan: 2
-
-                            Layout.preferredHeight: 50
-                            Layout.preferredWidth: 50
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-
-                            iconSource: "viewimage"
-                            labelsVisible: false
-                            tooltipText: i18n("Collection")
-                            flat: false
-
-                            iconSizeHint: Maui.Style.iconSize
-                            template.isMask: true
-
-                            onClicked:
-                            {
-                                _foldersViewLoader.item.pop()
-
-                                swipeView.currentIndex = views.gallery
-
-
-
-                            }
-                        }
-
-                        Maui.GridBrowserDelegate
-                        {
-                            readonly property string url : Labs.StandardPaths.writableLocation(Labs.StandardPaths.DownloadLocation)
-                            isCurrentItem: swipeView.currentIndex === views.folders && swipeView.currentItem.item.currentFolder === url
-
-                            Layout.preferredHeight: 50
-                            Layout.preferredWidth: 50
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-
-                            iconSource: "folder-downloads"
-                            labelsVisible: false
-                            tooltipText: "Downloads"
-                            flat: false
-
-                            iconSizeHint: Maui.Style.iconSize
-                            template.isMask: true
-
-                            onClicked:
-                            {
-                                swipeView.currentIndex = views.folders
-                                openFolder(url)
-                            }
-                        }
-
-                        Maui.GridBrowserDelegate
-                        {
-                            isCurrentItem: swipeView.currentIndex === model.viewIndex
-
-                            Layout.preferredHeight: 50
-                            Layout.preferredWidth: 50
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-
-                            iconSource: model.icon
-                            labelsVisible: false
-                            tooltipText: model.label
-                            flat: false
-
-                            iconSizeHint: Maui.Style.iconSize
-                            template.isMask: true
-
-                            onClicked: swipeView.currentIndex = model.viewIndex
-                        }
-
-
-                        Maui.GridBrowserDelegate
-                        {
-                            isCurrentItem: swipeView.currentIndex === model.viewIndex
-
-                            Layout.preferredHeight: 50
-                            Layout.preferredWidth: 50
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-
-                            iconSource: model.icon
-                            labelsVisible: false
-                            tooltipText: model.label
-                            flat: false
-
-                            iconSizeHint: Maui.Style.iconSize
-                            template.isMask: true
-
-                            onClicked: swipeView.currentIndex = model.viewIndex
-                        }
-
-                    }
-
-                    model: Maui.BaseModel
-                    {
-
-                        list: Pix.TagsList
-                        {
-                        }
-
-                    }
-
-                    delegate: Maui.ListDelegate
-                    {
-                        isCurrentItem: model.tag === swipeView.currentItem.item.currentTag
-                        width: ListView.view.width
-
-                        iconSize: Maui.Style.iconSize
-                        label: model.tag
-                        iconName: model.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
-                        iconVisible: true
-                        template.isMask: iconSize <= Maui.Style.iconSizes.medium
-                        onClicked: openTag(model.tag)
-                    }
-
-                    section.property: "type"
-                    section.criteria: ViewSection.FullString
-                    section.delegate: Maui.LabelDelegate
-                    {
-                        width: ListView.view.width
-                        label: i18n("Tags")
-                        isSection: true
-                        //                height: Maui.Style.toolBarHeightAlt
-                    }
-                }
-
-            }
-
-            Maui.AppViews
-            {
-                id: swipeView
-                anchors.fill: parent
-                currentIndex: initModule === "folder" ? views.folders : views.folders
-                actionGroup: !browserSettings.showSidebar
-
-                altHeader: Maui.Handy.isMobile
-                floatingFooter: true
-                flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
-                showCSDControls:  initModule !== "viewer"
-                //            headBar.forceCenterMiddleContent: root.isWide
-
-                headBar.leftContent: [
-
-                    ToolButton
-                    {
-                        icon.name: _collectionView.sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
-                        onClicked: _collectionView.sideBar.toggle()
-                        checked: _collectionView.sideBar.visible
-                        ToolTip.delay: 1000
-                        ToolTip.timeout: 5000
-                        ToolTip.visible: hovered
-                        ToolTip.text: i18n("Toggle sidebar")
-                    },
-
-                    Loader
+                    asynchronous: true
+                    sourceComponent: Loader
                     {
                         asynchronous: true
-                        sourceComponent: Loader
+                        sourceComponent: Maui.ToolButtonMenu
                         {
-                            asynchronous: true
-                            sourceComponent: Maui.ToolButtonMenu
+                            icon.name: "application-menu"
+
+                            MenuItem
                             {
-                                icon.name: "application-menu"
+                                text: i18n("Open")
+                                icon.name: "folder-open"
+                                onTriggered: openFileDialog()
 
-                                MenuItem
-                                {
-                                    text: i18n("Open")
-                                    icon.name: "folder-open"
-                                    onTriggered: openFileDialog()
+                            }
 
-                                }
+                            MenuItem
+                            {
+                                text: i18n("Settings")
+                                icon.name: "settings-configure"
+                                onTriggered: openSettingsDialog()
+                            }
 
-                                MenuItem
-                                {
-                                    text: i18n("Settings")
-                                    icon.name: "settings-configure"
-                                    onTriggered: openSettingsDialog()
-                                }
-
-                                MenuItem
-                                {
-                                    text: i18n("About")
-                                    icon.name: "documentinfo"
-                                    onTriggered: root.about()
-                                }
+                            MenuItem
+                            {
+                                text: i18n("About")
+                                icon.name: "documentinfo"
+                                onTriggered: root.about()
                             }
                         }
-                    },
-
-                    ToolButton
-                    {
-                        visible: _pixViewer.viewer.count
-                        icon.name: "quickview"
-                        text: _pixViewer.viewer.count
-                        onClicked: toggleViewer()
                     }
-                ]
+                },
 
-                footer: SelectionBar
+                ToolButton
                 {
-                    id: _selectionBar
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
-
-                    maxListHeight: swipeView.height - Maui.Style.space.medium
-                    display: ToolButton.IconOnly
+                    visible: _pixViewer.viewer.count
+                    icon.name: "quickview"
+                    text: _pixViewer.viewer.count
+                    onClicked: toggleViewer()
                 }
+            ]
+
+            footer: SelectionBar
+            {
+                id: _selectionBar
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
+
+                maxListHeight: swipeView.height - Maui.Style.space.medium
+                display: ToolButton.IconOnly
+            }
 
 
-                Maui.AppViewLoader
+            Maui.AppViewLoader
+            {
+                Maui.AppView.title: i18n("Gallery")
+                Maui.AppView.iconName: "image-multiple"
+
+                GalleryView
                 {
-                    Maui.AppView.title: i18n("Gallery")
-                    Maui.AppView.iconName: "image-multiple"
-
-                    GalleryView
-                    {
-                        list: mainGalleryList
-                    }
-                }
-
-                Maui.AppViewLoader
-                {
-                    id: _tagsViewLoader
-                    Maui.AppView.title: i18n("Tags")
-                    Maui.AppView.iconName: "tag"
-
-                    property string pendingTag
-                    TagsView
-                    {
-                        Component.onCompleted:
-                        {
-                            if(_tagsViewLoader.pendingTag)
-                                populateGrid(_tagsViewLoader.pendingTag)
-                        }
-                    }
-                }
-
-                Maui.AppViewLoader
-                {
-                    id: _foldersViewLoader
-                    Maui.AppView.title: i18n("Folders")
-                    Maui.AppView.iconName: "folder"
-                    property string pendingFolder : initModule === "folder" ? initData : ""
-
-                    FoldersView {}
+                    list: mainGalleryList
                 }
             }
 
+            Maui.AppViewLoader
+            {
+                id: _tagsViewLoader
+                Maui.AppView.title: i18n("Tags")
+                Maui.AppView.iconName: "tag"
+
+                property string pendingTag
+                TagsSidebar
+                {
+                    Component.onCompleted:
+                    {
+                        if(_tagsViewLoader.pendingTag)
+                            populateGrid(_tagsViewLoader.pendingTag)
+                    }
+                }
+            }
+
+            Maui.AppViewLoader
+            {
+                id: _foldersViewLoader
+                Maui.AppView.title: i18n("Folders")
+                Maui.AppView.iconName: "folder"
+                property string pendingFolder : initModule === "folder" ? initData : ""
+
+                FoldersView {}
+            }
         }
 
-        PixViewer
-        {
-            id: _pixViewer
-            visible: StackView.status === StackView.Active
-            showCSDControls:  initModule === "viewer"
 
-            Rectangle
+    }
+
+
+    PixViewer
+    {
+        id: _pixViewer
+        visible: StackView.status === StackView.Active
+        showCSDControls:  initModule === "viewer"
+
+        Rectangle
+        {
+            anchors.fill: parent
+            visible: _dropArea.containsDrag
+
+            color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.95)
+
+            Maui.Rectangle
             {
                 anchors.fill: parent
-                visible: _dropArea.containsDrag
+                anchors.margins: Maui.Style.space.medium
+                color: "transparent"
+                borderColor: Maui.Theme.textColor
+                solidBorder: false
 
-                color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.95)
-
-                Maui.Rectangle
+                Maui.Holder
                 {
                     anchors.fill: parent
-                    anchors.margins: Maui.Style.space.medium
-                    color: "transparent"
-                    borderColor: Maui.Theme.textColor
-                    solidBorder: false
+                    visible: true
+                    emoji: "qrc:/img/assets/add-image.svg"
+                    emojiSize: Maui.Style.iconSizes.huge
+                    title: i18n("Open images")
+                    body: i18n("Drag and drop images here")
 
-                    Maui.Holder
-                    {
-                        anchors.fill: parent
-                        visible: true
-                        emoji: "qrc:/img/assets/add-image.svg"
-                        emojiSize: Maui.Style.iconSizes.huge
-                        title: i18n("Open images")
-                        body: i18n("Drag and drop images here")
-
-                    }
                 }
             }
         }
     }
+
 
     DropArea
     {
@@ -655,7 +425,7 @@ Maui.ApplicationWindow
         {
             if(_stackView.depth === 1)
             {
-                _stackView.replace(_pixViewer, _collectionView)
+                _stackView.replace(_pixViewer, swipeView)
 
             }else
             {

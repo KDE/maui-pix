@@ -16,5 +16,6 @@
         <file>widgets/views/Cloud/CloudView.qml</file>
         <file>view_models/PixPicList.qml</file>
         <file>widgets/SettingsDialog.qml</file>
+        <file>widgets/Sidebar.qml</file>
     </qresource>
 </RCC>

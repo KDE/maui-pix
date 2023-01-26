@@ -20,15 +20,9 @@ PixGrid
     id: control
     property string currentTag
     property var currentFilters : []
-    FB.NewTagDialog
-    {
-        id: newTagDialog
-    }
 
 
-    title: currentTag
-    list.urls : ["tags:///"+currentTag]
-    list.recursive: false
+    holder.visible: count === 0
 
     holder.title: i18n("No Pics in %1!", currentTag)
     holder.body: i18n("There're no pics associated with the tag")
@@ -36,30 +30,6 @@ PixGrid
 
     headBar.visible: true
 
-
-    //        Component
-    //        {
-    //            id: gpsGrid
-
-    //            PixGrid
-    //            {
-    //                id: _gpsList
-    //    //            title: control.currentFilters
-    //                list: mainGalleryList
-    //                listModel.filters : control.currentFilters
-    //                headBar.visible: true
-    //                headBar.farLeftContent: ToolButton
-    //                {
-    //                    icon.name: "go-previous"
-    //                    onClicked: control.pop()
-    //                }
-    //                holder.visible: count === 0
-
-    //                holder.emoji: "qrc:/assets/image-multiple.svg"
-    //                holder.title :  i18n("No Pics!")
-    //                holder.body: mainGalleryList.status === Pix.GalleryList.Error ? mainGalleryList.error : (list.count > 0 ? i18n("No results found.") : i18n("Nothing here. You can add new sources or open an image."))
-    //            }
-    //        }
 
     function refreshPics()
     {
@@ -70,13 +40,6 @@ PixGrid
     {
         control.currentTag = myTag
     }
-
-    function populateByFilter(filters)
-    {
-        currentFilters = filters
-        control.push(gpsGrid)
-    }
-
 }
 
 

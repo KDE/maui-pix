@@ -55,7 +55,7 @@ FMH::MODEL_LIST TagsModel::tags()
 
     return std::accumulate(tags.constBegin(), tags.constEnd(), res, [this](FMH::MODEL_LIST &list, const QVariant &item) {
         auto tag = FMH::toModel(item.toMap());
-//        packPreviewImages(tag);
+        packPreviewImages(tag);
          tag[FMH::MODEL_KEY::TYPE] = "tag";
         list << tag;
         return list;
