@@ -49,6 +49,7 @@ Gallery::Gallery(QObject *parent)
     , m_recursive(true)
 {
     qDebug() << "CREATING GALLERY LIST";
+    m_scanTimer->setSingleShot(true);
     m_scanTimer->setInterval(15000); //wait 15 secs after a new image is found and before the rescan
 }
 

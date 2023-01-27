@@ -33,14 +33,13 @@ Maui.SelectionBar
 
     listDelegate: Maui.ListBrowserDelegate
     {
-        height: Maui.Style.toolBarHeight
         width: ListView.view.width
         isCurrentItem: false
 
         label1.text: model.title
         label2.text: model.url
         imageSource: model.url
-        iconSizeHint: height * 0.9
+        iconSizeHint: 48
         checked: true
         onToggled: control.removeAtIndex(index)
 

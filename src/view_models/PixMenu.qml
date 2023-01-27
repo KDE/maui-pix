@@ -144,16 +144,8 @@ Maui.ContextualMenu
                 toggleViewer()
             }
 
-            swipeView.currentIndex = views.folders
-
             var url = FB.FM.fileDir(item.url)
-            if(_foldersViewLoader.item)
-            {
-                _foldersViewLoader.item.openFolder(url)
-            }else
-            {
-                _foldersViewLoader.pendingFolder = url
-            }
+           openFolder(url)
         }
     }
 

@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import QtQuick.Layouts 1.15
 
 import QtQuick.Window 2.13
 import Qt.labs.settings 1.0
@@ -33,7 +34,6 @@ import Qt.labs.settings 1.0
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.3 as IT
-
 import org.maui.pix 1.0 as Pix
 
 import "widgets"
@@ -79,6 +79,7 @@ Maui.ApplicationWindow
         property int sortOrder: Qt.DescendingOrder
         property bool darkMode : true
         property bool gpsTags : false
+        property bool showSidebar : !Maui.Handy.isMobile
     }
 
     Settings
@@ -113,16 +114,20 @@ Maui.ApplicationWindow
         {
             id: swipeView
             visible: StackView.status === StackView.Active
+
             currentIndex: initModule === "folder" ? views.folders : views.folders
+            //                actionGroup: !browserSettings.showSidebar
 
             altHeader: Maui.Handy.isMobile
-            interactive: Maui.Handy.isMobile
             floatingFooter: true
             flickable: swipeView.currentItem.item.flickable || swipeView.currentItem.flickable
             showCSDControls:  initModule !== "viewer"
             //            headBar.forceCenterMiddleContent: root.isWide
 
-            headBar.leftContent: [Loader
+            headBar.leftContent: [
+
+
+                Loader
                 {
                     asynchronous: true
                     sourceComponent: Loader
@@ -176,6 +181,7 @@ Maui.ApplicationWindow
                 display: ToolButton.IconOnly
             }
 
+
             Maui.AppViewLoader
             {
                 Maui.AppView.title: i18n("Gallery")
@@ -189,9 +195,19 @@ Maui.ApplicationWindow
 
             Maui.AppViewLoader
             {
+                id: _tagsViewLoader
                 Maui.AppView.title: i18n("Tags")
                 Maui.AppView.iconName: "tag"
-                TagsView {}
+
+                property string pendingTag
+                TagsSidebar
+                {
+                    Component.onCompleted:
+                    {
+                        if(_tagsViewLoader.pendingTag)
+                            populateGrid(_tagsViewLoader.pendingTag)
+                    }
+                }
             }
 
             Maui.AppViewLoader
@@ -205,41 +221,45 @@ Maui.ApplicationWindow
             }
         }
 
-        PixViewer
-        {
-            id: _pixViewer
-            visible: StackView.status === StackView.Active
-            showCSDControls:  initModule === "viewer"
 
-            Rectangle
+    }
+
+
+    PixViewer
+    {
+        id: _pixViewer
+        visible: StackView.status === StackView.Active
+        showCSDControls:  initModule === "viewer"
+
+        Rectangle
+        {
+            anchors.fill: parent
+            visible: _dropArea.containsDrag
+
+            color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.95)
+
+            Maui.Rectangle
             {
                 anchors.fill: parent
-                visible: _dropArea.containsDrag
+                anchors.margins: Maui.Style.space.medium
+                color: "transparent"
+                borderColor: Maui.Theme.textColor
+                solidBorder: false
 
-                color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.95)
-
-                Maui.Rectangle
+                Maui.Holder
                 {
                     anchors.fill: parent
-                    anchors.margins: Maui.Style.space.medium
-                    color: "transparent"
-                    borderColor: Maui.Theme.textColor
-                    solidBorder: false
+                    visible: true
+                    emoji: "qrc:/img/assets/add-image.svg"
+                    emojiSize: Maui.Style.iconSizes.huge
+                    title: i18n("Open images")
+                    body: i18n("Drag and drop images here")
 
-                    Maui.Holder
-                    {
-                        anchors.fill: parent
-                        visible: true
-                        emoji: "qrc:/img/assets/add-image.svg"
-                        emojiSize: Maui.Style.iconSizes.huge
-                        title: i18n("Open images")
-                        body: i18n("Drag and drop images here")
-
-                    }
                 }
             }
         }
     }
+
 
     DropArea
     {
@@ -460,5 +480,30 @@ Maui.ApplicationWindow
     {
         dialogLoader.sourceComponent = _settingsDialogComponent
         dialog.open()
+    }
+
+    function openTag(tag)
+    {
+        if( swipeView.currentIndex === views.tags)
+        {
+            swipeView.currentItem.item.populateGrid(tag)
+            swipeView.currentItem.refreshPics()
+        }else
+        {
+            _tagsViewLoader.pendingTag = tag
+            swipeView.currentIndex = views.tags
+        }
+    }
+
+    function openFolder(url)
+    {
+        if(_foldersViewLoader.item)
+        {
+            _foldersViewLoader.item.openFolder(url)
+        }else
+        {
+            _foldersViewLoader.pendingFolder = url
+        }
+        swipeView.currentIndex = views.folders
     }
 }

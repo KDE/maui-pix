@@ -17,6 +17,20 @@ Maui.SettingsDialog
 
         Maui.SettingTemplate
         {
+            label1.text: i18n("Places Sidebar")
+            label2.text: i18n("Enable places navigation in the folders view.")
+
+            Switch
+            {
+                Layout.fillHeight: true
+                checkable: true
+                checked: browserSettings.showSidebar
+                onToggled: browserSettings.showSidebar = !browserSettings.showSidebar
+            }
+        }
+
+        Maui.SettingTemplate
+        {
             label1.text: i18n("Auto Reload")
             label2.text: i18n("Watch for changes in the collection sources.")
 
@@ -163,7 +177,7 @@ Maui.SettingsDialog
 
                 Action
                 {
-                    text: i18n("Date")
+                    text: i18n("Modified")
                     onTriggered: browserSettings.sortBy = "modified"
                 }
 

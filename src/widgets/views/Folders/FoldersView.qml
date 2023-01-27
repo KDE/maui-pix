@@ -9,101 +9,127 @@ import org.mauikit.filebrowsing 1.3 as FB
 import org.maui.pix 1.0
 
 import "../../../view_models"
+import "../.."
 
-StackView
+Maui.SideBarView
 {
     id: control
-
     property string currentFolder : initData
     readonly property var folderInfo : FB.FM.getFileInfo(currentFolder)
-    property alias picsView : control.currentItem
+    property alias picsView : _stackView.currentItem
     property Flickable flickable : picsView.flickable
 
-    Component.onCompleted:
+       sideBar.enabled: browserSettings.showSidebar
+    sideBar.content: Sidebar
     {
-        if(_foldersViewLoader.pendingFolder.length > 0)
-        {
-            openFolder(_foldersViewLoader.pendingFolder)
-        }
+        anchors.fill: parent
     }
 
-    initialItem: Maui.Page
+    StackView
     {
-        id: _foldersPage
-        Maui.Theme.inherit: false
-        Maui.Theme.colorGroup: Maui.Theme.View
+        id: _stackView
+        anchors.fill: parent
 
-        flickable: _foldersGrid.flickable
 
-        headBar.middleContent: Maui.SearchField
+        Component.onCompleted:
         {
-            Layout.fillWidth: true
-            Layout.maximumWidth: 500
-            Layout.alignment: Qt.AlignCenter
-
-            placeholderText: i18np("Filter %1 folder", "Filter %1 folders", foldersList.count)
-            onAccepted: folderModel.filter = text
-            onCleared: folderModel.filter = ""
+            if(_foldersViewLoader.pendingFolder.length > 0)
+            {
+                openFolder(_foldersViewLoader.pendingFolder)
+            }
         }
 
-        Maui.GridView
+        initialItem: Maui.Page
         {
-            id: _foldersGrid
-            anchors.fill: parent
-            itemSize: Math.min(260, Math.max(100, Math.floor(width* 0.3)))
-            itemHeight: itemSize + Maui.Style.rowHeight
-            currentIndex: -1
-            holder.emoji: "qrc:/assets/view-preview.svg"
-            holder.title : i18n("No Folders!")
-            holder.body: i18n("Add new image sources")
-            holder.visible: foldersList.count === 0
+            id: _foldersPage
+            Maui.Theme.inherit: false
+            Maui.Theme.colorGroup: Maui.Theme.View
 
-            onKeyPress:
+            flickable: _foldersGrid.flickable
+
+            headBar.middleContent: Maui.SearchField
             {
-                if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
-                {
-                    openFolder(_foldersGrid.currentItem.path)
-                }
+                Layout.fillWidth: true
+                Layout.maximumWidth: 500
+                Layout.alignment: Qt.AlignCenter
+
+                placeholderText: i18np("Filter %1 folder", "Filter %1 folders", foldersList.count)
+                onAccepted: folderModel.filter = text
+                onCleared: folderModel.filter = ""
             }
 
-            model: Maui.BaseModel
+
+            headBar.leftContent:     ToolButton
             {
-                id: folderModel
-                list: FoldersList
-                {
-                    id: foldersList
-                    folders: mainGalleryList.folders
-                }
-                sortOrder: Qt.DescendingOrder
-                sort: "modified"
-                recursiveFilteringEnabled: false
-                sortCaseSensitivity: Qt.CaseInsensitive
-                filterCaseSensitivity: Qt.CaseInsensitive
+               visible: browserSettings.showSidebar
+
+                icon.name: sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
+                onClicked: sideBar.toggle()
+                checked: sideBar.visible
+                ToolTip.delay: 1000
+                ToolTip.timeout: 5000
+                ToolTip.visible: hovered
+                ToolTip.text: i18n("Toggle sidebar")
             }
 
-            delegate: Item
+            Maui.GridView
             {
-                readonly property string path : model.path
-                height: GridView.view.cellHeight
-                width: GridView.view.cellWidth
+                id: _foldersGrid
+                anchors.fill: parent
+                itemSize: Math.min(260, Math.max(100, Math.floor(width* 0.3)))
+                itemHeight: itemSize + Maui.Style.rowHeight
+                currentIndex: -1
+                holder.emoji: "qrc:/assets/view-preview.svg"
+                holder.title : i18n("No Folders!")
+                holder.body: i18n("Add new image sources")
+                holder.visible: foldersList.count === 0
 
-                Maui.CollageItem
+                onKeyPress:
                 {
-                    imageWidth: 120
-                    imageHeight: 120
+                    if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
+                    {
+                        openFolder(_foldersGrid.currentItem.path)
+                    }
+                }
 
-                    anchors.fill: parent
-                    anchors.margins: !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.big
+                model: Maui.BaseModel
+                {
+                    id: folderModel
+                    list: FoldersList
+                    {
+                        id: foldersList
+                        folders: mainGalleryList.folders
+                    }
+                    sortOrder: Qt.DescendingOrder
+                    sort: "modified"
+                    recursiveFilteringEnabled: false
+                    sortCaseSensitivity: Qt.CaseInsensitive
+                    filterCaseSensitivity: Qt.CaseInsensitive
+                }
 
-                    isCurrentItem: parent.GridView.isCurrentItem
-                    images: _galleryList.files
-                    label1.text: model.label
-                    label2.text: Qt.formatDateTime(new Date(model.modified), "d MMM yyyy")
+                delegate: Item
+                {
+                    readonly property string path : model.path
+                    height: GridView.view.cellHeight
+                    width: GridView.view.cellWidth
 
-                    draggable: true
+                    Maui.CollageItem
+                    {
+                        imageWidth: 120
+                        imageHeight: 120
 
-                    Drag.keys: ["text/uri-list"]
-                    Drag.mimeData: Drag.active ? { "text/uri-list": model.path } : {}
+                        anchors.fill: parent
+                        anchors.margins: !root.isWide ? Maui.Style.space.tiny : Maui.Style.space.big
+
+                        isCurrentItem: parent.GridView.isCurrentItem
+                        images: _galleryList.files
+                        label1.text: model.label
+                        label2.text: Qt.formatDateTime(new Date(model.modified), "d MMM yyyy")
+
+                        draggable: true
+
+                        Drag.keys: ["text/uri-list"]
+                        Drag.mimeData: Drag.active ? { "text/uri-list": model.path } : {}
 
                     GalleryList
                     {
@@ -146,12 +172,16 @@ StackView
         {
             id: _picsView
             headBar.visible: true
-            title: control.folderInfo.label
+            title: _stackView.folderInfo.label
 
             headBar.farLeftContent: ToolButton
             {
                 icon.name:"go-previous"
-                onClicked: control.pop()
+                onClicked:
+                {
+                    _stackView.pop()
+                    control.currentFolder = ""
+                }
             }
 
             list.recursive: false
@@ -167,7 +197,7 @@ StackView
                 label1.text: control.folderInfo.label
                 label2.text: (control.folderInfo.url).replace(FB.FM.homePath(), "")
                 template.label3.text: _picsView.gridView.count
-                template.label4.text: Qt.formatDateTime(new Date(control.folderInfo.modified), "d MMM yyyy")
+                template.label4.text: Qt.formatDateTime(new Date(_stackView.folderInfo.modified), "d MMM yyyy")
                 template.iconSource: control.folderInfo.icon
 
                 template.content: ToolButton
@@ -180,15 +210,23 @@ StackView
         }
     }
 
-    function refresh()
-    {
-        foldersList.refresh()
-    }
+}
 
-    function openFolder(url)
+
+function refresh()
+{
+    foldersList.refresh()
+}
+
+function openFolder(url)
+{
+    control.currentFolder = url
+
+    if(_stackView.depth == 1)
     {
-        control.currentFolder = url
-        control.push(picsViewComponent)
-        picsView.list.urls = [url]
+        _stackView.push(picsViewComponent)
     }
+    picsView.list.urls = [url]
+
+}
 }

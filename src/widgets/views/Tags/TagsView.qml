@@ -14,83 +14,33 @@ import org.maui.pix 1.0 as Pix
 
 import "../../../view_models"
 
-StackView
+
+PixGrid
 {
     id: control
-
-    property string currentTag : ""
+    property string currentTag
     property var currentFilters : []
-    property Flickable flickable : currentItem.flickable
 
-    FB.NewTagDialog
-    {
-        id: newTagDialog
-    }
 
-    initialItem: TagsSidebar { }
+    holder.visible: count === 0
 
-    Component
-    {
-        id: tagsGrid
+    holder.title: i18n("No Pics in %1!", currentTag)
+    holder.body: i18n("There're no pics associated with the tag")
+    holder.emoji: "qrc:/assets/add-image.svg"
 
-        PixGrid
-        {
-            title: control.currentTag
-            list.urls : ["tags:///"+currentTag]
-            list.recursive: false
+    headBar.visible: true
 
-            holder.title: i18n("No Pics in %1!", currentTag)
-            holder.body: i18n("There're no pics associated with the tag")
-            holder.emoji: "qrc:/assets/add-image.svg"
-
-            headBar.visible: true
-            headBar.farLeftContent: ToolButton
-            {
-                icon.name: "go-previous"
-                onClicked: control.pop()
-            }
-        }
-    }
-
-    Component
-    {
-        id: gpsGrid
-
-        PixGrid
-        {
-            id: _gpsList
-//            title: control.currentFilters
-            list: mainGalleryList
-            listModel.filters : control.currentFilters
-            headBar.visible: true
-            headBar.farLeftContent: ToolButton
-            {
-                icon.name: "go-previous"
-                onClicked: control.pop()
-            }
-            holder.visible: count === 0
-
-            holder.emoji: "qrc:/assets/image-multiple.svg"
-            holder.title :  i18n("No Pics!")
-            holder.body: mainGalleryList.status === Pix.GalleryList.Error ? mainGalleryList.error : (list.count > 0 ? i18n("No results found.") : i18n("Nothing here. You can add new sources or open an image."))
-        }
-    }
 
     function refreshPics()
     {
-        tagsGrid.list.refresh()
+        control.list.refresh()
     }
 
     function populateGrid(myTag)
     {
-        currentTag = myTag
-        control.push(tagsGrid)
+        control.currentTag = myTag
     }
+}
 
-    function populateByFilter(filters)
-    {
-        currentFilters = filters
-        control.push(gpsGrid)
-    }
- }
+
 
