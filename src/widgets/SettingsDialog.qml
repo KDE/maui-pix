@@ -10,12 +10,12 @@ Maui.SettingsDialog
 {
     id: control
 
-    Maui.SettingsSection
+    Maui.SectionGroup
     {
         title: i18n("Behavior")
         description: i18n("Configure the app behaviour.")
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Places Sidebar")
             label2.text: i18n("Enable places navigation in the folders view.")
@@ -29,7 +29,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Auto Reload")
             label2.text: i18n("Watch for changes in the collection sources.")
@@ -43,7 +43,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Dark Mode")
             label2.text: i18n("Switch between light and dark colorscheme")
@@ -61,12 +61,12 @@ Maui.SettingsDialog
         }
     }
 
-    Maui.SettingsSection
+    Maui.SectionGroup
     {
         title: i18n("Collection")
         description: i18n("Configure the app plugins and look & feel.")
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Fit")
             label2.text: i18n("Fit the previews")
@@ -80,7 +80,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Image Titles")
             label2.text: i18n("Show the titles of the images.")
@@ -94,7 +94,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Preview Size")
             label2.text: i18n("Size of the thumbnails in the collection views.")
@@ -145,7 +145,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Sorting by")
             label2.text: i18n("Change the sorting key.")
@@ -195,7 +195,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Sort order")
             label2.text: i18n("Change the sorting order.")
@@ -234,7 +234,7 @@ Maui.SettingsDialog
         }
 
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("GPS Tags")
             label2.text: i18n("Show GPS tags.")
@@ -249,12 +249,12 @@ Maui.SettingsDialog
         }
     }
 
-    Maui.SettingsSection
+    Maui.SectionGroup
     {
         title: i18n("Viewer")
         description: i18n("Adjust the viewer panels and settings.")
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Tag Bar")
             label2.text: i18n("Easy way to add, remove and modify the tags of the current image.")
@@ -268,7 +268,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SettingTemplate
+        Maui.SectionItem
         {
             label1.text: i18n("Preview Bar")
             label2.text: i18n("Show small thumbnail previews in the image viewer.")
@@ -282,7 +282,7 @@ Maui.SettingsDialog
         }
     }
 
-    Maui.SettingsSection
+    Maui.SectionGroup
     {
         title: i18n("Sources")
         description: i18n("Add new sources to manage and browse your image collection.")

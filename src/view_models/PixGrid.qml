@@ -83,7 +83,7 @@ Maui.Page
         }
     }
 
-    Maui.GridView
+    Maui.GridBrowser
     {
         id: _gridView
         anchors.fill: parent

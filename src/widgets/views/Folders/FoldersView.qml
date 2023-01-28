@@ -72,7 +72,7 @@ Maui.SideBarView
                 ToolTip.text: i18n("Toggle sidebar")
             }
 
-            Maui.GridView
+            Maui.GridBrowser
             {
                 id: _foldersGrid
                 anchors.fill: parent
@@ -190,10 +190,11 @@ Maui.SideBarView
             holder.title : i18n("Folder is empty!")
             holder.body: i18n("There're no images in this folder")
 
-            gridView.header: Maui.SectionDropDown
+            gridView.header: Maui.SectionHeader
             {
                 width: parent.width
-                padding: Maui.Style.space.big
+//                padding: Maui.Style.space.big
+//                spacing: 0
                 label1.text: control.folderInfo.label
                 label2.text: (control.folderInfo.url).replace(FB.FM.homePath(), "")
                 template.label3.text: _picsView.gridView.count

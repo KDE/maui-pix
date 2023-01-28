@@ -127,7 +127,7 @@ StackView
                 display: ToolButton.IconOnly
             }
 
-            Maui.GridView
+            Maui.GridBrowser
             {
                 id: _gridView
                 anchors.fill: parent
@@ -172,7 +172,7 @@ StackView
                     {
                         spacing: Maui.Style.space.medium
 
-                        Maui.SettingsSection
+                        Maui.SectionGroup
                         {
                             visible: _geoFilterList.count > 0 && browserSettings.gpsTags
 
@@ -214,7 +214,7 @@ StackView
                             }
                         }
 
-                        Maui.SettingsSection
+                        Maui.SectionGroup
                         {
                             width: parent.width
                             title: i18n("Filters")
