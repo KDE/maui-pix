@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:56+0000\n"
-"PO-Revision-Date: 2022-12-13 19:39+0300\n"
+"PO-Revision-Date: 2023-01-27 18:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/main.cpp:129
 #, kde-format
@@ -206,15 +206,14 @@ msgid "Configure the app behaviour."
 msgstr "Uygulama davranışını yapılandırın."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Yerler"
+msgstr "Yerler Kenar Çubuğu"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Enable places navigation in the folders view."
-msgstr ""
+msgstr "Klasör görünümünde yerlerde dolaşmayı etkinleştir"
 
 #: src/widgets/SettingsDialog.qml:34
 #, kde-format
@@ -314,7 +313,7 @@ msgstr "Başlık"
 #: src/widgets/SettingsDialog.qml:180
 #, kde-format
 msgid "Modified"
-msgstr ""
+msgstr "Değiştirildi"
 
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
@@ -406,12 +405,12 @@ msgstr "Ekle"
 #: src/widgets/Sidebar.qml:47
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Yer İmleri!"
 
 #: src/widgets/Sidebar.qml:48
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Yer imleriniz burada listelenir"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -443,7 +442,7 @@ msgstr[1] "%1 klasörü süz"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Kenar çubuğunu aç/kapat"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format

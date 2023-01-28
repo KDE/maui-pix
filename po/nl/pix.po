@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2020, 2021, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:56+0000\n"
-"PO-Revision-Date: 2022-12-13 12:12+0100\n"
+"PO-Revision-Date: 2023-01-27 13:09+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/main.cpp:129
 #, kde-format
@@ -208,15 +208,14 @@ msgid "Configure the app behaviour."
 msgstr "Gedrag van toepassing configureren."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Plaatsen"
+msgstr "Plaatsen van zijbalk"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Enable places navigation in the folders view."
-msgstr ""
+msgstr "Schakelt navigatie van plaatsen in in de mappenweergave."
 
 #: src/widgets/SettingsDialog.qml:34
 #, kde-format
@@ -410,12 +409,12 @@ msgstr "Toevoegen"
 #: src/widgets/Sidebar.qml:47
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Bladwijzers!"
 
 #: src/widgets/Sidebar.qml:48
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Uw bladwijzers komen hier"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -447,7 +446,7 @@ msgstr[1] "%1 mappen filteren"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Zijbalk omschakelen"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format

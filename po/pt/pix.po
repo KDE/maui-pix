@@ -210,10 +210,9 @@ msgid "Configure the app behaviour."
 msgstr "Configurar o comportamento da aplicação."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Locais"
+msgstr "Barra Lateral de Locais"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
@@ -409,12 +408,12 @@ msgstr "Adicionar"
 #: src/widgets/Sidebar.qml:47
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Favoritos!"
 
 #: src/widgets/Sidebar.qml:48
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Os seus favoritos irão aparecer aqui"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -447,7 +446,7 @@ msgstr[1] "Filtrar %1 pastas"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Comutar a barra lateral"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format

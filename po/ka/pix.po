@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:56+0000\n"
-"PO-Revision-Date: 2022-12-14 07:39+0100\n"
+"PO-Revision-Date: 2023-01-27 07:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -209,15 +209,14 @@ msgid "Configure the app behaviour."
 msgstr "აპის ქცევის მორგება."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "ადგილები"
+msgstr "გვერდითი ზოლის მდებარეობა"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Enable places navigation in the folders view."
-msgstr ""
+msgstr "საქაღალდეების ხედში ადგილების ნავიგაციის ჩართვა."
 
 #: src/widgets/SettingsDialog.qml:34
 #, kde-format
@@ -317,7 +316,7 @@ msgstr "სათაური"
 #: src/widgets/SettingsDialog.qml:180
 #, kde-format
 msgid "Modified"
-msgstr ""
+msgstr "შეცვლილია"
 
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
@@ -408,12 +407,12 @@ msgstr "დამატება"
 #: src/widgets/Sidebar.qml:47
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "სანიშნები!"
 
 #: src/widgets/Sidebar.qml:48
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "თქვენი სანიშნები აქ ჩამოითვლება"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -445,7 +444,7 @@ msgstr[1] "%1 საქაღალდის გაფილტვრა"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "გვერდითი ზოლის ჩართ/გამორთ"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format

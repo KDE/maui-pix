@@ -3,14 +3,14 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:56+0000\n"
-"PO-Revision-Date: 2022-12-13 14:46+0200\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2023-01-27 10:55+0200\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -216,15 +216,14 @@ msgid "Configure the app behaviour."
 msgstr "Налаштувати поведінку програми."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Місця"
+msgstr "Бічна панель «Місця»"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Enable places navigation in the folders view."
-msgstr ""
+msgstr "Уможливлення навігації місцями на панелі перегляду тек."
 
 #: src/widgets/SettingsDialog.qml:34
 #, kde-format
@@ -417,12 +416,12 @@ msgstr "Додати"
 #: src/widgets/Sidebar.qml:47
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Закладки!"
 
 #: src/widgets/Sidebar.qml:48
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Тут буде наведено список ваших закладок"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -458,7 +457,7 @@ msgstr[3] "Фільтрувати теку"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Увімкнути/Вимкнути бічну панель"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format
