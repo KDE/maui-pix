@@ -71,7 +71,6 @@ public:
 
     bool activeGeolocationTags() const;
 
-
 private:
     FMH::FileLoader *m_fileLoader;
     QFileSystemWatcher *m_watcher;
@@ -89,10 +88,7 @@ private:
     Status m_status = Status::Error;
     QString m_error;
 
-    QList<QUrl> extractTags(const QList<QUrl> &);
-
     void scan(const QList<QUrl> &, const bool & = true, const int & = PIX_QUERY_MAX_LIMIT);
-    void scanTags(const QList<QUrl> &, const int & = PIX_QUERY_MAX_LIMIT);
 
     void insert(const FMH::MODEL_LIST &);
 

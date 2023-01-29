@@ -122,26 +122,7 @@ void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &li
     }
 
     this->setStatus(Status::Loading);
-    this->scanTags(extractTags(urls), limit);
     m_fileLoader->requestPath(urls, recursive, FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, limit);
-
-}
-
-void Gallery::scanTags(const QList<QUrl> &urls, const int &limit)
-{
-    qDebug() << "SCANNING TAGS URLS" << urls;
-    FMH::MODEL_LIST res;
-    for (const auto &tagUrl : urls) {
-        const auto urls = Tagging::getInstance()->getTagUrls(tagUrl.toString().replace("tags:///", ""), {}, true, limit, "image");
-        for (const auto &url : urls) {
-            res << picInfo(url);
-        }
-    }
-
-    emit this->preListChanged();
-    list << res;
-    emit this->postListChanged();
-    emit countChanged();
 }
 
 void Gallery::insertFolder(const QUrl &path)
@@ -176,18 +157,6 @@ void Gallery::setStatus(const Gallery::Status &status, const QString &error)
         this->m_error = error;
         emit this->errorChanged(m_error);
     }
-}
-
-QList<QUrl> Gallery::extractTags(const QList<QUrl> &urls)
-{
-    QList<QUrl> res;
-    return std::accumulate(urls.constBegin(), urls.constEnd(), res, [](QList<QUrl> &list, const QUrl &url) {
-        if (FMStatic::getPathType(url) == FMStatic::PATHTYPE_KEY::TAGS_PATH) {
-            list << url;
-        }
-
-        return list;
-    });
 }
 
 bool Gallery::remove(const int &index)

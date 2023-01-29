@@ -94,18 +94,16 @@ Loader
                             list: quickPlaces
                         }
 
-                        delegate: Item
-                        {
-                            Layout.preferredHeight: Math.min(50, width)
-                            Layout.preferredWidth: 50
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-                            Layout.columnSpan: model.path === "overview:///" ? 2 : 1
-
-                            Maui.GridBrowserDelegate
+                        delegate: Maui.GridBrowserDelegate
                             {
+                                Layout.preferredHeight: Math.min(50, width)
+                                Layout.preferredWidth: 50
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                Layout.columnSpan: model.path === "overview:///" ? 2 : 1
+
+
                                 isCurrentItem: currentFolder === model.path
-                                anchors.fill: parent
                                 iconSource: model.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
                                 iconSizeHint: Maui.Style.iconSize
                                 template.isMask: true
@@ -120,7 +118,7 @@ Loader
                                         sideBar.close()
                                 }
                             }
-                        }
+
                     }
                 }
             }

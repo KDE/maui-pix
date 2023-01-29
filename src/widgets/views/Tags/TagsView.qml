@@ -21,7 +21,6 @@ PixGrid
     property string currentTag
     property var currentFilters : []
 
-
     holder.visible: count === 0
 
     holder.title: i18n("No Pics in %1!", currentTag)
@@ -34,12 +33,7 @@ PixGrid
     function refreshPics()
     {
         control.list.refresh()
-    }
-
-    function populateGrid(myTag)
-    {
-        control.currentTag = myTag
-    }
+    }  
 }
 
 
