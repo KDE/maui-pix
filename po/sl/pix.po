@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021, 2022.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:56+0000\n"
-"PO-Revision-Date: 2022-12-14 09:01+0100\n"
+"PO-Revision-Date: 2023-01-28 09:59+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/main.cpp:129
@@ -219,15 +219,14 @@ msgid "Configure the app behaviour."
 msgstr "Nastavi obnašanje aplikacije."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Kraji"
+msgstr "Stranska vrstica krajev"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Enable places navigation in the folders view."
-msgstr ""
+msgstr "Omogoči navigacijo po krajih v pogledu map."
 
 #: src/widgets/SettingsDialog.qml:34
 #, kde-format
@@ -327,7 +326,7 @@ msgstr "Naslov"
 #: src/widgets/SettingsDialog.qml:180
 #, kde-format
 msgid "Modified"
-msgstr ""
+msgstr "Spremenjeno"
 
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
@@ -419,12 +418,12 @@ msgstr "Dodaj"
 #: src/widgets/Sidebar.qml:47
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Zaznamki!"
 
 #: src/widgets/Sidebar.qml:48
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Vaši zaznamki bodo prikazani tukaj"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -458,7 +457,7 @@ msgstr[3] "Filtriram %1 map"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Preklopi stransko vrstico"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format

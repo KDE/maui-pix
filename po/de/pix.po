@@ -319,7 +319,8 @@ msgid "Title"
 msgstr "Titel"
 
 #: src/widgets/SettingsDialog.qml:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Modified"
 msgid "Modified"
 msgstr "Geändert"
 
