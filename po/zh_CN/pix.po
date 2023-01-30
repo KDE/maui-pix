@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:56+0000\n"
+"POT-Creation-Date: 2023-01-30 00:56+0000\n"
 "PO-Revision-Date: 2023-01-12 10:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -562,12 +562,12 @@ msgstr ""
 msgid "Animals"
 msgstr ""
 
-#: src/widgets/views/Tags/TagsView.qml:27
+#: src/widgets/views/Tags/TagsView.qml:26
 #, kde-format
 msgid "No Pics in %1!"
 msgstr "%1 中没有图像"
 
-#: src/widgets/views/Tags/TagsView.qml:28
+#: src/widgets/views/Tags/TagsView.qml:27
 #, kde-format
 msgid "There're no pics associated with the tag"
 msgstr "该标签没有关联图像"

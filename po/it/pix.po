@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
-# Paolo Zamponi <zapaolo@email.it>, 2020, 2021, 2022.
+# Paolo Zamponi <zapaolo@email.it>, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:56+0000\n"
-"PO-Revision-Date: 2022-12-14 19:02+0100\n"
+"POT-Creation-Date: 2023-01-30 00:56+0000\n"
+"PO-Revision-Date: 2023-01-29 08:40+0100\n"
 "Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/main.cpp:129
 #, kde-format
@@ -210,15 +210,14 @@ msgid "Configure the app behaviour."
 msgstr "Configura il comportamento dell'app."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Luoghi"
+msgstr "Barra laterale delle risorse"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Enable places navigation in the folders view."
-msgstr ""
+msgstr "Abilita la navigazione delle risorse nella vista a cartelle."
 
 #: src/widgets/SettingsDialog.qml:34
 #, kde-format
@@ -412,12 +411,12 @@ msgstr "Aggiungi"
 #: src/widgets/Sidebar.qml:47
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Segnalibri!"
 
 #: src/widgets/Sidebar.qml:48
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "I tuoi segnalibri saranno elencati qui"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -450,7 +449,7 @@ msgstr[1] "Filtra %1 cartelle"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Attiva/disattiva la barra laterale"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format
@@ -525,7 +524,7 @@ msgstr "Puoi creare nuove etichette per organizzare la tua galleria"
 #: src/widgets/views/Tags/TagsSidebar.qml:180
 #, kde-format
 msgid "Places"
-msgstr "Luoghi"
+msgstr "Risorse"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:181
 #: src/widgets/views/Tags/TagsSidebar.qml:221
@@ -578,12 +577,12 @@ msgstr "Pittura"
 msgid "Animals"
 msgstr "Animali"
 
-#: src/widgets/views/Tags/TagsView.qml:27
+#: src/widgets/views/Tags/TagsView.qml:26
 #, kde-format
 msgid "No Pics in %1!"
 msgstr "Nessuna immagine in %1."
 
-#: src/widgets/views/Tags/TagsView.qml:28
+#: src/widgets/views/Tags/TagsView.qml:27
 #, kde-format
 msgid "There're no pics associated with the tag"
 msgstr "Non ci sono immagini associate a quest'etichetta"

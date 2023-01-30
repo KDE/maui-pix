@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:56+0000\n"
+"POT-Creation-Date: 2023-01-30 00:56+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -577,13 +577,13 @@ msgstr ""
 msgid "Animals"
 msgstr ""
 
-#: src/widgets/views/Tags/TagsView.qml:27
+#: src/widgets/views/Tags/TagsView.qml:26
 #, fuzzy, kde-format
 #| msgid "No Pics!"
 msgid "No Pics in %1!"
 msgstr "ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ!"
 
-#: src/widgets/views/Tags/TagsView.qml:28
+#: src/widgets/views/Tags/TagsView.qml:27
 #, fuzzy, kde-format
 #| msgid "There's no pics associated with the tag"
 msgid "There're no pics associated with the tag"
