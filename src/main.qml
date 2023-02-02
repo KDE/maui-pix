@@ -212,7 +212,7 @@ Maui.ApplicationWindow
             Maui.AppViewLoader
             {
                 id: _foldersViewLoader
-                Maui.AppView.title: i18n("Folders")
+                Maui.AppView.title: i18n("Collections")
                 Maui.AppView.iconName: "folder"
                 property string pendingFolder : initModule === "folder" ? initData : ""
 
