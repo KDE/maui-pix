@@ -51,6 +51,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <KI18n/KLocalizedString>
 
 #include "models/folders/folders.h"
+#include "models/folders/placesmodel.h"
 #include "models/gallery/gallery.h"
 #include "models/tags/tagsmodel.h"
 #include "models/cities/citiesmodel.h"
@@ -147,7 +148,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     const QStringList args = parser.positionalArguments();
 
     QPair<QString, QList<QUrl>> arguments;
-    arguments.first = "gallery";
+    arguments.first = "folder";
 
     if (!args.isEmpty())
     {
@@ -188,6 +189,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterSingletonInstance<Pix>(PIX_URI, 1, 0, "Collection", Pix::instance());
 
     qmlRegisterType<Gallery>(PIX_URI, 1, 0, "GalleryList");
+    qmlRegisterType<PlacesModel>(PIX_URI, 1, 0, "PlacesList");
     qmlRegisterType<Folders>(PIX_URI, 1, 0, "FoldersList");
     qmlRegisterType<CitiesModel>(PIX_URI, 1, 0, "CitiesList");
     qmlRegisterType<TagsModel>(PIX_URI, 1, 0, "TagsList");

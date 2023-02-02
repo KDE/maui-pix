@@ -57,8 +57,7 @@ Maui.ApplicationWindow
 
     /*READONLY PROPS*/
     readonly property var views : ({ gallery: 0,
-                                       tags: 1,
-                                       folders: 2 })
+                                       collections: 1 })
     /*PROPS*/
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     property bool selectionMode : false
@@ -115,7 +114,7 @@ Maui.ApplicationWindow
             id: swipeView
             visible: StackView.status === StackView.Active
 
-            currentIndex: initModule === "folder" ? views.folders : views.folders
+            currentIndex: initModule === "folder" ? views.collections : views.gallery
             //                actionGroup: !browserSettings.showSidebar
 
             altHeader: Maui.Handy.isMobile
@@ -193,22 +192,22 @@ Maui.ApplicationWindow
                 }
             }
 
-            Maui.AppViewLoader
-            {
-                id: _tagsViewLoader
-                Maui.AppView.title: i18n("Tags")
-                Maui.AppView.iconName: "tag"
+//            Maui.AppViewLoader
+//            {
+//                id: _tagsViewLoader
+//                Maui.AppView.title: i18n("Tags")
+//                Maui.AppView.iconName: "tag"
 
-                property string pendingTag
-                TagsSidebar
-                {
-                    Component.onCompleted:
-                    {
-                        if(_tagsViewLoader.pendingTag)
-                            populateGrid(_tagsViewLoader.pendingTag)
-                    }
-                }
-            }
+//                property string pendingTag
+//                TagsSidebar
+//                {
+//                    Component.onCompleted:
+//                    {
+//                        if(_tagsViewLoader.pendingTag)
+//                            populateGrid(_tagsViewLoader.pendingTag)
+//                    }
+//                }
+//            }
 
             Maui.AppViewLoader
             {
@@ -504,6 +503,6 @@ Maui.ApplicationWindow
         {
             _foldersViewLoader.pendingFolder = url
         }
-        swipeView.currentIndex = views.folders
+        swipeView.currentIndex = views.collections
     }
 }

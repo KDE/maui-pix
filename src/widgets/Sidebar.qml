@@ -13,6 +13,7 @@ import QtQuick.Layouts 1.12
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.0 as FB
 
+import org.maui.pix 1.0 as Pix
 
 Loader
 {
@@ -22,16 +23,9 @@ Loader
 
     property alias list : placesList
 
-    FB.PlacesList
+    Pix.PlacesList
     {
         id: placesList
-        groups: [FB.FMList.BOOKMARKS_PATH]
-    }
-
-    FB.PlacesList
-    {
-        id: quickPlaces
-        groups: [FB.FMList.PLACES_PATH]
     }
 
     sourceComponent: Maui.ListBrowser
@@ -89,10 +83,8 @@ Loader
 
                     Repeater
                     {
-                        model: Maui.BaseModel
-                        {
-                            list: quickPlaces
-                        }
+                        model: placesList.quickPlaces
+
 
                         delegate: Maui.GridBrowserDelegate
                             {
@@ -100,20 +92,20 @@ Loader
                                 Layout.preferredWidth: 50
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                Layout.columnSpan: model.path === "overview:///" ? 2 : 1
+                                Layout.columnSpan: modelData.path === "tags:///fav" ? 2 : 1
 
 
-                                isCurrentItem: currentFolder === model.path
-                                iconSource: model.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
+                                isCurrentItem: currentFolder === modelData.path
+                                iconSource: modelData.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
                                 iconSizeHint: Maui.Style.iconSize
                                 template.isMask: true
-                                label1.text: model.label
+                                label1.text: modelData.label
                                 labelsVisible: false
-                                tooltipText: model.label
+                                tooltipText: modelData.label
                                 flat: false
                                 onClicked:
                                 {
-                                    _listBrowser.placeClicked(model.path, mouse)
+                                    _listBrowser.placeClicked(modelData.path, mouse)
                                     if(sideBar.collapsed)
                                         sideBar.close()
                                 }
@@ -141,7 +133,7 @@ Loader
             width: ListView.view.width
 
             iconSize: Maui.Style.iconSize
-            label: model.label
+            label: model.tag
             iconName: model.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
             iconVisible: true
             template.isMask: iconSize <= Maui.Style.iconSizes.medium

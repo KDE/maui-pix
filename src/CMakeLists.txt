@@ -8,17 +8,10 @@ set(pix_SRCS
     pix.cpp
     models/gallery/gallery.cpp
     models/folders/folders.cpp
+    models/folders/placesmodel.cpp
     models/tags/tagsmodel.cpp
     models/cities/citiesmodel.cpp
     pixserver.cpp
-    )
-
-set(pix_HDRS
-    pix.h
-    models/gallery/gallery.h
-    models/folders/folders.h
-    models/tags/tagsmodel.h
-    models/cities/citiesmodel.h
     )
 
 set(pix_ASSETS
@@ -34,14 +27,12 @@ endif()
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED
         ${pix_SRCS}
-        ${pix_HDRS}
         ${pix_ASSETS}
         ${pix_QML_QRC}
         )
 else()
     add_executable(${PROJECT_NAME}
         ${pix_SRCS}
-        ${pix_HDRS}
         ${pix_ASSETS}
         ${pix_QML_QRC}
         )
