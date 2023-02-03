@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:56+0000\n"
+"POT-Creation-Date: 2023-02-03 00:58+0000\n"
 "PO-Revision-Date: 2023-01-29 11:06+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -15,89 +15,85 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 22.12.1\n"
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "Pix"
 msgstr "Pix"
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organiser, naviguer et modifier vos images."
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "© 2019-%1 Maui Development Team"
 msgstr "© 2019 - %1 L'équipe de développement de Maui"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Developer"
 msgstr "Développeur"
 
-#: src/main.qml:142 src/widgets/views/Gallery/GalleryView.qml:26
+#: src/main.qml:141 src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/main.qml:150
+#: src/main.qml:149
 #, kde-format
 msgid "Settings"
 msgstr "Configuration"
 
-#: src/main.qml:157
+#: src/main.qml:156
 #, kde-format
 msgid "About"
 msgstr "À propos"
 
-#: src/main.qml:187 src/widgets/views/Viewer/PixViewer.qml:135
+#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:135
 #, kde-format
 msgid "Gallery"
 msgstr "Galerie"
 
-#: src/main.qml:199 src/view_models/PixMenu.qml:57
-#, kde-format
-msgid "Tags"
-msgstr "Étiquettes"
+#: src/main.qml:215
+#, fuzzy, kde-format
+#| msgid "Collection"
+msgid "Collections"
+msgstr "Collection"
 
-#: src/main.qml:216
-#, kde-format
-msgid "Folders"
-msgstr "Dossiers"
-
-#: src/main.qml:255
+#: src/main.qml:254
 #, kde-format
 msgid "Open images"
 msgstr "Ouvrir des images"
 
-#: src/main.qml:256
+#: src/main.qml:255
 #, kde-format
 msgid "Drag and drop images here"
 msgstr "Glisser et déposer des images ici"
 
-#: src/main.qml:328
+#: src/main.qml:327
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Supprimer le fichier %1 ?"
 msgstr[1] "Supprimer les %1 fichiers ?"
 
-#: src/main.qml:329 src/view_models/PixMenu.qml:33
+#: src/main.qml:328 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/main.qml:330 src/view_models/PixMenu.qml:32
+#: src/main.qml:329 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "Accepter"
 
-#: src/main.qml:332
+#: src/main.qml:331
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -108,6 +104,39 @@ msgstr[0] ""
 msgstr[1] ""
 "Voulez-vous vraiment supprimer ces fichiers ? Cette action ne peut être "
 "annulée."
+
+#: src/models/folders/placesmodel.cpp:33
+#, fuzzy, kde-format
+#| msgid "Favorite"
+msgid "Favorites"
+msgstr "Favoris"
+
+#: src/models/folders/placesmodel.cpp:34
+#, kde-format
+msgid "Downloads"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:35
+#, kde-format
+msgid "Documents"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:36
+#: src/widgets/views/Tags/TagsSidebar.qml:246
+#, kde-format
+msgid "Screenshots"
+msgstr "Copies d'écran"
+
+#: src/models/folders/placesmodel.cpp:37
+#, kde-format
+msgid "Camera"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
+#: src/view_models/PixMenu.qml:57
+#, kde-format
+msgid "Tags"
+msgstr "Étiquettes"
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -409,12 +438,12 @@ msgstr ""
 msgid "Add"
 msgstr "Ajouter"
 
-#: src/widgets/Sidebar.qml:47
+#: src/widgets/Sidebar.qml:41
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Signets !"
 
-#: src/widgets/Sidebar.qml:48
+#: src/widgets/Sidebar.qml:42
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Vos signets seront listés ici."
@@ -545,11 +574,6 @@ msgstr "Filtres"
 msgid "Animated"
 msgstr "Animé"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:246
-#, kde-format
-msgid "Screenshots"
-msgstr "Copies d'écran"
-
 #: src/widgets/views/Tags/TagsSidebar.qml:254
 #, kde-format
 msgid "Sunday"
@@ -610,6 +634,9 @@ msgstr "Précédent"
 msgid "Open an image from your collection"
 msgstr "Ouvrir une image à partir de votre collection"
 
+#~ msgid "Folders"
+#~ msgstr "Dossiers"
+
 #~ msgid "GIMP"
 #~ msgstr "GIMP"
 
@@ -618,9 +645,6 @@ msgstr "Ouvrir une image à partir de votre collection"
 
 #~ msgid "Nothing here. Try something different!"
 #~ msgstr "Rien ici. Veuillez essayer quelque chose de différent !"
-
-#~ msgid "Favorite"
-#~ msgstr "Favoris"
 
 #~ msgid "Add new sources to browse your image collection "
 #~ msgstr ""

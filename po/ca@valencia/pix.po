@@ -1,16 +1,16 @@
 # Translation of pix.po to Catalan (Valencian)
-# Copyright (C) 2020-2022 This_file_is_part_of_KDE
+# Copyright (C) 2020-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021, 2022, 2023.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:56+0000\n"
-"PO-Revision-Date: 2022-12-13 14:18+0100\n"
+"POT-Creation-Date: 2023-02-03 00:58+0000\n"
+"PO-Revision-Date: 2023-01-27 11:51+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,89 +20,85 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "Pix"
 msgstr "Pix"
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organitzeu, navegueu, i editeu la vostra col·lecció d'imatges."
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "© 2019-%1 Maui Development Team"
 msgstr "© 2019-%1 L'equip de desenvolupament de Maui"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Developer"
 msgstr "Desenvolupador"
 
-#: src/main.qml:142 src/widgets/views/Gallery/GalleryView.qml:26
+#: src/main.qml:141 src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Obri"
 
-#: src/main.qml:150
+#: src/main.qml:149
 #, kde-format
 msgid "Settings"
 msgstr "Configuració"
 
-#: src/main.qml:157
+#: src/main.qml:156
 #, kde-format
 msgid "About"
 msgstr "Quant a"
 
-#: src/main.qml:187 src/widgets/views/Viewer/PixViewer.qml:135
+#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:135
 #, kde-format
 msgid "Gallery"
 msgstr "Galeria"
 
-#: src/main.qml:199 src/view_models/PixMenu.qml:57
-#, kde-format
-msgid "Tags"
-msgstr "Etiquetes"
+#: src/main.qml:215
+#, fuzzy, kde-format
+#| msgid "Collection"
+msgid "Collections"
+msgstr "Col·lecció"
 
-#: src/main.qml:216
-#, kde-format
-msgid "Folders"
-msgstr "Carpetes"
-
-#: src/main.qml:255
+#: src/main.qml:254
 #, kde-format
 msgid "Open images"
 msgstr "Obri imatges"
 
-#: src/main.qml:256
+#: src/main.qml:255
 #, kde-format
 msgid "Drag and drop images here"
 msgstr "Arrossegueu i deixeu anar ací les imatges"
 
-#: src/main.qml:328
+#: src/main.qml:327
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Voleu suprimir %1 fitxer?"
 msgstr[1] "Voleu suprimir %1 fitxers?"
 
-#: src/main.qml:329 src/view_models/PixMenu.qml:33
+#: src/main.qml:328 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/main.qml:330 src/view_models/PixMenu.qml:32
+#: src/main.qml:329 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/main.qml:332
+#: src/main.qml:331
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -111,6 +107,38 @@ msgstr[0] ""
 "Segur que voleu suprimir este fitxer? Esta acció no es podrà desfer."
 msgstr[1] ""
 "Segur que voleu suprimir estos fitxers? Esta acció no es podrà desfer."
+
+#: src/models/folders/placesmodel.cpp:33
+#, kde-format
+msgid "Favorites"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:34
+#, kde-format
+msgid "Downloads"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:35
+#, kde-format
+msgid "Documents"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:36
+#: src/widgets/views/Tags/TagsSidebar.qml:246
+#, kde-format
+msgid "Screenshots"
+msgstr "Captures de pantalla"
+
+#: src/models/folders/placesmodel.cpp:37
+#, kde-format
+msgid "Camera"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
+#: src/view_models/PixMenu.qml:57
+#, kde-format
+msgid "Tags"
+msgstr "Etiquetes"
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -209,15 +237,14 @@ msgid "Configure the app behaviour."
 msgstr "Configura el comportament de l'aplicació."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Llocs"
+msgstr "Barra lateral de llocs"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Enable places navigation in the folders view."
-msgstr ""
+msgstr "Activa la navegació de llocs en les vistes de carpetes."
 
 #: src/widgets/SettingsDialog.qml:34
 #, kde-format
@@ -319,7 +346,7 @@ msgstr "Títol"
 #: src/widgets/SettingsDialog.qml:180
 #, kde-format
 msgid "Modified"
-msgstr ""
+msgstr "Modificat"
 
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
@@ -409,15 +436,15 @@ msgstr ""
 msgid "Add"
 msgstr "Afig"
 
-#: src/widgets/Sidebar.qml:47
+#: src/widgets/Sidebar.qml:41
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Adreces d'interés!"
 
-#: src/widgets/Sidebar.qml:48
+#: src/widgets/Sidebar.qml:42
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Ací es llistaran les vostres adreces d'interés"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -450,7 +477,7 @@ msgstr[1] "Filtra %1 carpetes"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Mostra o oculta la barra lateral"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format
@@ -543,11 +570,6 @@ msgstr "Filtres"
 msgid "Animated"
 msgstr "Animats"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:246
-#, kde-format
-msgid "Screenshots"
-msgstr "Captures de pantalla"
-
 #: src/widgets/views/Tags/TagsSidebar.qml:254
 #, kde-format
 msgid "Sunday"
@@ -607,3 +629,6 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obri una imatge de la col·lecció"
+
+#~ msgid "Folders"
+#~ msgstr "Carpetes"
