@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-03 00:58+0000\n"
-"PO-Revision-Date: 2023-01-27 18:32+0300\n"
+"PO-Revision-Date: 2023-02-03 18:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -63,10 +63,9 @@ msgid "Gallery"
 msgstr "Galeri"
 
 #: src/main.qml:215
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Collections"
-msgstr "Koleksiyon"
+msgstr "Koleksiyonlar"
 
 #: src/main.qml:254
 #, kde-format
@@ -108,17 +107,17 @@ msgstr[1] ""
 #: src/models/folders/placesmodel.cpp:33
 #, kde-format
 msgid "Favorites"
-msgstr ""
+msgstr "Sık Kullanılanlar"
 
 #: src/models/folders/placesmodel.cpp:34
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "İndirilenler"
 
 #: src/models/folders/placesmodel.cpp:35
 #, kde-format
 msgid "Documents"
-msgstr ""
+msgstr "Belgeler"
 
 #: src/models/folders/placesmodel.cpp:36
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -129,7 +128,7 @@ msgstr "Ekran Görüntüleri"
 #: src/models/folders/placesmodel.cpp:37
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
 #: src/view_models/PixMenu.qml:57

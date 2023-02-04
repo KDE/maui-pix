@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-03 00:58+0000\n"
-"PO-Revision-Date: 2023-01-27 07:17+0100\n"
+"PO-Revision-Date: 2023-02-03 06:15+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -64,10 +64,9 @@ msgid "Gallery"
 msgstr "გალერეა"
 
 #: src/main.qml:215
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Collections"
-msgstr "კოლექცია"
+msgstr "კოლექციები"
 
 #: src/main.qml:254
 #, kde-format
@@ -110,17 +109,17 @@ msgstr[1] ""
 #: src/models/folders/placesmodel.cpp:33
 #, kde-format
 msgid "Favorites"
-msgstr ""
+msgstr "რჩეულები"
 
 #: src/models/folders/placesmodel.cpp:34
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "გადმოწერები"
 
 #: src/models/folders/placesmodel.cpp:35
 #, kde-format
 msgid "Documents"
-msgstr ""
+msgstr "დოკუმენტები"
 
 #: src/models/folders/placesmodel.cpp:36
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -131,7 +130,7 @@ msgstr "ეკრანის ანაბეჭდები"
 #: src/models/folders/placesmodel.cpp:37
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "კამერა"
 
 #: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
 #: src/view_models/PixMenu.qml:57

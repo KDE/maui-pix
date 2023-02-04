@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
-# Vit Pelcak <vit@pelcak.org>, 2020, 2021, 2022.
+# Vit Pelcak <vit@pelcak.org>, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-03 00:58+0000\n"
-"PO-Revision-Date: 2022-05-19 11:27+0200\n"
+"PO-Revision-Date: 2023-01-30 11:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -63,10 +63,9 @@ msgid "Gallery"
 msgstr "Galerie"
 
 #: src/main.qml:215
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Collections"
-msgstr "Sbírka"
+msgstr "Sbírky"
 
 #: src/main.qml:254
 #, kde-format
@@ -108,17 +107,17 @@ msgstr[2] ""
 #: src/models/folders/placesmodel.cpp:33
 #, kde-format
 msgid "Favorites"
-msgstr ""
+msgstr "Oblíbené"
 
 #: src/models/folders/placesmodel.cpp:34
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "Stahování"
 
 #: src/models/folders/placesmodel.cpp:35
 #, kde-format
 msgid "Documents"
-msgstr ""
+msgstr "Dokumenty"
 
 #: src/models/folders/placesmodel.cpp:36
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -129,7 +128,7 @@ msgstr "Obrázky"
 #: src/models/folders/placesmodel.cpp:37
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Fotoaparát"
 
 #: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
 #: src/view_models/PixMenu.qml:57
@@ -150,7 +149,7 @@ msgstr "Filtr"
 #: src/view_models/PixGrid.qml:79
 #, kde-format
 msgid "Image Text"
-msgstr ""
+msgstr "Text obrázku"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -234,10 +233,9 @@ msgid "Configure the app behaviour."
 msgstr ""
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Místa"
+msgstr "Postranní panel míst"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
@@ -342,7 +340,7 @@ msgstr "Název"
 #: src/widgets/SettingsDialog.qml:180
 #, kde-format
 msgid "Modified"
-msgstr ""
+msgstr "Změněno"
 
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
@@ -377,12 +375,12 @@ msgstr "Sestupně"
 #: src/widgets/SettingsDialog.qml:239
 #, kde-format
 msgid "GPS Tags"
-msgstr ""
+msgstr "Značky GPS"
 
 #: src/widgets/SettingsDialog.qml:240
 #, kde-format
 msgid "Show GPS tags."
-msgstr ""
+msgstr "Zobrazit značky GPS."
 
 #: src/widgets/SettingsDialog.qml:254
 #, kde-format
@@ -432,12 +430,12 @@ msgstr "Přidat"
 #: src/widgets/Sidebar.qml:41
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Záložky"
 
 #: src/widgets/Sidebar.qml:42
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Zde budou vypsány vaše záložky"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -470,7 +468,7 @@ msgstr[2] "Filtrovat %1 složek"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Přepnout postranní panel"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format
@@ -552,7 +550,7 @@ msgstr "Místa"
 #: src/widgets/views/Tags/TagsSidebar.qml:221
 #, kde-format
 msgid "GPS based locations"
-msgstr ""
+msgstr "Souřadnice podle GPS"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:220
 #, kde-format
@@ -572,7 +570,7 @@ msgstr "Neděle"
 #: src/widgets/views/Tags/TagsSidebar.qml:262
 #, kde-format
 msgid "PNGs"
-msgstr ""
+msgstr "PNG"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:270
 #, kde-format
@@ -582,7 +580,7 @@ msgstr "PSD"
 #: src/widgets/views/Tags/TagsSidebar.qml:278
 #, kde-format
 msgid "Vectors"
-msgstr ""
+msgstr "Vektory"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:286
 #, kde-format
@@ -623,6 +621,3 @@ msgstr "Předchozí"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
-
-#~ msgid "Folders"
-#~ msgstr "Složky"

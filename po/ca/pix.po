@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-03 00:58+0000\n"
-"PO-Revision-Date: 2023-01-27 11:51+0100\n"
+"PO-Revision-Date: 2023-02-03 15:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -66,10 +66,9 @@ msgid "Gallery"
 msgstr "Galeria"
 
 #: src/main.qml:215
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Collections"
-msgstr "Col·lecció"
+msgstr "Col·leccions"
 
 #: src/main.qml:254
 #, kde-format
@@ -112,17 +111,17 @@ msgstr[1] ""
 #: src/models/folders/placesmodel.cpp:33
 #, kde-format
 msgid "Favorites"
-msgstr ""
+msgstr "Preferits"
 
 #: src/models/folders/placesmodel.cpp:34
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "Baixades"
 
 #: src/models/folders/placesmodel.cpp:35
 #, kde-format
 msgid "Documents"
-msgstr ""
+msgstr "Documents"
 
 #: src/models/folders/placesmodel.cpp:36
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -133,7 +132,7 @@ msgstr "Captures de pantalla"
 #: src/models/folders/placesmodel.cpp:37
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Càmera"
 
 #: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
 #: src/view_models/PixMenu.qml:57
@@ -631,6 +630,3 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obre una imatge de la col·lecció"
-
-#~ msgid "Folders"
-#~ msgstr "Carpetes"

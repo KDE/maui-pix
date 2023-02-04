@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-03 00:58+0000\n"
-"PO-Revision-Date: 2023-01-27 13:09+0100\n"
+"PO-Revision-Date: 2023-02-03 12:06+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -63,10 +63,9 @@ msgid "Gallery"
 msgstr "Galerij"
 
 #: src/main.qml:215
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Collections"
-msgstr "Verzameling"
+msgstr "Verzamelingen"
 
 #: src/main.qml:254
 #, kde-format
@@ -107,20 +106,19 @@ msgstr[1] ""
 "gemaakt."
 
 #: src/models/folders/placesmodel.cpp:33
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgid "Favorites"
-msgstr "Favoriet"
+msgstr "Favorieten"
 
 #: src/models/folders/placesmodel.cpp:34
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "Downloads"
 
 #: src/models/folders/placesmodel.cpp:35
 #, kde-format
 msgid "Documents"
-msgstr ""
+msgstr "Documenten"
 
 #: src/models/folders/placesmodel.cpp:36
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -131,7 +129,7 @@ msgstr "Schermafdrukken"
 #: src/models/folders/placesmodel.cpp:37
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Camera"
 
 #: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
 #: src/view_models/PixMenu.qml:57
