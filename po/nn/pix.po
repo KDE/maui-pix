@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-30 00:56+0000\n"
+"POT-Creation-Date: 2023-02-03 00:58+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -19,89 +19,84 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "Pix"
 msgstr "Pix"
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr ""
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "© 2019-%1 Maui Development Team"
 msgstr ""
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:130
+#: src/main.cpp:131
 #, kde-format
 msgid "Developer"
 msgstr "Utviklar"
 
-#: src/main.qml:142 src/widgets/views/Gallery/GalleryView.qml:26
+#: src/main.qml:141 src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Opna"
 
-#: src/main.qml:150
+#: src/main.qml:149
 #, kde-format
 msgid "Settings"
 msgstr "Innstillingar"
 
-#: src/main.qml:157
+#: src/main.qml:156
 #, kde-format
 msgid "About"
 msgstr ""
 
-#: src/main.qml:187 src/widgets/views/Viewer/PixViewer.qml:135
+#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:135
 #, kde-format
 msgid "Gallery"
 msgstr "Galleri"
 
-#: src/main.qml:199 src/view_models/PixMenu.qml:57
+#: src/main.qml:215
 #, kde-format
-msgid "Tags"
-msgstr "Merkelappar"
+msgid "Collections"
+msgstr ""
 
-#: src/main.qml:216
-#, kde-format
-msgid "Folders"
-msgstr "Mapper"
-
-#: src/main.qml:255
+#: src/main.qml:254
 #, kde-format
 msgid "Open images"
 msgstr "Opna bilete"
 
-#: src/main.qml:256
+#: src/main.qml:255
 #, kde-format
 msgid "Drag and drop images here"
 msgstr "Dreg og slepp bilete her"
 
-#: src/main.qml:328
+#: src/main.qml:327
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Sletta %1 fil?"
 msgstr[1] "Sletta %1 filer?"
 
-#: src/main.qml:329 src/view_models/PixMenu.qml:33
+#: src/main.qml:328 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/main.qml:330 src/view_models/PixMenu.qml:32
+#: src/main.qml:329 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "Godta"
 
-#: src/main.qml:332
+#: src/main.qml:331
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -110,6 +105,38 @@ msgstr[0] ""
 "Er du sikker på at du vil sletta denne fila? Du kan ikkje angra slettinga."
 msgstr[1] ""
 "Er du sikker på at du vil sletta desse filene? Du kan ikkje angra slettinga."
+
+#: src/models/folders/placesmodel.cpp:33
+#, kde-format
+msgid "Favorites"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:34
+#, kde-format
+msgid "Downloads"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:35
+#, kde-format
+msgid "Documents"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:36
+#: src/widgets/views/Tags/TagsSidebar.qml:246
+#, kde-format
+msgid "Screenshots"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:37
+#, kde-format
+msgid "Camera"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
+#: src/view_models/PixMenu.qml:57
+#, kde-format
+msgid "Tags"
+msgstr "Merkelappar"
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -403,12 +430,12 @@ msgstr "Legg til nye kjelder for å handsama og bla gjennom biletsamlinga di."
 msgid "Add"
 msgstr "Legg til"
 
-#: src/widgets/Sidebar.qml:47
+#: src/widgets/Sidebar.qml:41
 #, kde-format
 msgid "Bookmarks!"
 msgstr ""
 
-#: src/widgets/Sidebar.qml:48
+#: src/widgets/Sidebar.qml:42
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr ""
@@ -534,11 +561,6 @@ msgstr ""
 #: src/widgets/views/Tags/TagsSidebar.qml:233
 #, kde-format
 msgid "Animated"
-msgstr ""
-
-#: src/widgets/views/Tags/TagsSidebar.qml:246
-#, kde-format
-msgid "Screenshots"
 msgstr ""
 
 #: src/widgets/views/Tags/TagsSidebar.qml:254
