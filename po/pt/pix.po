@@ -63,10 +63,9 @@ msgid "Gallery"
 msgstr "Galeria"
 
 #: src/main.qml:215
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Collections"
-msgstr "Colecção"
+msgstr "Colecções"
 
 #: src/main.qml:254
 #, kde-format
@@ -110,7 +109,7 @@ msgstr[1] ""
 #: src/models/folders/placesmodel.cpp:33
 #, kde-format
 msgid "Favorites"
-msgstr ""
+msgstr "Favoritos"
 
 #: src/models/folders/placesmodel.cpp:34
 #, kde-format
@@ -120,7 +119,7 @@ msgstr ""
 #: src/models/folders/placesmodel.cpp:35
 #, kde-format
 msgid "Documents"
-msgstr ""
+msgstr "Documentos"
 
 #: src/models/folders/placesmodel.cpp:36
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -131,7 +130,7 @@ msgstr "Imagens"
 #: src/models/folders/placesmodel.cpp:37
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Câmara"
 
 #: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
 #: src/view_models/PixMenu.qml:57
