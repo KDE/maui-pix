@@ -64,6 +64,7 @@
   <summary xml:lang="uk">Галерея зображень</summary>
   <summary xml:lang="x-test">xxImage Galleryxx</summary>
   <summary xml:lang="zh-CN">图像库/相册程序</summary>
+  <summary xml:lang="zh-TW">相簿</summary>
   <description>
     <p>Pix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.</p>
     <p xml:lang="ca">El Pix és una galeria d'imatges i un visualitzador d'imatges. El Pix es pot usar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes als fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
@@ -89,6 +90,7 @@
     <p xml:lang="uk">Пікс — галерея зображень і програма для перегляду зображень. Пікс можна скористатися для відкриття зображень за допомогою інших програм, зокрема редактора зображень, додавання міток до файлів, додавання анотацій до зображень, обертання зображень та оприлюднення зображень.</p>
     <p xml:lang="x-test">xxPix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.xx</p>
     <p xml:lang="zh-CN">Pix 是一款图像库/相册浏览器和图像查看器。它可以浏览和打开图像，也可以调用外部图像编辑器打开图像。它还可以为图像文件添加标签、标注，对图像进行旋转、分享等操作。</p>
+    <p xml:lang="zh-TW">Pix 是一個相簿與影像檢視器。Pix 可以用其他應用程式（像是影像編輯器）開啟影像、為檔案增加標籤、為圖片加上註解、旋轉圖片以及分享它們。</p>
   </description>
   <url type="homepage">https://apps.kde.org/pix</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=pix</url>
