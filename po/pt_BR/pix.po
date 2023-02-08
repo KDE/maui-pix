@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the maui-pix package.
 #
 # Thiago Masato Costa Sueto <herzenschein@gmail.com>, 2021.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2021, 2022.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-03 00:58+0000\n"
-"PO-Revision-Date: 2022-12-15 11:18-0300\n"
+"PO-Revision-Date: 2023-02-07 10:57-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -64,10 +64,9 @@ msgid "Gallery"
 msgstr "Galeria"
 
 #: src/main.qml:215
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Collections"
-msgstr "Coleção"
+msgstr "Coleções"
 
 #: src/main.qml:254
 #, kde-format
@@ -107,20 +106,19 @@ msgstr[1] ""
 "Você realmente quer deletar estes arquivos? Esta ação não pode ser desfeita."
 
 #: src/models/folders/placesmodel.cpp:33
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgid "Favorites"
-msgstr "Favorito"
+msgstr "Favoritos"
 
 #: src/models/folders/placesmodel.cpp:34
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "Downloads"
 
 #: src/models/folders/placesmodel.cpp:35
 #, kde-format
 msgid "Documents"
-msgstr ""
+msgstr "Documentos"
 
 #: src/models/folders/placesmodel.cpp:36
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -131,7 +129,7 @@ msgstr "Capturas de tela"
 #: src/models/folders/placesmodel.cpp:37
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Câmera"
 
 #: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
 #: src/view_models/PixMenu.qml:57
@@ -237,10 +235,9 @@ msgid "Configure the app behaviour."
 msgstr "Configure o comportamento do aplicativo."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Locais"
+msgstr "Barra lateral de lugares"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
@@ -345,7 +342,7 @@ msgstr "Nome"
 #: src/widgets/SettingsDialog.qml:180
 #, kde-format
 msgid "Modified"
-msgstr ""
+msgstr "Modificado"
 
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
@@ -437,12 +434,12 @@ msgstr "Adicionar"
 #: src/widgets/Sidebar.qml:41
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Favoritos!"
 
 #: src/widgets/Sidebar.qml:42
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Seus favoritos serão listados aqui"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -475,7 +472,7 @@ msgstr[1] "Filtrar %1 pastas?"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Ativa ou desativa a exibição da barra lateral"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format
