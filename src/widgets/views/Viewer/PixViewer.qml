@@ -47,19 +47,20 @@ StackView
     Component
     {
         id: _ocrComponent
+        Item{}
 
-        IT.OCRPage
-        {
-            url: control.currentPic.url
-            headBar.farLeftContent:  ToolButton
-            {
-                icon.name: "go-previous"
-                onClicked:
-                {
-                    control.pop()
-                }
-            }
-        }
+//        IT.OCRPage
+//        {
+//            url: control.currentPic.url
+//            headBar.farLeftContent:  ToolButton
+//            {
+//                icon.name: "go-previous"
+//                onClicked:
+//                {
+//                    control.pop()
+//                }
+//            }
+//        }
 
     }
 
@@ -198,6 +199,7 @@ StackView
 
             ToolButton
             {
+                visible: Maui.Handy.isLinux
                 icon.name: "format-text-bold"
                 onClicked:
                 {

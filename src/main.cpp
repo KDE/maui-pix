@@ -155,6 +155,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         arguments = openFiles(args);
     }
 
+//    QScopedPointer<ScreenshotInhibit> screenshot(new ScreenshotInhibit(qApp->desktopFileName()));
+//    screenshot->blacklist();
+
     QQmlApplicationEngine engine;
     QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(
