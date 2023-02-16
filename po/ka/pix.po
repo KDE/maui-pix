@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-03 00:58+0000\n"
+"POT-Creation-Date: 2023-02-16 00:57+0000\n"
 "PO-Revision-Date: 2023-02-03 06:15+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -58,7 +58,7 @@ msgstr "მორგება"
 msgid "About"
 msgstr "შესახებ"
 
-#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:135
+#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:136
 #, kde-format
 msgid "Gallery"
 msgstr "გალერეა"
@@ -495,7 +495,7 @@ msgstr "საქაღალდეში გამოსახულებე�
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
-#: src/widgets/views/Viewer/PixViewer.qml:225
+#: src/widgets/views/Viewer/PixViewer.qml:227
 #, kde-format
 msgid "No Pics!"
 msgstr "სურათების გარეშე!"
@@ -605,22 +605,22 @@ msgstr "%1-ში სურათები არა!"
 msgid "There're no pics associated with the tag"
 msgstr "ამ ჭდესთან ასოცირებული სურათები ვერ ვიპოვე"
 
-#: src/widgets/views/Viewer/PixViewer.qml:91
+#: src/widgets/views/Viewer/PixViewer.qml:92
 #, kde-format
 msgid "Save as"
 msgstr "შენახვა როგორც"
 
-#: src/widgets/views/Viewer/PixViewer.qml:110
+#: src/widgets/views/Viewer/PixViewer.qml:111
 #, kde-format
 msgid "Save"
 msgstr "შენახვა"
 
-#: src/widgets/views/Viewer/PixViewer.qml:151
+#: src/widgets/views/Viewer/PixViewer.qml:152
 #, kde-format
 msgid "Previous"
 msgstr "წინა"
 
-#: src/widgets/views/Viewer/PixViewer.qml:226
+#: src/widgets/views/Viewer/PixViewer.qml:228
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "თქენი კოლექციიდან სურათის გახსნა"

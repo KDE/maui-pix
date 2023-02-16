@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-03 00:58+0000\n"
+"POT-Creation-Date: 2023-02-16 00:57+0000\n"
 "PO-Revision-Date: 2023-02-04 08:48+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -58,7 +58,7 @@ msgstr "Nastavitve"
 msgid "About"
 msgstr "O programu"
 
-#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:135
+#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:136
 #, kde-format
 msgid "Gallery"
 msgstr "Galerija"
@@ -508,7 +508,7 @@ msgstr "Ni slik v tej mapi"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
-#: src/widgets/views/Viewer/PixViewer.qml:225
+#: src/widgets/views/Viewer/PixViewer.qml:227
 #, kde-format
 msgid "No Pics!"
 msgstr "Ni slik!"
@@ -619,22 +619,22 @@ msgstr "Ni slik v %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Ni nobene slike, ki bi bila povezana to oznako"
 
-#: src/widgets/views/Viewer/PixViewer.qml:91
+#: src/widgets/views/Viewer/PixViewer.qml:92
 #, kde-format
 msgid "Save as"
 msgstr "Shrani kot"
 
-#: src/widgets/views/Viewer/PixViewer.qml:110
+#: src/widgets/views/Viewer/PixViewer.qml:111
 #, kde-format
 msgid "Save"
 msgstr "Shrani"
 
-#: src/widgets/views/Viewer/PixViewer.qml:151
+#: src/widgets/views/Viewer/PixViewer.qml:152
 #, kde-format
 msgid "Previous"
 msgstr "Prejšnja"
 
-#: src/widgets/views/Viewer/PixViewer.qml:226
+#: src/widgets/views/Viewer/PixViewer.qml:228
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Odprite sliko iz svoje zbirke"

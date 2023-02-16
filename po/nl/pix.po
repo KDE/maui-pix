@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-03 00:58+0000\n"
+"POT-Creation-Date: 2023-02-16 00:57+0000\n"
 "PO-Revision-Date: 2023-02-03 12:06+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -57,7 +57,7 @@ msgstr "Instellingen"
 msgid "About"
 msgstr "Info over"
 
-#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:135
+#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:136
 #, kde-format
 msgid "Gallery"
 msgstr "Galerij"
@@ -497,7 +497,7 @@ msgstr "Er zijn geen afbeeldingen in deze map"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
-#: src/widgets/views/Viewer/PixViewer.qml:225
+#: src/widgets/views/Viewer/PixViewer.qml:227
 #, kde-format
 msgid "No Pics!"
 msgstr "Geen plaatjes!"
@@ -607,22 +607,22 @@ msgstr "Geen plaatjes in %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Er zijn geen plaatjes verbonden met de tag"
 
-#: src/widgets/views/Viewer/PixViewer.qml:91
+#: src/widgets/views/Viewer/PixViewer.qml:92
 #, kde-format
 msgid "Save as"
 msgstr "Opslaan als"
 
-#: src/widgets/views/Viewer/PixViewer.qml:110
+#: src/widgets/views/Viewer/PixViewer.qml:111
 #, kde-format
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/widgets/views/Viewer/PixViewer.qml:151
+#: src/widgets/views/Viewer/PixViewer.qml:152
 #, kde-format
 msgid "Previous"
 msgstr "Vorige"
 
-#: src/widgets/views/Viewer/PixViewer.qml:226
+#: src/widgets/views/Viewer/PixViewer.qml:228
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Een afbeelding openen uit uw verzameling"
