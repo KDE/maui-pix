@@ -28,7 +28,7 @@ Maui.ContextualMenu
         id: removeDialog
         parent: control.parent
         urls: filterSelection(item.url)
-        title: i18n("Delete file?")
+        title: i18n("Delete File?")
         acceptButton.text: i18n("Accept")
         rejectButton.text: i18n("Cancel")
         message: i18nc("Remove one file", "Are sure you want to delete this file? This action can not be undone.")
@@ -124,7 +124,7 @@ Maui.ContextualMenu
 
     MenuItem
     {
-        text: i18n("Open With")
+        text: i18n("Open with")
         icon.name: "document-open"
         onTriggered:
         {
@@ -135,7 +135,7 @@ Maui.ContextualMenu
 
     MenuItem
     {
-        text: i18n("Go to folder")
+        text: i18n("Go to Folder")
         icon.name: "folder-open"
         onTriggered:
         {
@@ -152,7 +152,7 @@ Maui.ContextualMenu
     MenuItem
     {
         visible: !Maui.Handy.isAndroid
-        text: i18n("Open location")
+        text: i18n("Open Location")
         icon.name: "folder-open"
         onTriggered:
         {

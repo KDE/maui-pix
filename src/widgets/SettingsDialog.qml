@@ -45,8 +45,10 @@ Maui.SettingsDialog
 
         Maui.SectionItem
         {
+            visible: Maui.Handy.isAndroid
+
             label1.text: i18n("Dark Mode")
-            label2.text: i18n("Switch between light and dark colorscheme")
+            label2.text: i18n("Switch between light and dark colorscheme.")
 
             Switch
             {
@@ -69,7 +71,7 @@ Maui.SettingsDialog
         Maui.SectionItem
         {
             label1.text: i18n("Fit")
-            label2.text: i18n("Fit the previews")
+            label2.text: i18n("Fit the previews and preserve the aspect ratio.")
 
             Switch
             {
@@ -83,7 +85,7 @@ Maui.SettingsDialog
         Maui.SectionItem
         {
             label1.text: i18n("Image Titles")
-            label2.text: i18n("Show the titles of the images.")
+            label2.text: i18n("Show the file name of the images.")
 
             Switch
             {
@@ -147,7 +149,7 @@ Maui.SettingsDialog
 
         Maui.SectionItem
         {
-            label1.text: i18n("Sorting by")
+            label1.text: i18n("Sort by")
             label2.text: i18n("Change the sorting key.")
 
             Maui.ToolActions
@@ -197,7 +199,7 @@ Maui.SettingsDialog
 
         Maui.SectionItem
         {
-            label1.text: i18n("Sort order")
+            label1.text: i18n("Sort Order")
             label2.text: i18n("Change the sorting order.")
 
             Maui.ToolActions
