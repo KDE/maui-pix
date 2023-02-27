@@ -19,7 +19,7 @@ Maui.ContextualMenu
     onOpened: isFav = FB.Tagging.isFav(item.url)
 
     title: control.item.title
-    subtitle: Maui.Handy.formatSize(control.item.size)
+//    subtitle: Maui.Handy.formatSize(control.item.size)
     titleImageSource: control.item.url
     titleIconSource: control.item.icon
 

@@ -51,7 +51,11 @@ Maui.Page
             placeholderText: i18n("Search") + " " + control.list.count + " images"
             onAccepted:
             {
-//                control.list.scanImagesText()
+                if(_ocrOption.checked)
+                {
+                    control.list.scanImagesText()
+                }
+
                 if(text.includes(","))
                 {
                     model.filters = text.split(",")
@@ -69,14 +73,8 @@ Maui.Page
 
                 MenuItem
                 {
-                    text: i18n("Filter")
-                    checkable: true
-                    checked: true
-                }
-
-                MenuItem
-                {
-                    text: i18n("Image Text")
+                    id: _ocrOption
+                    text: i18n("Image Text (OCR)")
                     checkable: true
                 }
             }

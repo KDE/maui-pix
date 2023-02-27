@@ -19,7 +19,8 @@ Maui.SideBarView
     property alias picsView : _stackView.currentItem
     property Flickable flickable : picsView.flickable
 
-       sideBar.enabled: browserSettings.showSidebar
+    sideBar.resizeable: false
+    sideBar.preferredWidth: 200
     sideBar.content: Sidebar
     {
         anchors.fill: parent
@@ -59,7 +60,7 @@ Maui.SideBarView
             }
 
 
-            headBar.leftContent:     ToolButton
+            headBar.leftContent: ToolButton
             {
                visible: browserSettings.showSidebar
 
@@ -76,7 +77,7 @@ Maui.SideBarView
             {
                 id: _foldersGrid
                 anchors.fill: parent
-                itemSize: Math.min(260, Math.max(100, Math.floor(width* 0.3)))
+                itemSize: Math.min(260, Math.max(140, Math.floor(availableWidth* 0.3)))
                 itemHeight: itemSize + Maui.Style.rowHeight
                 currentIndex: -1
                 holder.emoji: "qrc:/assets/view-preview.svg"
@@ -193,18 +194,16 @@ Maui.SideBarView
             gridView.header: Maui.SectionHeader
             {
                 width: parent.width
-//                padding: Maui.Style.space.big
-//                spacing: 0
                 label1.text: control.folderInfo.label
                 label2.text: (control.folderInfo.url).replace(FB.FM.homePath(), "")
-                template.label3.text: _picsView.gridView.count
+                template.label3.text: i18np("No images.", "%1 images", _picsView.gridView.count)
                 template.label4.text: Qt.formatDateTime(new Date(_stackView.folderInfo.modified), "d MMM yyyy")
                 template.iconSource: control.folderInfo.icon
 
                 template.content: ToolButton
                 {
                     icon.name: "folder-open"
-                    onClicked: Pix.Collection.showInFolder([control.currentFolder])
+                    onClicked: Qt.openUrlExternally(control.currentFolder)
                 }
 
             }

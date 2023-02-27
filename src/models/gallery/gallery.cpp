@@ -5,6 +5,8 @@
 #include <QDir>
 #include <QTimer>
 
+#include <KI18n/KLocalizedString>
+
 #include <MauiKit/FileBrowsing/fileloader.h>
 #include <MauiKit/FileBrowsing/fmstatic.h>
 #include <MauiKit/FileBrowsing/tagging.h>
@@ -51,11 +53,13 @@ Gallery::Gallery(QObject *parent)
     qDebug() << "CREATING GALLERY LIST";
     m_scanTimer->setSingleShot(true);
     m_scanTimer->setInterval(15000); //wait 15 secs after a new image is found and before the rescan
+
+    m_fileLoader->setBatchCount(500);
+    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
 }
 
 Gallery::~Gallery()
 {
-    //    delete m_fileLoader;
 }
 
 const FMH::MODEL_LIST &Gallery::items() const
@@ -117,7 +121,7 @@ void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &li
 {
     if(m_urls.isEmpty())
     {
-        this->setStatus(Status::Error, "No sources found to scan.");
+        this->setStatus(Status::Error, i18n("No sources found to scan."));
         return;
     }
 
@@ -212,10 +216,6 @@ void Gallery::rescan()
 
 void Gallery::load()
 {    
-    qDebug() << "ASK TO LOAD GALLERY" << m_activeGeolocationTags;
-    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
-    m_fileLoader->setBatchCount(500);
-
     this->scan(m_urls, m_recursive, m_limit);
 }
 
@@ -302,6 +302,8 @@ void Gallery::componentComplete()
     connect(this, &Gallery::urlsChanged, this, &Gallery::rescan);
     connect(this, &Gallery::activeGeolocationTagsChanged, [this](bool state)
     {
+        m_fileLoader->informer = state ? &picInfo2 : &picInfo;
+
         if(state)
         {
             this->rescan();

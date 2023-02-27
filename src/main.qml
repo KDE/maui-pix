@@ -78,7 +78,6 @@ Maui.ApplicationWindow
         property int sortOrder: Qt.DescendingOrder
         property bool darkMode : true
         property bool gpsTags : false
-        property bool showSidebar : !Maui.Handy.isMobile
     }
 
     Settings
@@ -115,7 +114,6 @@ Maui.ApplicationWindow
             visible: StackView.status === StackView.Active
 
             currentIndex: initModule === "folder" ? views.collections : views.gallery
-            //                actionGroup: !browserSettings.showSidebar
 
             altHeader: Maui.Handy.isMobile
             floatingFooter: true
@@ -141,8 +139,9 @@ Maui.ApplicationWindow
                                 text: i18n("Open")
                                 icon.name: "folder-open"
                                 onTriggered: openFileDialog()
-
                             }
+
+                            MenuSeparator {}
 
                             MenuItem
                             {

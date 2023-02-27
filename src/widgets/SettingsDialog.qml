@@ -3,7 +3,7 @@ import QtQuick.Controls 2.14
 import QtQml 2.14
 import QtQuick.Layouts 1.3
 
-import org.mauikit.controls 1.2 as Maui
+import org.mauikit.controls 1.3 as Maui
 import org.maui.pix 1.0 as Pix
 
 Maui.SettingsDialog
@@ -17,26 +17,11 @@ Maui.SettingsDialog
 
         Maui.SectionItem
         {
-            label1.text: i18n("Places Sidebar")
-            label2.text: i18n("Enable places navigation in the folders view.")
-
-            Switch
-            {
-                Layout.fillHeight: true
-                checkable: true
-                checked: browserSettings.showSidebar
-                onToggled: browserSettings.showSidebar = !browserSettings.showSidebar
-            }
-        }
-
-        Maui.SectionItem
-        {
             label1.text: i18n("Auto Reload")
             label2.text: i18n("Watch for changes in the collection sources.")
 
             Switch
             {
-                Layout.fillHeight: true
                 checkable: true
                 checked: browserSettings.autoReload
                 onToggled: browserSettings.autoReload = !browserSettings.autoReload
@@ -52,7 +37,6 @@ Maui.SettingsDialog
 
             Switch
             {
-                Layout.fillHeight: true
                 checked: browserSettings.darkMode
                 onToggled:
                 {
@@ -75,7 +59,6 @@ Maui.SettingsDialog
 
             Switch
             {
-                Layout.fillHeight: true
                 checkable: true
                 checked: browserSettings.fitPreviews
                 onToggled: browserSettings.fitPreviews = !browserSettings.fitPreviews
@@ -89,7 +72,6 @@ Maui.SettingsDialog
 
             Switch
             {
-                Layout.fillHeight: true
                 checkable: true
                 checked: browserSettings.showLabels
                 onToggled: browserSettings.showLabels = !browserSettings.showLabels
@@ -243,10 +225,15 @@ Maui.SettingsDialog
 
             Switch
             {
-                Layout.fillHeight: true
                 checkable: true
                 checked: browserSettings.gpsTags
                 onToggled: browserSettings.gpsTags = !browserSettings.gpsTags
+            }
+
+            Maui.Chip
+            {
+                text: i18n("Experimental feature.")
+
             }
         }
     }
@@ -263,7 +250,6 @@ Maui.SettingsDialog
 
             Switch
             {
-                Layout.fillHeight: true
                 checkable: true
                 checked: viewerSettings.tagBarVisible
                 onToggled: toogleTagbar()
@@ -276,7 +262,6 @@ Maui.SettingsDialog
             label2.text: i18n("Show small thumbnail previews in the image viewer.")
             Switch
             {
-                Layout.fillHeight: true
                 checkable: true
                 checked: viewerSettings.previewBarVisible
                 onToggled: tooglePreviewBar()

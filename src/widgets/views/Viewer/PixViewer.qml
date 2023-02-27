@@ -46,26 +46,6 @@ StackView
 
     Component
     {
-        id: _ocrComponent
-        Item{}
-
-//        IT.OCRPage
-//        {
-//            url: control.currentPic.url
-//            headBar.farLeftContent:  ToolButton
-//            {
-//                icon.name: "go-previous"
-//                onClicked:
-//                {
-//                    control.pop()
-//                }
-//            }
-//        }
-
-    }
-
-    Component
-    {
         id: _editorComponent
 
         IT.ImageEditor
@@ -139,27 +119,27 @@ StackView
             },
 
             Maui.ToolActions
-                    {
-               visible: !holder.visible && (!Maui.Handy.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode
+            {
+                visible: !holder.visible && (!Maui.Handy.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode
 
-                        expanded: true
-                        autoExclusive: false
-                        checkable: false
-                        display: ToolButton.IconOnly
+                expanded: true
+                autoExclusive: false
+                checkable: false
+                display: ToolButton.IconOnly
 
-                        Action
-                        {
-                            text: i18n("Previous")
-                            icon.name: "go-previous"
-                            onTriggered: previous()
-                        }
+                Action
+                {
+                    text: i18n("Previous")
+                    icon.name: "go-previous"
+                    onTriggered: previous()
+                }
 
-                        Action
-                        {
-                            icon.name: "go-next"
-                            onTriggered: next()
-                        }
-                    }
+                Action
+                {
+                    icon.name: "go-next"
+                    onTriggered: next()
+                }
+            }
         ]
 
         headBar.rightContent: [
@@ -203,18 +183,24 @@ StackView
                 icon.name: "format-text-bold"
                 onClicked:
                 {
-                    control.push(_ocrComponent)
+                    var component = Qt.createComponent("qrc:/widgets/views/Viewer/OCRPage.qml")
+                    if (component.status == Component.Ready)
+                        var object = component.createObject()
+                    else
+                        component.statusChanged.connect(finishCreation);
+
+                    control.push(object)
                 }
 
             },
 
 
             ToolButton
-                    {
-                        icon.name: "view-fullscreen"
-                        onClicked: toogleFullscreen()
-                        checked: fullScreen
-                    }
+            {
+                icon.name: "view-fullscreen"
+                onClicked: toogleFullscreen()
+                checked: fullScreen
+            }
         ]
 
         Maui.Holder

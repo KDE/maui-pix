@@ -17,5 +17,6 @@
         <file>view_models/PixPicList.qml</file>
         <file>widgets/SettingsDialog.qml</file>
         <file>widgets/Sidebar.qml</file>
+        <file>widgets/views/Viewer/OCRPage.qml</file>
     </qresource>
 </RCC>
