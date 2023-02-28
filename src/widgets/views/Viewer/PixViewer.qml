@@ -59,7 +59,7 @@ StackView
                 icon.name: "go-previous"
                 onClicked:
                 {
-                    control.pop(StackView.Immediate)
+                    control.pop()
                 }
             }
 

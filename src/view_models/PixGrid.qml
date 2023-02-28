@@ -70,6 +70,7 @@ Maui.Page
             rightContent: Maui.ToolButtonMenu
             {
                 icon.name: "view-filter"
+                visible: Maui.Handy.isLinux
 
                 MenuItem
                 {
