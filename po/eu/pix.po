@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:59+0000\n"
-"PO-Revision-Date: 2023-02-04 09:05+0100\n"
+"PO-Revision-Date: 2023-02-27 21:19+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -157,8 +157,7 @@ msgid "Image Text"
 msgstr "Irudiaren testua"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "Fitxategia ezabatu?"
 
@@ -196,20 +195,17 @@ msgid "Export"
 msgstr "Esportatu"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Ireki honekin"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "Joan karpetara"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "Ireki kokalekua"
 
@@ -269,8 +265,7 @@ msgid "Dark Mode"
 msgstr "Modu iluna"
 
 #: src/widgets/SettingsDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
 msgstr "Aldatu kolore-antolaera argi eta ilunaren artean"
 
@@ -292,7 +287,7 @@ msgstr "Egokitu"
 #: src/widgets/SettingsDialog.qml:74
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Doitu aurreikuspegiak eta mantendu itxura-proportzioa."
 
 #: src/widgets/SettingsDialog.qml:87
 #, kde-format
@@ -300,10 +295,9 @@ msgid "Image Titles"
 msgstr "Irudien tituluak"
 
 #: src/widgets/SettingsDialog.qml:88
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Erakutsi irudien tituluak."
+msgstr "Erakutsi irudien fitxategi-izenak."
 
 #: src/widgets/SettingsDialog.qml:101
 #, kde-format
@@ -336,8 +330,7 @@ msgid "XL"
 msgstr "XL"
 
 #: src/widgets/SettingsDialog.qml:152
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
 msgstr "Sailkatu honen arabera"
 
@@ -367,8 +360,7 @@ msgid "Date"
 msgstr "Data"
 
 #: src/widgets/SettingsDialog.qml:202
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "Sailkatzeko hurrenkera"
 

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-16 00:57+0000\n"
+"POT-Creation-Date: 2023-02-27 00:59+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -155,8 +155,8 @@ msgstr ""
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
-msgid "Delete file?"
-msgstr "Sletta fil?"
+msgid "Delete File?"
+msgstr ""
 
 #: src/view_models/PixMenu.qml:34
 #, kde-format
@@ -191,17 +191,17 @@ msgstr "Eksporter"
 
 #: src/view_models/PixMenu.qml:127
 #, kde-format
-msgid "Open With"
+msgid "Open with"
 msgstr ""
 
 #: src/view_models/PixMenu.qml:138
 #, kde-format
-msgid "Go to folder"
+msgid "Go to Folder"
 msgstr ""
 
 #: src/view_models/PixMenu.qml:155
 #, kde-format
-msgid "Open location"
+msgid "Open Location"
 msgstr ""
 
 #: src/view_models/PixMenu.qml:167 src/widgets/SelectionBar.qml:106
@@ -254,178 +254,178 @@ msgstr "Last automatisk inn på nytt"
 msgid "Watch for changes in the collection sources."
 msgstr "Overvak for endringar i samlingskjelder."
 
-#: src/widgets/SettingsDialog.qml:48
+#: src/widgets/SettingsDialog.qml:50
 #, kde-format
 msgid "Dark Mode"
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:49
+#: src/widgets/SettingsDialog.qml:51
 #, kde-format
-msgid "Switch between light and dark colorscheme"
+msgid "Switch between light and dark colorscheme."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:66
+#: src/widgets/SettingsDialog.qml:68
 #, kde-format
 msgid "Collection"
 msgstr "Samling"
 
-#: src/widgets/SettingsDialog.qml:67
+#: src/widgets/SettingsDialog.qml:69
 #, kde-format
 msgid "Configure the app plugins and look & feel."
 msgstr "Sett opp programtillegg og utsjånad for appen."
 
-#: src/widgets/SettingsDialog.qml:71
+#: src/widgets/SettingsDialog.qml:73
 #, kde-format
 msgid "Fit"
 msgstr "Tilpass"
 
-#: src/widgets/SettingsDialog.qml:72
+#: src/widgets/SettingsDialog.qml:74
 #, kde-format
-msgid "Fit the previews"
-msgstr "Tilpass førehandsvising"
+msgid "Fit the previews and preserve the aspect ratio."
+msgstr ""
 
-#: src/widgets/SettingsDialog.qml:85
+#: src/widgets/SettingsDialog.qml:87
 #, kde-format
 msgid "Image Titles"
 msgstr "Bilettitlar"
 
-#: src/widgets/SettingsDialog.qml:86
+#: src/widgets/SettingsDialog.qml:88
 #, kde-format
-msgid "Show the titles of the images."
-msgstr "Vis titlar til bilete."
+msgid "Show the file name of the images."
+msgstr ""
 
-#: src/widgets/SettingsDialog.qml:99
+#: src/widgets/SettingsDialog.qml:101
 #, kde-format
 msgid "Preview Size"
 msgstr "Storleik på førehandsvising"
 
-#: src/widgets/SettingsDialog.qml:100
+#: src/widgets/SettingsDialog.qml:102
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Storleiken på miniatyr­bilete i samlingsvisingar."
 
-#: src/widgets/SettingsDialog.qml:124
+#: src/widgets/SettingsDialog.qml:126
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/widgets/SettingsDialog.qml:130
+#: src/widgets/SettingsDialog.qml:132
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/widgets/SettingsDialog.qml:136
+#: src/widgets/SettingsDialog.qml:138
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/widgets/SettingsDialog.qml:142
+#: src/widgets/SettingsDialog.qml:144
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/widgets/SettingsDialog.qml:150
+#: src/widgets/SettingsDialog.qml:152
 #, kde-format
-msgid "Sorting by"
-msgstr "Sorterer etter"
+msgid "Sort by"
+msgstr ""
 
-#: src/widgets/SettingsDialog.qml:151
+#: src/widgets/SettingsDialog.qml:153
 #, kde-format
 msgid "Change the sorting key."
 msgstr "Endra sorteringsnøkkel."
 
-#: src/widgets/SettingsDialog.qml:174
+#: src/widgets/SettingsDialog.qml:176
 #, kde-format
 msgid "Title"
 msgstr "Tittel"
 
-#: src/widgets/SettingsDialog.qml:180
+#: src/widgets/SettingsDialog.qml:182
 #, kde-format
 msgid "Modified"
 msgstr "Endra"
 
-#: src/widgets/SettingsDialog.qml:186
+#: src/widgets/SettingsDialog.qml:188
 #, kde-format
 msgid "Size"
 msgstr "Storleik"
 
-#: src/widgets/SettingsDialog.qml:192
+#: src/widgets/SettingsDialog.qml:194
 #, kde-format
 msgid "Date"
 msgstr "Dato"
 
-#: src/widgets/SettingsDialog.qml:200
+#: src/widgets/SettingsDialog.qml:202
 #, kde-format
-msgid "Sort order"
-msgstr "Sorteringsrekkjefølgje"
+msgid "Sort Order"
+msgstr ""
 
-#: src/widgets/SettingsDialog.qml:201
+#: src/widgets/SettingsDialog.qml:203
 #, kde-format
 msgid "Change the sorting order."
 msgstr "Endra sorteringsrekkjefølgje."
 
-#: src/widgets/SettingsDialog.qml:222
+#: src/widgets/SettingsDialog.qml:224
 #, kde-format
 msgid "Ascending"
 msgstr "Stigande"
 
-#: src/widgets/SettingsDialog.qml:229
+#: src/widgets/SettingsDialog.qml:231
 #, kde-format
 msgid "Descending"
 msgstr "Synkande"
 
-#: src/widgets/SettingsDialog.qml:239
+#: src/widgets/SettingsDialog.qml:241
 #, kde-format
 msgid "GPS Tags"
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:240
+#: src/widgets/SettingsDialog.qml:242
 #, kde-format
 msgid "Show GPS tags."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:254
+#: src/widgets/SettingsDialog.qml:256
 #, kde-format
 msgid "Viewer"
 msgstr "Visar"
 
-#: src/widgets/SettingsDialog.qml:255
+#: src/widgets/SettingsDialog.qml:257
 #, kde-format
 msgid "Adjust the viewer panels and settings."
 msgstr "Juster visingspanel og -innstillingar."
 
-#: src/widgets/SettingsDialog.qml:259
+#: src/widgets/SettingsDialog.qml:261
 #, kde-format
 msgid "Tag Bar"
 msgstr "Merkelapp-linje"
 
-#: src/widgets/SettingsDialog.qml:260
+#: src/widgets/SettingsDialog.qml:262
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 "Enkel måte å leggja til, fjerna og endra merkelappar til gjeldande bilete."
 
-#: src/widgets/SettingsDialog.qml:273
+#: src/widgets/SettingsDialog.qml:275
 #, kde-format
 msgid "Preview Bar"
 msgstr "Fane for førehandsvising"
 
-#: src/widgets/SettingsDialog.qml:274
+#: src/widgets/SettingsDialog.qml:276
 #, kde-format
 msgid "Show small thumbnail previews in the image viewer."
 msgstr "Vis små miniatyrbilete som førehandsvising i biletvisaren."
 
-#: src/widgets/SettingsDialog.qml:287
+#: src/widgets/SettingsDialog.qml:289
 #, kde-format
 msgid "Sources"
 msgstr "Kjelder"
 
-#: src/widgets/SettingsDialog.qml:288
+#: src/widgets/SettingsDialog.qml:290
 #, kde-format
 msgid "Add new sources to manage and browse your image collection."
 msgstr "Legg til nye kjelder for å handsama og bla gjennom biletsamlinga di."
 
-#: src/widgets/SettingsDialog.qml:328
+#: src/widgets/SettingsDialog.qml:330
 #, kde-format
 msgid "Add"
 msgstr "Legg til"

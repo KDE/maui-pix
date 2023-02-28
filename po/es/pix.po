@@ -1,13 +1,14 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023.
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, %Y.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:59+0000\n"
-"PO-Revision-Date: 2023-02-04 17:45+0100\n"
+"PO-Revision-Date: 2023-02-27 18:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -154,8 +155,7 @@ msgid "Image Text"
 msgstr "Texto de la imagen"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "¿Borrar archivo?"
 
@@ -193,20 +193,17 @@ msgid "Export"
 msgstr "Exportar"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Abrir con"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "Ir a carpeta"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "Abrir localización"
 
@@ -266,10 +263,9 @@ msgid "Dark Mode"
 msgstr "Modo oscuro"
 
 #: src/widgets/SettingsDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Cambiar entre esquema de color claro y oscuro"
+msgstr "Cambiar entre esquema de color claro y oscuro."
 
 #: src/widgets/SettingsDialog.qml:68
 #, kde-format
@@ -333,8 +329,7 @@ msgid "XL"
 msgstr "XL"
 
 #: src/widgets/SettingsDialog.qml:152
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
 msgstr "Ordenar por"
 
@@ -364,8 +359,7 @@ msgid "Date"
 msgstr "Fecha"
 
 #: src/widgets/SettingsDialog.qml:202
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "Orden de clasificación"
 

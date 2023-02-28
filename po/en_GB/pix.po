@@ -1,15 +1,15 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2020, 2021, 2022.
+# Steve Allewell <steve.allewell@gmail.com>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:59+0000\n"
-"PO-Revision-Date: 2022-12-31 15:27+0000\n"
+"PO-Revision-Date: 2023-02-27 20:30+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,10 +63,9 @@ msgid "Gallery"
 msgstr "Gallery"
 
 #: src/main.qml:215
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Collections"
-msgstr "Collection"
+msgstr "Collections"
 
 #: src/main.qml:254
 #, kde-format
@@ -106,20 +105,19 @@ msgstr[1] ""
 "Are sure you want to delete these files? This action can not be undone."
 
 #: src/models/folders/placesmodel.cpp:33
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgid "Favorites"
-msgstr "Favourite"
+msgstr "Favourites"
 
 #: src/models/folders/placesmodel.cpp:34
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "Downloads"
 
 #: src/models/folders/placesmodel.cpp:35
 #, kde-format
 msgid "Documents"
-msgstr ""
+msgstr "Documents"
 
 #: src/models/folders/placesmodel.cpp:36
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -130,7 +128,7 @@ msgstr "Screenshots"
 #: src/models/folders/placesmodel.cpp:37
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Camera"
 
 #: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
 #: src/view_models/PixMenu.qml:57
@@ -154,10 +152,9 @@ msgid "Image Text"
 msgstr "Image Text"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
-msgstr "Delete file?"
+msgstr "Delete File?"
 
 #: src/view_models/PixMenu.qml:34
 #, kde-format
@@ -191,22 +188,19 @@ msgid "Export"
 msgstr "Export"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
-msgstr "Open With"
+msgstr "Open with"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
-msgstr "Go to folder"
+msgstr "Go to Folder"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
-msgstr "Open location"
+msgstr "Open Location"
 
 #: src/view_models/PixMenu.qml:167 src/widgets/SelectionBar.qml:106
 #, kde-format
@@ -239,15 +233,14 @@ msgid "Configure the app behaviour."
 msgstr "Configure the application behaviour."
 
 #: src/widgets/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgid "Places Sidebar"
-msgstr "Places"
+msgstr "Places Sidebar"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Enable places navigation in the folders view."
-msgstr ""
+msgstr "Enable places navigation in the folders view."
 
 #: src/widgets/SettingsDialog.qml:34
 #, kde-format
@@ -265,10 +258,9 @@ msgid "Dark Mode"
 msgstr "Dark Mode"
 
 #: src/widgets/SettingsDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Switch between light and dark colour schemes"
+msgstr "Switch between light and dark colour scheme."
 
 #: src/widgets/SettingsDialog.qml:68
 #, kde-format
@@ -288,7 +280,7 @@ msgstr "Fit"
 #: src/widgets/SettingsDialog.qml:74
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Fit the previews and preserve the aspect ratio."
 
 #: src/widgets/SettingsDialog.qml:87
 #, kde-format
@@ -296,10 +288,9 @@ msgid "Image Titles"
 msgstr "Image Titles"
 
 #: src/widgets/SettingsDialog.qml:88
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Show the titles of the images."
+msgstr "Show the file name of the images."
 
 #: src/widgets/SettingsDialog.qml:101
 #, kde-format
@@ -332,10 +323,9 @@ msgid "XL"
 msgstr "XL"
 
 #: src/widgets/SettingsDialog.qml:152
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
-msgstr "Sorting by"
+msgstr "Sort by"
 
 #: src/widgets/SettingsDialog.qml:153
 #, kde-format
@@ -363,10 +353,9 @@ msgid "Date"
 msgstr "Date"
 
 #: src/widgets/SettingsDialog.qml:202
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
-msgstr "Sort order"
+msgstr "Sort Order"
 
 #: src/widgets/SettingsDialog.qml:203
 #, kde-format
@@ -441,12 +430,12 @@ msgstr "Add"
 #: src/widgets/Sidebar.qml:41
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Bookmarks!"
 
 #: src/widgets/Sidebar.qml:42
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Your bookmarks will be listed here"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -478,7 +467,7 @@ msgstr[1] "Filter %1 folders"
 #: src/widgets/views/Folders/FoldersView.qml:72
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Toggle sidebar"
 
 #: src/widgets/views/Folders/FoldersView.qml:83
 #, kde-format

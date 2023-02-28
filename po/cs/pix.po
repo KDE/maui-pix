@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:59+0000\n"
-"PO-Revision-Date: 2023-01-30 11:08+0100\n"
+"PO-Revision-Date: 2023-02-27 14:52+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -152,8 +152,7 @@ msgid "Image Text"
 msgstr "Text obrázku"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "Smazat soubor?"
 
@@ -189,20 +188,17 @@ msgid "Export"
 msgstr "Exportovat"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Otevřít pomocí"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "Přejít na složku"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "Otevřít umístění"
 
@@ -262,10 +258,9 @@ msgid "Dark Mode"
 msgstr "Tmavý režim"
 
 #: src/widgets/SettingsDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Přepínač mezi světlým a tmavým barevným schématem"
+msgstr "Přepínač mezi světlým a tmavým barevným schématem."
 
 #: src/widgets/SettingsDialog.qml:68
 #, kde-format
@@ -295,7 +290,7 @@ msgstr ""
 #: src/widgets/SettingsDialog.qml:88
 #, kde-format
 msgid "Show the file name of the images."
-msgstr ""
+msgstr "Zobrazit název souborů a obrázků."
 
 #: src/widgets/SettingsDialog.qml:101
 #, kde-format
@@ -330,7 +325,7 @@ msgstr "XL"
 #: src/widgets/SettingsDialog.qml:152
 #, kde-format
 msgid "Sort by"
-msgstr ""
+msgstr "Řadit dle"
 
 #: src/widgets/SettingsDialog.qml:153
 #, kde-format
@@ -358,8 +353,7 @@ msgid "Date"
 msgstr "Datum"
 
 #: src/widgets/SettingsDialog.qml:202
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "Pořadí řazení"
 

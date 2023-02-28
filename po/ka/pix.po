@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:59+0000\n"
-"PO-Revision-Date: 2023-02-03 06:15+0100\n"
+"PO-Revision-Date: 2023-02-27 06:34+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -154,8 +154,7 @@ msgid "Image Text"
 msgstr "გამოსახულების ტექსტი"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "წავშალო ფაილი?"
 
@@ -192,20 +191,17 @@ msgid "Export"
 msgstr "გატანა"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "გამხსნელი პროგრამა"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "საქაღალდეზე გადასვლა"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "მდებარეობის გახსნა"
 
@@ -265,10 +261,9 @@ msgid "Dark Mode"
 msgstr "მუქი რეჟიმი"
 
 #: src/widgets/SettingsDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "ღია და მუქ ფერებს შორის გადართვა"
+msgstr "ღია და მუქ ფერებს შორის გადართვა."
 
 #: src/widgets/SettingsDialog.qml:68
 #, kde-format
@@ -288,7 +283,7 @@ msgstr "ჩატევა"
 #: src/widgets/SettingsDialog.qml:74
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "მინიატურების ჩატევა და პროპორციების შენარჩუნება."
 
 #: src/widgets/SettingsDialog.qml:87
 #, kde-format
@@ -296,10 +291,9 @@ msgid "Image Titles"
 msgstr "გამოსახულების სათაურები"
 
 #: src/widgets/SettingsDialog.qml:88
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "გამოსახულების სათაურების ჩვენება."
+msgstr "გამოსახულების ფაილის სახელების ჩვენება."
 
 #: src/widgets/SettingsDialog.qml:101
 #, kde-format
@@ -332,10 +326,9 @@ msgid "XL"
 msgstr "XL"
 
 #: src/widgets/SettingsDialog.qml:152
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
-msgstr "დალაგება"
+msgstr "დალაგების პირობა"
 
 #: src/widgets/SettingsDialog.qml:153
 #, kde-format
@@ -363,8 +356,7 @@ msgid "Date"
 msgstr "თარიღი"
 
 #: src/widgets/SettingsDialog.qml:202
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "დალაგების წესი"
 
@@ -381,7 +373,7 @@ msgstr "ზრდის მიხედვით"
 #: src/widgets/SettingsDialog.qml:231
 #, kde-format
 msgid "Descending"
-msgstr "Დაღმავალი"
+msgstr "დაღმავალი"
 
 #: src/widgets/SettingsDialog.qml:241
 #, kde-format

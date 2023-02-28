@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:59+0000\n"
-"PO-Revision-Date: 2023-02-03 08:32+0200\n"
+"PO-Revision-Date: 2023-02-27 16:43+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -161,8 +161,7 @@ msgid "Image Text"
 msgstr "Текст зображення"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "Вилучити файл?"
 
@@ -199,20 +198,17 @@ msgid "Export"
 msgstr "Експортувати"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Відкрити за допомогою"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "Перейти до теки"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "Відкрити адресу"
 
@@ -272,10 +268,9 @@ msgid "Dark Mode"
 msgstr "Темний режим"
 
 #: src/widgets/SettingsDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Перемкнутися між світлою і темною схемою кольорів"
+msgstr "Перемкнутися між світлою і темною схемою кольорів."
 
 #: src/widgets/SettingsDialog.qml:68
 #, kde-format
@@ -295,7 +290,7 @@ msgstr "Вмістити"
 #: src/widgets/SettingsDialog.qml:74
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Підбирати розмір попереднього перегляду і зберігати пропорції."
 
 #: src/widgets/SettingsDialog.qml:87
 #, kde-format
@@ -303,10 +298,9 @@ msgid "Image Titles"
 msgstr "Заголовки зображень"
 
 #: src/widgets/SettingsDialog.qml:88
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Показувати заголовки зображень."
+msgstr "Показувати назви файлів зображень."
 
 #: src/widgets/SettingsDialog.qml:101
 #, kde-format
@@ -339,8 +333,7 @@ msgid "XL"
 msgstr "XL"
 
 #: src/widgets/SettingsDialog.qml:152
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
 msgstr "Критерій упорядкування"
 
@@ -370,10 +363,9 @@ msgid "Date"
 msgstr "Дата"
 
 #: src/widgets/SettingsDialog.qml:202
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
-msgstr "Порядок"
+msgstr "Порядок сортування"
 
 #: src/widgets/SettingsDialog.qml:203
 #, kde-format

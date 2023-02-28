@@ -193,10 +193,9 @@ msgid "Export"
 msgstr "Exportar"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
-msgstr "Abrir Com"
+msgstr "Abrir com"
 
 #: src/view_models/PixMenu.qml:138
 #, fuzzy, kde-format
@@ -205,10 +204,9 @@ msgid "Go to Folder"
 msgstr "Ir para a pasta"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
-msgstr "Abrir a localização"
+msgstr "Abrir a Localização"
 
 #: src/view_models/PixMenu.qml:167 src/widgets/SelectionBar.qml:106
 #, kde-format
@@ -266,10 +264,9 @@ msgid "Dark Mode"
 msgstr "Modo Escuro"
 
 #: src/widgets/SettingsDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Alternar entre o esquema de cores claro e escuro"
+msgstr "Alternar entre o esquema de cores claro e escuro."
 
 #: src/widgets/SettingsDialog.qml:68
 #, kde-format
@@ -333,10 +330,9 @@ msgid "XL"
 msgstr "MG"
 
 #: src/widgets/SettingsDialog.qml:152
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
-msgstr "Ordenação por"
+msgstr "Ordenar por"
 
 #: src/widgets/SettingsDialog.qml:153
 #, kde-format
@@ -364,10 +360,9 @@ msgid "Date"
 msgstr "Data"
 
 #: src/widgets/SettingsDialog.qml:202
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
-msgstr "Critério de ordenação"
+msgstr "Critério de Ordenação"
 
 #: src/widgets/SettingsDialog.qml:203
 #, kde-format

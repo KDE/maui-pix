@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-27 00:59+0000\n"
-"PO-Revision-Date: 2023-02-03 15:17+0100\n"
+"PO-Revision-Date: 2023-02-27 10:36+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -156,8 +156,7 @@ msgid "Image Text"
 msgstr "Text de les imatges"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "Suprimeixo el fitxer?"
 
@@ -193,20 +192,17 @@ msgid "Export"
 msgstr "Exporta"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Obre amb"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "Ves a la carpeta"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "Obre la ubicació"
 
@@ -266,10 +262,9 @@ msgid "Dark Mode"
 msgstr "Mode fosc"
 
 #: src/widgets/SettingsDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Alterna entre els esquemes de color clar i fosc"
+msgstr "Alterna entre els esquemes de color clar i fosc."
 
 #: src/widgets/SettingsDialog.qml:68
 #, kde-format
@@ -291,7 +286,7 @@ msgstr "Ajusta"
 #: src/widgets/SettingsDialog.qml:74
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Ajusta les vistes prèvies i mantén la relació d'aspecte."
 
 #: src/widgets/SettingsDialog.qml:87
 #, kde-format
@@ -299,10 +294,9 @@ msgid "Image Titles"
 msgstr "Títols de les imatges"
 
 #: src/widgets/SettingsDialog.qml:88
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Mostra els títols de les imatges."
+msgstr "Mostra el nom de fitxer de les imatges."
 
 #: src/widgets/SettingsDialog.qml:101
 #, kde-format
@@ -335,8 +329,7 @@ msgid "XL"
 msgstr "SG"
 
 #: src/widgets/SettingsDialog.qml:152
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
 msgstr "Ordena per"
 
@@ -366,8 +359,7 @@ msgid "Date"
 msgstr "Data"
 
 #: src/widgets/SettingsDialog.qml:202
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "Sentit d'ordenació"
 
@@ -638,6 +630,3 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obre una imatge de la col·lecció"
-
-#~ msgid "Fit the previews"
-#~ msgstr "Ajusta les vistes prèvies"
