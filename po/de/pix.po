@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 00:59+0000\n"
+"POT-Creation-Date: 2023-03-02 00:53+0000\n"
 "PO-Revision-Date: 2021-10-15 12:38+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -42,60 +42,60 @@ msgstr "Camilo Higuita"
 msgid "Developer"
 msgstr "Entwickler"
 
-#: src/main.qml:141 src/widgets/views/Gallery/GalleryView.qml:26
+#: src/main.qml:139 src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Öffnen"
 
-#: src/main.qml:149
+#: src/main.qml:148
 #, kde-format
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/main.qml:156
+#: src/main.qml:155
 #, kde-format
 msgid "About"
 msgstr "Über"
 
-#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:136
+#: src/main.qml:185 src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "Gallery"
 msgstr "Galerie"
 
-#: src/main.qml:215
+#: src/main.qml:214
 #, fuzzy, kde-format
 #| msgid "Collection"
 msgid "Collections"
 msgstr "Sammlung"
 
-#: src/main.qml:254
+#: src/main.qml:253
 #, kde-format
 msgid "Open images"
 msgstr "Bilder öffnen"
 
-#: src/main.qml:255
+#: src/main.qml:254
 #, kde-format
 msgid "Drag and drop images here"
 msgstr "Ziehen Sie Bilder und legen Sie sie hier ab"
 
-#: src/main.qml:327
+#: src/main.qml:326
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "%1 Datei löschen?"
 msgstr[1] "%1 Dateien löschen?"
 
-#: src/main.qml:328 src/view_models/PixMenu.qml:33
+#: src/main.qml:327 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: src/main.qml:329 src/view_models/PixMenu.qml:32
+#: src/main.qml:328 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "Annehmen"
 
-#: src/main.qml:331
+#: src/main.qml:330
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -140,22 +140,20 @@ msgstr ""
 msgid "Tags"
 msgstr "Stichwörter"
 
+#: src/models/gallery/gallery.cpp:124
+#, kde-format
+msgid "No sources found to scan."
+msgstr ""
+
 #: src/view_models/PixGrid.qml:51
 #, kde-format
 msgid "Search"
 msgstr "Suchen"
 
-#: src/view_models/PixGrid.qml:72
-#, fuzzy, kde-format
-#| msgid "Filter %1 tag"
-#| msgid_plural "Filter %1 tags"
-msgid "Filter"
-msgstr "%1 Stichwort filtern"
-
-#: src/view_models/PixGrid.qml:79
+#: src/view_models/PixGrid.qml:78
 #, fuzzy, kde-format
 #| msgid "Image Titles"
-msgid "Image Text"
+msgid "Image Text (OCR)"
 msgstr "Bildtitel"
 
 #: src/view_models/PixMenu.qml:31
@@ -246,203 +244,198 @@ msgstr "Einstellungen für das Verhalten der Anwendung."
 
 #: src/widgets/SettingsDialog.qml:20
 #, kde-format
-msgid "Places Sidebar"
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:21
-#, kde-format
-msgid "Enable places navigation in the folders view."
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:34
-#, kde-format
 msgid "Auto Reload"
 msgstr "Automatisch neu laden"
 
-#: src/widgets/SettingsDialog.qml:35
+#: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Watch for changes in the collection sources."
 msgstr "Änderungen in den Sammlungsquellen überwachen."
 
-#: src/widgets/SettingsDialog.qml:50
+#: src/widgets/SettingsDialog.qml:35
 #, kde-format
 msgid "Dark Mode"
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:51
+#: src/widgets/SettingsDialog.qml:36
 #, kde-format
 msgid "Switch between light and dark colorscheme."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:68
+#: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Collection"
 msgstr "Sammlung"
 
-#: src/widgets/SettingsDialog.qml:69
+#: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Configure the app plugins and look & feel."
 msgstr "Module und Erscheinungsbild der App einrichten."
 
-#: src/widgets/SettingsDialog.qml:73
+#: src/widgets/SettingsDialog.qml:57
 #, kde-format
 msgid "Fit"
 msgstr "Einpassen"
 
-#: src/widgets/SettingsDialog.qml:74
+#: src/widgets/SettingsDialog.qml:58
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:87
+#: src/widgets/SettingsDialog.qml:70
 #, kde-format
 msgid "Image Titles"
 msgstr "Bildtitel"
 
-#: src/widgets/SettingsDialog.qml:88
+#: src/widgets/SettingsDialog.qml:71
 #, fuzzy, kde-format
 #| msgid "Show the titles of the images."
 msgid "Show the file name of the images."
 msgstr "Zeigt von Titel der Bilder an. "
 
-#: src/widgets/SettingsDialog.qml:101
+#: src/widgets/SettingsDialog.qml:83
 #, kde-format
 msgid "Preview Size"
 msgstr "Vorschaugröße"
 
-#: src/widgets/SettingsDialog.qml:102
+#: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Größe der Vorschaubilder in der Sammlungsansicht."
 
-#: src/widgets/SettingsDialog.qml:126
+#: src/widgets/SettingsDialog.qml:108
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/widgets/SettingsDialog.qml:132
+#: src/widgets/SettingsDialog.qml:114
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/widgets/SettingsDialog.qml:138
+#: src/widgets/SettingsDialog.qml:120
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/widgets/SettingsDialog.qml:144
+#: src/widgets/SettingsDialog.qml:126
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/widgets/SettingsDialog.qml:152
+#: src/widgets/SettingsDialog.qml:134
 #, fuzzy, kde-format
 #| msgid "Sorting by"
 msgid "Sort by"
 msgstr "Sortieren nach"
 
-#: src/widgets/SettingsDialog.qml:153
+#: src/widgets/SettingsDialog.qml:135
 #, kde-format
 msgid "Change the sorting key."
 msgstr "Ändern des Sortierschlüssels."
 
-#: src/widgets/SettingsDialog.qml:176
+#: src/widgets/SettingsDialog.qml:158
 #, kde-format
 msgid "Title"
 msgstr "Titel"
 
-#: src/widgets/SettingsDialog.qml:182
+#: src/widgets/SettingsDialog.qml:164
 #, fuzzy, kde-format
 #| msgid "Modified"
 msgid "Modified"
 msgstr "Geändert"
 
-#: src/widgets/SettingsDialog.qml:188
+#: src/widgets/SettingsDialog.qml:170
 #, kde-format
 msgid "Size"
 msgstr "Größe"
 
-#: src/widgets/SettingsDialog.qml:194
+#: src/widgets/SettingsDialog.qml:176
 #, kde-format
 msgid "Date"
 msgstr "Datum"
 
-#: src/widgets/SettingsDialog.qml:202
+#: src/widgets/SettingsDialog.qml:184
 #, fuzzy, kde-format
 #| msgid "Sort order"
 msgid "Sort Order"
 msgstr "Sortiereihenfolge"
 
-#: src/widgets/SettingsDialog.qml:203
+#: src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Change the sorting order."
 msgstr "Ändern der Sortiereihenfolge"
 
-#: src/widgets/SettingsDialog.qml:224
+#: src/widgets/SettingsDialog.qml:206
 #, kde-format
 msgid "Ascending"
 msgstr "Aufsteigend"
 
-#: src/widgets/SettingsDialog.qml:231
+#: src/widgets/SettingsDialog.qml:213
 #, kde-format
 msgid "Descending"
 msgstr "Absteigend"
 
-#: src/widgets/SettingsDialog.qml:241
+#: src/widgets/SettingsDialog.qml:223
 #, fuzzy, kde-format
 #| msgid "Tags"
 msgid "GPS Tags"
 msgstr "Stichwörter"
 
-#: src/widgets/SettingsDialog.qml:242
+#: src/widgets/SettingsDialog.qml:224
 #, kde-format
 msgid "Show GPS tags."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:256
+#: src/widgets/SettingsDialog.qml:235
+#, kde-format
+msgid "Experimental feature."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:243
 #, kde-format
 msgid "Viewer"
 msgstr "Betrachter"
 
-#: src/widgets/SettingsDialog.qml:257
+#: src/widgets/SettingsDialog.qml:244
 #, kde-format
 msgid "Adjust the viewer panels and settings."
 msgstr "Betrachterleisten und Einstellungen anpassen."
 
-#: src/widgets/SettingsDialog.qml:261
+#: src/widgets/SettingsDialog.qml:248
 #, kde-format
 msgid "Tag Bar"
 msgstr "Stichwortleiste"
 
-#: src/widgets/SettingsDialog.qml:262
+#: src/widgets/SettingsDialog.qml:249
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 "Einfache Möglichkeit zum Hinzufügen, Entfernen und Ändern der Stichwörter "
 "des aktuellen Bildes."
 
-#: src/widgets/SettingsDialog.qml:275
+#: src/widgets/SettingsDialog.qml:261
 #, kde-format
 msgid "Preview Bar"
 msgstr "Vorschauleiste"
 
-#: src/widgets/SettingsDialog.qml:276
+#: src/widgets/SettingsDialog.qml:262
 #, kde-format
 msgid "Show small thumbnail previews in the image viewer."
 msgstr "Zeigt kleine Vorschaubilder im Bildbetrachter an."
 
-#: src/widgets/SettingsDialog.qml:289
+#: src/widgets/SettingsDialog.qml:274
 #, kde-format
 msgid "Sources"
 msgstr "Quellen"
 
-#: src/widgets/SettingsDialog.qml:290
+#: src/widgets/SettingsDialog.qml:275
 #, kde-format
 msgid "Add new sources to manage and browse your image collection."
 msgstr ""
 "Neue Quellen zum Verwalten und Durchsehen Ihrer Bildersammlung hinzufügen."
 
-#: src/widgets/SettingsDialog.qml:330
+#: src/widgets/SettingsDialog.qml:315
 #, kde-format
 msgid "Add"
 msgstr "Hinzufügen"
@@ -477,41 +470,49 @@ msgstr "Beinahe fertig"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Überprüfen Sie, ob Sie online sind und ob Ihr Cloud-Konto funktioniert"
 
-#: src/widgets/views/Folders/FoldersView.qml:56
+#: src/widgets/views/Folders/FoldersView.qml:57
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
 msgstr[0] "%1 Ordner filtern"
 msgstr[1] "%1 Ordner filtern"
 
-#: src/widgets/views/Folders/FoldersView.qml:72
+#: src/widgets/views/Folders/FoldersView.qml:73
 #, kde-format
 msgid "Toggle sidebar"
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:83
+#: src/widgets/views/Folders/FoldersView.qml:84
 #, kde-format
 msgid "No Folders!"
 msgstr "Keine Ordner"
 
-#: src/widgets/views/Folders/FoldersView.qml:84
+#: src/widgets/views/Folders/FoldersView.qml:85
 #, kde-format
 msgid "Add new image sources"
 msgstr "Neue Bildquelle hinzufügen"
 
-#: src/widgets/views/Folders/FoldersView.qml:190
+#: src/widgets/views/Folders/FoldersView.qml:191
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Der Ordner ist leer."
 
-#: src/widgets/views/Folders/FoldersView.qml:191
+#: src/widgets/views/Folders/FoldersView.qml:192
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "Es gibt keine Bilder in diesem Ordner"
 
+#: src/widgets/views/Folders/FoldersView.qml:199
+#, fuzzy, kde-format
+#| msgid "Open images"
+msgid "No images."
+msgid_plural "%1 images"
+msgstr[0] "Bilder öffnen"
+msgstr[1] "Bilder öffnen"
+
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
-#: src/widgets/views/Viewer/PixViewer.qml:227
+#: src/widgets/views/Viewer/PixViewer.qml:213
 #, kde-format
 msgid "No Pics!"
 msgstr "Keine Bilder"
@@ -623,25 +624,31 @@ msgstr "Keine Bilder in %1"
 msgid "There're no pics associated with the tag"
 msgstr "Es gibt keine Bilder mit diesem Stichwort"
 
-#: src/widgets/views/Viewer/PixViewer.qml:92
+#: src/widgets/views/Viewer/PixViewer.qml:72
 #, kde-format
 msgid "Save as"
 msgstr "Speichern unter"
 
-#: src/widgets/views/Viewer/PixViewer.qml:111
+#: src/widgets/views/Viewer/PixViewer.qml:91
 #, kde-format
 msgid "Save"
 msgstr "Speichern"
 
-#: src/widgets/views/Viewer/PixViewer.qml:152
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "Zurück"
 
-#: src/widgets/views/Viewer/PixViewer.qml:228
+#: src/widgets/views/Viewer/PixViewer.qml:214
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Öffnet ein Bild aus Ihrer Sammlung"
+
+#, fuzzy
+#~| msgid "Filter %1 tag"
+#~| msgid_plural "Filter %1 tags"
+#~ msgid "Filter"
+#~ msgstr "%1 Stichwort filtern"
 
 #~ msgid "Fit the previews"
 #~ msgstr "Vorschau einpassen"

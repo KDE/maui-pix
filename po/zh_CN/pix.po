@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 00:59+0000\n"
+"POT-Creation-Date: 2023-03-02 00:53+0000\n"
 "PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -42,58 +42,58 @@ msgstr "Camilo Higuita"
 msgid "Developer"
 msgstr "开发人员"
 
-#: src/main.qml:141 src/widgets/views/Gallery/GalleryView.qml:26
+#: src/main.qml:139 src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "打开"
 
-#: src/main.qml:149
+#: src/main.qml:148
 #, kde-format
 msgid "Settings"
 msgstr "设置"
 
-#: src/main.qml:156
+#: src/main.qml:155
 #, kde-format
 msgid "About"
 msgstr "关于"
 
-#: src/main.qml:186 src/widgets/views/Viewer/PixViewer.qml:136
+#: src/main.qml:185 src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "Gallery"
 msgstr "相册"
 
-#: src/main.qml:215
+#: src/main.qml:214
 #, kde-format
 msgid "Collections"
 msgstr ""
 
-#: src/main.qml:254
+#: src/main.qml:253
 #, kde-format
 msgid "Open images"
 msgstr "打开图像"
 
-#: src/main.qml:255
+#: src/main.qml:254
 #, kde-format
 msgid "Drag and drop images here"
 msgstr "拖放图像到此处"
 
-#: src/main.qml:327
+#: src/main.qml:326
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "删除 %1 个文件吗？"
 
-#: src/main.qml:328 src/view_models/PixMenu.qml:33
+#: src/main.qml:327 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: src/main.qml:329 src/view_models/PixMenu.qml:32
+#: src/main.qml:328 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
-#: src/main.qml:331
+#: src/main.qml:330
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -132,19 +132,19 @@ msgstr ""
 msgid "Tags"
 msgstr "标签"
 
+#: src/models/gallery/gallery.cpp:124
+#, kde-format
+msgid "No sources found to scan."
+msgstr ""
+
 #: src/view_models/PixGrid.qml:51
 #, kde-format
 msgid "Search"
 msgstr "搜索"
 
-#: src/view_models/PixGrid.qml:72
+#: src/view_models/PixGrid.qml:78
 #, kde-format
-msgid "Filter"
-msgstr ""
-
-#: src/view_models/PixGrid.qml:79
-#, kde-format
-msgid "Image Text"
+msgid "Image Text (OCR)"
 msgstr ""
 
 #: src/view_models/PixMenu.qml:31
@@ -233,199 +233,194 @@ msgstr "配置此应用的行为。"
 
 #: src/widgets/SettingsDialog.qml:20
 #, kde-format
-msgid "Places Sidebar"
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:21
-#, kde-format
-msgid "Enable places navigation in the folders view."
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:34
-#, kde-format
 msgid "Auto Reload"
 msgstr "自动重新加载"
 
-#: src/widgets/SettingsDialog.qml:35
+#: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Watch for changes in the collection sources."
 msgstr "监视图像集合来源位置的变化。"
 
-#: src/widgets/SettingsDialog.qml:50
+#: src/widgets/SettingsDialog.qml:35
 #, kde-format
 msgid "Dark Mode"
 msgstr "深色模式"
 
-#: src/widgets/SettingsDialog.qml:51
+#: src/widgets/SettingsDialog.qml:36
 #, fuzzy, kde-format
 #| msgid "Switch between light and dark colorscheme"
 msgid "Switch between light and dark colorscheme."
 msgstr "切换浅色/深色模式"
 
-#: src/widgets/SettingsDialog.qml:68
+#: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Collection"
 msgstr "相册视图"
 
-#: src/widgets/SettingsDialog.qml:69
+#: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Configure the app plugins and look & feel."
 msgstr "配置相册视图的界面外观。"
 
-#: src/widgets/SettingsDialog.qml:73
+#: src/widgets/SettingsDialog.qml:57
 #, kde-format
 msgid "Fit"
 msgstr "自适应"
 
-#: src/widgets/SettingsDialog.qml:74
+#: src/widgets/SettingsDialog.qml:58
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:87
+#: src/widgets/SettingsDialog.qml:70
 #, kde-format
 msgid "Image Titles"
 msgstr "图像标题"
 
-#: src/widgets/SettingsDialog.qml:88
+#: src/widgets/SettingsDialog.qml:71
 #, fuzzy, kde-format
 #| msgid "Show the titles of the images."
 msgid "Show the file name of the images."
 msgstr "显示图像的标题。"
 
-#: src/widgets/SettingsDialog.qml:101
+#: src/widgets/SettingsDialog.qml:83
 #, kde-format
 msgid "Preview Size"
 msgstr "缩略图大小"
 
-#: src/widgets/SettingsDialog.qml:102
+#: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "相册视图的缩略图大小。"
 
-#: src/widgets/SettingsDialog.qml:126
+#: src/widgets/SettingsDialog.qml:108
 #, kde-format
 msgid "S"
 msgstr "小"
 
-#: src/widgets/SettingsDialog.qml:132
+#: src/widgets/SettingsDialog.qml:114
 #, kde-format
 msgid "M"
 msgstr "中"
 
-#: src/widgets/SettingsDialog.qml:138
+#: src/widgets/SettingsDialog.qml:120
 #, kde-format
 msgid "X"
 msgstr "大"
 
-#: src/widgets/SettingsDialog.qml:144
+#: src/widgets/SettingsDialog.qml:126
 #, kde-format
 msgid "XL"
 msgstr "超大"
 
-#: src/widgets/SettingsDialog.qml:152
+#: src/widgets/SettingsDialog.qml:134
 #, fuzzy, kde-format
 #| msgid "Sorting by"
 msgid "Sort by"
 msgstr "排序依据"
 
-#: src/widgets/SettingsDialog.qml:153
+#: src/widgets/SettingsDialog.qml:135
 #, kde-format
 msgid "Change the sorting key."
 msgstr "选择排序依据的条件。"
 
-#: src/widgets/SettingsDialog.qml:176
+#: src/widgets/SettingsDialog.qml:158
 #, kde-format
 msgid "Title"
 msgstr "标题"
 
-#: src/widgets/SettingsDialog.qml:182
+#: src/widgets/SettingsDialog.qml:164
 #, kde-format
 msgid "Modified"
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:188
+#: src/widgets/SettingsDialog.qml:170
 #, kde-format
 msgid "Size"
 msgstr "大小"
 
-#: src/widgets/SettingsDialog.qml:194
+#: src/widgets/SettingsDialog.qml:176
 #, kde-format
 msgid "Date"
 msgstr "日期"
 
-#: src/widgets/SettingsDialog.qml:202
+#: src/widgets/SettingsDialog.qml:184
 #, fuzzy, kde-format
 #| msgid "Sort order"
 msgid "Sort Order"
 msgstr "排序顺序"
 
-#: src/widgets/SettingsDialog.qml:203
+#: src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Change the sorting order."
 msgstr "选择排序顺序。"
 
-#: src/widgets/SettingsDialog.qml:224
+#: src/widgets/SettingsDialog.qml:206
 #, kde-format
 msgid "Ascending"
 msgstr "升序"
 
-#: src/widgets/SettingsDialog.qml:231
+#: src/widgets/SettingsDialog.qml:213
 #, kde-format
 msgid "Descending"
 msgstr "降序"
 
-#: src/widgets/SettingsDialog.qml:241
+#: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "GPS Tags"
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:242
+#: src/widgets/SettingsDialog.qml:224
 #, kde-format
 msgid "Show GPS tags."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:256
+#: src/widgets/SettingsDialog.qml:235
+#, kde-format
+msgid "Experimental feature."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:243
 #, kde-format
 msgid "Viewer"
 msgstr "查看器"
 
-#: src/widgets/SettingsDialog.qml:257
+#: src/widgets/SettingsDialog.qml:244
 #, kde-format
 msgid "Adjust the viewer panels and settings."
 msgstr "调整查看器面板和设置。"
 
-#: src/widgets/SettingsDialog.qml:261
+#: src/widgets/SettingsDialog.qml:248
 #, kde-format
 msgid "Tag Bar"
 msgstr "标签栏"
 
-#: src/widgets/SettingsDialog.qml:262
+#: src/widgets/SettingsDialog.qml:249
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "显示标签栏，以便快速添加、移除和修改当前图像的标签。"
 
-#: src/widgets/SettingsDialog.qml:275
+#: src/widgets/SettingsDialog.qml:261
 #, kde-format
 msgid "Preview Bar"
 msgstr "缩略图栏"
 
-#: src/widgets/SettingsDialog.qml:276
+#: src/widgets/SettingsDialog.qml:262
 #, kde-format
 msgid "Show small thumbnail previews in the image viewer."
 msgstr "在图像查看器中显示所有图像的缩略图。"
 
-#: src/widgets/SettingsDialog.qml:289
+#: src/widgets/SettingsDialog.qml:274
 #, kde-format
 msgid "Sources"
 msgstr "图像来源位置"
 
-#: src/widgets/SettingsDialog.qml:290
+#: src/widgets/SettingsDialog.qml:275
 #, kde-format
 msgid "Add new sources to manage and browse your image collection."
 msgstr "添加和管理此应用的图像来源位置。"
 
-#: src/widgets/SettingsDialog.qml:330
+#: src/widgets/SettingsDialog.qml:315
 #, kde-format
 msgid "Add"
 msgstr "添加"
@@ -460,40 +455,47 @@ msgstr "即将就绪"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "请确保您已连接到互联网，并且您的云账号能够正常工作"
 
-#: src/widgets/views/Folders/FoldersView.qml:56
+#: src/widgets/views/Folders/FoldersView.qml:57
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
 msgstr[0] "在 %1 个文件夹中筛选"
 
-#: src/widgets/views/Folders/FoldersView.qml:72
+#: src/widgets/views/Folders/FoldersView.qml:73
 #, kde-format
 msgid "Toggle sidebar"
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:83
+#: src/widgets/views/Folders/FoldersView.qml:84
 #, kde-format
 msgid "No Folders!"
 msgstr "没有文件夹"
 
-#: src/widgets/views/Folders/FoldersView.qml:84
+#: src/widgets/views/Folders/FoldersView.qml:85
 #, kde-format
 msgid "Add new image sources"
 msgstr "添加新的图像来源"
 
-#: src/widgets/views/Folders/FoldersView.qml:190
+#: src/widgets/views/Folders/FoldersView.qml:191
 #, kde-format
 msgid "Folder is empty!"
 msgstr "文件夹为空"
 
-#: src/widgets/views/Folders/FoldersView.qml:191
+#: src/widgets/views/Folders/FoldersView.qml:192
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "此文件夹不包含图像"
 
+#: src/widgets/views/Folders/FoldersView.qml:199
+#, fuzzy, kde-format
+#| msgid "Open images"
+msgid "No images."
+msgid_plural "%1 images"
+msgstr[0] "打开图像"
+
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
-#: src/widgets/views/Viewer/PixViewer.qml:227
+#: src/widgets/views/Viewer/PixViewer.qml:213
 #, kde-format
 msgid "No Pics!"
 msgstr "没有图像"
@@ -601,22 +603,22 @@ msgstr "%1 中没有图像"
 msgid "There're no pics associated with the tag"
 msgstr "该标签没有关联图像"
 
-#: src/widgets/views/Viewer/PixViewer.qml:92
+#: src/widgets/views/Viewer/PixViewer.qml:72
 #, kde-format
 msgid "Save as"
 msgstr "另存为"
 
-#: src/widgets/views/Viewer/PixViewer.qml:111
+#: src/widgets/views/Viewer/PixViewer.qml:91
 #, kde-format
 msgid "Save"
 msgstr "保存"
 
-#: src/widgets/views/Viewer/PixViewer.qml:152
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "返回"
 
-#: src/widgets/views/Viewer/PixViewer.qml:228
+#: src/widgets/views/Viewer/PixViewer.qml:214
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"
