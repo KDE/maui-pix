@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-27 10:36+0100\n"
+"PO-Revision-Date: 2023-03-02 11:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -141,10 +141,9 @@ msgid "Tags"
 msgstr "Etiquetes"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "No s'ha trobat cap resultat."
+msgstr "No s'ha trobat cap font a explorar."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -152,10 +151,9 @@ msgid "Search"
 msgstr "Cerca"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Text de les imatges"
+msgstr "Text de les imatges (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -383,7 +381,7 @@ msgstr "Mostra les etiquetes GPS."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Característica experimental."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -498,12 +496,11 @@ msgid "There're no images in this folder"
 msgstr "No hi ha cap imatge en aquesta carpeta"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Obre imatges"
-msgstr[1] "Obre imatges"
+msgstr[0] "Sense imatges."
+msgstr[1] "%1 imatges"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
@@ -635,12 +632,3 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obre una imatge de la col·lecció"
-
-#~ msgid "Filter"
-#~ msgstr "Filtre"
-
-#~ msgid "Places Sidebar"
-#~ msgstr "Barra lateral de llocs"
-
-#~ msgid "Enable places navigation in the folders view."
-#~ msgstr "Activa la navegació de llocs a les vistes de carpetes."

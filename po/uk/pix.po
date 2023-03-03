@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-27 16:43+0200\n"
+"PO-Revision-Date: 2023-03-02 13:59+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -146,10 +146,9 @@ msgid "Tags"
 msgstr "Мітки"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Нічого не знайдено."
+msgstr "Не знайдено джерел для сканування."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -157,10 +156,9 @@ msgid "Search"
 msgstr "Шукати"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Текст зображення"
+msgstr "Текст зображення (розпізнавання)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -387,7 +385,7 @@ msgstr "Показати мітки GPS."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Експериментальна можливість."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -504,14 +502,13 @@ msgid "There're no images in this folder"
 msgstr "У цій теці немає зображень"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Відкриття зображень"
-msgstr[1] "Відкриття зображень"
-msgstr[2] "Відкриття зображень"
-msgstr[3] "Відкриття зображень"
+msgstr[0] "%1 зображення."
+msgstr[1] "%1 зображення."
+msgstr[2] "%1 зображень."
+msgstr[3] "%1 зображення."
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
