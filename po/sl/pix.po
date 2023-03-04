@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-28 08:45+0100\n"
+"PO-Revision-Date: 2023-03-03 11:46+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/main.cpp:130
@@ -148,10 +148,9 @@ msgid "Tags"
 msgstr "Značke"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Ni najdenih rezultatov."
+msgstr "Ni najdenih virov za branje."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -159,10 +158,9 @@ msgid "Search"
 msgstr "Išči"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Besedilo slike"
+msgstr "Besedilo slike (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -390,7 +388,7 @@ msgstr "Prikaži GPS značke."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Eksperimentalna zmožnost."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -504,14 +502,13 @@ msgid "There're no images in this folder"
 msgstr "Ni slik v tej mapi"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Odpri slike"
-msgstr[1] "Odpri slike"
-msgstr[2] "Odpri slike"
-msgstr[3] "Odpri slike"
+msgstr[0] "%1slik."
+msgstr[1] "%1 sliki"
+msgstr[2] "%1 slike"
+msgstr[3] "%1 slik"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68

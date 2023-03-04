@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-27 06:34+0100\n"
+"PO-Revision-Date: 2023-03-03 06:23+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -139,10 +139,9 @@ msgid "Tags"
 msgstr "ჭდეები"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "შედეგების გარეშე."
+msgstr "სკანირების წყაროების გარეშე."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -150,10 +149,9 @@ msgid "Search"
 msgstr "ძებნა"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "გამოსახულების ტექსტი"
+msgstr "გამოსახულების ტექსტი (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -380,7 +378,7 @@ msgstr "GPS ჭდეების ჩვენება."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "ექსპერიმენტული ფუნქცია."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -491,12 +489,11 @@ msgid "There're no images in this folder"
 msgstr "საქაღალდეში გამოსახულებები არაა"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "გამოსახულების გახსნა"
-msgstr[1] "გამოსახულების გახსნა"
+msgstr[0] "გამოსახულებების გარეშე"
+msgstr[1] "%1 გამოსახულება"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-27 19:22+0100\n"
+"PO-Revision-Date: 2023-03-03 07:23+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -137,10 +137,9 @@ msgid "Tags"
 msgstr "Étiquettes"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Aucun résultat trouvé."
+msgstr "Aucune source trouvée à analyser."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -148,10 +147,9 @@ msgid "Search"
 msgstr "Rechercher"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Titre de l'image"
+msgstr "Texte d'image (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -381,7 +379,7 @@ msgstr "Afficher les étiquettes GPS"
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Fonctionnement expérimental."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -497,12 +495,11 @@ msgid "There're no images in this folder"
 msgstr "Il n'y a aucune image dans ce dossier."
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Ouvrir des images"
-msgstr[1] "Ouvrir des images"
+msgstr[0] "Aucune image."
+msgstr[1] "%1 images."
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68

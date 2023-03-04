@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-27 10:50+0100\n"
+"PO-Revision-Date: 2023-03-02 12:51+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -138,10 +138,9 @@ msgid "Tags"
 msgstr "Tags"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Geen resultaten gevonden."
+msgstr "Geen te scannen bronnen gevonden."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -149,10 +148,9 @@ msgid "Search"
 msgstr "Zoeken"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Tekst van afbeelding"
+msgstr "Tekst van afbeelding (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -379,7 +377,7 @@ msgstr "GPS-tags tonen."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Experimentele mogelijkheid."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -493,12 +491,11 @@ msgid "There're no images in this folder"
 msgstr "Er zijn geen afbeeldingen in deze map"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Afbeeldingen openen"
-msgstr[1] "Afbeeldingen openen"
+msgstr[0] "Geen afbeeldingen."
+msgstr[1] "%1 afbeeldingen"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
