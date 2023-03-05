@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-27 19:51+0300\n"
+"PO-Revision-Date: 2023-03-04 14:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -137,10 +137,9 @@ msgid "Tags"
 msgstr "Etiketler"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Sonuç bulunamadı."
+msgstr "Taranacak bir kaynak bulunamadı."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -148,10 +147,9 @@ msgid "Search"
 msgstr "Arama"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Görsel Metni"
+msgstr "Görsel Metni (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -377,7 +375,7 @@ msgstr "GPS etiketlerini göster."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Deneysel özellik."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -489,12 +487,11 @@ msgid "There're no images in this folder"
 msgstr "Bu klasörde görsel yok"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Görsel Aç"
-msgstr[1] "Görsel Aç"
+msgstr[0] "Görsel yok."
+msgstr[1] "%1 görsel"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68

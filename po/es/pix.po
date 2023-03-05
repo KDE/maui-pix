@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-27 18:57+0100\n"
+"PO-Revision-Date: 2023-03-04 17:43+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 20.04.2\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -140,10 +140,9 @@ msgid "Tags"
 msgstr "Etiquetas"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "No se ha encontrado ningún resultado."
+msgstr "No hay fuentes que escanear."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -151,10 +150,9 @@ msgid "Search"
 msgstr "Buscar"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Texto de la imagen"
+msgstr "Texto de la imagen (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -277,7 +275,7 @@ msgstr "Ajustar"
 #: src/widgets/SettingsDialog.qml:58
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Ajustar las vistas previas y preservar el ratio de aspecto."
 
 #: src/widgets/SettingsDialog.qml:70
 #, kde-format
@@ -285,10 +283,9 @@ msgid "Image Titles"
 msgstr "Títulos de imagen"
 
 #: src/widgets/SettingsDialog.qml:71
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Mostrar los títulos de las imágenes."
+msgstr "Mostrar el nombre del archivo de las imágenes."
 
 #: src/widgets/SettingsDialog.qml:83
 #, kde-format
@@ -383,7 +380,7 @@ msgstr "Mostrar etiquetas GPS."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Funcionalidad experimental."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -497,12 +494,11 @@ msgid "There're no images in this folder"
 msgstr "No hay imágenes en esta carpeta"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Abrir imágenes"
-msgstr[1] "Abrir imágenes"
+msgstr[0] "Sin imagen"
+msgstr[1] "%1 imágenes"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
@@ -634,15 +630,3 @@ msgstr "Previa"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir una imagen de su colección"
-
-#~ msgid "Filter"
-#~ msgstr "Filtro"
-
-#~ msgid "Places Sidebar"
-#~ msgstr "Barra lateral de lugares"
-
-#~ msgid "Enable places navigation in the folders view."
-#~ msgstr "Activar lugares de navegación en la vista de carpetas."
-
-#~ msgid "Fit the previews"
-#~ msgstr "Ajustar las vistas previas"
