@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-15 12:40+0000\n"
+"PO-Revision-Date: 2023-03-06 15:00+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -139,10 +139,9 @@ msgid "Tags"
 msgstr "Marcas"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Não foram encontrados resultados."
+msgstr "Não foram encontradas fontes para analisar."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -150,16 +149,14 @@ msgid "Search"
 msgstr "Procurar"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Texto da Imagem"
+msgstr "Texto da Imagem (OCR)"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
-msgstr "Apagar o ficheiro?"
+msgstr "Apagar o Ficheiro?"
 
 #: src/view_models/PixMenu.qml:34
 #, kde-format
@@ -200,10 +197,9 @@ msgid "Open with"
 msgstr "Abrir com"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
-msgstr "Ir para a pasta"
+msgstr "Ir para a Pasta"
 
 #: src/view_models/PixMenu.qml:155
 #, kde-format
@@ -278,7 +274,7 @@ msgstr "Ajustar"
 #: src/widgets/SettingsDialog.qml:58
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Ajusta o tamanho das antevisões, mantendo as proporções de tamanho."
 
 #: src/widgets/SettingsDialog.qml:70
 #, kde-format
@@ -286,10 +282,9 @@ msgid "Image Titles"
 msgstr "Títulos das Imagens"
 
 #: src/widgets/SettingsDialog.qml:71
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Mostrar os títulos das imagens."
+msgstr "Mostrar o nome do ficheiro das imagens."
 
 #: src/widgets/SettingsDialog.qml:83
 #, kde-format
@@ -384,7 +379,7 @@ msgstr "Mostrar as marcas de GPS."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Funcionalidade experimental."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -496,12 +491,11 @@ msgid "There're no images in this folder"
 msgstr "Não existem imagens nesta pasta"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Abrir as imagens"
-msgstr[1] "Abrir as imagens"
+msgstr[0] "Sem imagens."
+msgstr[1] "%1 imagens"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
@@ -633,15 +627,3 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir uma imagem da sua colecção"
-
-#~ msgid "Filter"
-#~ msgstr "Filtro"
-
-#~ msgid "Places Sidebar"
-#~ msgstr "Barra Lateral de Locais"
-
-#~ msgid "Enable places navigation in the folders view."
-#~ msgstr "Activa a navegação pelos locais na área das pastas."
-
-#~ msgid "Fit the previews"
-#~ msgstr "Ajustar as antevisões"
