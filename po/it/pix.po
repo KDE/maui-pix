@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-04 07:43+0100\n"
+"PO-Revision-Date: 2023-03-05 16:29+0100\n"
 "Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -139,10 +139,9 @@ msgid "Tags"
 msgstr "Etichette"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Nessun risultato trovato."
+msgstr "Nessuna fonte da analizzare trovata."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -150,14 +149,12 @@ msgid "Search"
 msgstr "Cerca"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Testo dell'immagine"
+msgstr "Testo dell'immagine (OCR)"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "Eliminare il file?"
 
@@ -195,20 +192,17 @@ msgid "Export"
 msgstr "Esporta"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Apri con"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "Vai alla cartella"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "Apri posizione"
 
@@ -258,10 +252,9 @@ msgid "Dark Mode"
 msgstr "Modalità scura"
 
 #: src/widgets/SettingsDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Passa tra gli schemi di colori chiaro e scuro"
+msgstr "Passa dallo schema di colori chiaro allo scuro e viceversa."
 
 #: src/widgets/SettingsDialog.qml:52
 #, kde-format
@@ -281,7 +274,7 @@ msgstr "Adatta"
 #: src/widgets/SettingsDialog.qml:58
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Adatta le anteprime e mantieni il rapporto d'aspetto."
 
 #: src/widgets/SettingsDialog.qml:70
 #, kde-format
@@ -289,10 +282,9 @@ msgid "Image Titles"
 msgstr "Titoli delle immagini"
 
 #: src/widgets/SettingsDialog.qml:71
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Mostra i titoli delle immagini."
+msgstr "Mostra il nome del file dell'immagini."
 
 #: src/widgets/SettingsDialog.qml:83
 #, kde-format
@@ -325,8 +317,7 @@ msgid "XL"
 msgstr "XL"
 
 #: src/widgets/SettingsDialog.qml:134
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
 msgstr "Ordina per"
 
@@ -356,8 +347,7 @@ msgid "Date"
 msgstr "Data"
 
 #: src/widgets/SettingsDialog.qml:184
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "Ordinamento"
 
@@ -389,7 +379,7 @@ msgstr "Mostra le etichette GPS."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Funzione sperimentale."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -504,12 +494,11 @@ msgid "There're no images in this folder"
 msgstr "Non ci sono immagini in questa cartella"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Apri immagini"
-msgstr[1] "Apri immagini"
+msgstr[0] "Nessuna immagine."
+msgstr[1] "%1 Immagini"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
