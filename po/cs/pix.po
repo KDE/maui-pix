@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-27 14:52+0100\n"
+"PO-Revision-Date: 2023-03-02 18:29+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -137,10 +137,9 @@ msgid "Tags"
 msgstr "Značky"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Nenalezeny žádné výsledky."
+msgstr "Pro skenování nebyly nalezeny žádné zdroje."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
@@ -148,10 +147,9 @@ msgid "Search"
 msgstr "Hledat"
 
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Text obrázku"
+msgstr "Text obrázku (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -377,7 +375,7 @@ msgstr "Zobrazit značky GPS."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Experimentální funkce."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -488,13 +486,12 @@ msgid "There're no images in this folder"
 msgstr "V této složce nejsou žádné obrázky"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Otevřít obrázky"
-msgstr[1] "Otevřít obrázky"
-msgstr[2] "Otevřít obrázky"
+msgstr[0] "Žádné obrázky."
+msgstr[1] "%1 obrázky"
+msgstr[2] "%1 obrázků"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
@@ -627,9 +624,3 @@ msgstr "Předchozí"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
-
-#~ msgid "Filter"
-#~ msgstr "Filtr"
-
-#~ msgid "Places Sidebar"
-#~ msgstr "Postranní panel míst"
