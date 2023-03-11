@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
-# Tommi Nieminen <translator@legisign.org>, 2020, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2022-06-05 20:15+0300\n"
+"PO-Revision-Date: 2023-03-06 13:42+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -63,10 +63,9 @@ msgid "Gallery"
 msgstr "Galleria"
 
 #: src/main.qml:214
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Collections"
-msgstr "Kokoelma"
+msgstr "Kokoelmat"
 
 #: src/main.qml:253
 #, kde-format
@@ -104,20 +103,19 @@ msgstr[0] "Haluatko varmasti poistaa tämän tiedoston? Toimintoa ei voi kumota.
 msgstr[1] "Haluatko varmasti poistaa nämä tiedostot? Toimintoa ei voi kumota."
 
 #: src/models/folders/placesmodel.cpp:33
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgid "Favorites"
-msgstr "Suosikki"
+msgstr "Suosikit"
 
 #: src/models/folders/placesmodel.cpp:34
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "Lataukset"
 
 #: src/models/folders/placesmodel.cpp:35
 #, kde-format
 msgid "Documents"
-msgstr ""
+msgstr "Tiedostot"
 
 #: src/models/folders/placesmodel.cpp:36
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -128,7 +126,7 @@ msgstr "Ruutukaappaukset"
 #: src/models/folders/placesmodel.cpp:37
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
 #: src/view_models/PixMenu.qml:57
@@ -139,22 +137,21 @@ msgstr "Tunnisteet"
 #: src/models/gallery/gallery.cpp:124
 #, kde-format
 msgid "No sources found to scan."
-msgstr ""
+msgstr "Luettavia lähteitä ei löytynyt."
 
 #: src/view_models/PixGrid.qml:51
 #, kde-format
 msgid "Search"
 msgstr "Etsi"
 
+# *** TARKISTA: Onko tämä käskymuoto vai yhdyssana?
 #: src/view_models/PixGrid.qml:78
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Kuvaotsikot"
+msgstr "Luettu teksti (OCR)"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "Poistetaanko tiedosto?"
 
@@ -190,20 +187,17 @@ msgid "Export"
 msgstr "Vie"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Avaa ohjelmalla"
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "Siirry kansioon"
 
 #: src/view_models/PixMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "Avaa sijainti"
 
@@ -253,10 +247,9 @@ msgid "Dark Mode"
 msgstr "Tumma tila"
 
 #: src/widgets/SettingsDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Vaihda vaalean ja tumman värimallin välillä"
+msgstr "Vaihda vaalean ja tumman värimallin välillä."
 
 #: src/widgets/SettingsDialog.qml:52
 #, kde-format
@@ -276,7 +269,7 @@ msgstr "Sovita"
 #: src/widgets/SettingsDialog.qml:58
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Sovittaa esikatselut ja säilyttää kuvasuhteen."
 
 #: src/widgets/SettingsDialog.qml:70
 #, kde-format
@@ -284,10 +277,9 @@ msgid "Image Titles"
 msgstr "Kuvaotsikot"
 
 #: src/widgets/SettingsDialog.qml:71
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Näytä kuvien otsikot."
+msgstr "Näytä kuvien tiedostonimet."
 
 #: src/widgets/SettingsDialog.qml:83
 #, kde-format
@@ -320,10 +312,9 @@ msgid "XL"
 msgstr "XL"
 
 #: src/widgets/SettingsDialog.qml:134
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
-msgstr "Lajittelutapa"
+msgstr "Lajittelu"
 
 #: src/widgets/SettingsDialog.qml:135
 #, kde-format
@@ -351,8 +342,7 @@ msgid "Date"
 msgstr "Päiväys"
 
 #: src/widgets/SettingsDialog.qml:184
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "Lajittelujärjestys"
 
@@ -372,21 +362,19 @@ msgid "Descending"
 msgstr "Laskeva"
 
 #: src/widgets/SettingsDialog.qml:223
-#, fuzzy, kde-format
-#| msgid "Tags"
+#, kde-format
 msgid "GPS Tags"
-msgstr "Tunnisteet"
+msgstr "GPS-tunnisteet"
 
 #: src/widgets/SettingsDialog.qml:224
-#, fuzzy, kde-format
-#| msgid "Show tag bar"
+#, kde-format
 msgid "Show GPS tags."
-msgstr "Näytä luokittelurivi"
+msgstr "Näytä GPS-tunnisteet."
 
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Kokeellinen ominaisuus."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -436,12 +424,12 @@ msgstr "Lisää"
 #: src/widgets/Sidebar.qml:41
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Kirjanmerkkejä!"
 
 #: src/widgets/Sidebar.qml:42
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Kirjanmerkkisi tulevat tähän"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -473,7 +461,7 @@ msgstr[1] "Suodata %1 kansiota"
 #: src/widgets/views/Folders/FoldersView.qml:73
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Näytä tai piilota sivupaneeli"
 
 #: src/widgets/views/Folders/FoldersView.qml:84
 #, kde-format
@@ -496,12 +484,11 @@ msgid "There're no images in this folder"
 msgstr "Tässä kansiossa ei ole kuvia"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Avaa kuvia"
-msgstr[1] "Avaa kuvia"
+msgstr[0] "Ei kuvia."
+msgstr[1] "%1 kuvaa"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
@@ -524,7 +511,7 @@ msgstr "Lisää lähteitä"
 #: src/widgets/views/Tags/TagsSidebar.qml:69
 #, kde-format
 msgid "No results found."
-msgstr ""
+msgstr "Ei tuloksia."
 
 #: src/widgets/views/Tags/TagsSidebar.qml:111
 #, kde-format
@@ -556,21 +543,18 @@ msgstr "Gallerian järjestämiseksi voi lisätä uusia luokituksia"
 #: src/widgets/views/Tags/TagsSidebar.qml:180
 #, kde-format
 msgid "Places"
-msgstr ""
+msgstr "Sijainnit"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:181
 #: src/widgets/views/Tags/TagsSidebar.qml:221
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "GPS based locations"
-msgstr "Avaa sijainti"
+msgstr "GPS-pohjaiset sijainnit"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:220
-#, fuzzy, kde-format
-#| msgid "Filter %1 tag"
-#| msgid_plural "Filter %1 tags"
+#, kde-format
 msgid "Filters"
-msgstr "Suodata %1 luokitus"
+msgstr "Suodattimet"
 
 # *** TARKISTA: Oletan kuuluvan yhteen muiden monikkomuotoisten kanssa
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -581,27 +565,28 @@ msgstr "Animoidut"
 #: src/widgets/views/Tags/TagsSidebar.qml:254
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "Sunnuntai"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:262
 #, kde-format
 msgid "PNGs"
-msgstr ""
+msgstr "PNG:t"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:270
 #, kde-format
 msgid "PSD"
-msgstr ""
+msgstr "PSD"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:278
 #, kde-format
 msgid "Vectors"
-msgstr ""
+msgstr "Vektoripiirustukset"
 
+# *** TARKISTA: Tämä saattaisi olla myös esim. ohjelman nimi!
 #: src/widgets/views/Tags/TagsSidebar.qml:286
 #, kde-format
 msgid "Paint"
-msgstr ""
+msgstr "Maalaus"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:294
 #, kde-format
