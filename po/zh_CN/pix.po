@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:53+0000\n"
-"PO-Revision-Date: 2023-02-24 12:43\n"
+"PO-Revision-Date: 2023-03-11 04:52\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -148,10 +148,9 @@ msgid "Image Text (OCR)"
 msgstr ""
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
-msgstr "删除文件？"
+msgstr ""
 
 #: src/view_models/PixMenu.qml:34
 #, kde-format
@@ -185,16 +184,14 @@ msgid "Export"
 msgstr "导出"
 
 #: src/view_models/PixMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
-msgstr "打开方式"
+msgstr ""
 
 #: src/view_models/PixMenu.qml:138
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "Go to Folder"
-msgstr "没有文件夹"
+msgstr ""
 
 #: src/view_models/PixMenu.qml:155
 #, kde-format
@@ -247,10 +244,9 @@ msgid "Dark Mode"
 msgstr "深色模式"
 
 #: src/widgets/SettingsDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "切换浅色/深色模式"
+msgstr ""
 
 #: src/widgets/SettingsDialog.qml:52
 #, kde-format
@@ -278,10 +274,9 @@ msgid "Image Titles"
 msgstr "图像标题"
 
 #: src/widgets/SettingsDialog.qml:71
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "显示图像的标题。"
+msgstr ""
 
 #: src/widgets/SettingsDialog.qml:83
 #, kde-format
@@ -314,10 +309,9 @@ msgid "XL"
 msgstr "超大"
 
 #: src/widgets/SettingsDialog.qml:134
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
-msgstr "排序依据"
+msgstr ""
 
 #: src/widgets/SettingsDialog.qml:135
 #, kde-format
@@ -345,10 +339,9 @@ msgid "Date"
 msgstr "日期"
 
 #: src/widgets/SettingsDialog.qml:184
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
-msgstr "排序顺序"
+msgstr ""
 
 #: src/widgets/SettingsDialog.qml:185
 #, kde-format
@@ -487,11 +480,10 @@ msgid "There're no images in this folder"
 msgstr "此文件夹不包含图像"
 
 #: src/widgets/views/Folders/FoldersView.qml:199
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "打开图像"
+msgstr[0] ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
@@ -622,6 +614,3 @@ msgstr "返回"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"
-
-#~ msgid "Fit the previews"
-#~ msgstr "缩放图像而非裁切到缩略图尺寸"
