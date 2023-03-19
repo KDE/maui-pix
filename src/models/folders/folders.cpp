@@ -1,6 +1,8 @@
 #include "folders.h"
 
 #include <QDebug>
+#include <QDir>
+#include <QDirIterator>
 
 #include <MauiKit/FileBrowsing/fmstatic.h>
 
@@ -45,11 +47,43 @@ void Folders::setList()
 
     for (const auto &folder : (m_folders))
     {
-        this->list << FMStatic::getFileInfoModel(folder);
+        auto item = FMStatic::getFileInfoModel(folder);
+        item[FMH::MODEL_KEY::PREVIEW] = getPreviews(item[FMH::MODEL_KEY::PATH]).join(",");
+        this->list << item;
     }
 
     emit this->postListChanged();
     emit this->countChanged();
+}
+
+QStringList Folders::getPreviews(const QString &path)
+{
+    QStringList res;
+    QDir dir(QUrl::fromUserInput(path).toLocalFile());
+
+    qDebug() << "GET PREVIEWS" << path << QUrl::fromUserInput(path).toLocalFile();
+
+    if(!dir.exists())
+        return res;
+
+    dir.setFilter(QDir::Files);
+    dir.setSorting(QDir::Time);
+    dir.setNameFilters(FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE]);
+
+    int i= 0;
+
+    for(const auto &entry : dir.entryInfoList())
+    {
+        if(i >= 4)
+            break;
+
+        res << QUrl::fromLocalFile(entry.filePath()).toString();
+        i++;
+    }
+
+    qDebug() << "GET PREVIEWS" << res;
+
+    return res;
 }
 
 

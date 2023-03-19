@@ -23,18 +23,18 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-#ifndef PIX_H
-#define PIX_H
-
+#pragma once
 #include <QString>
 #include <QUrl>
 #include <QVariantList>
 
+class Gallery;
 class Pix : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QVariantList sourcesModel READ sourcesModel NOTIFY sourcesChanged FINAL)
     Q_PROPERTY(QStringList sources READ sources NOTIFY sourcesChanged FINAL)
+    Q_PROPERTY(Gallery* allImagesModel READ allImagesModel CONSTANT FINAL)
 
 public:
     static Pix *instance()
@@ -56,8 +56,12 @@ public:
     inline static const QStringList getSourcePaths();
     inline static void saveSourcePath(QStringList const &);
     inline static void removeSourcePath(const QString &);
+    static QUrl cameraPath();
+    static QUrl screenshotsPath();
 
-public slots:
+    Gallery* allImagesModel();
+
+public Q_SLOTS:
     QVariantList sourcesModel() const;
     QStringList sources() const;
 
@@ -73,8 +77,9 @@ private:
     explicit Pix(QObject * = nullptr);
     static Pix * m_instance;
 
-signals:
+    mutable Gallery* m_allImagesModel;
+
+Q_SIGNALS:
     void viewPics(QStringList pics);
     void sourcesChanged();
 };
-#endif // PIX_H

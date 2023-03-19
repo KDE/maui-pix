@@ -5,7 +5,6 @@
 
 
 .import org.mauikit.filebrowsing 1.2 as FB
-.import QtQuick.Controls 2.15 as QQC2
 
 function open(model, index)
 {

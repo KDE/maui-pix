@@ -35,22 +35,15 @@ Loader
         bottomPadding: 0
         verticalScrollBarPolicy: ScrollBar.AlwaysOff
 
-        signal placeClicked (string path, var mouse)
+        signal placeClicked (string path, string filters, var mouse)
 
         holder.visible: count === 0
         holder.title: i18n("Bookmarks!")
         holder.body: i18n("Your bookmarks will be listed here")
 
-        Binding on currentIndex
-        {
-            value: placesList.indexOfPath(currentBrowser.currentPath)
-            restoreMode: Binding.RestoreBindingOrValue
-        }
-
         onPlaceClicked:
-        {
-               root.openFolder(path)
-
+        {            
+            root.openFolder(path, filters.split(","))
 
             if(sideBar.collapsed)
                 sideBar.close()
@@ -63,8 +56,6 @@ Loader
         {
             asynchronous: true
             width: parent.width
-            //                height: item ? item.implicitHeight : 0
-            active: appSettings.quickSidebarSection
             visible: active
 
             sourceComponent: Item
@@ -87,29 +78,29 @@ Loader
 
 
                         delegate: Maui.GridBrowserDelegate
+                        {
+                            Layout.preferredHeight: Math.min(50, width)
+                            Layout.preferredWidth: 50
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            Layout.columnSpan: modelData.path === "tags:///fav" ? 2 : (modelData.path === "collection:///" ? 3 : 1)
+
+
+                            isCurrentItem: currentFolder === modelData.path
+                            iconSource: modelData.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
+                            iconSizeHint: Maui.Style.iconSize
+                            template.isMask: true
+                            label1.text: modelData.label
+                            labelsVisible: false
+                            tooltipText: modelData.label
+                            flat: false
+                            onClicked:
                             {
-                                Layout.preferredHeight: Math.min(50, width)
-                                Layout.preferredWidth: 50
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-                                Layout.columnSpan: modelData.path === "tags:///fav" ? 2 : 1
-
-
-                                isCurrentItem: currentFolder === modelData.path
-                                iconSource: modelData.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
-                                iconSizeHint: Maui.Style.iconSize
-                                template.isMask: true
-                                label1.text: modelData.label
-                                labelsVisible: false
-                                tooltipText: modelData.label
-                                flat: false
-                                onClicked:
-                                {
-                                    _listBrowser.placeClicked(modelData.path, mouse)
-                                    if(sideBar.collapsed)
-                                        sideBar.close()
-                                }
+                                _listBrowser.placeClicked(modelData.path, modelData.filters, mouse)
+                                if(sideBar.collapsed)
+                                    sideBar.close()
                             }
+                        }
 
                     }
                 }
@@ -133,18 +124,17 @@ Loader
             width: ListView.view.width
 
             iconSize: Maui.Style.iconSize
-            label: model.tag
+            label: model.name
             iconName: model.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
             iconVisible: true
             template.isMask: iconSize <= Maui.Style.iconSizes.medium
 
             onClicked:
             {
-                _listBrowser.placeClicked(model.path, mouse)
+                _listBrowser.placeClicked(model.path, model.key, mouse)
                 if(sideBar.collapsed)
                     sideBar.close()
             }
-
         }
 
         section.property: "type"

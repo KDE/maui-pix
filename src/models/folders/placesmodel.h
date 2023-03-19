@@ -20,6 +20,9 @@ private:
 
     void setList();
     FMH::MODEL_LIST tags();
+    FMH::MODEL_LIST collectionPaths();
+    FMH::MODEL_LIST locations();
+    FMH::MODEL_LIST categories();
     // QQmlParserStatus interface
 public:
     void classBegin() override final;

@@ -83,7 +83,6 @@ Maui.ContextualMenu
                 Maui.Platform.shareFiles(filterSelection(item.url))
             }
         }
-
     }
 
     MenuSeparator{}

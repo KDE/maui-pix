@@ -36,7 +36,6 @@ StackView
 
     property alias showCSDControls: _viewer.showCSDControls
 
-
     PixMenu
     {
         id: _picMenu
@@ -120,7 +119,7 @@ StackView
 
             Maui.ToolActions
             {
-                visible: !holder.visible && (!Maui.Handy.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) //only show footbar control for desktop mode
+                visible: !holder.visible && (!Maui.Handy.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) && control.model.count > 1 //only show footbar control for desktop mode
 
                 expanded: true
                 autoExclusive: false

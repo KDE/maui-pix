@@ -13,7 +13,10 @@
 #include <MauiKit/ImageTools/exiv2extractor.h>
 #include <MauiKit/ImageTools/textscanner.h>
 
-static QHash<QString, QString> TextInImages;
+#include "pix.h"
+
+static QHash<QString, QString> TextInImages; //[url:text] //global cache of text in images
+static QHash<QString, QString> GpsInImages; //[url:cityId] //global cache of cities in images
 
 static FMH::MODEL picInfo(const QUrl &url)
 {
@@ -30,7 +33,19 @@ static FMH::MODEL picInfo(const QUrl &url)
 static FMH::MODEL picInfo2(const QUrl &url)
 {
     const QFileInfo info(url.toLocalFile());
-    const Exiv2Extractor exiv2(url);
+    QString cityId;
+
+    const auto urlId = url.toString();
+    if(GpsInImages.contains(urlId))
+    {
+        cityId = GpsInImages.value(urlId);
+    }else
+    {
+        qDebug() << "CREATING A NEW CITY";
+        const Exiv2Extractor exiv2(url);
+        cityId = exiv2.cityId();
+        GpsInImages.insert(urlId, cityId);
+    }
 
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
         {FMH::MODEL_KEY::TITLE, info.fileName()},
@@ -38,7 +53,7 @@ static FMH::MODEL picInfo2(const QUrl &url)
         {FMH::MODEL_KEY::SOURCE,QUrl::fromLocalFile(info.absoluteDir().absolutePath()).toString ()},
         {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
         {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-        {FMH::MODEL_KEY::CITY, exiv2.cityId()},
+        {FMH::MODEL_KEY::CITY, cityId},
         {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
 }
 
@@ -53,9 +68,6 @@ Gallery::Gallery(QObject *parent)
     qDebug() << "CREATING GALLERY LIST";
     m_scanTimer->setSingleShot(true);
     m_scanTimer->setInterval(15000); //wait 15 secs after a new image is found and before the rescan
-
-    m_fileLoader->setBatchCount(500);
-    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
 }
 
 Gallery::~Gallery()
@@ -75,7 +87,7 @@ void Gallery::setUrls(const QList<QUrl> &urls)
     //		return;
 
     this->m_urls = urls;
-    emit this->urlsChanged();
+    Q_EMIT this->urlsChanged();
 }
 
 QList<QUrl> Gallery::urls() const
@@ -89,7 +101,7 @@ void Gallery::setAutoReload(const bool &value)
         return;
 
     m_autoReload = value;
-    emit autoReloadChanged();
+    Q_EMIT autoReloadChanged();
 }
 
 bool Gallery::autoReload() const
@@ -153,13 +165,13 @@ void Gallery::setStatus(const Gallery::Status &status, const QString &error)
 {
     qDebug() << "Setting up status" << status;
     this->m_status = status;
-    emit this->statusChanged();
+    Q_EMIT this->statusChanged();
 
 
     if(error != m_error)
     {
         this->m_error = error;
-        emit this->errorChanged(m_error);
+        Q_EMIT this->errorChanged(m_error);
     }
 }
 
@@ -176,36 +188,40 @@ bool Gallery::deleteAt(const int &index)
 
     const auto index_ = index;
 
-    emit this->preItemRemoved(index_);
+    Q_EMIT this->preItemRemoved(index_);
     auto item = this->list.takeAt(index_);
     FMStatic::removeFiles({item[FMH::MODEL_KEY::URL]});
-    emit this->postItemRemoved();
+    Q_EMIT this->postItemRemoved();
 
     return true;
 }
 
 void Gallery::append(const QVariantMap &pic)
 {
-    emit this->preItemAppended();
+    Q_EMIT this->preItemAppended();
     this->list << FMH::toModel(pic);
-    emit this->postItemAppended();
+    Q_EMIT this->postItemAppended();
 }
 
 void Gallery::append(const QString &url)
 {
-    emit this->preItemAppended();
+    Q_EMIT this->preItemAppended();
     this->list << picInfo(QUrl::fromUserInput(url));
-    emit this->postItemAppended();
+    Q_EMIT this->postItemAppended();
 }
 
 void Gallery::clear()
 {
-    emit this->preListChanged();
+    Q_EMIT this->preListChanged();
     this->list.clear();
-    emit this->postListChanged();
+    Q_EMIT this->postListChanged();
 
     this->m_folders.clear();
-    emit foldersChanged();
+    this->m_cities.clear();
+
+    Q_EMIT citiesChanged();
+    Q_EMIT foldersChanged();
+    Q_EMIT filesChanged();
 }
 
 void Gallery::rescan()
@@ -225,7 +241,7 @@ void Gallery::setRecursive(bool recursive)
         return;
 
     m_recursive = recursive;
-    emit recursiveChanged(m_recursive);
+    Q_EMIT recursiveChanged(m_recursive);
 }
 
 void Gallery::setlimit(int limit)
@@ -234,7 +250,7 @@ void Gallery::setlimit(int limit)
         return;
 
     m_limit = limit;
-    emit limitChanged(m_limit);
+    Q_EMIT limitChanged(m_limit);
 }
 
 int Gallery::indexOfName(const QString &query)
@@ -255,7 +271,7 @@ void Gallery::setActiveGeolocationTags(bool activeGeolocationTags)
         return;
 
     m_activeGeolocationTags = activeGeolocationTags;
-    emit activeGeolocationTagsChanged(m_activeGeolocationTags);
+    Q_EMIT activeGeolocationTagsChanged(m_activeGeolocationTags);
 }
 
 void Gallery::componentComplete()
@@ -263,9 +279,9 @@ void Gallery::componentComplete()
     connect(m_fileLoader, &FMH::FileLoader::finished, [this](FMH::MODEL_LIST items) {
         Q_UNUSED(items)
 
-        emit this->filesChanged();
-        emit this->citiesChanged();
-        emit this->foldersChanged();
+        Q_EMIT this->filesChanged();
+        Q_EMIT this->citiesChanged();
+        Q_EMIT this->foldersChanged();
 
         this->setStatus(Status::Ready);
     });
@@ -276,10 +292,10 @@ void Gallery::componentComplete()
         if (items.isEmpty())
             return;
 
-        emit preItemsAppended(items.size());
+        Q_EMIT preItemsAppended(items.size());
         this->list << items;
-        emit postItemAppended();
-        emit this->countChanged();
+        Q_EMIT postItemAppended();
+        Q_EMIT this->countChanged();
     });
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
@@ -309,6 +325,9 @@ void Gallery::componentComplete()
             this->rescan();
         }
     });
+
+    m_fileLoader->setBatchCount(500);
+    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
 
     this->load();
 }

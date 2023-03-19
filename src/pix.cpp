@@ -34,47 +34,64 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <MauiKit/FileBrowsing/tagging.h>
 #include <MauiKit/FileBrowsing/fmstatic.h>
 
+#include "models/gallery/gallery.h"
+
 Pix *Pix::m_instance = nullptr;
 
-Pix::Pix(QObject *parent)
-    : QObject(parent)
+Pix::Pix(QObject *parent) : QObject(parent)
+  ,m_allImagesModel(nullptr)
 {
-  connect(qApp, &QCoreApplication::aboutToQuit, []()
-     {
-         delete m_instance;
-         m_instance = nullptr;
-     });
+    connect(qApp, &QCoreApplication::aboutToQuit, []()
+    {
+        delete m_instance;
+        m_instance = nullptr;
+    });
 }
 
-const static QStringList findCameraCollection()
+QUrl Pix::cameraPath()
 {
-    QStringList res;
-    const static auto paths = QStringList{FMStatic::HomePath + "/DCIM", FMStatic::HomePath + "/Camera"};
+    const static auto paths = QStringList{FMStatic::HomePath + "/DCIM/Camera", FMStatic::HomePath + "/Camera", FMStatic::PicturesPath+"/Camera", FMStatic::PicturesPath+"/camera"};
+
+    for (const auto &path : paths)
+    {
+        if (FMH::fileExists(path))
+            return QUrl(path);
+    }
+
+    return QUrl();
+}
+
+QUrl Pix::screenshotsPath()
+{
+    const static auto paths = QStringList{FMStatic::HomePath + "/DCIM/Screenshots", FMStatic::HomePath + "/Screenshots",FMStatic::PicturesPath+"/screenshots" , FMStatic::PicturesPath+"/Screenshots"};
 
     for (const auto &path : paths) {
         if (FMH::fileExists(path))
-            res << path;
+            return QUrl(path);
     }
 
-    return res;
+    return QUrl();
 }
 
-const static QStringList findScreenshotsCollection()
+Gallery *Pix::allImagesModel()
 {
-    QStringList res;
-    const static auto paths = QStringList{FMStatic::HomePath + "/Screenshots"};
-
-    for (const auto &path : paths) {
-        if (FMH::fileExists(path))
-            res << path;
+    if(!m_allImagesModel)
+    {
+        m_allImagesModel = new Gallery(this);
+        m_allImagesModel->setUrls(QUrl::fromStringList(sources()));
+        m_allImagesModel->setRecursive(true);
+        m_allImagesModel->componentComplete(); //call this to actually get the data
+        connect(this, &Pix::sourcesChanged, [this]()
+        {
+            m_allImagesModel->setUrls(QUrl::fromStringList(sources()));
+        });
     }
-
-    return res;
+    return m_allImagesModel;
 }
 
 const QStringList Pix::getSourcePaths()
 {
-    static const auto defaultSources = QStringList{FMStatic::PicturesPath, FMStatic::DownloadsPath} << findCameraCollection() + findScreenshotsCollection();
+    static const auto defaultSources = QStringList{FMStatic::PicturesPath, FMStatic::DownloadsPath} << cameraPath().toString() + screenshotsPath().toString();
     const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
     qDebug() << "SOURCES" << sources;
     return sources;

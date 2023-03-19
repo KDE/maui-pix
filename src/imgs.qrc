@@ -6,6 +6,5 @@
         <file>assets/add-image.svg</file>
         <file>assets/view-preview.svg</file>
         <file>assets/image-multiple.svg</file>
-        <file>widgets/views/Viewer/OCRPage.qml</file>
     </qresource>
 </RCC>

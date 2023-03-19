@@ -35,49 +35,40 @@ Maui.Page
 
     flickable: _gridView.flickable
     showTitle: false
-    headBar.forceCenterMiddleContent: false
-    headBar.visible: true
-    headBar.middleContent: Loader
+
+    property Component searchFieldComponent : Maui.SearchField
     {
-        asynchronous: true
-        Layout.fillWidth: true
-        Layout.maximumWidth: 500
-        Layout.alignment: Qt.AlignCenter
-
-        sourceComponent: Maui.SearchField
+        enabled: control.list.count > 0
+        text: pixModel.filters.join(",")
+        placeholderText: i18n("Search") + " " + control.list.count + " images"
+        onAccepted:
         {
-            enabled: control.list.count > 0
-
-            placeholderText: i18n("Search") + " " + control.list.count + " images"
-            onAccepted:
+            if(_ocrOption.checked)
             {
-                if(_ocrOption.checked)
-                {
-                    control.list.scanImagesText()
-                }
-
-                if(text.includes(","))
-                {
-                    model.filters = text.split(",")
-                }else
-                {
-                    model.filter = text
-                }
+                control.list.scanImagesText()
             }
 
-            onCleared: model.clearFilters()
-
-            rightContent: Maui.ToolButtonMenu
+            if(text.includes(","))
             {
-                icon.name: "view-filter"
-                visible: Maui.Handy.isLinux
+                model.filters = text.split(",")
+            }else
+            {
+                model.filter = text
+            }
+        }
 
-                MenuItem
-                {
-                    id: _ocrOption
-                    text: i18n("Image Text (OCR)")
-                    checkable: true
-                }
+        onCleared: model.clearFilters()
+
+        rightContent: Maui.ToolButtonMenu
+        {
+            icon.name: "view-filter"
+            visible: Maui.Handy.isLinux
+
+            MenuItem
+            {
+                id: _ocrOption
+                text: i18n("Image Text (OCR)")
+                checkable: true
             }
         }
     }

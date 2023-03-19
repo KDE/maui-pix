@@ -18,5 +18,6 @@
         <file>widgets/SettingsDialog.qml</file>
         <file>widgets/Sidebar.qml</file>
         <file>widgets/views/Viewer/OCRPage.qml</file>
+        <file>widgets/views/CollectionView.qml</file>
     </qresource>
 </RCC>

@@ -1,5 +1,4 @@
-#ifndef FOLDERS_H
-#define FOLDERS_H
+#pragma once
 
 #include <QObject>
 
@@ -22,12 +21,12 @@ private:
     QList<QUrl> m_folders;
     void setList();
 
-public slots:
+public Q_SLOTS:
     void refresh();
+    QStringList getPreviews(const QString &path);
 
-signals:
+Q_SIGNALS:
     void foldersChanged();
 
 };
 
-#endif // ALBUMS_H

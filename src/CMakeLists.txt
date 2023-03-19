@@ -5,7 +5,7 @@
 
 set(pix_SRCS
     main.cpp
-    pix.cpp
+    pix.cpp pix.h
     models/gallery/gallery.cpp
     models/folders/folders.cpp
     models/folders/placesmodel.cpp
