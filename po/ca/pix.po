@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-02 00:53+0000\n"
+"POT-Creation-Date: 2023-03-20 00:49+0000\n"
 "PO-Revision-Date: 2023-03-02 11:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -45,59 +45,35 @@ msgstr "Camilo Higuita"
 msgid "Developer"
 msgstr "Desenvolupador"
 
-#: src/main.qml:139 src/widgets/views/Gallery/GalleryView.qml:26
-#, kde-format
-msgid "Open"
-msgstr "Obre"
-
-#: src/main.qml:148
-#, kde-format
-msgid "Settings"
-msgstr "Arranjament"
-
-#: src/main.qml:155
-#, kde-format
-msgid "About"
-msgstr "Quant al"
-
-#: src/main.qml:185 src/widgets/views/Viewer/PixViewer.qml:116
-#, kde-format
-msgid "Gallery"
-msgstr "Galeria"
-
-#: src/main.qml:214
-#, kde-format
-msgid "Collections"
-msgstr "Col·leccions"
-
-#: src/main.qml:253
+#: src/main.qml:129
 #, kde-format
 msgid "Open images"
 msgstr "Obre imatges"
 
-#: src/main.qml:254
-#, kde-format
-msgid "Drag and drop images here"
+#: src/main.qml:130
+#, fuzzy, kde-format
+#| msgid "Drag and drop images here"
+msgid "Drag and drop images here."
 msgstr "Arrossegueu i deixeu anar aquí les imatges"
 
-#: src/main.qml:326
+#: src/main.qml:199
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Suprimeixo %1 fitxer?"
 msgstr[1] "Suprimeixo %1 fitxers?"
 
-#: src/main.qml:327 src/view_models/PixMenu.qml:33
+#: src/main.qml:200 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/main.qml:328 src/view_models/PixMenu.qml:32
+#: src/main.qml:201 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/main.qml:330
+#: src/main.qml:203
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -108,49 +84,106 @@ msgstr[1] ""
 "Esteu segur que voleu suprimir aquests fitxers? Aquesta acció no es pot "
 "desfer."
 
-#: src/models/folders/placesmodel.cpp:33
+#: src/models/folders/placesmodel.cpp:15
 #, kde-format
 msgid "Favorites"
 msgstr "Preferits"
 
-#: src/models/folders/placesmodel.cpp:34
+#: src/models/folders/placesmodel.cpp:16
 #, kde-format
 msgid "Downloads"
 msgstr "Baixades"
 
-#: src/models/folders/placesmodel.cpp:35
+#: src/models/folders/placesmodel.cpp:17
 #, kde-format
-msgid "Documents"
-msgstr "Documents"
+msgid "Pictures"
+msgstr ""
 
-#: src/models/folders/placesmodel.cpp:36
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
 #, kde-format
 msgid "Screenshots"
 msgstr "Captures de pantalla"
 
-#: src/models/folders/placesmodel.cpp:37
+#: src/models/folders/placesmodel.cpp:19
 #, kde-format
 msgid "Camera"
 msgstr "Càmera"
 
-#: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:52
+#, kde-format
+msgid "Collection"
+msgstr "Col·lecció"
+
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:127
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
 msgstr "Etiquetes"
 
-#: src/models/gallery/gallery.cpp:124
+#: src/models/folders/placesmodel.cpp:62
+#: src/widgets/views/Tags/TagsSidebar.qml:180
+#, kde-format
+msgid "Places"
+msgstr "Llocs"
+
+#: src/models/folders/placesmodel.cpp:85
+#, fuzzy, kde-format
+#| msgid "Open Location"
+msgid "Locations"
+msgstr "Obre la ubicació"
+
+#: src/models/folders/placesmodel.cpp:103
+#: src/widgets/views/Tags/TagsSidebar.qml:233
+#, kde-format
+msgid "Animated"
+msgstr "Animats"
+
+#: src/models/folders/placesmodel.cpp:103
+#: src/models/folders/placesmodel.cpp:105
+#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:109
+#: src/models/folders/placesmodel.cpp:111
+#: src/models/folders/placesmodel.cpp:113
+#, kde-format
+msgid "Categories"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:107
+#, fuzzy, kde-format
+#| msgid "PNGs"
+msgid "PNG"
+msgstr "PNG"
+
+#: src/models/folders/placesmodel.cpp:109
+#: src/widgets/views/Tags/TagsSidebar.qml:270
+#, kde-format
+msgid "PSD"
+msgstr "PSD"
+
+#: src/models/folders/placesmodel.cpp:111
+#: src/widgets/views/Tags/TagsSidebar.qml:278
+#, kde-format
+msgid "Vectors"
+msgstr "Vectors"
+
+#: src/models/folders/placesmodel.cpp:113
+#, fuzzy, kde-format
+#| msgid "Paint"
+msgid "Paintings"
+msgstr "Pintura"
+
+#: src/models/gallery/gallery.cpp:136
 #, kde-format
 msgid "No sources found to scan."
 msgstr "No s'ha trobat cap font a explorar."
 
-#: src/view_models/PixGrid.qml:51
+#: src/view_models/PixGrid.qml:43
 #, kde-format
 msgid "Search"
 msgstr "Cerca"
 
-#: src/view_models/PixGrid.qml:78
+#: src/view_models/PixGrid.qml:70
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "Text de les imatges (OCR)"
@@ -181,32 +214,32 @@ msgstr "Informació"
 msgid "Share"
 msgstr "Comparteix"
 
-#: src/view_models/PixMenu.qml:93
+#: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Select"
 msgstr "Selecciona"
 
-#: src/view_models/PixMenu.qml:109 src/widgets/SelectionBar.qml:90
+#: src/view_models/PixMenu.qml:108 src/widgets/SelectionBar.qml:90
 #, kde-format
 msgid "Export"
 msgstr "Exporta"
 
-#: src/view_models/PixMenu.qml:127
+#: src/view_models/PixMenu.qml:126
 #, kde-format
 msgid "Open with"
 msgstr "Obre amb"
 
-#: src/view_models/PixMenu.qml:138
+#: src/view_models/PixMenu.qml:137
 #, kde-format
 msgid "Go to Folder"
 msgstr "Ves a la carpeta"
 
-#: src/view_models/PixMenu.qml:155
+#: src/view_models/PixMenu.qml:154
 #, kde-format
 msgid "Open Location"
 msgstr "Obre la ubicació"
 
-#: src/view_models/PixMenu.qml:167 src/widgets/SelectionBar.qml:106
+#: src/view_models/PixMenu.qml:166 src/widgets/SelectionBar.qml:106
 #, kde-format
 msgid "Remove"
 msgstr "Elimina"
@@ -255,11 +288,6 @@ msgstr "Mode fosc"
 #, kde-format
 msgid "Switch between light and dark colorscheme."
 msgstr "Alterna entre els esquemes de color clar i fosc."
-
-#: src/widgets/SettingsDialog.qml:52
-#, kde-format
-msgid "Collection"
-msgstr "Col·lecció"
 
 #: src/widgets/SettingsDialog.qml:53
 #, kde-format
@@ -463,39 +491,55 @@ msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 "Assegureu-vos que estigueu connectat i que funcioni el vostre compte al núvol"
 
-#: src/widgets/views/Folders/FoldersView.qml:57
+#: src/widgets/views/CollectionView.qml:104
+#, kde-format
+msgid "Toggle sidebar"
+msgstr "Mostra o oculta la barra lateral"
+
+#: src/widgets/views/CollectionView.qml:135
+#: src/widgets/views/Gallery/GalleryView.qml:26
+#, kde-format
+msgid "Open"
+msgstr "Obre"
+
+#: src/widgets/views/CollectionView.qml:144
+#, kde-format
+msgid "Settings"
+msgstr "Arranjament"
+
+#: src/widgets/views/CollectionView.qml:151
+#, kde-format
+msgid "About"
+msgstr "Quant al"
+
+#: src/widgets/views/Folders/FoldersView.qml:44
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
 msgstr[0] "Filtra %1 carpeta"
 msgstr[1] "Filtra %1 carpetes"
 
-#: src/widgets/views/Folders/FoldersView.qml:73
-#, kde-format
-msgid "Toggle sidebar"
-msgstr "Mostra o oculta la barra lateral"
-
-#: src/widgets/views/Folders/FoldersView.qml:84
+#: src/widgets/views/Folders/FoldersView.qml:62
 #, kde-format
 msgid "No Folders!"
 msgstr "Sense carpetes!"
 
-#: src/widgets/views/Folders/FoldersView.qml:85
+#: src/widgets/views/Folders/FoldersView.qml:63
 #, kde-format
 msgid "Add new image sources"
 msgstr "Afegeix fonts noves d'imatges"
 
-#: src/widgets/views/Folders/FoldersView.qml:191
+#: src/widgets/views/Folders/FoldersView.qml:158
 #, kde-format
 msgid "Folder is empty!"
 msgstr "La carpeta està buida!"
 
-#: src/widgets/views/Folders/FoldersView.qml:192
+#: src/widgets/views/Folders/FoldersView.qml:159
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "No hi ha cap imatge en aquesta carpeta"
 
-#: src/widgets/views/Folders/FoldersView.qml:199
+#: src/widgets/views/Folders/FoldersView.qml:171
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -504,7 +548,7 @@ msgstr[1] "%1 imatges"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
-#: src/widgets/views/Viewer/PixViewer.qml:213
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "No Pics!"
 msgstr "Sense imatges!"
@@ -552,11 +596,6 @@ msgstr "Sense etiquetes!"
 msgid "You can create new tags to organize your gallery"
 msgstr "Podeu crear etiquetes noves per a organitzar la galeria"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:180
-#, kde-format
-msgid "Places"
-msgstr "Llocs"
-
 #: src/widgets/views/Tags/TagsSidebar.qml:181
 #: src/widgets/views/Tags/TagsSidebar.qml:221
 #, kde-format
@@ -568,11 +607,6 @@ msgstr "Ubicacions basades en GPS"
 msgid "Filters"
 msgstr "Filtres"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:233
-#, kde-format
-msgid "Animated"
-msgstr "Animats"
-
 #: src/widgets/views/Tags/TagsSidebar.qml:254
 #, kde-format
 msgid "Sunday"
@@ -582,16 +616,6 @@ msgstr "Diumenge"
 #, kde-format
 msgid "PNGs"
 msgstr "PNG"
-
-#: src/widgets/views/Tags/TagsSidebar.qml:270
-#, kde-format
-msgid "PSD"
-msgstr "PSD"
-
-#: src/widgets/views/Tags/TagsSidebar.qml:278
-#, kde-format
-msgid "Vectors"
-msgstr "Vectors"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:286
 #, kde-format
@@ -613,22 +637,33 @@ msgstr "Cap imatge a %1!"
 msgid "There're no pics associated with the tag"
 msgstr "No hi ha cap imatge associada amb l'etiqueta"
 
-#: src/widgets/views/Viewer/PixViewer.qml:72
+#: src/widgets/views/Viewer/PixViewer.qml:71
 #, kde-format
 msgid "Save as"
 msgstr "Desa com a"
 
-#: src/widgets/views/Viewer/PixViewer.qml:91
+#: src/widgets/views/Viewer/PixViewer.qml:90
 #, kde-format
 msgid "Save"
 msgstr "Desa"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:115
+#, kde-format
+msgid "Gallery"
+msgstr "Galeria"
+
+#: src/widgets/views/Viewer/PixViewer.qml:131
 #, kde-format
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:213
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obre una imatge de la col·lecció"
+
+#~ msgid "Collections"
+#~ msgstr "Col·leccions"
+
+#~ msgid "Documents"
+#~ msgstr "Documents"

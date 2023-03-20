@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-02 00:53+0000\n"
+"POT-Creation-Date: 2023-03-20 00:49+0000\n"
 "PO-Revision-Date: 2021-01-17 14:58+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -46,60 +46,35 @@ msgstr "Camilo Higuita"
 msgid "Developer"
 msgstr "Fejlesztő"
 
-#: src/main.qml:139 src/widgets/views/Gallery/GalleryView.qml:26
-#, kde-format
-msgid "Open"
-msgstr ""
-
-#: src/main.qml:148
-#, kde-format
-msgid "Settings"
-msgstr "Beállítások"
-
-#: src/main.qml:155
-#, kde-format
-msgid "About"
-msgstr ""
-
-#: src/main.qml:185 src/widgets/views/Viewer/PixViewer.qml:116
-#, kde-format
-msgid "Gallery"
-msgstr "Galéria"
-
-#: src/main.qml:214
-#, fuzzy, kde-format
-#| msgid "Collection"
-msgid "Collections"
-msgstr "Gyűjtemény"
-
-#: src/main.qml:253
+#: src/main.qml:129
 #, kde-format
 msgid "Open images"
 msgstr "Képek megnyitása"
 
-#: src/main.qml:254
-#, kde-format
-msgid "Drag and drop images here"
+#: src/main.qml:130
+#, fuzzy, kde-format
+#| msgid "Drag and drop images here"
+msgid "Drag and drop images here."
 msgstr "Ejtsen ide képeket"
 
-#: src/main.qml:326
+#: src/main.qml:199
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Törli ezt a(z) %1 fájlt?"
 msgstr[1] "Törli ezt a(z) %1 fájlt?"
 
-#: src/main.qml:327 src/view_models/PixMenu.qml:33
+#: src/main.qml:200 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "Mégsem"
 
-#: src/main.qml:328 src/view_models/PixMenu.qml:32
+#: src/main.qml:201 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: src/main.qml:330
+#: src/main.qml:203
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -107,50 +82,105 @@ msgid_plural ""
 msgstr[0] "Biztosan törli ezt a fájlt? A művelet nem vonható vissza."
 msgstr[1] "Biztosan törli ezeket a fájlokat? A művelet nem vonható vissza."
 
-#: src/models/folders/placesmodel.cpp:33
+#: src/models/folders/placesmodel.cpp:15
 #, fuzzy, kde-format
 #| msgid "Favorite"
 msgid "Favorites"
 msgstr "Kedvenc"
 
-#: src/models/folders/placesmodel.cpp:34
+#: src/models/folders/placesmodel.cpp:16
 #, kde-format
 msgid "Downloads"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:35
+#: src/models/folders/placesmodel.cpp:17
 #, kde-format
-msgid "Documents"
+msgid "Pictures"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:36
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
 #, kde-format
 msgid "Screenshots"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:37
+#: src/models/folders/placesmodel.cpp:19
 #, kde-format
 msgid "Camera"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:44 src/models/folders/placesmodel.cpp:71
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:52
+#, kde-format
+msgid "Collection"
+msgstr "Gyűjtemény"
+
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:127
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
 msgstr "Címkék"
 
-#: src/models/gallery/gallery.cpp:124
+#: src/models/folders/placesmodel.cpp:62
+#: src/widgets/views/Tags/TagsSidebar.qml:180
+#, kde-format
+msgid "Places"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:85
+#, fuzzy, kde-format
+#| msgid "Collection"
+msgid "Locations"
+msgstr "Gyűjtemény"
+
+#: src/models/folders/placesmodel.cpp:103
+#: src/widgets/views/Tags/TagsSidebar.qml:233
+#, kde-format
+msgid "Animated"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:103
+#: src/models/folders/placesmodel.cpp:105
+#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:109
+#: src/models/folders/placesmodel.cpp:111
+#: src/models/folders/placesmodel.cpp:113
+#, kde-format
+msgid "Categories"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:107
+#, kde-format
+msgid "PNG"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:109
+#: src/widgets/views/Tags/TagsSidebar.qml:270
+#, kde-format
+msgid "PSD"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:111
+#: src/widgets/views/Tags/TagsSidebar.qml:278
+#, kde-format
+msgid "Vectors"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:113
+#, kde-format
+msgid "Paintings"
+msgstr ""
+
+#: src/models/gallery/gallery.cpp:136
 #, kde-format
 msgid "No sources found to scan."
 msgstr ""
 
-#: src/view_models/PixGrid.qml:51
+#: src/view_models/PixGrid.qml:43
 #, kde-format
 msgid "Search"
 msgstr "Keresés"
 
-#: src/view_models/PixGrid.qml:78
+#: src/view_models/PixGrid.qml:70
 #, fuzzy, kde-format
 #| msgid "Image Titles"
 msgid "Image Text (OCR)"
@@ -187,34 +217,34 @@ msgstr "Információ"
 msgid "Share"
 msgstr "Megosztás"
 
-#: src/view_models/PixMenu.qml:93
+#: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Select"
 msgstr "Kijelölés"
 
-#: src/view_models/PixMenu.qml:109 src/widgets/SelectionBar.qml:90
+#: src/view_models/PixMenu.qml:108 src/widgets/SelectionBar.qml:90
 #, kde-format
 msgid "Export"
 msgstr "Exportálás"
 
-#: src/view_models/PixMenu.qml:127
+#: src/view_models/PixMenu.qml:126
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "Open with"
 msgstr "Képek megnyitása"
 
-#: src/view_models/PixMenu.qml:138
+#: src/view_models/PixMenu.qml:137
 #, fuzzy, kde-format
 #| msgid "Show in folder"
 msgid "Go to Folder"
 msgstr "Megjelenítés mappában"
 
-#: src/view_models/PixMenu.qml:155
+#: src/view_models/PixMenu.qml:154
 #, kde-format
 msgid "Open Location"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:167 src/widgets/SelectionBar.qml:106
+#: src/view_models/PixMenu.qml:166 src/widgets/SelectionBar.qml:106
 #, kde-format
 msgid "Remove"
 msgstr "Eltávolítás"
@@ -263,11 +293,6 @@ msgstr ""
 #, kde-format
 msgid "Switch between light and dark colorscheme."
 msgstr ""
-
-#: src/widgets/SettingsDialog.qml:52
-#, kde-format
-msgid "Collection"
-msgstr "Gyűjtemény"
 
 #: src/widgets/SettingsDialog.qml:53
 #, kde-format
@@ -469,7 +494,28 @@ msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 "Ellenőrizze, hogy van-e internetkapcsolata, és a felhős fiókja működik-e"
 
-#: src/widgets/views/Folders/FoldersView.qml:57
+#: src/widgets/views/CollectionView.qml:104
+#, kde-format
+msgid "Toggle sidebar"
+msgstr ""
+
+#: src/widgets/views/CollectionView.qml:135
+#: src/widgets/views/Gallery/GalleryView.qml:26
+#, kde-format
+msgid "Open"
+msgstr ""
+
+#: src/widgets/views/CollectionView.qml:144
+#, kde-format
+msgid "Settings"
+msgstr "Beállítások"
+
+#: src/widgets/views/CollectionView.qml:151
+#, kde-format
+msgid "About"
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:44
 #, fuzzy, kde-format
 #| msgid "Delete %1 file?"
 #| msgid_plural "Delete %1 files?"
@@ -478,33 +524,28 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "Törli ezt a(z) %1 fájlt?"
 msgstr[1] "Törli ezt a(z) %1 fájlt?"
 
-#: src/widgets/views/Folders/FoldersView.qml:73
-#, kde-format
-msgid "Toggle sidebar"
-msgstr ""
-
-#: src/widgets/views/Folders/FoldersView.qml:84
+#: src/widgets/views/Folders/FoldersView.qml:62
 #, kde-format
 msgid "No Folders!"
 msgstr "Nincsenek mappák"
 
-#: src/widgets/views/Folders/FoldersView.qml:85
+#: src/widgets/views/Folders/FoldersView.qml:63
 #, kde-format
 msgid "Add new image sources"
 msgstr "Új képforrások hozzáadása"
 
-#: src/widgets/views/Folders/FoldersView.qml:191
+#: src/widgets/views/Folders/FoldersView.qml:158
 #, kde-format
 msgid "Folder is empty!"
 msgstr "A mappa üres"
 
-#: src/widgets/views/Folders/FoldersView.qml:192
+#: src/widgets/views/Folders/FoldersView.qml:159
 #, fuzzy, kde-format
 #| msgid "There's not images in this folder"
 msgid "There're no images in this folder"
 msgstr "Nincsenek képek ebben a mappában"
 
-#: src/widgets/views/Folders/FoldersView.qml:199
+#: src/widgets/views/Folders/FoldersView.qml:171
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "No images."
@@ -514,7 +555,7 @@ msgstr[1] "Képek megnyitása"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
-#: src/widgets/views/Viewer/PixViewer.qml:213
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "No Pics!"
 msgstr "Nincsenek képek"
@@ -564,11 +605,6 @@ msgstr "Nincsenek címkék"
 msgid "You can create new tags to organize your gallery"
 msgstr "Létrehozhat új címkéket a galériája rendszerezéséhez"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:180
-#, kde-format
-msgid "Places"
-msgstr ""
-
 #: src/widgets/views/Tags/TagsSidebar.qml:181
 #: src/widgets/views/Tags/TagsSidebar.qml:221
 #, kde-format
@@ -581,11 +617,6 @@ msgstr ""
 msgid "Filters"
 msgstr "Szűrő"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:233
-#, kde-format
-msgid "Animated"
-msgstr ""
-
 #: src/widgets/views/Tags/TagsSidebar.qml:254
 #, kde-format
 msgid "Sunday"
@@ -594,16 +625,6 @@ msgstr ""
 #: src/widgets/views/Tags/TagsSidebar.qml:262
 #, kde-format
 msgid "PNGs"
-msgstr ""
-
-#: src/widgets/views/Tags/TagsSidebar.qml:270
-#, kde-format
-msgid "PSD"
-msgstr ""
-
-#: src/widgets/views/Tags/TagsSidebar.qml:278
-#, kde-format
-msgid "Vectors"
 msgstr ""
 
 #: src/widgets/views/Tags/TagsSidebar.qml:286
@@ -628,23 +649,28 @@ msgstr "Nincsenek képek"
 msgid "There're no pics associated with the tag"
 msgstr "Nincsenek ilyen címkéjű képek"
 
-#: src/widgets/views/Viewer/PixViewer.qml:72
+#: src/widgets/views/Viewer/PixViewer.qml:71
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgid "Save as"
 msgstr "Mentés másként…"
 
-#: src/widgets/views/Viewer/PixViewer.qml:91
+#: src/widgets/views/Viewer/PixViewer.qml:90
 #, kde-format
 msgid "Save"
 msgstr "Mentés"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:115
+#, kde-format
+msgid "Gallery"
+msgstr "Galéria"
+
+#: src/widgets/views/Viewer/PixViewer.qml:131
 #, kde-format
 msgid "Previous"
 msgstr "Előző"
 
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:213
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Kép megnyitása a gyűjteményéből"
