@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:49+0000\n"
-"PO-Revision-Date: 2023-03-02 13:59+0200\n"
+"PO-Revision-Date: 2023-03-20 08:12+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -51,10 +51,9 @@ msgid "Open images"
 msgstr "Відкриття зображень"
 
 #: src/main.qml:130
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Перетягніть і скиньте зображення тут"
+msgstr "Перетягніть і скиньте сюди зображення."
 
 #: src/main.qml:199
 #, kde-format
@@ -102,7 +101,7 @@ msgstr "Отримання"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Зображення"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -133,10 +132,9 @@ msgid "Places"
 msgstr "Місця"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Locations"
-msgstr "Відкрити адресу"
+msgstr "Місця"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -152,11 +150,10 @@ msgstr "Анімація"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Категорії"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
 msgstr "PNG"
 
@@ -173,10 +170,9 @@ msgid "Vectors"
 msgstr "Вектори"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "Малюнок"
+msgstr "Малюнки"
 
 #: src/models/gallery/gallery.cpp:136
 #, kde-format

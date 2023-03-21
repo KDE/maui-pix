@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:49+0000\n"
-"PO-Revision-Date: 2023-03-02 18:29+0100\n"
+"PO-Revision-Date: 2023-03-20 14:19+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -48,10 +48,9 @@ msgid "Open images"
 msgstr "Otevřít obrázky"
 
 #: src/main.qml:130
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Sem přetáhněte obrázky"
+msgstr "Sem přetáhněte obrázky."
 
 #: src/main.qml:199
 #, kde-format
@@ -93,7 +92,7 @@ msgstr "Stahování"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Obrázky"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -124,10 +123,9 @@ msgid "Places"
 msgstr "Místa"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Locations"
-msgstr "Otevřít umístění"
+msgstr "Umístění"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -143,11 +141,10 @@ msgstr "Animovaný"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Kategorie"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
 msgstr "PNG"
 
@@ -164,10 +161,9 @@ msgid "Vectors"
 msgstr "Vektory"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "Namalovat"
+msgstr "Malby"
 
 #: src/models/gallery/gallery.cpp:136
 #, kde-format
@@ -653,9 +649,3 @@ msgstr "Předchozí"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
-
-#~ msgid "Collections"
-#~ msgstr "Sbírky"
-
-#~ msgid "Documents"
-#~ msgstr "Dokumenty"

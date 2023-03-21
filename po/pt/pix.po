@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:49+0000\n"
-"PO-Revision-Date: 2023-03-06 15:00+0000\n"
+"PO-Revision-Date: 2023-03-20 11:14+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -48,10 +48,9 @@ msgid "Open images"
 msgstr "Abrir as imagens"
 
 #: src/main.qml:130
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Arraste e largue aqui as imagens"
+msgstr "Arraste e largue aqui as imagens."
 
 #: src/main.qml:199
 #, kde-format
@@ -95,7 +94,7 @@ msgstr "Transferências"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Imagens"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -126,10 +125,9 @@ msgid "Places"
 msgstr "Locais"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Locations"
-msgstr "Abrir a Localização"
+msgstr "Locais"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -145,13 +143,12 @@ msgstr "Animado"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Categorias"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
-msgstr "PNGs"
+msgstr "PNG"
 
 #: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:270
@@ -166,10 +163,9 @@ msgid "Vectors"
 msgstr "Vectores"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "Pintura"
+msgstr "Pinturas"
 
 #: src/models/gallery/gallery.cpp:136
 #, kde-format
@@ -656,9 +652,3 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir uma imagem da sua colecção"
-
-#~ msgid "Collections"
-#~ msgstr "Colecções"
-
-#~ msgid "Documents"
-#~ msgstr "Documentos"

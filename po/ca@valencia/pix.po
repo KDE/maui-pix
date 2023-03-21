@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:49+0000\n"
-"PO-Revision-Date: 2023-03-02 11:05+0100\n"
+"PO-Revision-Date: 2023-03-20 09:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -51,10 +51,9 @@ msgid "Open images"
 msgstr "Obri imatges"
 
 #: src/main.qml:130
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Arrossegueu i deixeu anar ací les imatges"
+msgstr "Arrossegueu i deixeu anar ací les imatges."
 
 #: src/main.qml:199
 #, kde-format
@@ -96,7 +95,7 @@ msgstr "Baixades"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Imatges"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -127,10 +126,9 @@ msgid "Places"
 msgstr "Llocs"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Locations"
-msgstr "Obri la ubicació"
+msgstr "Ubicacions"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -146,11 +144,10 @@ msgstr "Animats"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
 msgstr "PNG"
 
@@ -167,10 +164,9 @@ msgid "Vectors"
 msgstr "Vectors"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "Pintura"
+msgstr "Pintures"
 
 #: src/models/gallery/gallery.cpp:136
 #, kde-format
@@ -659,9 +655,3 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obri una imatge de la col·lecció"
-
-#~ msgid "Collections"
-#~ msgstr "Col·leccions"
-
-#~ msgid "Documents"
-#~ msgstr "Documents"
