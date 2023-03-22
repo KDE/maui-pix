@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:49+0000\n"
-"PO-Revision-Date: 2023-02-14 10:49-0300\n"
+"PO-Revision-Date: 2023-03-21 09:49-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,10 +49,9 @@ msgid "Open images"
 msgstr "Abrir imagens"
 
 #: src/main.qml:130
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Arraste e solte imagens aqui"
+msgstr "Arraste e solte imagens aqui."
 
 #: src/main.qml:199
 #, kde-format
@@ -94,7 +93,7 @@ msgstr "Downloads"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Imagens"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -125,10 +124,9 @@ msgid "Places"
 msgstr "Locais"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Locations"
-msgstr "Abrir localização"
+msgstr "Localizações"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -144,13 +142,12 @@ msgstr "Animado"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Categorias"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
-msgstr "PNGs"
+msgstr "PNG"
 
 #: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:270
@@ -165,10 +162,9 @@ msgid "Vectors"
 msgstr "Vetores"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "Pintar"
+msgstr "Pinturas"
 
 #: src/models/gallery/gallery.cpp:136
 #, fuzzy, kde-format
@@ -182,16 +178,14 @@ msgid "Search"
 msgstr "Pesquisar"
 
 #: src/view_models/PixGrid.qml:70
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Texto da imagem"
+msgstr "Texto da imagem (OCR)"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
-msgstr "Deletar arquivo?"
+msgstr "Excluir arquivo?"
 
 #: src/view_models/PixMenu.qml:34
 #, kde-format
@@ -226,20 +220,17 @@ msgid "Export"
 msgstr "Exportar"
 
 #: src/view_models/PixMenu.qml:126
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Abrir com"
 
 #: src/view_models/PixMenu.qml:137
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "Ir para a pasta"
 
 #: src/view_models/PixMenu.qml:154
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "Abrir localização"
 
@@ -289,10 +280,9 @@ msgid "Dark Mode"
 msgstr "Modo escuro"
 
 #: src/widgets/SettingsDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Alternar entre o esquema de cores claro e escuro"
+msgstr "Alternar entre o esquema de cores claro e escuro."
 
 #: src/widgets/SettingsDialog.qml:53
 #, kde-format
@@ -315,10 +305,9 @@ msgid "Image Titles"
 msgstr "Nomes de imagem"
 
 #: src/widgets/SettingsDialog.qml:71
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Exibe os nomes das imagens."
+msgstr "Exibe os nomes de arquivo das imagens."
 
 #: src/widgets/SettingsDialog.qml:83
 #, kde-format
@@ -351,8 +340,7 @@ msgid "XL"
 msgstr "XG"
 
 #: src/widgets/SettingsDialog.qml:134
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
 msgstr "Ordenar por"
 
@@ -382,8 +370,7 @@ msgid "Date"
 msgstr "Data"
 
 #: src/widgets/SettingsDialog.qml:184
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "Ordem de classificação"
 
@@ -415,7 +402,7 @@ msgstr "Exibe etiquetas GPS."
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Recurso experimental."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
@@ -544,12 +531,11 @@ msgid "There're no images in this folder"
 msgstr "Não há imagens nesta pasta"
 
 #: src/widgets/views/Folders/FoldersView.qml:171
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Abrir imagens"
-msgstr[1] "Abrir imagens"
+msgstr[0] "Nenhuma imagem."
+msgstr[1] "%1 imagens"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
