@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:49+0000\n"
-"PO-Revision-Date: 2023-03-03 07:23+0100\n"
+"PO-Revision-Date: 2023-03-21 11:18+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -46,10 +46,9 @@ msgid "Open images"
 msgstr "Ouvrir des images"
 
 #: src/main.qml:130
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Glisser et déposer des images ici"
+msgstr "Glisser et déposer des images ici."
 
 #: src/main.qml:199
 #, kde-format
@@ -93,7 +92,7 @@ msgstr "Téléchargements"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Images"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -124,10 +123,9 @@ msgid "Places"
 msgstr "Emplacements"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Locations"
-msgstr "Ouvrir un emplacement"
+msgstr "Emplacements"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -143,11 +141,10 @@ msgstr "Animé"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Catégories"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
 msgstr "PNG"
 
@@ -164,10 +161,9 @@ msgid "Vectors"
 msgstr "Vecteurs"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "Dessiner"
+msgstr "Dessins"
 
 #: src/models/gallery/gallery.cpp:136
 #, kde-format
