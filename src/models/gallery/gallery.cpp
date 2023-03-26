@@ -1,9 +1,13 @@
 #include "gallery.h"
+
 #include <QFileSystemWatcher>
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
 #include <QTimer>
+
+#include <QtConcurrent/QtConcurrent>
+#include <QFuture>
 
 #include <KI18n/KLocalizedString>
 
@@ -30,37 +34,11 @@ static FMH::MODEL picInfo(const QUrl &url)
         {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
 }
 
-static FMH::MODEL picInfo2(const QUrl &url)
-{
-    const QFileInfo info(url.toLocalFile());
-    QString cityId;
-
-    const auto urlId = url.toString();
-    if(GpsInImages.contains(urlId))
-    {
-        cityId = GpsInImages.value(urlId);
-    }else
-    {
-        qDebug() << "CREATING A NEW CITY";
-        const Exiv2Extractor exiv2(url);
-        cityId = exiv2.cityId();
-        GpsInImages.insert(urlId, cityId);
-    }
-
-    return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
-        {FMH::MODEL_KEY::TITLE, info.fileName()},
-        {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-        {FMH::MODEL_KEY::SOURCE,QUrl::fromLocalFile(info.absoluteDir().absolutePath()).toString ()},
-        {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
-        {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-        {FMH::MODEL_KEY::CITY, cityId},
-        {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
-}
-
 Gallery::Gallery(QObject *parent)
     : MauiList(parent)
     , m_fileLoader(new FMH::FileLoader(this))
     , m_watcher(new QFileSystemWatcher(this))
+    ,m_futureWatcher(nullptr)
     , m_scanTimer(new QTimer(this))
     , m_autoReload(true)
     , m_recursive(true)
@@ -72,6 +50,11 @@ Gallery::Gallery(QObject *parent)
 
 Gallery::~Gallery()
 {
+    if(m_futureWatcher)
+    {
+        m_futureWatcher->cancel();
+        m_futureWatcher->deleteLater();
+    }
 }
 
 const FMH::MODEL_LIST &Gallery::items() const
@@ -139,6 +122,52 @@ void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &li
 
     this->setStatus(Status::Loading);
     m_fileLoader->requestPath(urls, recursive, FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, limit);
+}
+
+void Gallery::scanGpsTags()
+{
+    auto functor = [](FMH::MODEL &item)
+    {
+        auto url = QUrl::fromUserInput(item[FMH::MODEL_KEY::URL]);
+
+        if(!url.isValid())
+            return;
+
+        QString cityId;
+
+        const auto urlId = url.toString();
+        if(GpsInImages.contains(urlId))
+        {
+            cityId = GpsInImages.value(urlId);
+        }else
+        {
+            qDebug() << "CREATING A NEW CITY";
+            const Exiv2Extractor exiv2(url);
+            cityId = exiv2.cityId();
+            GpsInImages.insert(urlId, cityId);
+        }
+
+        item[FMH::MODEL_KEY::CITY] = cityId;
+    } ;
+
+  m_futureWatcher = new QFutureWatcher<void>;
+   auto future = QtConcurrent::map(list, functor);
+   m_futureWatcher->setFuture(future);
+
+   connect(m_futureWatcher, &QFutureWatcher<void>::finished, [this]()
+   {
+       qDebug() << "FINISHED SCANNING GPS TAGS";
+
+        for(const auto &item : list)
+        {
+            if(m_activeGeolocationTags)
+            {
+                this->insertCity(item[FMH::MODEL_KEY::CITY]);
+            }
+        }
+
+        Q_EMIT citiesChanged();
+   });
 }
 
 void Gallery::insertFolder(const QUrl &path)
@@ -280,8 +309,12 @@ void Gallery::componentComplete()
         Q_UNUSED(items)
 
         Q_EMIT this->filesChanged();
-        Q_EMIT this->citiesChanged();
         Q_EMIT this->foldersChanged();
+
+        if(m_activeGeolocationTags)
+        {
+            scanGpsTags();
+        }
 
         this->setStatus(Status::Ready);
     });
@@ -299,11 +332,7 @@ void Gallery::componentComplete()
     });
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
-        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
-        if(m_activeGeolocationTags)
-        {
-            this->insertCity(item[FMH::MODEL_KEY::CITY]);
-        }
+        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);       
     });
 
     connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
@@ -318,16 +347,14 @@ void Gallery::componentComplete()
     connect(this, &Gallery::urlsChanged, this, &Gallery::rescan);
     connect(this, &Gallery::activeGeolocationTagsChanged, [this](bool state)
     {
-        m_fileLoader->informer = state ? &picInfo2 : &picInfo;
-
         if(state)
         {
-            this->rescan();
+            this->scanGpsTags(); //TODO change to scanGpsTags
         }
     });
 
     m_fileLoader->setBatchCount(500);
-    m_fileLoader->informer = m_activeGeolocationTags ? &picInfo2 : &picInfo;
+    m_fileLoader->informer = &picInfo;
 
     this->load();
 }

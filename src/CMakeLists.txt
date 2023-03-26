@@ -41,7 +41,7 @@ endif()
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
-target_link_libraries(${PROJECT_NAME} MauiKit MauiKit::FileBrowsing MauiKit::ImageTools Qt5::Qml Qt5::Positioning KF5::I18n)
+target_link_libraries(${PROJECT_NAME} MauiKit MauiKit::FileBrowsing MauiKit::ImageTools Qt5::Qml Qt5::Positioning Qt5::Concurrent KF5::I18n)
 
 if(ANDROID)
     find_package(OpenSSL REQUIRED)

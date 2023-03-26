@@ -1,8 +1,8 @@
-#ifndef GALLERY_H
-#define GALLERY_H
+#pragma once
 
 #include <QObject>
 #include <QStringList>
+#include <QFutureWatcher>
 
 #include <MauiKit/Core/mauilist.h>
 
@@ -74,6 +74,8 @@ public:
 private:
     FMH::FileLoader *m_fileLoader;
     QFileSystemWatcher *m_watcher;
+    QFutureWatcher<void> *m_futureWatcher;
+
     QTimer *m_scanTimer;
     FMH::MODEL_LIST list = {};
 
@@ -83,12 +85,15 @@ private:
 
     bool m_autoReload;
     bool m_recursive;
+    bool m_activeGeolocationTags = false;
+
     int m_limit = PIX_QUERY_MAX_LIMIT;
 
     Status m_status = Status::Error;
     QString m_error;
 
     void scan(const QList<QUrl> &, const bool & = true, const int & = PIX_QUERY_MAX_LIMIT);
+    void scanGpsTags();
 
     void insert(const FMH::MODEL_LIST &);
 
@@ -97,9 +102,7 @@ private:
 
     void setStatus(const Gallery::Status &, const QString& = QString());
 
-    bool m_activeGeolocationTags = false;
-
-signals:
+Q_SIGNALS:
     void urlsChanged();
     void foldersChanged();
     void autoReloadChanged();
@@ -116,7 +119,7 @@ signals:
 
     void activeGeolocationTagsChanged(bool activeGeolocationTags);
 
-public slots:
+public Q_SLOTS:
     bool remove(const int &);
     bool deleteAt(const int &);
 
@@ -135,4 +138,3 @@ public slots:
     void scanImagesText();
 
 };
-#endif // GALLERY_H
