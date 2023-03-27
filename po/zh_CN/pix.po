@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:49+0000\n"
-"PO-Revision-Date: 2023-03-11 04:52\n"
+"PO-Revision-Date: 2023-03-26 02:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -48,10 +48,9 @@ msgid "Open images"
 msgstr "打开图像"
 
 #: src/main.qml:130
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "拖放图像到此处"
+msgstr ""
 
 #: src/main.qml:199
 #, kde-format
@@ -120,10 +119,9 @@ msgid "Places"
 msgstr ""
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Collection"
+#, kde-format
 msgid "Locations"
-msgstr "相册视图"
+msgstr ""
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
