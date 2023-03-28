@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-20 00:49+0000\n"
+"POT-Creation-Date: 2023-03-28 00:46+0000\n"
 "PO-Revision-Date: 2023-03-26 14:34+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -165,7 +165,7 @@ msgstr "Vectors"
 msgid "Paintings"
 msgstr "Paintings"
 
-#: src/models/gallery/gallery.cpp:136
+#: src/models/gallery/gallery.cpp:119
 #, kde-format
 msgid "No sources found to scan."
 msgstr "No sources found to scan."

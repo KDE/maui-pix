@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-20 00:49+0000\n"
+"POT-Creation-Date: 2023-03-28 00:46+0000\n"
 "PO-Revision-Date: 2023-02-27 21:19+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -174,7 +174,7 @@ msgstr "Bektoreak"
 msgid "Paintings"
 msgstr "Margolana"
 
-#: src/models/gallery/gallery.cpp:136
+#: src/models/gallery/gallery.cpp:119
 #, fuzzy, kde-format
 #| msgid "No results found."
 msgid "No sources found to scan."
