@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-28 00:46+0000\n"
-"PO-Revision-Date: 2023-03-05 16:29+0100\n"
+"PO-Revision-Date: 2023-03-25 15:08+0100\n"
 "Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -48,10 +48,9 @@ msgid "Open images"
 msgstr "Apri immagini"
 
 #: src/main.qml:130
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Trascina qui le immagini"
+msgstr "Trascina qui le immagini."
 
 #: src/main.qml:199
 #, kde-format
@@ -95,7 +94,7 @@ msgstr "Scaricamenti"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Immagini"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -126,10 +125,9 @@ msgid "Places"
 msgstr "Risorse"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Locations"
-msgstr "Apri posizione"
+msgstr "Posizioni"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -145,11 +143,10 @@ msgstr "Animata"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Categorie"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
 msgstr "PNG"
 
@@ -166,10 +163,9 @@ msgid "Vectors"
 msgstr "Vettori"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "Pittura"
+msgstr "Dipinti"
 
 #: src/models/gallery/gallery.cpp:119
 #, kde-format
