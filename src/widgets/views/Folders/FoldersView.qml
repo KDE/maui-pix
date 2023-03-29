@@ -158,6 +158,10 @@ Component
         holder.title : i18n("Folder is empty!")
         holder.body: i18n("There're no images in this folder")
 
+
+Keys.enabled: true
+Keys.onEscapePressed: control.pop()
+
         gridView.header: Column
         {
             width: parent.width

@@ -20,7 +20,12 @@
 #include "pix.h"
 
 static QHash<QString, QString> TextInImages; //[url:text] //global cache of text in images
-static QHash<QString, QString> GpsInImages; //[url:cityId] //global cache of cities in images
+
+static QHash<QString, QString> GpsInImages()
+{
+    static QHash<QString, QString> value;
+    return value;
+}
 
 static FMH::MODEL picInfo(const QUrl &url)
 {
@@ -136,15 +141,15 @@ void Gallery::scanGpsTags()
         QString cityId;
 
         const auto urlId = url.toString();
-        if(GpsInImages.contains(urlId))
+        if(GpsInImages().contains(urlId))
         {
-            cityId = GpsInImages.value(urlId);
+            cityId = GpsInImages().value(urlId);
         }else
         {
             qDebug() << "CREATING A NEW CITY";
             const Exiv2Extractor exiv2(url);
             cityId = exiv2.cityId();
-            GpsInImages.insert(urlId, cityId);
+            GpsInImages().insert(urlId, cityId);
         }
 
         item[FMH::MODEL_KEY::CITY] = cityId;

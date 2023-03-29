@@ -79,16 +79,16 @@ FMH::MODEL_LIST PlacesModel::locations()
     return std::accumulate(cities.constBegin(), cities.constEnd(), res, [this, &db](FMH::MODEL_LIST &list, const QString &id) {
         FMH::MODEL item;
 
-        std::unique_ptr<City>city(db->city(id));
+       City city = db->city(id);
 
         item[FMH::MODEL_KEY::ICON] = "gps";
         item[FMH::MODEL_KEY::TYPE] = i18n("Locations");
         item[FMH::MODEL_KEY::PATH] = "collection:///"+id;
         item[FMH::MODEL_KEY::KEY] = id;
 
-        item[FMH::MODEL_KEY::COUNTRY] = city->country();
-        item[FMH::MODEL_KEY::ID] = city->id();
-        item[FMH::MODEL_KEY::NAME] = city->name();
+        item[FMH::MODEL_KEY::COUNTRY] = city.country();
+        item[FMH::MODEL_KEY::ID] = city.id();
+        item[FMH::MODEL_KEY::NAME] = city.name();
 
         list << item;
         return list;

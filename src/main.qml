@@ -85,6 +85,9 @@ Maui.ApplicationWindow
         id: _stackView
         anchors.fill: parent
 
+Keys.enabled: true
+Keys.onEscapePressed: _stackView.pop()
+
         initialItem: initModule === "viewer" ? _pixViewer : _collectionViewComponent
 
         Loader
@@ -103,7 +106,6 @@ Maui.ApplicationWindow
             showCSDControls: initModule === "viewer"
         }
     }
-
 
     Rectangle
     {
