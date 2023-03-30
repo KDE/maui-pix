@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:46+0000\n"
+"POT-Creation-Date: 2023-03-30 00:48+0000\n"
 "PO-Revision-Date: 2022-06-05 11:27+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -43,18 +43,18 @@ msgstr "Camilo Higuita"
 msgid "Developer"
 msgstr "Programista"
 
-#: src/main.qml:129
+#: src/main.qml:131
 #, kde-format
 msgid "Open images"
 msgstr "Otwarte obrazy"
 
-#: src/main.qml:130
+#: src/main.qml:132
 #, fuzzy, kde-format
 #| msgid "Drag and drop images here"
 msgid "Drag and drop images here."
 msgstr "Przeciągnij i upuść obrazy tutaj"
 
-#: src/main.qml:199
+#: src/main.qml:201
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -62,17 +62,17 @@ msgstr[0] "Czy usunąć %1 plik?"
 msgstr[1] "Czy usunąć %1 pliki?"
 msgstr[2] "Czy usunąć %1 plików?"
 
-#: src/main.qml:200 src/view_models/PixMenu.qml:33
+#: src/main.qml:202 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/main.qml:201 src/view_models/PixMenu.qml:32
+#: src/main.qml:203 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "Przyjmij"
 
-#: src/main.qml:203
+#: src/main.qml:205
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Paintings"
 msgstr ""
 
-#: src/models/gallery/gallery.cpp:119
+#: src/models/gallery/gallery.cpp:124
 #, kde-format
 msgid "No sources found to scan."
 msgstr ""
@@ -546,7 +546,7 @@ msgstr "Katalog jest pusty!"
 msgid "There're no images in this folder"
 msgstr "Nie ma żadnych obrazów w tym katalogu"
 
-#: src/widgets/views/Folders/FoldersView.qml:171
+#: src/widgets/views/Folders/FoldersView.qml:175
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "No images."
