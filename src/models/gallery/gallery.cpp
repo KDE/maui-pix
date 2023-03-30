@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QTimer>
+#include <QRandomGenerator>
 
 #include <KI18n/KLocalizedString>
 
@@ -21,13 +22,16 @@ static QHash<QString, QString> GpsInImages; //[url:cityId] //global cache of cit
 static FMH::MODEL picInfo(const QUrl &url)
 {
     const QFileInfo info(url.toLocalFile());
+    const QRandomGenerator randomGenerator;
+
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
         {FMH::MODEL_KEY::TITLE, info.fileName()},
         {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
         {FMH::MODEL_KEY::SOURCE, QUrl::fromLocalFile(info.absoluteDir().absolutePath()).toString ()},
         {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
         {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-        {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
+        {FMH::MODEL_KEY::FORMAT, info.completeSuffix()},
+        {FMH::MODEL_KEY::VALUE, QString::number(randomGenerator.global()->bounded(randomGenerator.max()))}};
 }
 
 static FMH::MODEL picInfo2(const QUrl &url)
@@ -47,6 +51,8 @@ static FMH::MODEL picInfo2(const QUrl &url)
         GpsInImages.insert(urlId, cityId);
     }
 
+    const QRandomGenerator randomGenerator;
+
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
         {FMH::MODEL_KEY::TITLE, info.fileName()},
         {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
@@ -54,7 +60,8 @@ static FMH::MODEL picInfo2(const QUrl &url)
         {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
         {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
         {FMH::MODEL_KEY::CITY, cityId},
-        {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
+        {FMH::MODEL_KEY::FORMAT, info.completeSuffix()},
+        {FMH::MODEL_KEY::VALUE, QString::number(randomGenerator.global()->bounded(randomGenerator.max()))}};
 }
 
 Gallery::Gallery(QObject *parent)

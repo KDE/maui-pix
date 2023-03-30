@@ -148,7 +148,7 @@ Maui.SettingsDialog
                             case "modified": return 1;
                             case "size": return 2;
                             case "date": return 3;
-                            case "random": return 4;
+                            case "value": return 4;
                             default: return -1;
                             }
                     restoreMode: Binding.RestoreValue
@@ -181,7 +181,7 @@ Maui.SettingsDialog
                 Action
                 {
                     text: i18n("Random")
-                    onTriggered: browserSettings.sortBy = "random"
+                    onTriggered: browserSettings.sortBy = "value"
                 }
             }
         }
