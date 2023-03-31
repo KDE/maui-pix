@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:46+0000\n"
+"POT-Creation-Date: 2023-03-30 00:48+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -44,34 +44,34 @@ msgstr "Camilo Higuita"
 msgid "Developer"
 msgstr "Utviklar"
 
-#: src/main.qml:129
+#: src/main.qml:131
 #, kde-format
 msgid "Open images"
 msgstr "Opna bilete"
 
-#: src/main.qml:130
+#: src/main.qml:132
 #, kde-format
 msgid "Drag and drop images here."
 msgstr ""
 
-#: src/main.qml:199
+#: src/main.qml:201
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Sletta %1 fil?"
 msgstr[1] "Sletta %1 filer?"
 
-#: src/main.qml:200 src/view_models/PixMenu.qml:33
+#: src/main.qml:202 src/view_models/PixMenu.qml:33
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/main.qml:201 src/view_models/PixMenu.qml:32
+#: src/main.qml:203 src/view_models/PixMenu.qml:32
 #, kde-format
 msgid "Accept"
 msgstr "Godta"
 
-#: src/main.qml:203
+#: src/main.qml:205
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Paintings"
 msgstr ""
 
-#: src/models/gallery/gallery.cpp:119
+#: src/models/gallery/gallery.cpp:124
 #, kde-format
 msgid "No sources found to scan."
 msgstr ""
@@ -527,7 +527,7 @@ msgstr "Mappa er tom"
 msgid "There're no images in this folder"
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:171
+#: src/widgets/views/Folders/FoldersView.qml:175
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
