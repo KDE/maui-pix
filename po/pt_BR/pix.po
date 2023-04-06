@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-30 00:48+0000\n"
-"PO-Revision-Date: 2023-03-21 09:49-0300\n"
+"PO-Revision-Date: 2023-04-05 09:54-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -167,10 +167,9 @@ msgid "Paintings"
 msgstr "Pinturas"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Nenhum resultado encontrado."
+msgstr "Nenhuma fonte encontrada para examinar."
 
 #: src/view_models/PixGrid.qml:43
 #, kde-format
@@ -297,7 +296,7 @@ msgstr "Ajustar"
 #: src/widgets/SettingsDialog.qml:58
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Ajusta a visualização e preserva a proporção."
 
 #: src/widgets/SettingsDialog.qml:70
 #, kde-format
