@@ -106,20 +106,23 @@ Maui.SideBarView
 
             ToolButton
             {
-                icon.name: "go-previous"
-                visible:_foldersView.depth > 1
+                icon.name: _foldersView.depth === 1 && _pixViewer.viewer.count > 0 ? "quickview" : "go-previous"
+                visible: _foldersView.depth > 1 || _pixViewer.viewer.count > 0
                 onClicked:
                 {
-                    _foldersView.pop()
-                }
-            },
+                    if(_foldersView.depth > 1)
+                    {
+                        _foldersView.pop()
+                        return;
+                    }
 
-            ToolButton
-            {
-                visible: _pixViewer.viewer.count
-                icon.name: "quickview"
-                text: _pixViewer.viewer.count
-                onClicked: toggleViewer()
+                    if( _pixViewer.viewer.count > 0)
+                    {
+                        toggleViewer()
+                        return;
+                    }
+
+                }
             }
         ]
 
