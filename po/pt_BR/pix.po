@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-30 00:48+0000\n"
+"POT-Creation-Date: 2023-04-12 00:48+0000\n"
 "PO-Revision-Date: 2023-04-05 09:54-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -486,18 +486,18 @@ msgstr ""
 msgid "Toggle sidebar"
 msgstr "Ativa ou desativa a exibição da barra lateral"
 
-#: src/widgets/views/CollectionView.qml:135
+#: src/widgets/views/CollectionView.qml:138
 #: src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/widgets/views/CollectionView.qml:144
+#: src/widgets/views/CollectionView.qml:147
 #, kde-format
 msgid "Settings"
 msgstr "Configurações"
 
-#: src/widgets/views/CollectionView.qml:151
+#: src/widgets/views/CollectionView.qml:154
 #, kde-format
 msgid "About"
 msgstr "Sobre"

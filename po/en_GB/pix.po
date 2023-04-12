@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-30 00:48+0000\n"
+"POT-Creation-Date: 2023-04-12 00:48+0000\n"
 "PO-Revision-Date: 2023-03-26 14:34+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -481,18 +481,18 @@ msgstr "Make sure you're online and your cloud account is working"
 msgid "Toggle sidebar"
 msgstr "Toggle sidebar"
 
-#: src/widgets/views/CollectionView.qml:135
+#: src/widgets/views/CollectionView.qml:138
 #: src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Open"
 
-#: src/widgets/views/CollectionView.qml:144
+#: src/widgets/views/CollectionView.qml:147
 #, kde-format
 msgid "Settings"
 msgstr "Settings"
 
-#: src/widgets/views/CollectionView.qml:151
+#: src/widgets/views/CollectionView.qml:154
 #, kde-format
 msgid "About"
 msgstr "About"
