@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-12 00:48+0000\n"
-"PO-Revision-Date: 2023-03-12 17:04+0100\n"
+"PO-Revision-Date: 2023-04-16 13:56+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -49,10 +49,9 @@ msgid "Open images"
 msgstr "Bilder öffnen"
 
 #: src/main.qml:132
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Ziehen Sie Bilder und legen Sie sie hier ab"
+msgstr "Ziehen Sie Bilder und legen Sie sie hier ab."
 
 #: src/main.qml:201
 #, kde-format
@@ -96,7 +95,7 @@ msgstr "Downloads"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Bilder"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -127,10 +126,9 @@ msgid "Places"
 msgstr "Orte"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Locations"
-msgstr "Adresse öffnen"
+msgstr "Orte"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -146,13 +144,12 @@ msgstr "Animiert"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Kategorien"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
-msgstr "PNGs"
+msgstr "PNG"
 
 #: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:270
@@ -182,10 +179,9 @@ msgid "Search"
 msgstr "Suchen"
 
 #: src/view_models/PixGrid.qml:70
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Bildtitel"
+msgstr "Bildtext (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -397,10 +393,9 @@ msgid "Descending"
 msgstr "Absteigend"
 
 #: src/widgets/SettingsDialog.qml:223
-#, fuzzy, kde-format
-#| msgid "Tags"
+#, kde-format
 msgid "GPS Tags"
-msgstr "Stichwörter"
+msgstr "GPS-Tags"
 
 #: src/widgets/SettingsDialog.qml:224
 #, kde-format
@@ -599,7 +594,7 @@ msgstr "Sie können neue Stichwörter erstellen, um Ihre Galerie zu organisieren
 #: src/widgets/views/Tags/TagsSidebar.qml:221
 #, kde-format
 msgid "GPS based locations"
-msgstr ""
+msgstr "GPS-basierte Standorte"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:220
 #, kde-format
