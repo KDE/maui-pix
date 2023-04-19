@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-12 00:48+0000\n"
-"PO-Revision-Date: 2023-04-16 13:56+0200\n"
+"PO-Revision-Date: 2023-04-18 22:38+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -400,12 +400,12 @@ msgstr "GPS-Tags"
 #: src/widgets/SettingsDialog.qml:224
 #, kde-format
 msgid "Show GPS tags."
-msgstr ""
+msgstr "GPS-Tags anzeigen."
 
 #: src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Experimentelle Funktion."
 
 #: src/widgets/SettingsDialog.qml:243
 #, kde-format
