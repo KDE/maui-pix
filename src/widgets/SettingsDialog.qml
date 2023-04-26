@@ -90,41 +90,35 @@ Maui.SettingsDialog
                 autoExclusive: true
                 display: ToolButton.TextOnly
 
-                Binding on currentIndex
-                {
-                    value:  switch(browserSettings.previewSize)
-                            {
-                            case previewSizes.small: return 0;
-                            case previewSizes.medium: return 1;
-                            case previewSizes.large: return 2;
-                            case previewSizes.extralarge: return 3;
-                            default: return -1;
-                            }
-                    restoreMode: Binding.RestoreValue
-                }
-
                 Action
                 {
                     text: i18n("S")
                     onTriggered: setPreviewSize(previewSizes.small)
+                    checked: previewSizes.small === browserSettings.previewSize
                 }
 
                 Action
                 {
                     text: i18n("M")
                     onTriggered: setPreviewSize(previewSizes.medium)
+                    checked: previewSizes.medium === browserSettings.previewSize
+
                 }
 
                 Action
                 {
                     text: i18n("X")
                     onTriggered: setPreviewSize(previewSizes.large)
+                    checked: previewSizes.large === browserSettings.previewSize
+
                 }
 
                 Action
                 {
                     text: i18n("XL")
                     onTriggered: setPreviewSize(previewSizes.extralarge)
+                    checked: previewSizes.extralarge === browserSettings.previewSize
+
                 }
             }
         }
@@ -140,41 +134,35 @@ Maui.SettingsDialog
                 autoExclusive: true
                 display: ToolButton.TextOnly
 
-                Binding on currentIndex
-                {
-                    value:  switch(browserSettings.sortBy)
-                            {
-                            case "title": return 0;
-                            case "modified": return 1;
-                            case "size": return 2;
-                            case "date": return 3;
-                            default: return -1;
-                            }
-                    restoreMode: Binding.RestoreValue
-                }
-
                 Action
                 {
                     text: i18n("Title")
                     onTriggered: browserSettings.sortBy = "title"
+                    checked: browserSettings.sortBy === "title"
                 }
 
                 Action
                 {
                     text: i18n("Modified")
                     onTriggered: browserSettings.sortBy = "modified"
+                    checked: browserSettings.sortBy === "modified"
+
                 }
 
                 Action
                 {
                     text: i18n("Size")
                     onTriggered: browserSettings.sortBy = "size"
+                    checked: browserSettings.sortBy === "size"
+
                 }
 
                 Action
                 {
                     text: i18n("Date")
                     onTriggered: browserSettings.sortBy = "date"
+                    checked: browserSettings.sortBy === "date"
+
                 }
             }
         }
@@ -190,22 +178,13 @@ Maui.SettingsDialog
                 autoExclusive: true
                 display: ToolButton.IconOnly
 
-                Binding on currentIndex
-                {
-                    value:  switch(browserSettings.sortOrder)
-                            {
-                            case Qt.AscendingOrder: return 0;
-                            case Qt.DescendingOrder: return 1;
-                            default: return -1;
-                            }
-                    restoreMode: Binding.RestoreValue
-                }
 
                 Action
                 {
                     text: i18n("Ascending")
                     icon.name: "view-sort-ascending"
                     onTriggered: browserSettings.sortOrder = Qt.AscendingOrder
+                    checked: browserSettings.sortOrder === Qt.AscendingOrder
                 }
 
                 Action
@@ -213,6 +192,7 @@ Maui.SettingsDialog
                     text: i18n("Descending")
                     icon.name: "view-sort-descending"
                     onTriggered: browserSettings.sortOrder = Qt.DescendingOrder
+                    checked: browserSettings.sortOrder === Qt.DescendingOrder
                 }
             }
         }
