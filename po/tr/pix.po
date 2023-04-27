@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-12 00:48+0000\n"
+"POT-Creation-Date: 2023-04-27 00:47+0000\n"
 "PO-Revision-Date: 2023-03-20 12:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -316,134 +316,134 @@ msgstr "Önizleme Boyutu"
 msgid "Size of the thumbnails in the collection views."
 msgstr "Koleksiyon görünümlerindeki küçük görsel boyutunu ayarlayın."
 
-#: src/widgets/SettingsDialog.qml:108
+#: src/widgets/SettingsDialog.qml:95
 #, kde-format
 msgid "S"
 msgstr "K"
 
-#: src/widgets/SettingsDialog.qml:114
+#: src/widgets/SettingsDialog.qml:102
 #, kde-format
 msgid "M"
 msgstr "O"
 
-#: src/widgets/SettingsDialog.qml:120
+#: src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "X"
 msgstr "B"
 
-#: src/widgets/SettingsDialog.qml:126
+#: src/widgets/SettingsDialog.qml:118
 #, kde-format
 msgid "XL"
 msgstr "ÇB"
 
-#: src/widgets/SettingsDialog.qml:134
+#: src/widgets/SettingsDialog.qml:128
 #, kde-format
 msgid "Sort by"
 msgstr "Şuna Göre Sırala"
 
-#: src/widgets/SettingsDialog.qml:135
+#: src/widgets/SettingsDialog.qml:129
 #, kde-format
 msgid "Change the sorting key."
 msgstr "Sıralama ölçütünü değiştirin."
 
-#: src/widgets/SettingsDialog.qml:158
+#: src/widgets/SettingsDialog.qml:139
 #, kde-format
 msgid "Title"
 msgstr "Başlık"
 
-#: src/widgets/SettingsDialog.qml:164
+#: src/widgets/SettingsDialog.qml:146
 #, kde-format
 msgid "Modified"
 msgstr "Değiştirildi"
 
-#: src/widgets/SettingsDialog.qml:170
+#: src/widgets/SettingsDialog.qml:154
 #, kde-format
 msgid "Size"
 msgstr "Boyut"
 
-#: src/widgets/SettingsDialog.qml:176
+#: src/widgets/SettingsDialog.qml:162
 #, kde-format
 msgid "Date"
 msgstr "Tarih"
 
-#: src/widgets/SettingsDialog.qml:184
+#: src/widgets/SettingsDialog.qml:172
 #, kde-format
 msgid "Sort Order"
 msgstr "Sıralama Ölçütü"
 
-#: src/widgets/SettingsDialog.qml:185
+#: src/widgets/SettingsDialog.qml:173
 #, kde-format
 msgid "Change the sorting order."
 msgstr "Sıralama ölçütünü değiştirin."
 
-#: src/widgets/SettingsDialog.qml:206
+#: src/widgets/SettingsDialog.qml:184
 #, kde-format
 msgid "Ascending"
 msgstr "Artan"
 
-#: src/widgets/SettingsDialog.qml:213
+#: src/widgets/SettingsDialog.qml:192
 #, kde-format
 msgid "Descending"
 msgstr "Azalan"
 
-#: src/widgets/SettingsDialog.qml:223
+#: src/widgets/SettingsDialog.qml:203
 #, kde-format
 msgid "GPS Tags"
 msgstr "GPS Etiketleri"
 
-#: src/widgets/SettingsDialog.qml:224
+#: src/widgets/SettingsDialog.qml:204
 #, kde-format
 msgid "Show GPS tags."
 msgstr "GPS etiketlerini göster."
 
-#: src/widgets/SettingsDialog.qml:235
+#: src/widgets/SettingsDialog.qml:215
 #, kde-format
 msgid "Experimental feature."
 msgstr "Deneysel özellik."
 
-#: src/widgets/SettingsDialog.qml:243
+#: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "Viewer"
 msgstr "Görüntüleyici"
 
-#: src/widgets/SettingsDialog.qml:244
+#: src/widgets/SettingsDialog.qml:224
 #, kde-format
 msgid "Adjust the viewer panels and settings."
 msgstr "Görüntüleyici panellerini ve ayarlarını değiştirin."
 
-#: src/widgets/SettingsDialog.qml:248
+#: src/widgets/SettingsDialog.qml:228
 #, kde-format
 msgid "Tag Bar"
 msgstr "Etiket Çubuğu"
 
-#: src/widgets/SettingsDialog.qml:249
+#: src/widgets/SettingsDialog.qml:229
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 "Geçerli görsele etiket ekleme, kaldırma ve etiketleri değiştirmenin kolay "
 "yolu."
 
-#: src/widgets/SettingsDialog.qml:261
+#: src/widgets/SettingsDialog.qml:241
 #, kde-format
 msgid "Preview Bar"
 msgstr "Önizleme Çubuğu"
 
-#: src/widgets/SettingsDialog.qml:262
+#: src/widgets/SettingsDialog.qml:242
 #, kde-format
 msgid "Show small thumbnail previews in the image viewer."
 msgstr "Görsel görüntüleyicide küçük görseller gösterir."
 
-#: src/widgets/SettingsDialog.qml:274
+#: src/widgets/SettingsDialog.qml:254
 #, kde-format
 msgid "Sources"
 msgstr "Kaynaklar"
 
-#: src/widgets/SettingsDialog.qml:275
+#: src/widgets/SettingsDialog.qml:255
 #, kde-format
 msgid "Add new sources to manage and browse your image collection."
 msgstr "Görsel koleksiyonunuza yeni kaynaklar ekleyin ve onları yönetin."
 
-#: src/widgets/SettingsDialog.qml:315
+#: src/widgets/SettingsDialog.qml:295
 #, kde-format
 msgid "Add"
 msgstr "Ekle"

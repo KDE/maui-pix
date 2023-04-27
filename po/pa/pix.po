@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-12 00:48+0000\n"
+"POT-Creation-Date: 2023-04-27 00:47+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -323,135 +323,135 @@ msgstr "ਝਲਕ ਦਾ ਆਕਾਰ"
 msgid "Size of the thumbnails in the collection views."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:108
+#: src/widgets/SettingsDialog.qml:95
 #, kde-format
 msgid "S"
 msgstr "ਛੋ"
 
-#: src/widgets/SettingsDialog.qml:114
+#: src/widgets/SettingsDialog.qml:102
 #, kde-format
 msgid "M"
 msgstr "ਵੱ"
 
-#: src/widgets/SettingsDialog.qml:120
+#: src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "X"
 msgstr "ਹੋ-ਵੱ"
 
-#: src/widgets/SettingsDialog.qml:126
+#: src/widgets/SettingsDialog.qml:118
 #, kde-format
 msgid "XL"
 msgstr "ਬ-ਵੱ"
 
-#: src/widgets/SettingsDialog.qml:134
+#: src/widgets/SettingsDialog.qml:128
 #, fuzzy, kde-format
 #| msgid "Sorting by"
 msgid "Sort by"
 msgstr "ਲੜੀਬੱਧ"
 
-#: src/widgets/SettingsDialog.qml:135
+#: src/widgets/SettingsDialog.qml:129
 #, kde-format
 msgid "Change the sorting key."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:158
+#: src/widgets/SettingsDialog.qml:139
 #, kde-format
 msgid "Title"
 msgstr "ਟਾਈਟਲ"
 
-#: src/widgets/SettingsDialog.qml:164
+#: src/widgets/SettingsDialog.qml:146
 #, kde-format
 msgid "Modified"
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:170
+#: src/widgets/SettingsDialog.qml:154
 #, kde-format
 msgid "Size"
 msgstr "ਆਕਾਰ"
 
-#: src/widgets/SettingsDialog.qml:176
+#: src/widgets/SettingsDialog.qml:162
 #, kde-format
 msgid "Date"
 msgstr "ਤਾਰੀਖ"
 
-#: src/widgets/SettingsDialog.qml:184
+#: src/widgets/SettingsDialog.qml:172
 #, fuzzy, kde-format
 #| msgid "Sort order"
 msgid "Sort Order"
 msgstr "ਲੜੀਬੱਧ ਕ੍ਰਮ"
 
-#: src/widgets/SettingsDialog.qml:185
+#: src/widgets/SettingsDialog.qml:173
 #, kde-format
 msgid "Change the sorting order."
 msgstr "ਲੜੀਬੱਧ ਕਰਨ ਦਾ ਢੰਗ ਬਦਲੋ।"
 
-#: src/widgets/SettingsDialog.qml:206
+#: src/widgets/SettingsDialog.qml:184
 #, kde-format
 msgid "Ascending"
 msgstr "ਵੱਧਦਾ-ਕ੍ਰਮ"
 
-#: src/widgets/SettingsDialog.qml:213
+#: src/widgets/SettingsDialog.qml:192
 #, kde-format
 msgid "Descending"
 msgstr "ਘੱਟਦਾ-ਕ੍ਰਮ"
 
-#: src/widgets/SettingsDialog.qml:223
+#: src/widgets/SettingsDialog.qml:203
 #, fuzzy, kde-format
 #| msgid "Tags"
 msgid "GPS Tags"
 msgstr "ਟੈਗ"
 
-#: src/widgets/SettingsDialog.qml:224
+#: src/widgets/SettingsDialog.qml:204
 #, kde-format
 msgid "Show GPS tags."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:235
+#: src/widgets/SettingsDialog.qml:215
 #, kde-format
 msgid "Experimental feature."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:243
+#: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "Viewer"
 msgstr "ਦਰਸ਼ਕ"
 
-#: src/widgets/SettingsDialog.qml:244
+#: src/widgets/SettingsDialog.qml:224
 #, kde-format
 msgid "Adjust the viewer panels and settings."
 msgstr "ਦਰਸ਼ਕ ਪੈਨਲ ਤੇ ਸੈਟਿੰਗਾਂ ਨੂੰ ਠੀਕ ਕਰੋ।"
 
-#: src/widgets/SettingsDialog.qml:248
+#: src/widgets/SettingsDialog.qml:228
 #, kde-format
 msgid "Tag Bar"
 msgstr "ਟੈਗ ਪੱਟੀ"
 
-#: src/widgets/SettingsDialog.qml:249
+#: src/widgets/SettingsDialog.qml:229
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:261
+#: src/widgets/SettingsDialog.qml:241
 #, kde-format
 msgid "Preview Bar"
 msgstr "ਝਲਕ ਪੱਟੀ"
 
-#: src/widgets/SettingsDialog.qml:262
+#: src/widgets/SettingsDialog.qml:242
 #, kde-format
 msgid "Show small thumbnail previews in the image viewer."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:274
+#: src/widgets/SettingsDialog.qml:254
 #, kde-format
 msgid "Sources"
 msgstr "ਸਰੋਤ"
 
-#: src/widgets/SettingsDialog.qml:275
+#: src/widgets/SettingsDialog.qml:255
 #, kde-format
 msgid "Add new sources to manage and browse your image collection."
 msgstr "ਆਪਣੇ ਚਿੱਤਰ ਭੰਡਾਰ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰਨ ਅਤੇ ਝਲਕ ਵੇਖਣ ਲਈ ਨਵੇਂ ਸਰੋਤ ਜੋੜੋ।"
 
-#: src/widgets/SettingsDialog.qml:315
+#: src/widgets/SettingsDialog.qml:295
 #, kde-format
 msgid "Add"
 msgstr "ਜੋੜੋ"
