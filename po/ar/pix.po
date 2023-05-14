@@ -31,7 +31,7 @@ msgstr ""
 #: src/main.cpp:130
 #, kde-format
 msgid "© 2019-%1 Maui Development Team"
-msgstr "© ٢٠١٩-%1 فريق تطوير ماوي"
+msgstr "© 2019-%1 فريق تطوير ماوي"
 
 #: src/main.cpp:131
 #, kde-format
