@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2023-02-27 21:19+0100\n"
+"PO-Revision-Date: 2023-07-21 12:19+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -51,10 +51,9 @@ msgid "Open images"
 msgstr "Ireki irudiak"
 
 #: src/main.qml:132
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Arrastatu eta jaregin irudia hona"
+msgstr "Arrastatu eta jaregin irudia hona."
 
 #: src/main.qml:201
 #, kde-format
@@ -98,7 +97,7 @@ msgstr "Zama-jaitsitakoak"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Irudiak"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -129,10 +128,9 @@ msgid "Places"
 msgstr "Lekuak"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Locations"
-msgstr "Ireki kokalekua"
+msgstr "Kokalekuak"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -148,13 +146,12 @@ msgstr "Biziduna"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Kategoriak"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
-msgstr "PNGak"
+msgstr "PNG"
 
 #: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:270
@@ -169,16 +166,14 @@ msgid "Vectors"
 msgstr "Bektoreak"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "Margolana"
+msgstr "Margolanak"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Ez da emaitzarik aurkitu."
+msgstr "Ez da aztertu beharreko sorbururik aurkitu."
 
 #: src/view_models/PixGrid.qml:43
 #, kde-format
@@ -186,10 +181,9 @@ msgid "Search"
 msgstr "Bilatu"
 
 #: src/view_models/PixGrid.qml:70
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Irudiaren testua"
+msgstr "Irudiaren testua (OCR)"
 
 #: src/view_models/PixMenu.qml:31
 #, kde-format
@@ -412,7 +406,7 @@ msgstr "Erakutsi GPS-etiketak."
 #: src/widgets/SettingsDialog.qml:215
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Ezaugarri esperimentala."
 
 #: src/widgets/SettingsDialog.qml:223
 #, kde-format
@@ -538,12 +532,11 @@ msgid "There're no images in this folder"
 msgstr "Karpeta honetan ez dago irudirik"
 
 #: src/widgets/views/Folders/FoldersView.qml:175
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Ireki irudiak"
-msgstr[1] "Ireki irudiak"
+msgstr[0] "Irudirik ez."
+msgstr[1] "%1 irudi"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
