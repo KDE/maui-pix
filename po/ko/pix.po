@@ -320,7 +320,7 @@ msgstr "미리 보기 크기"
 #: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
-msgstr "모음집 보기의 축소판 크기입니다."
+msgstr "모음집 보기의 섬네일 크기입니다."
 
 #: src/widgets/SettingsDialog.qml:95
 #, kde-format
@@ -438,7 +438,7 @@ msgstr "미리 보기 표시줄"
 #: src/widgets/SettingsDialog.qml:242
 #, kde-format
 msgid "Show small thumbnail previews in the image viewer."
-msgstr "그림 뷰어에 작은 축소판 보기를 표시합니다."
+msgstr "그림 뷰어에 작은 섬네일 보기를 표시합니다."
 
 #: src/widgets/SettingsDialog.qml:254
 #, kde-format
