@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2020, 2021, 2022.
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2022-09-24 16:03+0200\n"
+"PO-Revision-Date: 2023-07-31 11:34+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -48,10 +48,9 @@ msgid "Open images"
 msgstr "Öppna bilder"
 
 #: src/main.qml:132
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "Dra och släpp bilder här"
+msgstr "Dra och släpp bilder här."
 
 #: src/main.qml:201
 #, kde-format
@@ -80,20 +79,19 @@ msgstr[1] ""
 "Är du säker på att du vill ta bort filerna? Åtgärden kan inte ångras."
 
 #: src/models/folders/placesmodel.cpp:15
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgid "Favorites"
-msgstr "Favorit"
+msgstr "Favoriter"
 
 #: src/models/folders/placesmodel.cpp:16
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "Nerladdningar"
 
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Bilder"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:246
@@ -104,7 +102,7 @@ msgstr "Skärmbilder"
 #: src/models/folders/placesmodel.cpp:19
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:52
 #, kde-format
@@ -124,10 +122,9 @@ msgid "Places"
 msgstr "Platser"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Locations"
-msgstr "Öppna plats"
+msgstr "Platser"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:233
@@ -143,13 +140,12 @@ msgstr "Animerade"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
-msgstr "PNG-bilder"
+msgstr "PNG"
 
 #: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:270
@@ -164,16 +160,14 @@ msgid "Vectors"
 msgstr "Vektorer"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "Måla"
+msgstr "Målningar"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "Inga resultat hittades."
+msgstr "Inga källor hittades att läsa in."
 
 #: src/view_models/PixGrid.qml:43
 #, kde-format
@@ -181,14 +175,12 @@ msgid "Search"
 msgstr "Sök"
 
 #: src/view_models/PixGrid.qml:70
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "Bildrubriker"
+msgstr "Bildtext (optisk teckenigenkänning)"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "Ta bort fil?"
 
@@ -224,20 +216,17 @@ msgid "Export"
 msgstr "Exportera"
 
 #: src/view_models/PixMenu.qml:126
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Öppna med"
 
 #: src/view_models/PixMenu.qml:137
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "Gå till katalog"
 
 #: src/view_models/PixMenu.qml:154
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "Öppna plats"
 
@@ -287,10 +276,9 @@ msgid "Dark Mode"
 msgstr "Mörkt läge"
 
 #: src/widgets/SettingsDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
+#, kde-format
 msgid "Switch between light and dark colorscheme."
-msgstr "Byt mellan ljust och mörkt färgschema"
+msgstr "Byt mellan ljust och mörkt färgschema."
 
 #: src/widgets/SettingsDialog.qml:53
 #, kde-format
@@ -305,7 +293,7 @@ msgstr "Anpassa"
 #: src/widgets/SettingsDialog.qml:58
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "Anpassa förhandsgranskningar och bevara proportion."
 
 #: src/widgets/SettingsDialog.qml:70
 #, kde-format
@@ -313,10 +301,9 @@ msgid "Image Titles"
 msgstr "Bildrubriker"
 
 #: src/widgets/SettingsDialog.qml:71
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "Visa bildernas rubriker."
+msgstr "Visa bildernas filnamn."
 
 #: src/widgets/SettingsDialog.qml:83
 #, kde-format
@@ -349,8 +336,7 @@ msgid "XL"
 msgstr "XL"
 
 #: src/widgets/SettingsDialog.qml:128
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
 msgstr "Sortera enligt"
 
@@ -380,8 +366,7 @@ msgid "Date"
 msgstr "Datum"
 
 #: src/widgets/SettingsDialog.qml:172
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "Sorteringsordning"
 
@@ -413,7 +398,7 @@ msgstr "Visa GPS-taggar."
 #: src/widgets/SettingsDialog.qml:215
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "Experimentell funktion."
 
 #: src/widgets/SettingsDialog.qml:223
 #, kde-format
@@ -465,12 +450,12 @@ msgstr "Lägg till"
 #: src/widgets/Sidebar.qml:41
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Bokmärken"
 
 #: src/widgets/Sidebar.qml:42
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Dina bokmärken listas här"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -495,7 +480,7 @@ msgstr "Säkerställ att du är uppkopplad och att ditt molnkonto fungerar"
 #: src/widgets/views/CollectionView.qml:104
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Visa eller dölj sidorad"
 
 #: src/widgets/views/CollectionView.qml:138
 #: src/widgets/views/Gallery/GalleryView.qml:26
@@ -541,12 +526,11 @@ msgid "There're no images in this folder"
 msgstr "Det finns inga bilder i katalogen"
 
 #: src/widgets/views/Folders/FoldersView.qml:175
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Öppna bilder"
-msgstr[1] "Öppna bilder"
+msgstr[0] "Inga bilder."
+msgstr[1] "%1 bilder"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
