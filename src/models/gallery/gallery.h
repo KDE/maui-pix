@@ -4,7 +4,7 @@
 #include <QStringList>
 #include <QFutureWatcher>
 
-#include <MauiKit/Core/mauilist.h>
+#include <MauiKit3/Core/mauilist.h>
 
 #define PIX_QUERY_MAX_LIMIT 20000
 

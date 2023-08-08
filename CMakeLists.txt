@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.16)
 
 set(PIX_VERSION 3.0.0)
 
-set(CMAKE_CXX_STANDARD 11) # to use 17 we need to update exiv2
+set(CMAKE_CXX_STANDARD 17) # to use 17 we need to update exiv2
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -35,8 +35,8 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Qml Quick Positioning Concurrent)
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
 
-find_package(MauiKit REQUIRED COMPONENTS FileBrowsing ImageTools)
-find_package(MauiKit REQUIRED)
+find_package(MauiKit3 REQUIRED)
+find_package(MauiKit3 REQUIRED COMPONENTS FileBrowsing ImageTools)
 #find_package(CaskServer REQUIRED)
 
 if(ANDROID)
@@ -49,8 +49,7 @@ if(QUICK_COMPILER)
     find_package(Qt5QuickCompiler)
     set_package_properties(Qt5QuickCompiler PROPERTIES
         DESCRIPTION "Compile QML at build time"
-        TYPE OPTIONAL
-        )
+        TYPE OPTIONAL)
 endif()
 
 if(UNIX AND NOT APPLE AND NOT ANDROID)
@@ -71,16 +70,14 @@ if(${ECM_SOURCE_UNDER_VERSION_CONTROL})
         COMMAND git rev-parse --abbrev-ref HEAD
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         OUTPUT_VARIABLE GIT_BRANCH
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
+        OUTPUT_STRIP_TRAILING_WHITESPACE)
 
     # Get the latest abbreviated commit hash of the working branch
     execute_process(
         COMMAND git log -1 --format=%h
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         OUTPUT_VARIABLE GIT_COMMIT_HASH
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
+        OUTPUT_STRIP_TRAILING_WHITESPACE)
 
     add_definitions(-DGIT_COMMIT_HASH="${GIT_COMMIT_HASH}")
     add_definitions(-DGIT_BRANCH="${GIT_BRANCH}")
@@ -92,8 +89,7 @@ endif()
 
 ecm_setup_version(${PIX_VERSION}
     VARIABLE_PREFIX PIX
-    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/pix_version.h"
-    )
+    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/pix_version.h")
 
 kde_enable_exceptions()
 

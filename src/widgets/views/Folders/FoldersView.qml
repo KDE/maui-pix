@@ -42,7 +42,12 @@ StackView
         {
 
             placeholderText: i18np("Filter %1 folder", "Filter %1 folders", foldersList.count)
-            onAccepted: folderModel.filter = text
+            onAccepted:
+            {
+                console.log(text)
+                folderModel.filters = text.split(",")
+            }
+
             onCleared: folderModel.clearFilters()
         }
 
@@ -58,10 +63,12 @@ StackView
             itemSize: Math.min(260, Math.max(140, Math.floor(availableWidth* 0.3)))
             itemHeight: itemSize + Maui.Style.rowHeight
             currentIndex: -1
+
             holder.emoji: "qrc:/assets/view-preview.svg"
-            holder.title : i18n("No Folders!")
-            holder.body: i18n("Add new image sources")
-            holder.visible: foldersList.count === 0
+            holder.title : foldersList.count === 0 ?
+ i18n("No Folders!") : i18n("Nothing Here!")
+            holder.body: foldersList.count === 0 ? i18n("Add new image sources.") : i18n("Try something different.")
+            holder.visible: _foldersGrid.count === 0
 
             onKeyPress:
             {

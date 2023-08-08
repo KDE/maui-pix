@@ -199,8 +199,8 @@ Keys.onEscapePressed: _stackView.pop()
             id: removeDialog
             urls: selectionBox.uris
             title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
-            acceptButton.text: i18n("Cancel")
-            rejectButton.text: i18n("Accept")
+//            acceptButton.text: i18n("Cancel")
+//            rejectButton.text: i18n("Accept")
 
             message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
 

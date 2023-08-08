@@ -4,7 +4,7 @@
 #include <QDir>
 #include <QDirIterator>
 
-#include <MauiKit/FileBrowsing/fmstatic.h>
+#include <MauiKit3/FileBrowsing/fmstatic.h>
 
 Folders::Folders(QObject *parent)
     : MauiList(parent)

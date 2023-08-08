@@ -11,12 +11,10 @@ set(pix_SRCS
     models/folders/placesmodel.cpp
     models/tags/tagsmodel.cpp
     models/cities/citiesmodel.cpp
-    pixserver.cpp
-    )
+    pixserver.cpp )
 
 set(pix_ASSETS
-    imgs.qrc
-    )
+    imgs.qrc)
 
 if(QUICK_COMPILER)
     qtquick_compiler_add_resources(pix_QML_QRC qml.qrc)
@@ -28,20 +26,25 @@ if(ANDROID)
     add_library(${PROJECT_NAME} SHARED
         ${pix_SRCS}
         ${pix_ASSETS}
-        ${pix_QML_QRC}
-        )
+        ${pix_QML_QRC})
 else()
     add_executable(${PROJECT_NAME}
         ${pix_SRCS}
         ${pix_ASSETS}
-        ${pix_QML_QRC}
-        )
+        ${pix_QML_QRC})
 endif()
 
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
-target_link_libraries(${PROJECT_NAME} MauiKit MauiKit::FileBrowsing MauiKit::ImageTools Qt5::Qml Qt5::Positioning Qt5::Concurrent KF5::I18n)
+target_link_libraries(${PROJECT_NAME}
+    MauiKit3
+    MauiKit3::FileBrowsing
+    MauiKit3::ImageTools
+    Qt5::Qml
+    Qt5::Positioning
+    Qt5::Concurrent
+    KF5::I18n)
 
 if(ANDROID)
     find_package(OpenSSL REQUIRED)

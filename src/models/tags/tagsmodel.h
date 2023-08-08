@@ -1,8 +1,8 @@
 #ifndef TAGSMODEL_H
 #define TAGSMODEL_H
 
-#include <MauiKit/Core/fmh.h>
-#include <MauiKit/Core/mauilist.h>
+#include <MauiKit3/Core/fmh.h>
+#include <MauiKit3/Core/mauilist.h>
 
 class TagsModel : public MauiList
 {

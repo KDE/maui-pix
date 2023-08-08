@@ -11,11 +11,11 @@
 
 #include <KI18n/KLocalizedString>
 
-#include <MauiKit/FileBrowsing/fileloader.h>
-#include <MauiKit/FileBrowsing/fmstatic.h>
-#include <MauiKit/FileBrowsing/tagging.h>
-#include <MauiKit/ImageTools/exiv2extractor.h>
-#include <MauiKit/ImageTools/textscanner.h>
+#include <MauiKit3/FileBrowsing/fileloader.h>
+#include <MauiKit3/FileBrowsing/fmstatic.h>
+#include <MauiKit3/FileBrowsing/tagging.h>
+#include <MauiKit3/ImageTools/exiv2extractor.h>
+#include <MauiKit3/ImageTools/textscanner.h>
 
 #include "pix.h"
 
