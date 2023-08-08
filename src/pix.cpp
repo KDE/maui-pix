@@ -28,11 +28,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 #include <QCoreApplication>
 
-#include <MauiKit/Core/fmh.h>
-#include <MauiKit/Core/utils.h>
+#include <MauiKit3/Core/fmh.h>
+#include <MauiKit3/Core/utils.h>
 
-#include <MauiKit/FileBrowsing/tagging.h>
-#include <MauiKit/FileBrowsing/fmstatic.h>
+#include <MauiKit3/FileBrowsing/tagging.h>
+#include <MauiKit3/FileBrowsing/fmstatic.h>
 
 #include "models/gallery/gallery.h"
 

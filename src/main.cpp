@@ -34,18 +34,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
-#include <MauiKit/Core/mauiandroid.h>
+#include <MauiKit3/Core/mauiandroid.h>
 #else
 #include <QApplication>
 #endif
 
 #include "../pix_version.h"
 
-#include <MauiKit/Core/mauiapp.h>
-#include <MauiKit/FileBrowsing/fmstatic.h>
+#include <MauiKit3/Core/mauiapp.h>
+#include <MauiKit3/FileBrowsing/fmstatic.h>
 
 #ifdef Q_OS_MACOS
-#include <MauiKit/Core/mauimacos.h>
+#include <MauiKit3/Core/mauimacos.h>
 #endif
 
 #include <KI18n/KLocalizedString>
