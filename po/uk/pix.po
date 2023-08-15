@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
 "PO-Revision-Date: 2023-03-20 08:12+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -64,16 +64,8 @@ msgstr[1] "Вилучити %1 файли?"
 msgstr[2] "Вилучити %1 файлів?"
 msgstr[3] "Вилучити файл?"
 
-#: src/main.qml:202 src/view_models/PixMenu.qml:33
-#, kde-format
-msgid "Cancel"
-msgstr "Скасувати"
-
-#: src/main.qml:203 src/view_models/PixMenu.qml:32
-#, kde-format
-msgid "Accept"
-msgstr "Прийняти"
-
+#. i18n("Cancel")
+#. rejectButton.text: i18n("Accept")
 #: src/main.qml:205
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
@@ -194,6 +186,8 @@ msgstr "Текст зображення (розпізнавання)"
 msgid "Delete File?"
 msgstr "Вилучити файл?"
 
+#. i18n("Accept")
+#. rejectButton.text: i18n("Cancel")
 #: src/view_models/PixMenu.qml:34
 #, kde-format
 msgctxt "Remove one file"
@@ -521,27 +515,40 @@ msgstr[1] "Фільтрувати %1 теки"
 msgstr[2] "Фільтрувати %1 тек"
 msgstr[3] "Фільтрувати теку"
 
-#: src/widgets/views/Folders/FoldersView.qml:62
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "Немає тек!"
 
-#: src/widgets/views/Folders/FoldersView.qml:63
-#, kde-format
-msgid "Add new image sources"
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, fuzzy, kde-format
+#| msgid "Nothing here"
+msgid "Nothing Here!"
+msgstr "Тут нічого немає"
+
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, fuzzy, kde-format
+#| msgid "Add new image sources"
+msgid "Add new image sources."
 msgstr "Додати нові джерела зображень"
 
-#: src/widgets/views/Folders/FoldersView.qml:158
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, fuzzy, kde-format
+#| msgid "Nothing here. Try something different!"
+msgid "Try something different."
+msgstr "Тут нічого немає. Спробуйте щось інше!"
+
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Тека порожня!"
 
-#: src/widgets/views/Folders/FoldersView.qml:159
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "У цій теці немає зображень"
 
-#: src/widgets/views/Folders/FoldersView.qml:175
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -669,6 +676,12 @@ msgstr "Назад"
 msgid "Open an image from your collection"
 msgstr "Відкрити зображення з вашої збірки"
 
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgid "Accept"
+#~ msgstr "Прийняти"
+
 #~ msgid "Collections"
 #~ msgstr "Збірки"
 
@@ -695,9 +708,6 @@ msgstr "Відкрити зображення з вашої збірки"
 
 #~ msgid "EMpty filter"
 #~ msgstr "Порожній фільтр"
-
-#~ msgid "Nothing here. Try something different!"
-#~ msgstr "Тут нічого немає. Спробуйте щось інше!"
 
 #~ msgid "Add new sources to browse your image collection "
 #~ msgstr "Додайте нові джерела для навігації вашою збіркою зображень"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
 "PO-Revision-Date: 2023-02-08 00:23+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -62,16 +62,8 @@ msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "刪除 %1 個檔案？"
 
-#: src/main.qml:202 src/view_models/PixMenu.qml:33
-#, kde-format
-msgid "Cancel"
-msgstr "取消"
-
-#: src/main.qml:203 src/view_models/PixMenu.qml:32
-#, kde-format
-msgid "Accept"
-msgstr "接受"
-
+#. i18n("Cancel")
+#. rejectButton.text: i18n("Accept")
 #: src/main.qml:205
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
@@ -191,6 +183,8 @@ msgstr "影像文字"
 msgid "Delete File?"
 msgstr "刪除檔案？"
 
+#. i18n("Accept")
+#. rejectButton.text: i18n("Cancel")
 #: src/view_models/PixMenu.qml:34
 #, kde-format
 msgctxt "Remove one file"
@@ -516,27 +510,39 @@ msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
 msgstr[0] "過濾 %1 個資料夾"
 
-#: src/widgets/views/Folders/FoldersView.qml:62
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "沒有資料夾！"
 
-#: src/widgets/views/Folders/FoldersView.qml:63
-#, kde-format
-msgid "Add new image sources"
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, fuzzy, kde-format
+#| msgid "Nothing here"
+msgid "Nothing Here!"
+msgstr "這裡什麼都沒有"
+
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, fuzzy, kde-format
+#| msgid "Add new image sources"
+msgid "Add new image sources."
 msgstr "新增影像來源"
 
-#: src/widgets/views/Folders/FoldersView.qml:158
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, kde-format
+msgid "Try something different."
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr "資料夾是空的！"
 
-#: src/widgets/views/Folders/FoldersView.qml:159
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "這個資料夾裡沒有影像"
 
-#: src/widgets/views/Folders/FoldersView.qml:175
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "No images."
@@ -657,6 +663,12 @@ msgstr "上一個"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "從您的收藏裡開啟影像"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
+#~ msgid "Accept"
+#~ msgstr "接受"
 
 #~ msgid "Collections"
 #~ msgstr "收藏"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
 "PO-Revision-Date: 2023-04-16 08:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -62,16 +62,8 @@ msgstr[1] "Zbrišem %1 datoteki?"
 msgstr[2] "Zbrišem %1 datoteke?"
 msgstr[3] "Zbrišem %1 datotek?"
 
-#: src/main.qml:202 src/view_models/PixMenu.qml:33
-#, kde-format
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: src/main.qml:203 src/view_models/PixMenu.qml:32
-#, kde-format
-msgid "Accept"
-msgstr "Sprejmem"
-
+#. i18n("Cancel")
+#. rejectButton.text: i18n("Accept")
 #: src/main.qml:205
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
@@ -196,6 +188,8 @@ msgstr "Besedilo slike (OCR)"
 msgid "Delete File?"
 msgstr "Zbrišem datoteko?"
 
+#. i18n("Accept")
+#. rejectButton.text: i18n("Cancel")
 #: src/view_models/PixMenu.qml:34
 #, kde-format
 msgctxt "Remove one file"
@@ -521,27 +515,39 @@ msgstr[1] "Filtriram %1 mapi"
 msgstr[2] "Filtriram %1 mape"
 msgstr[3] "Filtriram %1 map"
 
-#: src/widgets/views/Folders/FoldersView.qml:62
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "Ni map!"
 
-#: src/widgets/views/Folders/FoldersView.qml:63
-#, kde-format
-msgid "Add new image sources"
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, fuzzy, kde-format
+#| msgid "Nothing here"
+msgid "Nothing Here!"
+msgstr "Ničesar ni tu"
+
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, fuzzy, kde-format
+#| msgid "Add new image sources"
+msgid "Add new image sources."
 msgstr "Dodaj nov vir slik"
 
-#: src/widgets/views/Folders/FoldersView.qml:158
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, kde-format
+msgid "Try something different."
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Mapa je prazna!"
 
-#: src/widgets/views/Folders/FoldersView.qml:159
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "Ni slik v tej mapi"
 
-#: src/widgets/views/Folders/FoldersView.qml:175
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -667,6 +673,12 @@ msgstr "Prejšnja"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Odprite sliko iz svoje zbirke"
+
+#~ msgid "Cancel"
+#~ msgstr "Prekliči"
+
+#~ msgid "Accept"
+#~ msgstr "Sprejmem"
 
 #~ msgid "Collections"
 #~ msgstr "Zbirke"

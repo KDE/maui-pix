@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
 "PO-Revision-Date: 2023-03-20 11:14+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -59,16 +59,8 @@ msgid_plural "Delete %1 files?"
 msgstr[0] "Apagar %1 ficheiro?"
 msgstr[1] "Apagar os %1 ficheiros?"
 
-#: src/main.qml:202 src/view_models/PixMenu.qml:33
-#, kde-format
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/main.qml:203 src/view_models/PixMenu.qml:32
-#, kde-format
-msgid "Accept"
-msgstr "Aceitar"
-
+#. i18n("Cancel")
+#. rejectButton.text: i18n("Accept")
 #: src/main.qml:205
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
@@ -187,6 +179,8 @@ msgstr "Texto da Imagem (OCR)"
 msgid "Delete File?"
 msgstr "Apagar o Ficheiro?"
 
+#. i18n("Accept")
+#. rejectButton.text: i18n("Cancel")
 #: src/view_models/PixMenu.qml:34
 #, kde-format
 msgctxt "Remove one file"
@@ -510,27 +504,39 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "Filtrar %1 pasta"
 msgstr[1] "Filtrar %1 pastas"
 
-#: src/widgets/views/Folders/FoldersView.qml:62
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "Sem Pastas!"
 
-#: src/widgets/views/Folders/FoldersView.qml:63
-#, kde-format
-msgid "Add new image sources"
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, fuzzy, kde-format
+#| msgid "Nothing here"
+msgid "Nothing Here!"
+msgstr "Nada aqui"
+
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, fuzzy, kde-format
+#| msgid "Add new image sources"
+msgid "Add new image sources."
 msgstr "Adicionar novas fontes de imagens"
 
-#: src/widgets/views/Folders/FoldersView.qml:158
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, kde-format
+msgid "Try something different."
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr "A pasta está vazia!"
 
-#: src/widgets/views/Folders/FoldersView.qml:159
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "Não existem imagens nesta pasta"
 
-#: src/widgets/views/Folders/FoldersView.qml:175
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -652,3 +658,9 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir uma imagem da sua colecção"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "Accept"
+#~ msgstr "Aceitar"

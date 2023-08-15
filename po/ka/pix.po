@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
 "PO-Revision-Date: 2023-03-21 06:55+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -60,16 +60,8 @@ msgid_plural "Delete %1 files?"
 msgstr[0] "წავშალო %1 ფაილი?"
 msgstr[1] "წავშალო %1 ფაილი?"
 
-#: src/main.qml:202 src/view_models/PixMenu.qml:33
-#, kde-format
-msgid "Cancel"
-msgstr "გაუქმება"
-
-#: src/main.qml:203 src/view_models/PixMenu.qml:32
-#, kde-format
-msgid "Accept"
-msgstr "დასტური"
-
+#. i18n("Cancel")
+#. rejectButton.text: i18n("Accept")
 #: src/main.qml:205
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
@@ -187,6 +179,8 @@ msgstr "გამოსახულების ტექსტი (OCR)"
 msgid "Delete File?"
 msgstr "წავშალო ფაილი?"
 
+#. i18n("Accept")
+#. rejectButton.text: i18n("Cancel")
 #: src/view_models/PixMenu.qml:34
 #, kde-format
 msgctxt "Remove one file"
@@ -508,27 +502,39 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "%1 საქაღალდის გაფილტვრა"
 msgstr[1] "%1 საქაღალდის გაფილტვრა"
 
-#: src/widgets/views/Folders/FoldersView.qml:62
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "საქაღალდეების გარეშე!"
 
-#: src/widgets/views/Folders/FoldersView.qml:63
-#, kde-format
-msgid "Add new image sources"
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, fuzzy, kde-format
+#| msgid "Nothing here"
+msgid "Nothing Here!"
+msgstr "აქ არაფერია"
+
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, fuzzy, kde-format
+#| msgid "Add new image sources"
+msgid "Add new image sources."
 msgstr "გამოსახულებების ახალი წყაროების დამატება"
 
-#: src/widgets/views/Folders/FoldersView.qml:158
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, kde-format
+msgid "Try something different."
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr "საქაღალდე ცარიელია!"
 
-#: src/widgets/views/Folders/FoldersView.qml:159
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "საქაღალდეში გამოსახულებები არაა"
 
-#: src/widgets/views/Folders/FoldersView.qml:175
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -651,6 +657,12 @@ msgstr "წინა"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "თქენი კოლექციიდან სურათის გახსნა"
+
+#~ msgid "Cancel"
+#~ msgstr "გაუქმება"
+
+#~ msgid "Accept"
+#~ msgstr "დასტური"
 
 #~ msgid "Collections"
 #~ msgstr "კოლექციები"

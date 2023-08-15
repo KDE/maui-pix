@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
 "PO-Revision-Date: 2021-01-17 14:58+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -64,16 +64,8 @@ msgid_plural "Delete %1 files?"
 msgstr[0] "Törli ezt a(z) %1 fájlt?"
 msgstr[1] "Törli ezt a(z) %1 fájlt?"
 
-#: src/main.qml:202 src/view_models/PixMenu.qml:33
-#, kde-format
-msgid "Cancel"
-msgstr "Mégsem"
-
-#: src/main.qml:203 src/view_models/PixMenu.qml:32
-#, kde-format
-msgid "Accept"
-msgstr "Elfogadás"
-
+#. i18n("Cancel")
+#. rejectButton.text: i18n("Accept")
 #: src/main.qml:205
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
@@ -192,6 +184,8 @@ msgstr "Képcímek"
 msgid "Delete File?"
 msgstr "Törli ezt a fájlt?"
 
+#. i18n("Accept")
+#. rejectButton.text: i18n("Cancel")
 #: src/view_models/PixMenu.qml:34
 #, fuzzy, kde-format
 #| msgid ""
@@ -524,28 +518,40 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "Törli ezt a(z) %1 fájlt?"
 msgstr[1] "Törli ezt a(z) %1 fájlt?"
 
-#: src/widgets/views/Folders/FoldersView.qml:62
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "Nincsenek mappák"
 
-#: src/widgets/views/Folders/FoldersView.qml:63
-#, kde-format
-msgid "Add new image sources"
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, fuzzy, kde-format
+#| msgid "Nothing here"
+msgid "Nothing Here!"
+msgstr "Itt nincs semmi"
+
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, fuzzy, kde-format
+#| msgid "Add new image sources"
+msgid "Add new image sources."
 msgstr "Új képforrások hozzáadása"
 
-#: src/widgets/views/Folders/FoldersView.qml:158
+#: src/widgets/views/Folders/FoldersView.qml:70
+#, kde-format
+msgid "Try something different."
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr "A mappa üres"
 
-#: src/widgets/views/Folders/FoldersView.qml:159
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, fuzzy, kde-format
 #| msgid "There's not images in this folder"
 msgid "There're no images in this folder"
 msgstr "Nincsenek képek ebben a mappában"
 
-#: src/widgets/views/Folders/FoldersView.qml:175
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "No images."
@@ -674,6 +680,12 @@ msgstr "Előző"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Kép megnyitása a gyűjteményéből"
+
+#~ msgid "Cancel"
+#~ msgstr "Mégsem"
+
+#~ msgid "Accept"
+#~ msgstr "Elfogadás"
 
 #, fuzzy
 #~| msgid "Filter"
