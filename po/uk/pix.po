@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-03-20 08:12+0200\n"
+"PO-Revision-Date: 2023-08-15 09:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -521,22 +521,19 @@ msgid "No Folders!"
 msgstr "Немає тек!"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "Тут нічого немає"
+msgstr "Тут нічого немає!"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "Додати нові джерела зображень"
+msgstr "Додайте нові джерела зображень."
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Nothing here. Try something different!"
+#, kde-format
 msgid "Try something different."
-msgstr "Тут нічого немає. Спробуйте щось інше!"
+msgstr "Спробуйте щось інше."
 
 #: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format

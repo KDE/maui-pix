@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-06-11 21:50+0300\n"
+"PO-Revision-Date: 2023-08-15 05:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -506,21 +506,19 @@ msgid "No Folders!"
 msgstr "Klasör Yok!"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "Burada bir şey yok"
+msgstr "Burada bir şey yok!"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "Yeni görsel kaynakları ekle"
+msgstr "Yeni görsel kaynakları ekleyin."
 
 #: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Try something different."
-msgstr ""
+msgstr "Başka bir şey deneyin."
 
 #: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format

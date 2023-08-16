@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-03-20 10:23+0100\n"
+"PO-Revision-Date: 2023-08-15 16:36+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -510,22 +510,19 @@ msgid "No Folders!"
 msgstr "Geen mappen!"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "Er is hier niets"
+msgstr "Er is hier niets!"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "Nieuwe bronnen van afbeeldingen toevoegen"
+msgstr "Nieuwe bronnen van afbeeldingen toevoegen."
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Nothing here. Try something different!"
+#, kde-format
 msgid "Try something different."
-msgstr "Er is hier niets. Probeer iets anders!"
+msgstr "Probeer iets anders."
 
 #: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format

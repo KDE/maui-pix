@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-04-16 08:34+0200\n"
+"PO-Revision-Date: 2023-08-15 09:40+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -521,21 +521,19 @@ msgid "No Folders!"
 msgstr "Ni map!"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "Ničesar ni tu"
+msgstr "Ničesar ni tu!"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "Dodaj nov vir slik"
+msgstr "Dodaj nove vire slik."
 
 #: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Try something different."
-msgstr ""
+msgstr "Poskusite kaj drugega."
 
 #: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
