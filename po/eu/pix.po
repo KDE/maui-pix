@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-07-21 12:19+0200\n"
+"PO-Revision-Date: 2023-08-16 19:07+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -511,21 +511,19 @@ msgid "No Folders!"
 msgstr "Karpetarik ez!"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "Ezer ez hemen"
+msgstr "Hemen ez dago ezer!"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "Gehitu irudien sorburu berria"
+msgstr "Gehitu irudien sorburu berria."
 
 #: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Try something different."
-msgstr ""
+msgstr "Saiatu beste zerbait egiten."
 
 #: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
