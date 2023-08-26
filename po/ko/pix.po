@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-07-26 00:33+0200\n"
+"PO-Revision-Date: 2023-08-26 00:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -499,22 +499,19 @@ msgid "No Folders!"
 msgstr "폴더가 없습니다!"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "아무것도 없습니다"
+msgstr "아무것도 없습니다!"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "새 그림 원본 추가"
+msgstr "새 그림 원본을 추가합니다."
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Nothing here. Try something different!"
+#, kde-format
 msgid "Try something different."
-msgstr "아무것도 없습니다. 무언가를 시도해 보세요!"
+msgstr "무언가를 시도해 보세요."
 
 #: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
