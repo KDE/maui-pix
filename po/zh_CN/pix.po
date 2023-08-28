@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-08-02 12:40\n"
+"PO-Revision-Date: 2023-08-27 03:40\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -499,16 +499,14 @@ msgid "No Folders!"
 msgstr "没有文件夹"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "无内容"
+msgstr ""
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "添加新的图像来源"
+msgstr ""
 
 #: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
@@ -645,9 +643,3 @@ msgstr "返回"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"
-
-#~ msgid "Cancel"
-#~ msgstr "取消"
-
-#~ msgid "Accept"
-#~ msgstr "接受"
