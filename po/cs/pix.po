@@ -505,16 +505,14 @@ msgid "No Folders!"
 msgstr "Žádné složky."
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "Zde nic není."
+msgstr "Zde nic není!"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Add sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "Přidat zdroje"
+msgstr ""
 
 #: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
@@ -655,9 +653,3 @@ msgstr "Předchozí"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
-
-#~ msgid "Cancel"
-#~ msgstr "Zrušit"
-
-#~ msgid "Accept"
-#~ msgstr "Přijmout"
