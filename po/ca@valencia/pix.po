@@ -221,7 +221,7 @@ msgstr "Obri amb"
 #: src/view_models/PixMenu.qml:137
 #, kde-format
 msgid "Go to Folder"
-msgstr "Ves a la carpeta"
+msgstr "Ves fins a la carpeta"
 
 #: src/view_models/PixMenu.qml:154
 #, kde-format
