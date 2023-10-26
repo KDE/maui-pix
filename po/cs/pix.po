@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
-# Vit Pelcak <vit@pelcak.org>, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-03-20 14:19+0100\n"
+"PO-Revision-Date: 2023-10-19 14:28+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -512,12 +512,12 @@ msgstr "Zde nic není!"
 #: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Add new image sources."
-msgstr ""
+msgstr "Přidat nový zdroj obrázků."
 
 #: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Try something different."
-msgstr ""
+msgstr "Zkusit něco jiného."
 
 #: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
