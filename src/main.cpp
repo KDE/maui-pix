@@ -30,7 +30,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QQmlContext>
 #include <QDirIterator>
 #include <QPair>
-#include <QDate>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -127,7 +126,13 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     KLocalizedString::setApplicationDomain("pix");
 
-    KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Organize, browse, and edit your images."), KAboutLicense::LGPL_V3, i18n("© 2019-%1 Maui Development Team", QString::number(QDate::currentDate().year())), QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
+    KAboutData about(QStringLiteral("pix"),
+                     i18n("Pix"),
+                     PIX_VERSION_STRING,
+                     i18n("Organize, browse, and edit your images."),
+                     KAboutLicense::LGPL_V3,
+                     i18n("© 2019-2023 Maui Development Team"),
+                     QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
     about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
     about.setHomepage("https://mauikit.org");
     about.setProductName("maui/pix");

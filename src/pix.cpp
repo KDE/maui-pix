@@ -27,9 +27,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDesktopServices>
 #include <QDebug>
 #include <QCoreApplication>
+#include <QSettings>
 
 #include <MauiKit3/Core/fmh.h>
-#include <MauiKit3/Core/utils.h>
 
 #include <MauiKit3/FileBrowsing/tagging.h>
 #include <MauiKit3/FileBrowsing/fmstatic.h>
@@ -92,7 +92,10 @@ Gallery *Pix::allImagesModel()
 const QStringList Pix::getSourcePaths()
 {
     static const auto defaultSources = QStringList{FMStatic::PicturesPath, FMStatic::DownloadsPath} << cameraPath().toString() + screenshotsPath().toString();
-    const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
+    QSettings settings;
+    settings.beginGroup("Settings");
+    const auto sources = settings.value("Sources", defaultSources).toStringList();
+    settings.endGroup();
     qDebug() << "SOURCES" << sources;
     return sources;
 }
@@ -104,7 +107,10 @@ void Pix::saveSourcePath(const QStringList &paths)
     sources << paths;
     sources.removeDuplicates();
 
-    UTIL::saveSettings("Sources", sources, "Settings");
+    QSettings settings;
+    settings.beginGroup("Settings");
+    settings.setValue("Sources", sources);
+    settings.endGroup();
 }
 
 void Pix::removeSourcePath(const QString &path)
@@ -112,7 +118,10 @@ void Pix::removeSourcePath(const QString &path)
     auto sources = getSourcePaths();
     sources.removeOne(path);
 
-    UTIL::saveSettings("Sources", sources, "Settings");
+    QSettings settings;
+    settings.beginGroup("Settings");
+    settings.setValue("Sources", sources);
+    settings.endGroup();
 }
 
 QVariantList Pix::sourcesModel() const

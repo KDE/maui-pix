@@ -5,7 +5,7 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-set(PIX_VERSION 3.0.1)
+set(PIX_VERSION 3.0.2)
 
 set(CMAKE_CXX_STANDARD 11) # to use 17 we need to update exiv2
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
