@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 00:44+0000\n"
+"POT-Creation-Date: 2023-10-28 00:42+0000\n"
 "PO-Revision-Date: 2023-08-15 09:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -25,22 +25,23 @@ msgstr ""
 msgid "Pix"
 msgstr "Пікс"
 
-#: src/main.cpp:130
+#: src/main.cpp:132
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Упорядковування зображень, навігація та редагування зображень."
 
-#: src/main.cpp:130
-#, kde-format
-msgid "© 2019-%1 Maui Development Team"
+#: src/main.cpp:134
+#, fuzzy, kde-format
+#| msgid "© 2019-%1 Maui Development Team"
+msgid "© 2019-2023 Maui Development Team"
 msgstr "© Команда розробників Maui, 2019–%1"
 
-#: src/main.cpp:131
+#: src/main.cpp:136
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:131
+#: src/main.cpp:136
 #, kde-format
 msgid "Developer"
 msgstr "Розробник"
@@ -260,11 +261,6 @@ msgstr "Не/Улюблене"
 msgid "Behavior"
 msgstr "Поведінка"
 
-#: src/widgets/SettingsDialog.qml:16
-#, kde-format
-msgid "Configure the app behaviour."
-msgstr "Налаштувати поведінку програми."
-
 #: src/widgets/SettingsDialog.qml:20
 #, kde-format
 msgid "Auto Reload"
@@ -284,11 +280,6 @@ msgstr "Темний режим"
 #, kde-format
 msgid "Switch between light and dark colorscheme."
 msgstr "Перемкнутися між світлою і темною схемою кольорів."
-
-#: src/widgets/SettingsDialog.qml:53
-#, kde-format
-msgid "Configure the app plugins and look & feel."
-msgstr "Налаштувати додатки програми, а також вигляд і поведінку."
 
 #: src/widgets/SettingsDialog.qml:57
 #, kde-format
@@ -410,11 +401,6 @@ msgstr "Експериментальна можливість."
 msgid "Viewer"
 msgstr "Переглядач"
 
-#: src/widgets/SettingsDialog.qml:224
-#, kde-format
-msgid "Adjust the viewer panels and settings."
-msgstr "Коригування панелей і параметрів перегляду."
-
 #: src/widgets/SettingsDialog.qml:228
 #, kde-format
 msgid "Tag Bar"
@@ -431,24 +417,12 @@ msgstr ""
 msgid "Preview Bar"
 msgstr "Панель перегляду"
 
-#: src/widgets/SettingsDialog.qml:242
-#, kde-format
-msgid "Show small thumbnail previews in the image viewer."
-msgstr ""
-"Показувати мініатюри попереднього перегляду на панелі перегляду зображень."
-
 #: src/widgets/SettingsDialog.qml:254
 #, kde-format
 msgid "Sources"
 msgstr "Джерела"
 
-#: src/widgets/SettingsDialog.qml:255
-#, kde-format
-msgid "Add new sources to manage and browse your image collection."
-msgstr ""
-"Додайте нові джерела для керування і навігації вашою збіркою зображень."
-
-#: src/widgets/SettingsDialog.qml:295
+#: src/widgets/SettingsDialog.qml:293
 #, kde-format
 msgid "Add"
 msgstr "Додати"
@@ -672,6 +646,23 @@ msgstr "Назад"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Відкрити зображення з вашої збірки"
+
+#~ msgid "Configure the app behaviour."
+#~ msgstr "Налаштувати поведінку програми."
+
+#~ msgid "Configure the app plugins and look & feel."
+#~ msgstr "Налаштувати додатки програми, а також вигляд і поведінку."
+
+#~ msgid "Adjust the viewer panels and settings."
+#~ msgstr "Коригування панелей і параметрів перегляду."
+
+#~ msgid "Show small thumbnail previews in the image viewer."
+#~ msgstr ""
+#~ "Показувати мініатюри попереднього перегляду на панелі перегляду зображень."
+
+#~ msgid "Add new sources to manage and browse your image collection."
+#~ msgstr ""
+#~ "Додайте нові джерела для керування і навігації вашою збіркою зображень."
 
 #~ msgid "Cancel"
 #~ msgstr "Скасувати"

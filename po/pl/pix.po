@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 00:44+0000\n"
+"POT-Creation-Date: 2023-10-28 00:42+0000\n"
 "PO-Revision-Date: 2023-10-14 12:14+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -23,22 +23,23 @@ msgstr ""
 msgid "Pix"
 msgstr "Pix"
 
-#: src/main.cpp:130
+#: src/main.cpp:132
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Porządkuj, przeglądaj i zmieniaj swoje obrazy."
 
-#: src/main.cpp:130
-#, kde-format
-msgid "© 2019-%1 Maui Development Team"
+#: src/main.cpp:134
+#, fuzzy, kde-format
+#| msgid "© 2019-%1 Maui Development Team"
+msgid "© 2019-2023 Maui Development Team"
 msgstr "© 2019-%1 Zespół programistów Maui"
 
-#: src/main.cpp:131
+#: src/main.cpp:136
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:131
+#: src/main.cpp:136
 #, kde-format
 msgid "Developer"
 msgstr "Programista"
@@ -255,11 +256,6 @@ msgstr "Dodaj/usuń z ulubionych"
 msgid "Behavior"
 msgstr "Zachowanie"
 
-#: src/widgets/SettingsDialog.qml:16
-#, kde-format
-msgid "Configure the app behaviour."
-msgstr "Ustawienia zachowania programu."
-
 #: src/widgets/SettingsDialog.qml:20
 #, kde-format
 msgid "Auto Reload"
@@ -279,11 +275,6 @@ msgstr "Tryb ciemny"
 #, kde-format
 msgid "Switch between light and dark colorscheme."
 msgstr "Przełącz pomiędzy trybem jasnym i ciemnym."
-
-#: src/widgets/SettingsDialog.qml:53
-#, kde-format
-msgid "Configure the app plugins and look & feel."
-msgstr "Ustawienia wtyczek programu oraz jej wyglądu."
 
 #: src/widgets/SettingsDialog.qml:57
 #, kde-format
@@ -405,11 +396,6 @@ msgstr "Funkcja eksperymentalna."
 msgid "Viewer"
 msgstr "Przeglądarka"
 
-#: src/widgets/SettingsDialog.qml:224
-#, kde-format
-msgid "Adjust the viewer panels and settings."
-msgstr "Dostosuj panele przeglądarki oraz ustawienia."
-
 #: src/widgets/SettingsDialog.qml:228
 #, kde-format
 msgid "Tag Bar"
@@ -426,23 +412,12 @@ msgstr ""
 msgid "Preview Bar"
 msgstr "Pasek podglądu"
 
-#: src/widgets/SettingsDialog.qml:242
-#, kde-format
-msgid "Show small thumbnail previews in the image viewer."
-msgstr "Pokaż małe podglądy miniatur w przeglądarce obrazów."
-
 #: src/widgets/SettingsDialog.qml:254
 #, kde-format
 msgid "Sources"
 msgstr "Źródła"
 
-#: src/widgets/SettingsDialog.qml:255
-#, kde-format
-msgid "Add new sources to manage and browse your image collection."
-msgstr ""
-"Dodaj nowe źródła do swojego zbioru obrazów, aby nimi zarządzać i przeglądać."
-
-#: src/widgets/SettingsDialog.qml:295
+#: src/widgets/SettingsDialog.qml:293
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
@@ -661,6 +636,23 @@ msgstr "Poprzedni"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Otwórz obraz ze swojego zbioru"
+
+#~ msgid "Configure the app behaviour."
+#~ msgstr "Ustawienia zachowania programu."
+
+#~ msgid "Configure the app plugins and look & feel."
+#~ msgstr "Ustawienia wtyczek programu oraz jej wyglądu."
+
+#~ msgid "Adjust the viewer panels and settings."
+#~ msgstr "Dostosuj panele przeglądarki oraz ustawienia."
+
+#~ msgid "Show small thumbnail previews in the image viewer."
+#~ msgstr "Pokaż małe podglądy miniatur w przeglądarce obrazów."
+
+#~ msgid "Add new sources to manage and browse your image collection."
+#~ msgstr ""
+#~ "Dodaj nowe źródła do swojego zbioru obrazów, aby nimi zarządzać i "
+#~ "przeglądać."
 
 #~ msgid "Cancel"
 #~ msgstr "Anuluj"
