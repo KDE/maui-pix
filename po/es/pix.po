@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 00:42+0000\n"
-"PO-Revision-Date: 2023-09-02 17:31+0200\n"
+"PO-Revision-Date: 2023-10-28 12:27+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -29,10 +29,9 @@ msgid "Organize, browse, and edit your images."
 msgstr "Organice, navegue y edite sus imágenes."
 
 #: src/main.cpp:134
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Maui Development Team"
+#, kde-format
 msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019-%1 Equipo de desarrollo Maui"
+msgstr "© 2019-2023 Equipo de desarrollo Maui"
 
 #: src/main.cpp:136
 #, kde-format
@@ -633,20 +632,3 @@ msgstr "Previa"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir una imagen de su colección"
-
-#~ msgid "Configure the app behaviour."
-#~ msgstr "Configurar el comportamiento de la aplicación."
-
-#~ msgid "Configure the app plugins and look & feel."
-#~ msgstr "Configurar los complementos de la aplicación y el aspecto."
-
-#~ msgid "Adjust the viewer panels and settings."
-#~ msgstr "Ajustar los paneles del visor y las preferencias."
-
-#~ msgid "Show small thumbnail previews in the image viewer."
-#~ msgstr "Mostrar vistas previas en miniatura en el visor de imágenes."
-
-#~ msgid "Add new sources to manage and browse your image collection."
-#~ msgstr ""
-#~ "Añadir nuevas fuentes para administrar y navegar por su colección de "
-#~ "imágenes."

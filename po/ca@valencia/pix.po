@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 00:42+0000\n"
-"PO-Revision-Date: 2023-08-15 10:12+0200\n"
+"PO-Revision-Date: 2023-10-28 10:33+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -31,10 +31,9 @@ msgid "Organize, browse, and edit your images."
 msgstr "Organitzeu, navegueu, i editeu la vostra col·lecció d'imatges."
 
 #: src/main.cpp:134
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Maui Development Team"
+#, kde-format
 msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019-%1 L'equip de desenvolupament de Maui"
+msgstr "© 2019-2023 L'equip de desenvolupament de Maui"
 
 #: src/main.cpp:136
 #, kde-format
@@ -632,22 +631,3 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obri una imatge de la col·lecció"
-
-#~ msgid "Configure the app behaviour."
-#~ msgstr "Configura el comportament de l'aplicació."
-
-#~ msgid "Configure the app plugins and look & feel."
-#~ msgstr ""
-#~ "Configura els connectors de l'aplicació, així com l'aspecte i el "
-#~ "comportament."
-
-#~ msgid "Adjust the viewer panels and settings."
-#~ msgstr "Ajusta els quadros del visor i la configuració."
-
-#~ msgid "Show small thumbnail previews in the image viewer."
-#~ msgstr ""
-#~ "Mostra vistes prèvies de miniatures xicotetes en el visor d'imatges."
-
-#~ msgid "Add new sources to manage and browse your image collection."
-#~ msgstr ""
-#~ "Afig fonts noves per a gestionar i navegar per la col·lecció d'imatges."
