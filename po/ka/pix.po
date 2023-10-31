@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 00:42+0000\n"
-"PO-Revision-Date: 2023-08-16 06:08+0200\n"
+"PO-Revision-Date: 2023-10-30 05:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: src/main.cpp:130
 #, kde-format
@@ -29,10 +29,9 @@ msgid "Organize, browse, and edit your images."
 msgstr "დაალაგეთ, მოძებნეთ და ჩაასწორეთ თქვენი სურათები."
 
 #: src/main.cpp:134
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Maui Development Team"
+#, kde-format
 msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019- %1 Maui განვითარების გუნდი"
+msgstr "© 2019-2023 Maui განვითარების გუნდი"
 
 #: src/main.cpp:136
 #, kde-format
