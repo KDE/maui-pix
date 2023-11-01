@@ -28,10 +28,9 @@ msgid "Organize, browse, and edit your images."
 msgstr ""
 
 #: src/main.cpp:134
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Maui Development Team"
+#, kde-format
 msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019-%1 Vývojový tým Maui"
+msgstr ""
 
 #: src/main.cpp:136
 #, kde-format
