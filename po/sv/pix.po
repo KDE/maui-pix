@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 00:42+0000\n"
-"PO-Revision-Date: 2023-08-15 06:29+0200\n"
+"PO-Revision-Date: 2023-11-01 07:35+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -28,10 +28,9 @@ msgid "Organize, browse, and edit your images."
 msgstr "Organisera, bläddra bland och redigera dina bilder."
 
 #: src/main.cpp:134
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Maui Development Team"
+#, kde-format
 msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019-%1 Maui utvecklingsgrupp"
+msgstr "© 2019-2023 Maui utvecklingsgrupp"
 
 #: src/main.cpp:136
 #, kde-format
