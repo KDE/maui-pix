@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 00:42+0000\n"
+"POT-Creation-Date: 2023-11-05 12:29+0000\n"
 "PO-Revision-Date: 2023-11-04 14:14+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -694,4 +694,3 @@ msgstr "Odprite sliko iz svoje zbirke"
 
 #~ msgid "EMpty filter"
 #~ msgstr "Prazen filter"
-
