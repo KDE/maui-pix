@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:29+0000\n"
-"PO-Revision-Date: 2023-03-30 13:10+0300\n"
+"PO-Revision-Date: 2023-09-27 21:33+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -481,22 +481,19 @@ msgid "No Folders!"
 msgstr "Ei kansioita!"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "Ei mitään täällä"
+msgstr "Ei mitään täällä!"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "Lisää uusia kuvalähteitä"
+msgstr "Lisää uusia kuvalähteitä."
 
 #: src/widgets/views/Folders/FoldersView.qml:70
-#, fuzzy, kde-format
-#| msgid "Nothing here. Try something different!"
+#, kde-format
 msgid "Try something different."
-msgstr "Täällä ei mitään. Yritä jotain muuta!"
+msgstr "Yritä jotakin muuta."
 
 #: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
