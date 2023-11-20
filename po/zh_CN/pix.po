@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:29+0000\n"
-"PO-Revision-Date: 2023-10-21 13:54\n"
+"PO-Revision-Date: 2023-11-19 03:41\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -28,10 +28,9 @@ msgid "Organize, browse, and edit your images."
 msgstr "组织、浏览、编辑图像。"
 
 #: src/main.cpp:134
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Maui Development Team"
+#, kde-format
 msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019-%1 Maui Development Team"
+msgstr ""
 
 #: src/main.cpp:136
 #, kde-format
@@ -619,18 +618,3 @@ msgstr "返回"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"
-
-#~ msgid "Configure the app behaviour."
-#~ msgstr "配置此应用的行为。"
-
-#~ msgid "Configure the app plugins and look & feel."
-#~ msgstr "配置相册视图的界面外观。"
-
-#~ msgid "Adjust the viewer panels and settings."
-#~ msgstr "调整查看器面板和设置。"
-
-#~ msgid "Show small thumbnail previews in the image viewer."
-#~ msgstr "在图像查看器中显示所有图像的缩略图。"
-
-#~ msgid "Add new sources to manage and browse your image collection."
-#~ msgstr "添加和管理此应用的图像来源位置。"
