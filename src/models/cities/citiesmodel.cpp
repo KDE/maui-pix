@@ -18,7 +18,7 @@ void CitiesModel::setCities(const QStringList &newCities)
     if (m_cities == newCities)
         return;
     m_cities = newCities;
-    emit citiesChanged();
+    Q_EMIT citiesChanged();
 }
 
 
@@ -35,7 +35,7 @@ const FMH::MODEL_LIST &CitiesModel::items() const
 
 void CitiesModel::setList()
 {
-    emit this->preListChanged();
+    Q_EMIT this->preListChanged();
     this->m_list.clear();
     auto cities = Cities::getInstance();
     for (const auto &cityId : (m_cities)) {
@@ -50,5 +50,5 @@ void CitiesModel::setList()
                                         {FMH::MODEL_KEY::NAME, city.name()}
                                     });
     }
-    emit this->postListChanged();
+    Q_EMIT this->postListChanged();
 }

@@ -21,7 +21,7 @@ Loader
     asynchronous: true
     active: (control.enabled && control.visible) || item
 
-    property alias list : placesList
+    readonly property alias list : placesList
 
     Pix.PlacesList
     {
@@ -41,7 +41,7 @@ Loader
         holder.title: i18n("Bookmarks!")
         holder.body: i18n("Your bookmarks will be listed here")
 
-        onPlaceClicked:
+        onPlaceClicked: (path, filters, mouse) =>
         {            
             root.openFolder(path, filters.split(","))
 
@@ -76,7 +76,6 @@ Loader
                     {
                         model: placesList.quickPlaces
 
-
                         delegate: Maui.GridBrowserDelegate
                         {
                             Layout.preferredHeight: Math.min(50, width)
@@ -94,6 +93,7 @@ Loader
                             labelsVisible: false
                             tooltipText: modelData.label
                             flat: false
+
                             onClicked:
                             {
                                 _listBrowser.placeClicked(modelData.path, modelData.filters, mouse)
@@ -144,10 +144,8 @@ Loader
             width: ListView.view.width
             label: section
             isSection: true
-            //                height: Maui.Style.toolBarHeightAlt
         }
     }
-
 }
 
 

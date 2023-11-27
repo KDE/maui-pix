@@ -1,5 +1,4 @@
-#ifndef PIXSERVER_H
-#define PIXSERVER_H
+#pragma once
 
 #include <QObject>
 
@@ -9,8 +8,4 @@ class PixServer : public QObject
 public:
     explicit PixServer(QObject *parent = nullptr);
 
-signals:
-
 };
-
-#endif // PIXSERVER_H

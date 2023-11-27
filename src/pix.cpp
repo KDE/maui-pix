@@ -141,7 +141,7 @@ QStringList Pix::sources() const
 
 void Pix::openPics(const QList<QUrl> &pics)
 {
-    emit this->viewPics(QUrl::toStringList(pics));
+    Q_EMIT this->viewPics(QUrl::toStringList(pics));
 }
 
 void Pix::showInFolder(const QStringList &urls)
@@ -153,11 +153,11 @@ void Pix::showInFolder(const QStringList &urls)
 void Pix::addSources(const QStringList &paths)
 {
     saveSourcePath(paths);
-    emit sourcesChanged();
+    Q_EMIT sourcesChanged();
 }
 
 void Pix::removeSources(const QString &path)
 {
     removeSourcePath(path);
-    emit sourcesChanged();
+    Q_EMIT sourcesChanged();
 }

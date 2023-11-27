@@ -16,7 +16,8 @@ import "../../../view_models"
 ScrollView
 {
     id: control
-    property alias rollList : rollList
+
+    readonly property alias rollList : rollList
     property alias model: rollList.model
 
     signal picClicked(int index)

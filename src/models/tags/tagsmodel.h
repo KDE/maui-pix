@@ -1,6 +1,4 @@
-#ifndef TAGSMODEL_H
-#define TAGSMODEL_H
-
+#pragma once
 #include <MauiKit3/Core/fmh.h>
 #include <MauiKit3/Core/mauilist.h>
 
@@ -21,5 +19,3 @@ private:
 
     void packPreviewImages(FMH::MODEL &tag);
 };
-
-#endif // TAGSMODEL_H

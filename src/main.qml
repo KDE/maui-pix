@@ -46,19 +46,19 @@ Maui.ApplicationWindow
 {
     id: root
     title: _pixViewer.currentPic.title || Maui.App.displayName
-
+    
     Maui.Style.styleType: Maui.Handy.isAndroid ? (browserSettings.darkMode ? Maui.Style.Dark : Maui.Style.Light) : undefined
-    property alias dialog : dialogLoader.item
 
+    readonly property alias dialog : dialogLoader.item
 
-    /*PROPS*/
     readonly property bool fullScreen : root.visibility === Window.FullScreen
-    property bool selectionMode : false
-
+    
     readonly property var previewSizes: ({small: 72,
                                              medium: 90,
                                              large: 120,
                                              extralarge: 160})
+    property bool selectionMode : false
+
     Settings
     {
         id: browserSettings
@@ -72,33 +72,33 @@ Maui.ApplicationWindow
         property bool darkMode : true
         property bool gpsTags : false
     }
-
+    
     Settings
     {
         id: viewerSettings
         property bool tagBarVisible : true
         property bool previewBarVisible : false
     }
-
+    
     StackView
     {
         id: _stackView
         anchors.fill: parent
-
-Keys.enabled: true
-Keys.onEscapePressed: _stackView.pop()
-
+        
+        Keys.enabled: true
+        Keys.onEscapePressed: _stackView.pop()
+        
         initialItem: initModule === "viewer" ? _pixViewer : _collectionViewComponent
-
+        
         Loader
         {
             id: _collectionViewComponent
             active:  StackView.status === StackView.Active || item
             property string pendingFolder : initModule === "folder" ? initData : ""
-
+            
             sourceComponent: CollectionView {}
         }
-
+        
         PixViewer
         {
             id: _pixViewer
@@ -106,73 +106,81 @@ Keys.onEscapePressed: _stackView.pop()
             showCSDControls: initModule === "viewer"
         }
     }
-
-    Rectangle
+    
+    Loader
     {
         anchors.fill: parent
-        visible: _dropArea.containsDrag
+        visible: _dropAreaLoader.item.containsDrag
+        asynchronous: true
 
-        color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.95)
-
-        Maui.Rectangle
+        sourceComponent: Rectangle
         {
-            anchors.fill: parent
-            anchors.margins: Maui.Style.space.medium
-            color: "transparent"
-            borderColor: Maui.Theme.textColor
-            solidBorder: false
+            color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.95)
 
-            Maui.Holder
+            Maui.Rectangle
             {
                 anchors.fill: parent
-                visible: true
-                emoji: "qrc:/img/assets/add-image.svg"
-                emojiSize: Maui.Style.iconSizes.huge
-                title: i18n("Open images")
-                body: i18n("Drag and drop images here.")
+                anchors.margins: Maui.Style.space.medium
+                color: "transparent"
+                borderColor: Maui.Theme.textColor
+                solidBorder: false
+
+                Maui.Holder
+                {
+                    anchors.fill: parent
+                    visible: true
+                    emoji: "qrc:/img/assets/add-image.svg"
+                    emojiSize: Maui.Style.iconSizes.huge
+                    title: i18n("Open images")
+                    body: i18n("Drag and drop images here.")
+                }
             }
         }
     }
-
-    DropArea
+    
+    Loader
     {
-        id: _dropArea
+        id: _dropAreaLoader
         anchors.fill: parent
-        onDropped:
-        {
-            if(drop.urls)
-            {
-                VIEWER.openExternalPics(drop.urls, 0)
-            }
-        }
 
-        onEntered:
+        sourceComponent: DropArea
         {
-            if(drag.source)
+            onDropped: (drop) =>
             {
-                return
+                if(drop.urls)
+                {
+                    VIEWER.openExternalPics(drop.urls, 0)
+                }
             }
 
-            _stackView.push(_pixViewer)
+            onEntered: (drag) =>
+            {
+                if(drag.source)
+                {
+                    return
+                }
+
+                _stackView.push(_pixViewer)
+            }
         }
     }
-
+    
     Component
     {
         id: _infoDialogComponent
         IT.ImageInfoDialog {}
     }
-
+    
     Component
     {
         id: tagsDialogComponent
         FB.TagsDialog
         {
-            onTagsReady: composerList.updateToUrls(tags)
+            onTagsReady: (tags) => composerList.updateToUrls(tags)
             composerList.strict: false
         }
     }
-
+    
     Component
     {
         id: fmDialogComponent
@@ -183,27 +191,25 @@ Keys.onEscapePressed: _stackView.pop()
             mode: modes.OPEN
         }
     }
-
+    
     Component
     {
         id: _settingsDialogComponent
         SettingsDialog {}
     }
-
+    
     Component
     {
         id: _removeDialogComponent
-
+        
         Maui.FileListingDialog
         {
             id: removeDialog
             urls: selectionBox.uris
             title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
-//            acceptButton.text: i18n("Cancel")
-//            rejectButton.text: i18n("Accept")
-
+            
             message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
-
+            
             onAccepted: close()
             onRejected:
             {
@@ -213,24 +219,24 @@ Keys.onEscapePressed: _stackView.pop()
             }
         }
     }
-
+    
     Loader { id: dialogLoader }
-
+    
     FB.OpenWithDialog
     {
         id: _openWithDialog
     }
-
+    
     Connections
     {
         target: Pix.Collection
-
+        
         function onViewPics(pics)
         {
             VIEWER.openExternalPics(pics, 0)
         }
     }
-
+    
     Component.onCompleted:
     {
         if(Maui.Handy.isAndroid)
@@ -238,7 +244,7 @@ Keys.onEscapePressed: _stackView.pop()
             setAndroidStatusBarColor()
         }
     }
-
+    
     function setAndroidStatusBarColor()
     {
         if(Maui.Handy.isAndroid)
@@ -247,30 +253,30 @@ Keys.onEscapePressed: _stackView.pop()
             Maui.Android.navBarColor(Maui.Theme.backgroundColor, !browserSettings.darkMode)
         }
     }
-
+    
     function setPreviewSize(size)
     {
         console.log(size)
         browserSettings.previewSize = size
     }
-
+    
     function getFileInfo(url)
     {
         dialogLoader.sourceComponent= _infoDialogComponent
         dialog.url = url
         dialog.open()
     }
-
+    
     function toogleTagbar()
     {
         viewerSettings.tagBarVisible = !viewerSettings.tagBarVisible
     }
-
+    
     function tooglePreviewBar()
     {
         viewerSettings.previewBarVisible = !viewerSettings.previewBarVisible
     }
-
+    
     function toogleFullscreen()
     {
         if(root.visibility === Window.FullScreen)
@@ -281,7 +287,7 @@ Keys.onEscapePressed: _stackView.pop()
             root.showFullScreen()
         }
     }
-
+    
     function toggleViewer()
     {
         if(_pixViewer.visible)
@@ -289,20 +295,20 @@ Keys.onEscapePressed: _stackView.pop()
             if(_stackView.depth === 1)
             {
                 _stackView.replace(_pixViewer, _collectionViewComponent)
-
+                
             }else
             {
                 _stackView.pop()
             }
-
+            
         }else
         {
             _stackView.push(_pixViewer)
         }
-
+        
         _stackView.currentItem.forceActiveFocus()
     }
-
+    
     function openFileDialog()
     {
         dialogLoader.sourceComponent = fmDialogComponent
@@ -316,20 +322,20 @@ Keys.onEscapePressed: _stackView.pop()
         };
         dialog.open()
     }
-
+    
     function openSettingsDialog()
     {
         dialogLoader.sourceComponent = _settingsDialogComponent
         dialog.open()
     }
-
+    
     function openFolder(url, filters)
     {
         if(!_collectionViewComponent.visible)
         {
             toggleViewer()
         }
-
+        
         _collectionViewComponent.item.openFolder(url, filters)
     }
 }

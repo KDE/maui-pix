@@ -27,14 +27,14 @@ QVariantList PlacesModel::quickPlaces() const
 
 void PlacesModel::setList()
 {
-    emit this->preListChanged();
+    Q_EMIT this->preListChanged();
     m_list.clear();
     m_list << this->tags();
     m_list << this->collectionPaths();
     m_list << this->locations();
     m_list << this->categories();
-    emit this->postListChanged();
-    emit this->countChanged();
+    Q_EMIT this->postListChanged();
+    Q_EMIT this->countChanged();
 }
 
 FMH::MODEL_LIST PlacesModel::tags()
@@ -122,12 +122,12 @@ void PlacesModel::classBegin()
 void PlacesModel::componentComplete()
 {
     connect(Tagging::getInstance(), &Tagging::tagged, [this](QVariantMap item) {
-        emit this->preItemAppended();
+        Q_EMIT this->preItemAppended();
         auto tag = FMH::toModel(item);
         tag[FMH::MODEL_KEY::TYPE] = i18n("Tags");
         tag[FMH::MODEL_KEY::PATH] = QString("tags:///%1").arg(tag[FMH::MODEL_KEY::TAG]);
         m_list << tag;
-        emit this->postItemAppended();
+        Q_EMIT this->postItemAppended();
     });
 
     connect(Pix::instance(), &Pix::sourcesChanged, this, &PlacesModel::setList);

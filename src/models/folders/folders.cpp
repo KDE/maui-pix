@@ -21,7 +21,7 @@ void Folders::setFolders(const QList<QUrl> &folders)
         return;
 
     m_folders = folders;
-    emit this->foldersChanged();
+    Q_EMIT this->foldersChanged();
 }
 
 QList<QUrl> Folders::folders() const
@@ -42,7 +42,7 @@ void Folders::componentComplete()
 
 void Folders::setList()
 {
-    emit this->preListChanged();
+    Q_EMIT this->preListChanged();
     this->list.clear();
 
     for (const auto &folder : (m_folders))
@@ -52,8 +52,8 @@ void Folders::setList()
         this->list << item;
     }
 
-    emit this->postListChanged();
-    emit this->countChanged();
+    Q_EMIT this->postListChanged();
+    Q_EMIT this->countChanged();
 }
 
 QStringList Folders::getPreviews(const QString &path)

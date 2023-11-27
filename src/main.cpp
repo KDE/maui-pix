@@ -43,6 +43,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <MauiKit3/Core/mauiapp.h>
 #include <MauiKit3/FileBrowsing/fmstatic.h>
 
+#include <MauiKit3/ImageTools/moduleinfo.h>
+
 #ifdef Q_OS_MACOS
 #include <MauiKit3/Core/mauimacos.h>
 #endif
@@ -139,7 +141,12 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     about.setBugAddress("https://invent.kde.org/maui/pix/-/issues");
     about.setOrganizationDomain(PIX_URI);
     about.setProgramLogo(app.windowIcon());
-    about.addComponent("Exiv2");
+
+    const auto exiv2Data = MauiKitImageTools::exiv2Data();
+    about.addComponent(exiv2Data.name(), "", exiv2Data.version(), exiv2Data.webAddress());
+
+    const auto ITData = MauiKitImageTools::aboutData();
+    about.addComponent(ITData.name(), MauiKitImageTools::buildVersion(), ITData.version(), ITData.webAddress());
 
     KAboutData::setApplicationData(about);
     MauiApp::instance()->setIconName("qrc:/assets/pix.png");
