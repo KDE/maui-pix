@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 00:40+0000\n"
-"PO-Revision-Date: 2023-11-04 14:14+0100\n"
+"PO-Revision-Date: 2023-12-01 21:44+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: src/main.cpp:132
 #, kde-format
@@ -172,14 +172,13 @@ msgid "No sources found to scan."
 msgstr "Ni najdenih virov za branje."
 
 #: src/view_models/PixGrid.qml:44
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "Išči"
-msgstr[1] "Išči"
-msgstr[2] "Išči"
-msgstr[3] "Išči"
+msgstr[0] "Išči %1 sliko"
+msgstr[1] "Išči %1 sliki"
+msgstr[2] "Išči %1 slike"
+msgstr[3] "Išči %1 slik"
 
 #: src/view_models/PixGrid.qml:71
 #, kde-format

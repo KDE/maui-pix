@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 00:40+0000\n"
-"PO-Revision-Date: 2023-11-14 11:36-0300\n"
+"PO-Revision-Date: 2023-12-01 16:59-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -162,12 +162,11 @@ msgid "No sources found to scan."
 msgstr "Nenhuma fonte encontrada para examinar."
 
 #: src/view_models/PixGrid.qml:44
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "Pesquisar"
-msgstr[1] "Pesquisar"
+msgstr[0] "Pesquisar imagem"
+msgstr[1] "Pesquisar %1 imagens"
 
 #: src/view_models/PixGrid.qml:71
 #, kde-format
