@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 00:40+0000\n"
-"PO-Revision-Date: 2023-10-28 11:47+0200\n"
+"PO-Revision-Date: 2023-12-06 10:38+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: src/main.cpp:132
 #, kde-format
@@ -166,12 +166,11 @@ msgid "No sources found to scan."
 msgstr "Ez da aztertu beharreko sorbururik aurkitu."
 
 #: src/view_models/PixGrid.qml:44
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "Bilatu"
-msgstr[1] "Bilatu"
+msgstr[0] "Bilatu irudia"
+msgstr[1] "Bilatu %1 irudi"
 
 #: src/view_models/PixGrid.qml:71
 #, kde-format
