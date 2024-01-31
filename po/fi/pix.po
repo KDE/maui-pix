@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 00:40+0000\n"
-"PO-Revision-Date: 2023-09-27 21:33+0300\n"
+"PO-Revision-Date: 2023-12-11 18:11+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -28,10 +28,9 @@ msgid "Organize, browse, and edit your images."
 msgstr "Järjestä, selaa ja muokkaa kuvia."
 
 #: src/main.cpp:136
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Maui Development Team"
+#, kde-format
 msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019-%1 Maui-kehitysryhmä"
+msgstr "© 2019-2023 Maui-kehitysryhmä"
 
 #: src/main.cpp:138
 #, kde-format
@@ -162,12 +161,11 @@ msgid "No sources found to scan."
 msgstr "Luettavia lähteitä ei löytynyt."
 
 #: src/view_models/PixGrid.qml:44
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "Etsi"
-msgstr[1] "Etsi"
+msgstr[0] "Etsi kuva"
+msgstr[1] "Etsi %1 kuvaa"
 
 # *** TARKISTA: Onko tämä käskymuoto vai yhdyssana?
 #: src/view_models/PixGrid.qml:71
