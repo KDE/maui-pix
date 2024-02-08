@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:40+0000\n"
+"POT-Creation-Date: 2024-02-08 01:39+0000\n"
 "PO-Revision-Date: 2020-08-19 19:41-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -14,24 +14,9 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/main.cpp:132
-#, kde-format
-msgid "Pix"
-msgstr ""
-
 #: src/main.cpp:134
 #, kde-format
 msgid "Organize, browse, and edit your images."
-msgstr ""
-
-#: src/main.cpp:136
-#, kde-format
-msgid "© 2019-2023 Maui Development Team"
-msgstr ""
-
-#: src/main.cpp:138
-#, kde-format
-msgid "Camilo Higuita"
 msgstr ""
 
 #: src/main.cpp:138

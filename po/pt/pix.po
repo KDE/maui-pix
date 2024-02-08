@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:40+0000\n"
+"POT-Creation-Date: 2024-02-08 01:39+0000\n"
 "PO-Revision-Date: 2023-03-20 11:14+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -17,26 +17,10 @@ msgstr ""
 "X-POFile-SpellExtra: Recarregamento Maui PNGs\n"
 "X-POFile-IgnoreConsistency: XL\n"
 
-#: src/main.cpp:132
-#, kde-format
-msgid "Pix"
-msgstr "Pix"
-
 #: src/main.cpp:134
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organize, navegue e edite a sua colecção de imagens."
-
-#: src/main.cpp:136
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Maui Development Team"
-msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019-%1 da Equipa de Desenvolvimento do Maui"
-
-#: src/main.cpp:138
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "Camilo Higuita"
 
 #: src/main.cpp:138
 #, kde-format
@@ -635,6 +619,17 @@ msgstr "Anterior"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir uma imagem da sua colecção"
+
+#~ msgid "Pix"
+#~ msgstr "Pix"
+
+#, fuzzy
+#~| msgid "© 2019-%1 Maui Development Team"
+#~ msgid "© 2019-2023 Maui Development Team"
+#~ msgstr "© 2019-%1 da Equipa de Desenvolvimento do Maui"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "Camilo Higuita"
 
 #~ msgid "Configure the app behaviour."
 #~ msgstr "Configurar o comportamento da aplicação."

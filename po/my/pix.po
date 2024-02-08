@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:40+0000\n"
+"POT-Creation-Date: 2024-02-08 01:39+0000\n"
 "PO-Revision-Date: 2021-09-19 13:24+0630\n"
 "Last-Translator: \n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -18,26 +18,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: src/main.cpp:132
-#, kde-format
-msgid "Pix"
-msgstr ""
-
 #: src/main.cpp:134
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr ""
-
-#: src/main.cpp:136
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Nitrux Development Team"
-msgid "© 2019-2023 Maui Development Team"
-msgstr "© ၂၀၁၉ - %1 နစ်ထရက်တိုးတက်ရေးအဖွဲ့"
-
-#: src/main.cpp:138
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "ခမီလိုဟီဂီတာ"
 
 #: src/main.cpp:138
 #, kde-format
@@ -620,6 +604,14 @@ msgstr ""
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
+
+#, fuzzy
+#~| msgid "© 2019-%1 Nitrux Development Team"
+#~ msgid "© 2019-2023 Maui Development Team"
+#~ msgstr "© ၂၀၁၉ - %1 နစ်ထရက်တိုးတက်ရေးအဖွဲ့"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "ခမီလိုဟီဂီတာ"
 
 #~ msgid "Cancel"
 #~ msgstr "ပယ်ဖျက်မည်"

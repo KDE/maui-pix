@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:40+0000\n"
+"POT-Creation-Date: 2024-02-08 01:39+0000\n"
 "PO-Revision-Date: 2021-01-17 14:58+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -17,11 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.03.70\n"
 
-#: src/main.cpp:132
-#, kde-format
-msgid "Pix"
-msgstr "Pix"
-
 #: src/main.cpp:134
 #, fuzzy, kde-format
 #| msgid "Pix lets you organize, browse, and edit your image collection."
@@ -29,17 +24,6 @@ msgid "Organize, browse, and edit your images."
 msgstr ""
 "A Pix segít Önnek képgyűjteménye rendezésében, böngészésében és "
 "szerkesztésében."
-
-#: src/main.cpp:136
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Nitrux Development Team"
-msgid "© 2019-2023 Maui Development Team"
-msgstr "© A Nitrux fejlesztői, 2019-%1."
-
-#: src/main.cpp:138
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "Camilo Higuita"
 
 #: src/main.cpp:138
 #, kde-format
@@ -656,6 +640,17 @@ msgstr "Előző"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Kép megnyitása a gyűjteményéből"
+
+#~ msgid "Pix"
+#~ msgstr "Pix"
+
+#, fuzzy
+#~| msgid "© 2019-%1 Nitrux Development Team"
+#~ msgid "© 2019-2023 Maui Development Team"
+#~ msgstr "© A Nitrux fejlesztői, 2019-%1."
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "Camilo Higuita"
 
 #~ msgid "Configure the app behaviour."
 #~ msgstr "Az alkalmazás működésének beállítása."

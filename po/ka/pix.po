@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:40+0000\n"
+"POT-Creation-Date: 2024-02-08 01:39+0000\n"
 "PO-Revision-Date: 2023-12-06 06:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,25 +18,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
 
-#: src/main.cpp:132
-#, kde-format
-msgid "Pix"
-msgstr "Pix"
-
 #: src/main.cpp:134
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "დაალაგეთ, მოძებნეთ და ჩაასწორეთ თქვენი სურათები."
-
-#: src/main.cpp:136
-#, kde-format
-msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019-2023 Maui განვითარების გუნდი"
-
-#: src/main.cpp:138
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "კამილო ჰიგუიტა"
 
 #: src/main.cpp:138
 #, kde-format
@@ -630,6 +615,15 @@ msgstr "წინა"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "თქენი კოლექციიდან სურათის გახსნა"
+
+#~ msgid "Pix"
+#~ msgstr "Pix"
+
+#~ msgid "© 2019-2023 Maui Development Team"
+#~ msgstr "© 2019-2023 Maui განვითარების გუნდი"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "კამილო ჰიგუიტა"
 
 #~ msgid "Configure the app behaviour."
 #~ msgstr "აპის ქცევის მორგება."

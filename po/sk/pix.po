@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:40+0000\n"
+"POT-Creation-Date: 2024-02-08 01:39+0000\n"
 "PO-Revision-Date: 2021-11-15 17:54+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -15,25 +15,10 @@ msgstr ""
 "X-Generator: Lokalize 21.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/main.cpp:132
-#, kde-format
-msgid "Pix"
-msgstr "Pix"
-
 #: src/main.cpp:134
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr ""
-
-#: src/main.cpp:136
-#, kde-format
-msgid "© 2019-2023 Maui Development Team"
-msgstr ""
-
-#: src/main.cpp:138
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "Camilo Higuita"
 
 #: src/main.cpp:138
 #, kde-format
@@ -643,6 +628,12 @@ msgstr "Predchádzajúci"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
+
+#~ msgid "Pix"
+#~ msgstr "Pix"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "Camilo Higuita"
 
 #~ msgid "Cancel"
 #~ msgstr "Zrušiť"

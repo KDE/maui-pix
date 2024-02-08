@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:40+0000\n"
+"POT-Creation-Date: 2024-02-08 01:39+0000\n"
 "PO-Revision-Date: 2024-02-05 11:41\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,25 +17,10 @@ msgstr ""
 "X-Crowdin-File: /kf5-trunk/messages/maui-pix/pix.pot\n"
 "X-Crowdin-File-ID: 24480\n"
 
-#: src/main.cpp:132
-#, kde-format
-msgid "Pix"
-msgstr "Pix"
-
 #: src/main.cpp:134
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "组织、浏览、编辑图像。"
-
-#: src/main.cpp:136
-#, kde-format
-msgid "© 2019-2023 Maui Development Team"
-msgstr ""
-
-#: src/main.cpp:138
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "Camilo Higuita"
 
 #: src/main.cpp:138
 #, kde-format
@@ -617,3 +602,9 @@ msgstr "返回"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"
+
+#~ msgid "Pix"
+#~ msgstr "Pix"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "Camilo Higuita"

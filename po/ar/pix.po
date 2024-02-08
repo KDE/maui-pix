@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:40+0000\n"
+"POT-Creation-Date: 2024-02-08 01:39+0000\n"
 "PO-Revision-Date: 2023-05-11 11:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,26 +18,10 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: src/main.cpp:132
-#, kde-format
-msgid "Pix"
-msgstr "بكس"
-
 #: src/main.cpp:134
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr ""
-
-#: src/main.cpp:136
-#, fuzzy, kde-format
-#| msgid "© 2019-%1 Maui Development Team"
-msgid "© 2019-2023 Maui Development Team"
-msgstr "© 2019-%1 فريق تطوير ماوي"
-
-#: src/main.cpp:138
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "كاميلو هيجويتا"
 
 #: src/main.cpp:138
 #, kde-format
@@ -650,6 +634,17 @@ msgstr "السابق"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
+
+#~ msgid "Pix"
+#~ msgstr "بكس"
+
+#, fuzzy
+#~| msgid "© 2019-%1 Maui Development Team"
+#~ msgid "© 2019-2023 Maui Development Team"
+#~ msgstr "© 2019-%1 فريق تطوير ماوي"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "كاميلو هيجويتا"
 
 #~ msgid "Cancel"
 #~ msgstr "ألغِ"
