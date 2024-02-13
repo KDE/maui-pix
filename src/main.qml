@@ -47,8 +47,6 @@ Maui.ApplicationWindow
     id: root
     title: _pixViewer.currentPic.title || Maui.App.displayName
     
-    Maui.Style.styleType: Maui.Handy.isAndroid ? (browserSettings.darkMode ? Maui.Style.Dark : Maui.Style.Light) : undefined
-
     readonly property alias dialog : dialogLoader.item
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
@@ -69,7 +67,6 @@ Maui.ApplicationWindow
         property int previewSize : previewSizes.medium
         property string sortBy : "modified"
         property int sortOrder: Qt.DescendingOrder
-        property bool darkMode : true
         property bool gpsTags : false
     }
     
@@ -234,23 +231,6 @@ Maui.ApplicationWindow
         function onViewPics(pics)
         {
             VIEWER.openExternalPics(pics, 0)
-        }
-    }
-    
-    Component.onCompleted:
-    {
-        if(Maui.Handy.isAndroid)
-        {
-            setAndroidStatusBarColor()
-        }
-    }
-    
-    function setAndroidStatusBarColor()
-    {
-        if(Maui.Handy.isAndroid)
-        {
-            Maui.Android.statusbarColor( Maui.Theme.backgroundColor, !browserSettings.darkMode)
-            Maui.Android.navBarColor(Maui.Theme.backgroundColor, !browserSettings.darkMode)
         }
     }
     

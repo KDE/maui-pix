@@ -27,24 +27,6 @@ Maui.SettingsDialog
                 onToggled: browserSettings.autoReload = !browserSettings.autoReload
             }
         }
-
-        Maui.SectionItem
-        {
-            visible: Maui.Handy.isAndroid
-
-            label1.text: i18n("Dark Mode")
-            label2.text: i18n("Switch between light and dark colorscheme.")
-
-            Switch
-            {
-                checked: browserSettings.darkMode
-                onToggled:
-                {
-                    browserSettings.darkMode = !browserSettings.darkMode
-                    setAndroidStatusBarColor()
-                }
-            }
-        }
     }
 
     Maui.SectionGroup
