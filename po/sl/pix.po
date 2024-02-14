@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-08 01:39+0000\n"
+"POT-Creation-Date: 2024-02-14 01:39+0000\n"
 "PO-Revision-Date: 2023-12-01 21:44+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -28,17 +28,17 @@ msgstr "Organizirajte, brskajte in urejajte svoje slike."
 msgid "Developer"
 msgstr "Razvijalec"
 
-#: src/main.qml:134
+#: src/main.qml:131
 #, kde-format
 msgid "Open images"
 msgstr "Odpri slike"
 
-#: src/main.qml:135
+#: src/main.qml:132
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Povlecite in spustite slike tu."
 
-#: src/main.qml:209
+#: src/main.qml:206
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -47,7 +47,7 @@ msgstr[1] "Zbrišem %1 datoteki?"
 msgstr[2] "Zbrišem %1 datoteke?"
 msgstr[3] "Zbrišem %1 datotek?"
 
-#: src/main.qml:211
+#: src/main.qml:208
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -91,7 +91,7 @@ msgstr "Posnetki zaslona"
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:52
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
 msgstr "Zbirka"
@@ -260,159 +260,149 @@ msgstr "Samodejno ponovno nalaganje"
 msgid "Watch for changes in the collection sources."
 msgstr "Pazite na spremembe virov zbirk."
 
-#: src/widgets/SettingsDialog.qml:35
-#, kde-format
-msgid "Dark Mode"
-msgstr "Temni način"
-
-#: src/widgets/SettingsDialog.qml:36
-#, kde-format
-msgid "Switch between light and dark colorscheme."
-msgstr "Preklop med svetlo in temno barvno shemo."
-
-#: src/widgets/SettingsDialog.qml:57
+#: src/widgets/SettingsDialog.qml:39
 #, kde-format
 msgid "Fit"
 msgstr "Prilagodi"
 
-#: src/widgets/SettingsDialog.qml:58
+#: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
 msgstr "Prilagodi predoglede in ohrani razmerje stranic."
 
-#: src/widgets/SettingsDialog.qml:70
+#: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
 msgstr "Naslovi slik"
 
-#: src/widgets/SettingsDialog.qml:71
+#: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Show the file name of the images."
 msgstr "Prikaži imena datotek slik."
 
-#: src/widgets/SettingsDialog.qml:83
+#: src/widgets/SettingsDialog.qml:65
 #, kde-format
 msgid "Preview Size"
 msgstr "Velikost predogleda"
 
-#: src/widgets/SettingsDialog.qml:84
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Velikost predoglednih sličic v pogledih zbirke."
 
-#: src/widgets/SettingsDialog.qml:95
+#: src/widgets/SettingsDialog.qml:77
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/widgets/SettingsDialog.qml:102
+#: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/widgets/SettingsDialog.qml:110
+#: src/widgets/SettingsDialog.qml:92
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/widgets/SettingsDialog.qml:118
+#: src/widgets/SettingsDialog.qml:100
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/widgets/SettingsDialog.qml:128
+#: src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Sort by"
 msgstr "Razvrsti po"
 
-#: src/widgets/SettingsDialog.qml:129
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Change the sorting key."
 msgstr "Spremeni ključ razvrščanja."
 
-#: src/widgets/SettingsDialog.qml:139
+#: src/widgets/SettingsDialog.qml:121
 #, kde-format
 msgid "Title"
 msgstr "Naslov"
 
-#: src/widgets/SettingsDialog.qml:146
+#: src/widgets/SettingsDialog.qml:128
 #, kde-format
 msgid "Modified"
 msgstr "Spremenjeno"
 
-#: src/widgets/SettingsDialog.qml:154
+#: src/widgets/SettingsDialog.qml:136
 #, kde-format
 msgid "Size"
 msgstr "Velikost"
 
-#: src/widgets/SettingsDialog.qml:162
+#: src/widgets/SettingsDialog.qml:144
 #, kde-format
 msgid "Date"
 msgstr "Datum"
 
-#: src/widgets/SettingsDialog.qml:172
+#: src/widgets/SettingsDialog.qml:154
 #, kde-format
 msgid "Sort Order"
 msgstr "Vrstni red"
 
-#: src/widgets/SettingsDialog.qml:173
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Change the sorting order."
 msgstr "Spremeni vrstni red."
 
-#: src/widgets/SettingsDialog.qml:184
+#: src/widgets/SettingsDialog.qml:166
 #, kde-format
 msgid "Ascending"
 msgstr "Naraščajoče"
 
-#: src/widgets/SettingsDialog.qml:192
+#: src/widgets/SettingsDialog.qml:174
 #, kde-format
 msgid "Descending"
 msgstr "Padajoče"
 
-#: src/widgets/SettingsDialog.qml:203
+#: src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "GPS Tags"
 msgstr "GPS značke"
 
-#: src/widgets/SettingsDialog.qml:204
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Show GPS tags."
 msgstr "Prikaži GPS značke."
 
-#: src/widgets/SettingsDialog.qml:215
+#: src/widgets/SettingsDialog.qml:197
 #, kde-format
 msgid "Experimental feature."
 msgstr "Eksperimentalna zmožnost."
 
-#: src/widgets/SettingsDialog.qml:223
+#: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Viewer"
 msgstr "Vpogledovalnik"
 
-#: src/widgets/SettingsDialog.qml:228
+#: src/widgets/SettingsDialog.qml:210
 #, kde-format
 msgid "Tag Bar"
 msgstr "Vrstica značk"
 
-#: src/widgets/SettingsDialog.qml:229
+#: src/widgets/SettingsDialog.qml:211
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 "Preprost način dodajanja, odstranjevanja in spreminjanja značk trenutne "
 "slike."
 
-#: src/widgets/SettingsDialog.qml:241
+#: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "Preview Bar"
 msgstr "Vrstica predogleda"
 
-#: src/widgets/SettingsDialog.qml:254
+#: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Sources"
 msgstr "Viri"
 
-#: src/widgets/SettingsDialog.qml:293
+#: src/widgets/SettingsDialog.qml:275
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
@@ -633,6 +623,12 @@ msgstr "Prejšnja"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Odprite sliko iz svoje zbirke"
+
+#~ msgid "Dark Mode"
+#~ msgstr "Temni način"
+
+#~ msgid "Switch between light and dark colorscheme."
+#~ msgstr "Preklop med svetlo in temno barvno shemo."
 
 #~ msgid "Pix"
 #~ msgstr "Pix"

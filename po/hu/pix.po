@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-08 01:39+0000\n"
+"POT-Creation-Date: 2024-02-14 01:39+0000\n"
 "PO-Revision-Date: 2021-01-17 14:58+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -30,25 +30,25 @@ msgstr ""
 msgid "Developer"
 msgstr "Fejlesztő"
 
-#: src/main.qml:134
+#: src/main.qml:131
 #, kde-format
 msgid "Open images"
 msgstr "Képek megnyitása"
 
-#: src/main.qml:135
+#: src/main.qml:132
 #, fuzzy, kde-format
 #| msgid "Drag and drop images here"
 msgid "Drag and drop images here."
 msgstr "Ejtsen ide képeket"
 
-#: src/main.qml:209
+#: src/main.qml:206
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Törli ezt a(z) %1 fájlt?"
 msgstr[1] "Törli ezt a(z) %1 fájlt?"
 
-#: src/main.qml:211
+#: src/main.qml:208
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Camera"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:52
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
 msgstr "Gyűjtemény"
@@ -258,161 +258,151 @@ msgstr "Automatikus újratöltés"
 msgid "Watch for changes in the collection sources."
 msgstr "A gyűjteményforrások változásainak figyelése."
 
-#: src/widgets/SettingsDialog.qml:35
-#, kde-format
-msgid "Dark Mode"
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:36
-#, kde-format
-msgid "Switch between light and dark colorscheme."
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:57
+#: src/widgets/SettingsDialog.qml:39
 #, kde-format
 msgid "Fit"
 msgstr "Illesztés"
 
-#: src/widgets/SettingsDialog.qml:58
+#: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:70
+#: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
 msgstr "Képcímek"
 
-#: src/widgets/SettingsDialog.qml:71
+#: src/widgets/SettingsDialog.qml:53
 #, fuzzy, kde-format
 #| msgid "Show the titles of the images."
 msgid "Show the file name of the images."
 msgstr "A képek címeinek megjelenítése."
 
-#: src/widgets/SettingsDialog.qml:83
+#: src/widgets/SettingsDialog.qml:65
 #, kde-format
 msgid "Preview Size"
 msgstr "Előnézet mérete"
 
-#: src/widgets/SettingsDialog.qml:84
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "A bélyegképek mérete a gyűjteménynézetben."
 
-#: src/widgets/SettingsDialog.qml:95
+#: src/widgets/SettingsDialog.qml:77
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/widgets/SettingsDialog.qml:102
+#: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/widgets/SettingsDialog.qml:110
+#: src/widgets/SettingsDialog.qml:92
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/widgets/SettingsDialog.qml:118
+#: src/widgets/SettingsDialog.qml:100
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/widgets/SettingsDialog.qml:128
+#: src/widgets/SettingsDialog.qml:110
 #, fuzzy, kde-format
 #| msgid "Sorting by"
 msgid "Sort by"
 msgstr "Rendezés eszerint"
 
-#: src/widgets/SettingsDialog.qml:129
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Change the sorting key."
 msgstr "A rendezési kulcs módosítása."
 
-#: src/widgets/SettingsDialog.qml:139
+#: src/widgets/SettingsDialog.qml:121
 #, kde-format
 msgid "Title"
 msgstr "Cím"
 
-#: src/widgets/SettingsDialog.qml:146
+#: src/widgets/SettingsDialog.qml:128
 #, kde-format
 msgid "Modified"
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:154
+#: src/widgets/SettingsDialog.qml:136
 #, kde-format
 msgid "Size"
 msgstr "Méret"
 
-#: src/widgets/SettingsDialog.qml:162
+#: src/widgets/SettingsDialog.qml:144
 #, kde-format
 msgid "Date"
 msgstr "Dátum"
 
-#: src/widgets/SettingsDialog.qml:172
+#: src/widgets/SettingsDialog.qml:154
 #, fuzzy, kde-format
 #| msgid "Sort order"
 msgid "Sort Order"
 msgstr "Rendezési sorrend"
 
-#: src/widgets/SettingsDialog.qml:173
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Change the sorting order."
 msgstr "A rendezési sorrend módosítása."
 
-#: src/widgets/SettingsDialog.qml:184
+#: src/widgets/SettingsDialog.qml:166
 #, kde-format
 msgid "Ascending"
 msgstr "Növekvő"
 
-#: src/widgets/SettingsDialog.qml:192
+#: src/widgets/SettingsDialog.qml:174
 #, kde-format
 msgid "Descending"
 msgstr "Csökkenő"
 
-#: src/widgets/SettingsDialog.qml:203
+#: src/widgets/SettingsDialog.qml:185
 #, fuzzy, kde-format
 #| msgid "Tags"
 msgid "GPS Tags"
 msgstr "Címkék"
 
-#: src/widgets/SettingsDialog.qml:204
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Show GPS tags."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:215
+#: src/widgets/SettingsDialog.qml:197
 #, kde-format
 msgid "Experimental feature."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:223
+#: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Viewer"
 msgstr "Megjelenítő"
 
-#: src/widgets/SettingsDialog.qml:228
+#: src/widgets/SettingsDialog.qml:210
 #, kde-format
 msgid "Tag Bar"
 msgstr "Címkesáv"
 
-#: src/widgets/SettingsDialog.qml:229
+#: src/widgets/SettingsDialog.qml:211
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "Egyszerű módszer a jelenlegi kép címkéinek kezeléséhez."
 
-#: src/widgets/SettingsDialog.qml:241
+#: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "Preview Bar"
 msgstr "Előnézeti sáv"
 
-#: src/widgets/SettingsDialog.qml:254
+#: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Sources"
 msgstr "Források"
 
-#: src/widgets/SettingsDialog.qml:293
+#: src/widgets/SettingsDialog.qml:275
 #, kde-format
 msgid "Add"
 msgstr "Hozzáadás"

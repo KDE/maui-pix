@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-08 01:39+0000\n"
+"POT-Creation-Date: 2024-02-14 01:39+0000\n"
 "PO-Revision-Date: 2023-12-03 17:52+0100\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -27,24 +27,24 @@ msgstr "Organizza, sfoglia e modifica la tue immagini."
 msgid "Developer"
 msgstr "Sviluppatore"
 
-#: src/main.qml:134
+#: src/main.qml:131
 #, kde-format
 msgid "Open images"
 msgstr "Apri immagini"
 
-#: src/main.qml:135
+#: src/main.qml:132
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Trascina qui le immagini."
 
-#: src/main.qml:209
+#: src/main.qml:206
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Eliminare un file?"
 msgstr[1] "Eliminare %1 file?"
 
-#: src/main.qml:211
+#: src/main.qml:208
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -82,7 +82,7 @@ msgstr "Schermate"
 msgid "Camera"
 msgstr "Fotocamera"
 
-#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:52
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
 msgstr "Collezione"
@@ -249,159 +249,149 @@ msgstr "Ricarica automaticamente"
 msgid "Watch for changes in the collection sources."
 msgstr "Guarda i cambiamenti nelle fonti della collezione."
 
-#: src/widgets/SettingsDialog.qml:35
-#, kde-format
-msgid "Dark Mode"
-msgstr "Modalità scura"
-
-#: src/widgets/SettingsDialog.qml:36
-#, kde-format
-msgid "Switch between light and dark colorscheme."
-msgstr "Passa dallo schema di colori chiaro allo scuro e viceversa."
-
-#: src/widgets/SettingsDialog.qml:57
+#: src/widgets/SettingsDialog.qml:39
 #, kde-format
 msgid "Fit"
 msgstr "Adatta"
 
-#: src/widgets/SettingsDialog.qml:58
+#: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
 msgstr "Adatta le anteprime e mantieni il rapporto d'aspetto."
 
-#: src/widgets/SettingsDialog.qml:70
+#: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
 msgstr "Titoli delle immagini"
 
-#: src/widgets/SettingsDialog.qml:71
+#: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Show the file name of the images."
 msgstr "Mostra il nome del file dell'immagini."
 
-#: src/widgets/SettingsDialog.qml:83
+#: src/widgets/SettingsDialog.qml:65
 #, kde-format
 msgid "Preview Size"
 msgstr "Dimensione anteprima"
 
-#: src/widgets/SettingsDialog.qml:84
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Dimensione delle miniature nelle viste della collezione."
 
-#: src/widgets/SettingsDialog.qml:95
+#: src/widgets/SettingsDialog.qml:77
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/widgets/SettingsDialog.qml:102
+#: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/widgets/SettingsDialog.qml:110
+#: src/widgets/SettingsDialog.qml:92
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/widgets/SettingsDialog.qml:118
+#: src/widgets/SettingsDialog.qml:100
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/widgets/SettingsDialog.qml:128
+#: src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Sort by"
 msgstr "Ordina per"
 
-#: src/widgets/SettingsDialog.qml:129
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Change the sorting key."
 msgstr "Modifica la chiave di ordinamento."
 
-#: src/widgets/SettingsDialog.qml:139
+#: src/widgets/SettingsDialog.qml:121
 #, kde-format
 msgid "Title"
 msgstr "Titolo"
 
-#: src/widgets/SettingsDialog.qml:146
+#: src/widgets/SettingsDialog.qml:128
 #, kde-format
 msgid "Modified"
 msgstr "Modificato"
 
-#: src/widgets/SettingsDialog.qml:154
+#: src/widgets/SettingsDialog.qml:136
 #, kde-format
 msgid "Size"
 msgstr "Dimensione"
 
-#: src/widgets/SettingsDialog.qml:162
+#: src/widgets/SettingsDialog.qml:144
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
-#: src/widgets/SettingsDialog.qml:172
+#: src/widgets/SettingsDialog.qml:154
 #, kde-format
 msgid "Sort Order"
 msgstr "Ordinamento"
 
-#: src/widgets/SettingsDialog.qml:173
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Change the sorting order."
 msgstr "Modifica l'ordinamento."
 
-#: src/widgets/SettingsDialog.qml:184
+#: src/widgets/SettingsDialog.qml:166
 #, kde-format
 msgid "Ascending"
 msgstr "Crescente"
 
-#: src/widgets/SettingsDialog.qml:192
+#: src/widgets/SettingsDialog.qml:174
 #, kde-format
 msgid "Descending"
 msgstr "Decrescente"
 
-#: src/widgets/SettingsDialog.qml:203
+#: src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "GPS Tags"
 msgstr "Etichette GPS"
 
-#: src/widgets/SettingsDialog.qml:204
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Show GPS tags."
 msgstr "Mostra le etichette GPS."
 
-#: src/widgets/SettingsDialog.qml:215
+#: src/widgets/SettingsDialog.qml:197
 #, kde-format
 msgid "Experimental feature."
 msgstr "Funzione sperimentale."
 
-#: src/widgets/SettingsDialog.qml:223
+#: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Viewer"
 msgstr "Visualizzatore"
 
-#: src/widgets/SettingsDialog.qml:228
+#: src/widgets/SettingsDialog.qml:210
 #, kde-format
 msgid "Tag Bar"
 msgstr "Barra delle etichette"
 
-#: src/widgets/SettingsDialog.qml:229
+#: src/widgets/SettingsDialog.qml:211
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 "Un modo semplice per aggiungere, rimuovere e modificare le etichette "
 "dell'immagine corrente."
 
-#: src/widgets/SettingsDialog.qml:241
+#: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "Preview Bar"
 msgstr "Barra delle anteprime"
 
-#: src/widgets/SettingsDialog.qml:254
+#: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Sources"
 msgstr "Fonti"
 
-#: src/widgets/SettingsDialog.qml:293
+#: src/widgets/SettingsDialog.qml:275
 #, kde-format
 msgid "Add"
 msgstr "Aggiungi"
@@ -617,6 +607,12 @@ msgstr "Precedente"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Apri un'immagine della tua collezione"
+
+#~ msgid "Dark Mode"
+#~ msgstr "Modalità scura"
+
+#~ msgid "Switch between light and dark colorscheme."
+#~ msgstr "Passa dallo schema di colori chiaro allo scuro e viceversa."
 
 #~ msgid "Pix"
 #~ msgstr "Pix"

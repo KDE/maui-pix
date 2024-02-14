@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-08 01:39+0000\n"
+"POT-Creation-Date: 2024-02-14 01:39+0000\n"
 "PO-Revision-Date: 2024-02-10 00:19+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,23 +27,23 @@ msgstr "사진을 정리하고 탐색하고 편집합니다."
 msgid "Developer"
 msgstr "개발자"
 
-#: src/main.qml:134
+#: src/main.qml:131
 #, kde-format
 msgid "Open images"
 msgstr "사진 열기"
 
-#: src/main.qml:135
+#: src/main.qml:132
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "여기로 그림을 드래그하십시오."
 
-#: src/main.qml:209
+#: src/main.qml:206
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "파일 %1개를 삭제하시겠습니까?"
 
-#: src/main.qml:211
+#: src/main.qml:208
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -76,7 +76,7 @@ msgstr "스크린샷"
 msgid "Camera"
 msgstr "카메라"
 
-#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:52
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
 msgstr "모음집"
@@ -240,157 +240,147 @@ msgstr "자동 새로 고침"
 msgid "Watch for changes in the collection sources."
 msgstr "모음집 원본의 변경 사항을 감시합니다."
 
-#: src/widgets/SettingsDialog.qml:35
-#, kde-format
-msgid "Dark Mode"
-msgstr "어두운 모드"
-
-#: src/widgets/SettingsDialog.qml:36
-#, kde-format
-msgid "Switch between light and dark colorscheme."
-msgstr "밝은 색상과 어두운 색상을 전환합니다."
-
-#: src/widgets/SettingsDialog.qml:57
+#: src/widgets/SettingsDialog.qml:39
 #, kde-format
 msgid "Fit"
 msgstr "맞춤"
 
-#: src/widgets/SettingsDialog.qml:58
+#: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
 msgstr "미리 보기를 맞추고 원본 종횡비를 유지합니다."
 
-#: src/widgets/SettingsDialog.qml:70
+#: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
 msgstr "그림 제목"
 
-#: src/widgets/SettingsDialog.qml:71
+#: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Show the file name of the images."
 msgstr "그림 파일 이름을 표시합니다."
 
-#: src/widgets/SettingsDialog.qml:83
+#: src/widgets/SettingsDialog.qml:65
 #, kde-format
 msgid "Preview Size"
 msgstr "미리 보기 크기"
 
-#: src/widgets/SettingsDialog.qml:84
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "모음집 보기의 섬네일 크기입니다."
 
-#: src/widgets/SettingsDialog.qml:95
+#: src/widgets/SettingsDialog.qml:77
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/widgets/SettingsDialog.qml:102
+#: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/widgets/SettingsDialog.qml:110
+#: src/widgets/SettingsDialog.qml:92
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/widgets/SettingsDialog.qml:118
+#: src/widgets/SettingsDialog.qml:100
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/widgets/SettingsDialog.qml:128
+#: src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Sort by"
 msgstr "정렬 순서"
 
-#: src/widgets/SettingsDialog.qml:129
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Change the sorting key."
 msgstr "정렬 키를 변경합니다."
 
-#: src/widgets/SettingsDialog.qml:139
+#: src/widgets/SettingsDialog.qml:121
 #, kde-format
 msgid "Title"
 msgstr "제목"
 
-#: src/widgets/SettingsDialog.qml:146
+#: src/widgets/SettingsDialog.qml:128
 #, kde-format
 msgid "Modified"
 msgstr "수정한 날짜"
 
-#: src/widgets/SettingsDialog.qml:154
+#: src/widgets/SettingsDialog.qml:136
 #, kde-format
 msgid "Size"
 msgstr "크기"
 
-#: src/widgets/SettingsDialog.qml:162
+#: src/widgets/SettingsDialog.qml:144
 #, kde-format
 msgid "Date"
 msgstr "날짜"
 
-#: src/widgets/SettingsDialog.qml:172
+#: src/widgets/SettingsDialog.qml:154
 #, kde-format
 msgid "Sort Order"
 msgstr "정렬 순서"
 
-#: src/widgets/SettingsDialog.qml:173
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Change the sorting order."
 msgstr "정렬 순서를 변경합니다."
 
-#: src/widgets/SettingsDialog.qml:184
+#: src/widgets/SettingsDialog.qml:166
 #, kde-format
 msgid "Ascending"
 msgstr "오름차순"
 
-#: src/widgets/SettingsDialog.qml:192
+#: src/widgets/SettingsDialog.qml:174
 #, kde-format
 msgid "Descending"
 msgstr "내림차순"
 
-#: src/widgets/SettingsDialog.qml:203
+#: src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "GPS Tags"
 msgstr "태그"
 
-#: src/widgets/SettingsDialog.qml:204
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Show GPS tags."
 msgstr "GPS 태그를 표시합니다."
 
-#: src/widgets/SettingsDialog.qml:215
+#: src/widgets/SettingsDialog.qml:197
 #, kde-format
 msgid "Experimental feature."
 msgstr "실험적 기능입니다."
 
-#: src/widgets/SettingsDialog.qml:223
+#: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Viewer"
 msgstr "뷰어"
 
-#: src/widgets/SettingsDialog.qml:228
+#: src/widgets/SettingsDialog.qml:210
 #, kde-format
 msgid "Tag Bar"
 msgstr "태그 표시줄"
 
-#: src/widgets/SettingsDialog.qml:229
+#: src/widgets/SettingsDialog.qml:211
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "현재 이미지에 태그를 쉽게 추가, 삭제, 수정할 수 있습니다."
 
-#: src/widgets/SettingsDialog.qml:241
+#: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "Preview Bar"
 msgstr "미리 보기 표시줄"
 
-#: src/widgets/SettingsDialog.qml:254
+#: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Sources"
 msgstr "원본"
 
-#: src/widgets/SettingsDialog.qml:293
+#: src/widgets/SettingsDialog.qml:275
 #, kde-format
 msgid "Add"
 msgstr "추가"
@@ -602,6 +592,12 @@ msgstr "이전"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "모음집에서 그림 열기"
+
+#~ msgid "Dark Mode"
+#~ msgstr "어두운 모드"
+
+#~ msgid "Switch between light and dark colorscheme."
+#~ msgstr "밝은 색상과 어두운 색상을 전환합니다."
 
 #~ msgid "Pix"
 #~ msgstr "Pix"
