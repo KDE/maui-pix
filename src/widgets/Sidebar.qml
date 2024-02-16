@@ -84,7 +84,6 @@ Loader
                             Layout.fillHeight: true
                             Layout.columnSpan: modelData.path === "tags:///fav" ? 2 : (modelData.path === "collection:///" ? 3 : 1)
 
-
                             isCurrentItem: currentFolder === modelData.path
                             iconSource: modelData.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
                             iconSizeHint: Maui.Style.iconSize
@@ -94,7 +93,7 @@ Loader
                             tooltipText: modelData.label
                             flat: false
 
-                            onClicked:
+                            onClicked: (mouse) =>
                             {
                                 _listBrowser.placeClicked(modelData.path, modelData.filters, mouse)
                                 if(sideBar.collapsed)

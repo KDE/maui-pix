@@ -154,7 +154,7 @@ Component
         readonly property var folderInfo : FB.FM.getFileInfo(currentFolder)
 
         headBar.visible: false
-        title: control.folderInfo.label
+        title: control.folderInfo ? control.folderInfo.label : ""
 
         list.recursive: false
         list.urls: [currentFolder]

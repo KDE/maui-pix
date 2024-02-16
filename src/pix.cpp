@@ -36,16 +36,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "models/gallery/gallery.h"
 
-Pix *Pix::m_instance = nullptr;
+Q_GLOBAL_STATIC(Pix, pixInstance)
 
 Pix::Pix(QObject *parent) : QObject(parent)
-  ,m_allImagesModel(nullptr)
+  , m_allImagesModel(nullptr)
 {
-    connect(qApp, &QCoreApplication::aboutToQuit, []()
-    {
-        delete m_instance;
-        m_instance = nullptr;
-    });
 }
 
 QUrl Pix::cameraPath()
@@ -87,6 +82,11 @@ Gallery *Pix::allImagesModel()
         });
     }
     return m_allImagesModel;
+}
+
+Pix *Pix::instance()
+{
+   return pixInstance();
 }
 
 const QStringList Pix::getSourcePaths()
