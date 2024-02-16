@@ -604,9 +604,3 @@ msgstr "Předchozí"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
-
-#~ msgid "Dark Mode"
-#~ msgstr "Tmavý režim"
-
-#~ msgid "Switch between light and dark colorscheme."
-#~ msgstr "Přepínač mezi světlým a tmavým barevným schématem."
