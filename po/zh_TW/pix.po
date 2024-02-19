@@ -4,21 +4,21 @@
 # This file is distributed under the same license as the maui-pix package.
 #
 # Automatically generated, 2022.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-14 01:39+0000\n"
-"PO-Revision-Date: 2023-02-08 00:23+0900\n"
+"PO-Revision-Date: 2024-02-19 07:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/main.cpp:134
 #, kde-format
@@ -36,10 +36,9 @@ msgid "Open images"
 msgstr "開啟影像"
 
 #: src/main.qml:132
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "拖放影像到這裡"
+msgstr "拖放影像到這裡。"
 
 #: src/main.qml:206
 #, kde-format
@@ -67,7 +66,7 @@ msgstr "下載"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "圖片"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
 #: src/widgets/views/Tags/TagsSidebar.qml:231
@@ -98,10 +97,9 @@ msgid "Places"
 msgstr "快速存取"
 
 #: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Locations"
-msgstr "開啟位置"
+msgstr "位置"
 
 #: src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:218
@@ -117,11 +115,10 @@ msgstr "動態"
 #: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "分類"
 
 #: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#, kde-format
 msgid "PNG"
 msgstr "PNG"
 
@@ -138,33 +135,28 @@ msgid "Vectors"
 msgstr "向量圖"
 
 #: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#, kde-format
 msgid "Paintings"
-msgstr "油畫"
+msgstr "畫作"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
+#, kde-format
 msgid "No sources found to scan."
-msgstr "找不到結果。"
+msgstr "找不到要掃描的來源。"
 
 #: src/view_models/PixGrid.qml:44
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "搜尋"
+msgstr[0] "搜尋 %1 張影像"
 
 #: src/view_models/PixGrid.qml:71
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "影像文字"
+msgstr "影像文字 (OCR)"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "刪除檔案？"
 
@@ -202,20 +194,17 @@ msgid "Export"
 msgstr "匯出"
 
 #: src/view_models/PixMenu.qml:126
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "開啟方式"
 
 #: src/view_models/PixMenu.qml:137
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "跳至資料夾"
 
 #: src/view_models/PixMenu.qml:154
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "開啟位置"
 
@@ -262,7 +251,7 @@ msgstr "最適合"
 #: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "調整預覽大小並維持寬高比。"
 
 #: src/widgets/SettingsDialog.qml:52
 #, kde-format
@@ -270,10 +259,9 @@ msgid "Image Titles"
 msgstr "影像標題"
 
 #: src/widgets/SettingsDialog.qml:53
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "顯示影像的標題。"
+msgstr "顯示影像的檔案名稱。"
 
 #: src/widgets/SettingsDialog.qml:65
 #, kde-format
@@ -306,8 +294,7 @@ msgid "XL"
 msgstr "非常大"
 
 #: src/widgets/SettingsDialog.qml:110
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#, kde-format
 msgid "Sort by"
 msgstr "排序方式"
 
@@ -337,8 +324,7 @@ msgid "Date"
 msgstr "日期"
 
 #: src/widgets/SettingsDialog.qml:154
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#, kde-format
 msgid "Sort Order"
 msgstr "排序方向"
 
@@ -370,7 +356,7 @@ msgstr "顯示 GPS 標籤。"
 #: src/widgets/SettingsDialog.qml:197
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "實驗性功能。"
 
 #: src/widgets/SettingsDialog.qml:205
 #, kde-format
@@ -465,21 +451,19 @@ msgid "No Folders!"
 msgstr "沒有資料夾！"
 
 #: src/widgets/views/Folders/FoldersView.qml:68
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "這裡什麼都沒有"
+msgstr "這裡什麼都沒有！"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "新增影像來源"
+msgstr "新增影像來源。"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "Try something different."
-msgstr ""
+msgstr "試試看不同的東西。"
 
 #: src/widgets/views/Folders/FoldersView.qml:164
 #, kde-format
@@ -492,11 +476,10 @@ msgid "There're no images in this folder"
 msgstr "這個資料夾裡沒有影像"
 
 #: src/widgets/views/Folders/FoldersView.qml:180
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "開啟影像"
+msgstr[0] "%1 張影像"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:67
