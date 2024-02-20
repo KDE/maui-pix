@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-14 01:39+0000\n"
+"POT-Creation-Date: 2024-02-20 01:39+0000\n"
 "PO-Revision-Date: 2024-02-19 07:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -68,7 +68,7 @@ msgstr "下載"
 msgid "Pictures"
 msgstr "圖片"
 
-#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
@@ -84,7 +84,7 @@ msgstr "相機"
 msgid "Collection"
 msgstr "收藏"
 
-#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:127
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
@@ -96,45 +96,45 @@ msgstr "標籤"
 msgid "Places"
 msgstr "快速存取"
 
-#: src/models/folders/placesmodel.cpp:85
+#: src/models/folders/placesmodel.cpp:84
 #, kde-format
 msgid "Locations"
 msgstr "位置"
 
-#: src/models/folders/placesmodel.cpp:103
+#: src/models/folders/placesmodel.cpp:101
 #: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
 msgstr "動態"
 
+#: src/models/folders/placesmodel.cpp:101
 #: src/models/folders/placesmodel.cpp:103
 #: src/models/folders/placesmodel.cpp:105
 #: src/models/folders/placesmodel.cpp:107
 #: src/models/folders/placesmodel.cpp:109
 #: src/models/folders/placesmodel.cpp:111
-#: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
 msgstr "分類"
 
-#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:105
 #, kde-format
 msgid "PNG"
 msgstr "PNG"
 
-#: src/models/folders/placesmodel.cpp:109
+#: src/models/folders/placesmodel.cpp:107
 #: src/widgets/views/Tags/TagsSidebar.qml:255
 #, kde-format
 msgid "PSD"
 msgstr "PSD"
 
-#: src/models/folders/placesmodel.cpp:111
+#: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
 msgstr "向量圖"
 
-#: src/models/folders/placesmodel.cpp:113
+#: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "Paintings"
 msgstr "畫作"
@@ -358,7 +358,7 @@ msgstr "顯示 GPS 標籤。"
 msgid "Experimental feature."
 msgstr "實驗性功能。"
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
 #, kde-format
 msgid "Viewer"
 msgstr "檢視器"
@@ -418,23 +418,23 @@ msgstr "即將就緒！"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "請確認您已連線至網際網路且您的雲端帳號是正常運作中的"
 
-#: src/widgets/views/CollectionView.qml:104
+#: src/widgets/views/CollectionView.qml:107
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "切換側邊欄"
 
-#: src/widgets/views/CollectionView.qml:138
+#: src/widgets/views/CollectionView.qml:153
 #: src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: src/widgets/views/CollectionView.qml:147
+#: src/widgets/views/CollectionView.qml:162
 #, kde-format
 msgid "Settings"
 msgstr "設定"
 
-#: src/widgets/views/CollectionView.qml:154
+#: src/widgets/views/CollectionView.qml:169
 #, kde-format
 msgid "About"
 msgstr "關於"

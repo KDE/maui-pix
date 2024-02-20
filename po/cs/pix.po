@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-14 01:39+0000\n"
+"POT-Creation-Date: 2024-02-20 01:39+0000\n"
 "PO-Revision-Date: 2024-01-19 15:48+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -69,7 +69,7 @@ msgstr "Stahování"
 msgid "Pictures"
 msgstr "Obrázky"
 
-#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
@@ -85,7 +85,7 @@ msgstr "Fotoaparát"
 msgid "Collection"
 msgstr "Sbírka"
 
-#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:127
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
@@ -97,45 +97,45 @@ msgstr "Značky"
 msgid "Places"
 msgstr "Místa"
 
-#: src/models/folders/placesmodel.cpp:85
+#: src/models/folders/placesmodel.cpp:84
 #, kde-format
 msgid "Locations"
 msgstr "Umístění"
 
-#: src/models/folders/placesmodel.cpp:103
+#: src/models/folders/placesmodel.cpp:101
 #: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
 msgstr "Animovaný"
 
+#: src/models/folders/placesmodel.cpp:101
 #: src/models/folders/placesmodel.cpp:103
 #: src/models/folders/placesmodel.cpp:105
 #: src/models/folders/placesmodel.cpp:107
 #: src/models/folders/placesmodel.cpp:109
 #: src/models/folders/placesmodel.cpp:111
-#: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
 msgstr "Kategorie"
 
-#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:105
 #, kde-format
 msgid "PNG"
 msgstr "PNG"
 
-#: src/models/folders/placesmodel.cpp:109
+#: src/models/folders/placesmodel.cpp:107
 #: src/widgets/views/Tags/TagsSidebar.qml:255
 #, kde-format
 msgid "PSD"
 msgstr "PSD"
 
-#: src/models/folders/placesmodel.cpp:111
+#: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
 msgstr "Vektory"
 
-#: src/models/folders/placesmodel.cpp:113
+#: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "Paintings"
 msgstr "Malby"
@@ -361,7 +361,7 @@ msgstr "Zobrazit značky GPS."
 msgid "Experimental feature."
 msgstr "Experimentální funkce."
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
 #, kde-format
 msgid "Viewer"
 msgstr "Prohlížeč"
@@ -421,23 +421,23 @@ msgstr "´"
 msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 
-#: src/widgets/views/CollectionView.qml:104
+#: src/widgets/views/CollectionView.qml:107
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Přepnout postranní panel"
 
-#: src/widgets/views/CollectionView.qml:138
+#: src/widgets/views/CollectionView.qml:153
 #: src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Otevřít"
 
-#: src/widgets/views/CollectionView.qml:147
+#: src/widgets/views/CollectionView.qml:162
 #, kde-format
 msgid "Settings"
 msgstr "Nastavení"
 
-#: src/widgets/views/CollectionView.qml:154
+#: src/widgets/views/CollectionView.qml:169
 #, kde-format
 msgid "About"
 msgstr "O aplikaci"

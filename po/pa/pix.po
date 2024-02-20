@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-14 01:39+0000\n"
+"POT-Creation-Date: 2024-02-20 01:39+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -70,7 +70,7 @@ msgstr ""
 msgid "Pictures"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Collection"
 msgstr "ਭੰਡਾਰ"
 
-#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:127
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
@@ -98,46 +98,46 @@ msgstr "ਟੈਗ"
 msgid "Places"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:85
+#: src/models/folders/placesmodel.cpp:84
 #, fuzzy, kde-format
 #| msgid "Collection"
 msgid "Locations"
 msgstr "ਭੰਡਾਰ"
 
-#: src/models/folders/placesmodel.cpp:103
+#: src/models/folders/placesmodel.cpp:101
 #: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
 msgstr ""
 
+#: src/models/folders/placesmodel.cpp:101
 #: src/models/folders/placesmodel.cpp:103
 #: src/models/folders/placesmodel.cpp:105
 #: src/models/folders/placesmodel.cpp:107
 #: src/models/folders/placesmodel.cpp:109
 #: src/models/folders/placesmodel.cpp:111
-#: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:105
 #, kde-format
 msgid "PNG"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:109
+#: src/models/folders/placesmodel.cpp:107
 #: src/widgets/views/Tags/TagsSidebar.qml:255
 #, kde-format
 msgid "PSD"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:111
+#: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
 msgstr ""
 
-#: src/models/folders/placesmodel.cpp:113
+#: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "Paintings"
 msgstr ""
@@ -371,7 +371,7 @@ msgstr ""
 msgid "Experimental feature."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
 #, kde-format
 msgid "Viewer"
 msgstr "ਦਰਸ਼ਕ"
@@ -431,23 +431,23 @@ msgstr "ਲਗਭਗ ਹੋ ਗਿਆ!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਆਨਲਾਈਨ ਹੋ ਅਤੇ ਤੁਹਾਡਾ ਕਲਾਉਂਡ ਖਾਤਾ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ"
 
-#: src/widgets/views/CollectionView.qml:104
+#: src/widgets/views/CollectionView.qml:107
 #, kde-format
 msgid "Toggle sidebar"
 msgstr ""
 
-#: src/widgets/views/CollectionView.qml:138
+#: src/widgets/views/CollectionView.qml:153
 #: src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
 
-#: src/widgets/views/CollectionView.qml:147
+#: src/widgets/views/CollectionView.qml:162
 #, kde-format
 msgid "Settings"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/widgets/views/CollectionView.qml:154
+#: src/widgets/views/CollectionView.qml:169
 #, kde-format
 msgid "About"
 msgstr "ਇਸ ਬਾਰੇ"

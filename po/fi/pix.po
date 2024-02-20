@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-14 01:39+0000\n"
+"POT-Creation-Date: 2024-02-20 01:39+0000\n"
 "PO-Revision-Date: 2023-12-11 18:11+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -67,7 +67,7 @@ msgstr "Lataukset"
 msgid "Pictures"
 msgstr "Kuvat"
 
-#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
@@ -83,7 +83,7 @@ msgstr "Kamera"
 msgid "Collection"
 msgstr "Kokoelma"
 
-#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:127
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
@@ -95,47 +95,47 @@ msgstr "Tunnisteet"
 msgid "Places"
 msgstr "Sijainnit"
 
-#: src/models/folders/placesmodel.cpp:85
+#: src/models/folders/placesmodel.cpp:84
 #, kde-format
 msgid "Locations"
 msgstr "Sijainnit"
 
 # *** TARKISTA: Oletan kuuluvan yhteen muiden monikkomuotoisten kanssa
-#: src/models/folders/placesmodel.cpp:103
+#: src/models/folders/placesmodel.cpp:101
 #: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
 msgstr "Animoidut"
 
+#: src/models/folders/placesmodel.cpp:101
 #: src/models/folders/placesmodel.cpp:103
 #: src/models/folders/placesmodel.cpp:105
 #: src/models/folders/placesmodel.cpp:107
 #: src/models/folders/placesmodel.cpp:109
 #: src/models/folders/placesmodel.cpp:111
-#: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
 msgstr "Luokat"
 
-#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:105
 #, kde-format
 msgid "PNG"
 msgstr "PNG"
 
-#: src/models/folders/placesmodel.cpp:109
+#: src/models/folders/placesmodel.cpp:107
 #: src/widgets/views/Tags/TagsSidebar.qml:255
 #, kde-format
 msgid "PSD"
 msgstr "PSD"
 
-#: src/models/folders/placesmodel.cpp:111
+#: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
 msgstr "Vektoripiirustukset"
 
 # *** TARKISTA: Tämä saattaisi olla myös esim. ohjelman nimi!
-#: src/models/folders/placesmodel.cpp:113
+#: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "Paintings"
 msgstr "Maalaukset"
@@ -361,7 +361,7 @@ msgstr "Näytä GPS-tunnisteet."
 msgid "Experimental feature."
 msgstr "Kokeellinen ominaisuus."
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
 #, kde-format
 msgid "Viewer"
 msgstr "Katselin"
@@ -421,23 +421,23 @@ msgstr "Lähes valmista!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Varmista, että olet verkossa ja että pilvitilisi toimii"
 
-#: src/widgets/views/CollectionView.qml:104
+#: src/widgets/views/CollectionView.qml:107
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Näytä tai piilota sivupaneeli"
 
-#: src/widgets/views/CollectionView.qml:138
+#: src/widgets/views/CollectionView.qml:153
 #: src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Avaa"
 
-#: src/widgets/views/CollectionView.qml:147
+#: src/widgets/views/CollectionView.qml:162
 #, kde-format
 msgid "Settings"
 msgstr "Asetukset"
 
-#: src/widgets/views/CollectionView.qml:154
+#: src/widgets/views/CollectionView.qml:169
 #, kde-format
 msgid "About"
 msgstr "Tietoa"

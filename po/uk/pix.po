@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-14 01:39+0000\n"
+"POT-Creation-Date: 2024-02-20 01:39+0000\n"
 "PO-Revision-Date: 2023-12-01 08:47+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -78,7 +78,7 @@ msgstr "Отримання"
 msgid "Pictures"
 msgstr "Зображення"
 
-#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
@@ -94,7 +94,7 @@ msgstr "Камера"
 msgid "Collection"
 msgstr "Збірка"
 
-#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:127
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
@@ -106,45 +106,45 @@ msgstr "Мітки"
 msgid "Places"
 msgstr "Місця"
 
-#: src/models/folders/placesmodel.cpp:85
+#: src/models/folders/placesmodel.cpp:84
 #, kde-format
 msgid "Locations"
 msgstr "Місця"
 
-#: src/models/folders/placesmodel.cpp:103
+#: src/models/folders/placesmodel.cpp:101
 #: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
 msgstr "Анімація"
 
+#: src/models/folders/placesmodel.cpp:101
 #: src/models/folders/placesmodel.cpp:103
 #: src/models/folders/placesmodel.cpp:105
 #: src/models/folders/placesmodel.cpp:107
 #: src/models/folders/placesmodel.cpp:109
 #: src/models/folders/placesmodel.cpp:111
-#: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
 msgstr "Категорії"
 
-#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:105
 #, kde-format
 msgid "PNG"
 msgstr "PNG"
 
-#: src/models/folders/placesmodel.cpp:109
+#: src/models/folders/placesmodel.cpp:107
 #: src/widgets/views/Tags/TagsSidebar.qml:255
 #, kde-format
 msgid "PSD"
 msgstr "PSD"
 
-#: src/models/folders/placesmodel.cpp:111
+#: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
 msgstr "Вектори"
 
-#: src/models/folders/placesmodel.cpp:113
+#: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "Paintings"
 msgstr "Малюнки"
@@ -372,7 +372,7 @@ msgstr "Показати мітки GPS."
 msgid "Experimental feature."
 msgstr "Експериментальна можливість."
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
 #, kde-format
 msgid "Viewer"
 msgstr "Переглядач"
@@ -435,23 +435,23 @@ msgstr ""
 "Переконайтеся у працездатності з'єднання з мережею та вашого «хмарного» "
 "облікового запису"
 
-#: src/widgets/views/CollectionView.qml:104
+#: src/widgets/views/CollectionView.qml:107
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Увімкнути/Вимкнути бічну панель"
 
-#: src/widgets/views/CollectionView.qml:138
+#: src/widgets/views/CollectionView.qml:153
 #: src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/widgets/views/CollectionView.qml:147
+#: src/widgets/views/CollectionView.qml:162
 #, kde-format
 msgid "Settings"
 msgstr "Параметри"
 
-#: src/widgets/views/CollectionView.qml:154
+#: src/widgets/views/CollectionView.qml:169
 #, kde-format
 msgid "About"
 msgstr "Про програму"
