@@ -298,7 +298,7 @@ Maui.ApplicationWindow
         dialog.callback = function(paths)
         {
             Pix.Collection.openPics(paths)
-            dialogLoader.sourceComponent = null
+//            dialogLoader.sourceComponent = null
         };
         dialog.open()
     }
