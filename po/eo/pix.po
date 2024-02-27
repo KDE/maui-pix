@@ -1,0 +1,601 @@
+# translation of pix.pot to Esperanto
+# Copyright (C) 2024 Free Software Foundation, Inc.
+# This file is distributed under the same license as the maui-pix package.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: maui-pix\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-02-20 01:39+0000\n"
+"PO-Revision-Date: 2024-02-26 21:30+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: src/main.cpp:134
+#, kde-format
+msgid "Organize, browse, and edit your images."
+msgstr ""
+
+#: src/main.cpp:138
+#, kde-format
+msgid "Developer"
+msgstr "Ellaboranto"
+
+#: src/main.qml:131
+#, kde-format
+msgid "Open images"
+msgstr ""
+
+#: src/main.qml:132
+#, kde-format
+msgid "Drag and drop images here."
+msgstr ""
+
+#: src/main.qml:206
+#, kde-format
+msgid "Delete %1 file?"
+msgid_plural "Delete %1 files?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/main.qml:208
+#, kde-format
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgid_plural ""
+"Are sure you want to delete these files? This action can not be undone."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/models/folders/placesmodel.cpp:15
+#, kde-format
+msgid "Favorites"
+msgstr "Plej ŝatataj"
+
+#: src/models/folders/placesmodel.cpp:16
+#, kde-format
+msgid "Downloads"
+msgstr "Elŝutoj"
+
+#: src/models/folders/placesmodel.cpp:17
+#, kde-format
+msgid "Pictures"
+msgstr "Bildoj"
+
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
+#: src/widgets/views/Tags/TagsSidebar.qml:231
+#, kde-format
+msgid "Screenshots"
+msgstr "Ekrankopioj"
+
+#: src/models/folders/placesmodel.cpp:19
+#, kde-format
+msgid "Camera"
+msgstr "Fotilo"
+
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
+#, kde-format
+msgid "Collection"
+msgstr "Kolekto"
+
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
+#: src/view_models/PixMenu.qml:57
+#, kde-format
+msgid "Tags"
+msgstr "Etikedoj"
+
+#: src/models/folders/placesmodel.cpp:62
+#: src/widgets/views/Tags/TagsSidebar.qml:165
+#, kde-format
+msgid "Places"
+msgstr "Lokoj"
+
+#: src/models/folders/placesmodel.cpp:84
+#, kde-format
+msgid "Locations"
+msgstr "Lokoj"
+
+#: src/models/folders/placesmodel.cpp:101
+#: src/widgets/views/Tags/TagsSidebar.qml:218
+#, kde-format
+msgid "Animated"
+msgstr "Vigla"
+
+#: src/models/folders/placesmodel.cpp:101
+#: src/models/folders/placesmodel.cpp:103
+#: src/models/folders/placesmodel.cpp:105
+#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:109
+#: src/models/folders/placesmodel.cpp:111
+#, kde-format
+msgid "Categories"
+msgstr "Kategorioj"
+
+#: src/models/folders/placesmodel.cpp:105
+#, kde-format
+msgid "PNG"
+msgstr "PNG"
+
+#: src/models/folders/placesmodel.cpp:107
+#: src/widgets/views/Tags/TagsSidebar.qml:255
+#, kde-format
+msgid "PSD"
+msgstr "PSD"
+
+#: src/models/folders/placesmodel.cpp:109
+#: src/widgets/views/Tags/TagsSidebar.qml:263
+#, kde-format
+msgid "Vectors"
+msgstr ""
+
+#: src/models/folders/placesmodel.cpp:111
+#, kde-format
+msgid "Paintings"
+msgstr ""
+
+#: src/models/gallery/gallery.cpp:124
+#, kde-format
+msgid "No sources found to scan."
+msgstr ""
+
+#: src/view_models/PixGrid.qml:44
+#, kde-format
+msgid "Search image"
+msgid_plural "Search %1 images"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/view_models/PixGrid.qml:71
+#, kde-format
+msgid "Image Text (OCR)"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:31
+#, kde-format
+msgid "Delete File?"
+msgstr ""
+
+#. i18n("Accept")
+#. rejectButton.text: i18n("Cancel")
+#: src/view_models/PixMenu.qml:34
+#, kde-format
+msgctxt "Remove one file"
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgstr ""
+
+#: src/view_models/PixMenu.qml:48
+#, kde-format
+msgid "UnFav it"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:69
+#, kde-format
+msgid "Info"
+msgstr "Informo"
+
+#: src/view_models/PixMenu.qml:79 src/widgets/SelectionBar.qml:71
+#, kde-format
+msgid "Share"
+msgstr "Kunhavigi"
+
+#: src/view_models/PixMenu.qml:92
+#, kde-format
+msgid "Select"
+msgstr "Elekti"
+
+#: src/view_models/PixMenu.qml:108 src/widgets/SelectionBar.qml:90
+#, kde-format
+msgid "Export"
+msgstr "Eksporti"
+
+#: src/view_models/PixMenu.qml:126
+#, kde-format
+msgid "Open with"
+msgstr "Malfermi kun"
+
+#: src/view_models/PixMenu.qml:137
+#, kde-format
+msgid "Go to Folder"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:154
+#, kde-format
+msgid "Open Location"
+msgstr "Malfermi lokon"
+
+#: src/view_models/PixMenu.qml:166 src/widgets/SelectionBar.qml:106
+#, kde-format
+msgid "Remove"
+msgstr "Forigi"
+
+#: src/widgets/SelectionBar.qml:51
+#, kde-format
+msgid "View"
+msgstr "Vido"
+
+#: src/widgets/SelectionBar.qml:59
+#, kde-format
+msgid "Tag"
+msgstr "Etikedo"
+
+#: src/widgets/SelectionBar.qml:83
+#, kde-format
+msgid "Un/Fav"
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:15
+#, kde-format
+msgid "Behavior"
+msgstr "Konduto"
+
+#: src/widgets/SettingsDialog.qml:20
+#, kde-format
+msgid "Auto Reload"
+msgstr "Aŭtomata Reŝargi"
+
+#: src/widgets/SettingsDialog.qml:21
+#, kde-format
+msgid "Watch for changes in the collection sources."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:39
+#, kde-format
+msgid "Fit"
+msgstr "Fit"
+
+#: src/widgets/SettingsDialog.qml:40
+#, kde-format
+msgid "Fit the previews and preserve the aspect ratio."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:52
+#, kde-format
+msgid "Image Titles"
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:53
+#, kde-format
+msgid "Show the file name of the images."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:65
+#, kde-format
+msgid "Preview Size"
+msgstr "Grandeco de Antaŭrigardo"
+
+#: src/widgets/SettingsDialog.qml:66
+#, kde-format
+msgid "Size of the thumbnails in the collection views."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:77
+#, kde-format
+msgid "S"
+msgstr "S"
+
+#: src/widgets/SettingsDialog.qml:84
+#, kde-format
+msgid "M"
+msgstr "M"
+
+#: src/widgets/SettingsDialog.qml:92
+#, kde-format
+msgid "X"
+msgstr "X"
+
+#: src/widgets/SettingsDialog.qml:100
+#, kde-format
+msgid "XL"
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:110
+#, kde-format
+msgid "Sort by"
+msgstr "Ordigi laŭ"
+
+#: src/widgets/SettingsDialog.qml:111
+#, kde-format
+msgid "Change the sorting key."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:121
+#, kde-format
+msgid "Title"
+msgstr "Titolo"
+
+#: src/widgets/SettingsDialog.qml:128
+#, kde-format
+msgid "Modified"
+msgstr "Modifita"
+
+#: src/widgets/SettingsDialog.qml:136
+#, kde-format
+msgid "Size"
+msgstr "Grandeco"
+
+#: src/widgets/SettingsDialog.qml:144
+#, kde-format
+msgid "Date"
+msgstr "Dato"
+
+#: src/widgets/SettingsDialog.qml:154
+#, kde-format
+msgid "Sort Order"
+msgstr "Ordigo"
+
+#: src/widgets/SettingsDialog.qml:155
+#, kde-format
+msgid "Change the sorting order."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:166
+#, kde-format
+msgid "Ascending"
+msgstr "Kreskante"
+
+#: src/widgets/SettingsDialog.qml:174
+#, kde-format
+msgid "Descending"
+msgstr "Malkreskanta"
+
+#: src/widgets/SettingsDialog.qml:185
+#, kde-format
+msgid "GPS Tags"
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:186
+#, kde-format
+msgid "Show GPS tags."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:197
+#, kde-format
+msgid "Experimental feature."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
+#, kde-format
+msgid "Viewer"
+msgstr "Rigardilo"
+
+#: src/widgets/SettingsDialog.qml:210
+#, kde-format
+msgid "Tag Bar"
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:211
+#, kde-format
+msgid "Easy way to add, remove and modify the tags of the current image."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:223
+#, kde-format
+msgid "Preview Bar"
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:236
+#, kde-format
+msgid "Sources"
+msgstr "Fontoj"
+
+#: src/widgets/SettingsDialog.qml:275
+#, kde-format
+msgid "Add"
+msgstr "Aldoni"
+
+#: src/widgets/Sidebar.qml:41
+#, kde-format
+msgid "Bookmarks!"
+msgstr ""
+
+#: src/widgets/Sidebar.qml:42
+#, kde-format
+msgid "Your bookmarks will be listed here"
+msgstr ""
+
+#: src/widgets/views/Cloud/CloudView.qml:33
+#, kde-format
+msgid "Loading content!"
+msgstr ""
+
+#: src/widgets/views/Cloud/CloudView.qml:35
+#, kde-format
+msgid "Nothing here"
+msgstr ""
+
+#: src/widgets/views/Cloud/CloudView.qml:38
+#, kde-format
+msgid "Almost ready!"
+msgstr "Preskaŭ preta!"
+
+#: src/widgets/views/Cloud/CloudView.qml:40
+#, kde-format
+msgid "Make sure you're online and your cloud account is working"
+msgstr ""
+
+#: src/widgets/views/CollectionView.qml:107
+#, kde-format
+msgid "Toggle sidebar"
+msgstr ""
+
+#: src/widgets/views/CollectionView.qml:153
+#: src/widgets/views/Gallery/GalleryView.qml:26
+#, kde-format
+msgid "Open"
+msgstr "Malfermi"
+
+#: src/widgets/views/CollectionView.qml:162
+#, kde-format
+msgid "Settings"
+msgstr "Agordoj"
+
+#: src/widgets/views/CollectionView.qml:169
+#, kde-format
+msgid "About"
+msgstr "Pri"
+
+#: src/widgets/views/Folders/FoldersView.qml:44
+#, kde-format
+msgid "Filter %1 folder"
+msgid_plural "Filter %1 folders"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/widgets/views/Folders/FoldersView.qml:68
+#, kde-format
+msgid "No Folders!"
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:68
+#, kde-format
+msgid "Nothing Here!"
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, kde-format
+msgid "Add new image sources."
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, kde-format
+msgid "Try something different."
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:164
+#, kde-format
+msgid "Folder is empty!"
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:165
+#, kde-format
+msgid "There're no images in this folder"
+msgstr ""
+
+#: src/widgets/views/Folders/FoldersView.qml:180
+#, kde-format
+msgid "No images."
+msgid_plural "%1 images"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/widgets/views/Gallery/GalleryView.qml:21
+#: src/widgets/views/Tags/TagsSidebar.qml:67
+#: src/widgets/views/Viewer/PixViewer.qml:211
+#, kde-format
+msgid "No Pics!"
+msgstr ""
+
+#: src/widgets/views/Gallery/GalleryView.qml:22
+#: src/widgets/views/Tags/TagsSidebar.qml:68
+#, kde-format
+msgid "Nothing here. You can add new sources or open an image."
+msgstr ""
+
+#: src/widgets/views/Gallery/GalleryView.qml:32
+#, kde-format
+msgid "Add sources"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:68
+#, kde-format
+msgid "No results found."
+msgstr "Neniuj rezultoj trovitaj."
+
+#: src/widgets/views/Tags/TagsSidebar.qml:94
+#, kde-format
+msgid "Filter %1 tag"
+msgid_plural "Filter %1 tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:103
+#, kde-format
+msgid "New tag"
+msgstr "Nova etikedo"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:143
+#, kde-format
+msgid "qrc:/assets/add-image.svg"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:144
+#, kde-format
+msgid "No Tags!"
+msgstr "Neniuj Etikedoj!"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:145
+#, kde-format
+msgid "You can create new tags to organize your gallery"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:166
+#: src/widgets/views/Tags/TagsSidebar.qml:206
+#, kde-format
+msgid "GPS based locations"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:205
+#, kde-format
+msgid "Filters"
+msgstr "Filtriloj"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:239
+#, kde-format
+msgid "Sunday"
+msgstr "Dimanĉo"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:247
+#, kde-format
+msgid "PNGs"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsSidebar.qml:271
+#, kde-format
+msgid "Paint"
+msgstr "Farbo"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:279
+#, kde-format
+msgid "Animals"
+msgstr "Bestoj"
+
+#: src/widgets/views/Tags/TagsView.qml:27
+#, kde-format
+msgid "No Pics in %1!"
+msgstr ""
+
+#: src/widgets/views/Tags/TagsView.qml:28
+#, kde-format
+msgid "There're no pics associated with the tag"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:72
+#, kde-format
+msgid "Save as"
+msgstr "Konservi kiel"
+
+#: src/widgets/views/Viewer/PixViewer.qml:91
+#, kde-format
+msgid "Save"
+msgstr "Konservi"
+
+#: src/widgets/views/Viewer/PixViewer.qml:116
+#, kde-format
+msgid "Gallery"
+msgstr "Galerio"
+
+#: src/widgets/views/Viewer/PixViewer.qml:132
+#, kde-format
+msgid "Previous"
+msgstr "Antaŭa"
+
+#: src/widgets/views/Viewer/PixViewer.qml:212
+#, kde-format
+msgid "Open an image from your collection"
+msgstr ""
