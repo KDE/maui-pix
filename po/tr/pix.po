@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 # Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-20 01:39+0000\n"
-"PO-Revision-Date: 2023-12-01 14:09+0300\n"
+"PO-Revision-Date: 2024-03-19 16:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: src/main.cpp:134
 #, kde-format
@@ -90,7 +90,7 @@ msgstr "Koleksiyon"
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
-msgstr "Etiketler"
+msgstr "Künyeler"
 
 #: src/models/folders/placesmodel.cpp:62
 #: src/widgets/views/Tags/TagsSidebar.qml:165
@@ -224,7 +224,7 @@ msgstr "Görüntüle"
 #: src/widgets/SelectionBar.qml:59
 #, kde-format
 msgid "Tag"
-msgstr "Etiketle"
+msgstr "Künyele"
 
 #: src/widgets/SelectionBar.qml:83
 #, kde-format
@@ -349,12 +349,12 @@ msgstr "Azalan"
 #: src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "GPS Tags"
-msgstr "GPS Etiketleri"
+msgstr "GPS Künyeleri"
 
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Show GPS tags."
-msgstr "GPS etiketlerini göster."
+msgstr "GPS künyelerini gösterin."
 
 #: src/widgets/SettingsDialog.qml:197
 #, kde-format
@@ -369,14 +369,13 @@ msgstr "Görüntüleyici"
 #: src/widgets/SettingsDialog.qml:210
 #, kde-format
 msgid "Tag Bar"
-msgstr "Etiket Çubuğu"
+msgstr "Künye Çubuğu"
 
 #: src/widgets/SettingsDialog.qml:211
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
-"Geçerli görsele etiket ekleme, kaldırma ve etiketleri değiştirmenin kolay "
-"yolu."
+"Geçerli görsele künye ekleme, kaldırma ve künyeleri değiştirmenin kolay yolu."
 
 #: src/widgets/SettingsDialog.qml:223
 #, kde-format
@@ -516,13 +515,13 @@ msgstr "Sonuç bulunamadı."
 #, kde-format
 msgid "Filter %1 tag"
 msgid_plural "Filter %1 tags"
-msgstr[0] "%1 etiketi süz"
-msgstr[1] "%1 etiketi süz"
+msgstr[0] "%1 künyeyi süz"
+msgstr[1] "%1 künyeyi süz"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:103
 #, kde-format
 msgid "New tag"
-msgstr "Yeni etiket"
+msgstr "Yeni künye"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:143
 #, kde-format
@@ -532,12 +531,12 @@ msgstr "qrc:/varlıklar/görsel-ekle.svg"
 #: src/widgets/views/Tags/TagsSidebar.qml:144
 #, kde-format
 msgid "No Tags!"
-msgstr "Etiket Yok!"
+msgstr "Künye yok!"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:145
 #, kde-format
 msgid "You can create new tags to organize your gallery"
-msgstr "Galerinizi organize etmek için yeni etiketler oluşturabilirsiniz"
+msgstr "Galerinizi organize etmek için yeni künyeler oluşturabilirsiniz"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:166
 #: src/widgets/views/Tags/TagsSidebar.qml:206
@@ -578,7 +577,7 @@ msgstr "%1 İçinde Resim Yok!"
 #: src/widgets/views/Tags/TagsView.qml:28
 #, kde-format
 msgid "There're no pics associated with the tag"
-msgstr "Bu etiketle ilişkilendirilmiş resim yok"
+msgstr "Bu künyeyle ilişkilendirilmiş resim yok"
 
 #: src/widgets/views/Viewer/PixViewer.qml:72
 #, kde-format
