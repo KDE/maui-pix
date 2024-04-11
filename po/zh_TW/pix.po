@@ -4,43 +4,28 @@
 # This file is distributed under the same license as the maui-pix package.
 #
 # Automatically generated, 2022.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2023-02-08 00:23+0900\n"
+"POT-Creation-Date: 2024-02-20 01:39+0000\n"
+"PO-Revision-Date: 2024-02-19 07:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.08.5\n"
 
-#: src/main.cpp:130
-#, kde-format
-msgid "Pix"
-msgstr "Pix"
-
-#: src/main.cpp:130
+#: src/main.cpp:134
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "管理、瀏覽並編輯您的影像。"
 
-#: src/main.cpp:130
-#, kde-format
-msgid "© 2019-%1 Maui Development Team"
-msgstr "© 2019-%1 Maui 開發團隊"
-
-#: src/main.cpp:131
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "Camilo Higuita"
-
-#: src/main.cpp:131
+#: src/main.cpp:138
 #, kde-format
 msgid "Developer"
 msgstr "開發者"
@@ -51,28 +36,17 @@ msgid "Open images"
 msgstr "開啟影像"
 
 #: src/main.qml:132
-#, fuzzy, kde-format
-#| msgid "Drag and drop images here"
+#, kde-format
 msgid "Drag and drop images here."
-msgstr "拖放影像到這裡"
+msgstr "拖放影像到這裡。"
 
-#: src/main.qml:201
+#: src/main.qml:206
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "刪除 %1 個檔案？"
 
-#: src/main.qml:202 src/view_models/PixMenu.qml:33
-#, kde-format
-msgid "Cancel"
-msgstr "取消"
-
-#: src/main.qml:203 src/view_models/PixMenu.qml:32
-#, kde-format
-msgid "Accept"
-msgstr "接受"
-
-#: src/main.qml:205
+#: src/main.qml:208
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -92,10 +66,10 @@ msgstr "下載"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "圖片"
 
-#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
-#: src/widgets/views/Tags/TagsSidebar.qml:246
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
+#: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
 msgstr "截圖"
@@ -105,92 +79,89 @@ msgstr "截圖"
 msgid "Camera"
 msgstr "相機"
 
-#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:52
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
 msgstr "收藏"
 
-#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:127
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
 msgstr "標籤"
 
 #: src/models/folders/placesmodel.cpp:62
-#: src/widgets/views/Tags/TagsSidebar.qml:180
+#: src/widgets/views/Tags/TagsSidebar.qml:165
 #, kde-format
 msgid "Places"
 msgstr "快速存取"
 
-#: src/models/folders/placesmodel.cpp:85
-#, fuzzy, kde-format
-#| msgid "Open location"
+#: src/models/folders/placesmodel.cpp:84
+#, kde-format
 msgid "Locations"
-msgstr "開啟位置"
+msgstr "位置"
 
-#: src/models/folders/placesmodel.cpp:103
-#: src/widgets/views/Tags/TagsSidebar.qml:233
+#: src/models/folders/placesmodel.cpp:101
+#: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
 msgstr "動態"
 
+#: src/models/folders/placesmodel.cpp:101
 #: src/models/folders/placesmodel.cpp:103
 #: src/models/folders/placesmodel.cpp:105
 #: src/models/folders/placesmodel.cpp:107
 #: src/models/folders/placesmodel.cpp:109
 #: src/models/folders/placesmodel.cpp:111
-#: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "分類"
 
-#: src/models/folders/placesmodel.cpp:107
-#, fuzzy, kde-format
-#| msgid "PNGs"
+#: src/models/folders/placesmodel.cpp:105
+#, kde-format
 msgid "PNG"
 msgstr "PNG"
 
-#: src/models/folders/placesmodel.cpp:109
-#: src/widgets/views/Tags/TagsSidebar.qml:270
+#: src/models/folders/placesmodel.cpp:107
+#: src/widgets/views/Tags/TagsSidebar.qml:255
 #, kde-format
 msgid "PSD"
 msgstr "PSD"
 
-#: src/models/folders/placesmodel.cpp:111
-#: src/widgets/views/Tags/TagsSidebar.qml:278
+#: src/models/folders/placesmodel.cpp:109
+#: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
 msgstr "向量圖"
 
-#: src/models/folders/placesmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "Paint"
+#: src/models/folders/placesmodel.cpp:111
+#, kde-format
 msgid "Paintings"
-msgstr "油畫"
+msgstr "畫作"
 
 #: src/models/gallery/gallery.cpp:124
-#, fuzzy, kde-format
-#| msgid "No results found."
-msgid "No sources found to scan."
-msgstr "找不到結果。"
-
-#: src/view_models/PixGrid.qml:43
 #, kde-format
-msgid "Search"
-msgstr "搜尋"
+msgid "No sources found to scan."
+msgstr "找不到要掃描的來源。"
 
-#: src/view_models/PixGrid.qml:70
-#, fuzzy, kde-format
-#| msgid "Image Text"
+#: src/view_models/PixGrid.qml:44
+#, kde-format
+msgid "Search image"
+msgid_plural "Search %1 images"
+msgstr[0] "搜尋 %1 張影像"
+
+#: src/view_models/PixGrid.qml:71
+#, kde-format
 msgid "Image Text (OCR)"
-msgstr "影像文字"
+msgstr "影像文字 (OCR)"
 
 #: src/view_models/PixMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Delete file?"
+#, kde-format
 msgid "Delete File?"
 msgstr "刪除檔案？"
 
+#. i18n("Accept")
+#. rejectButton.text: i18n("Cancel")
 #: src/view_models/PixMenu.qml:34
 #, kde-format
 msgctxt "Remove one file"
@@ -223,20 +194,17 @@ msgid "Export"
 msgstr "匯出"
 
 #: src/view_models/PixMenu.qml:126
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "開啟方式"
 
 #: src/view_models/PixMenu.qml:137
-#, fuzzy, kde-format
-#| msgid "Go to folder"
+#, kde-format
 msgid "Go to Folder"
 msgstr "跳至資料夾"
 
 #: src/view_models/PixMenu.qml:154
-#, fuzzy, kde-format
-#| msgid "Open location"
+#, kde-format
 msgid "Open Location"
 msgstr "開啟位置"
 
@@ -265,11 +233,6 @@ msgstr "切換最愛"
 msgid "Behavior"
 msgstr "行為"
 
-#: src/widgets/SettingsDialog.qml:16
-#, kde-format
-msgid "Configure the app behaviour."
-msgstr "設定應用程式行為。"
-
 #: src/widgets/SettingsDialog.qml:20
 #, kde-format
 msgid "Auto Reload"
@@ -280,181 +243,147 @@ msgstr "自動重新載入"
 msgid "Watch for changes in the collection sources."
 msgstr "監控收藏來源中的變更。"
 
-#: src/widgets/SettingsDialog.qml:35
-#, kde-format
-msgid "Dark Mode"
-msgstr "暗色模式"
-
-#: src/widgets/SettingsDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Switch between light and dark colorscheme"
-msgid "Switch between light and dark colorscheme."
-msgstr "在明亮和暗色配色方案間切換"
-
-#: src/widgets/SettingsDialog.qml:53
-#, kde-format
-msgid "Configure the app plugins and look & feel."
-msgstr "設定應用程式外掛、外觀與行為。"
-
-#: src/widgets/SettingsDialog.qml:57
+#: src/widgets/SettingsDialog.qml:39
 #, kde-format
 msgid "Fit"
 msgstr "最適合"
 
-#: src/widgets/SettingsDialog.qml:58
+#: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "調整預覽大小並維持寬高比。"
 
-#: src/widgets/SettingsDialog.qml:70
+#: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
 msgstr "影像標題"
 
-#: src/widgets/SettingsDialog.qml:71
-#, fuzzy, kde-format
-#| msgid "Show the titles of the images."
+#: src/widgets/SettingsDialog.qml:53
+#, kde-format
 msgid "Show the file name of the images."
-msgstr "顯示影像的標題。"
+msgstr "顯示影像的檔案名稱。"
 
-#: src/widgets/SettingsDialog.qml:83
+#: src/widgets/SettingsDialog.qml:65
 #, kde-format
 msgid "Preview Size"
 msgstr "預覽大小"
 
-#: src/widgets/SettingsDialog.qml:84
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "收藏檢視中的縮圖大小。"
 
-#: src/widgets/SettingsDialog.qml:95
+#: src/widgets/SettingsDialog.qml:77
 #, kde-format
 msgid "S"
 msgstr "小"
 
-#: src/widgets/SettingsDialog.qml:102
+#: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "M"
 msgstr "中"
 
-#: src/widgets/SettingsDialog.qml:110
+#: src/widgets/SettingsDialog.qml:92
 #, kde-format
 msgid "X"
 msgstr "巨大"
 
-#: src/widgets/SettingsDialog.qml:118
+#: src/widgets/SettingsDialog.qml:100
 #, kde-format
 msgid "XL"
 msgstr "非常大"
 
-#: src/widgets/SettingsDialog.qml:128
-#, fuzzy, kde-format
-#| msgid "Sorting by"
+#: src/widgets/SettingsDialog.qml:110
+#, kde-format
 msgid "Sort by"
 msgstr "排序方式"
 
-#: src/widgets/SettingsDialog.qml:129
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Change the sorting key."
 msgstr "變更排序依據。"
 
-#: src/widgets/SettingsDialog.qml:139
+#: src/widgets/SettingsDialog.qml:121
 #, kde-format
 msgid "Title"
 msgstr "標題"
 
-#: src/widgets/SettingsDialog.qml:146
+#: src/widgets/SettingsDialog.qml:128
 #, kde-format
 msgid "Modified"
 msgstr "修改時間"
 
-#: src/widgets/SettingsDialog.qml:154
+#: src/widgets/SettingsDialog.qml:136
 #, kde-format
 msgid "Size"
 msgstr "大小"
 
-#: src/widgets/SettingsDialog.qml:162
+#: src/widgets/SettingsDialog.qml:144
 #, kde-format
 msgid "Date"
 msgstr "日期"
 
-#: src/widgets/SettingsDialog.qml:172
-#, fuzzy, kde-format
-#| msgid "Sort order"
+#: src/widgets/SettingsDialog.qml:154
+#, kde-format
 msgid "Sort Order"
 msgstr "排序方向"
 
-#: src/widgets/SettingsDialog.qml:173
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Change the sorting order."
 msgstr "變更排序方向。"
 
-#: src/widgets/SettingsDialog.qml:184
+#: src/widgets/SettingsDialog.qml:166
 #, kde-format
 msgid "Ascending"
 msgstr "遞增"
 
-#: src/widgets/SettingsDialog.qml:192
+#: src/widgets/SettingsDialog.qml:174
 #, kde-format
 msgid "Descending"
 msgstr "遞減"
 
-#: src/widgets/SettingsDialog.qml:203
+#: src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "GPS Tags"
 msgstr "GPS 標籤"
 
-#: src/widgets/SettingsDialog.qml:204
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Show GPS tags."
 msgstr "顯示 GPS 標籤。"
 
-#: src/widgets/SettingsDialog.qml:215
+#: src/widgets/SettingsDialog.qml:197
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "實驗性功能。"
 
-#: src/widgets/SettingsDialog.qml:223
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
 #, kde-format
 msgid "Viewer"
 msgstr "檢視器"
 
-#: src/widgets/SettingsDialog.qml:224
-#, kde-format
-msgid "Adjust the viewer panels and settings."
-msgstr "調整檢視器面板和設定。"
-
-#: src/widgets/SettingsDialog.qml:228
+#: src/widgets/SettingsDialog.qml:210
 #, kde-format
 msgid "Tag Bar"
 msgstr "標籤列"
 
-#: src/widgets/SettingsDialog.qml:229
+#: src/widgets/SettingsDialog.qml:211
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "新增、移除或修改目前影像標籤的簡單方式。"
 
-#: src/widgets/SettingsDialog.qml:241
+#: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "Preview Bar"
 msgstr "預覽列"
 
-#: src/widgets/SettingsDialog.qml:242
-#, kde-format
-msgid "Show small thumbnail previews in the image viewer."
-msgstr "在影像檢視器裡顯示小縮圖預覽。"
-
-#: src/widgets/SettingsDialog.qml:254
+#: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Sources"
 msgstr "來源"
 
-#: src/widgets/SettingsDialog.qml:255
-#, kde-format
-msgid "Add new sources to manage and browse your image collection."
-msgstr "新增來源來管理並瀏覽您的影像收藏。"
-
-#: src/widgets/SettingsDialog.qml:295
+#: src/widgets/SettingsDialog.qml:275
 #, kde-format
 msgid "Add"
 msgstr "新增"
@@ -489,23 +418,23 @@ msgstr "即將就緒！"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "請確認您已連線至網際網路且您的雲端帳號是正常運作中的"
 
-#: src/widgets/views/CollectionView.qml:104
+#: src/widgets/views/CollectionView.qml:107
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "切換側邊欄"
 
-#: src/widgets/views/CollectionView.qml:138
+#: src/widgets/views/CollectionView.qml:153
 #: src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: src/widgets/views/CollectionView.qml:147
+#: src/widgets/views/CollectionView.qml:162
 #, kde-format
 msgid "Settings"
 msgstr "設定"
 
-#: src/widgets/views/CollectionView.qml:154
+#: src/widgets/views/CollectionView.qml:169
 #, kde-format
 msgid "About"
 msgstr "關於"
@@ -516,42 +445,51 @@ msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
 msgstr[0] "過濾 %1 個資料夾"
 
-#: src/widgets/views/Folders/FoldersView.qml:62
+#: src/widgets/views/Folders/FoldersView.qml:68
 #, kde-format
 msgid "No Folders!"
 msgstr "沒有資料夾！"
 
-#: src/widgets/views/Folders/FoldersView.qml:63
+#: src/widgets/views/Folders/FoldersView.qml:68
 #, kde-format
-msgid "Add new image sources"
-msgstr "新增影像來源"
+msgid "Nothing Here!"
+msgstr "這裡什麼都沒有！"
 
-#: src/widgets/views/Folders/FoldersView.qml:158
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, kde-format
+msgid "Add new image sources."
+msgstr "新增影像來源。"
+
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, kde-format
+msgid "Try something different."
+msgstr "試試看不同的東西。"
+
+#: src/widgets/views/Folders/FoldersView.qml:164
 #, kde-format
 msgid "Folder is empty!"
 msgstr "資料夾是空的！"
 
-#: src/widgets/views/Folders/FoldersView.qml:159
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "這個資料夾裡沒有影像"
 
-#: src/widgets/views/Folders/FoldersView.qml:175
-#, fuzzy, kde-format
-#| msgid "Open images"
+#: src/widgets/views/Folders/FoldersView.qml:180
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "開啟影像"
+msgstr[0] "%1 張影像"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
-#: src/widgets/views/Tags/TagsSidebar.qml:68
-#: src/widgets/views/Viewer/PixViewer.qml:212
+#: src/widgets/views/Tags/TagsSidebar.qml:67
+#: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "No Pics!"
 msgstr "沒有圖片！"
 
 #: src/widgets/views/Gallery/GalleryView.qml:22
-#: src/widgets/views/Tags/TagsSidebar.qml:69
+#: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr "這裡什麼都沒有。您可以新增來源或是開啟個別影像。"
@@ -561,102 +499,142 @@ msgstr "這裡什麼都沒有。您可以新增來源或是開啟個別影像。
 msgid "Add sources"
 msgstr "新增來源"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:69
+#: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "No results found."
 msgstr "找不到結果。"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:111
+#: src/widgets/views/Tags/TagsSidebar.qml:94
 #, kde-format
 msgid "Filter %1 tag"
 msgid_plural "Filter %1 tags"
 msgstr[0] "過濾 %1 個標籤"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:120
+#: src/widgets/views/Tags/TagsSidebar.qml:103
 #, kde-format
 msgid "New tag"
 msgstr "建立標籤"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:159
+#: src/widgets/views/Tags/TagsSidebar.qml:143
 #, kde-format
 msgid "qrc:/assets/add-image.svg"
 msgstr "qrc:/assets/add-image.svg"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:160
+#: src/widgets/views/Tags/TagsSidebar.qml:144
 #, kde-format
 msgid "No Tags!"
 msgstr "沒有標籤！"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:161
+#: src/widgets/views/Tags/TagsSidebar.qml:145
 #, kde-format
 msgid "You can create new tags to organize your gallery"
 msgstr "您可以建立新標籤來管理您的相簿。"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:181
-#: src/widgets/views/Tags/TagsSidebar.qml:221
+#: src/widgets/views/Tags/TagsSidebar.qml:166
+#: src/widgets/views/Tags/TagsSidebar.qml:206
 #, kde-format
 msgid "GPS based locations"
 msgstr "基於 GPS 的位置"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:220
+#: src/widgets/views/Tags/TagsSidebar.qml:205
 #, kde-format
 msgid "Filters"
 msgstr "過濾器"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:254
+#: src/widgets/views/Tags/TagsSidebar.qml:239
 #, kde-format
 msgid "Sunday"
 msgstr "星期天"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:262
+#: src/widgets/views/Tags/TagsSidebar.qml:247
 #, kde-format
 msgid "PNGs"
 msgstr "PNG"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:286
+#: src/widgets/views/Tags/TagsSidebar.qml:271
 #, kde-format
 msgid "Paint"
 msgstr "油畫"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:294
+#: src/widgets/views/Tags/TagsSidebar.qml:279
 #, kde-format
 msgid "Animals"
 msgstr "動物"
 
-#: src/widgets/views/Tags/TagsView.qml:26
+#: src/widgets/views/Tags/TagsView.qml:27
 #, kde-format
 msgid "No Pics in %1!"
 msgstr "%1 裡沒有圖片！"
 
-#: src/widgets/views/Tags/TagsView.qml:27
+#: src/widgets/views/Tags/TagsView.qml:28
 #, kde-format
 msgid "There're no pics associated with the tag"
 msgstr "沒有含有該標籤的圖片"
 
-#: src/widgets/views/Viewer/PixViewer.qml:71
+#: src/widgets/views/Viewer/PixViewer.qml:72
 #, kde-format
 msgid "Save as"
 msgstr "另存為"
 
-#: src/widgets/views/Viewer/PixViewer.qml:90
+#: src/widgets/views/Viewer/PixViewer.qml:91
 #, kde-format
 msgid "Save"
 msgstr "儲存"
 
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "Gallery"
 msgstr "相簿"
 
-#: src/widgets/views/Viewer/PixViewer.qml:131
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "上一個"
 
-#: src/widgets/views/Viewer/PixViewer.qml:213
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "從您的收藏裡開啟影像"
+
+#~ msgid "Dark Mode"
+#~ msgstr "暗色模式"
+
+#, fuzzy
+#~| msgid "Switch between light and dark colorscheme"
+#~ msgid "Switch between light and dark colorscheme."
+#~ msgstr "在明亮和暗色配色方案間切換"
+
+#~ msgid "Pix"
+#~ msgstr "Pix"
+
+#, fuzzy
+#~| msgid "© 2019-%1 Maui Development Team"
+#~ msgid "© 2019-2023 Maui Development Team"
+#~ msgstr "© 2019-%1 Maui 開發團隊"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "Camilo Higuita"
+
+#~ msgid "Configure the app behaviour."
+#~ msgstr "設定應用程式行為。"
+
+#~ msgid "Configure the app plugins and look & feel."
+#~ msgstr "設定應用程式外掛、外觀與行為。"
+
+#~ msgid "Adjust the viewer panels and settings."
+#~ msgstr "調整檢視器面板和設定。"
+
+#~ msgid "Show small thumbnail previews in the image viewer."
+#~ msgstr "在影像檢視器裡顯示小縮圖預覽。"
+
+#~ msgid "Add new sources to manage and browse your image collection."
+#~ msgstr "新增來源來管理並瀏覽您的影像收藏。"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
+#~ msgid "Accept"
+#~ msgstr "接受"
 
 #~ msgid "Collections"
 #~ msgstr "收藏"

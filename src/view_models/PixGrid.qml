@@ -13,17 +13,18 @@ import "../widgets"
 Maui.Page
 {
     id: control
+
     Maui.Theme.inherit: false
     Maui.Theme.colorGroup: Maui.Theme.View
 
     property int itemSize : browserSettings.previewSize
 
-    property alias listModel : pixModel
-    property alias menu : _picMenu
-    property alias holder : _gridView.holder
-    property alias model: _gridView.model
-    property alias gridView: _gridView
-    property alias count: _gridView.count
+    readonly property alias listModel : pixModel
+    readonly property alias menu : _picMenu
+    readonly property alias holder : _gridView.holder
+    readonly property alias model: _gridView.model
+    readonly property alias gridView: _gridView
+    readonly property alias count: _gridView.count
 
     property alias currentIndex: _gridView.currentIndex
     property string typingQuery
@@ -40,7 +41,7 @@ Maui.Page
     {
         enabled: control.list.count > 0
         text: pixModel.filters.join(",")
-        placeholderText: i18n("Search") + " " + control.list.count + " images"
+        placeholderText: i18np("Search image", "Search %1 images", control.list.count)
         onAccepted:
         {
             if(_ocrOption.checked)
@@ -140,13 +141,13 @@ Maui.Page
             model: pixModel
         }
 
-        onItemsSelected:
+        onItemsSelected: (indexes) =>
         {
             for(var i in indexes)
                 selectItem(pixModel.get(indexes[i]))
         }
 
-        onKeyPress:
+        onKeyPress: (event) =>
         {
             const index = control.currentIndex
             const item = control.model.get(index)

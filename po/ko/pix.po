@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
-# Shinjo Park <kde@peremen.name>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2023-07-26 00:33+0200\n"
+"POT-Creation-Date: 2024-02-20 01:39+0000\n"
+"PO-Revision-Date: 2024-02-10 00:19+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,29 +15,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
-#: src/main.cpp:130
-#, kde-format
-msgid "Pix"
-msgstr "Pix"
-
-#: src/main.cpp:130
+#: src/main.cpp:134
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "사진을 정리하고 탐색하고 편집합니다."
 
-#: src/main.cpp:130
-#, kde-format
-msgid "© 2019-%1 Maui Development Team"
-msgstr "© 2019-%1 Maui Development Team"
-
-#: src/main.cpp:131
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "Camilo Higuita"
-
-#: src/main.cpp:131
+#: src/main.cpp:138
 #, kde-format
 msgid "Developer"
 msgstr "개발자"
@@ -52,23 +37,13 @@ msgstr "사진 열기"
 msgid "Drag and drop images here."
 msgstr "여기로 그림을 드래그하십시오."
 
-#: src/main.qml:201
+#: src/main.qml:206
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "파일 %1개를 삭제하시겠습니까?"
 
-#: src/main.qml:202 src/view_models/PixMenu.qml:33
-#, kde-format
-msgid "Cancel"
-msgstr "취소"
-
-#: src/main.qml:203 src/view_models/PixMenu.qml:32
-#, kde-format
-msgid "Accept"
-msgstr "수락"
-
-#: src/main.qml:205
+#: src/main.qml:208
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -90,8 +65,8 @@ msgstr "다운로드"
 msgid "Pictures"
 msgstr "그림"
 
-#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:105
-#: src/widgets/views/Tags/TagsSidebar.qml:246
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
+#: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
 msgstr "스크린샷"
@@ -101,62 +76,62 @@ msgstr "스크린샷"
 msgid "Camera"
 msgstr "카메라"
 
-#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:52
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
 msgstr "모음집"
 
-#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:127
+#: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
 #: src/view_models/PixMenu.qml:57
 #, kde-format
 msgid "Tags"
 msgstr "태그"
 
 #: src/models/folders/placesmodel.cpp:62
-#: src/widgets/views/Tags/TagsSidebar.qml:180
+#: src/widgets/views/Tags/TagsSidebar.qml:165
 #, kde-format
 msgid "Places"
 msgstr "위치"
 
-#: src/models/folders/placesmodel.cpp:85
+#: src/models/folders/placesmodel.cpp:84
 #, kde-format
 msgid "Locations"
 msgstr "위치"
 
-#: src/models/folders/placesmodel.cpp:103
-#: src/widgets/views/Tags/TagsSidebar.qml:233
+#: src/models/folders/placesmodel.cpp:101
+#: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
 msgstr "애니메이션 적용"
 
+#: src/models/folders/placesmodel.cpp:101
 #: src/models/folders/placesmodel.cpp:103
 #: src/models/folders/placesmodel.cpp:105
 #: src/models/folders/placesmodel.cpp:107
 #: src/models/folders/placesmodel.cpp:109
 #: src/models/folders/placesmodel.cpp:111
-#: src/models/folders/placesmodel.cpp:113
 #, kde-format
 msgid "Categories"
 msgstr "분류"
 
-#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:105
 #, kde-format
 msgid "PNG"
 msgstr "PNG"
 
-#: src/models/folders/placesmodel.cpp:109
-#: src/widgets/views/Tags/TagsSidebar.qml:270
+#: src/models/folders/placesmodel.cpp:107
+#: src/widgets/views/Tags/TagsSidebar.qml:255
 #, kde-format
 msgid "PSD"
 msgstr "PSD"
 
-#: src/models/folders/placesmodel.cpp:111
-#: src/widgets/views/Tags/TagsSidebar.qml:278
+#: src/models/folders/placesmodel.cpp:109
+#: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
 msgstr "벡터"
 
-#: src/models/folders/placesmodel.cpp:113
+#: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "Paintings"
 msgstr "그리기"
@@ -166,12 +141,13 @@ msgstr "그리기"
 msgid "No sources found to scan."
 msgstr "스캔할 원본을 찾을 수 없습니다."
 
-#: src/view_models/PixGrid.qml:43
+#: src/view_models/PixGrid.qml:44
 #, kde-format
-msgid "Search"
-msgstr "검색"
+msgid "Search image"
+msgid_plural "Search %1 images"
+msgstr[0] "그림 %1개 검색"
 
-#: src/view_models/PixGrid.qml:70
+#: src/view_models/PixGrid.qml:71
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "그림 텍스트(OCR)"
@@ -181,6 +157,8 @@ msgstr "그림 텍스트(OCR)"
 msgid "Delete File?"
 msgstr "파일을 삭제하시겠습니까?"
 
+#. i18n("Accept")
+#. rejectButton.text: i18n("Cancel")
 #: src/view_models/PixMenu.qml:34
 #, kde-format
 msgctxt "Remove one file"
@@ -252,11 +230,6 @@ msgstr "책갈피 추가/해제"
 msgid "Behavior"
 msgstr "행동"
 
-#: src/widgets/SettingsDialog.qml:16
-#, kde-format
-msgid "Configure the app behaviour."
-msgstr "앱 행동을 설정합니다."
-
 #: src/widgets/SettingsDialog.qml:20
 #, kde-format
 msgid "Auto Reload"
@@ -267,177 +240,147 @@ msgstr "자동 새로 고침"
 msgid "Watch for changes in the collection sources."
 msgstr "모음집 원본의 변경 사항을 감시합니다."
 
-#: src/widgets/SettingsDialog.qml:35
-#, kde-format
-msgid "Dark Mode"
-msgstr "어두운 모드"
-
-#: src/widgets/SettingsDialog.qml:36
-#, kde-format
-msgid "Switch between light and dark colorscheme."
-msgstr "밝은 색상과 어두운 색상을 전환합니다."
-
-#: src/widgets/SettingsDialog.qml:53
-#, kde-format
-msgid "Configure the app plugins and look & feel."
-msgstr "앱 플러그인과 모습과 느낌을 설정합니다."
-
-#: src/widgets/SettingsDialog.qml:57
+#: src/widgets/SettingsDialog.qml:39
 #, kde-format
 msgid "Fit"
 msgstr "맞춤"
 
-#: src/widgets/SettingsDialog.qml:58
+#: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
 msgstr "미리 보기를 맞추고 원본 종횡비를 유지합니다."
 
-#: src/widgets/SettingsDialog.qml:70
+#: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
 msgstr "그림 제목"
 
-#: src/widgets/SettingsDialog.qml:71
+#: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Show the file name of the images."
 msgstr "그림 파일 이름을 표시합니다."
 
-#: src/widgets/SettingsDialog.qml:83
+#: src/widgets/SettingsDialog.qml:65
 #, kde-format
 msgid "Preview Size"
 msgstr "미리 보기 크기"
 
-#: src/widgets/SettingsDialog.qml:84
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "모음집 보기의 섬네일 크기입니다."
 
-#: src/widgets/SettingsDialog.qml:95
+#: src/widgets/SettingsDialog.qml:77
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/widgets/SettingsDialog.qml:102
+#: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/widgets/SettingsDialog.qml:110
+#: src/widgets/SettingsDialog.qml:92
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/widgets/SettingsDialog.qml:118
+#: src/widgets/SettingsDialog.qml:100
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/widgets/SettingsDialog.qml:128
+#: src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Sort by"
 msgstr "정렬 순서"
 
-#: src/widgets/SettingsDialog.qml:129
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Change the sorting key."
 msgstr "정렬 키를 변경합니다."
 
-#: src/widgets/SettingsDialog.qml:139
+#: src/widgets/SettingsDialog.qml:121
 #, kde-format
 msgid "Title"
 msgstr "제목"
 
-#: src/widgets/SettingsDialog.qml:146
+#: src/widgets/SettingsDialog.qml:128
 #, kde-format
 msgid "Modified"
 msgstr "수정한 날짜"
 
-#: src/widgets/SettingsDialog.qml:154
+#: src/widgets/SettingsDialog.qml:136
 #, kde-format
 msgid "Size"
 msgstr "크기"
 
-#: src/widgets/SettingsDialog.qml:162
+#: src/widgets/SettingsDialog.qml:144
 #, kde-format
 msgid "Date"
 msgstr "날짜"
 
-#: src/widgets/SettingsDialog.qml:172
+#: src/widgets/SettingsDialog.qml:154
 #, kde-format
 msgid "Sort Order"
 msgstr "정렬 순서"
 
-#: src/widgets/SettingsDialog.qml:173
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Change the sorting order."
 msgstr "정렬 순서를 변경합니다."
 
-#: src/widgets/SettingsDialog.qml:184
+#: src/widgets/SettingsDialog.qml:166
 #, kde-format
 msgid "Ascending"
 msgstr "오름차순"
 
-#: src/widgets/SettingsDialog.qml:192
+#: src/widgets/SettingsDialog.qml:174
 #, kde-format
 msgid "Descending"
 msgstr "내림차순"
 
-#: src/widgets/SettingsDialog.qml:203
+#: src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "GPS Tags"
 msgstr "태그"
 
-#: src/widgets/SettingsDialog.qml:204
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Show GPS tags."
 msgstr "GPS 태그를 표시합니다."
 
-#: src/widgets/SettingsDialog.qml:215
+#: src/widgets/SettingsDialog.qml:197
 #, kde-format
 msgid "Experimental feature."
 msgstr "실험적 기능입니다."
 
-#: src/widgets/SettingsDialog.qml:223
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
 #, kde-format
 msgid "Viewer"
 msgstr "뷰어"
 
-#: src/widgets/SettingsDialog.qml:224
-#, kde-format
-msgid "Adjust the viewer panels and settings."
-msgstr "뷰어 패널과 설정을 변경합니다."
-
-#: src/widgets/SettingsDialog.qml:228
+#: src/widgets/SettingsDialog.qml:210
 #, kde-format
 msgid "Tag Bar"
 msgstr "태그 표시줄"
 
-#: src/widgets/SettingsDialog.qml:229
+#: src/widgets/SettingsDialog.qml:211
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "현재 이미지에 태그를 쉽게 추가, 삭제, 수정할 수 있습니다."
 
-#: src/widgets/SettingsDialog.qml:241
+#: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "Preview Bar"
 msgstr "미리 보기 표시줄"
 
-#: src/widgets/SettingsDialog.qml:242
-#, kde-format
-msgid "Show small thumbnail previews in the image viewer."
-msgstr "그림 뷰어에 작은 섬네일 보기를 표시합니다."
-
-#: src/widgets/SettingsDialog.qml:254
+#: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Sources"
 msgstr "원본"
 
-#: src/widgets/SettingsDialog.qml:255
-#, kde-format
-msgid "Add new sources to manage and browse your image collection."
-msgstr "그림 모음집을 관리하고 탐색할 새 원본을 추가합니다."
-
-#: src/widgets/SettingsDialog.qml:295
+#: src/widgets/SettingsDialog.qml:275
 #, kde-format
 msgid "Add"
 msgstr "추가"
@@ -472,23 +415,23 @@ msgstr "거의 준비되었습니다!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "온라인 상태와 클라우드 계정을 확인하십시오"
 
-#: src/widgets/views/CollectionView.qml:104
+#: src/widgets/views/CollectionView.qml:107
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "사이드바 전환"
 
-#: src/widgets/views/CollectionView.qml:138
+#: src/widgets/views/CollectionView.qml:153
 #: src/widgets/views/Gallery/GalleryView.qml:26
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: src/widgets/views/CollectionView.qml:147
+#: src/widgets/views/CollectionView.qml:162
 #, kde-format
 msgid "Settings"
 msgstr "설정"
 
-#: src/widgets/views/CollectionView.qml:154
+#: src/widgets/views/CollectionView.qml:169
 #, kde-format
 msgid "About"
 msgstr "정보"
@@ -499,41 +442,51 @@ msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
 msgstr[0] "폴더 %1개 필터"
 
-#: src/widgets/views/Folders/FoldersView.qml:62
+#: src/widgets/views/Folders/FoldersView.qml:68
 #, kde-format
 msgid "No Folders!"
 msgstr "폴더가 없습니다!"
 
-#: src/widgets/views/Folders/FoldersView.qml:63
+#: src/widgets/views/Folders/FoldersView.qml:68
 #, kde-format
-msgid "Add new image sources"
-msgstr "새 그림 원본 추가"
+msgid "Nothing Here!"
+msgstr "아무것도 없습니다!"
 
-#: src/widgets/views/Folders/FoldersView.qml:158
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, kde-format
+msgid "Add new image sources."
+msgstr "새 그림 원본을 추가합니다."
+
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, kde-format
+msgid "Try something different."
+msgstr "무언가를 시도해 보세요."
+
+#: src/widgets/views/Folders/FoldersView.qml:164
 #, kde-format
 msgid "Folder is empty!"
 msgstr "폴더가 비어 있습니다!"
 
-#: src/widgets/views/Folders/FoldersView.qml:159
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "이 폴더에 그림이 없음"
 
-#: src/widgets/views/Folders/FoldersView.qml:175
+#: src/widgets/views/Folders/FoldersView.qml:180
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
 msgstr[0] "그림 %1개"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
-#: src/widgets/views/Tags/TagsSidebar.qml:68
-#: src/widgets/views/Viewer/PixViewer.qml:212
+#: src/widgets/views/Tags/TagsSidebar.qml:67
+#: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "No Pics!"
 msgstr "그림이 없습니다!"
 
 #: src/widgets/views/Gallery/GalleryView.qml:22
-#: src/widgets/views/Tags/TagsSidebar.qml:69
+#: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr "아무것도 없습니다. 원본을 추가하거나 그림을 열 수 있습니다."
@@ -543,102 +496,140 @@ msgstr "아무것도 없습니다. 원본을 추가하거나 그림을 열 수 �
 msgid "Add sources"
 msgstr "원본 추가"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:69
+#: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "No results found."
 msgstr "결과가 없습니다."
 
-#: src/widgets/views/Tags/TagsSidebar.qml:111
+#: src/widgets/views/Tags/TagsSidebar.qml:94
 #, kde-format
 msgid "Filter %1 tag"
 msgid_plural "Filter %1 tags"
 msgstr[0] "태그 %1개 필터"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:120
+#: src/widgets/views/Tags/TagsSidebar.qml:103
 #, kde-format
 msgid "New tag"
 msgstr "새 태그"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:159
+#: src/widgets/views/Tags/TagsSidebar.qml:143
 #, kde-format
 msgid "qrc:/assets/add-image.svg"
 msgstr "qrc:/assets/add-image.svg"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:160
+#: src/widgets/views/Tags/TagsSidebar.qml:144
 #, kde-format
 msgid "No Tags!"
 msgstr "태그 없음!"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:161
+#: src/widgets/views/Tags/TagsSidebar.qml:145
 #, kde-format
 msgid "You can create new tags to organize your gallery"
 msgstr "갤러리를 정리할 태그를 만들 수 있습니다"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:181
-#: src/widgets/views/Tags/TagsSidebar.qml:221
+#: src/widgets/views/Tags/TagsSidebar.qml:166
+#: src/widgets/views/Tags/TagsSidebar.qml:206
 #, kde-format
 msgid "GPS based locations"
 msgstr "GPS 기반 위치"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:220
+#: src/widgets/views/Tags/TagsSidebar.qml:205
 #, kde-format
 msgid "Filters"
 msgstr "필터"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:254
+#: src/widgets/views/Tags/TagsSidebar.qml:239
 #, kde-format
 msgid "Sunday"
 msgstr "일요일"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:262
+#: src/widgets/views/Tags/TagsSidebar.qml:247
 #, kde-format
 msgid "PNGs"
 msgstr "PNG"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:286
+#: src/widgets/views/Tags/TagsSidebar.qml:271
 #, kde-format
 msgid "Paint"
 msgstr "페인트"
 
-#: src/widgets/views/Tags/TagsSidebar.qml:294
+#: src/widgets/views/Tags/TagsSidebar.qml:279
 #, kde-format
 msgid "Animals"
 msgstr "동물"
 
-#: src/widgets/views/Tags/TagsView.qml:26
+#: src/widgets/views/Tags/TagsView.qml:27
 #, kde-format
 msgid "No Pics in %1!"
 msgstr "%1에 그림이 없습니다!"
 
-#: src/widgets/views/Tags/TagsView.qml:27
+#: src/widgets/views/Tags/TagsView.qml:28
 #, kde-format
 msgid "There're no pics associated with the tag"
 msgstr "태그와 연결된 그림 없음"
 
-#: src/widgets/views/Viewer/PixViewer.qml:71
+#: src/widgets/views/Viewer/PixViewer.qml:72
 #, kde-format
 msgid "Save as"
 msgstr "다른 이름으로 저장"
 
-#: src/widgets/views/Viewer/PixViewer.qml:90
+#: src/widgets/views/Viewer/PixViewer.qml:91
 #, kde-format
 msgid "Save"
 msgstr "저장"
 
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "Gallery"
 msgstr "갤러리"
 
-#: src/widgets/views/Viewer/PixViewer.qml:131
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "이전"
 
-#: src/widgets/views/Viewer/PixViewer.qml:213
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "모음집에서 그림 열기"
+
+#~ msgid "Dark Mode"
+#~ msgstr "어두운 모드"
+
+#~ msgid "Switch between light and dark colorscheme."
+#~ msgstr "밝은 색상과 어두운 색상을 전환합니다."
+
+#~ msgid "Pix"
+#~ msgstr "Pix"
+
+#, fuzzy
+#~| msgid "© 2019-%1 Maui Development Team"
+#~ msgid "© 2019-2023 Maui Development Team"
+#~ msgstr "© 2019-%1 Maui Development Team"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "Camilo Higuita"
+
+#~ msgid "Configure the app behaviour."
+#~ msgstr "앱 행동을 설정합니다."
+
+#~ msgid "Configure the app plugins and look & feel."
+#~ msgstr "앱 플러그인과 모습과 느낌을 설정합니다."
+
+#~ msgid "Adjust the viewer panels and settings."
+#~ msgstr "뷰어 패널과 설정을 변경합니다."
+
+#~ msgid "Show small thumbnail previews in the image viewer."
+#~ msgstr "그림 뷰어에 작은 섬네일 보기를 표시합니다."
+
+#~ msgid "Add new sources to manage and browse your image collection."
+#~ msgstr "그림 모음집을 관리하고 탐색할 새 원본을 추가합니다."
+
+#~ msgid "Cancel"
+#~ msgstr "취소"
+
+#~ msgid "Accept"
+#~ msgstr "수락"
 
 #, fuzzy
 #~| msgid "Collection"
@@ -656,9 +647,6 @@ msgstr "모음집에서 그림 열기"
 
 #~ msgid "Folders"
 #~ msgstr "폴더"
-
-#~ msgid "Nothing here. Try something different!"
-#~ msgstr "아무것도 없습니다. 무언가를 시도해 보세요!"
 
 #~ msgid "Add new sources to browse your image collection "
 #~ msgstr "그림 모음집을 탐색할 새 원본 추가"

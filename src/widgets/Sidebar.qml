@@ -21,7 +21,7 @@ Loader
     asynchronous: true
     active: (control.enabled && control.visible) || item
 
-    property alias list : placesList
+    readonly property alias list : placesList
 
     Pix.PlacesList
     {
@@ -41,7 +41,7 @@ Loader
         holder.title: i18n("Bookmarks!")
         holder.body: i18n("Your bookmarks will be listed here")
 
-        onPlaceClicked:
+        onPlaceClicked: (path, filters, mouse) =>
         {            
             root.openFolder(path, filters.split(","))
 
@@ -76,7 +76,6 @@ Loader
                     {
                         model: placesList.quickPlaces
 
-
                         delegate: Maui.GridBrowserDelegate
                         {
                             Layout.preferredHeight: Math.min(50, width)
@@ -84,7 +83,6 @@ Loader
                             Layout.fillWidth: true
                             Layout.fillHeight: true
                             Layout.columnSpan: modelData.path === "tags:///fav" ? 2 : (modelData.path === "collection:///" ? 3 : 1)
-
 
                             isCurrentItem: currentFolder === modelData.path
                             iconSource: modelData.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
@@ -94,7 +92,8 @@ Loader
                             labelsVisible: false
                             tooltipText: modelData.label
                             flat: false
-                            onClicked:
+
+                            onClicked: (mouse) =>
                             {
                                 _listBrowser.placeClicked(modelData.path, modelData.filters, mouse)
                                 if(sideBar.collapsed)
@@ -144,10 +143,8 @@ Loader
             width: ListView.view.width
             label: section
             isSection: true
-            //                height: Maui.Style.toolBarHeightAlt
         }
     }
-
 }
 
 

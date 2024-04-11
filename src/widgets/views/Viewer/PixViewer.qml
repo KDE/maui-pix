@@ -22,16 +22,17 @@ StackView
 {
     id: control
 
-    property alias viewer : viewer
-    property alias holder : holder
-    property alias tagBar : tagBar
-    property alias roll : galleryRoll
+    readonly property alias viewer : viewer
+    readonly property alias holder : holder
+    readonly property alias tagBar : tagBar
+    readonly property alias roll : galleryRoll
     readonly property bool editing : control.currentItem.objectName === "imageEditor"
+
+    property alias model : viewer.model
 
     property bool currentPicFav: false
     property var currentPic : ({})
     property int currentPicIndex : 0
-    property alias model : viewer.model
     property bool doodle : false
 
     property alias showCSDControls: _viewer.showCSDControls
@@ -53,7 +54,7 @@ StackView
             url: control.currentPic.url
             onGoBackTriggered: control.pop()
 
-            headBar.farLeftContent:  ToolButton
+            headBar.farLeftContent: ToolButton
             {
                 icon.name: "go-previous"
                 onClicked:
@@ -62,7 +63,7 @@ StackView
                 }
             }
 
-            headBar.rightContent:  Maui.ToolButtonMenu
+            headBar.rightContent: Maui.ToolButtonMenu
             {
                 icon.name: "document-save"
 
@@ -144,7 +145,6 @@ StackView
         headBar.rightContent: [
             ToolButton
             {
-                //                text: i18n("Favorite")
                 icon.name: "love"
                 checked: control.currentPicFav
                 onClicked:
@@ -192,7 +192,6 @@ StackView
                 }
 
             },
-
 
             ToolButton
             {
@@ -251,7 +250,7 @@ StackView
                         width: parent.width
                         anchors.centerIn: parent
                         model: control.model
-                        onPicClicked: view(index)
+                        onPicClicked: (index) => view(index)
                     }
                 }
             }
@@ -272,8 +271,8 @@ StackView
                     dialog.open()
                 }
 
-                onTagRemovedClicked: list.removeFromUrls(index)
-                onTagsEdited: list.updateToUrls(tags)
+                onTagRemovedClicked: (index) => list.removeFromUrls(index)
+                onTagsEdited: (tags) => list.updateToUrls(tags)
 
                 Connections
                 {

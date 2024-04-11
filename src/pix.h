@@ -32,26 +32,15 @@ class Gallery;
 class Pix : public QObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY_MOVE(Pix)
     Q_PROPERTY(QVariantList sourcesModel READ sourcesModel NOTIFY sourcesChanged FINAL)
     Q_PROPERTY(QStringList sources READ sources NOTIFY sourcesChanged FINAL)
     Q_PROPERTY(Gallery* allImagesModel READ allImagesModel CONSTANT FINAL)
 
 public:
-    static Pix *instance()
-    {
-        if(m_instance)
-        {
-            return m_instance;
-        }
+    explicit Pix(QObject * = nullptr);
 
-        m_instance = new Pix();
-        return m_instance;
-    }
-
-    Pix(const Pix &) = delete;
-    Pix &operator=(const Pix &) = delete;
-    Pix(Pix &&) = delete;
-    Pix &operator=(Pix &&) = delete;
+    static Pix *instance();
 
     inline static const QStringList getSourcePaths();
     inline static void saveSourcePath(QStringList const &);
@@ -74,9 +63,6 @@ public Q_SLOTS:
     static void showInFolder(const QStringList &);
 
 private:
-    explicit Pix(QObject * = nullptr);
-    static Pix * m_instance;
-
     mutable Gallery* m_allImagesModel;
 
 Q_SIGNALS:

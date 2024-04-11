@@ -15,9 +15,10 @@ import"../Gallery"
 StackView
 {
     id: control
+
     readonly property string currentFolder : currentItem.currentFolder
-    property alias picsView : control.currentItem
-    property Flickable flickable : picsView.flickable
+    readonly property alias picsView : control.currentItem
+    readonly property Flickable flickable : picsView.flickable
 
     Component.onCompleted:
     {
@@ -40,11 +41,9 @@ StackView
 
         property Component searchFieldComponent : Maui.SearchField
         {
-
             placeholderText: i18np("Filter %1 folder", "Filter %1 folders", foldersList.count)
             onAccepted:
             {
-                console.log(text)
                 folderModel.filters = text.split(",")
             }
 
@@ -66,11 +65,11 @@ StackView
 
             holder.emoji: "qrc:/assets/view-preview.svg"
             holder.title : foldersList.count === 0 ?
- i18n("No Folders!") : i18n("Nothing Here!")
+                               i18n("No Folders!") : i18n("Nothing Here!")
             holder.body: foldersList.count === 0 ? i18n("Add new image sources.") : i18n("Try something different.")
             holder.visible: _foldersGrid.count === 0
 
-            onKeyPress:
+            onKeyPress: (event) =>
             {
                 if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
                 {
@@ -86,6 +85,7 @@ StackView
                     id: foldersList
                     folders: Collection.allImagesModel.folders
                 }
+
                 sortOrder: Qt.DescendingOrder
                 sort: "modified"
                 recursiveFilteringEnabled: false
@@ -118,7 +118,6 @@ StackView
 
                     Drag.keys: ["text/uri-list"]
                     Drag.mimeData: Drag.active ? { "text/uri-list": model.path } : {}
-
 
                 onClicked:
                 {
@@ -155,7 +154,7 @@ Component
         readonly property var folderInfo : FB.FM.getFileInfo(currentFolder)
 
         headBar.visible: false
-        title: control.folderInfo.label
+        title: control.folderInfo ? control.folderInfo.label : ""
 
         list.recursive: false
         list.urls: [currentFolder]
@@ -165,9 +164,8 @@ Component
         holder.title : i18n("Folder is empty!")
         holder.body: i18n("There're no images in this folder")
 
-
-Keys.enabled: true
-Keys.onEscapePressed: control.pop()
+        Keys.enabled: true
+        Keys.onEscapePressed: control.pop()
 
         gridView.header: Column
         {
@@ -178,7 +176,7 @@ Keys.onEscapePressed: control.pop()
             {
                 width: parent.width
                 label1.text: folderInfo.label
-                label2.text: (folderInfo.url).replace(FB.FM.homePath(), "")
+                label2.text: folderInfo.url ? (folderInfo.url).replace(FB.FM.homePath(), "") : ""
                 template.label3.text: i18np("No images.", "%1 images", _picsView.gridView.count)
                 template.label4.text: Qt.formatDateTime(new Date(folderInfo.modified), "d MMM yyyy")
                 template.iconSource: folderInfo.icon
@@ -288,5 +286,4 @@ function openFolder(url, filters)
     control.currentItem.model.clearFilters()
     control.currentItem.model.filters = filters
 }
-
 }

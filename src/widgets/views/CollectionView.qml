@@ -72,7 +72,7 @@ Maui.SideBarView
         anchors.fill: parent
     }
 
-    Maui.Page
+    Maui.PageLayout
     {
         id: swipeView
         anchors.fill: parent
@@ -82,7 +82,9 @@ Maui.SideBarView
         flickable: _foldersView.currentItem.flickable
         showCSDControls: true
         headBar.forceCenterMiddleContent: false
-        headBar.middleContent: Loader
+        split: width < 600 && (_goBackButton.visible || _viewerButton.visible)
+
+        middleContent: Loader
         {
             Layout.fillWidth: true
             Layout.maximumWidth: 500
@@ -90,9 +92,10 @@ Maui.SideBarView
             sourceComponent: _foldersView.currentItem && _foldersView.currentItem.hasOwnProperty("searchFieldComponent") ? _foldersView.currentItem.searchFieldComponent : null
         }
 
-        headBar.leftContent: [
+        leftContent: [
             ToolButton
             {
+                id: _sideBarButton
                 visible: control.sideBar.collapsed
 
                 icon.name: sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
@@ -106,8 +109,9 @@ Maui.SideBarView
 
             ToolButton
             {
-                icon.name: _foldersView.depth === 1 && _pixViewer.viewer.count > 0 ? "quickview" : "go-previous"
-                visible: _foldersView.depth > 1 || _pixViewer.viewer.count > 0
+                id: _goBackButton
+                icon.name: "go-previous"
+                visible: _foldersView.depth > 1
                 onClicked:
                 {
                     if(_foldersView.depth > 1)
@@ -115,48 +119,59 @@ Maui.SideBarView
                         _foldersView.pop()
                         return;
                     }
+                }
+            }
+        ]
 
+        rightContent: [
+
+            ToolButton
+            {
+                id: _viewerButton
+                icon.name: "quickview"
+                text: i18n("Viewer")
+                visible:  _pixViewer.viewer.count > 0
+                onClicked:
+                {
                     if( _pixViewer.viewer.count > 0)
                     {
                         toggleViewer()
                         return;
                     }
-
                 }
-            }
-        ]
+            },
 
-        headBar.rightContent: Loader
-        {
-            asynchronous: true
-            sourceComponent: Maui.ToolButtonMenu
+            Loader
             {
-                icon.name: "overflow-menu"
-
-                MenuItem
+                asynchronous: true
+                sourceComponent: Maui.ToolButtonMenu
                 {
-                    text: i18n("Open")
-                    icon.name: "folder-open"
-                    onTriggered: openFileDialog()
-                }
+                    icon.name: "overflow-menu"
 
-                MenuSeparator {}
+                    MenuItem
+                    {
+                        text: i18n("Open")
+                        icon.name: "folder-open"
+                        onTriggered: openFileDialog()
+                    }
 
-                MenuItem
-                {
-                    text: i18n("Settings")
-                    icon.name: "settings-configure"
-                    onTriggered: openSettingsDialog()
-                }
+                    MenuSeparator {}
 
-                MenuItem
-                {
-                    text: i18n("About")
-                    icon.name: "documentinfo"
-                    onTriggered: root.about()
+                    MenuItem
+                    {
+                        text: i18n("Settings")
+                        icon.name: "settings-configure"
+                        onTriggered: openSettingsDialog()
+                    }
+
+                    MenuItem
+                    {
+                        text: i18n("About")
+                        icon.name: "documentinfo"
+                        onTriggered: Maui.App.aboutDialog()
+                    }
                 }
-            }
-        }
+            }]
 
         FoldersView
         {

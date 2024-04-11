@@ -27,14 +27,14 @@ QVariantList PlacesModel::quickPlaces() const
 
 void PlacesModel::setList()
 {
-    emit this->preListChanged();
+    Q_EMIT this->preListChanged();
     m_list.clear();
     m_list << this->tags();
     m_list << this->collectionPaths();
     m_list << this->locations();
     m_list << this->categories();
-    emit this->postListChanged();
-    emit this->countChanged();
+    Q_EMIT this->postListChanged();
+    Q_EMIT this->countChanged();
 }
 
 FMH::MODEL_LIST PlacesModel::tags()
@@ -42,7 +42,7 @@ FMH::MODEL_LIST PlacesModel::tags()
     FMH::MODEL_LIST res;
     const auto tags = Tagging::getInstance()->getUrlsTags(true);
 
-    return std::accumulate(tags.constBegin(), tags.constEnd(), res, [this](FMH::MODEL_LIST &list, const QVariant &item) {
+    return std::accumulate(tags.constBegin(), tags.constEnd(), res, [](FMH::MODEL_LIST &list, const QVariant &item) {
         auto tag = FMH::toModel(item.toMap());
         tag[FMH::MODEL_KEY::TYPE] = i18n("Tags");
         tag[FMH::MODEL_KEY::NAME] = tag[FMH::MODEL_KEY::TAG];
@@ -57,7 +57,7 @@ FMH::MODEL_LIST PlacesModel::collectionPaths()
     FMH::MODEL_LIST res;
     const auto paths = Pix::getSourcePaths();
 
-    return std::accumulate(paths.constBegin(), paths.constEnd(), res, [this](FMH::MODEL_LIST &list, const QString &path) {
+    return std::accumulate(paths.constBegin(), paths.constEnd(), res, [](FMH::MODEL_LIST &list, const QString &path) {
         auto item = FMStatic::getFileInfoModel(path);
         item[FMH::MODEL_KEY::TYPE] = i18n("Places");
         list << item;
@@ -75,8 +75,7 @@ FMH::MODEL_LIST PlacesModel::locations()
     auto cities = Pix::instance()->allImagesModel()->cities();
     auto db = Cities::getInstance();
 
-
-    return std::accumulate(cities.constBegin(), cities.constEnd(), res, [this, &db](FMH::MODEL_LIST &list, const QString &id) {
+    return std::accumulate(cities.constBegin(), cities.constEnd(), res, [&db](FMH::MODEL_LIST &list, const QString &id) {
         FMH::MODEL item;
 
        City city = db->city(id);
@@ -93,7 +92,6 @@ FMH::MODEL_LIST PlacesModel::locations()
         list << item;
         return list;
     });
-
 }
 
 FMH::MODEL_LIST PlacesModel::categories()
@@ -122,12 +120,13 @@ void PlacesModel::classBegin()
 void PlacesModel::componentComplete()
 {
     connect(Tagging::getInstance(), &Tagging::tagged, [this](QVariantMap item) {
-        emit this->preItemAppended();
+        Q_EMIT this->preItemAppended();
         auto tag = FMH::toModel(item);
         tag[FMH::MODEL_KEY::TYPE] = i18n("Tags");
+        tag[FMH::MODEL_KEY::NAME] = tag[FMH::MODEL_KEY::TAG];
         tag[FMH::MODEL_KEY::PATH] = QString("tags:///%1").arg(tag[FMH::MODEL_KEY::TAG]);
         m_list << tag;
-        emit this->postItemAppended();
+        Q_EMIT this->postItemAppended();
     });
 
     connect(Pix::instance(), &Pix::sourcesChanged, this, &PlacesModel::setList);

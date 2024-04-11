@@ -7,9 +7,9 @@ TagsModel::TagsModel(QObject *parent)
     : MauiList(parent)
 {
     connect(Tagging::getInstance(), &Tagging::tagged, [this](QVariantMap tag) {
-        emit this->preItemAppended();
+        Q_EMIT this->preItemAppended();
         this->list << FMH::toModel(tag);
-        emit this->postItemAppended();
+        Q_EMIT this->postItemAppended();
     });
 
     connect(Tagging::getInstance(), &Tagging::urlTagged, [this](QString url, QString tag) {
@@ -26,7 +26,7 @@ TagsModel::TagsModel(QObject *parent)
 
         item[FMH::MODEL_KEY::PREVIEW] = previews.join(",");
         this->list[index] = item;
-        emit this->updateModel(index, {});
+        Q_EMIT this->updateModel(index, {});
     });
 }
 
@@ -42,10 +42,10 @@ const FMH::MODEL_LIST &TagsModel::items() const
 
 void TagsModel::setList()
 {
-    emit this->preListChanged();
+    Q_EMIT this->preListChanged();
     this->list << this->tags();
-    emit this->postListChanged();
-    emit this->countChanged();
+    Q_EMIT this->postListChanged();
+    Q_EMIT this->countChanged();
 }
 
 FMH::MODEL_LIST TagsModel::tags()

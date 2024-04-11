@@ -30,7 +30,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QQmlContext>
 #include <QDirIterator>
 #include <QPair>
-#include <QDate>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -43,6 +42,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <MauiKit3/Core/mauiapp.h>
 #include <MauiKit3/FileBrowsing/fmstatic.h>
+<<<<<<< HEAD
+=======
+
+#include <MauiKit3/ImageTools/moduleinfo.h>
+>>>>>>> origin/master
 
 #ifdef Q_OS_MACOS
 #include <MauiKit3/Core/mauimacos.h>
@@ -127,14 +131,25 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     KLocalizedString::setApplicationDomain("pix");
 
-    KAboutData about(QStringLiteral("pix"), i18n("Pix"), PIX_VERSION_STRING, i18n("Organize, browse, and edit your images."), KAboutLicense::LGPL_V3, i18n("© 2019-%1 Maui Development Team", QString::number(QDate::currentDate().year())), QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
-    about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
+    KAboutData about(QStringLiteral("pix"),
+                     QStringLiteral("Pix"),
+                     PIX_VERSION_STRING,
+                     i18n("Organize, browse, and edit your images."),
+                     KAboutLicense::LGPL_V3,
+                     APP_COPYRIGHT_NOTICE,
+                     QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
+    about.addAuthor(QStringLiteral("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
     about.setHomepage("https://mauikit.org");
     about.setProductName("maui/pix");
     about.setBugAddress("https://invent.kde.org/maui/pix/-/issues");
     about.setOrganizationDomain(PIX_URI);
     about.setProgramLogo(app.windowIcon());
-    about.addComponent("Exiv2");
+
+    const auto exiv2Data = MauiKitImageTools::exiv2Data();
+    about.addComponent(exiv2Data.name(), "", exiv2Data.version(), exiv2Data.webAddress());
+
+    const auto ITData = MauiKitImageTools::aboutData();
+    about.addComponent(ITData.name(), MauiKitImageTools::buildVersion(), ITData.version(), ITData.webAddress());
 
     KAboutData::setApplicationData(about);
     MauiApp::instance()->setIconName("qrc:/assets/pix.png");

@@ -13,7 +13,7 @@ Maui.SettingsDialog
     Maui.SectionGroup
     {
         title: i18n("Behavior")
-        description: i18n("Configure the app behaviour.")
+//        description: i18n("Configure the app behaviour.")
 
         Maui.SectionItem
         {
@@ -27,30 +27,12 @@ Maui.SettingsDialog
                 onToggled: browserSettings.autoReload = !browserSettings.autoReload
             }
         }
-
-        Maui.SectionItem
-        {
-            visible: Maui.Handy.isAndroid
-
-            label1.text: i18n("Dark Mode")
-            label2.text: i18n("Switch between light and dark colorscheme.")
-
-            Switch
-            {
-                checked: browserSettings.darkMode
-                onToggled:
-                {
-                    browserSettings.darkMode = !browserSettings.darkMode
-                    setAndroidStatusBarColor()
-                }
-            }
-        }
     }
 
     Maui.SectionGroup
     {
         title: i18n("Collection")
-        description: i18n("Configure the app plugins and look & feel.")
+//        description: i18n("Configure the app plugins and look & feel.")
 
         Maui.SectionItem
         {
@@ -221,7 +203,7 @@ Maui.SettingsDialog
     Maui.SectionGroup
     {
         title: i18n("Viewer")
-        description: i18n("Adjust the viewer panels and settings.")
+//        description: i18n("Adjust the viewer panels and settings.")
 
         Maui.SectionItem
         {
@@ -239,7 +221,7 @@ Maui.SettingsDialog
         Maui.SectionItem
         {
             label1.text: i18n("Preview Bar")
-            label2.text: i18n("Show small thumbnail previews in the image viewer.")
+//            label2.text: i18n("Show small thumbnail previews in the image viewer.")
             Switch
             {
                 checkable: true
@@ -252,25 +234,23 @@ Maui.SettingsDialog
     Maui.SectionGroup
     {
         title: i18n("Sources")
-        description: i18n("Add new sources to manage and browse your image collection.")
+//        description: i18n("Add new sources to manage and browse your image collection.")
 
         ColumnLayout
         {
             Layout.fillWidth: true
+            spacing: Maui.Style.space.medium
 
-            Maui.ListBrowser
+            Repeater
             {
                 id: _sourcesList
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                Layout.minimumHeight: Math.min(500, contentHeight)
+
                 model: Pix.Collection.sourcesModel
-                padding: 0
-                currentIndex: -1
+
 
                 delegate: Maui.ListDelegate
                 {
-                    width: ListView.view.width
+                    Layout.fillWidth: true
 
                     template.iconSource: modelData.icon
                     template.iconSizeHint: Maui.Style.iconSizes.small

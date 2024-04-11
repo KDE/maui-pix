@@ -27,25 +27,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDesktopServices>
 #include <QDebug>
 #include <QCoreApplication>
+#include <QSettings>
 
-#include <MauiKit3/Core/fmh.h>
-#include <MauiKit3/Core/utils.h>
+#include <MauiKit4/Core/fmh.h>
 
-#include <MauiKit3/FileBrowsing/tagging.h>
-#include <MauiKit3/FileBrowsing/fmstatic.h>
+#include <MauiKit4/FileBrowsing/tagging.h>
+#include <MauiKit4/FileBrowsing/fmstatic.h>
 
 #include "models/gallery/gallery.h"
 
-Pix *Pix::m_instance = nullptr;
+Q_GLOBAL_STATIC(Pix, pixInstance)
 
 Pix::Pix(QObject *parent) : QObject(parent)
-  ,m_allImagesModel(nullptr)
+  , m_allImagesModel(nullptr)
 {
-    connect(qApp, &QCoreApplication::aboutToQuit, []()
-    {
-        delete m_instance;
-        m_instance = nullptr;
-    });
 }
 
 QUrl Pix::cameraPath()
@@ -89,10 +84,18 @@ Gallery *Pix::allImagesModel()
     return m_allImagesModel;
 }
 
+Pix *Pix::instance()
+{
+   return pixInstance();
+}
+
 const QStringList Pix::getSourcePaths()
 {
     static const auto defaultSources = QStringList{FMStatic::PicturesPath, FMStatic::DownloadsPath} << cameraPath().toString() + screenshotsPath().toString();
-    const auto sources = UTIL::loadSettings("Sources", "Settings", defaultSources).toStringList();
+    QSettings settings;
+    settings.beginGroup("Settings");
+    const auto sources = settings.value("Sources", defaultSources).toStringList();
+    settings.endGroup();
     qDebug() << "SOURCES" << sources;
     return sources;
 }
@@ -104,7 +107,10 @@ void Pix::saveSourcePath(const QStringList &paths)
     sources << paths;
     sources.removeDuplicates();
 
-    UTIL::saveSettings("Sources", sources, "Settings");
+    QSettings settings;
+    settings.beginGroup("Settings");
+    settings.setValue("Sources", sources);
+    settings.endGroup();
 }
 
 void Pix::removeSourcePath(const QString &path)
@@ -112,7 +118,10 @@ void Pix::removeSourcePath(const QString &path)
     auto sources = getSourcePaths();
     sources.removeOne(path);
 
-    UTIL::saveSettings("Sources", sources, "Settings");
+    QSettings settings;
+    settings.beginGroup("Settings");
+    settings.setValue("Sources", sources);
+    settings.endGroup();
 }
 
 QVariantList Pix::sourcesModel() const
@@ -132,7 +141,7 @@ QStringList Pix::sources() const
 
 void Pix::openPics(const QList<QUrl> &pics)
 {
-    emit this->viewPics(QUrl::toStringList(pics));
+    Q_EMIT this->viewPics(QUrl::toStringList(pics));
 }
 
 void Pix::showInFolder(const QStringList &urls)
@@ -144,11 +153,11 @@ void Pix::showInFolder(const QStringList &urls)
 void Pix::addSources(const QStringList &paths)
 {
     saveSourcePath(paths);
-    emit sourcesChanged();
+    Q_EMIT sourcesChanged();
 }
 
 void Pix::removeSources(const QString &path)
 {
     removeSourcePath(path);
-    emit sourcesChanged();
+    Q_EMIT sourcesChanged();
 }

@@ -70,18 +70,18 @@ Item
 
         maximumFlickVelocity: 4 * (viewerList.orientation === Qt.Horizontal ? width : height)
 
-        Keys.onPressed:
-        {
-            if((event.key == Qt.Key_Right))
-            {
-                next()
-            }
+        Keys.onPressed: (event) =>
+                        {
+                            if((event.key == Qt.Key_Right))
+                            {
+                                next()
+                            }
 
-            if((event.key == Qt.Key_Left))
-            {
-                previous()
-            }
-        }
+                            if((event.key == Qt.Key_Left))
+                            {
+                                previous()
+                            }
+                        }
 
         onCurrentIndexChanged: viewerList.forceActiveFocus()
 
@@ -117,13 +117,7 @@ Item
                 {
                     id: _imgV
                     source: model.url
-//                    imageWidth: 1000
-//                    imageHeight: 1000
-                    image.autoTransform: true
-
-
-
-            }
+                    image.autoTransform: true}
             }
         }
     }
@@ -132,7 +126,7 @@ Item
     {
         enabled: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
         anchors.fill: parent
-        onPressed:
+        onPressed: (mouse) =>
         {
             galleryRollBg.visible = !galleryRollBg.visible
             mouse.accepted = false

@@ -18,8 +18,7 @@ StackView
 {
     id: control
 
-
-    property Flickable flickable : currentItem.flickable
+    readonly property Flickable flickable : currentItem.flickable
 
     FB.NewTagDialog
     {
@@ -69,22 +68,6 @@ StackView
             holder.body: mainGalleryList.status === Pix.GalleryList.Error ? mainGalleryList.error : (list.count > 0 ? i18n("No results found.") : i18n("Nothing here. You can add new sources or open an image."))
         }
     }
-
-    function refreshPics()
-    {
-        tagsGrid.list.refresh()
-    }
-
-    function populateGrid(myTag)
-    {
-        control.push(tagsGrid, {'currentTag': myTag})
-    }
-
-    function populateByFilter(filters)
-    {
-        control.push(gpsGrid, {'currentFilters': filters})
-    }
-
 
     Component
     {
@@ -144,7 +127,7 @@ StackView
                     }
                 }
 
-                onKeyPress:
+                onKeyPress: (event) =>
                 {
                     if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
                     {
@@ -155,11 +138,13 @@ StackView
                 itemSize: Math.min(260, Math.max(100, Math.floor(width* 0.3)))
                 itemHeight: itemSize + Maui.Style.rowHeight
                 currentIndex: -1
+
                 holder.visible: _gridView.count === 0
                 holder.emoji: i18n("qrc:/assets/add-image.svg")
                 holder.title :i18n("No Tags!")
                 holder.body: i18n("You can create new tags to organize your gallery")
                 holder.actions: _newTagAction
+
                 flickable.header: Pane
                 {
                     background: null
@@ -342,6 +327,21 @@ StackView
                 }
             }
         }
+    }
+
+    function refreshPics()
+    {
+        tagsGrid.list.refresh()
+    }
+
+    function populateGrid(myTag)
+    {
+        control.push(tagsGrid, {'currentTag': myTag})
+    }
+
+    function populateByFilter(filters)
+    {
+        control.push(gpsGrid, {'currentFilters': filters})
     }
 }
 

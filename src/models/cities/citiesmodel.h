@@ -1,6 +1,4 @@
-#ifndef CITIESMODEL_H
-#define CITIESMODEL_H
-
+#pragma once
 #include <QObject>
 
 #include <MauiKit3/Core/fmh.h>
@@ -28,9 +26,7 @@ private:
 
   void setList();
 
-signals:
+Q_SIGNALS:
   void citiesChanged();
 
 };
-
-#endif // CITIESMODEL_H

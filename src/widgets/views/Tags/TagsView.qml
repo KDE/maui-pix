@@ -18,6 +18,7 @@ import "../../../view_models"
 PixGrid
 {
     id: control
+
     property string currentTag
     property var currentFilters : []
 
@@ -28,7 +29,6 @@ PixGrid
     holder.emoji: "qrc:/assets/add-image.svg"
 
     headBar.visible: true
-
 
     function refreshPics()
     {
