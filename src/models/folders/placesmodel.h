@@ -2,7 +2,7 @@
 #include <QObject>
 #include <QVariantList>
 
-#include <MauiKit3/Core/mauilist.h>
+#include <MauiKit4/Core/mauilist.h>
 
 class PlacesModel : public MauiList
 {

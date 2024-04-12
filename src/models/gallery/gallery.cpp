@@ -9,13 +9,13 @@
 #include <QtConcurrent/QtConcurrent>
 #include <QFuture>
 
-#include <KI18n/KLocalizedString>
+#include <KLocalizedString>
 
-#include <MauiKit3/FileBrowsing/fileloader.h>
-#include <MauiKit3/FileBrowsing/fmstatic.h>
-#include <MauiKit3/FileBrowsing/tagging.h>
-#include <MauiKit3/ImageTools/exiv2extractor.h>
-#include <MauiKit3/ImageTools/textscanner.h>
+#include <MauiKit4/FileBrowsing/fileloader.h>
+#include <MauiKit4/FileBrowsing/fmstatic.h>
+#include <MauiKit4/FileBrowsing/tagging.h>
+#include <MauiKit4/ImageTools/exiv2extractor.h>
+#include <MauiKit4/ImageTools/textscanner.h>
 
 #include "pix.h"
 

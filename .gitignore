@@ -3,6 +3,8 @@
 3rdparty/
 3rdparty/breeze-icons/
 build/
+build.6/
+build.5/
 .directory
 
 *.*~

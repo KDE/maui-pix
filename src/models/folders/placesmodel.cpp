@@ -1,14 +1,14 @@
 #include "placesmodel.h"
 
-#include <KI18n/KLocalizedString>
-#include <MauiKit3/FileBrowsing/fmstatic.h>
-#include <MauiKit3/FileBrowsing/tagging.h>
+#include <KLocalizedString>
+#include <MauiKit4/FileBrowsing/fmstatic.h>
+#include <MauiKit4/FileBrowsing/tagging.h>
 
 #include "pix.h"
 #include "models/gallery/gallery.h"
 
-#include <MauiKit3/ImageTools/cities.h>
-#include <MauiKit3/ImageTools/city.h>
+#include <MauiKit4/ImageTools/cities.h>
+#include <MauiKit4/ImageTools/city.h>
 
 PlacesModel::PlacesModel(QObject *parent) : MauiList(parent)
 {

@@ -1,11 +1,11 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.3
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
-import org.mauikit.controls 1.3 as Maui
-import org.mauikit.filebrowsing 1.3 as FB
+import org.mauikit.controls as Maui
+import org.mauikit.filebrowsing as FB
 
-import org.maui.pix 1.0 as Pix
+import org.maui.pix as Pix
 
 Maui.ContextualMenu
 {
@@ -29,16 +29,26 @@ Maui.ContextualMenu
         parent: control.parent
         urls: filterSelection(item.url)
         title: i18n("Delete File?")
-//        acceptButton.text: i18n("Accept")
-//        rejectButton.text: i18n("Cancel")
         message: i18nc("Remove one file", "Are sure you want to delete this file? This action can not be undone.")
 
-        onRejected: close()
-        onAccepted:
-        {
-            control.model.list.deleteAt(model.mappedToSource(control.index))
-            close()
-        }
+        actions:
+            [
+            Action
+            {
+                text: i18n("Cancel")
+                onTriggered: close()
+            },
+
+            Action
+            {
+                text: i18n("Accept")
+                onTriggered:
+                {
+                    control.model.list.deleteAt(model.mappedToSource(control.index))
+                    close()
+                }
+            }
+        ]
     }
 
     Maui.MenuItemActionRow

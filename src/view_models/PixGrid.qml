@@ -1,11 +1,11 @@
-import QtQuick 2.14
+import QtQuick
 
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.3
+import QtQuick.Controls
+import QtQuick.Layouts
 
-import org.mauikit.controls 1.3 as Maui
+import org.mauikit.controls as Maui
 
-import org.maui.pix 1.0
+import org.maui.pix
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 import "../widgets"
@@ -209,7 +209,7 @@ Maui.Page
                 Drag.keys: ["text/uri-list"]
                 Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
 
-            onClicked:
+            onClicked: (mouse) =>
             {
                 control.currentIndex = index
                 if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))

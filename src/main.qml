@@ -24,17 +24,17 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtCore
+import QtQuick.Controls
+import QtQuick.Layouts
 
-import QtQuick.Window 2.13
-import Qt.labs.settings 1.0
+import QtQuick.Window
 
-import org.mauikit.controls 1.3 as Maui
-import org.mauikit.filebrowsing 1.3 as FB
-import org.mauikit.imagetools 1.3 as IT
-import org.maui.pix 1.0 as Pix
+import org.mauikit.controls as Maui
+import org.mauikit.filebrowsing as FB
+import org.mauikit.imagetools as IT
+import org.maui.pix as Pix
 
 import "widgets"
 import "widgets/views"
@@ -100,7 +100,7 @@ Maui.ApplicationWindow
         {
             id: _pixViewer
             visible: StackView.status === StackView.Active
-            showCSDControls: initModule === "viewer"
+            Maui.Controls.showCSD: initModule === "viewer"
         }
     }
     
@@ -183,9 +183,9 @@ Maui.ApplicationWindow
         id: fmDialogComponent
         FB.FileDialog
         {
-            settings.filterType: FB.FMList.IMAGE
-            settings.onlyDirs: true
-            mode: modes.OPEN
+            browser.settings.filterType: FB.FMList.IMAGE
+            browser.settings.onlyDirs: true
+            mode: FB.FileDialog.Open
         }
     }
     
@@ -204,22 +204,28 @@ Maui.ApplicationWindow
             id: removeDialog
             urls: selectionBox.uris
             title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
-<<<<<<< HEAD
-//            acceptButton.text: i18n("Cancel")
-//            rejectButton.text: i18n("Accept")
 
-=======
-            
->>>>>>> origin/master
             message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
             
-            onAccepted: close()
-            onRejected:
-            {
-                FB.FM.removeFiles(removeDialog.urls)
-                selectionBox.clear()
-                close()
-            }
+            actions:
+                [
+                Action
+                {
+                    text: i18n("Cancel")
+                    onTriggered: close()
+                },
+
+                Action
+                {
+                    text: i18n("Accept")
+                    onTriggered:
+                    {
+                        FB.FM.removeFiles(removeDialog.urls)
+                        selectionBox.clear()
+                        close()
+                    }
+                }
+            ]
         }
     }
     

@@ -4,16 +4,16 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import org.mauikit.controls 1.0 as Maui
+import QtQuick
+import QtQuick.Controls
+import org.mauikit.controls as Maui
 
 import "../Viewer/Viewer.js" as VIEWER
 import "../Pix.js" as PIX
 import "../../../view_models"
 
-import CloudList 1.0
-import PixModel 1.0
+import CloudList
+import PixModel
 
 PixGrid
 {

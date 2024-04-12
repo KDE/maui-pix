@@ -24,17 +24,16 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
-import QtQuick.Window 2.13
-import Qt.labs.settings 1.0
+import QtQuick.Window 
 
-import org.mauikit.controls 1.3 as Maui
-import org.mauikit.filebrowsing 1.3 as FB
-import org.mauikit.imagetools 1.3 as IT
-import org.maui.pix 1.0 as Pix
+import org.mauikit.controls as Maui
+import org.mauikit.filebrowsing as FB
+import org.mauikit.imagetools as IT
+import org.maui.pix as Pix
 
 import "Folders"
 import "Gallery"
@@ -80,7 +79,7 @@ Maui.SideBarView
         altHeader: Maui.Handy.isMobile
         floatingFooter: true
         flickable: _foldersView.currentItem.flickable
-        showCSDControls: true
+        Maui.Controls.showCSD: true
         headBar.forceCenterMiddleContent: false
         split: width < 600 && (_goBackButton.visible || _viewerButton.visible)
 
