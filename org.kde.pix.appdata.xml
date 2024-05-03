@@ -68,6 +68,10 @@
   <summary xml:lang="x-test">xxImage Galleryxx</summary>
   <summary xml:lang="zh-CN">图像库/相册程序</summary>
   <summary xml:lang="zh-TW">相簿</summary>
+  <developer>
+    <name>maui</name>
+    <url>https://mauikit.org/</url>
+  </developer>
   <description>
     <p>Pix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.</p>
     <p xml:lang="ca">El Pix és una galeria d'imatges i un visualitzador d'imatges. El Pix es pot usar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes als fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
@@ -100,6 +104,7 @@
   <url type="homepage">https://apps.kde.org/pix</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=pix</url>
   <url type="donation">https://kde.org/community/donations</url>
+  <url type="vcs-browser">https://invent.kde.org/maui/pix</url>
   <screenshots>
     <screenshot type="default">
       <image type="source">https://cdn.kde.org/screenshots/pix/pix.png</image>
@@ -145,6 +150,11 @@
       <image type="source">https://cdn.kde.org/screenshots/pix/pix-3.png</image>
     </screenshot>
   </screenshots>
+  <categories>
+    <category>Qt</category>
+    <category>Graphics</category>
+    <category>Viewer</category>
+  </categories>
   <recommends>
     <control>pointing</control>
     <control>keyboard</control>
