@@ -39,8 +39,12 @@ Maui.SelectionBar
         label1.text: model.title
         label2.text: model.url
         imageSource: model.url
-        iconSizeHint: 48
+        // iconSizeHint: 48
+        iconSizeHint: Maui.Style.iconSizes.big
+        height: Maui.Style.iconSizes.big + Maui.Style.space.big
         checked: true
+        checkable: true
+
         onToggled: control.removeAtIndex(index)
 
         background: Item {}
