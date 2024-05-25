@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-20 01:39+0000\n"
-"PO-Revision-Date: 2023-03-26 14:34+0100\n"
+"PO-Revision-Date: 2024-05-24 19:13+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: src/main.cpp:134
 #, kde-format
@@ -146,12 +146,11 @@ msgid "No sources found to scan."
 msgstr "No sources found to scan."
 
 #: src/view_models/PixGrid.qml:44
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "Search"
-msgstr[1] "Search"
+msgstr[0] "Search image"
+msgstr[1] "Search %1 images"
 
 #: src/view_models/PixGrid.qml:71
 #, kde-format
@@ -455,22 +454,19 @@ msgid "No Folders!"
 msgstr "No Folders!"
 
 #: src/widgets/views/Folders/FoldersView.qml:68
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "Nothing here"
+msgstr "Nothing Here!"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Add new image sources"
+#, kde-format
 msgid "Add new image sources."
-msgstr "Add new image sources"
+msgstr "Add new image sources."
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "Nothing here. Try something different!"
+#, kde-format
 msgid "Try something different."
-msgstr "Nothing here. Try something different!"
+msgstr "Try something different."
 
 #: src/widgets/views/Folders/FoldersView.qml:164
 #, kde-format
