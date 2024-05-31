@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Łukasz Wojniłowicz <<lukasz.wojnilowicz@gmail.com>>
 #
-# Łukasz Wojniłowicz <<lukasz.wojnilowicz@gmail.com>>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-20 01:39+0000\n"
-"PO-Revision-Date: 2023-10-28 08:08+0200\n"
+"PO-Revision-Date: 2024-05-30 11:13+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/main.cpp:134
 #, kde-format
@@ -149,13 +150,12 @@ msgid "No sources found to scan."
 msgstr "Nie znaleziono żadnych źródeł do zeskanowania."
 
 #: src/view_models/PixGrid.qml:44
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "Szukaj"
-msgstr[1] "Szukaj"
-msgstr[2] "Szukaj"
+msgstr[0] "Poszukaj obrazu"
+msgstr[1] "Poszukaj %1 obrazów"
+msgstr[2] "Poszukaj %1 obrazów"
 
 #: src/view_models/PixGrid.qml:71
 #, kde-format
