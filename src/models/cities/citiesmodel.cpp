@@ -1,7 +1,7 @@
 #include "citiesmodel.h"
 
-#include <MauiKit3/ImageTools/cities.h>
-#include <MauiKit3/ImageTools/city.h>
+#include <MauiKit4/ImageTools/cities.h>
+#include <MauiKit4/ImageTools/city.h>
 
 CitiesModel::CitiesModel(QObject *parent) : MauiList(parent)
 {

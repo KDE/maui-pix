@@ -3,14 +3,12 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.10
+import QtQuick
 
-import QtQuick.Controls 2.10
-import QtQuick.Layouts 1.12
+import QtQuick.Controls
+import QtQuick.Layouts
 
-import org.maui.pix 1.0 as Pix
-import org.mauikit.controls 1.3 as Maui
-import org.maui.pix 1.0
+import org.mauikit.controls as Maui
 
 import "../../../view_models"
 

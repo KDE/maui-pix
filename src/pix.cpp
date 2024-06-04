@@ -29,10 +29,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QCoreApplication>
 #include <QSettings>
 
-#include <MauiKit3/Core/fmh.h>
+#include <MauiKit4/Core/fmh.h>
 
-#include <MauiKit3/FileBrowsing/tagging.h>
-#include <MauiKit3/FileBrowsing/fmstatic.h>
+#include <MauiKit4/FileBrowsing/tagging.h>
+#include <MauiKit4/FileBrowsing/fmstatic.h>
 
 #include "models/gallery/gallery.h"
 

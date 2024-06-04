@@ -4,12 +4,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
-import QtQuick 2.9
-import QtQuick.Controls 2.5
-import QtQuick.Layouts 1.3
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
-import org.mauikit.controls 1.2 as Maui
-import org.mauikit.filebrowsing 1.3 as FB
+import org.mauikit.controls as Maui
+import org.mauikit.filebrowsing as FB
 
 import "../widgets/views/Viewer/Viewer.js" as VIEWER
 
@@ -39,8 +39,12 @@ Maui.SelectionBar
         label1.text: model.title
         label2.text: model.url
         imageSource: model.url
-        iconSizeHint: 48
+        // iconSizeHint: 48
+        iconSizeHint: Maui.Style.iconSizes.big
+        height: Maui.Style.iconSizes.big + Maui.Style.space.big
         checked: true
+        checkable: true
+
         onToggled: control.removeAtIndex(index)
 
         background: Item {}

@@ -35,8 +35,6 @@ StackView
     property int currentPicIndex : 0
     property bool doodle : false
 
-    property alias showCSDControls: _viewer.showCSDControls
-
     PixMenu
     {
         id: _picMenu
@@ -105,6 +103,7 @@ StackView
         showTitle: root.isWide
         altHeader: Maui.Handy.isMobile
 
+        Maui.Controls.showCSD: control.Maui.Controls.showCSD
         headBar.visible: true
 
         onGoBackTriggered: _stackView.pop()
@@ -264,12 +263,12 @@ StackView
                 list.urls: [currentPic.url]
                 list.strict: false
 
-                onAddClicked:
-                {
-                    dialogLoader.sourceComponent = tagsDialogComponent
-                    dialog.composerList.urls = [currentPic.url]
-                    dialog.open()
-                }
+                // onAddClicked:
+                // {
+                //     dialogLoader.sourceComponent = tagsDialogComponent
+                //     dialog.composerList.urls = [currentPic.url]
+                //     dialog.open()
+                // }
 
                 onTagRemovedClicked: (index) => list.removeFromUrls(index)
                 onTagsEdited: (tags) => list.updateToUrls(tags)

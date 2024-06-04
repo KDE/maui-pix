@@ -42,9 +42,9 @@ public:
 
     static Pix *instance();
 
-    inline static const QStringList getSourcePaths();
-    inline static void saveSourcePath(QStringList const &);
-    inline static void removeSourcePath(const QString &);
+    static const QStringList getSourcePaths();
+    static void saveSourcePath(QStringList const &);
+    static void removeSourcePath(const QString &);
     static QUrl cameraPath();
     static QUrl screenshotsPath();
 

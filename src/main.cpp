@@ -33,23 +33,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
-#include <MauiKit3/Core/mauiandroid.h>
+#include <MauiKit4/Core/mauiandroid.h>
 #else
 #include <QApplication>
 #endif
 
 #include "../pix_version.h"
 
-#include <MauiKit3/Core/mauiapp.h>
-#include <MauiKit3/FileBrowsing/fmstatic.h>
+#include <MauiKit4/Core/mauiapp.h>
+#include <MauiKit4/FileBrowsing/fmstatic.h>
 
-#include <MauiKit3/ImageTools/moduleinfo.h>
+#include <MauiKit4/ImageTools/moduleinfo.h>
 
 #ifdef Q_OS_MACOS
 #include <MauiKit3/Core/mauimacos.h>
 #endif
 
-#include <KI18n/KLocalizedString>
+#include <KLocalizedString>
 
 #include "models/folders/folders.h"
 #include "models/folders/placesmodel.h"
@@ -112,9 +112,6 @@ static const QPair<QString, QList<QUrl>> openFiles(const QStringList &files)
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
     if (!MAUIAndroid::checkRunTimePermissions({"android.permission.WRITE_EXTERNAL_STORAGE"}))
