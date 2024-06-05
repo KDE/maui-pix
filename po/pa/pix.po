@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-20 01:39+0000\n"
+"POT-Creation-Date: 2024-06-05 02:05+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.04.3\n"
 
-#: src/main.cpp:134
+#: src/main.cpp:131
 #, fuzzy, kde-format
 #| msgid "Pix lets you organize, browse, and edit your image collection."
 msgid "Organize, browse, and edit your images."
 msgstr "ਪਿਕਸ ਐਪ ਤੁਹਾਨੂੰ ਚਿੱਤਰ ਭੰਡਾਰ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰਨ, ਝਲਕ ਵੇਖਣ ਤੇ ਸੋਧਣ ਦਿੰਦੀ ਹੈ।"
 
-#: src/main.cpp:138
+#: src/main.cpp:135
 #, kde-format
 msgid "Developer"
 msgstr "ਡਿਵੈਲਪਰ"
@@ -53,6 +53,16 @@ msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
 msgstr[0] "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।"
 msgstr[1] "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।"
+
+#: src/main.qml:214 src/view_models/PixMenu.qml:38
+#, kde-format
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#: src/main.qml:220 src/view_models/PixMenu.qml:44
+#, kde-format
+msgid "Accept"
+msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
 
 #: src/models/folders/placesmodel.cpp:15
 #, fuzzy, kde-format
@@ -87,7 +97,7 @@ msgid "Collection"
 msgstr "ਭੰਡਾਰ"
 
 #: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
-#: src/view_models/PixMenu.qml:57
+#: src/view_models/PixMenu.qml:67
 #, kde-format
 msgid "Tags"
 msgstr "ਟੈਗ"
@@ -167,72 +177,70 @@ msgstr "ਚਿੱਤਰਾਂ ਦੇ ਟਾਈਟਲ"
 msgid "Delete File?"
 msgstr "ਫਾਇਲ ਹਟਾਉਣੀ ਹੈ?"
 
-#. i18n("Accept")
-#. rejectButton.text: i18n("Cancel")
-#: src/view_models/PixMenu.qml:34
+#: src/view_models/PixMenu.qml:32
 #, kde-format
 msgctxt "Remove one file"
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgstr "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।"
 
-#: src/view_models/PixMenu.qml:48
+#: src/view_models/PixMenu.qml:58
 #, kde-format
 msgid "UnFav it"
 msgstr "ਇਹ ਨਾ-ਪਸੰਦ"
 
-#: src/view_models/PixMenu.qml:69
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Info"
 msgstr "ਜਾਣਕਾਰੀ"
 
-#: src/view_models/PixMenu.qml:79 src/widgets/SelectionBar.qml:71
+#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"
 
-#: src/view_models/PixMenu.qml:92
+#: src/view_models/PixMenu.qml:102
 #, kde-format
 msgid "Select"
 msgstr "ਚੁਣੋ"
 
-#: src/view_models/PixMenu.qml:108 src/widgets/SelectionBar.qml:90
+#: src/view_models/PixMenu.qml:118 src/widgets/SelectionBar.qml:94
 #, kde-format
 msgid "Export"
 msgstr "ਐਕਸਪੋਰਟ ਕਰੋ"
 
-#: src/view_models/PixMenu.qml:126
+#: src/view_models/PixMenu.qml:136
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgid "Open with"
 msgstr "ਇਸ ਨਾਲ ਖੋਲ੍ਹੋ"
 
-#: src/view_models/PixMenu.qml:137
+#: src/view_models/PixMenu.qml:147
 #, fuzzy, kde-format
 #| msgid "Show in folder"
 msgid "Go to Folder"
 msgstr "ਫੋਲਡਰ ਵਿੱਚ ਵੇਖੋ"
 
-#: src/view_models/PixMenu.qml:154
+#: src/view_models/PixMenu.qml:164
 #, kde-format
 msgid "Open Location"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:166 src/widgets/SelectionBar.qml:106
+#: src/view_models/PixMenu.qml:176 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
-#: src/widgets/SelectionBar.qml:51
+#: src/widgets/SelectionBar.qml:55
 #, kde-format
 msgid "View"
 msgstr "ਵੇਖੋ"
 
-#: src/widgets/SelectionBar.qml:59
+#: src/widgets/SelectionBar.qml:63
 #, kde-format
 msgid "Tag"
 msgstr "ਟੈਗ"
 
-#: src/widgets/SelectionBar.qml:83
+#: src/widgets/SelectionBar.qml:87
 #, kde-format
 msgid "Un/Fav"
 msgstr "ਨਾ-ਪਸੰਦ/ਮਨਪਸੰਦ"
@@ -371,7 +379,7 @@ msgstr ""
 msgid "Experimental feature."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:131
 #, kde-format
 msgid "Viewer"
 msgstr "ਦਰਸ਼ਕ"
@@ -431,23 +439,23 @@ msgstr "ਲਗਭਗ ਹੋ ਗਿਆ!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਆਨਲਾਈਨ ਹੋ ਅਤੇ ਤੁਹਾਡਾ ਕਲਾਉਂਡ ਖਾਤਾ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ"
 
-#: src/widgets/views/CollectionView.qml:107
+#: src/widgets/views/CollectionView.qml:106
 #, kde-format
 msgid "Toggle sidebar"
 msgstr ""
 
-#: src/widgets/views/CollectionView.qml:153
-#: src/widgets/views/Gallery/GalleryView.qml:26
+#: src/widgets/views/CollectionView.qml:152
+#: src/widgets/views/Gallery/GalleryView.qml:24
 #, kde-format
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
 
-#: src/widgets/views/CollectionView.qml:162
+#: src/widgets/views/CollectionView.qml:161
 #, kde-format
 msgid "Settings"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/widgets/views/CollectionView.qml:169
+#: src/widgets/views/CollectionView.qml:168
 #, kde-format
 msgid "About"
 msgstr "ਇਸ ਬਾਰੇ"
@@ -502,20 +510,20 @@ msgid_plural "%1 images"
 msgstr[0] "ਚਿੱਤਰਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 msgstr[1] "ਚਿੱਤਰਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: src/widgets/views/Gallery/GalleryView.qml:21
+#: src/widgets/views/Gallery/GalleryView.qml:19
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:210
 #, kde-format
 msgid "No Pics!"
 msgstr "ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ!"
 
-#: src/widgets/views/Gallery/GalleryView.qml:22
+#: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr ""
 
-#: src/widgets/views/Gallery/GalleryView.qml:32
+#: src/widgets/views/Gallery/GalleryView.qml:30
 #, fuzzy, kde-format
 #| msgid "Add new image sources"
 msgid "Add sources"
@@ -598,27 +606,27 @@ msgstr "ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ!"
 msgid "There're no pics associated with the tag"
 msgstr "ਟੈਗ ਨਾਲ ਸੰਬੰਧਿਤ ਕੋਈ ਵੀ ਤਸਵੀਰ ਨਹੀਂ ਹੈ।"
 
-#: src/widgets/views/Viewer/PixViewer.qml:72
+#: src/widgets/views/Viewer/PixViewer.qml:70
 #, kde-format
 msgid "Save as"
 msgstr "ਇੰਞ ਸੰਭਾਲੋ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:91
+#: src/widgets/views/Viewer/PixViewer.qml:89
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:116
+#: src/widgets/views/Viewer/PixViewer.qml:115
 #, kde-format
 msgid "Gallery"
 msgstr "ਗੈਲਰੀ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:131
 #, kde-format
 msgid "Previous"
 msgstr "ਪਿੱਛੇ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:212
+#: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "ਆਪਣੇ ਭੰਡਾਰ ਤੋਂ ਚਿੱਤਰ ਖੋਲ੍ਹੋ"
@@ -642,12 +650,6 @@ msgstr "ਆਪਣੇ ਭੰਡਾਰ ਤੋਂ ਚਿੱਤਰ ਖੋਲ੍ਹ�
 
 #~ msgid "Add new sources to manage and browse your image collection."
 #~ msgstr "ਆਪਣੇ ਚਿੱਤਰ ਭੰਡਾਰ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰਨ ਅਤੇ ਝਲਕ ਵੇਖਣ ਲਈ ਨਵੇਂ ਸਰੋਤ ਜੋੜੋ।"
-
-#~ msgid "Cancel"
-#~ msgstr "ਰੱਦ ਕਰੋ"
-
-#~ msgid "Accept"
-#~ msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
 
 #, fuzzy
 #~| msgid "Filter"

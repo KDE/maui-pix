@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-20 01:39+0000\n"
+"POT-Creation-Date: 2024-06-05 02:05+0000\n"
 "PO-Revision-Date: 2023-12-01 21:44+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.4.1\n"
 
-#: src/main.cpp:134
+#: src/main.cpp:131
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organizirajte, brskajte in urejajte svoje slike."
 
-#: src/main.cpp:138
+#: src/main.cpp:135
 #, kde-format
 msgid "Developer"
 msgstr "Razvijalec"
@@ -65,6 +65,16 @@ msgstr[3] ""
 "Ali ste prepričani, da želite zbrisati to datoteko? Tega dejanja ni mogoče "
 "razveljaviti."
 
+#: src/main.qml:214 src/view_models/PixMenu.qml:38
+#, kde-format
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: src/main.qml:220 src/view_models/PixMenu.qml:44
+#, kde-format
+msgid "Accept"
+msgstr "Sprejmem"
+
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
 msgid "Favorites"
@@ -97,7 +107,7 @@ msgid "Collection"
 msgstr "Zbirka"
 
 #: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
-#: src/view_models/PixMenu.qml:57
+#: src/view_models/PixMenu.qml:67
 #, kde-format
 msgid "Tags"
 msgstr "Značke"
@@ -175,9 +185,7 @@ msgstr "Besedilo slike (OCR)"
 msgid "Delete File?"
 msgstr "Zbrišem datoteko?"
 
-#. i18n("Accept")
-#. rejectButton.text: i18n("Cancel")
-#: src/view_models/PixMenu.qml:34
+#: src/view_models/PixMenu.qml:32
 #, kde-format
 msgctxt "Remove one file"
 msgid "Are sure you want to delete this file? This action can not be undone."
@@ -185,62 +193,62 @@ msgstr ""
 "Ali ste prepričani, da želite zbrisati to datoteko? Tega dejanja ni mogoče "
 "razveljaviti."
 
-#: src/view_models/PixMenu.qml:48
+#: src/view_models/PixMenu.qml:58
 #, kde-format
 msgid "UnFav it"
 msgstr "Ne-prilj"
 
-#: src/view_models/PixMenu.qml:69
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Info"
 msgstr "Informacije"
 
-#: src/view_models/PixMenu.qml:79 src/widgets/SelectionBar.qml:71
+#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Deli"
 
-#: src/view_models/PixMenu.qml:92
+#: src/view_models/PixMenu.qml:102
 #, kde-format
 msgid "Select"
 msgstr "Izberi"
 
-#: src/view_models/PixMenu.qml:108 src/widgets/SelectionBar.qml:90
+#: src/view_models/PixMenu.qml:118 src/widgets/SelectionBar.qml:94
 #, kde-format
 msgid "Export"
 msgstr "Izvozi"
 
-#: src/view_models/PixMenu.qml:126
+#: src/view_models/PixMenu.qml:136
 #, kde-format
 msgid "Open with"
 msgstr "Odpri z"
 
-#: src/view_models/PixMenu.qml:137
+#: src/view_models/PixMenu.qml:147
 #, kde-format
 msgid "Go to Folder"
 msgstr "Pojdi v mapo"
 
-#: src/view_models/PixMenu.qml:154
+#: src/view_models/PixMenu.qml:164
 #, kde-format
 msgid "Open Location"
 msgstr "Odpri lokacijo"
 
-#: src/view_models/PixMenu.qml:166 src/widgets/SelectionBar.qml:106
+#: src/view_models/PixMenu.qml:176 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/widgets/SelectionBar.qml:51
+#: src/widgets/SelectionBar.qml:55
 #, kde-format
 msgid "View"
 msgstr "Pogled"
 
-#: src/widgets/SelectionBar.qml:59
+#: src/widgets/SelectionBar.qml:63
 #, kde-format
 msgid "Tag"
 msgstr "Značka"
 
-#: src/widgets/SelectionBar.qml:83
+#: src/widgets/SelectionBar.qml:87
 #, kde-format
 msgid "Un/Fav"
 msgstr "Ne/Prilj"
@@ -375,7 +383,7 @@ msgstr "Prikaži GPS značke."
 msgid "Experimental feature."
 msgstr "Eksperimentalna zmožnost."
 
-#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:132
+#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:131
 #, kde-format
 msgid "Viewer"
 msgstr "Vpogledovalnik"
@@ -437,23 +445,23 @@ msgstr "Skoraj pripravljen!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Preverite ali ste priklopljeni na mrežo in vaš račun v oblaku delujoč"
 
-#: src/widgets/views/CollectionView.qml:107
+#: src/widgets/views/CollectionView.qml:106
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Preklopi stransko vrstico"
 
-#: src/widgets/views/CollectionView.qml:153
-#: src/widgets/views/Gallery/GalleryView.qml:26
+#: src/widgets/views/CollectionView.qml:152
+#: src/widgets/views/Gallery/GalleryView.qml:24
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
 
-#: src/widgets/views/CollectionView.qml:162
+#: src/widgets/views/CollectionView.qml:161
 #, kde-format
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: src/widgets/views/CollectionView.qml:169
+#: src/widgets/views/CollectionView.qml:168
 #, kde-format
 msgid "About"
 msgstr "O programu"
@@ -506,20 +514,20 @@ msgstr[1] "%1 sliki"
 msgstr[2] "%1 slike"
 msgstr[3] "%1 slik"
 
-#: src/widgets/views/Gallery/GalleryView.qml:21
+#: src/widgets/views/Gallery/GalleryView.qml:19
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:210
 #, kde-format
 msgid "No Pics!"
 msgstr "Ni slik!"
 
-#: src/widgets/views/Gallery/GalleryView.qml:22
+#: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr "Tu ni ničesar. Lahko dodate nove vire ali odprete sliko."
 
-#: src/widgets/views/Gallery/GalleryView.qml:32
+#: src/widgets/views/Gallery/GalleryView.qml:30
 #, kde-format
 msgid "Add sources"
 msgstr "Dodaj vire"
@@ -599,27 +607,27 @@ msgstr "Ni slik v %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Ni nobene slike, ki bi bila povezana to oznako"
 
-#: src/widgets/views/Viewer/PixViewer.qml:72
+#: src/widgets/views/Viewer/PixViewer.qml:70
 #, kde-format
 msgid "Save as"
 msgstr "Shrani kot"
 
-#: src/widgets/views/Viewer/PixViewer.qml:91
+#: src/widgets/views/Viewer/PixViewer.qml:89
 #, kde-format
 msgid "Save"
 msgstr "Shrani"
 
-#: src/widgets/views/Viewer/PixViewer.qml:116
+#: src/widgets/views/Viewer/PixViewer.qml:115
 #, kde-format
 msgid "Gallery"
 msgstr "Galerija"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:131
 #, kde-format
 msgid "Previous"
 msgstr "Prejšnja"
 
-#: src/widgets/views/Viewer/PixViewer.qml:212
+#: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Odprite sliko iz svoje zbirke"
@@ -653,12 +661,6 @@ msgstr "Odprite sliko iz svoje zbirke"
 
 #~ msgid "Add new sources to manage and browse your image collection."
 #~ msgstr "Dodaj nove vire za upravljanje in brskanje po svoji zbirki slik."
-
-#~ msgid "Cancel"
-#~ msgstr "Prekliči"
-
-#~ msgid "Accept"
-#~ msgstr "Sprejmem"
 
 #~ msgid "Collections"
 #~ msgstr "Zbirke"
