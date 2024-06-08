@@ -61,12 +61,14 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: src/main.qml:214 src/view_models/PixMenu.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel"
 msgid "Cancel"
 msgstr "ألغِ"
 
 #: src/main.qml:220 src/view_models/PixMenu.qml:44
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Accept"
 msgid "Accept"
 msgstr "اقبل"
 
