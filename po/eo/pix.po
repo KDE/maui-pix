@@ -1,15 +1,15 @@
 # translation of pix.pot to Esperanto
 # Copyright (C) 2024 Free Software Foundation, Inc.
 # This file is distributed under the same license as the maui-pix package.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-05 02:05+0000\n"
-"PO-Revision-Date: 2024-03-24 10:34+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-06-06 06:17+0200\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -42,8 +42,8 @@ msgstr "Trenu kaj faligi bildojn ĉi tie."
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉu forigi %1 dosieron?"
+msgstr[1] "Ĉu forigi %1 dosierojn?"
 
 #: src/main.qml:208
 #, kde-format
@@ -51,17 +51,19 @@ msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
 msgstr[0] ""
+"Ĉu vi certas ke vi volas forigi ĉi dosieron? Tiun agon ne eblas malfari."
 msgstr[1] ""
+"Ĉu vi certas ke vi volas forigi ĉi dosierojn? Tiun agon ne eblas malfari."
 
 #: src/main.qml:214 src/view_models/PixMenu.qml:38
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Nuligi"
 
 #: src/main.qml:220 src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Akcepti"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
@@ -158,8 +160,8 @@ msgstr "Neniuj fontoj trovitaj por skani."
 #, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Serĉi bildon"
+msgstr[1] "Serĉi %1 bildojn"
 
 #: src/view_models/PixGrid.qml:71
 #, kde-format
@@ -455,8 +457,8 @@ msgstr "Pri"
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Filtri %1 dosierujon"
+msgstr[1] "Filtri %1 dosierujojn"
 
 #: src/widgets/views/Folders/FoldersView.qml:68
 #, kde-format
@@ -492,8 +494,8 @@ msgstr "Ne estas bildoj en ĉi tiu dosierujo"
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Neniuj bildoj."
+msgstr[1] "%1 bildoj"
 
 #: src/widgets/views/Gallery/GalleryView.qml:19
 #: src/widgets/views/Tags/TagsSidebar.qml:67
@@ -522,8 +524,8 @@ msgstr "Neniuj rezultoj trovitaj."
 #, kde-format
 msgid "Filter %1 tag"
 msgid_plural "Filter %1 tags"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Filtri %1 etikedon"
+msgstr[1] "Filtri %1 etikedojn"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:103
 #, kde-format
