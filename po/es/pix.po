@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, %Y.
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, 2024, %Y.
 # Eloy Cuadra <ecuadra@eloihr.net>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-05 02:05+0000\n"
-"PO-Revision-Date: 2023-12-02 11:34+0100\n"
+"PO-Revision-Date: 2024-06-08 17:37+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -60,12 +60,12 @@ msgstr[1] ""
 #: src/main.qml:214 src/view_models/PixMenu.qml:38
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: src/main.qml:220 src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Aceptar"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
@@ -615,18 +615,3 @@ msgstr "Previa"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir una imagen de su colección"
-
-#~ msgid "Dark Mode"
-#~ msgstr "Modo oscuro"
-
-#~ msgid "Switch between light and dark colorscheme."
-#~ msgstr "Cambiar entre esquema de color claro y oscuro."
-
-#~ msgid "Pix"
-#~ msgstr "Pix"
-
-#~ msgid "© 2019-2023 Maui Development Team"
-#~ msgstr "© 2019-2023 Equipo de desarrollo Maui"
-
-#~ msgid "Camilo Higuita"
-#~ msgstr "Camilo Higuita"
