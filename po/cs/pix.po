@@ -57,12 +57,12 @@ msgstr[2] ""
 #: src/main.qml:214 src/view_models/PixMenu.qml:38
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/main.qml:220 src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Přijmout"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
