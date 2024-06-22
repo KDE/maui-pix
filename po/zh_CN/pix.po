@@ -421,7 +421,7 @@ msgstr "即将就绪"
 #: src/widgets/views/Cloud/CloudView.qml:40
 #, kde-format
 msgid "Make sure you're online and your cloud account is working"
-msgstr "请确保您已连接到互联网，并且您的云账号能够正常工作"
+msgstr "请确保您已连接到互联网，并且您的云账户能够正常工作"
 
 #: src/widgets/views/CollectionView.qml:106
 #, kde-format
