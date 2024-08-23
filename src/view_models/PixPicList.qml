@@ -6,7 +6,7 @@
 
 import QtQuick
 import QtQuick.Controls
-import org.mauikit.controlsas Maui
+import org.mauikit.controls as Maui
 
 Maui.ListBrowserDelegate
 {

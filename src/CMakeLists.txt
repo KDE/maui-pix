@@ -15,41 +15,64 @@ set(pix_SRCS
     models/cities/citiesmodel.cpp
     pixserver.cpp )
 
-set(pix_ASSETS
-    imgs.qrc)
-
-    qt_add_resources(pix_QML_QRC qml.qrc)
+    qt_add_resources(pix_ASSETS imgs.qrc)
 
 if(ANDROID)
-    add_library(${PROJECT_NAME} SHARED
+    qt_add_executable(${PROJECT_NAME}
+        MANUAL_FINALIZATION
         ${pix_SRCS}
-        ${pix_ASSETS}
-        ${pix_QML_QRC})
+        ${pix_ASSETS})
 else()
-    add_executable(${PROJECT_NAME}
+    qt_add_executable(${PROJECT_NAME}
         ${pix_SRCS}
-        ${pix_ASSETS}
-        ${pix_QML_QRC})
+        ${pix_ASSETS})
 endif()
+
+qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
+    NO_PLUGIN
+    QML_FILES
+    main.qml
+    view_models/PixGrid.qml
+    view_models/PixPic.qml
+    widgets/views/Folders/FoldersView.qml
+    widgets/views/Gallery/GalleryView.qml
+    widgets/views/Tags/TagsView.qml
+    widgets/views/Viewer/PixViewer.qml
+    widgets/views/Viewer/Viewer.qml
+    widgets/views/Viewer/Viewer.js
+    widgets/views/Viewer/GalleryRoll.qml
+    widgets/views/Tags/TagsSidebar.qml
+    view_models/PixMenu.qml
+    widgets/SelectionBar.qml
+    widgets/views/Cloud/CloudView.qml
+    view_models/PixPicList.qml
+    widgets/SettingsDialog.qml
+    widgets/Sidebar.qml
+    widgets/views/Viewer/OCRPage.qml
+    widgets/views/CollectionView.qml)
 
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
 target_link_libraries(${PROJECT_NAME}
+    PRIVATE
     MauiKit4
     MauiKit4::FileBrowsing
     MauiKit4::ImageTools
+    Qt6::Core
+    Qt6::Sql
     Qt6::Qml
     Qt6::Positioning
+    Qt6::Multimedia
     Qt6::Concurrent
     KF6::I18n)
 
 if(ANDROID)
     find_package(OpenSSL REQUIRED)
-    target_link_libraries(${PROJECT_NAME} Qt6::AndroidExtras Qt5::QuickControls2 OpenSSL::SSL)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::QuickControls2 OpenSSL::SSL)
     kde_source_files_enable_exceptions(pix pix.cpp)
 else()
-    target_link_libraries(${PROJECT_NAME} Qt6::Widgets)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets)
 endif()
 
 if(UNIX AND NOT APPLE AND NOT ANDROID)
@@ -58,3 +81,6 @@ if(UNIX AND NOT APPLE AND NOT ANDROID)
     #TODO: port to ecm_install_icons()
     install(FILES assets/pix.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
 endif()
+
+qt_finalize_target(${PROJECT_NAME})
+

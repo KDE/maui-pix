@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQml
 import QtQuick.Layouts
 
-import org.mauikit.controls  as Maui
+import org.mauikit.controls as Maui
 import org.maui.pix as Pix
 
 Maui.SettingsDialog
@@ -15,7 +15,7 @@ Maui.SettingsDialog
         title: i18n("Behavior")
 //        description: i18n("Configure the app behaviour.")
 
-        Maui.SectionItem
+        Maui.FlexSectionItem
         {
             label1.text: i18n("Auto Reload")
             label2.text: i18n("Watch for changes in the collection sources.")
@@ -34,7 +34,7 @@ Maui.SettingsDialog
         title: i18n("Collection")
 //        description: i18n("Configure the app plugins and look & feel.")
 
-        Maui.SectionItem
+        Maui.FlexSectionItem
         {
             label1.text: i18n("Fit")
             label2.text: i18n("Fit the previews and preserve the aspect ratio.")
@@ -47,7 +47,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SectionItem
+        Maui.FlexSectionItem
         {
             label1.text: i18n("Image Titles")
             label2.text: i18n("Show the file name of the images.")
@@ -60,7 +60,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SectionItem
+        Maui.FlexSectionItem
         {
             label1.text: i18n("Preview Size")
             label2.text: i18n("Size of the thumbnails in the collection views.")
@@ -105,7 +105,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SectionItem
+        Maui.FlexSectionItem
         {
             label1.text: i18n("Sort by")
             label2.text: i18n("Change the sorting key.")
@@ -149,7 +149,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SectionItem
+        Maui.FlexSectionItem
         {
             label1.text: i18n("Sort Order")
             label2.text: i18n("Change the sorting order.")
@@ -180,7 +180,7 @@ Maui.SettingsDialog
         }
 
 
-        Maui.SectionItem
+        Maui.FlexSectionItem
         {
             label1.text: i18n("GPS Tags")
             label2.text: i18n("Show GPS tags.")
@@ -205,7 +205,7 @@ Maui.SettingsDialog
         title: i18n("Viewer")
 //        description: i18n("Adjust the viewer panels and settings.")
 
-        Maui.SectionItem
+        Maui.FlexSectionItem
         {
             label1.text: i18n("Tag Bar")
             label2.text: i18n("Easy way to add, remove and modify the tags of the current image.")
@@ -218,7 +218,7 @@ Maui.SettingsDialog
             }
         }
 
-        Maui.SectionItem
+        Maui.FlexSectionItem
         {
             label1.text: i18n("Preview Bar")
 //            label2.text: i18n("Show small thumbnail previews in the image viewer.")

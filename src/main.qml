@@ -304,9 +304,9 @@ Maui.ApplicationWindow
     function openFileDialog()
     {
         dialogLoader.sourceComponent = fmDialogComponent
-        dialog.mode = dialog.modes.OPEN
-        dialog.settings.filterType = FB.FMList.IMAGE
-        dialog.settings.onlyDirs= false
+        dialog.mode = FB.FileDialog.Modes.Open
+        dialog.browser.settings.filterType = FB.FMList.IMAGE
+        dialog.browser.settings.onlyDirs= false
         dialog.callback = function(paths)
         {
             Pix.Collection.openPics(paths)

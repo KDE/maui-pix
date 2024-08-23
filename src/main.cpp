@@ -168,7 +168,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 //    screenshot->blacklist();
 
     QQmlApplicationEngine engine;
-    QUrl url(QStringLiteral("qrc:/main.qml"));
+    QUrl url(QStringLiteral("qrc:/app/maui/pix/main.qml"));
     QObject::connect(
                 &engine,
                 &QQmlApplicationEngine::objectCreated,
