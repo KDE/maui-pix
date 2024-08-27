@@ -64,16 +64,19 @@ target_link_libraries(${PROJECT_NAME}
     MauiKit4::FileBrowsing
     MauiKit4::ImageTools
     Qt6::Core
-    Qt6::Sql
     Qt6::Qml
     Qt6::Positioning
-    Qt6::Multimedia
     Qt6::Concurrent
     KF6::I18n)
 
 if(ANDROID)
     find_package(OpenSSL REQUIRED)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::QuickControls2 OpenSSL::SSL)
+    target_link_libraries(${PROJECT_NAME}
+        PRIVATE
+        Qt6::Sql
+        Qt6::Multimedia
+        Qt6::QuickControls2
+        OpenSSL::SSL)
     kde_source_files_enable_exceptions(pix pix.cpp)
 else()
     target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets)
