@@ -143,22 +143,23 @@ Maui.ApplicationWindow
         sourceComponent: DropArea
         {
             onDropped: (drop) =>
-            {
-                if(drop.urls)
-                {
-                    VIEWER.openExternalPics(drop.urls, 0)
-                }
-            }
+                       {
+                           if(drop.urls)
+                           {
+                               VIEWER.openExternalPics(drop.urls, 0)
+                           }
+                       }
 
             onEntered: (drag) =>
-            {
-                if(drag.source)
-                {
-                    return
-                }
+                       {
+                           if(drag.source)
+                           {
+                               return
+                           }
 
-                _stackView.push(_pixViewer)
-            }
+                           if(!_pixViewer.visible)
+                            _stackView.push(_pixViewer)
+                       }
         }
     }
     
@@ -310,7 +311,7 @@ Maui.ApplicationWindow
         dialog.callback = function(paths)
         {
             Pix.Collection.openPics(paths)
-//            dialogLoader.sourceComponent = null
+            //            dialogLoader.sourceComponent = null
         };
         dialog.open()
     }
