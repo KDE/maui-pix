@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:05+0000\n"
+"POT-Creation-Date: 2024-08-30 01:54+0000\n"
 "PO-Revision-Date: 2024-02-10 00:19+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -37,25 +37,25 @@ msgstr "사진 열기"
 msgid "Drag and drop images here."
 msgstr "여기로 그림을 드래그하십시오."
 
-#: src/main.qml:206
+#: src/main.qml:207
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "파일 %1개를 삭제하시겠습니까?"
 
-#: src/main.qml:208
+#: src/main.qml:209
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
 msgstr[0] "파일을 삭제하시겠습니까? 실행 취소할 수 없습니다."
 
-#: src/main.qml:214 src/view_models/PixMenu.qml:38
+#: src/main.qml:215 src/view_models/PixMenu.qml:38
 #, kde-format
 msgid "Cancel"
 msgstr "취소"
 
-#: src/main.qml:220 src/view_models/PixMenu.qml:44
+#: src/main.qml:221 src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "Accept"
 msgstr "수락"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:05+0000\n"
+"POT-Creation-Date: 2024-08-30 01:54+0000\n"
 "PO-Revision-Date: 2023-12-28 10:30+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -37,14 +37,14 @@ msgstr "Öppna bilder"
 msgid "Drag and drop images here."
 msgstr "Dra och släpp bilder här."
 
-#: src/main.qml:206
+#: src/main.qml:207
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Ta bort %1 fil?"
 msgstr[1] "Ta bort %1 filer?"
 
-#: src/main.qml:208
+#: src/main.qml:209
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -53,12 +53,12 @@ msgstr[0] "Är du säker på att du vill ta bort filen? Åtgärden kan inte ång
 msgstr[1] ""
 "Är du säker på att du vill ta bort filerna? Åtgärden kan inte ångras."
 
-#: src/main.qml:214 src/view_models/PixMenu.qml:38
+#: src/main.qml:215 src/view_models/PixMenu.qml:38
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/main.qml:220 src/view_models/PixMenu.qml:44
+#: src/main.qml:221 src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "Accept"
 msgstr "Acceptera"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:05+0000\n"
+"POT-Creation-Date: 2024-08-30 01:54+0000\n"
 "PO-Revision-Date: 2023-12-06 06:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -38,14 +38,14 @@ msgstr "გამოსახულების გახსნა"
 msgid "Drag and drop images here."
 msgstr "გადმოათრიეთ და დაყარეთ სურათები აქ."
 
-#: src/main.qml:206
+#: src/main.qml:207
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "წავშალო %1 ფაილი?"
 msgstr[1] "წავშალო %1 ფაილი?"
 
-#: src/main.qml:208
+#: src/main.qml:209
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -56,12 +56,12 @@ msgstr[1] ""
 "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ ეს ფაილები? ქმედება "
 "შეუქცევადია."
 
-#: src/main.qml:214 src/view_models/PixMenu.qml:38
+#: src/main.qml:215 src/view_models/PixMenu.qml:38
 #, kde-format
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/main.qml:220 src/view_models/PixMenu.qml:44
+#: src/main.qml:221 src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
