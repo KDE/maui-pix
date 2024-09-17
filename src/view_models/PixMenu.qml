@@ -17,8 +17,19 @@ Maui.ContextualMenu
     property var item : ({})
     readonly property string totalCount : filterSelection(item.url).length > 1 ? filterSelection(item.url).length : ""
 
+<<<<<<< HEAD
     property alias editMenuItem : _editMenuItem
     onOpened:
+=======
+    onOpened: isFav = FB.Tagging.isFav(item.url)
+
+    title: control.item.title
+//    subtitle: Maui.Handy.formatSize(control.item.size)
+    titleImageSource: control.item.url
+    titleIconSource: control.item.icon
+
+    FB.FileListingDialog
+>>>>>>> 452912c (update to android 11+. fix openwith action on android. typo fixes)
     {
         if(control.model &&  control.index >= 0 )
         {
