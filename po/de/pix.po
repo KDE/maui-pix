@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 01:54+0000\n"
+"POT-Creation-Date: 2024-09-17 01:52+0000\n"
 "PO-Revision-Date: 2023-04-20 19:45+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.07.70\n"
 
-#: src/main.cpp:131
+#: src/main.cpp:129
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Bilde organisieren, durchsehen und bearbeiten."
 
-#: src/main.cpp:135
+#: src/main.cpp:133
 #, kde-format
 msgid "Developer"
 msgstr "Entwickler"
@@ -214,17 +214,17 @@ msgstr "Exportieren"
 msgid "Open with"
 msgstr "Öffnen mit"
 
-#: src/view_models/PixMenu.qml:147
+#: src/view_models/PixMenu.qml:153
 #, kde-format
 msgid "Go to Folder"
 msgstr "In Ordner wechseln"
 
-#: src/view_models/PixMenu.qml:164
+#: src/view_models/PixMenu.qml:170
 #, kde-format
 msgid "Open Location"
 msgstr "Adresse öffnen"
 
-#: src/view_models/PixMenu.qml:176 src/widgets/SelectionBar.qml:110
+#: src/view_models/PixMenu.qml:182 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "Entfernen"
@@ -443,7 +443,7 @@ msgid "Toggle sidebar"
 msgstr "Seitenleiste umschalten"
 
 #: src/widgets/views/CollectionView.qml:152
-#: src/widgets/views/Gallery/GalleryView.qml:24
+#: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Öffnen"
@@ -504,20 +504,20 @@ msgid_plural "%1 images"
 msgstr[0] "Keine Bilder."
 msgstr[1] "%1 Bilder"
 
-#: src/widgets/views/Gallery/GalleryView.qml:19
+#: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
 #: src/widgets/views/Viewer/PixViewer.qml:210
 #, kde-format
 msgid "No Pics!"
 msgstr "Keine Bilder"
 
-#: src/widgets/views/Gallery/GalleryView.qml:20
+#: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr ""
 
-#: src/widgets/views/Gallery/GalleryView.qml:30
+#: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
 msgstr "Quellen hinzufügen"

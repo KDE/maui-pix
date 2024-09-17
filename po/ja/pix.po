@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 01:54+0000\n"
+"POT-Creation-Date: 2024-09-17 01:52+0000\n"
 "PO-Revision-Date: 2020-08-19 19:41-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -14,12 +14,12 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/main.cpp:131
+#: src/main.cpp:129
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr ""
 
-#: src/main.cpp:135
+#: src/main.cpp:133
 #, kde-format
 msgid "Developer"
 msgstr ""
@@ -200,17 +200,17 @@ msgstr ""
 msgid "Open with"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:147
+#: src/view_models/PixMenu.qml:153
 #, kde-format
 msgid "Go to Folder"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:164
+#: src/view_models/PixMenu.qml:170
 #, kde-format
 msgid "Open Location"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:176 src/widgets/SelectionBar.qml:110
+#: src/view_models/PixMenu.qml:182 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr ""
@@ -426,7 +426,7 @@ msgid "Toggle sidebar"
 msgstr ""
 
 #: src/widgets/views/CollectionView.qml:152
-#: src/widgets/views/Gallery/GalleryView.qml:24
+#: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr ""
@@ -483,20 +483,20 @@ msgid "No images."
 msgid_plural "%1 images"
 msgstr[0] ""
 
-#: src/widgets/views/Gallery/GalleryView.qml:19
+#: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
 #: src/widgets/views/Viewer/PixViewer.qml:210
 #, kde-format
 msgid "No Pics!"
 msgstr ""
 
-#: src/widgets/views/Gallery/GalleryView.qml:20
+#: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr ""
 
-#: src/widgets/views/Gallery/GalleryView.qml:30
+#: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
 msgstr ""

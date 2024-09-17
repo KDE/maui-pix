@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 01:54+0000\n"
+"POT-Creation-Date: 2024-09-17 01:52+0000\n"
 "PO-Revision-Date: 2024-06-16 12:33+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.05.0\n"
 
-#: src/main.cpp:131
+#: src/main.cpp:129
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organice, explore e edite as súas imaxes."
 
-#: src/main.cpp:135
+#: src/main.cpp:133
 #, kde-format
 msgid "Developer"
 msgstr "Desenvolvemento."
@@ -209,17 +209,17 @@ msgstr "Exportar"
 msgid "Open with"
 msgstr "Abrir con"
 
-#: src/view_models/PixMenu.qml:147
+#: src/view_models/PixMenu.qml:153
 #, kde-format
 msgid "Go to Folder"
 msgstr "Ir ao cartafol"
 
-#: src/view_models/PixMenu.qml:164
+#: src/view_models/PixMenu.qml:170
 #, kde-format
 msgid "Open Location"
 msgstr "Abrir a localización"
 
-#: src/view_models/PixMenu.qml:176 src/widgets/SelectionBar.qml:110
+#: src/view_models/PixMenu.qml:182 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "Retirar"
@@ -438,7 +438,7 @@ msgid "Toggle sidebar"
 msgstr "Conmutar a barra lateral"
 
 #: src/widgets/views/CollectionView.qml:152
-#: src/widgets/views/Gallery/GalleryView.qml:24
+#: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
@@ -497,20 +497,20 @@ msgid_plural "%1 images"
 msgstr[0] "Non hai imaxes."
 msgstr[1] "Hai %1 imaxes."
 
-#: src/widgets/views/Gallery/GalleryView.qml:19
+#: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
 #: src/widgets/views/Viewer/PixViewer.qml:210
 #, kde-format
 msgid "No Pics!"
 msgstr "Non hai imaxes!"
 
-#: src/widgets/views/Gallery/GalleryView.qml:20
+#: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr "Aquí non hai nada. Pode engadir novas orixes ou abrir unha imaxe."
 
-#: src/widgets/views/Gallery/GalleryView.qml:30
+#: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
 msgstr "Engadir fontes"

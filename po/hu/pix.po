@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 01:54+0000\n"
+"POT-Creation-Date: 2024-09-17 01:52+0000\n"
 "PO-Revision-Date: 2021-01-17 14:58+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.03.70\n"
 
-#: src/main.cpp:131
+#: src/main.cpp:129
 #, fuzzy, kde-format
 #| msgid "Pix lets you organize, browse, and edit your image collection."
 msgid "Organize, browse, and edit your images."
@@ -25,7 +25,7 @@ msgstr ""
 "A Pix segít Önnek képgyűjteménye rendezésében, böngészésében és "
 "szerkesztésében."
 
-#: src/main.cpp:135
+#: src/main.cpp:133
 #, kde-format
 msgid "Developer"
 msgstr "Fejlesztő"
@@ -220,18 +220,18 @@ msgstr "Exportálás"
 msgid "Open with"
 msgstr "Képek megnyitása"
 
-#: src/view_models/PixMenu.qml:147
+#: src/view_models/PixMenu.qml:153
 #, fuzzy, kde-format
 #| msgid "Show in folder"
 msgid "Go to Folder"
 msgstr "Megjelenítés mappában"
 
-#: src/view_models/PixMenu.qml:164
+#: src/view_models/PixMenu.qml:170
 #, kde-format
 msgid "Open Location"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:176 src/widgets/SelectionBar.qml:110
+#: src/view_models/PixMenu.qml:182 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "Eltávolítás"
@@ -452,7 +452,7 @@ msgid "Toggle sidebar"
 msgstr ""
 
 #: src/widgets/views/CollectionView.qml:152
-#: src/widgets/views/Gallery/GalleryView.qml:24
+#: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr ""
@@ -517,20 +517,20 @@ msgid_plural "%1 images"
 msgstr[0] "Képek megnyitása"
 msgstr[1] "Képek megnyitása"
 
-#: src/widgets/views/Gallery/GalleryView.qml:19
+#: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
 #: src/widgets/views/Viewer/PixViewer.qml:210
 #, kde-format
 msgid "No Pics!"
 msgstr "Nincsenek képek"
 
-#: src/widgets/views/Gallery/GalleryView.qml:20
+#: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr ""
 
-#: src/widgets/views/Gallery/GalleryView.qml:30
+#: src/widgets/views/Gallery/GalleryView.qml:31
 #, fuzzy, kde-format
 #| msgid "Add new image sources"
 msgid "Add sources"

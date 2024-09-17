@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 01:54+0000\n"
+"POT-Creation-Date: 2024-09-17 01:52+0000\n"
 "PO-Revision-Date: 2024-02-10 00:19+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.1\n"
 
-#: src/main.cpp:131
+#: src/main.cpp:129
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "사진을 정리하고 탐색하고 편집합니다."
 
-#: src/main.cpp:135
+#: src/main.cpp:133
 #, kde-format
 msgid "Developer"
 msgstr "개발자"
@@ -203,17 +203,17 @@ msgstr "내보내기"
 msgid "Open with"
 msgstr "다음으로 열기"
 
-#: src/view_models/PixMenu.qml:147
+#: src/view_models/PixMenu.qml:153
 #, kde-format
 msgid "Go to Folder"
 msgstr "폴더로 이동"
 
-#: src/view_models/PixMenu.qml:164
+#: src/view_models/PixMenu.qml:170
 #, kde-format
 msgid "Open Location"
 msgstr "위치 열기"
 
-#: src/view_models/PixMenu.qml:176 src/widgets/SelectionBar.qml:110
+#: src/view_models/PixMenu.qml:182 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "삭제"
@@ -429,7 +429,7 @@ msgid "Toggle sidebar"
 msgstr "사이드바 전환"
 
 #: src/widgets/views/CollectionView.qml:152
-#: src/widgets/views/Gallery/GalleryView.qml:24
+#: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "열기"
@@ -486,20 +486,20 @@ msgid "No images."
 msgid_plural "%1 images"
 msgstr[0] "그림 %1개"
 
-#: src/widgets/views/Gallery/GalleryView.qml:19
+#: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
 #: src/widgets/views/Viewer/PixViewer.qml:210
 #, kde-format
 msgid "No Pics!"
 msgstr "그림이 없습니다!"
 
-#: src/widgets/views/Gallery/GalleryView.qml:20
+#: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr "아무것도 없습니다. 원본을 추가하거나 그림을 열 수 있습니다."
 
-#: src/widgets/views/Gallery/GalleryView.qml:30
+#: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
 msgstr "원본 추가"
