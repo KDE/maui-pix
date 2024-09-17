@@ -251,7 +251,7 @@ function openFolder(url, filters)
 
     if(control.depth === 1)
     {
-        if(url.startsWith("collection:///"))
+        if(String(url).startsWith("collection:///"))
         {
             control.push(_allPicsComponent, ({'currentFolder': url}))
         }else
@@ -262,7 +262,7 @@ function openFolder(url, filters)
     {
         if(currentFolder.startsWith("collection:///"))
         {
-            if(url.startsWith("collection:///"))
+            if(String(url).startsWith("collection:///"))
             {
                 control.currentItem.currentFolder = url
             }else
@@ -272,7 +272,7 @@ function openFolder(url, filters)
             }
         }else
         {
-            if(url.startsWith("collection:///"))
+            if(String(url).startsWith("collection:///"))
             {
                 control.pop()
                 control.push(_allPicsComponent, ({'currentFolder': url}))

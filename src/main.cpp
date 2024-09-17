@@ -114,8 +114,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 {
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
-    if (!MAUIAndroid::checkRunTimePermissions({"android.permission.WRITE_EXTERNAL_STORAGE"}))
-        return -1;
 #else
     QApplication app(argc, argv);
 #endif
@@ -166,6 +164,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 //    QScopedPointer<ScreenshotInhibit> screenshot(new ScreenshotInhibit(qApp->desktopFileName()));
 //    screenshot->blacklist();
+#ifdef Q_OS_ANDROID
+    if (!MAUIAndroid::checkRunTimePermissions({"android.permission.MANAGE_EXTERNAL_STORAGE",
+                                               "android.permission.WRITE_EXTERNAL_STORAGE"}))
+        qWarning() << "Failed to get WRITE and READ permissions";
+#endif
 
     QQmlApplicationEngine engine;
     QUrl url(QStringLiteral("qrc:/app/maui/pix/main.qml"));

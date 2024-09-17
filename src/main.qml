@@ -200,7 +200,7 @@ Maui.ApplicationWindow
     {
         id: _removeDialogComponent
         
-        Maui.FileListingDialog
+        FB.FileListingDialog
         {
             id: removeDialog
             urls: selectionBox.uris
