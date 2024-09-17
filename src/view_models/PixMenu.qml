@@ -23,7 +23,7 @@ Maui.ContextualMenu
     titleImageSource: control.item.url
     titleIconSource: control.item.icon
 
-    Maui.FileListingDialog
+    FB.FileListingDialog
     {
         id: removeDialog
         parent: control.parent
@@ -136,7 +136,13 @@ Maui.ContextualMenu
         text: i18n("Open with")
         icon.name: "document-open"
         onTriggered:
-        {
+        {            
+            if(Maui.Handy.isAndroid)
+            {
+                FB.FM.openUrl(item.url)
+                return
+            }
+
             _openWithDialog.urls = filterSelection(item.url)
             _openWithDialog.open()
         }
