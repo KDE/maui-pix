@@ -18,10 +18,19 @@ Maui.ContextualMenu
 
     onOpened: isFav = FB.Tagging.isFav(item.url)
 
-    title: control.item.title
-//    subtitle: Maui.Handy.formatSize(control.item.size)
-    titleImageSource: control.item.url
-    titleIconSource: control.item.icon
+//     title: control.item.title
+// //    subtitle: Maui.Handy.formatSize(control.item.size)
+//     titleImageSource: control.item.url
+//     titleIconSource: control.item.icon
+
+
+    Maui.Controls.component: Maui.IconItem
+    {
+        imageSource: control.item.url
+        fillMode: Image.PreserveAspectCrop
+        implicitHeight: 50
+        maskRadius: Maui.Style.radiusV
+    }
 
     FB.FileListingDialog
     {
@@ -36,16 +45,17 @@ Maui.ContextualMenu
             Action
             {
                 text: i18n("Cancel")
-                onTriggered: close()
+                onTriggered: removeDialog.close()
             },
 
             Action
             {
-                text: i18n("Accept")
+                text: i18n("Remove")
+                Maui.Controls.status: Maui.Controls.Negative
                 onTriggered:
                 {
                     control.model.list.deleteAt(model.mappedToSource(control.index))
-                    close()
+                    removeDialog.close()
                 }
             }
         ]
@@ -111,7 +121,6 @@ Maui.ContextualMenu
     }
 
     MenuSeparator{}
-
 
     MenuItem
     {
@@ -181,7 +190,7 @@ Maui.ContextualMenu
     {
         text: i18n("Remove")
         icon.name: "edit-delete"
-        Maui.Theme.textColor: Maui.Theme.negativeTextColor
+        Maui.Controls.status: Maui.Controls.Negative
         onTriggered:
         {
             removeDialog.open()
