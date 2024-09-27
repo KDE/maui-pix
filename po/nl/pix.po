@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 01:52+0000\n"
+"POT-Creation-Date: 2024-09-27 01:53+0000\n"
 "PO-Revision-Date: 2023-12-01 11:01+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -55,12 +55,12 @@ msgstr[1] ""
 "Wilt u deze bestanden verwijderen? Deze actie kan niet ongedaan worden "
 "gemaakt."
 
-#: src/main.qml:215 src/view_models/PixMenu.qml:38
+#: src/main.qml:215 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/main.qml:221 src/view_models/PixMenu.qml:44
+#: src/main.qml:221
 #, kde-format
 msgid "Accept"
 msgstr "Accepteren"
@@ -97,7 +97,7 @@ msgid "Collection"
 msgstr "Verzameling"
 
 #: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
-#: src/view_models/PixMenu.qml:67
+#: src/view_models/PixMenu.qml:77
 #, kde-format
 msgid "Tags"
 msgstr "Tags"
@@ -168,62 +168,63 @@ msgstr[1] "%1 afbeeldingen zoeken"
 msgid "Image Text (OCR)"
 msgstr "Tekst van afbeelding (OCR)"
 
-#: src/view_models/PixMenu.qml:31
+#: src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete File?"
 msgstr "Bestand verwijderen?"
 
-#: src/view_models/PixMenu.qml:32
+#: src/view_models/PixMenu.qml:41
 #, kde-format
 msgctxt "Remove one file"
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgstr ""
 "Wilt u dit bestand verwijderen? Deze actie kan niet ongedaan worden gemaakt."
 
-#: src/view_models/PixMenu.qml:58
+#: src/view_models/PixMenu.qml:53 src/view_models/PixMenu.qml:191
+#: src/widgets/SelectionBar.qml:110
+#, kde-format
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: src/view_models/PixMenu.qml:68
 #, kde-format
 msgid "UnFav it"
 msgstr "Fav. opheffen"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:89
 #, kde-format
 msgid "Info"
 msgstr "Informatie"
 
-#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:99 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Delen"
 
-#: src/view_models/PixMenu.qml:102
+#: src/view_models/PixMenu.qml:112
 #, kde-format
 msgid "Select"
 msgstr "Selecteren"
 
-#: src/view_models/PixMenu.qml:118 src/widgets/SelectionBar.qml:94
+#: src/view_models/PixMenu.qml:127 src/widgets/SelectionBar.qml:94
 #, kde-format
 msgid "Export"
 msgstr "Exporteren"
 
-#: src/view_models/PixMenu.qml:136
+#: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Open with"
 msgstr "Openen met"
 
-#: src/view_models/PixMenu.qml:153
+#: src/view_models/PixMenu.qml:162
 #, kde-format
 msgid "Go to Folder"
 msgstr "Ga naar map"
 
-#: src/view_models/PixMenu.qml:170
+#: src/view_models/PixMenu.qml:179
 #, kde-format
 msgid "Open Location"
 msgstr "Locatie openen"
-
-#: src/view_models/PixMenu.qml:182 src/widgets/SelectionBar.qml:110
-#, kde-format
-msgid "Remove"
-msgstr "Verwijderen"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
