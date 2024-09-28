@@ -17,6 +17,7 @@ PlacesModel::PlacesModel(QObject *parent) : MauiList(parent)
     m_quickPlaces << QVariantMap{{"icon", "folder-pictures"}, {"path", FMStatic::PicturesPath}, {"label", i18n("Pictures")}};
     m_quickPlaces << QVariantMap{{"icon", "org.gnome.Screenshot-symbolic"}, {"path", Pix::screenshotsPath().toString()}, {"label", i18n("Screenshots")}};
     m_quickPlaces << QVariantMap{{"icon", "camera-web"}, {"path", Pix::cameraPath().toString()}, {"label", i18n("Camera")}};
+    m_quickPlaces << QVariantMap{{"icon", "camera-video"}, {"path", FMStatic::VideosPath}, {"label", i18n("Videos")}};
     m_quickPlaces << QVariantMap{{"icon", "view-list-icons"}, {"path", "collection:///"}, {"label", i18n("Collection")}};
 }
 
@@ -109,6 +110,8 @@ FMH::MODEL_LIST PlacesModel::categories()
     res << FMH::MODEL {{FMH::MODEL_KEY::ICON, "draw-arrow"}, {FMH::MODEL_KEY::PATH, "collection:///vectors"}, {FMH::MODEL_KEY::NAME, i18n("Vectors")}, {FMH::MODEL_KEY::KEY, QStringLiteral(".svg,.eps")}, {FMH::MODEL_KEY::TYPE, i18n("Categories")}};
 
     res << FMH::MODEL {{FMH::MODEL_KEY::ICON, "draw-brush"}, {FMH::MODEL_KEY::PATH, "collection:///paintings"}, {FMH::MODEL_KEY::NAME, i18n("Paintings")}, {FMH::MODEL_KEY::KEY, QStringLiteral(".xcf,.kra")}, {FMH::MODEL_KEY::TYPE, i18n("Categories")}};
+
+    res << FMH::MODEL {{FMH::MODEL_KEY::ICON, "camera-video"}, {FMH::MODEL_KEY::PATH, "collection:///videos"}, {FMH::MODEL_KEY::NAME, i18n("Videos")}, {FMH::MODEL_KEY::KEY, FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::VIDEO].join(",").replace("*", "")}, {FMH::MODEL_KEY::TYPE, i18n("Categories")}};
 
     return res;
 }
