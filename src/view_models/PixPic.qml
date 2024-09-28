@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtMultimedia
 
 import org.mauikit.controls as Maui
 
@@ -23,17 +24,17 @@ Maui.GridBrowserDelegate
     fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
     template.labelSizeHint: 40
     //    template.alignment: Qt.AlignLeft
-    template.iconComponent: (model.format === "gif" || model.format === "avif" ) && control.hovered ? _animatedComponent :  _iconComponent
-
+    template.iconComponent: (model.format === "gif" || model.format === "avif") && control.hovered ? _animatedComponent :  _iconComponent
 
     Rectangle
     {
-        visible: (model.format === "gif" || model.format === "avif" ) && !control.hovered
+        visible: (model.format === "gif" || model.format === "avif" || model.type === "video") && !control.hovered
         anchors.centerIn: parent
         height: 32
         width: 32
         color: Maui.Theme.backgroundColor
         radius: height/2
+
         Maui.Icon
         {
             source: "media-playback-start"
@@ -47,11 +48,12 @@ Maui.GridBrowserDelegate
     Component
     {
         id: _iconComponent
+
         Maui.IconItem
         {
             id: _iconItem
             iconSource: control.iconSource
-            imageSource: control.imageSource
+            imageSource: model.thumbnail
 
             highlighted: control.isCurrentItem
             hovered: control.hovered
@@ -68,7 +70,6 @@ Maui.GridBrowserDelegate
             isMask: true
             image.autoTransform: true
             Component.onCompleted: control.label2.text =  Qt.binding(function () { return _iconItem.image.implicitWidth + " x " + _iconItem.image.implicitHeight})
-
         }
     }
 
@@ -84,6 +85,21 @@ Maui.GridBrowserDelegate
             onStatusChanged: playing = (status == AnimatedImage.Ready)
             horizontalAlignment: Qt.AlignHCenter
             verticalAlignment: Qt.AlignVCenter
+        }
+    }
+
+    Component
+    {
+        id: _videoComponent
+
+        Video
+        {
+            autoPlay: true
+            source: model.url
+            muted: true
+            fillMode: VideoOutput.PreserveAspectFit
+            playbackRate: 5.0
+            loops: 3
         }
     }
 }

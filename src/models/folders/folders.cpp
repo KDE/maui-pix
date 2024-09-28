@@ -68,7 +68,7 @@ QStringList Folders::getPreviews(const QString &path)
 
     dir.setFilter(QDir::Files);
     dir.setSorting(QDir::Time);
-    dir.setNameFilters(FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE]);
+    dir.setNameFilters(QStringList() << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE] << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::VIDEO]);
 
     int i= 0;
 

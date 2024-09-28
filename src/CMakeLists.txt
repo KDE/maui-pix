@@ -13,6 +13,7 @@ set(pix_SRCS
     models/folders/placesmodel.cpp
     models/tags/tagsmodel.cpp
     models/cities/citiesmodel.cpp
+    # models/thumbnailer.cpp
     pixserver.cpp )
 
     qt_add_resources(pix_ASSETS imgs.qrc)
@@ -67,6 +68,8 @@ target_link_libraries(${PROJECT_NAME}
     Qt6::Qml
     Qt6::Positioning
     Qt6::Concurrent
+    KF6::KIOCore
+    KF6::KIOWidgets
     KF6::I18n)
 
 if(ANDROID)
