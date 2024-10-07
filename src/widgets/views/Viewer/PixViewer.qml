@@ -3,18 +3,18 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.13
+import QtQuick
 
-import QtQuick.Controls 2.13
-import QtQuick.Layouts 1.3
-import QtQuick.Window 2.13
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Window
 
-import org.mauikit.controls 1.3 as Maui
-import org.mauikit.filebrowsing 1.3 as FB
-import org.mauikit.imagetools 1.3 as IT
-import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
+import org.mauikit.controls as Maui
+import org.mauikit.filebrowsing as FB
+import org.mauikit.imagetools as IT
+import org.kde.kquickimageeditor as KQuickImageEditor
 
-import org.maui.pix 1.0 as Pix
+import org.maui.pix as Pix
 
 import "../../../view_models"
 
@@ -102,7 +102,8 @@ StackView
         title: currentPic.title
         showTitle: root.isWide
         altHeader: Maui.Handy.isMobile
-
+        floatingHeader: true
+        autoHideHeader: true
         Maui.Controls.showCSD: control.Maui.Controls.showCSD
         headBar.visible: true
 

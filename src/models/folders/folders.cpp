@@ -77,7 +77,7 @@ QStringList Folders::getPreviews(const QString &path)
         if(i >= 4)
             break;
 
-        res << QUrl::fromLocalFile(entry.filePath()).toString();
+        res << "image://thumbnailer/" + QUrl::fromLocalFile(entry.filePath()).toString();
         i++;
     }
 

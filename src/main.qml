@@ -195,34 +195,33 @@ Maui.ApplicationWindow
         id: _settingsDialogComponent
         SettingsDialog {}
     }
-    
+
     Component
     {
         id: _removeDialogComponent
-        
+
         FB.FileListingDialog
         {
             id: removeDialog
-            urls: selectionBox.uris
             title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
-
             message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
-            
+
             actions:
                 [
                 Action
                 {
                     text: i18n("Cancel")
-                    onTriggered: close()
+                    onTriggered: removeDialog.close()
                 },
 
                 Action
                 {
-                    text: i18n("Accept")
+                    text: i18n("Remove")
+                    Maui.Controls.status: Maui.Controls.Negative
                     onTriggered:
                     {
                         FB.FM.removeFiles(removeDialog.urls)
-                        selectionBox.clear()
+                        _collectionViewComponent.item.selectionBox.clear()
                         close()
                     }
                 }

@@ -142,47 +142,47 @@ Maui.Page
         }
 
         onItemsSelected: (indexes) =>
-        {
-            for(var i in indexes)
-                selectItem(pixModel.get(indexes[i]))
-        }
+                         {
+                             for(var i in indexes)
+                             selectItem(pixModel.get(indexes[i]))
+                         }
 
         onKeyPress: (event) =>
-        {
-            const index = control.currentIndex
-            const item = control.model.get(index)
+                    {
+                        const index = control.currentIndex
+                        const item = control.model.get(index)
 
-            var pat = /^([a-zA-Z0-9 _-]+)$/
-            if(event.count === 1 && pat.test(event.text))
-            {
-                typingQuery += event.text
-                _typingTimer.restart()
-                event.accepted = true
-            }
+                        var pat = /^([a-zA-Z0-9 _-]+)$/
+                        if(event.count === 1 && pat.test(event.text))
+                        {
+                            typingQuery += event.text
+                            _typingTimer.restart()
+                            event.accepted = true
+                        }
 
-            if((event.key == Qt.Key_Left || event.key == Qt.Key_Right || event.key == Qt.Key_Down || event.key == Qt.Key_Up) && (event.modifiers & Qt.ControlModifier) && (event.modifiers & Qt.ShiftModifier))
-            {
-                _gridView.itemsSelected([index])
-            }
+                        if((event.key == Qt.Key_Left || event.key == Qt.Key_Right || event.key == Qt.Key_Down || event.key == Qt.Key_Up) && (event.modifiers & Qt.ControlModifier) && (event.modifiers & Qt.ShiftModifier))
+                        {
+                            _gridView.itemsSelected([index])
+                        }
 
-            if(event.key === Qt.Key_Space)
-            {
-                getFileInfo(item.url)
-                event.accepted = true
-            }
+                        if(event.key === Qt.Key_Space)
+                        {
+                            getFileInfo(item.url)
+                            event.accepted = true
+                        }
 
-            if(event.key === Qt.Key_Return)
-            {
-                openPic(index)
-                event.accepted = true
-            }
+                        if(event.key === Qt.Key_Return)
+                        {
+                            openPic(index)
+                            event.accepted = true
+                        }
 
-            if(event.key === Qt.Key_A && (event.modifiers & Qt.ControlModifier))
-            {
-                selectAll()
-                event.accepted = true
-            }
-        }
+                        if(event.key === Qt.Key_A && (event.modifiers & Qt.ControlModifier))
+                        {
+                            selectAll()
+                            event.accepted = true
+                        }
+                    }
 
         delegate: Item
         {
@@ -195,7 +195,6 @@ Maui.Page
 
                 template.imageWidth: _gridView.itemSize
                 template.imageHeight: _gridView.itemSize
-
                 anchors.fill: parent
                 anchors.margins: Maui.Handy.isMobile ? 0 : Maui.Style.space.medium
 
@@ -211,16 +210,16 @@ Maui.Page
                 Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
 
             onClicked: (mouse) =>
-            {
-                control.currentIndex = index
-                if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
-                {
-                    _gridView.itemsSelected([index])
-                }else if(Maui.Handy.singleClick)
-                {
-                    openPic(index)
-                }
-            }
+                       {
+                           control.currentIndex = index
+                           if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
+                           {
+                               _gridView.itemsSelected([index])
+                           }else if(Maui.Handy.singleClick)
+                           {
+                               openPic(index)
+                           }
+                       }
 
             onDoubleClicked:
             {

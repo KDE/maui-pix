@@ -36,8 +36,9 @@ Maui.ContextualMenu
         id: removeDialog
         parent: control.parent
         urls: filterSelection(item.url)
-        title: i18n("Delete File?")
-        message: i18nc("Remove one file", "Are sure you want to delete this file? This action can not be undone.")
+
+        title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
+        message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
 
         actions:
             [
