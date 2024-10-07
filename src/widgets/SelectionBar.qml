@@ -96,12 +96,15 @@ Maui.SelectionBar
             onTriggered:
             {
                 const pics = control.uris
-                dialogLoader.sourceComponent= fmDialogComponent
-                dialog.show(function(paths)
+                dialogLoader.sourceComponent = fmDialogComponent
+                dialog.browser.settings.onlyDirs = true
+                dialog.mode = FB.FileDialog.Open
+                dialog.callback = function(paths)
                 {
                     for(var i in paths)
                         FB.FM.copy(pics, paths[i])
-                });
+                }
+                dialog.open();
             }
         },
 
@@ -109,10 +112,12 @@ Maui.SelectionBar
         {
             text: i18n("Remove")
             icon.name: "edit-delete"
-            Maui.Theme.textColor: Maui.Theme.negativeTextColor
+            Maui.Controls.status: Maui.Controls.Negative
+
             onTriggered:
             {
                 dialogLoader.sourceComponent = _removeDialogComponent
+                dialog.urls = control.uris
                 dialog.open()
             }
         }

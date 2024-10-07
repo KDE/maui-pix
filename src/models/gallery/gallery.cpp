@@ -42,8 +42,8 @@ static FMH::MODEL picInfo(const QUrl &url)
                       {FMH::MODEL_KEY::THUMBNAIL, _isVideo ? "image://thumbnailer/"+url.toString() : url.toString()},
                       {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
                       {FMH::MODEL_KEY::SOURCE, QUrl::fromLocalFile(info.absoluteDir().absolutePath()).toString ()},
-                      {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
-                      {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
+                      {FMH::MODEL_KEY::DATE, info.birthTime(QTimeZone::UTC).toString(Qt::TextDate)},
+                      {FMH::MODEL_KEY::MODIFIED, info.lastModified(QTimeZone::UTC).toString(Qt::TextDate)},
                       {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
 }
 
