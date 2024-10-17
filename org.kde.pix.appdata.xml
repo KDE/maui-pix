@@ -69,7 +69,7 @@
   <summary xml:lang="x-test">xxImage Galleryxx</summary>
   <summary xml:lang="zh-CN">图像库/相册程序</summary>
   <summary xml:lang="zh-TW">相簿</summary>
-  <developer id"=mauikit.org">
+  <developer id="mauikit.org">
     <name>maui</name>
     <url>https://mauikit.org/</url>
   </developer>
