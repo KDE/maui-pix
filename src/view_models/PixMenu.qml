@@ -25,7 +25,7 @@ Maui.ContextualMenu
 
     Maui.Controls.component: Maui.IconItem
     {
-        imageSource: control.item.thumbnail
+        imageSource: control.item.url
         fillMode: Image.PreserveAspectCrop
         implicitHeight: 50
         maskRadius: Maui.Style.radiusV

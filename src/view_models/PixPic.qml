@@ -24,12 +24,12 @@ Maui.GridBrowserDelegate
     fillMode: control.fit ? Image.PreserveAspectFit : Image.PreserveAspectCrop
     template.labelSizeHint: 40
     //    template.alignment: Qt.AlignLeft
-    template.iconComponent: (model.format === "gif" || model.format === "avif" || model.type === "video") && control.hovered ? ( model.type === "video" ? _videoComponent : _animatedComponent) :  _iconComponent
+    template.iconComponent: (model.format === "gif" || model.format === "avif") && control.hovered ? _animatedComponent :  _iconComponent
 
     Loader
     {
         asynchronous: true
-        active: (model.format === "gif" || model.format === "avif" || model.type === "video") && !control.hovered
+        active: (model.format === "gif" || model.format === "avif") && !control.hovered
         anchors.centerIn: parent
         height: 32
         width: 32
@@ -58,7 +58,7 @@ Maui.GridBrowserDelegate
         {
             id: _iconItem
             iconSource: control.iconSource
-            imageSource: model.thumbnail
+            imageSource: model.url
 
             highlighted: control.isCurrentItem
             hovered: control.hovered
@@ -90,21 +90,6 @@ Maui.GridBrowserDelegate
             onStatusChanged: playing = (status == AnimatedImage.Ready)
             horizontalAlignment: Qt.AlignHCenter
             verticalAlignment: Qt.AlignVCenter
-        }
-    }
-
-    Component
-    {
-        id: _videoComponent
-
-        Video
-        {
-            autoPlay: true
-            source: model.url
-            muted: true
-            fillMode: VideoOutput.PreserveAspectFit
-            playbackRate: 5.0
-            loops: 3
         }
     }
 }

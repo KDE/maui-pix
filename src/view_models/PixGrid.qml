@@ -84,6 +84,7 @@ Maui.Page
         itemSize : control.itemSize
         itemHeight: browserSettings.showLabels ? _gridView.itemSize * 1.5 : _gridView.itemSize
         cacheBuffer: control.height * 5
+        flickable.reuseItems: true
 
         Loader
         {

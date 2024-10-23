@@ -27,19 +27,11 @@ static QHash<QString, QString> GpsInImages()
     return value;
 }
 
-static bool isVideo(const QUrl &url)
-{
-    return FMStatic::checkFileType(FMStatic::FILTER_TYPE::VIDEO, FMStatic::getMime(url));
-}
-
 static FMH::MODEL picInfo(const QUrl &url)
 {
     const QFileInfo info(url.toLocalFile());
-    bool const _isVideo = isVideo(url);
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
                       {FMH::MODEL_KEY::TITLE, info.fileName()},
-                      {FMH::MODEL_KEY::TYPE, _isVideo ? "video" : "image"},
-                      {FMH::MODEL_KEY::THUMBNAIL, _isVideo ? "image://thumbnailer/"+url.toString() : url.toString()},
                       {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
                       {FMH::MODEL_KEY::SOURCE, QUrl::fromLocalFile(info.absoluteDir().absolutePath()).toString ()},
                       {FMH::MODEL_KEY::DATE, info.birthTime(QTimeZone::UTC).toString(Qt::TextDate)},
@@ -144,9 +136,6 @@ void Gallery::scanGpsTags()
         auto url = QUrl::fromUserInput(item[FMH::MODEL_KEY::URL]);
 
         if(!url.isValid())
-            return;
-
-        if(isVideo(url))
             return;
 
         QString cityId;

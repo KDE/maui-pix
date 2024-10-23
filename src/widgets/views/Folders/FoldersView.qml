@@ -62,6 +62,7 @@ StackView
             itemSize: Math.min(260, Math.max(140, Math.floor(availableWidth* 0.3)))
             itemHeight: itemSize + Maui.Style.rowHeight
             currentIndex: -1
+            flickable.reuseItems: true
 
             holder.emoji: "qrc:/assets/view-preview.svg"
             holder.title : foldersList.count === 0 ?

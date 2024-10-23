@@ -68,7 +68,7 @@ QStringList Folders::getPreviews(const QString &path)
 
     dir.setFilter(QDir::Files);
     dir.setSorting(QDir::Time);
-    dir.setNameFilters(QStringList() << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE] << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::VIDEO]);
+    dir.setNameFilters(QStringList() << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE]);
 
     int i= 0;
 
@@ -77,7 +77,7 @@ QStringList Folders::getPreviews(const QString &path)
         if(i >= 4)
             break;
 
-        res << "image://thumbnailer/" + QUrl::fromLocalFile(entry.filePath()).toString();
+        res << QUrl::fromLocalFile(entry.filePath()).toString();
         i++;
     }
 

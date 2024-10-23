@@ -46,6 +46,8 @@ Maui.ApplicationWindow
 {
     id: root
     title: _pixViewer.currentPic.title || Maui.App.displayName
+
+    Maui.Style.styleType: _pixViewer.visible ? Maui.Style.Dark : undefined
     
     readonly property alias dialog : dialogLoader.item
 
