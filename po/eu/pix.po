@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 01:53+0000\n"
+"POT-Creation-Date: 2024-10-24 01:47+0000\n"
 "PO-Revision-Date: 2023-12-06 10:38+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -30,24 +30,24 @@ msgstr "Antolatu, arakatu eta editatu zure irudiak."
 msgid "Developer"
 msgstr "Garatzailea"
 
-#: src/main.qml:131
+#: src/main.qml:133
 #, kde-format
 msgid "Open images"
 msgstr "Ireki irudiak"
 
-#: src/main.qml:132
+#: src/main.qml:134
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Arrastatu eta jaregin irudia hona."
 
-#: src/main.qml:207
+#: src/main.qml:208 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Fitxategi %1 ezabatu?"
 msgstr[1] "%1 fitxategi ezabatu?"
 
-#: src/main.qml:209
+#: src/main.qml:209 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -64,10 +64,11 @@ msgstr[1] ""
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/main.qml:221
+#: src/main.qml:221 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
 #, kde-format
-msgid "Accept"
-msgstr "Onartu"
+msgid "Remove"
+msgstr "Kendu"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
@@ -171,25 +172,6 @@ msgstr[1] "Bilatu %1 irudi"
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "Irudiaren testua (OCR)"
-
-#: src/view_models/PixMenu.qml:40
-#, kde-format
-msgid "Delete File?"
-msgstr "Fitxategia ezabatu?"
-
-#: src/view_models/PixMenu.qml:41
-#, kde-format
-msgctxt "Remove one file"
-msgid "Are sure you want to delete this file? This action can not be undone."
-msgstr ""
-"Ziur zaude fitxategi hau ezabatu nahi duzula? Ekintza honek ez dauka atzera "
-"bueltarik."
-
-#: src/view_models/PixMenu.qml:53 src/view_models/PixMenu.qml:191
-#: src/widgets/SelectionBar.qml:110
-#, kde-format
-msgid "Remove"
-msgstr "Kendu"
 
 #: src/view_models/PixMenu.qml:68
 #, kde-format
@@ -464,37 +446,37 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "Iragazi karpeta %1"
 msgstr[1] "Iragazi %1 karpeta"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "Karpetarik ez!"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Hemen ez dago ezer!"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Add new image sources."
 msgstr "Gehitu irudien sorburu berria."
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Try something different."
 msgstr "Saiatu beste zerbait egiten."
 
-#: src/widgets/views/Folders/FoldersView.qml:164
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Karpeta hutsik dago!"
 
-#: src/widgets/views/Folders/FoldersView.qml:165
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "Karpeta honetan ez dago irudirik"
 
-#: src/widgets/views/Folders/FoldersView.qml:180
+#: src/widgets/views/Folders/FoldersView.qml:181
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -503,7 +485,7 @@ msgstr[1] "%1 irudi"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:210
+#: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "No Pics!"
 msgstr "Irudirik ez!"
@@ -602,20 +584,33 @@ msgstr "Gorde honela"
 msgid "Save"
 msgstr "Gorde"
 
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "Gallery"
 msgstr "Galeria"
 
-#: src/widgets/views/Viewer/PixViewer.qml:131
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "Aurrekoa"
 
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Ireki zure bildumako irudi bat"
+
+#~ msgid "Accept"
+#~ msgstr "Onartu"
+
+#~ msgid "Delete File?"
+#~ msgstr "Fitxategia ezabatu?"
+
+#~ msgctxt "Remove one file"
+#~ msgid ""
+#~ "Are sure you want to delete this file? This action can not be undone."
+#~ msgstr ""
+#~ "Ziur zaude fitxategi hau ezabatu nahi duzula? Ekintza honek ez dauka "
+#~ "atzera bueltarik."
 
 #~ msgid "Dark Mode"
 #~ msgstr "Modu iluna"

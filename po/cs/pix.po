@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 01:53+0000\n"
+"POT-Creation-Date: 2024-10-24 01:47+0000\n"
 "PO-Revision-Date: 2024-01-19 15:48+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -27,17 +27,17 @@ msgstr ""
 msgid "Developer"
 msgstr "Vývojář"
 
-#: src/main.qml:131
+#: src/main.qml:133
 #, kde-format
 msgid "Open images"
 msgstr "Otevřít obrázky"
 
-#: src/main.qml:132
+#: src/main.qml:134
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Sem přetáhněte obrázky."
 
-#: src/main.qml:207
+#: src/main.qml:208 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -45,7 +45,7 @@ msgstr[0] "Smazat %1 soubor?"
 msgstr[1] "Smazat %1 soubory?"
 msgstr[2] "Smazat %1 souborů?"
 
-#: src/main.qml:209
+#: src/main.qml:209 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -59,10 +59,11 @@ msgstr[2] ""
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: src/main.qml:221
+#: src/main.qml:221 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
 #, kde-format
-msgid "Accept"
-msgstr "Přijmout"
+msgid "Remove"
+msgstr "Odstranit"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
@@ -167,23 +168,6 @@ msgstr[2] "Hledat %1 obrázků"
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "Text obrázku (OCR)"
-
-#: src/view_models/PixMenu.qml:40
-#, kde-format
-msgid "Delete File?"
-msgstr "Smazat soubor?"
-
-#: src/view_models/PixMenu.qml:41
-#, kde-format
-msgctxt "Remove one file"
-msgid "Are sure you want to delete this file? This action can not be undone."
-msgstr ""
-
-#: src/view_models/PixMenu.qml:53 src/view_models/PixMenu.qml:191
-#: src/widgets/SelectionBar.qml:110
-#, kde-format
-msgid "Remove"
-msgstr "Odstranit"
 
 #: src/view_models/PixMenu.qml:68
 #, kde-format
@@ -459,37 +443,37 @@ msgstr[0] "Filtrovat %1 složku"
 msgstr[1] "Filtrovat %1 složky"
 msgstr[2] "Filtrovat %1 složek"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "Žádné složky."
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Zde nic není!"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Add new image sources."
 msgstr "Přidat nový zdroj obrázků."
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Try something different."
 msgstr "Zkusit něco jiného."
 
-#: src/widgets/views/Folders/FoldersView.qml:164
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:165
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "V této složce nejsou žádné obrázky"
 
-#: src/widgets/views/Folders/FoldersView.qml:180
+#: src/widgets/views/Folders/FoldersView.qml:181
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -499,7 +483,7 @@ msgstr[2] "%1 obrázků"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:210
+#: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "No Pics!"
 msgstr ""
@@ -599,17 +583,23 @@ msgstr "Uložit jako"
 msgid "Save"
 msgstr "Uložit"
 
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "Gallery"
 msgstr "Galerie"
 
-#: src/widgets/views/Viewer/PixViewer.qml:131
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "Předchozí"
 
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
+
+#~ msgid "Accept"
+#~ msgstr "Přijmout"
+
+#~ msgid "Delete File?"
+#~ msgstr "Smazat soubor?"

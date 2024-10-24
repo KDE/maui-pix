@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 01:53+0000\n"
+"POT-Creation-Date: 2024-10-24 01:47+0000\n"
 "PO-Revision-Date: 2024-03-22 16:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -28,24 +28,24 @@ msgstr "Görsellerinize göz atın, organize edin ve önları düzenleyin."
 msgid "Developer"
 msgstr "Geliştirici"
 
-#: src/main.qml:131
+#: src/main.qml:133
 #, kde-format
 msgid "Open images"
 msgstr "Görsel Aç"
 
-#: src/main.qml:132
+#: src/main.qml:134
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Görselleri buraya sürükleyip bırakın."
 
-#: src/main.qml:207
+#: src/main.qml:208 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "%1 dosya silinsin mi?"
 msgstr[1] "%1 dosya silinsin mi?"
 
-#: src/main.qml:209
+#: src/main.qml:209 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -60,10 +60,11 @@ msgstr[1] ""
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/main.qml:221
+#: src/main.qml:221 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
 #, kde-format
-msgid "Accept"
-msgstr "Kabul Et"
+msgid "Remove"
+msgstr "Kaldır"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
@@ -167,23 +168,6 @@ msgstr[1] "%1 görsel ara"
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "Görsel Metni (OCR)"
-
-#: src/view_models/PixMenu.qml:40
-#, kde-format
-msgid "Delete File?"
-msgstr "Dosyayı Sil?"
-
-#: src/view_models/PixMenu.qml:41
-#, kde-format
-msgctxt "Remove one file"
-msgid "Are sure you want to delete this file? This action can not be undone."
-msgstr "Bu dosyayı silmek istediğinizden emin misiniz? Bu eylem geri alınamaz."
-
-#: src/view_models/PixMenu.qml:53 src/view_models/PixMenu.qml:191
-#: src/widgets/SelectionBar.qml:110
-#, kde-format
-msgid "Remove"
-msgstr "Kaldır"
 
 #: src/view_models/PixMenu.qml:68
 #, kde-format
@@ -459,37 +443,37 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "%1 klasörü süz"
 msgstr[1] "%1 klasörü süz"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "Klasör Yok!"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Burada bir şey yok!"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Add new image sources."
 msgstr "Yeni görsel kaynakları ekleyin."
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Try something different."
 msgstr "Başka bir şey deneyin."
 
-#: src/widgets/views/Folders/FoldersView.qml:164
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Klasör boş!"
 
-#: src/widgets/views/Folders/FoldersView.qml:165
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "There're no images in this folder"
 msgstr "Bu klasörde görsel yok"
 
-#: src/widgets/views/Folders/FoldersView.qml:180
+#: src/widgets/views/Folders/FoldersView.qml:181
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -498,7 +482,7 @@ msgstr[1] "%1 görsel"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:210
+#: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "No Pics!"
 msgstr "Resim Yok!"
@@ -598,20 +582,32 @@ msgstr "Farklı Kaydet"
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "Gallery"
 msgstr "Galeri"
 
-#: src/widgets/views/Viewer/PixViewer.qml:131
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "Önceki"
 
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Koleksiyonunuzdan bir görsel açın"
+
+#~ msgid "Accept"
+#~ msgstr "Kabul Et"
+
+#~ msgid "Delete File?"
+#~ msgstr "Dosyayı Sil?"
+
+#~ msgctxt "Remove one file"
+#~ msgid ""
+#~ "Are sure you want to delete this file? This action can not be undone."
+#~ msgstr ""
+#~ "Bu dosyayı silmek istediğinizden emin misiniz? Bu eylem geri alınamaz."
 
 #~ msgid "Dark Mode"
 #~ msgstr "Koyu Kip"

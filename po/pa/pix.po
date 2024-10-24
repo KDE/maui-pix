@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 01:53+0000\n"
+"POT-Creation-Date: 2024-10-24 01:47+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -28,25 +28,25 @@ msgstr "ਪਿਕਸ ਐਪ ਤੁਹਾਨੂੰ ਚਿੱਤਰ ਭੰਡਾ�
 msgid "Developer"
 msgstr "ਡਿਵੈਲਪਰ"
 
-#: src/main.qml:131
+#: src/main.qml:133
 #, kde-format
 msgid "Open images"
 msgstr "ਚਿੱਤਰਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: src/main.qml:132
+#: src/main.qml:134
 #, fuzzy, kde-format
 #| msgid "Drag and drop images here"
 msgid "Drag and drop images here."
 msgstr "ਚਿੱਤਰ ਚੁੱਕ ਕੇ ਇੱਥੇ ਸੁੱਟੋ"
 
-#: src/main.qml:207
+#: src/main.qml:208 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "%1 ਫਾਇਲ ਹਟਾਉਣੀ ਹੈ?"
 msgstr[1] "%1 ਫ਼ਾਇਲਾਂ ਹਟਾਉਣੀਆਂ ਹਨ?"
 
-#: src/main.qml:209
+#: src/main.qml:209 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -59,10 +59,11 @@ msgstr[1] "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ�
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/main.qml:221
+#: src/main.qml:221 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
 #, kde-format
-msgid "Accept"
-msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
+msgid "Remove"
+msgstr "ਹਟਾਓ"
 
 #: src/models/folders/placesmodel.cpp:15
 #, fuzzy, kde-format
@@ -170,24 +171,6 @@ msgstr[1] "ਖੋਜੋ"
 #| msgid "Image Titles"
 msgid "Image Text (OCR)"
 msgstr "ਚਿੱਤਰਾਂ ਦੇ ਟਾਈਟਲ"
-
-#: src/view_models/PixMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Delete file?"
-msgid "Delete File?"
-msgstr "ਫਾਇਲ ਹਟਾਉਣੀ ਹੈ?"
-
-#: src/view_models/PixMenu.qml:41
-#, kde-format
-msgctxt "Remove one file"
-msgid "Are sure you want to delete this file? This action can not be undone."
-msgstr "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।"
-
-#: src/view_models/PixMenu.qml:53 src/view_models/PixMenu.qml:191
-#: src/widgets/SelectionBar.qml:110
-#, kde-format
-msgid "Remove"
-msgstr "ਹਟਾਓ"
 
 #: src/view_models/PixMenu.qml:68
 #, kde-format
@@ -470,40 +453,40 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "%1 ਫਾਇਲ ਹਟਾਉਣੀ ਹੈ?"
 msgstr[1] "%1 ਫ਼ਾਇਲਾਂ ਹਟਾਉਣੀਆਂ ਹਨ?"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "No Folders!"
 msgstr "ਕੋਈ ਫੋਲਡਰ ਨਹੀਂ ਹੈ"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:69
 #, fuzzy, kde-format
 #| msgid "Nothing here"
 msgid "Nothing Here!"
 msgstr "ਇੱਥੇ ਕੁਝ ਨਹੀਂ ਹੈ"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, fuzzy, kde-format
 #| msgid "Add new image sources"
 msgid "Add new image sources."
 msgstr "ਨਵੇਂ ਚਿੱਤਰ ਸਰੋਤ ਜੋੜੋ"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Try something different."
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:164
+#: src/widgets/views/Folders/FoldersView.qml:165
 #, kde-format
 msgid "Folder is empty!"
 msgstr "ਫੋਲਡਰ ਖਾਲੀ ਹੈ!"
 
-#: src/widgets/views/Folders/FoldersView.qml:165
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, fuzzy, kde-format
 #| msgid "There's not images in this folder"
 msgid "There're no images in this folder"
 msgstr "ਇਸ ਫੋਲਡਰ ਵਿੱਚ ਕੋਈ ਚਿੱਤਰ ਨਹੀਂ ਹੈ"
 
-#: src/widgets/views/Folders/FoldersView.qml:180
+#: src/widgets/views/Folders/FoldersView.qml:181
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "No images."
@@ -513,7 +496,7 @@ msgstr[1] "ਚਿੱਤਰਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:210
+#: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "No Pics!"
 msgstr "ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ!"
@@ -617,20 +600,33 @@ msgstr "ਇੰਞ ਸੰਭਾਲੋ"
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "Gallery"
 msgstr "ਗੈਲਰੀ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:131
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "ਪਿੱਛੇ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "ਆਪਣੇ ਭੰਡਾਰ ਤੋਂ ਚਿੱਤਰ ਖੋਲ੍ਹੋ"
+
+#~ msgid "Accept"
+#~ msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
+
+#, fuzzy
+#~| msgid "Delete file?"
+#~ msgid "Delete File?"
+#~ msgstr "ਫਾਇਲ ਹਟਾਉਣੀ ਹੈ?"
+
+#~ msgctxt "Remove one file"
+#~ msgid ""
+#~ "Are sure you want to delete this file? This action can not be undone."
+#~ msgstr "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।"
 
 #~ msgid "Pix"
 #~ msgstr "ਪਿਕਸ"
