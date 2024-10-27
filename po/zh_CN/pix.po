@@ -585,8 +585,3 @@ msgstr "返回"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"
-
-#~ msgctxt "Remove one file"
-#~ msgid ""
-#~ "Are sure you want to delete this file? This action can not be undone."
-#~ msgstr "您确定要删除这个文件吗？此操作无法撤消。"
