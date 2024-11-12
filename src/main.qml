@@ -45,14 +45,14 @@ import "widgets/views/Viewer/Viewer.js" as VIEWER
 Maui.ApplicationWindow
 {
     id: root
-    title: _pixViewer.currentPic.title || Maui.App.displayName
+    title: initData
 
     Maui.Style.styleType: _pixViewer.visible ? Maui.Style.Dark : undefined
-    
+
     readonly property alias dialog : dialogLoader.item
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
-    
+
     readonly property var previewSizes: ({small: 72,
                                              medium: 90,
                                              large: 120,
@@ -71,33 +71,33 @@ Maui.ApplicationWindow
         property int sortOrder: Qt.DescendingOrder
         property bool gpsTags : false
     }
-    
+
     Settings
     {
         id: viewerSettings
         property bool tagBarVisible : true
         property bool previewBarVisible : false
     }
-    
+
     StackView
     {
         id: _stackView
         anchors.fill: parent
-        
+
         Keys.enabled: true
         Keys.onEscapePressed: _stackView.pop()
-        
+
         initialItem: initModule === "viewer" ? _pixViewer : _collectionViewComponent
-        
+
         Loader
         {
             id: _collectionViewComponent
             active:  StackView.status === StackView.Active || item
-            property string pendingFolder : initModule === "folder" ? initData : ""
-            
+            property string pendingFolder : initModule === "folder" ? initData[0] : ""
+
             sourceComponent: CollectionView {}
         }
-        
+
         PixViewer
         {
             id: _pixViewer
@@ -105,7 +105,7 @@ Maui.ApplicationWindow
             Maui.Controls.showCSD: initModule === "viewer"
         }
     }
-    
+
     Loader
     {
         anchors.fill: parent
@@ -136,7 +136,7 @@ Maui.ApplicationWindow
             }
         }
     }
-    
+
     Loader
     {
         id: _dropAreaLoader
@@ -164,13 +164,13 @@ Maui.ApplicationWindow
                        }
         }
     }
-    
+
     Component
     {
         id: _infoDialogComponent
         IT.ImageInfoDialog {}
     }
-    
+
     Component
     {
         id: tagsDialogComponent
@@ -180,7 +180,7 @@ Maui.ApplicationWindow
             composerList.strict: false
         }
     }
-    
+
     Component
     {
         id: fmDialogComponent
@@ -191,7 +191,7 @@ Maui.ApplicationWindow
             mode: FB.FileDialog.Open
         }
     }
-    
+
     Component
     {
         id: _settingsDialogComponent
@@ -230,47 +230,47 @@ Maui.ApplicationWindow
             ]
         }
     }
-    
+
     Loader { id: dialogLoader }
-    
+
     FB.OpenWithDialog
     {
         id: _openWithDialog
     }
-    
+
     Connections
     {
         target: Pix.Collection
-        
+
         function onViewPics(pics)
         {
             VIEWER.openExternalPics(pics, 0)
         }
     }
-    
+
     function setPreviewSize(size)
     {
         console.log(size)
         browserSettings.previewSize = size
     }
-    
+
     function getFileInfo(url)
     {
         dialogLoader.sourceComponent= _infoDialogComponent
         dialog.url = url
         dialog.open()
     }
-    
+
     function toogleTagbar()
     {
         viewerSettings.tagBarVisible = !viewerSettings.tagBarVisible
     }
-    
+
     function tooglePreviewBar()
     {
         viewerSettings.previewBarVisible = !viewerSettings.previewBarVisible
     }
-    
+
     function toogleFullscreen()
     {
         if(root.visibility === Window.FullScreen)
@@ -281,7 +281,7 @@ Maui.ApplicationWindow
             root.showFullScreen()
         }
     }
-    
+
     function toggleViewer()
     {
         if(_pixViewer.visible)
@@ -289,20 +289,20 @@ Maui.ApplicationWindow
             if(_stackView.depth === 1)
             {
                 _stackView.replace(_pixViewer, _collectionViewComponent)
-                
+
             }else
             {
                 _stackView.pop()
             }
-            
+
         }else
         {
             _stackView.push(_pixViewer)
         }
-        
+
         _stackView.currentItem.forceActiveFocus()
     }
-    
+
     function openFileDialog()
     {
         dialogLoader.sourceComponent = fmDialogComponent
@@ -316,20 +316,20 @@ Maui.ApplicationWindow
         };
         dialog.open()
     }
-    
+
     function openSettingsDialog()
     {
         dialogLoader.sourceComponent = _settingsDialogComponent
         dialog.open()
     }
-    
+
     function openFolder(url, filters)
     {
         if(!_collectionViewComponent.visible)
         {
             toggleViewer()
         }
-        
+
         _collectionViewComponent.item.openFolder(url, filters)
     }
 }

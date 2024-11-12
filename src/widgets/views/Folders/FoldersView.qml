@@ -24,6 +24,7 @@ StackView
     {
         if(_collectionViewComponent.pendingFolder.length > 0)
         {
+            console.log("PENDING FOLDER TO BROWSE", _collectionViewComponent.pendingFolder)
             openFolder(_collectionViewComponent.pendingFolder)
         }
     }
@@ -163,7 +164,7 @@ Component
 
         holder.emoji: "qrc:/assets/add-image.svg"
         holder.title : i18n("Folder is empty!")
-        holder.body: i18n("There're no images in this folder")
+        holder.body: i18n("There're no images in this folder. %1", list.urls)
 
         Keys.enabled: true
         Keys.onEscapePressed: control.pop()

@@ -24,7 +24,7 @@ Item
     property real picSaturation : 0
     property real picHue : 0
     property real picLightness : 0
-    property alias model : viewerList.model
+    readonly property alias model : pixModel
 
     readonly property alias count : viewerList.count
     readonly property alias currentIndex : viewerList.currentIndex
@@ -32,6 +32,23 @@ Item
 
     clip: false
     focus: true
+
+    Maui.BaseModel
+    {
+        id: pixModel
+        list: GalleryList
+        {
+            autoReload: browserSettings.autoReload
+            activeGeolocationTags: false
+            recursive: false
+        }
+
+        sort: browserSettings.sortBy
+        sortOrder: browserSettings.sortOrder
+        recursiveFilteringEnabled: true
+        sortCaseSensitivity: Qt.CaseInsensitive
+        filterCaseSensitivity: Qt.CaseInsensitive
+    }
 
     function forceActiveFocus()
     {
@@ -54,7 +71,7 @@ Item
         focus: true
         interactive: Maui.Handy.isTouch
         cacheBuffer: width * 3
-
+model: pixModel
         snapMode: ListView.SnapOneItem
         boundsBehavior: Flickable.StopAtBounds
 
@@ -136,19 +153,11 @@ Item
         preventStealing: false
     }
 
-    Maui.BaseModel
-    {
-        id: _defaultModel
-        list: GalleryList {}
-    }
-
     function appendPics(pics)
     {
-        model = _defaultModel
-
         if(pics.length > 0)
             for(var i in pics)
-                _defaultModel.list.append(pics[i])
+                control.model.list.append(pics[i])
 
     }
 }

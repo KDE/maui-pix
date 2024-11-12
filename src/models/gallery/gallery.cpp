@@ -126,7 +126,7 @@ void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &li
     }
 
     this->setStatus(Status::Loading);
-    m_fileLoader->requestPath(urls, recursive, QStringList() << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE] << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::VIDEO], QDir::Files, limit);
+    m_fileLoader->requestPath(urls, recursive, QStringList() << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, limit);
 }
 
 void Gallery::scanGpsTags()
@@ -265,7 +265,7 @@ void Gallery::rescan()
 }
 
 void Gallery::load()
-{    
+{
     this->scan(m_urls, m_recursive, m_limit);
 }
 
@@ -337,7 +337,7 @@ void Gallery::componentComplete()
     });
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
-        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);       
+        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
     });
 
     connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {

@@ -28,7 +28,7 @@ StackView
     readonly property alias roll : galleryRoll
     readonly property bool editing : control.currentItem.objectName === "imageEditor"
 
-    property alias model : viewer.model
+    readonly property alias model : viewer.model
 
     property bool currentPicFav: false
     property var currentPic : ({})
@@ -316,7 +316,7 @@ StackView
 
     function view(index)
     {
-        if(control.viewer.count > 0 && index >= 0 && index < control.viewer.count)
+        // if(control.viewer.count > 0 && index >= 0 && index < control.viewer.count)
         {
             control.currentPicIndex = index
             control.currentPic = control.model.get(control.currentPicIndex)
