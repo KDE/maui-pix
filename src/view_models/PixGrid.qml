@@ -234,7 +234,10 @@ Maui.Page
             onPressAndHold:
             {
                 control.currentIndex = index
-                _picMenu.show()
+                if(Maui.Handy.hasTransientTouchInput)
+                {
+                    _picMenu.show()
+                }
             }
 
             onRightClicked:

@@ -3,14 +3,14 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQml 2.14
-import QtQuick.Controls 2.14
+import QtQuick
+import QtQml
+import QtQuick.Controls
 
-import org.mauikit.controls 1.3 as Maui
-import org.mauikit.imagetools 1.0 as IT
+import org.mauikit.controls as Maui
+import org.mauikit.imagetools as IT
 
-import org.maui.pix 1.0
+import org.maui.pix
 
 import "../../"
 
@@ -26,9 +26,9 @@ Item
     property real picLightness : 0
     property alias model : viewerList.model
 
-    property alias count : viewerList.count
-    property alias currentIndex : viewerList.currentIndex
-    property alias currentItem: viewerList.currentItem
+    readonly property alias count : viewerList.count
+    readonly property alias currentIndex : viewerList.currentIndex
+    readonly property alias currentItem: viewerList.currentItem
 
     clip: false
     focus: true
@@ -117,7 +117,8 @@ Item
                 {
                     id: _imgV
                     source: model.url
-                    image.autoTransform: true}
+                    image.autoTransform: true
+                }
             }
         }
     }

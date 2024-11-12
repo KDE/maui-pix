@@ -96,8 +96,6 @@ StackView
 
     initialItem: Maui.Page
     {
-        id: _viewer
-
         padding: 0
         title: currentPic.title
         showTitle: root.isWide
@@ -176,21 +174,25 @@ StackView
                 }
             },
 
-            ToolButton
+            Loader
             {
-                visible: Maui.Handy.isLinux
+                active: Maui.Handy.isLinux
+                asynchronous: true
+                sourceComponent: ToolButton
+            {
                 icon.name: "format-text-bold"
                 onClicked:
                 {
-                    var component = Qt.createComponent("qrc:/widgets/views/Viewer/OCRPage.qml")
+                    var component = Qt.createComponent("qrc:/app/maui/pix/widgets/views/Viewer/OCRPage.qml")
                     if (component.status == Component.Ready)
                         var object = component.createObject()
-                    else
-                        component.statusChanged.connect(finishCreation);
+                    // else
+                    //     component.statusChanged.connect(finishCreation);
 
                     control.push(object)
                 }
 
+            }
             },
 
             ToolButton

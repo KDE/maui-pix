@@ -54,7 +54,8 @@ qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     widgets/SettingsDialog.qml
     widgets/Sidebar.qml
     widgets/views/Viewer/OCRPage.qml
-    widgets/views/CollectionView.qml)
+    widgets/views/CollectionView.qml
+    widgets/views/FloatingViewer.qml)
 
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
