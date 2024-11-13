@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 01:47+0000\n"
+"POT-Creation-Date: 2024-11-13 01:49+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.04.3\n"
 
-#: src/main.cpp:129
+#: src/main.cpp:114
 #, fuzzy, kde-format
 #| msgid "Pix lets you organize, browse, and edit your image collection."
 msgid "Organize, browse, and edit your images."
 msgstr "ਪਿਕਸ ਐਪ ਤੁਹਾਨੂੰ ਚਿੱਤਰ ਭੰਡਾਰ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰਨ, ਝਲਕ ਵੇਖਣ ਤੇ ਸੋਧਣ ਦਿੰਦੀ ਹੈ।"
 
-#: src/main.cpp:133
+#: src/main.cpp:118
 #, kde-format
 msgid "Developer"
 msgstr "ਡਿਵੈਲਪਰ"
@@ -363,7 +363,7 @@ msgstr ""
 msgid "Experimental feature."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:131
+#: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Viewer"
 msgstr "ਦਰਸ਼ਕ"
@@ -423,28 +423,28 @@ msgstr "ਲਗਭਗ ਹੋ ਗਿਆ!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਆਨਲਾਈਨ ਹੋ ਅਤੇ ਤੁਹਾਡਾ ਕਲਾਉਂਡ ਖਾਤਾ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ"
 
-#: src/widgets/views/CollectionView.qml:106
+#: src/widgets/views/CollectionView.qml:107
 #, kde-format
 msgid "Toggle sidebar"
 msgstr ""
 
-#: src/widgets/views/CollectionView.qml:152
+#: src/widgets/views/CollectionView.qml:137
 #: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
 
-#: src/widgets/views/CollectionView.qml:161
+#: src/widgets/views/CollectionView.qml:146
 #, kde-format
 msgid "Settings"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/widgets/views/CollectionView.qml:168
+#: src/widgets/views/CollectionView.qml:153
 #, kde-format
 msgid "About"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: src/widgets/views/Folders/FoldersView.qml:44
+#: src/widgets/views/Folders/FoldersView.qml:45
 #, fuzzy, kde-format
 #| msgid "Delete %1 file?"
 #| msgid_plural "Delete %1 files?"
@@ -453,40 +453,40 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "%1 ਫਾਇਲ ਹਟਾਉਣੀ ਹੈ?"
 msgstr[1] "%1 ਫ਼ਾਇਲਾਂ ਹਟਾਉਣੀਆਂ ਹਨ?"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "No Folders!"
 msgstr "ਕੋਈ ਫੋਲਡਰ ਨਹੀਂ ਹੈ"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, fuzzy, kde-format
 #| msgid "Nothing here"
 msgid "Nothing Here!"
 msgstr "ਇੱਥੇ ਕੁਝ ਨਹੀਂ ਹੈ"
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:71
 #, fuzzy, kde-format
 #| msgid "Add new image sources"
 msgid "Add new image sources."
 msgstr "ਨਵੇਂ ਚਿੱਤਰ ਸਰੋਤ ਜੋੜੋ"
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:71
 #, kde-format
 msgid "Try something different."
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:165
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "Folder is empty!"
 msgstr "ਫੋਲਡਰ ਖਾਲੀ ਹੈ!"
 
-#: src/widgets/views/Folders/FoldersView.qml:166
+#: src/widgets/views/Folders/FoldersView.qml:167
 #, fuzzy, kde-format
 #| msgid "There's not images in this folder"
-msgid "There're no images in this folder"
+msgid "There're no images in this folder. %1"
 msgstr "ਇਸ ਫੋਲਡਰ ਵਿੱਚ ਕੋਈ ਚਿੱਤਰ ਨਹੀਂ ਹੈ"
 
-#: src/widgets/views/Folders/FoldersView.qml:181
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "No images."
@@ -496,7 +496,7 @@ msgstr[1] "ਚਿੱਤਰਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:213
 #, kde-format
 msgid "No Pics!"
 msgstr "ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ!"
@@ -600,17 +600,17 @@ msgstr "ਇੰਞ ਸੰਭਾਲੋ"
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:116
+#: src/widgets/views/Viewer/PixViewer.qml:114
 #, kde-format
 msgid "Gallery"
 msgstr "ਗੈਲਰੀ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:130
 #, kde-format
 msgid "Previous"
 msgstr "ਪਿੱਛੇ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:212
+#: src/widgets/views/Viewer/PixViewer.qml:214
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "ਆਪਣੇ ਭੰਡਾਰ ਤੋਂ ਚਿੱਤਰ ਖੋਲ੍ਹੋ"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 01:47+0000\n"
+"POT-Creation-Date: 2024-11-13 01:49+0000\n"
 "PO-Revision-Date: 2024-07-21 13:17+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: src/main.cpp:129
+#: src/main.cpp:114
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Porządkuj, przeglądaj i zmieniaj swoje obrazy."
 
-#: src/main.cpp:133
+#: src/main.cpp:118
 #, kde-format
 msgid "Developer"
 msgstr "Programista"
@@ -358,7 +358,7 @@ msgstr "Pokaż znaczniki GPS."
 msgid "Experimental feature."
 msgstr "Funkcja eksperymentalna."
 
-#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:131
+#: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Viewer"
 msgstr "Przeglądarka"
@@ -420,28 +420,28 @@ msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 "Upewnij się, że jesteś podłączony do sieci i twoje konto w chmurze działa"
 
-#: src/widgets/views/CollectionView.qml:106
+#: src/widgets/views/CollectionView.qml:107
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Przełącz pasek boczny"
 
-#: src/widgets/views/CollectionView.qml:152
+#: src/widgets/views/CollectionView.qml:137
 #: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Otwórz"
 
-#: src/widgets/views/CollectionView.qml:161
+#: src/widgets/views/CollectionView.qml:146
 #, kde-format
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: src/widgets/views/CollectionView.qml:168
+#: src/widgets/views/CollectionView.qml:153
 #, kde-format
 msgid "About"
 msgstr "O programie"
 
-#: src/widgets/views/Folders/FoldersView.qml:44
+#: src/widgets/views/Folders/FoldersView.qml:45
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
@@ -449,37 +449,38 @@ msgstr[0] "Odfiltruj %1 katalog"
 msgstr[1] "Odfiltruj %1 katalogi"
 msgstr[2] "Odfiltruj %1 katalogów"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "No Folders!"
 msgstr "Brak katalogów!"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Nie ma tutaj niczego!"
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:71
 #, kde-format
 msgid "Add new image sources."
 msgstr "Dodaj nowe źródła obrazów."
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:71
 #, kde-format
 msgid "Try something different."
 msgstr "Spróbuj czegoś innego."
 
-#: src/widgets/views/Folders/FoldersView.qml:165
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Katalog jest pusty!"
 
-#: src/widgets/views/Folders/FoldersView.qml:166
-#, kde-format
-msgid "There're no images in this folder"
+#: src/widgets/views/Folders/FoldersView.qml:167
+#, fuzzy, kde-format
+#| msgid "There're no images in this folder"
+msgid "There're no images in this folder. %1"
 msgstr "Nie ma żadnych obrazów w tym katalogu"
 
-#: src/widgets/views/Folders/FoldersView.qml:181
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -489,7 +490,7 @@ msgstr[2] "%1 obrazów"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:213
 #, kde-format
 msgid "No Pics!"
 msgstr "Brak zdjęć!"
@@ -589,17 +590,17 @@ msgstr "Zapisz jako"
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/widgets/views/Viewer/PixViewer.qml:116
+#: src/widgets/views/Viewer/PixViewer.qml:114
 #, kde-format
 msgid "Gallery"
 msgstr "Galeria"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:130
 #, kde-format
 msgid "Previous"
 msgstr "Poprzedni"
 
-#: src/widgets/views/Viewer/PixViewer.qml:212
+#: src/widgets/views/Viewer/PixViewer.qml:214
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Otwórz obraz ze swojego zbioru"
