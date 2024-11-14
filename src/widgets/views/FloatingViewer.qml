@@ -7,7 +7,7 @@ import org.mauikit.controls as Maui
         Loader
         {
             id: control
-            active:  _pixViewer.viewer.count > 0 || item
+            active: _pixViewer.viewer.count > 0 || item
 
             asynchronous: true
             z:  Overlay.overlay.z
@@ -34,10 +34,19 @@ import org.mauikit.controls as Maui
             sourceComponent: AbstractButton
             {
                 id: _floatingViewer
-                Maui.Controls.badgeText:  _pixViewer.viewer.count
-                implicitHeight: 160 + (hovered ? 40 : 0)
+                Maui.Controls.badgeText: _pixViewer.viewer.count
+                implicitHeight: 160
                 implicitWidth: implicitHeight
                 hoverEnabled: true
+
+                scale: hovered ? 1.2 : 1
+
+                Behavior on scale
+                {
+                    NumberAnimation { duration: 200; easing.type: Easing.OutCubic }
+                }
+
+
                 Behavior on implicitHeight
                 {
                     NumberAnimation
@@ -46,6 +55,7 @@ import org.mauikit.controls as Maui
                         easing.type: Easing.InQuad
                     }
                 }
+
                 onClicked:
                 {
                     if( _pixViewer.viewer.count > 0)

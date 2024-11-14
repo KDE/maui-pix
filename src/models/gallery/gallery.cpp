@@ -71,8 +71,8 @@ void Gallery::setUrls(const QList<QUrl> &urls)
 {
     qDebug() << "setting urls" << this->m_urls << urls;
 
-           //	if(this->m_urls == urls)
-           //		return;
+           	if(this->m_urls == urls)
+           		return;
 
     this->m_urls = urls;
     Q_EMIT this->urlsChanged();
