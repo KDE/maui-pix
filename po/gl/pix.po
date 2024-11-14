@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 01:49+0000\n"
-"PO-Revision-Date: 2024-06-16 12:33+0200\n"
+"PO-Revision-Date: 2024-11-13 21:23+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -470,10 +470,9 @@ msgid "Folder is empty!"
 msgstr "O cartafol está baleiro!"
 
 #: src/widgets/views/Folders/FoldersView.qml:167
-#, fuzzy, kde-format
-#| msgid "There're no images in this folder"
+#, kde-format
 msgid "There're no images in this folder. %1"
-msgstr "Non hai imaxes no cartafol."
+msgstr "Non hai imaxes no cartafol. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
