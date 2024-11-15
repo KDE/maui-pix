@@ -462,7 +462,6 @@ msgstr "文件夹为空"
 
 #: src/widgets/views/Folders/FoldersView.qml:167
 #, fuzzy, kde-format
-#| msgid "There're no images in this folder"
 msgid "There're no images in this folder. %1"
 msgstr "此文件夹不包含图像"
 
