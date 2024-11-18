@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, 2024, %Y.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2024 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2023 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 01:49+0000\n"
-"PO-Revision-Date: 2024-06-08 17:37+0200\n"
+"PO-Revision-Date: 2024-11-16 20:09+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -472,10 +472,9 @@ msgid "Folder is empty!"
 msgstr "¡La carpeta está vacía!"
 
 #: src/widgets/views/Folders/FoldersView.qml:167
-#, fuzzy, kde-format
-#| msgid "There're no images in this folder"
+#, kde-format
 msgid "There're no images in this folder. %1"
-msgstr "No hay imágenes en esta carpeta"
+msgstr "No hay imágenes en esta carpeta. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
@@ -599,16 +598,3 @@ msgstr "Previa"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir una imagen de su colección"
-
-#~ msgid "Accept"
-#~ msgstr "Aceptar"
-
-#~ msgid "Delete File?"
-#~ msgstr "¿Borrar archivo?"
-
-#~ msgctxt "Remove one file"
-#~ msgid ""
-#~ "Are sure you want to delete this file? This action can not be undone."
-#~ msgstr ""
-#~ "¿Está seguro de que quiere borrar este archivo? Esta acción no se puede "
-#~ "deshacer."
