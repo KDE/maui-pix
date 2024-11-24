@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 01:49+0000\n"
-"PO-Revision-Date: 2023-12-28 10:30+0100\n"
+"PO-Revision-Date: 2024-11-23 17:21+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -468,10 +468,9 @@ msgid "Folder is empty!"
 msgstr "Katalogen är tom."
 
 #: src/widgets/views/Folders/FoldersView.qml:167
-#, fuzzy, kde-format
-#| msgid "There're no images in this folder"
+#, kde-format
 msgid "There're no images in this folder. %1"
-msgstr "Det finns inga bilder i katalogen"
+msgstr "Det finns inga bilder i katalogen. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
