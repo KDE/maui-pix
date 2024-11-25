@@ -68,9 +68,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt6::Core
     Qt6::Qml
     Qt6::Positioning
-    Qt6::Concurrent
-    KF6::KIOCore
-    KF6::KIOWidgets
+    Qt6::Concurrent   
     KF6::I18n)
 
 if(ANDROID)
@@ -83,7 +81,11 @@ if(ANDROID)
         OpenSSL::SSL)
     kde_source_files_enable_exceptions(pix pix.cpp)
 else()
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets)
+    target_link_libraries(${PROJECT_NAME}
+        PRIVATE
+        Qt6::Widgets
+        KF6::KIOCore
+        KF6::KIOWidgets)
 endif()
 
 if(UNIX AND NOT APPLE AND NOT ANDROID)

@@ -71,7 +71,6 @@ Maui.SideBarView
         anchors.fill: parent
     }
 
-
     Maui.PageLayout
     {
         id: swipeView
@@ -175,29 +174,29 @@ Maui.SideBarView
             display: ToolButton.IconOnly
         }
 
-        DragHandler
-        {
-            target: _floatingViewer
-            xAxis.maximum: swipeView.width -  _floatingViewer.width
-            xAxis.minimum: 0
-
-            yAxis.maximum : swipeView.height - _floatingViewer.height
-            yAxis.minimum: 0
-
-            onActiveChanged:
-            {
-                if(!active)
-                {
-                    let newX = Math.abs(_floatingViewer.x - (parent.width - _floatingViewer.implicitWidth - 20))
-                    _floatingViewer.y = Qt.binding(()=> { return parent.height - _floatingViewer.implicitHeight - 20})
-                    _floatingViewer.x = Qt.binding(()=> { return (parent.width - _floatingViewer.implicitWidth - 20 - newX) < 0 ? 20 : parent.width - _floatingViewer.implicitWidth - 20 - newX})
-                }
-            }
-        }
-
         FloatingViewer
         {
             id: _floatingViewer
+
+            DragHandler
+            {
+                target: _floatingViewer
+                xAxis.maximum: swipeView.width - _floatingViewer.width
+                xAxis.minimum: 0
+
+                yAxis.maximum : swipeView.height - _floatingViewer.height
+                yAxis.minimum: 0
+
+                onActiveChanged:
+                {
+                    if(!active)
+                    {
+                        let newX = Math.abs(_floatingViewer.x - (swipeView.width - _floatingViewer.implicitWidth - 20))
+                        _floatingViewer.y = Qt.binding(()=> { return swipeView.height - _floatingViewer.implicitHeight - 20})
+                        _floatingViewer.x = Qt.binding(()=> { return (swipeView.width - _floatingViewer.implicitWidth - 20 - newX) < 0 ? 20 : swipeView.width - _floatingViewer.implicitWidth - 20 - newX})
+                    }
+                }
+            }
         }
     }
 
