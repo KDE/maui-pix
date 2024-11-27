@@ -24,7 +24,6 @@ StackView
 
     readonly property alias viewer : viewer
     readonly property alias holder : holder
-    readonly property alias tagBar : tagBar
     readonly property alias roll : galleryRoll
     readonly property bool editing : control.currentItem.objectName === "imageEditor"
 
@@ -116,26 +115,30 @@ StackView
                 onClicked: toggleViewer()
             },
 
-            Maui.ToolActions
+            Loader
             {
-                visible: !holder.visible && (!Maui.Handy.isMobile && !Maui.Handy.isTouch && Maui.Platform.hasKeyboard) && control.model.count > 1 //only show footbar control for desktop mode
-
-                expanded: true
-                autoExclusive: false
-                checkable: false
-                display: ToolButton.IconOnly
-
-                Action
+                active: !holder.visible && (!Maui.Handy.isMobile) && control.viewer.count > 1 //only show footbar control for desktop mode
+                asynchronous: true
+                sourceComponent:  Maui.ToolActions
                 {
-                    text: i18n("Previous")
-                    icon.name: "go-previous"
-                    onTriggered: previous()
-                }
 
-                Action
-                {
-                    icon.name: "go-next"
-                    onTriggered: next()
+                    expanded: true
+                    autoExclusive: false
+                    checkable: false
+                    display: ToolButton.IconOnly
+
+                    Action
+                    {
+                        text: i18n("Previous")
+                        icon.name: "go-previous"
+                        onTriggered: previous()
+                    }
+
+                    Action
+                    {
+                        icon.name: "go-next"
+                        onTriggered: next()
+                    }
                 }
             }
         ]
@@ -147,12 +150,8 @@ StackView
                 checked: control.currentPicFav
                 onClicked:
                 {
-                    if(control.currentPicFav)
-                        tagBar.list.removeFromUrls("fav")
-                    else
-                        tagBar.list.insertToUrls("fav")
-
-                    control.currentPicFav = !control.currentPicFav
+                    FB.Tagging.toggleFav(currentPic.url)
+                    control.currentPicFav = FB.Tagging.isFav(currentPic.url)
                 }
             },
 
@@ -179,20 +178,20 @@ StackView
                 active: Maui.Handy.isLinux
                 asynchronous: true
                 sourceComponent: ToolButton
-            {
-                icon.name: "format-text-bold"
-                onClicked:
                 {
-                    var component = Qt.createComponent("qrc:/app/maui/pix/widgets/views/Viewer/OCRPage.qml")
-                    if (component.status == Component.Ready)
-                        var object = component.createObject()
-                    // else
-                    //     component.statusChanged.connect(finishCreation);
+                    icon.name: "format-text-bold"
+                    onClicked:
+                    {
+                        var component = Qt.createComponent("qrc:/app/maui/pix/widgets/views/Viewer/OCRPage.qml")
+                        if (component.status == Component.Ready)
+                            var object = component.createObject()
+                        // else
+                        //     component.statusChanged.connect(finishCreation);
 
-                    control.push(object)
+                        control.push(object)
+                    }
+
                 }
-
-            }
             },
 
             ToolButton
@@ -257,34 +256,20 @@ StackView
                 }
             }
 
-            FB.TagsBar
+            Loader
             {
-                id: tagBar
-                visible: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
+                asynchronous: true
+                active: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
                 Layout.fillWidth: true
-                allowEditMode: true
-                list.urls: [currentPic.url]
-                list.strict: false
 
-                // onAddClicked:
-                // {
-                //     dialogLoader.sourceComponent = tagsDialogComponent
-                //     dialog.composerList.urls = [currentPic.url]
-                //     dialog.open()
-                // }
-
-                onTagRemovedClicked: (index) => list.removeFromUrls(index)
-                onTagsEdited: (tags) => list.updateToUrls(tags)
-
-                Connections
+                sourceComponent: FB.TagsBar
                 {
-                    target: dialog
-                    ignoreUnknownSignals: true
-                    enabled: dialogLoader.sourceComponent === tagsDialogComponent
-                    function onTagsReady()
-                    {
-                        tagBar.list.refresh()
-                    }
+                    allowEditMode: true
+                    list.urls: [currentPic.url]
+                    list.strict: false
+
+                    onTagRemovedClicked: (index) => list.removeFromUrls(index)
+                    onTagsEdited: (tags) => list.updateToUrls(tags)
                 }
             }
         }
