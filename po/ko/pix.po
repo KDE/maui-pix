@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 01:49+0000\n"
+"POT-Creation-Date: 2024-11-27 01:51+0000\n"
 "PO-Revision-Date: 2024-02-10 00:19+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -408,23 +408,23 @@ msgstr "거의 준비되었습니다!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "온라인 상태와 클라우드 계정을 확인하십시오"
 
-#: src/widgets/views/CollectionView.qml:107
+#: src/widgets/views/CollectionView.qml:106
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "사이드바 전환"
 
-#: src/widgets/views/CollectionView.qml:137
+#: src/widgets/views/CollectionView.qml:136
 #: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: src/widgets/views/CollectionView.qml:146
+#: src/widgets/views/CollectionView.qml:145
 #, kde-format
 msgid "Settings"
 msgstr "설정"
 
-#: src/widgets/views/CollectionView.qml:153
+#: src/widgets/views/CollectionView.qml:152
 #, kde-format
 msgid "About"
 msgstr "정보"
@@ -474,7 +474,7 @@ msgstr[0] "그림 %1개"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:213
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "No Pics!"
 msgstr "그림이 없습니다!"
@@ -562,27 +562,27 @@ msgstr "%1에 그림이 없습니다!"
 msgid "There're no pics associated with the tag"
 msgstr "태그와 연결된 그림 없음"
 
-#: src/widgets/views/Viewer/PixViewer.qml:70
+#: src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
 msgid "Save as"
 msgstr "다른 이름으로 저장"
 
-#: src/widgets/views/Viewer/PixViewer.qml:89
+#: src/widgets/views/Viewer/PixViewer.qml:88
 #, kde-format
 msgid "Save"
 msgstr "저장"
 
-#: src/widgets/views/Viewer/PixViewer.qml:114
+#: src/widgets/views/Viewer/PixViewer.qml:113
 #, kde-format
 msgid "Gallery"
 msgstr "갤러리"
 
-#: src/widgets/views/Viewer/PixViewer.qml:130
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "이전"
 
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:213
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "모음집에서 그림 열기"

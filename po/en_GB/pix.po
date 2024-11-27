@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 01:49+0000\n"
+"POT-Creation-Date: 2024-11-27 01:51+0000\n"
 "PO-Revision-Date: 2024-11-16 15:28+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -413,23 +413,23 @@ msgstr "Almost ready!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Make sure you're online and your cloud account is working"
 
-#: src/widgets/views/CollectionView.qml:107
+#: src/widgets/views/CollectionView.qml:106
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Toggle sidebar"
 
-#: src/widgets/views/CollectionView.qml:137
+#: src/widgets/views/CollectionView.qml:136
 #: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Open"
 
-#: src/widgets/views/CollectionView.qml:146
+#: src/widgets/views/CollectionView.qml:145
 #, kde-format
 msgid "Settings"
 msgstr "Settings"
 
-#: src/widgets/views/CollectionView.qml:153
+#: src/widgets/views/CollectionView.qml:152
 #, kde-format
 msgid "About"
 msgstr "About"
@@ -480,7 +480,7 @@ msgstr[1] "%1 images"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:213
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "No Pics!"
 msgstr "No Pics!"
@@ -569,27 +569,27 @@ msgstr "No Pics in %1!"
 msgid "There're no pics associated with the tag"
 msgstr "There are no pictures associated with the tag"
 
-#: src/widgets/views/Viewer/PixViewer.qml:70
+#: src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
 msgid "Save as"
 msgstr "Save as"
 
-#: src/widgets/views/Viewer/PixViewer.qml:89
+#: src/widgets/views/Viewer/PixViewer.qml:88
 #, kde-format
 msgid "Save"
 msgstr "Save"
 
-#: src/widgets/views/Viewer/PixViewer.qml:114
+#: src/widgets/views/Viewer/PixViewer.qml:113
 #, kde-format
 msgid "Gallery"
 msgstr "Gallery"
 
-#: src/widgets/views/Viewer/PixViewer.qml:130
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "Previous"
 
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:213
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Open an image from your collection"

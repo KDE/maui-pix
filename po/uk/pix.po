@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-13 01:49+0000\n"
+"POT-Creation-Date: 2024-11-27 01:51+0000\n"
 "PO-Revision-Date: 2024-11-13 12:24+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -427,23 +427,23 @@ msgstr ""
 "Переконайтеся у працездатності з'єднання з мережею та вашого «хмарного» "
 "облікового запису"
 
-#: src/widgets/views/CollectionView.qml:107
+#: src/widgets/views/CollectionView.qml:106
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Увімкнути/Вимкнути бічну панель"
 
-#: src/widgets/views/CollectionView.qml:137
+#: src/widgets/views/CollectionView.qml:136
 #: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/widgets/views/CollectionView.qml:146
+#: src/widgets/views/CollectionView.qml:145
 #, kde-format
 msgid "Settings"
 msgstr "Параметри"
 
-#: src/widgets/views/CollectionView.qml:153
+#: src/widgets/views/CollectionView.qml:152
 #, kde-format
 msgid "About"
 msgstr "Про програму"
@@ -498,7 +498,7 @@ msgstr[3] "%1 зображення."
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:213
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "No Pics!"
 msgstr "Немає зображень!"
@@ -590,27 +590,27 @@ msgstr "У %1 немає зображень!"
 msgid "There're no pics associated with the tag"
 msgstr "З цією міткою не пов'язано жодного зображення"
 
-#: src/widgets/views/Viewer/PixViewer.qml:70
+#: src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
 msgid "Save as"
 msgstr "Зберегти як"
 
-#: src/widgets/views/Viewer/PixViewer.qml:89
+#: src/widgets/views/Viewer/PixViewer.qml:88
 #, kde-format
 msgid "Save"
 msgstr "Зберегти"
 
-#: src/widgets/views/Viewer/PixViewer.qml:114
+#: src/widgets/views/Viewer/PixViewer.qml:113
 #, kde-format
 msgid "Gallery"
 msgstr "Галерея"
 
-#: src/widgets/views/Viewer/PixViewer.qml:130
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "Назад"
 
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:213
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Відкрити зображення з вашої збірки"
