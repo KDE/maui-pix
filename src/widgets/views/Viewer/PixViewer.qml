@@ -144,15 +144,9 @@ StackView
         ]
 
         headBar.rightContent: [
-            ToolButton
+            FB.FavButton
             {
-                icon.name: "love"
-                checked: control.currentPicFav
-                onClicked:
-                {
-                    FB.Tagging.toggleFav(currentPic.url)
-                    control.currentPicFav = FB.Tagging.isFav(currentPic.url)
-                }
+                url: currentPic.url
             },
 
             ToolButton
