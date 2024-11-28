@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-27 01:51+0000\n"
+"POT-Creation-Date: 2024-11-28 01:48+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -496,7 +496,7 @@ msgstr[1] "ਚਿੱਤਰਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:212
+#: src/widgets/views/Viewer/PixViewer.qml:206
 #, kde-format
 msgid "No Pics!"
 msgstr "ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ!"
@@ -610,7 +610,7 @@ msgstr "ਗੈਲਰੀ"
 msgid "Previous"
 msgstr "ਪਿੱਛੇ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:213
+#: src/widgets/views/Viewer/PixViewer.qml:207
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "ਆਪਣੇ ਭੰਡਾਰ ਤੋਂ ਚਿੱਤਰ ਖੋਲ੍ਹੋ"
