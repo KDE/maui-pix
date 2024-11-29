@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-28 01:48+0000\n"
-"PO-Revision-Date: 2024-02-10 00:19+0100\n"
+"PO-Revision-Date: 2024-11-29 00:30+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -461,10 +461,9 @@ msgid "Folder is empty!"
 msgstr "폴더가 비어 있습니다!"
 
 #: src/widgets/views/Folders/FoldersView.qml:167
-#, fuzzy, kde-format
-#| msgid "There're no images in this folder"
+#, kde-format
 msgid "There're no images in this folder. %1"
-msgstr "이 폴더에 그림이 없음"
+msgstr "이 폴더에 그림이 없습니다. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
