@@ -201,7 +201,7 @@ Maui.Page
 
                 fit: browserSettings.fitPreviews
                 labelsVisible: browserSettings.showLabels
-                checkable: root.selectionMode
+                checkable: root.selectionMode || checked
                 radius: Maui.Handy.isMobile ? 0 : Maui.Style.radiusV
 
                 isCurrentItem: parent.GridView.isCurrentItem || checked
@@ -246,8 +246,9 @@ Maui.Page
                 _picMenu.show()
             }
 
-            onToggled:
+            onToggled: (state) =>
             {
+                           console.log("ITEM TOGGLED!!", state)
                 control.currentIndex = index
                 selectItem(pixModel.get(index))
             }
