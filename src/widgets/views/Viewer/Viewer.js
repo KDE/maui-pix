@@ -8,7 +8,7 @@
 
 function open(model, index)
 {
-    _pixViewer.model = model
+    _pixViewer.model.list.urls = model.list.urls
     _pixViewer.view(index)
     if(!_pixViewer.visible)
     {

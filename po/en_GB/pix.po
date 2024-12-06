@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:05+0000\n"
-"PO-Revision-Date: 2024-05-24 19:13+0100\n"
+"POT-Creation-Date: 2024-11-28 01:48+0000\n"
+"PO-Revision-Date: 2024-11-16 15:28+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,36 +15,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
-#: src/main.cpp:131
+#: src/main.cpp:114
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organise, browse, and edit your images."
 
-#: src/main.cpp:135
+#: src/main.cpp:118
 #, kde-format
 msgid "Developer"
 msgstr "Developer"
 
-#: src/main.qml:131
+#: src/main.qml:133
 #, kde-format
 msgid "Open images"
 msgstr "Open images"
 
-#: src/main.qml:132
+#: src/main.qml:134
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Drag and drop images here."
 
-#: src/main.qml:206
+#: src/main.qml:208 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Delete %1 file?"
 msgstr[1] "Delete %1 files?"
 
-#: src/main.qml:208
+#: src/main.qml:209 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -54,15 +54,16 @@ msgstr[0] ""
 msgstr[1] ""
 "Are sure you want to delete these files? This action can not be undone."
 
-#: src/main.qml:214 src/view_models/PixMenu.qml:38
+#: src/main.qml:215 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/main.qml:220 src/view_models/PixMenu.qml:44
+#: src/main.qml:221 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
 #, kde-format
-msgid "Accept"
-msgstr "Accept"
+msgid "Remove"
+msgstr "Remove"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
@@ -96,7 +97,7 @@ msgid "Collection"
 msgstr "Collection"
 
 #: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
-#: src/view_models/PixMenu.qml:67
+#: src/view_models/PixMenu.qml:77
 #, kde-format
 msgid "Tags"
 msgstr "Tags"
@@ -167,61 +168,45 @@ msgstr[1] "Search %1 images"
 msgid "Image Text (OCR)"
 msgstr "Image Text (OCR)"
 
-#: src/view_models/PixMenu.qml:31
-#, kde-format
-msgid "Delete File?"
-msgstr "Delete File?"
-
-#: src/view_models/PixMenu.qml:32
-#, kde-format
-msgctxt "Remove one file"
-msgid "Are sure you want to delete this file? This action can not be undone."
-msgstr "Are sure you want to delete this file? This action can not be undone."
-
-#: src/view_models/PixMenu.qml:58
+#: src/view_models/PixMenu.qml:68
 #, kde-format
 msgid "UnFav it"
 msgstr "UnFav it"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:89
 #, kde-format
 msgid "Info"
 msgstr "Info"
 
-#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:99 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Share"
 
-#: src/view_models/PixMenu.qml:102
+#: src/view_models/PixMenu.qml:112
 #, kde-format
 msgid "Select"
 msgstr "Select"
 
-#: src/view_models/PixMenu.qml:118 src/widgets/SelectionBar.qml:94
+#: src/view_models/PixMenu.qml:127 src/widgets/SelectionBar.qml:94
 #, kde-format
 msgid "Export"
 msgstr "Export"
 
-#: src/view_models/PixMenu.qml:136
+#: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Open with"
 msgstr "Open with"
 
-#: src/view_models/PixMenu.qml:147
+#: src/view_models/PixMenu.qml:162
 #, kde-format
 msgid "Go to Folder"
 msgstr "Go to Folder"
 
-#: src/view_models/PixMenu.qml:164
+#: src/view_models/PixMenu.qml:179
 #, kde-format
 msgid "Open Location"
 msgstr "Open Location"
-
-#: src/view_models/PixMenu.qml:176 src/widgets/SelectionBar.qml:110
-#, kde-format
-msgid "Remove"
-msgstr "Remove"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -368,7 +353,7 @@ msgstr "Show GPS tags."
 msgid "Experimental feature."
 msgstr "Experimental feature."
 
-#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:131
+#: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Viewer"
 msgstr "Viewer"
@@ -433,80 +418,80 @@ msgstr "Make sure you're online and your cloud account is working"
 msgid "Toggle sidebar"
 msgstr "Toggle sidebar"
 
-#: src/widgets/views/CollectionView.qml:152
-#: src/widgets/views/Gallery/GalleryView.qml:24
+#: src/widgets/views/CollectionView.qml:136
+#: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Open"
 
-#: src/widgets/views/CollectionView.qml:161
+#: src/widgets/views/CollectionView.qml:145
 #, kde-format
 msgid "Settings"
 msgstr "Settings"
 
-#: src/widgets/views/CollectionView.qml:168
+#: src/widgets/views/CollectionView.qml:152
 #, kde-format
 msgid "About"
 msgstr "About"
 
-#: src/widgets/views/Folders/FoldersView.qml:44
+#: src/widgets/views/Folders/FoldersView.qml:45
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
 msgstr[0] "Filter %1 folder"
 msgstr[1] "Filter %1 folders"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "No Folders!"
 msgstr "No Folders!"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Nothing Here!"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:71
 #, kde-format
 msgid "Add new image sources."
 msgstr "Add new image sources."
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:71
 #, kde-format
 msgid "Try something different."
 msgstr "Try something different."
 
-#: src/widgets/views/Folders/FoldersView.qml:164
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Folder is empty!"
 
-#: src/widgets/views/Folders/FoldersView.qml:165
+#: src/widgets/views/Folders/FoldersView.qml:167
 #, kde-format
-msgid "There're no images in this folder"
-msgstr "There are no images in this folder"
+msgid "There're no images in this folder. %1"
+msgstr "There are no images in this folder. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:180
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
 msgstr[0] "No images."
 msgstr[1] "%1 images"
 
-#: src/widgets/views/Gallery/GalleryView.qml:19
+#: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:210
+#: src/widgets/views/Viewer/PixViewer.qml:206
 #, kde-format
 msgid "No Pics!"
 msgstr "No Pics!"
 
-#: src/widgets/views/Gallery/GalleryView.qml:20
+#: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr "Nothing here. You can add new sources or open an image."
 
-#: src/widgets/views/Gallery/GalleryView.qml:30
+#: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
 msgstr "Add sources"
@@ -584,30 +569,42 @@ msgstr "No Pics in %1!"
 msgid "There're no pics associated with the tag"
 msgstr "There are no pictures associated with the tag"
 
-#: src/widgets/views/Viewer/PixViewer.qml:70
+#: src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
 msgid "Save as"
 msgstr "Save as"
 
-#: src/widgets/views/Viewer/PixViewer.qml:89
+#: src/widgets/views/Viewer/PixViewer.qml:88
 #, kde-format
 msgid "Save"
 msgstr "Save"
 
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:113
 #, kde-format
 msgid "Gallery"
 msgstr "Gallery"
 
-#: src/widgets/views/Viewer/PixViewer.qml:131
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "Previous"
 
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:207
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Open an image from your collection"
+
+#~ msgid "Accept"
+#~ msgstr "Accept"
+
+#~ msgid "Delete File?"
+#~ msgstr "Delete File?"
+
+#~ msgctxt "Remove one file"
+#~ msgid ""
+#~ "Are sure you want to delete this file? This action can not be undone."
+#~ msgstr ""
+#~ "Are sure you want to delete this file? This action can not be undone."
 
 #~ msgid "Dark Mode"
 #~ msgstr "Dark Mode"

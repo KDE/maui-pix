@@ -3,44 +3,44 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022, 2023.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:05+0000\n"
-"PO-Revision-Date: 2023-12-01 08:47+0200\n"
+"POT-Creation-Date: 2024-11-28 01:48+0000\n"
+"PO-Revision-Date: 2024-11-13 12:24+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.3\n"
 
-#: src/main.cpp:131
+#: src/main.cpp:114
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Упорядковування зображень, навігація та редагування зображень."
 
-#: src/main.cpp:135
+#: src/main.cpp:118
 #, kde-format
 msgid "Developer"
 msgstr "Розробник"
 
-#: src/main.qml:131
+#: src/main.qml:133
 #, kde-format
 msgid "Open images"
 msgstr "Відкриття зображень"
 
-#: src/main.qml:132
+#: src/main.qml:134
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Перетягніть і скиньте сюди зображення."
 
-#: src/main.qml:206
+#: src/main.qml:208 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -49,7 +49,7 @@ msgstr[1] "Вилучити %1 файли?"
 msgstr[2] "Вилучити %1 файлів?"
 msgstr[3] "Вилучити файл?"
 
-#: src/main.qml:208
+#: src/main.qml:209 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -63,15 +63,16 @@ msgstr[2] ""
 msgstr[3] ""
 "Ви справді хочете вилучити ці файли? Результат дії не можна буде скасувати."
 
-#: src/main.qml:214 src/view_models/PixMenu.qml:38
+#: src/main.qml:215 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/main.qml:220 src/view_models/PixMenu.qml:44
+#: src/main.qml:221 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
 #, kde-format
-msgid "Accept"
-msgstr "Прийняти"
+msgid "Remove"
+msgstr "Вилучити"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
@@ -105,7 +106,7 @@ msgid "Collection"
 msgstr "Збірка"
 
 #: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
-#: src/view_models/PixMenu.qml:67
+#: src/view_models/PixMenu.qml:77
 #, kde-format
 msgid "Tags"
 msgstr "Мітки"
@@ -178,62 +179,45 @@ msgstr[3] "Шукати зображення"
 msgid "Image Text (OCR)"
 msgstr "Текст зображення (розпізнавання)"
 
-#: src/view_models/PixMenu.qml:31
-#, kde-format
-msgid "Delete File?"
-msgstr "Вилучити файл?"
-
-#: src/view_models/PixMenu.qml:32
-#, kde-format
-msgctxt "Remove one file"
-msgid "Are sure you want to delete this file? This action can not be undone."
-msgstr ""
-"Ви справді хочете вилучити цей файл? Результат дії не можна буде скасувати."
-
-#: src/view_models/PixMenu.qml:58
+#: src/view_models/PixMenu.qml:68
 #, kde-format
 msgid "UnFav it"
 msgstr "Прибрати з улюблених"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:89
 #, kde-format
 msgid "Info"
 msgstr "Відомості"
 
-#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:99 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Оприлюднити"
 
-#: src/view_models/PixMenu.qml:102
+#: src/view_models/PixMenu.qml:112
 #, kde-format
 msgid "Select"
 msgstr "Вибрати"
 
-#: src/view_models/PixMenu.qml:118 src/widgets/SelectionBar.qml:94
+#: src/view_models/PixMenu.qml:127 src/widgets/SelectionBar.qml:94
 #, kde-format
 msgid "Export"
 msgstr "Експортувати"
 
-#: src/view_models/PixMenu.qml:136
+#: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Open with"
 msgstr "Відкрити за допомогою"
 
-#: src/view_models/PixMenu.qml:147
+#: src/view_models/PixMenu.qml:162
 #, kde-format
 msgid "Go to Folder"
 msgstr "Перейти до теки"
 
-#: src/view_models/PixMenu.qml:164
+#: src/view_models/PixMenu.qml:179
 #, kde-format
 msgid "Open Location"
 msgstr "Відкрити адресу"
-
-#: src/view_models/PixMenu.qml:176 src/widgets/SelectionBar.qml:110
-#, kde-format
-msgid "Remove"
-msgstr "Вилучити"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -380,7 +364,7 @@ msgstr "Показати мітки GPS."
 msgid "Experimental feature."
 msgstr "Експериментальна можливість."
 
-#: src/widgets/SettingsDialog.qml:205 src/widgets/views/CollectionView.qml:131
+#: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Viewer"
 msgstr "Переглядач"
@@ -448,23 +432,23 @@ msgstr ""
 msgid "Toggle sidebar"
 msgstr "Увімкнути/Вимкнути бічну панель"
 
-#: src/widgets/views/CollectionView.qml:152
-#: src/widgets/views/Gallery/GalleryView.qml:24
+#: src/widgets/views/CollectionView.qml:136
+#: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/widgets/views/CollectionView.qml:161
+#: src/widgets/views/CollectionView.qml:145
 #, kde-format
 msgid "Settings"
 msgstr "Параметри"
 
-#: src/widgets/views/CollectionView.qml:168
+#: src/widgets/views/CollectionView.qml:152
 #, kde-format
 msgid "About"
 msgstr "Про програму"
 
-#: src/widgets/views/Folders/FoldersView.qml:44
+#: src/widgets/views/Folders/FoldersView.qml:45
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
@@ -473,37 +457,37 @@ msgstr[1] "Фільтрувати %1 теки"
 msgstr[2] "Фільтрувати %1 тек"
 msgstr[3] "Фільтрувати теку"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "No Folders!"
 msgstr "Немає тек!"
 
-#: src/widgets/views/Folders/FoldersView.qml:68
+#: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Тут нічого немає!"
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:71
 #, kde-format
 msgid "Add new image sources."
 msgstr "Додайте нові джерела зображень."
 
-#: src/widgets/views/Folders/FoldersView.qml:69
+#: src/widgets/views/Folders/FoldersView.qml:71
 #, kde-format
 msgid "Try something different."
 msgstr "Спробуйте щось інше."
 
-#: src/widgets/views/Folders/FoldersView.qml:164
+#: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Тека порожня!"
 
-#: src/widgets/views/Folders/FoldersView.qml:165
+#: src/widgets/views/Folders/FoldersView.qml:167
 #, kde-format
-msgid "There're no images in this folder"
-msgstr "У цій теці немає зображень"
+msgid "There're no images in this folder. %1"
+msgstr "У цій теці немає зображень. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:180
+#: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -512,21 +496,21 @@ msgstr[1] "%1 зображення."
 msgstr[2] "%1 зображень."
 msgstr[3] "%1 зображення."
 
-#: src/widgets/views/Gallery/GalleryView.qml:19
+#: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:210
+#: src/widgets/views/Viewer/PixViewer.qml:206
 #, kde-format
 msgid "No Pics!"
 msgstr "Немає зображень!"
 
-#: src/widgets/views/Gallery/GalleryView.qml:20
+#: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
 msgstr ""
 "Тут нічого немає. Ви можете додати нові джерела або відкрити файл зображення."
 
-#: src/widgets/views/Gallery/GalleryView.qml:30
+#: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
 msgstr "Додавання джерел"
@@ -606,30 +590,43 @@ msgstr "У %1 немає зображень!"
 msgid "There're no pics associated with the tag"
 msgstr "З цією міткою не пов'язано жодного зображення"
 
-#: src/widgets/views/Viewer/PixViewer.qml:70
+#: src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
 msgid "Save as"
 msgstr "Зберегти як"
 
-#: src/widgets/views/Viewer/PixViewer.qml:89
+#: src/widgets/views/Viewer/PixViewer.qml:88
 #, kde-format
 msgid "Save"
 msgstr "Зберегти"
 
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:113
 #, kde-format
 msgid "Gallery"
 msgstr "Галерея"
 
-#: src/widgets/views/Viewer/PixViewer.qml:131
+#: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
 msgid "Previous"
 msgstr "Назад"
 
-#: src/widgets/views/Viewer/PixViewer.qml:211
+#: src/widgets/views/Viewer/PixViewer.qml:207
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Відкрити зображення з вашої збірки"
+
+#~ msgid "Accept"
+#~ msgstr "Прийняти"
+
+#~ msgid "Delete File?"
+#~ msgstr "Вилучити файл?"
+
+#~ msgctxt "Remove one file"
+#~ msgid ""
+#~ "Are sure you want to delete this file? This action can not be undone."
+#~ msgstr ""
+#~ "Ви справді хочете вилучити цей файл? Результат дії не можна буде "
+#~ "скасувати."
 
 #~ msgid "Dark Mode"
 #~ msgstr "Темний режим"

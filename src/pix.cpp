@@ -70,8 +70,11 @@ QUrl Pix::screenshotsPath()
 
 Gallery *Pix::allImagesModel()
 {
+    qDebug() << "REQUEST ALL IMAGES MODEL";
     if(!m_allImagesModel)
     {
+        qDebug() << "REQUEST ALL IMAGES MODEL &CREATING";
+
         m_allImagesModel = new Gallery(this);
         m_allImagesModel->setUrls(QUrl::fromStringList(sources()));
         m_allImagesModel->setRecursive(true);
@@ -81,6 +84,9 @@ Gallery *Pix::allImagesModel()
             m_allImagesModel->setUrls(QUrl::fromStringList(sources()));
         });
     }
+
+    qDebug() << "REQUEST ALL IMAGES MODEL & EXISTING ONE";
+
     return m_allImagesModel;
 }
 

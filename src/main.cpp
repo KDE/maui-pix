@@ -61,21 +61,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define PIX_URI "org.maui.pix"
 
-//static const QList<QUrl> getFolderImages(const QString &path)
-//{
-//    QList<QUrl> urls;
-
-//    if (QFileInfo(path).isDir()) {
-//        QDirIterator it(path, FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, QDirIterator::NoIteratorFlags);
-//        while (it.hasNext())
-//            urls << QUrl::fromLocalFile(it.next());
-
-//    } else if (QFileInfo(path).isFile())
-//        urls << path;
-
-//    return urls;
-//}
-
 static const QPair<QString, QList<QUrl>> openFiles(const QStringList &files)
 {
     QList<QUrl> urls;
@@ -96,7 +81,7 @@ static const QPair<QString, QList<QUrl>> openFiles(const QStringList &files)
         if(FMStatic::isDir(QUrl::fromUserInput(files.first())))
         {
             module = "folder";
-            urls << QUrl::fromUserInput(files.first());
+            urls << QUrl::fromLocalFile(files.first());
         }else
         {
             module = "viewer";
@@ -160,6 +145,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     if (!args.isEmpty())
     {
         arguments = openFiles(args);
+        qDebug() << args << arguments.first << arguments.second << QUrl::toStringList(arguments.second);
     }
 
 //    QScopedPointer<ScreenshotInhibit> screenshot(new ScreenshotInhibit(qApp->desktopFileName()));
@@ -188,7 +174,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
             if(module == "viewer")
             {
                 Pix::instance()->openPics(data);
-            }else if(module == " folder")
+            }else if(module == "folder")
             {
 
             }

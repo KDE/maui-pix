@@ -18,34 +18,44 @@ Maui.ContextualMenu
 
     onOpened: isFav = FB.Tagging.isFav(item.url)
 
-    title: control.item.title
-//    subtitle: Maui.Handy.formatSize(control.item.size)
-    titleImageSource: control.item.url
-    titleIconSource: control.item.icon
+//     title: control.item.title
+// //    subtitle: Maui.Handy.formatSize(control.item.size)
+//     titleImageSource: control.item.url
+//     titleIconSource: control.item.icon
+
+    Maui.Controls.component: Maui.IconItem
+    {
+        imageSource: control.item.url
+        fillMode: Image.PreserveAspectCrop
+        implicitHeight: 50
+        maskRadius: Maui.Style.radiusV
+    }
 
     FB.FileListingDialog
     {
         id: removeDialog
         parent: control.parent
         urls: filterSelection(item.url)
-        title: i18n("Delete File?")
-        message: i18nc("Remove one file", "Are sure you want to delete this file? This action can not be undone.")
+
+        title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
+        message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
 
         actions:
             [
             Action
             {
                 text: i18n("Cancel")
-                onTriggered: close()
+                onTriggered: removeDialog.close()
             },
 
             Action
             {
-                text: i18n("Accept")
+                text: i18n("Remove")
+                Maui.Controls.status: Maui.Controls.Negative
                 onTriggered:
                 {
                     control.model.list.deleteAt(model.mappedToSource(control.index))
-                    close()
+                    removeDialog.close()
                 }
             }
         ]
@@ -112,7 +122,6 @@ Maui.ContextualMenu
 
     MenuSeparator{}
 
-
     MenuItem
     {
         text: i18n("Export")
@@ -136,7 +145,7 @@ Maui.ContextualMenu
         text: i18n("Open with")
         icon.name: "document-open"
         onTriggered:
-        {            
+        {
             if(Maui.Handy.isAndroid)
             {
                 FB.FM.openUrl(item.url)
@@ -181,7 +190,7 @@ Maui.ContextualMenu
     {
         text: i18n("Remove")
         icon.name: "edit-delete"
-        Maui.Theme.textColor: Maui.Theme.negativeTextColor
+        Maui.Controls.status: Maui.Controls.Negative
         onTriggered:
         {
             removeDialog.open()

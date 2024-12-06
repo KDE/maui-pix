@@ -49,7 +49,6 @@ Loader
                 sideBar.close()
         }
 
-
         flickable.topMargin: Maui.Style.contentMargins
         flickable.bottomMargin: Maui.Style.contentMargins
         flickable.header: Loader
@@ -128,7 +127,7 @@ Loader
             iconVisible: true
             template.isMask: iconSize <= Maui.Style.iconSizes.medium
 
-            onClicked:
+            onClicked: (mouse) =>
             {
                 _listBrowser.placeClicked(model.path, model.key, mouse)
                 if(sideBar.collapsed)

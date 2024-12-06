@@ -13,6 +13,7 @@ set(pix_SRCS
     models/folders/placesmodel.cpp
     models/tags/tagsmodel.cpp
     models/cities/citiesmodel.cpp
+    # models/thumbnailer.cpp
     pixserver.cpp )
 
     qt_add_resources(pix_ASSETS imgs.qrc)
@@ -53,7 +54,8 @@ qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     widgets/SettingsDialog.qml
     widgets/Sidebar.qml
     widgets/views/Viewer/OCRPage.qml
-    widgets/views/CollectionView.qml)
+    widgets/views/CollectionView.qml
+    widgets/views/FloatingViewer.qml)
 
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
@@ -66,7 +68,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt6::Core
     Qt6::Qml
     Qt6::Positioning
-    Qt6::Concurrent
+    Qt6::Concurrent   
     KF6::I18n)
 
 if(ANDROID)
@@ -79,7 +81,11 @@ if(ANDROID)
         OpenSSL::SSL)
     kde_source_files_enable_exceptions(pix pix.cpp)
 else()
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets)
+    target_link_libraries(${PROJECT_NAME}
+        PRIVATE
+        Qt6::Widgets
+        KF6::KIOCore
+        KF6::KIOWidgets)
 endif()
 
 if(UNIX AND NOT APPLE AND NOT ANDROID)

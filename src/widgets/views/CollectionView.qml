@@ -27,8 +27,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-
-import QtQuick.Window 
+import QtQuick.Effects
+import QtQuick.Window
 
 import org.mauikit.controls as Maui
 import org.mauikit.filebrowsing as FB
@@ -81,7 +81,7 @@ Maui.SideBarView
         flickable: _foldersView.currentItem.flickable
         Maui.Controls.showCSD: true
         headBar.forceCenterMiddleContent: false
-        split: width < 600 && (_goBackButton.visible || _viewerButton.visible)
+        split: width < 600 && (_goBackButton.visible)
 
         middleContent: Loader
         {
@@ -123,22 +123,6 @@ Maui.SideBarView
         ]
 
         rightContent: [
-
-            ToolButton
-            {
-                id: _viewerButton
-                icon.name: "quickview"
-                text: i18n("Viewer")
-                visible:  _pixViewer.viewer.count > 0
-                onClicked:
-                {
-                    if( _pixViewer.viewer.count > 0)
-                    {
-                        toggleViewer()
-                        return;
-                    }
-                }
-            },
 
             Loader
             {
@@ -188,6 +172,31 @@ Maui.SideBarView
 
             maxListHeight: swipeView.height - Maui.Style.space.medium
             display: ToolButton.IconOnly
+        }
+
+        FloatingViewer
+        {
+            id: _floatingViewer
+
+            DragHandler
+            {
+                target: _floatingViewer
+                xAxis.maximum: swipeView.width - _floatingViewer.width
+                xAxis.minimum: 0
+
+                yAxis.maximum : swipeView.height - _floatingViewer.height
+                yAxis.minimum: 0
+
+                onActiveChanged:
+                {
+                    if(!active)
+                    {
+                        let newX = Math.abs(_floatingViewer.x - (swipeView.width - _floatingViewer.implicitWidth - 20))
+                        _floatingViewer.y = Qt.binding(()=> { return swipeView.height - _floatingViewer.implicitHeight - 20})
+                        _floatingViewer.x = Qt.binding(()=> { return (swipeView.width - _floatingViewer.implicitWidth - 20 - newX) < 0 ? 20 : swipeView.width - _floatingViewer.implicitWidth - 20 - newX})
+                    }
+                }
+            }
         }
     }
 

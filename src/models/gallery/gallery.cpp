@@ -31,19 +31,19 @@ static FMH::MODEL picInfo(const QUrl &url)
 {
     const QFileInfo info(url.toLocalFile());
     return FMH::MODEL{{FMH::MODEL_KEY::URL, url.toString()},
-        {FMH::MODEL_KEY::TITLE, info.fileName()},
-        {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
-        {FMH::MODEL_KEY::SOURCE, QUrl::fromLocalFile(info.absoluteDir().absolutePath()).toString ()},
-        {FMH::MODEL_KEY::DATE, info.birthTime().toString(Qt::TextDate)},
-        {FMH::MODEL_KEY::MODIFIED, info.lastModified().toString(Qt::TextDate)},
-        {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
+                      {FMH::MODEL_KEY::TITLE, info.fileName()},
+                      {FMH::MODEL_KEY::SIZE, QString::number(info.size())},
+                      {FMH::MODEL_KEY::SOURCE, QUrl::fromLocalFile(info.absoluteDir().absolutePath()).toString ()},
+                      {FMH::MODEL_KEY::DATE, info.birthTime(QTimeZone::UTC).toString(Qt::TextDate)},
+                      {FMH::MODEL_KEY::MODIFIED, info.lastModified(QTimeZone::UTC).toString(Qt::TextDate)},
+                      {FMH::MODEL_KEY::FORMAT, info.completeSuffix()}};
 }
 
 Gallery::Gallery(QObject *parent)
     : MauiList(parent)
     , m_fileLoader(new FMH::FileLoader(this))
     , m_watcher(new QFileSystemWatcher(this))
-    ,m_futureWatcher(nullptr)
+    , m_futureWatcher(nullptr)
     , m_scanTimer(new QTimer(this))
     , m_autoReload(true)
     , m_recursive(true)
@@ -71,8 +71,8 @@ void Gallery::setUrls(const QList<QUrl> &urls)
 {
     qDebug() << "setting urls" << this->m_urls << urls;
 
-    //	if(this->m_urls == urls)
-    //		return;
+           	if(this->m_urls == urls)
+           		return;
 
     this->m_urls = urls;
     Q_EMIT this->urlsChanged();
@@ -126,7 +126,7 @@ void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &li
     }
 
     this->setStatus(Status::Loading);
-    m_fileLoader->requestPath(urls, recursive, FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, limit);
+    m_fileLoader->requestPath(urls, recursive, QStringList() << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, limit);
 }
 
 void Gallery::scanGpsTags()
@@ -155,24 +155,24 @@ void Gallery::scanGpsTags()
         item[FMH::MODEL_KEY::CITY] = cityId;
     } ;
 
-  m_futureWatcher = new QFutureWatcher<void>;
-   auto future = QtConcurrent::map(list, functor);
-   m_futureWatcher->setFuture(future);
+    m_futureWatcher = new QFutureWatcher<void>;
+    auto future = QtConcurrent::map(list, functor);
+    m_futureWatcher->setFuture(future);
 
-   connect(m_futureWatcher, &QFutureWatcher<void>::finished, [this]()
-   {
-       qDebug() << "FINISHED SCANNING GPS TAGS";
-
-        for(const auto &item : list)
-        {
-            if(m_activeGeolocationTags)
+    connect(m_futureWatcher, &QFutureWatcher<void>::finished, [this]()
             {
-                this->insertCity(item[FMH::MODEL_KEY::CITY]);
-            }
-        }
+                qDebug() << "FINISHED SCANNING GPS TAGS";
 
-        Q_EMIT citiesChanged();
-   });
+                for(const auto &item : list)
+                {
+                    if(m_activeGeolocationTags)
+                    {
+                        this->insertCity(item[FMH::MODEL_KEY::CITY]);
+                    }
+                }
+
+                Q_EMIT citiesChanged();
+            });
 }
 
 void Gallery::insertFolder(const QUrl &path)
@@ -265,7 +265,7 @@ void Gallery::rescan()
 }
 
 void Gallery::load()
-{    
+{
     this->scan(m_urls, m_recursive, m_limit);
 }
 
@@ -337,7 +337,7 @@ void Gallery::componentComplete()
     });
 
     connect(m_fileLoader, &FMH::FileLoader::itemReady, [this](FMH::MODEL item) {
-        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);       
+        this->insertFolder(item[FMH::MODEL_KEY::SOURCE]);
     });
 
     connect(m_watcher, &QFileSystemWatcher::directoryChanged, [this](QString dir) {
@@ -351,12 +351,12 @@ void Gallery::componentComplete()
 
     connect(this, &Gallery::urlsChanged, this, &Gallery::rescan);
     connect(this, &Gallery::activeGeolocationTagsChanged, [this](bool state)
-    {
-        if(state)
-        {
-            this->scanGpsTags(); //TODO change to scanGpsTags
-        }
-    });
+            {
+                if(state)
+                {
+                    this->scanGpsTags(); //TODO change to scanGpsTags
+                }
+            });
 
     m_fileLoader->setBatchCount(500);
     m_fileLoader->informer = &picInfo;

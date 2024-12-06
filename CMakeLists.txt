@@ -5,7 +5,7 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-set(PIX_VERSION 4.0.0)
+set(PIX_VERSION 4.0.1)
 add_compile_definitions(APP_COPYRIGHT_NOTICE="© 2019-2024 Maui Development Team")
 
 set(CMAKE_CXX_STANDARD 17) # to use 17 we need to update exiv2
@@ -28,7 +28,7 @@ find_package(ECM ${REQUIRED_KF_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Core Qml Quick Positioning Concurrent)
-find_package(KF6 ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
+find_package(KF6 ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I18n CoreAddons KIO)
 
 find_package(MauiKit4 REQUIRED COMPONENTS FileBrowsing ImageTools)
 #find_package(CaskServer REQUIRED)

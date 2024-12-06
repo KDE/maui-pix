@@ -3,14 +3,14 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQml 2.14
-import QtQuick.Controls 2.14
+import QtQuick
+import QtQml
+import QtQuick.Controls
 
-import org.mauikit.controls 1.3 as Maui
-import org.mauikit.imagetools 1.0 as IT
+import org.mauikit.controls as Maui
+import org.mauikit.imagetools as IT
 
-import org.maui.pix 1.0
+import org.maui.pix
 
 import "../../"
 
@@ -24,14 +24,31 @@ Item
     property real picSaturation : 0
     property real picHue : 0
     property real picLightness : 0
-    property alias model : viewerList.model
+    readonly property alias model : pixModel
 
-    property alias count : viewerList.count
-    property alias currentIndex : viewerList.currentIndex
-    property alias currentItem: viewerList.currentItem
+    readonly property alias count : viewerList.count
+    readonly property alias currentIndex : viewerList.currentIndex
+    readonly property alias currentItem: viewerList.currentItem
 
     clip: false
     focus: true
+
+    Maui.BaseModel
+    {
+        id: pixModel
+        list: GalleryList
+        {
+            autoReload: browserSettings.autoReload
+            activeGeolocationTags: false
+            recursive: false
+        }
+
+        sort: browserSettings.sortBy
+        sortOrder: browserSettings.sortOrder
+        recursiveFilteringEnabled: true
+        sortCaseSensitivity: Qt.CaseInsensitive
+        filterCaseSensitivity: Qt.CaseInsensitive
+    }
 
     function forceActiveFocus()
     {
@@ -54,7 +71,7 @@ Item
         focus: true
         interactive: Maui.Handy.isTouch
         cacheBuffer: width * 3
-
+model: pixModel
         snapMode: ListView.SnapOneItem
         boundsBehavior: Flickable.StopAtBounds
 
@@ -117,7 +134,8 @@ Item
                 {
                     id: _imgV
                     source: model.url
-                    image.autoTransform: true}
+                    image.autoTransform: true
+                }
             }
         }
     }
@@ -135,19 +153,11 @@ Item
         preventStealing: false
     }
 
-    Maui.BaseModel
-    {
-        id: _defaultModel
-        list: GalleryList {}
-    }
-
     function appendPics(pics)
     {
-        model = _defaultModel
-
         if(pics.length > 0)
             for(var i in pics)
-                _defaultModel.list.append(pics[i])
+                control.model.list.append(pics[i])
 
     }
 }
