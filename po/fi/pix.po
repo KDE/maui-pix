@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
-# Tommi Nieminen <translator@legisign.org>, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-28 01:48+0000\n"
-"PO-Revision-Date: 2023-12-11 18:11+0200\n"
+"PO-Revision-Date: 2024-12-01 14:57+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -467,10 +468,9 @@ msgid "Folder is empty!"
 msgstr "Kansio on tyhjä!"
 
 #: src/widgets/views/Folders/FoldersView.qml:167
-#, fuzzy, kde-format
-#| msgid "There're no images in this folder"
+#, kde-format
 msgid "There're no images in this folder. %1"
-msgstr "Tässä kansiossa ei ole kuvia"
+msgstr "Tässä kansiossa ei ole kuvia. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
