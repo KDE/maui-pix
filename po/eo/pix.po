@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-28 01:48+0000\n"
-"PO-Revision-Date: 2024-06-06 06:17+0200\n"
+"PO-Revision-Date: 2024-12-27 10:42+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -469,10 +469,9 @@ msgid "Folder is empty!"
 msgstr "Dosierujo estas malplena!"
 
 #: src/widgets/views/Folders/FoldersView.qml:167
-#, fuzzy, kde-format
-#| msgid "There're no images in this folder"
+#, kde-format
 msgid "There're no images in this folder. %1"
-msgstr "Ne estas bildoj en ĉi tiu dosierujo"
+msgstr "Ne estas bildoj en ĉi tiu dosierujo. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
@@ -596,16 +595,3 @@ msgstr "Antaŭa"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Malfermi bildon el via kolekto"
-
-#~ msgid "Accept"
-#~ msgstr "Akcepti"
-
-#~ msgid "Delete File?"
-#~ msgstr "Ĉu forigi dosieron?"
-
-#~ msgctxt "Remove one file"
-#~ msgid ""
-#~ "Are sure you want to delete this file? This action can not be undone."
-#~ msgstr ""
-#~ "Ĉu certas, ke vi volas forigi ĉi tiun dosieron? Ĉi tiu ago ne povas esti "
-#~ "malfarita."
