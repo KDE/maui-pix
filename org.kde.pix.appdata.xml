@@ -31,6 +31,7 @@
   <name xml:lang="pl">Pix</name>
   <name xml:lang="pt">Pix</name>
   <name xml:lang="pt-BR">Pix</name>
+  <name xml:lang="sa">पिक्स्</name>
   <name xml:lang="sk">Pix</name>
   <name xml:lang="sl">Pix</name>
   <name xml:lang="sv">Pix</name>
@@ -61,6 +62,7 @@
   <summary xml:lang="pl">Galeria obrazów</summary>
   <summary xml:lang="pt">Galeria de Imagens</summary>
   <summary xml:lang="pt-BR">Galeria de imagens</summary>
+  <summary xml:lang="sa">चित्रसङ्ग्रहालयः</summary>
   <summary xml:lang="sk">Galéria obrázkov</summary>
   <summary xml:lang="sl">Galerija slik</summary>
   <summary xml:lang="sv">Bildgalleri</summary>
@@ -94,6 +96,7 @@
     <p xml:lang="pl">Pix jest galerią obrazów i ich przeglądarką. Pix można użyć do otwierania obrazów w innych aplikacjach takich jak edytory obrazów, dodawania znaczników do plików, opisywania obrazów, ich obrotu, a także udostępniania.</p>
     <p xml:lang="pt">O Pix é uma galeria de imagens e um visualizador das mesmas. O Pix pode ser usado para abrir imagens com outras aplicações como um editor de imagens, adicionar marcas aos ficheiros, anotações às imagens, rodá-las e partilhá-las.</p>
     <p xml:lang="pt-BR">O Pix é uma galeria e um visualizador de imagens. O Pix pode ser usado para abrir imagens por meio de outros aplicativos como um editor de imagens, adicionar tags aos seus arquivos, inserir anotações, rotacionar e compartilhar suas imagens.</p>
+    <p xml:lang="sa">पिक्स् इति चित्रसङ्ग्रहालयः, चित्रदर्शकः च अस्ति । Pix इत्यस्य उपयोगेन अन्यैः अनुप्रयोगैः सह चित्राणि उद्घाटयितुं, सञ्चिकासु टैग् योजयितुं, चित्रेषु टिप्पणीं योजयितुं, परिभ्रमितुं, साझां कर्तुं च शक्यते ।</p>
     <p xml:lang="sl">Pix je galerija slik in pregledovalnik slik. Pix lahko uporabite za odpiranje slik z drugimi aplikacijami kot npr. z urejevalniki slik, lahko dodajate oznake datotek, napise k slikam, jih lahko zavrtite in delite z drugimi.</p>
     <p xml:lang="sv">Pix är ett bildgalleri och bildvisare. Pix kan användas för att öppna bilder med andra program som en bildeditor, lägga till taggar i filerna och kommentarer i bilder, samt rotera och dela dem.</p>
     <p xml:lang="tr">Piks, bir görsel galerisi ve görüntüleyicidir. Piks, bir görsel düzenleyici gibi diğer uygulamalarda görsel açmak için kullanılabilir, dosyalara künyeler, resimlere ek açıklamalar ekleyebilir, onları döndürebilir ve paylaşabilir.</p>
@@ -135,6 +138,7 @@
       <caption xml:lang="pl">Odtwarzacz muzyki Pix</caption>
       <caption xml:lang="pt">O leitor de música Pix</caption>
       <caption xml:lang="pt-BR">O reprodutor de músicas Pix</caption>
+      <caption xml:lang="sa">पिक्स संगीतवादकः</caption>
       <caption xml:lang="sk">Hudobný prehrávač Pix</caption>
       <caption xml:lang="sl">Predvajalnik glasbe Pix</caption>
       <caption xml:lang="sv">Musikspelaren Pix</caption>
