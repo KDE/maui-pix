@@ -17,6 +17,7 @@
   <name xml:lang="fi">Pix</name>
   <name xml:lang="fr">Pix</name>
   <name xml:lang="gl">Pix</name>
+  <name xml:lang="he">פיקס</name>
   <name xml:lang="hi">पिक्स (Pix)</name>
   <name xml:lang="hu">Pix</name>
   <name xml:lang="id">Pix</name>
@@ -52,6 +53,7 @@
   <summary xml:lang="fi">Kuvagalleria</summary>
   <summary xml:lang="fr">Galerie d'images</summary>
   <summary xml:lang="gl">Galería de imaxes.</summary>
+  <summary xml:lang="he">גלריית תמונות</summary>
   <summary xml:lang="id">Galeri Gambar</summary>
   <summary xml:lang="it">Galleria d'immagini</summary>
   <summary xml:lang="ka">სურათების გალერეა</summary>
@@ -125,6 +127,7 @@
       <caption xml:lang="fi">Pix-musiikkisoitin</caption>
       <caption xml:lang="fr">Le lecteur de musique Pix</caption>
       <caption xml:lang="gl">O reprodutor de música Pix.</caption>
+      <caption xml:lang="he">נגן המוזיקה פיקס</caption>
       <caption xml:lang="hi">पिक्स संगीत चालक</caption>
       <caption xml:lang="hu">A Pix zenelejátszó</caption>
       <caption xml:lang="id">Pemutar musik Pix</caption>
