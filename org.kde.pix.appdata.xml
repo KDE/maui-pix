@@ -17,7 +17,7 @@
   <name xml:lang="fi">Pix</name>
   <name xml:lang="fr">Pix</name>
   <name xml:lang="gl">Pix</name>
-  <name xml:lang="he">פיקס</name>
+  <name xml:lang="he">פּיקס</name>
   <name xml:lang="hi">पिक्स (Pix)</name>
   <name xml:lang="hu">Pix</name>
   <name xml:lang="id">Pix</name>
@@ -89,6 +89,7 @@
     <p xml:lang="fi">Pix on kuvagalleria ja -katselin. Pixiä voi käyttää avaamaan toisten sovellusten kuten kuvankäsittelyohjelmien kuvat, lisäämään kuviin luokituksia ja merkintöjä sekä kääntämään ja jakamaan kuvia.</p>
     <p xml:lang="fr">Pix est une galerie d'images et un afficheur d'images. Pix peut être utilisé pour ouvrir des images avec d'autres applications comme un éditeur d'images, ajouter des étiquettes aux fichiers, ajouter des annotations aux images, les faire pivoter et les partager.</p>
     <p xml:lang="gl">Pix é unha galería de imaxes e un visor de imaxes. Pode usalo para abrir imaxes con outras aplicacións como editores de imaxes, engadir etiquetas a ficheiros, engadir anotacións a fotos, rotalas e compartilas.</p>
+    <p xml:lang="he">פּיקס היא גלריית ומציג תמונות. אפשר להשתמש בפיקס כדי לפתוח תמונות עם יישומים אחרים כגון עורך תמונות, להוסיף תגיות לקבצים, להוסיף הסברים לתמונות, לסובב ולשתף אותן.</p>
     <p xml:lang="id">Pix adalah galeri gambar dan penampil gambar. Pix bisa digunakan untuk membuka gambar dengan aplikasi lain seperti editor gambar, menambahkan tag ke file, menambahkan anotasi ke gambar, memutar dan membagikannya.</p>
     <p xml:lang="it">Pix è una galleria d'immagini e un visore d'immagini. Può essere utilizzato per aprire immagini con altre applicazioni come un'editor d'immagine, per aggiungere etichette ai file o le annotazioni alle immagini, per ruotarle o per condividerle.</p>
     <p xml:lang="ka">Pix გამოსახულებების გალერეა და სურათების დამთვალიერებელია. ის შეგიძლიათ, გამოიყენოთ, რომ გახსნათ გამოსახულებები სხვა პროგრამებში, მაგალითად რედაქტორში, დაადოთ ჭდეები, ანოტაციები, მოატრიალოთ ან გააზიაროთ ისინი.</p>
@@ -127,7 +128,7 @@
       <caption xml:lang="fi">Pix-musiikkisoitin</caption>
       <caption xml:lang="fr">Le lecteur de musique Pix</caption>
       <caption xml:lang="gl">O reprodutor de música Pix.</caption>
-      <caption xml:lang="he">נגן המוזיקה פיקס</caption>
+      <caption xml:lang="he">נגן המוזיקה פּיקס</caption>
       <caption xml:lang="hi">पिक्स संगीत चालक</caption>
       <caption xml:lang="hu">A Pix zenelejátszó</caption>
       <caption xml:lang="id">Pemutar musik Pix</caption>
