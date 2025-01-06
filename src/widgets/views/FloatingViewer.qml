@@ -8,18 +8,20 @@ Loader
 {
     id: control
     active: _pixViewer.viewer.count > 0 || item
+    visible: _pixViewer.viewer.count > 0
 
     asynchronous: true
     z:  Overlay.overlay.z
     x: parent.width - implicitWidth - 20
     y: parent.height - implicitHeight - 20
 
+
     ScaleAnimator on scale
     {
-        from: 0.2
+        from: 2
         to: 1
         duration: Maui.Style.units.longDuration
-        running: parent.visible
+        running: control.visible
         easing.type: Easing.OutInQuad
     }
 
@@ -28,7 +30,7 @@ Loader
         from: 0
         to: 1
         duration: Maui.Style.units.longDuration
-        running: status === Loader.Ready
+        running: control.status === Loader.Ready || control.visible
     }
 
     sourceComponent: AbstractButton

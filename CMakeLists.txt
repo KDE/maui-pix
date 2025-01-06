@@ -5,7 +5,7 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-set(PIX_VERSION 4.0.1)
+set(PIX_VERSION 4.0.2)
 add_compile_definitions(APP_COPYRIGHT_NOTICE="© 2019-2024 Maui Development Team")
 
 set(CMAKE_CXX_STANDARD 17) # to use 17 we need to update exiv2

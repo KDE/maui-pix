@@ -174,9 +174,40 @@ Maui.ApplicationWindow
     Component
     {
         id: tagsDialogComponent
+
         FB.TagsDialog
         {
-            onTagsReady: (tags) => composerList.updateToUrls(tags)
+            Maui.Notification
+            {
+                id: _taggedNotification
+                iconName: "dialog-info"
+                title: i18n("Tagged")
+                message: i18n("File was tagged sucessfully")
+
+                Action
+                {
+                    property string tag
+                    id: _openTagAction
+                    text: tag
+                    enabled: tag.length > 0
+                    onTriggered:
+                    {
+                        openFolder("tags:///"+tag)
+                    }
+                }
+            }
+
+            onTagsReady: (tags) =>
+                         {
+                             if(tags.length === 1)
+                             {
+                                 _openTagAction.tag = tags[0]
+                                 _taggedNotification.dispatch()
+                             }
+
+                             composerList.updateToUrls(tags)
+                         }
+
             composerList.strict: false
         }
     }

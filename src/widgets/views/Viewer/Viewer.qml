@@ -71,7 +71,7 @@ Item
         focus: true
         interactive: Maui.Handy.isTouch
         cacheBuffer: width * 3
-model: pixModel
+        model: pixModel
         snapMode: ListView.SnapOneItem
         boundsBehavior: Flickable.StopAtBounds
 
@@ -135,6 +135,7 @@ model: pixModel
                     id: _imgV
                     source: model.url
                     image.autoTransform: true
+                    image.cache: true
                 }
             }
         }
@@ -145,10 +146,10 @@ model: pixModel
         enabled: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
         anchors.fill: parent
         onPressed: (mouse) =>
-        {
-            galleryRollBg.visible = !galleryRollBg.visible
-            mouse.accepted = false
-        }
+                   {
+                       galleryRollBg.visible = !galleryRollBg.visible
+                       mouse.accepted = false
+                   }
         propagateComposedEvents: true
         preventStealing: false
     }

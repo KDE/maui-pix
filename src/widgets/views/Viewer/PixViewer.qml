@@ -264,6 +264,7 @@ StackView
 
                     onTagRemovedClicked: (index) => list.removeFromUrls(index)
                     onTagsEdited: (tags) => list.updateToUrls(tags)
+                    onTagClicked: (tag) => openFolder("tags:///"+tag)
                 }
             }
         }
