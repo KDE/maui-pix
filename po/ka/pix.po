@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-07 00:40+0000\n"
-"PO-Revision-Date: 2024-12-25 22:33+0100\n"
+"POT-Creation-Date: 2025-01-08 00:40+0000\n"
+"PO-Revision-Date: 2025-01-07 05:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -41,12 +41,13 @@ msgstr "გადმოათრიეთ და დაყარეთ სურ
 #: src/main.qml:184
 #, kde-format
 msgid "Tagged"
-msgstr ""
+msgstr "ჭდეებიანი"
 
 #: src/main.qml:185
-#, kde-format
-msgid "File was tagged sucessfully"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "File was tagged sucessfully"
+msgid "File was tagged successfully"
+msgstr "ფაილს ჭდეები წარმატებით დაესვა"
 
 #: src/main.qml:239 src/view_models/PixMenu.qml:40
 #, kde-format

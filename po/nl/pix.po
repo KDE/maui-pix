@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-07 00:40+0000\n"
-"PO-Revision-Date: 2024-11-13 11:56+0100\n"
+"POT-Creation-Date: 2025-01-08 00:40+0000\n"
+"PO-Revision-Date: 2025-01-07 11:10+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -40,12 +40,13 @@ msgstr "Sleep afbeeldingen naar hier en laat los"
 #: src/main.qml:184
 #, kde-format
 msgid "Tagged"
-msgstr ""
+msgstr "Van tag voorzien"
 
 #: src/main.qml:185
-#, kde-format
-msgid "File was tagged sucessfully"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "File was tagged sucessfully"
+msgid "File was tagged successfully"
+msgstr "Bestand was met suces van een tag voorzien"
 
 #: src/main.qml:239 src/view_models/PixMenu.qml:40
 #, kde-format
