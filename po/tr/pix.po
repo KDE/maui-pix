@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:40+0000\n"
-"PO-Revision-Date: 2025-01-07 15:06+0300\n"
+"PO-Revision-Date: 2025-01-08 15:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: src/main.cpp:114
 #, kde-format
 msgid "Organize, browse, and edit your images."
-msgstr "Görsellerinize göz atın, organize edin ve önları düzenleyin."
+msgstr "Görsellerinize göz atın, organize edin ve onları düzenleyin."
 
 #: src/main.cpp:118
 #, kde-format
@@ -44,8 +44,7 @@ msgid "Tagged"
 msgstr "Künyelendi"
 
 #: src/main.qml:185
-#, fuzzy, kde-format
-#| msgid "File was tagged sucessfully"
+#, kde-format
 msgid "File was tagged successfully"
 msgstr "Dosya başarıyla künyelendi"
 
@@ -258,7 +257,7 @@ msgstr "Sığdır"
 #: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr "Önizlemeleri sığdırın ve en-boy oranını koruyun."
+msgstr "Önizlemeleri sığdırın ve en–boy oranını koruyun."
 
 #: src/widgets/SettingsDialog.qml:52
 #, kde-format
@@ -561,7 +560,7 @@ msgstr "Pazar"
 #: src/widgets/views/Tags/TagsSidebar.qml:247
 #, kde-format
 msgid "PNGs"
-msgstr "PNG'ler"
+msgstr "PNG’ler"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:271
 #, kde-format
