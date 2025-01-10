@@ -70,15 +70,17 @@ StackView
                     icon.name: "document-save-as"
                     onTriggered:
                     {
-                        dialogLoader.sourceComponent= fmDialogComponent
-                        dialog.mode = dialog.modes.SAVE
-                        dialog.settings.onlyDirs= false
+                        dialogLoader.sourceComponent = null
+                        dialogLoader.sourceComponent = fmDialogComponent
+                        dialog.mode = FB.FileDialog.Save
+                        dialog.browser.settings.filterType = FB.FMList.IMAGE
                         dialog.singleSelection = true
+                        dialog.suggestedFileName = FB.FM.getFileInfo(url).label
                         dialog.callback = function(paths)
                         {
                             console.log("Save edit to", paths)
                             editor.saveAs(paths[0])
-                        };
+                        }
                         dialog.open()
                     }
                 }

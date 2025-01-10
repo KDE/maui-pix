@@ -124,19 +124,22 @@ Maui.ContextualMenu
 
     MenuItem
     {
-        text: i18n("Export")
+        text: i18n("Save as")
         icon.name: "document-save-as"
         onTriggered:
         {
             var pic = item.url
-            dialogLoader.sourceComponent= fmDialogComponent
-            dialog.mode = dialog.modes.SAVE
-            dialog.suggestedFileName= FB.FM.getFileInfo(item.url).label
-            dialog.show(function(paths)
+            dialogLoader.sourceComponent = null
+            dialogLoader.sourceComponent = fmDialogComponent
+            dialog.mode = FB.FileDialog.Save
+            dialog.browser.settings.filterType = FB.FMList.IMAGE
+            dialog.singleSelection = true
+            dialog.suggestedFileName = FB.FM.getFileInfo(item.url).label
+            dialog.callback = function(paths)
             {
-                for(var i in paths)
-                    FB.FM.copy(pic, paths[i])
-            });
+                FB.FM.copy([pic], paths[0])
+            }
+            dialog.open()
         }
     }
 

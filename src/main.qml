@@ -217,8 +217,6 @@ Maui.ApplicationWindow
         id: fmDialogComponent
         FB.FileDialog
         {
-            browser.settings.filterType: FB.FMList.IMAGE
-            browser.settings.onlyDirs: true
             mode: FB.FileDialog.Open
         }
     }
@@ -336,15 +334,13 @@ Maui.ApplicationWindow
 
     function openFileDialog()
     {
+        dialogLoader.sourceComponent = null
         dialogLoader.sourceComponent = fmDialogComponent
-        dialog.mode = FB.FileDialog.Modes.Open
         dialog.browser.settings.filterType = FB.FMList.IMAGE
-        dialog.browser.settings.onlyDirs= false
         dialog.callback = function(paths)
         {
             Pix.Collection.openPics(paths)
-            //            dialogLoader.sourceComponent = null
-        };
+        }	
         dialog.open()
     }
 

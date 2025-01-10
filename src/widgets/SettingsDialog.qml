@@ -275,12 +275,13 @@ Maui.SettingsDialog
                 text: i18n("Add")
                 onClicked:
                 {
-                    dialogLoader.sourceComponent= fmDialogComponent
+                    dialogLoader.sourceComponent = null
+                    dialogLoader.sourceComponent = fmDialogComponent
+                    dialog.browser.settings.onlyDirs = true
                     dialog.callback = function(urls)
                     {
                         Pix.Collection.addSources(urls)
                     }
-
                     dialog.open()
                 }
             }

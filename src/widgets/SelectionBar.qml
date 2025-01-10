@@ -92,19 +92,19 @@ Maui.SelectionBar
         Action
         {
             text: i18n("Export")
-            icon.name: "document-save"
+            icon.name: "document-export"
             onTriggered:
             {
                 const pics = control.uris
+                dialogLoader.sourceComponent = null
                 dialogLoader.sourceComponent = fmDialogComponent
                 dialog.browser.settings.onlyDirs = true
-                dialog.mode = FB.FileDialog.Open
+                dialog.singleSelection = true
                 dialog.callback = function(paths)
                 {
-                    for(var i in paths)
-                        FB.FM.copy(pics, paths[i])
+                    FB.FM.copy(pics, paths[0])
                 }
-                dialog.open();
+                dialog.open()
             }
         },
 
