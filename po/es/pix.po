@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2024 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 # SPDX-FileCopyrightText: 2023 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:40+0000\n"
-"PO-Revision-Date: 2024-11-16 20:09+0100\n"
+"PO-Revision-Date: 2025-01-11 19:30+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -41,12 +41,12 @@ msgstr "Arrastrar y soltar imágenes aquí."
 #: src/main.qml:184
 #, kde-format
 msgid "Tagged"
-msgstr ""
+msgstr "Etiquetado"
 
 #: src/main.qml:185
 #, kde-format
 msgid "File was tagged successfully"
-msgstr ""
+msgstr "El archivo fue etiquetado con éxito"
 
 #: src/main.qml:239 src/view_models/PixMenu.qml:40
 #, kde-format
