@@ -5,6 +5,7 @@
   <project_license>LGPL-3.0</project_license>
   <launchable type="desktop-id">org.kde.pix.desktop</launchable>
   <name>Pix</name>
+  <name xml:lang="ar">بكس</name>
   <name xml:lang="ca">Pix</name>
   <name xml:lang="ca-valencia">Pix</name>
   <name xml:lang="cs">Pix</name>
@@ -42,6 +43,7 @@
   <name xml:lang="zh-CN">Pix</name>
   <name xml:lang="zh-TW">Pix</name>
   <summary>Image Gallery</summary>
+  <summary xml:lang="ar">معرض صور</summary>
   <summary xml:lang="ca">Galeria d'imatges</summary>
   <summary xml:lang="ca-valencia">Galeria d'imatges</summary>
   <summary xml:lang="cs">Galerie obrázků</summary>
@@ -79,6 +81,7 @@
   </developer>
   <description>
     <p>Pix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.</p>
+    <p xml:lang="ar">بكس هو معرض صور وعارض صور. يمكن استخدام بكس لفتح الصور باستخدام تطبيقات أخرى مثل محرر الصور وإضافة وسوم إلى الملفات وإضافة تعليقات توضيحية إلى الصور وتدويرها ومشاركتها.</p>
     <p xml:lang="ca">El Pix és una galeria d'imatges i un visualitzador d'imatges. El Pix es pot usar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes als fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
     <p xml:lang="ca-valencia">Pix és una galeria d'imatges i un visor d'imatges. Pix es pot utilitzar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes en els fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
     <p xml:lang="de">Pix ist eine Bildergalerie und ein Bildbetrachter. Pix kann verwendet werden, um Bilder mit anderen Anwendungen wie einem Bildbearbeitungsprogramm zu öffnen, Stichwörter zu Dateien hinzufügen, Bilder drehen und teilen.</p>
@@ -116,6 +119,7 @@
     <screenshot type="default">
       <image type="source">https://cdn.kde.org/screenshots/pix/pix.png</image>
       <caption>The Pix music player</caption>
+      <caption xml:lang="ar">مشغّل الموسيقى بكس</caption>
       <caption xml:lang="ca">El reproductor de música Pix</caption>
       <caption xml:lang="ca-valencia">El reproductor de música Pix</caption>
       <caption xml:lang="cs">Přehrávač hudby Pix</caption>
