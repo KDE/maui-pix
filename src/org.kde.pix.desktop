@@ -5,6 +5,7 @@
 
 [Desktop Entry]
 Name=Pix
+Name[ar]=بكس
 Name[ca]=Pix
 Name[ca@valencia]=Pix
 Name[cs]=Pix
@@ -41,6 +42,7 @@ Name[x-test]=xxPixxx
 Name[zh_CN]=Pix
 Name[zh_TW]=Pix
 Comment=Image gallery viewer
+Comment[ar]=مستعرض صور
 Comment[ca]=Visualitzador de galeria d'imatges
 Comment[ca@valencia]=Visor de galeria d'imatges
 Comment[cs]=Prohlížeč galerie obrázků
@@ -86,6 +88,7 @@ Icon=pix
 MimeType=image/gif;image/avif;image/jpeg;image/png;image/bmp;image/x-eps;image/x-ico;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/x-xbitmap;image/x-xpixmap;image/tiff;image/x-psd;image/x-webp;image/webp;inode/directory;
 # Generic name with translations
 GenericName=Image Gallery
+GenericName[ar]=معرض صور
 GenericName[ca]=Galeria d'imatges
 GenericName[ca@valencia]=Galeria d'imatges
 GenericName[cs]=Galerie obrázků
