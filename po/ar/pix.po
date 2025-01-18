@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
+# SPDX-FileCopyrightText: 2023, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:40+0000\n"
-"PO-Revision-Date: 2023-05-11 11:08+0400\n"
+"PO-Revision-Date: 2025-01-17 11:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,11 +16,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/main.cpp:114
 #, kde-format
 msgid "Organize, browse, and edit your images."
-msgstr ""
+msgstr "نظّم وتصفح وحرر صورك."
 
 #: src/main.cpp:118
 #, kde-format
@@ -30,49 +31,48 @@ msgstr "مطوّر"
 #: src/main.qml:133
 #, kde-format
 msgid "Open images"
-msgstr ""
+msgstr "افتح الصور"
 
 #: src/main.qml:134
 #, kde-format
 msgid "Drag and drop images here."
-msgstr ""
+msgstr "اسحب صورًا وأسقطها هنا."
 
 #: src/main.qml:184
 #, kde-format
 msgid "Tagged"
-msgstr ""
+msgstr "موسومة"
 
 #: src/main.qml:185
 #, kde-format
 msgid "File was tagged successfully"
-msgstr ""
+msgstr "وُسِمَ الملف بنجاح"
 
 #: src/main.qml:239 src/view_models/PixMenu.qml:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
-msgstr[0] "احذف ملف"
-msgstr[1] "احذف الملفات"
-msgstr[2] "احذف الملفات"
-msgstr[3] "احذف الملفات"
-msgstr[4] "احذف الملفات"
-msgstr[5] "احذف الملفات"
+msgstr[0] "أأحذف الملفّ؟"
+msgstr[1] "أأحذف الملفّ؟"
+msgstr[2] "أأحذف الملفّين؟"
+msgstr[3] "أأحذف %1 ملفّات؟"
+msgstr[4] "أأحذف %1 ملفًّا؟"
+msgstr[5] "أأحذف %1 ملف؟"
 
 #: src/main.qml:240 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "هل أنت متأكد من حذف هذا الملف؟ لا يمكن التراجع عن هذا الإجراء."
+msgstr[1] "هل أنت متأكد من حذف هذا الملف؟ لا يمكن التراجع عن هذا الإجراء."
+msgstr[2] "هل أنت متأكد من حذف هذين الملفين؟ لا يمكن التراجع عن هذا الإجراء."
+msgstr[3] "هل أنت متأكد من حذف هذه الملفات؟ لا يمكن التراجع عن هذا الإجراء."
+msgstr[4] "هل أنت متأكد من حذف هذه الملفات؟ لا يمكن التراجع عن هذا الإجراء."
+msgstr[5] "هل أنت متأكد من حذف هذه الملفات؟ لا يمكن التراجع عن هذا الإجراء."
 
 #: src/main.qml:246 src/view_models/PixMenu.qml:47
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgid "Cancel"
 msgstr "ألغِ"
 
@@ -85,7 +85,7 @@ msgstr "أزل"
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
 msgid "Favorites"
-msgstr ""
+msgstr "المفضّلة"
 
 #: src/models/folders/placesmodel.cpp:16
 #, kde-format
@@ -95,7 +95,7 @@ msgstr "التنزيلات"
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "الصور"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:231
@@ -111,7 +111,7 @@ msgstr "كاميرا"
 #: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
-msgstr ""
+msgstr "التّجميعة"
 
 #: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
 #: src/view_models/PixMenu.qml:77
@@ -128,13 +128,13 @@ msgstr "الأماكن"
 #: src/models/folders/placesmodel.cpp:84
 #, kde-format
 msgid "Locations"
-msgstr ""
+msgstr "المواقع"
 
 #: src/models/folders/placesmodel.cpp:101
 #: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
-msgstr ""
+msgstr "متحركة"
 
 #: src/models/folders/placesmodel.cpp:101
 #: src/models/folders/placesmodel.cpp:103
@@ -144,56 +144,55 @@ msgstr ""
 #: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "الأصناف"
 
 #: src/models/folders/placesmodel.cpp:105
 #, kde-format
 msgid "PNG"
-msgstr ""
+msgstr "PNG"
 
 #: src/models/folders/placesmodel.cpp:107
 #: src/widgets/views/Tags/TagsSidebar.qml:255
 #, kde-format
 msgid "PSD"
-msgstr ""
+msgstr "PSD"
 
 #: src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
-msgstr ""
+msgstr "المتجهات"
 
 #: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "Paintings"
-msgstr ""
+msgstr "الرسمات"
 
 #: src/models/gallery/gallery.cpp:124
 #, kde-format
 msgid "No sources found to scan."
-msgstr ""
+msgstr "لم يعثر على مصادر للمسح."
 
 #: src/view_models/PixGrid.qml:44
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "ابحث"
-msgstr[1] "ابحث"
-msgstr[2] "ابحث"
-msgstr[3] "ابحث"
-msgstr[4] "ابحث"
-msgstr[5] "ابحث"
+msgstr[0] "لا شيء"
+msgstr[1] "ابحث عن صورة"
+msgstr[2] "ابحث عن صورتين"
+msgstr[3] "ابحث عن %1 صور"
+msgstr[4] "ابحث عن %1 صورة"
+msgstr[5] "ابحث عن %1 صورة"
 
 #: src/view_models/PixGrid.qml:71
 #, kde-format
 msgid "Image Text (OCR)"
-msgstr ""
+msgstr "نص الصورة (التعرف الضوئي على الحروف)"
 
 #: src/view_models/PixMenu.qml:68
 #, kde-format
 msgid "UnFav it"
-msgstr ""
+msgstr "أزل التفضيل"
 
 #: src/view_models/PixMenu.qml:89
 #, kde-format
@@ -243,7 +242,7 @@ msgstr "الوسم"
 #: src/widgets/SelectionBar.qml:87
 #, kde-format
 msgid "Un/Fav"
-msgstr ""
+msgstr "فضّل/لا تفضل"
 
 #: src/widgets/SettingsDialog.qml:15
 #, kde-format
@@ -258,7 +257,7 @@ msgstr "إعادة التحميل الآلي"
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Watch for changes in the collection sources."
-msgstr ""
+msgstr "راقب التغييرات في مصادر المجموعة."
 
 #: src/widgets/SettingsDialog.qml:39
 #, kde-format
@@ -268,17 +267,17 @@ msgstr "ناسب"
 #: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr ""
+msgstr "ناسب المصغرات والحفاظ على نسبة العرض إلى الارتفاع."
 
 #: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
-msgstr ""
+msgstr "عناوين الصور"
 
 #: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Show the file name of the images."
-msgstr ""
+msgstr "أظهر اسم ملف الصور."
 
 #: src/widgets/SettingsDialog.qml:65
 #, kde-format
@@ -288,7 +287,7 @@ msgstr "حجم المعاينة"
 #: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
-msgstr ""
+msgstr "حجم المصغرة في عروض المجموعة."
 
 #: src/widgets/SettingsDialog.qml:77
 #, kde-format
@@ -298,7 +297,7 @@ msgstr "ص"
 #: src/widgets/SettingsDialog.qml:84
 #, kde-format
 msgid "M"
-msgstr "و"
+msgstr "م"
 
 #: src/widgets/SettingsDialog.qml:92
 #, kde-format
@@ -363,42 +362,42 @@ msgstr "تنازليًّا"
 #: src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "GPS Tags"
-msgstr ""
+msgstr "وسم نظام تحديد المواقع العالمي (GPS)."
 
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Show GPS tags."
-msgstr ""
+msgstr "أظهر وسوم جي بي اس."
 
 #: src/widgets/SettingsDialog.qml:197
 #, kde-format
 msgid "Experimental feature."
-msgstr ""
+msgstr "ميزة تجريبية."
 
 #: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Viewer"
-msgstr ""
+msgstr "المستعرض"
 
 #: src/widgets/SettingsDialog.qml:210
 #, kde-format
 msgid "Tag Bar"
-msgstr ""
+msgstr "شريط الوسوم"
 
 #: src/widgets/SettingsDialog.qml:211
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
-msgstr ""
+msgstr "طريقة سهلة لإضافة وإزالة وتعديل علامات الصورة الحالية."
 
 #: src/widgets/SettingsDialog.qml:223
 #, kde-format
 msgid "Preview Bar"
-msgstr ""
+msgstr "شريط المعاينة"
 
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Sources"
-msgstr ""
+msgstr "المصادر"
 
 #: src/widgets/SettingsDialog.qml:275
 #, kde-format
@@ -413,32 +412,32 @@ msgstr "العلامات!"
 #: src/widgets/Sidebar.qml:42
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "ستدرج إشاراتك المرجعية هنا"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
 msgid "Loading content!"
-msgstr ""
+msgstr "جاري تحميل المحتوى!"
 
 #: src/widgets/views/Cloud/CloudView.qml:35
 #, kde-format
 msgid "Nothing here"
-msgstr ""
+msgstr "لا يوجد شيء هنا"
 
 #: src/widgets/views/Cloud/CloudView.qml:38
 #, kde-format
 msgid "Almost ready!"
-msgstr ""
+msgstr "جاهز تقريبًا!"
 
 #: src/widgets/views/Cloud/CloudView.qml:40
 #, kde-format
 msgid "Make sure you're online and your cloud account is working"
-msgstr ""
+msgstr "تأكد من أنك متصل بالإنترنت وأن حسابك السحابي يعمل"
 
 #: src/widgets/views/CollectionView.qml:106
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "تبديل الشريط الجانبي"
 
 #: src/widgets/views/CollectionView.qml:136
 #: src/widgets/views/Gallery/GalleryView.qml:25
@@ -460,32 +459,32 @@ msgstr "عن"
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد  مجلّدات"
+msgstr[1] "رشّح مجلد واحد"
+msgstr[2] "رشّح المجلدين"
+msgstr[3] "رشّح %1 المجلّدات"
+msgstr[4] "رشّح %1 مجلدًا"
+msgstr[5] "رشّح %1 مجلد"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "No Folders!"
-msgstr ""
+msgstr "لا يوجد  مجلّدات!"
 
 #: src/widgets/views/Folders/FoldersView.qml:70
 #, kde-format
 msgid "Nothing Here!"
-msgstr ""
+msgstr "لا يوجد شيء هنا!"
 
 #: src/widgets/views/Folders/FoldersView.qml:71
 #, kde-format
 msgid "Add new image sources."
-msgstr ""
+msgstr "أضف مصادر صور جديدة."
 
 #: src/widgets/views/Folders/FoldersView.qml:71
 #, kde-format
 msgid "Try something different."
-msgstr ""
+msgstr "جرب شيئا مختلفا."
 
 #: src/widgets/views/Folders/FoldersView.qml:166
 #, kde-format
@@ -495,36 +494,36 @@ msgstr "المجلد فارغ!"
 #: src/widgets/views/Folders/FoldersView.qml:167
 #, kde-format
 msgid "There're no images in this folder. %1"
-msgstr ""
+msgstr "لا توجد صور في هذا المجلد. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:182
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] ""
-msgstr[1] "الصور"
-msgstr[2] "الصور"
-msgstr[3] "الصور"
-msgstr[4] "الصور"
-msgstr[5] "الصور"
+msgstr[0] "لا يوجد صورة"
+msgstr[1] "صورة واحدة"
+msgstr[2] "صورتان"
+msgstr[3] "%1 صور"
+msgstr[4] "%1 صورة"
+msgstr[5] "%1 صورة"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
 #: src/widgets/views/Viewer/PixViewer.qml:206
 #, kde-format
 msgid "No Pics!"
-msgstr ""
+msgstr "لا توجد صور!"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
-msgstr ""
+msgstr "لا يوجد شيء هنا. يمكنك إضافة مصادر جديدة أو فتح صورة."
 
 #: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
-msgstr ""
+msgstr "أضف مصادر"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
@@ -535,12 +534,12 @@ msgstr "لا نتائج"
 #, kde-format
 msgid "Filter %1 tag"
 msgid_plural "Filter %1 tags"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا ترشح شيء"
+msgstr[1] "رشح وسم"
+msgstr[2] "رشح وسمين"
+msgstr[3] "رشح %1 وسوم"
+msgstr[4] "رشح %1 وسمًا"
+msgstr[5] "رشح %1 وسم"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:103
 #, kde-format
@@ -550,7 +549,7 @@ msgstr "وسم جديد"
 #: src/widgets/views/Tags/TagsSidebar.qml:143
 #, kde-format
 msgid "qrc:/assets/add-image.svg"
-msgstr ""
+msgstr "qrc:/assets/add-image.svg"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:144
 #, kde-format
@@ -560,18 +559,18 @@ msgstr "لا وسوم!"
 #: src/widgets/views/Tags/TagsSidebar.qml:145
 #, kde-format
 msgid "You can create new tags to organize your gallery"
-msgstr ""
+msgstr "يمكنك إنشاء وسوم جديدة لتنظيم معرض صورك"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:166
 #: src/widgets/views/Tags/TagsSidebar.qml:206
 #, kde-format
 msgid "GPS based locations"
-msgstr ""
+msgstr "المواقع المعتمدة على نظام تحديد المواقع العالمي (GPS)."
 
 #: src/widgets/views/Tags/TagsSidebar.qml:205
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "المرشّحات"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:239
 #, kde-format
@@ -581,7 +580,7 @@ msgstr "الأحد"
 #: src/widgets/views/Tags/TagsSidebar.qml:247
 #, kde-format
 msgid "PNGs"
-msgstr ""
+msgstr "PNG"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:271
 #, kde-format
@@ -591,17 +590,17 @@ msgstr "لوّن"
 #: src/widgets/views/Tags/TagsSidebar.qml:279
 #, kde-format
 msgid "Animals"
-msgstr ""
+msgstr "حيوانات"
 
 #: src/widgets/views/Tags/TagsView.qml:27
 #, kde-format
 msgid "No Pics in %1!"
-msgstr ""
+msgstr "لا توجد صور في %1!"
 
 #: src/widgets/views/Tags/TagsView.qml:28
 #, kde-format
 msgid "There're no pics associated with the tag"
-msgstr ""
+msgstr "لا توجد صور مرتبطة بالوسم"
 
 #: src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -616,7 +615,7 @@ msgstr "احفظ"
 #: src/widgets/views/Viewer/PixViewer.qml:113
 #, kde-format
 msgid "Gallery"
-msgstr ""
+msgstr "المعرض"
 
 #: src/widgets/views/Viewer/PixViewer.qml:132
 #, kde-format
@@ -626,7 +625,7 @@ msgstr "السابق"
 #: src/widgets/views/Viewer/PixViewer.qml:207
 #, kde-format
 msgid "Open an image from your collection"
-msgstr ""
+msgstr "افتح صورة من مجموعتك"
 
 #, fuzzy
 #~| msgid "Accept"
