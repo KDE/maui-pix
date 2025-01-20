@@ -27,6 +27,7 @@ ScrollView
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical.policy: ScrollBar.AlwaysOff
 
+Maui.Controls.orientation: Qt.Horizontal
     ListView
     {
         id: rollList

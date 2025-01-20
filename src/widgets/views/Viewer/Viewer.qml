@@ -40,7 +40,6 @@ Item
         {
             autoReload: browserSettings.autoReload
             activeGeolocationTags: false
-            recursive: false
         }
 
         sort: browserSettings.sortBy

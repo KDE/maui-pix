@@ -6,8 +6,9 @@
 
 .import org.mauikit.filebrowsing 1.2 as FB
 
-function open(model, index)
+function open(model, index, recursive = false)
 {
+    _pixViewer.model.list.recursive = model.list.recursive
     _pixViewer.model.list.urls = model.list.urls
     _pixViewer.view(index)
     if(!_pixViewer.visible)
