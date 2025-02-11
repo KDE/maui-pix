@@ -607,9 +607,3 @@ msgstr "Předchozí"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
-
-#~ msgid "Accept"
-#~ msgstr "Přijmout"
-
-#~ msgid "Delete File?"
-#~ msgstr "Smazat soubor?"
