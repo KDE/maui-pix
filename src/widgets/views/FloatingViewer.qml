@@ -37,8 +37,10 @@ Loader
     {
         id: _floatingViewer
         Maui.Controls.badgeText: _pixViewer.viewer.count
-        implicitHeight: 160
-        implicitWidth: implicitHeight
+
+        implicitHeight: miniArtwork.paintedHeight + topPadding + bottomPadding
+        implicitWidth: miniArtwork.paintedWidth + leftPadding + rightPadding
+
         hoverEnabled: !Maui.Handy.isMobile
 
         scale: hovered || pressed ? 1.2 : 1
@@ -125,44 +127,50 @@ Loader
             }
         }
 
-        contentItem: Image
+        contentItem: Item
         {
-            id: miniArtwork
-            source: _pixViewer.currentPic.url
 
-            fillMode: Image.PreserveAspectCrop
-
-            Rectangle
+            Image
             {
-                anchors.fill: parent
-                color: Maui.Theme.backgroundColor
-                opacity: 0.5
-                visible: _floatingViewer.hovered
-                Maui.Icon
-                {
-                    anchors.centerIn: parent
-                    source: "quickview"
-                    height: 48
-                    width: 48
-                }
-            }
+                id: miniArtwork
+                source: _pixViewer.currentPic.url
+                sourceSize.height: 160
+                sourceSize.width: 160
 
-            layer.enabled: true
+                fillMode: Image.PreserveAspectFit
 
-            layer.effect: MultiEffect
-            {
-                maskEnabled: true
-                maskThresholdMin: 0.5
-                maskSpreadAtMin: 1.0
-                maskSpreadAtMax: 0.0
-                maskThresholdMax: 1.0
-                maskSource: ShaderEffectSource
+                Rectangle
                 {
-                    sourceItem: Rectangle
+                    anchors.fill: parent
+                    color: Maui.Theme.backgroundColor
+                    opacity: 0.5
+                    visible: _floatingViewer.hovered
+                    Maui.Icon
                     {
-                        width: miniArtwork.width
-                        height: miniArtwork.height
-                        radius:  Maui.Style.radiusV
+                        anchors.centerIn: parent
+                        source: "quickview"
+                        height: 48
+                        width: 48
+                    }
+                }
+
+                layer.enabled: true
+
+                layer.effect: MultiEffect
+                {
+                    maskEnabled: true
+                    maskThresholdMin: 0.5
+                    maskSpreadAtMin: 1.0
+                    maskSpreadAtMax: 0.0
+                    maskThresholdMax: 1.0
+                    maskSource: ShaderEffectSource
+                    {
+                        sourceItem: Rectangle
+                        {
+                            width: miniArtwork.width
+                            height: miniArtwork.height
+                            radius:  Maui.Style.radiusV
+                        }
                     }
                 }
             }
