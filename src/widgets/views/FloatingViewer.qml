@@ -38,6 +38,8 @@ Loader
         id: _floatingViewer
         Maui.Controls.badgeText: _pixViewer.viewer.count
 
+        padding: Maui.Style.defaultPadding
+
         implicitHeight: miniArtwork.paintedHeight + topPadding + bottomPadding
         implicitWidth: miniArtwork.paintedWidth + leftPadding + rightPadding
 
@@ -70,7 +72,7 @@ Loader
 
         background: Rectangle
         {
-            color: Maui.Theme.backgroundColor
+            color: "white"
 
             radius: Maui.Style.radiusV
             // property color borderColor: Maui.Theme.textColor

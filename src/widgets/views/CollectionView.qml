@@ -66,6 +66,8 @@ Maui.SideBarView
 
     sideBar.resizeable: false
     sideBar.preferredWidth: 200
+    sideBar.autoHide: true
+    sideBar.autoShow: true
     sideBar.content: Sidebar
     {
         anchors.fill: parent
