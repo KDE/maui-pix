@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-26 00:40+0000\n"
 "PO-Revision-Date: 2023-04-20 19:45+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -48,14 +48,14 @@ msgstr ""
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:239 src/view_models/PixMenu.qml:40
+#: src/main.qml:237 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "%1 Datei löschen?"
 msgstr[1] "%1 Dateien löschen?"
 
-#: src/main.qml:240 src/view_models/PixMenu.qml:41
+#: src/main.qml:238 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -67,13 +67,13 @@ msgstr[1] ""
 "Möchten Sie wirklich diese Dateien wirklich löschen? Diese Aktion kann nicht "
 "rückgängig gemacht werden."
 
-#: src/main.qml:246 src/view_models/PixMenu.qml:47
+#: src/main.qml:244 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: src/main.qml:252 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
+#: src/main.qml:250 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:194 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Entfernen"
@@ -202,22 +202,22 @@ msgstr "Teilen"
 msgid "Select"
 msgstr "Auswählen"
 
-#: src/view_models/PixMenu.qml:127 src/widgets/SelectionBar.qml:94
+#: src/view_models/PixMenu.qml:127 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
-msgid "Export"
-msgstr "Exportieren"
+msgid "Save as"
+msgstr "Speichern unter"
 
-#: src/view_models/PixMenu.qml:145
+#: src/view_models/PixMenu.qml:148
 #, kde-format
 msgid "Open with"
 msgstr "Öffnen mit"
 
-#: src/view_models/PixMenu.qml:162
+#: src/view_models/PixMenu.qml:165
 #, kde-format
 msgid "Go to Folder"
 msgstr "In Ordner wechseln"
 
-#: src/view_models/PixMenu.qml:179
+#: src/view_models/PixMenu.qml:182
 #, kde-format
 msgid "Open Location"
 msgstr "Adresse öffnen"
@@ -236,6 +236,11 @@ msgstr "Stichwort"
 #, kde-format
 msgid "Un/Fav"
 msgstr "Favoritenmarkierung umkehren"
+
+#: src/widgets/SelectionBar.qml:94
+#, kde-format
+msgid "Export"
+msgstr "Exportieren"
 
 #: src/widgets/SettingsDialog.qml:15
 #, kde-format
@@ -430,23 +435,23 @@ msgstr "Beinahe fertig"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Überprüfen Sie, ob Sie online sind und ob Ihr Cloud-Konto funktioniert"
 
-#: src/widgets/views/CollectionView.qml:106
+#: src/widgets/views/CollectionView.qml:108
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Seitenleiste umschalten"
 
-#: src/widgets/views/CollectionView.qml:136
+#: src/widgets/views/CollectionView.qml:138
 #: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Öffnen"
 
-#: src/widgets/views/CollectionView.qml:145
+#: src/widgets/views/CollectionView.qml:147
 #, kde-format
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/widgets/views/CollectionView.qml:152
+#: src/widgets/views/CollectionView.qml:154
 #, kde-format
 msgid "About"
 msgstr "Über"
@@ -500,7 +505,7 @@ msgstr[1] "%1 Bilder"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:206
+#: src/widgets/views/Viewer/PixViewer.qml:208
 #, kde-format
 msgid "No Pics!"
 msgstr "Keine Bilder"
@@ -589,27 +594,22 @@ msgstr "Keine Bilder in %1"
 msgid "There're no pics associated with the tag"
 msgstr "Es gibt keine Bilder mit diesem Stichwort"
 
-#: src/widgets/views/Viewer/PixViewer.qml:69
-#, kde-format
-msgid "Save as"
-msgstr "Speichern unter"
-
-#: src/widgets/views/Viewer/PixViewer.qml:88
+#: src/widgets/views/Viewer/PixViewer.qml:90
 #, kde-format
 msgid "Save"
 msgstr "Speichern"
 
-#: src/widgets/views/Viewer/PixViewer.qml:113
+#: src/widgets/views/Viewer/PixViewer.qml:115
 #, kde-format
 msgid "Gallery"
 msgstr "Galerie"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:134
 #, kde-format
 msgid "Previous"
 msgstr "Zurück"
 
-#: src/widgets/views/Viewer/PixViewer.qml:207
+#: src/widgets/views/Viewer/PixViewer.qml:209
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Öffnet ein Bild aus Ihrer Sammlung"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-26 00:40+0000\n"
 "PO-Revision-Date: 2021-01-17 14:58+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -51,14 +51,14 @@ msgstr ""
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:239 src/view_models/PixMenu.qml:40
+#: src/main.qml:237 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Törli ezt a(z) %1 fájlt?"
 msgstr[1] "Törli ezt a(z) %1 fájlt?"
 
-#: src/main.qml:240 src/view_models/PixMenu.qml:41
+#: src/main.qml:238 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -66,13 +66,13 @@ msgid_plural ""
 msgstr[0] "Biztosan törli ezt a fájlt? A művelet nem vonható vissza."
 msgstr[1] "Biztosan törli ezeket a fájlokat? A művelet nem vonható vissza."
 
-#: src/main.qml:246 src/view_models/PixMenu.qml:47
+#: src/main.qml:244 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Mégsem"
 
-#: src/main.qml:252 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
+#: src/main.qml:250 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:194 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Eltávolítás"
@@ -204,24 +204,25 @@ msgstr "Megosztás"
 msgid "Select"
 msgstr "Kijelölés"
 
-#: src/view_models/PixMenu.qml:127 src/widgets/SelectionBar.qml:94
-#, kde-format
-msgid "Export"
-msgstr "Exportálás"
+#: src/view_models/PixMenu.qml:127 src/widgets/views/Viewer/PixViewer.qml:69
+#, fuzzy, kde-format
+#| msgid "Save as..."
+msgid "Save as"
+msgstr "Mentés másként…"
 
-#: src/view_models/PixMenu.qml:145
+#: src/view_models/PixMenu.qml:148
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "Open with"
 msgstr "Képek megnyitása"
 
-#: src/view_models/PixMenu.qml:162
+#: src/view_models/PixMenu.qml:165
 #, fuzzy, kde-format
 #| msgid "Show in folder"
 msgid "Go to Folder"
 msgstr "Megjelenítés mappában"
 
-#: src/view_models/PixMenu.qml:179
+#: src/view_models/PixMenu.qml:182
 #, kde-format
 msgid "Open Location"
 msgstr ""
@@ -240,6 +241,11 @@ msgstr "Címke"
 #, kde-format
 msgid "Un/Fav"
 msgstr "Kedvenc be/ki"
+
+#: src/widgets/SelectionBar.qml:94
+#, kde-format
+msgid "Export"
+msgstr "Exportálás"
 
 #: src/widgets/SettingsDialog.qml:15
 #, kde-format
@@ -436,23 +442,23 @@ msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 "Ellenőrizze, hogy van-e internetkapcsolata, és a felhős fiókja működik-e"
 
-#: src/widgets/views/CollectionView.qml:106
+#: src/widgets/views/CollectionView.qml:108
 #, kde-format
 msgid "Toggle sidebar"
 msgstr ""
 
-#: src/widgets/views/CollectionView.qml:136
+#: src/widgets/views/CollectionView.qml:138
 #: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr ""
 
-#: src/widgets/views/CollectionView.qml:145
+#: src/widgets/views/CollectionView.qml:147
 #, kde-format
 msgid "Settings"
 msgstr "Beállítások"
 
-#: src/widgets/views/CollectionView.qml:152
+#: src/widgets/views/CollectionView.qml:154
 #, kde-format
 msgid "About"
 msgstr ""
@@ -509,7 +515,7 @@ msgstr[1] "Képek megnyitása"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:206
+#: src/widgets/views/Viewer/PixViewer.qml:208
 #, kde-format
 msgid "No Pics!"
 msgstr "Nincsenek képek"
@@ -603,28 +609,22 @@ msgstr "Nincsenek képek"
 msgid "There're no pics associated with the tag"
 msgstr "Nincsenek ilyen címkéjű képek"
 
-#: src/widgets/views/Viewer/PixViewer.qml:69
-#, fuzzy, kde-format
-#| msgid "Save as..."
-msgid "Save as"
-msgstr "Mentés másként…"
-
-#: src/widgets/views/Viewer/PixViewer.qml:88
+#: src/widgets/views/Viewer/PixViewer.qml:90
 #, kde-format
 msgid "Save"
 msgstr "Mentés"
 
-#: src/widgets/views/Viewer/PixViewer.qml:113
+#: src/widgets/views/Viewer/PixViewer.qml:115
 #, kde-format
 msgid "Gallery"
 msgstr "Galéria"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:134
 #, kde-format
 msgid "Previous"
 msgstr "Előző"
 
-#: src/widgets/views/Viewer/PixViewer.qml:207
+#: src/widgets/views/Viewer/PixViewer.qml:209
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Kép megnyitása a gyűjteményéből"

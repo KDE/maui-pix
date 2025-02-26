@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-26 00:40+0000\n"
 "PO-Revision-Date: 2025-01-08 20:10+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -47,14 +47,14 @@ msgstr "Etiquetado"
 msgid "File was tagged successfully"
 msgstr "Etiquetouse o ficheiro."
 
-#: src/main.qml:239 src/view_models/PixMenu.qml:40
+#: src/main.qml:237 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Quere eliminar %1 ficheiro?"
 msgstr[1] "Quere eliminar %1 ficheiros?"
 
-#: src/main.qml:240 src/view_models/PixMenu.qml:41
+#: src/main.qml:238 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -64,13 +64,13 @@ msgstr[0] ""
 msgstr[1] ""
 "Seguro que quere eliminar os ficheiros? Esta acción non se pode desfacer."
 
-#: src/main.qml:246 src/view_models/PixMenu.qml:47
+#: src/main.qml:244 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/main.qml:252 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
+#: src/main.qml:250 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:194 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Retirar"
@@ -199,22 +199,22 @@ msgstr "Compartir"
 msgid "Select"
 msgstr "Seleccionar"
 
-#: src/view_models/PixMenu.qml:127 src/widgets/SelectionBar.qml:94
+#: src/view_models/PixMenu.qml:127 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
-msgid "Export"
-msgstr "Exportar"
+msgid "Save as"
+msgstr "Gardar como"
 
-#: src/view_models/PixMenu.qml:145
+#: src/view_models/PixMenu.qml:148
 #, kde-format
 msgid "Open with"
 msgstr "Abrir con"
 
-#: src/view_models/PixMenu.qml:162
+#: src/view_models/PixMenu.qml:165
 #, kde-format
 msgid "Go to Folder"
 msgstr "Ir ao cartafol"
 
-#: src/view_models/PixMenu.qml:179
+#: src/view_models/PixMenu.qml:182
 #, kde-format
 msgid "Open Location"
 msgstr "Abrir a localización"
@@ -233,6 +233,11 @@ msgstr "Etiquetar"
 #, kde-format
 msgid "Un/Fav"
 msgstr "Conmutar favorito"
+
+#: src/widgets/SelectionBar.qml:94
+#, kde-format
+msgid "Export"
+msgstr "Exportar"
 
 #: src/widgets/SettingsDialog.qml:15
 #, kde-format
@@ -427,23 +432,23 @@ msgstr ""
 "Asegúrese de que ten conexión a Internet e de que a súa conta da nube "
 "funciona."
 
-#: src/widgets/views/CollectionView.qml:106
+#: src/widgets/views/CollectionView.qml:108
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Conmutar a barra lateral"
 
-#: src/widgets/views/CollectionView.qml:136
+#: src/widgets/views/CollectionView.qml:138
 #: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/widgets/views/CollectionView.qml:145
+#: src/widgets/views/CollectionView.qml:147
 #, kde-format
 msgid "Settings"
 msgstr "Configuración"
 
-#: src/widgets/views/CollectionView.qml:152
+#: src/widgets/views/CollectionView.qml:154
 #, kde-format
 msgid "About"
 msgstr "Sobre"
@@ -494,7 +499,7 @@ msgstr[1] "Hai %1 imaxes."
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:206
+#: src/widgets/views/Viewer/PixViewer.qml:208
 #, kde-format
 msgid "No Pics!"
 msgstr "Non hai imaxes!"
@@ -583,27 +588,22 @@ msgstr "Non hai imaxes en %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Non hai imaxes asociadas coa etiqueta."
 
-#: src/widgets/views/Viewer/PixViewer.qml:69
-#, kde-format
-msgid "Save as"
-msgstr "Gardar como"
-
-#: src/widgets/views/Viewer/PixViewer.qml:88
+#: src/widgets/views/Viewer/PixViewer.qml:90
 #, kde-format
 msgid "Save"
 msgstr "Gardar"
 
-#: src/widgets/views/Viewer/PixViewer.qml:113
+#: src/widgets/views/Viewer/PixViewer.qml:115
 #, kde-format
 msgid "Gallery"
 msgstr "Galería"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:134
 #, kde-format
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/widgets/views/Viewer/PixViewer.qml:207
+#: src/widgets/views/Viewer/PixViewer.qml:209
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir unha imaxes da colección."

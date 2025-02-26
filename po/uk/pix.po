@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-26 00:40+0000\n"
 "PO-Revision-Date: 2025-01-08 11:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -50,7 +50,7 @@ msgstr "З міткою"
 msgid "File was tagged successfully"
 msgstr "Файлу було успішно надано мітку"
 
-#: src/main.qml:239 src/view_models/PixMenu.qml:40
+#: src/main.qml:237 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -59,7 +59,7 @@ msgstr[1] "Вилучити %1 файли?"
 msgstr[2] "Вилучити %1 файлів?"
 msgstr[3] "Вилучити файл?"
 
-#: src/main.qml:240 src/view_models/PixMenu.qml:41
+#: src/main.qml:238 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -73,13 +73,13 @@ msgstr[2] ""
 msgstr[3] ""
 "Ви справді хочете вилучити ці файли? Результат дії не можна буде скасувати."
 
-#: src/main.qml:246 src/view_models/PixMenu.qml:47
+#: src/main.qml:244 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/main.qml:252 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:191 src/widgets/SelectionBar.qml:113
+#: src/main.qml:250 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:194 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Вилучити"
@@ -209,22 +209,22 @@ msgstr "Оприлюднити"
 msgid "Select"
 msgstr "Вибрати"
 
-#: src/view_models/PixMenu.qml:127 src/widgets/SelectionBar.qml:94
+#: src/view_models/PixMenu.qml:127 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
-msgid "Export"
-msgstr "Експортувати"
+msgid "Save as"
+msgstr "Зберегти як"
 
-#: src/view_models/PixMenu.qml:145
+#: src/view_models/PixMenu.qml:148
 #, kde-format
 msgid "Open with"
 msgstr "Відкрити за допомогою"
 
-#: src/view_models/PixMenu.qml:162
+#: src/view_models/PixMenu.qml:165
 #, kde-format
 msgid "Go to Folder"
 msgstr "Перейти до теки"
 
-#: src/view_models/PixMenu.qml:179
+#: src/view_models/PixMenu.qml:182
 #, kde-format
 msgid "Open Location"
 msgstr "Відкрити адресу"
@@ -243,6 +243,11 @@ msgstr "Мітка"
 #, kde-format
 msgid "Un/Fav"
 msgstr "Не/Улюблене"
+
+#: src/widgets/SelectionBar.qml:94
+#, kde-format
+msgid "Export"
+msgstr "Експортувати"
 
 #: src/widgets/SettingsDialog.qml:15
 #, kde-format
@@ -437,23 +442,23 @@ msgstr ""
 "Переконайтеся у працездатності з'єднання з мережею та вашого «хмарного» "
 "облікового запису"
 
-#: src/widgets/views/CollectionView.qml:106
+#: src/widgets/views/CollectionView.qml:108
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Увімкнути/Вимкнути бічну панель"
 
-#: src/widgets/views/CollectionView.qml:136
+#: src/widgets/views/CollectionView.qml:138
 #: src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/widgets/views/CollectionView.qml:145
+#: src/widgets/views/CollectionView.qml:147
 #, kde-format
 msgid "Settings"
 msgstr "Параметри"
 
-#: src/widgets/views/CollectionView.qml:152
+#: src/widgets/views/CollectionView.qml:154
 #, kde-format
 msgid "About"
 msgstr "Про програму"
@@ -508,7 +513,7 @@ msgstr[3] "%1 зображення."
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:206
+#: src/widgets/views/Viewer/PixViewer.qml:208
 #, kde-format
 msgid "No Pics!"
 msgstr "Немає зображень!"
@@ -600,27 +605,22 @@ msgstr "У %1 немає зображень!"
 msgid "There're no pics associated with the tag"
 msgstr "З цією міткою не пов'язано жодного зображення"
 
-#: src/widgets/views/Viewer/PixViewer.qml:69
-#, kde-format
-msgid "Save as"
-msgstr "Зберегти як"
-
-#: src/widgets/views/Viewer/PixViewer.qml:88
+#: src/widgets/views/Viewer/PixViewer.qml:90
 #, kde-format
 msgid "Save"
 msgstr "Зберегти"
 
-#: src/widgets/views/Viewer/PixViewer.qml:113
+#: src/widgets/views/Viewer/PixViewer.qml:115
 #, kde-format
 msgid "Gallery"
 msgstr "Галерея"
 
-#: src/widgets/views/Viewer/PixViewer.qml:132
+#: src/widgets/views/Viewer/PixViewer.qml:134
 #, kde-format
 msgid "Previous"
 msgstr "Назад"
 
-#: src/widgets/views/Viewer/PixViewer.qml:207
+#: src/widgets/views/Viewer/PixViewer.qml:209
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Відкрити зображення з вашої збірки"
