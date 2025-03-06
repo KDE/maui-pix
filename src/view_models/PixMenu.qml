@@ -72,17 +72,6 @@ Maui.ContextualMenu
             onTriggered: FB.Tagging.toggleFav(item.url)
         }
 
-        Action
-        {
-            text: i18n("Tags")
-            icon.name: "tag"
-            onTriggered:
-            {
-                dialogLoader.sourceComponent = tagsDialogComponent
-                dialog.composerList.urls = filterSelection(item.url)
-                dialog.open()
-            }
-        }
 
         Action
         {
@@ -117,6 +106,32 @@ Maui.ContextualMenu
                 root.selectionMode = true
 
             selectItem(item)
+        }
+    }
+
+    MenuSeparator{}
+
+    MenuItem
+    {
+        visible: browserSettings.lastUsedTag.length > 0
+        height: visible ? implicitHeight : -control.spacing
+        text: i18n("Add to '%1'", browserSettings.lastUsedTag)
+        icon.name: "tag"
+        onTriggered:
+        {
+            FB.Tagging.tagUrl(control.item.url, browserSettings.lastUsedTag)
+        }
+    }
+
+    Action
+    {
+        text: i18n("Add to Album")
+        icon.name: "tag"
+        onTriggered:
+        {
+            dialogLoader.sourceComponent = tagsDialogComponent
+            dialog.composerList.urls = filterSelection(item.url)
+            dialog.open()
         }
     }
 

@@ -32,7 +32,7 @@ StackView
     initialItem: Maui.Page
     {
         id: _foldersPage
-        readonly property string currentFolder : "folders:///"
+        readonly property string currentFolder : "collection:///"
 
         Maui.Theme.inherit: false
         Maui.Theme.colorGroup: Maui.Theme.View
@@ -72,12 +72,12 @@ StackView
             holder.visible: _foldersGrid.count === 0
 
             onKeyPress: (event) =>
-            {
-                if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
-                {
-                    openFolder(_foldersGrid.currentItem.path)
-                }
-            }
+                        {
+                            if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
+                            {
+                                openFolder(_foldersGrid.currentItem.path)
+                            }
+                        }
 
             model: Maui.BaseModel
             {
@@ -228,18 +228,6 @@ Component
     }
 }
 
-Component
-{
-    id: _allPicsComponent
-
-    GalleryView
-    {
-        property string currentFolder : "collection:///"
-        headBar.visible: false
-
-        list: Collection.allImagesModel
-    }
-}
 
 function refresh()
 {
@@ -255,7 +243,7 @@ function openFolder(url, filters)
     {
         if(String(url).startsWith("collection:///"))
         {
-            control.push(_allPicsComponent, ({'currentFolder': url}))
+            control.pop()
         }else
         {
             control.push(picsViewComponent, ({'currentFolder': url}))
@@ -266,10 +254,9 @@ function openFolder(url, filters)
         {
             if(String(url).startsWith("collection:///"))
             {
-                control.currentItem.currentFolder = url
+                return
             }else
             {
-                control.pop()
                 control.push(picsViewComponent, ({'currentFolder': url}))
             }
         }else
@@ -277,7 +264,6 @@ function openFolder(url, filters)
             if(String(url).startsWith("collection:///"))
             {
                 control.pop()
-                control.push(_allPicsComponent, ({'currentFolder': url}))
             }else
             {
                 control.currentItem.currentFolder = url

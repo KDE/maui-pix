@@ -228,9 +228,10 @@ StackView
                     width: parent.width
                     anchors.bottom: parent.bottom
                     height: Math.min(100, Math.max(parent.height * 0.12, 60))
-                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1 && opacity> 0
+                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
                     color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.7)
 
+                    opacity: visible ? 1 : 0
                     Behavior on opacity
                     {
                         NumberAnimation

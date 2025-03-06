@@ -70,6 +70,7 @@ Maui.ApplicationWindow
         property string sortBy : "modified"
         property int sortOrder: Qt.DescendingOrder
         property bool gpsTags : false
+        property string lastUsedTag
     }
 
     Settings
@@ -77,6 +78,7 @@ Maui.ApplicationWindow
         id: viewerSettings
         property bool tagBarVisible : true
         property bool previewBarVisible : false
+        property bool enableOCR: Maui.Handy.isLinux
     }
 
     StackView
@@ -204,7 +206,7 @@ Maui.ApplicationWindow
                                  _openTagAction.tag = tags[0]
                                  _taggedNotification.dispatch()
                              }
-
+                             browserSettings.lastUsedTag = tags[0]
                              composerList.updateToUrls(tags)
                          }
 

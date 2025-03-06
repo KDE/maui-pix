@@ -42,12 +42,13 @@ Loader
         holder.body: i18n("Your bookmarks will be listed here")
 
         onPlaceClicked: (path, filters, mouse) =>
-        {            
-            root.openFolder(path, filters.split(","))
+                        {
+                            root.openFolder(path, filters.split(","))
 
-            if(sideBar.collapsed)
-                sideBar.close()
-        }
+
+                            if(sideBar.collapsed)
+                            sideBar.close()
+                        }
 
         flickable.topMargin: Maui.Style.contentMargins
         flickable.bottomMargin: Maui.Style.contentMargins
@@ -93,11 +94,11 @@ Loader
                             flat: false
 
                             onClicked: (mouse) =>
-                            {
-                                _listBrowser.placeClicked(modelData.path, modelData.filters, mouse)
-                                if(sideBar.collapsed)
-                                    sideBar.close()
-                            }
+                                       {
+                                           _listBrowser.placeClicked(modelData.path, modelData.filters, mouse)
+                                           if(sideBar.collapsed)
+                                           sideBar.close()
+                                       }
                         }
 
                     }
@@ -128,11 +129,11 @@ Loader
             template.isMask: iconSize <= Maui.Style.iconSizes.medium
 
             onClicked: (mouse) =>
-            {
-                _listBrowser.placeClicked(model.path, model.key, mouse)
-                if(sideBar.collapsed)
-                    sideBar.close()
-            }
+                       {
+                           _listBrowser.placeClicked(model.path, model.key, mouse)
+                           if(sideBar.collapsed)
+                           sideBar.close()
+                       }
         }
 
         section.property: "type"

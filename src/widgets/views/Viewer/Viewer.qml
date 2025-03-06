@@ -54,6 +54,41 @@ Item
         viewerList.forceActiveFocus()
     }
 
+
+
+    Maui.ContextualMenu
+    {
+        id: _selectionMenu
+
+        property string text
+
+        MenuItem
+        {
+            text: i18n("Copy")
+        }
+
+        MenuItem
+        {
+            text: i18n("Call")
+        }
+
+        MenuItem
+        {
+            text: i18n("Message")
+        }
+
+        MenuItem
+        {
+            text: i18n("Save")
+        }
+
+        MenuItem
+        {
+            text: i18n("Search Web")
+        }
+
+    }
+
     ListView
     {
         id: viewerList
@@ -110,8 +145,11 @@ Item
 
         delegate: Loader
         {
+            id: _viewerLoaderDelegate
+
             height: ListView.view.height
             width: ListView.view.width
+            readonly property bool preloadInfo: ListView.isCurrentItem
             //            active : ListView.isCurrentItem
             asynchronous: true
 
@@ -129,29 +167,116 @@ Item
             Component
             {
                 id: _imgComponent
+
                 IT.ImageViewer
                 {
                     id: _imgV
                     source: model.url
                     image.autoTransform: true
                     image.cache: true
+
+                    Loader
+                    {
+                        active: (_viewerLoaderDelegate.preloadInfo && viewerSettings.enableOCR) || item
+                        parent:  _imgV.image
+                        height: _imgV.image.paintedHeight
+                        width:  _imgV.image.paintedWidth
+                        anchors.centerIn:  parent
+                        visible: active && viewerSettings.enableOCR
+                        sourceComponent: Item
+                        {
+                            opacity: 0.5
+
+                            Repeater
+                            {
+                                // model: _ocr.wordBoxes
+                                model: _ocr.paragraphBoxes
+                                // model: _ocr.lineBoxes
+
+                                delegate: MouseArea
+                                {
+                                    id: _mouseArea
+                                    hoverEnabled: !Maui.Handy.isMobile
+                                    x: parent.width * modelData.rect.x / _imgV.image.implicitWidth
+                                    y: parent.height * modelData.rect.y / _imgV.image.implicitHeight
+                                    width: parent.width * modelData.rect.width / _imgV.image.implicitWidth
+                                    height: parent.height * modelData.rect.height / _imgV.image.implicitHeight
+                                    cursorShape: Qt.PointingHandCursor
+                                    acceptedButtons: Qt.RightButton
+                                    Rectangle
+                                    {
+                                        anchors.fill: parent
+                                        radius: 2
+                                        color: Maui.Theme.linkBackgroundColor
+                                        opacity: 0.7
+                                        visible: _mouseArea.containsMouse
+                                    }
+
+                                    onClicked: (mouse) =>
+                                               {
+                                                   if(mouse.button == Qt.RightButton)
+                                                   {
+                                                       _selectionMenu.text = modelData.text
+                                                       _selectionMenu.show()
+                                                   }
+                                               }
+
+                                    ToolTip.delay: 1000
+                                    ToolTip.timeout: 5000
+                                    ToolTip.visible: _mouseArea.containsMouse
+                                    ToolTip.text: modelData.text
+                                }
+                            }
+
+
+                            IT.OCR
+                            {
+                                id: _ocr
+                                filePath: model.url
+                                autoRead: true
+                                boxesType: IT.OCR.Paragraph
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 
-    MouseArea
+    Button
     {
-        enabled: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
-        anchors.fill: parent
-        onPressed: (mouse) =>
-                   {
-                       galleryRollBg.visible = !galleryRollBg.visible
-                       mouse.accepted = false
-                   }
-        propagateComposedEvents: true
-        preventStealing: false
+        Maui.Theme.inherit: false
+        Maui.Theme.colorSet: Maui.Theme.Complementary
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.margins: Maui.Style.space.big
+
+        icon.name:  "draw-text"
+
+        checked: viewerSettings.enableOCR
+
+        onClicked: viewerSettings.enableOCR = !viewerSettings.enableOCR
+
+        background: Rectangle
+        {
+            opacity: 0.7
+            color: checked ? Maui.Theme.highlightColor : Maui.Theme.backgroundColor
+            radius: Maui.Style.radiusV
+        }
     }
+
+    // MouseArea
+    // {
+    //     enabled: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
+    //     anchors.fill: parent
+    //     onPressed: (mouse) =>
+    //                {
+    //                    galleryRollBg.visible = !galleryRollBg.visible
+    //                    mouse.accepted = false
+    //                }
+    //     propagateComposedEvents: true
+    //     preventStealing: false
+    // }
 
     function appendPics(pics)
     {

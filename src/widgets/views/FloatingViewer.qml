@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Effects
+
 import org.mauikit.controls as Maui
 
 Loader
@@ -131,13 +132,12 @@ Loader
 
         contentItem: Item
         {
-
             Image
             {
                 id: miniArtwork
                 source: _pixViewer.currentPic.url
-                sourceSize.height: 160
-                sourceSize.width: 160
+                sourceSize.height: implicitHeight > implicitWidth ? 160 : -1
+                sourceSize.width: implicitHeight < implicitWidth ? 160 : -1
 
                 fillMode: Image.PreserveAspectFit
 
