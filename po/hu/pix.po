@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-26 00:40+0000\n"
+"POT-Creation-Date: 2025-03-07 00:41+0000\n"
 "PO-Revision-Date: 2021-01-17 14:58+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -30,35 +30,35 @@ msgstr ""
 msgid "Developer"
 msgstr "Fejlesztő"
 
-#: src/main.qml:133
+#: src/main.qml:135
 #, kde-format
 msgid "Open images"
 msgstr "Képek megnyitása"
 
-#: src/main.qml:134
+#: src/main.qml:136
 #, fuzzy, kde-format
 #| msgid "Drag and drop images here"
 msgid "Drag and drop images here."
 msgstr "Ejtsen ide képeket"
 
-#: src/main.qml:184
+#: src/main.qml:186
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:185
+#: src/main.qml:187
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:237 src/view_models/PixMenu.qml:40
+#: src/main.qml:239 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Törli ezt a(z) %1 fájlt?"
 msgstr[1] "Törli ezt a(z) %1 fájlt?"
 
-#: src/main.qml:238 src/view_models/PixMenu.qml:41
+#: src/main.qml:240 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -66,13 +66,13 @@ msgid_plural ""
 msgstr[0] "Biztosan törli ezt a fájlt? A művelet nem vonható vissza."
 msgstr[1] "Biztosan törli ezeket a fájlokat? A művelet nem vonható vissza."
 
-#: src/main.qml:244 src/view_models/PixMenu.qml:47
+#: src/main.qml:246 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Mégsem"
 
-#: src/main.qml:250 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:194 src/widgets/SelectionBar.qml:113
+#: src/main.qml:252 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Eltávolítás"
@@ -110,7 +110,6 @@ msgid "Collection"
 msgstr "Gyűjtemény"
 
 #: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
-#: src/view_models/PixMenu.qml:77
 #, kde-format
 msgid "Tags"
 msgstr "Címkék"
@@ -189,40 +188,50 @@ msgstr "Képcímek"
 msgid "UnFav it"
 msgstr "Nem kedvenc"
 
-#: src/view_models/PixMenu.qml:89
+#: src/view_models/PixMenu.qml:78
 #, kde-format
 msgid "Info"
 msgstr "Információ"
 
-#: src/view_models/PixMenu.qml:99 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:88 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Megosztás"
 
-#: src/view_models/PixMenu.qml:112
+#: src/view_models/PixMenu.qml:101
 #, kde-format
 msgid "Select"
 msgstr "Kijelölés"
 
-#: src/view_models/PixMenu.qml:127 src/widgets/views/Viewer/PixViewer.qml:69
+#: src/view_models/PixMenu.qml:118
+#, kde-format
+msgid "Add to '%1'"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:128
+#, kde-format
+msgid "Add to Album"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgid "Save as"
 msgstr "Mentés másként…"
 
-#: src/view_models/PixMenu.qml:148
+#: src/view_models/PixMenu.qml:163
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "Open with"
 msgstr "Képek megnyitása"
 
-#: src/view_models/PixMenu.qml:165
+#: src/view_models/PixMenu.qml:180
 #, fuzzy, kde-format
 #| msgid "Show in folder"
 msgid "Go to Folder"
 msgstr "Megjelenítés mappában"
 
-#: src/view_models/PixMenu.qml:182
+#: src/view_models/PixMenu.qml:197
 #, kde-format
 msgid "Open Location"
 msgstr ""
@@ -610,6 +619,7 @@ msgid "There're no pics associated with the tag"
 msgstr "Nincsenek ilyen címkéjű képek"
 
 #: src/widgets/views/Viewer/PixViewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:82
 #, kde-format
 msgid "Save"
 msgstr "Mentés"
@@ -628,6 +638,27 @@ msgstr "Előző"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Kép megnyitása a gyűjteményéből"
+
+#: src/widgets/views/Viewer/Viewer.qml:67
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:72
+#, kde-format
+msgid "Call"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:77
+#, kde-format
+msgid "Message"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:87
+#, fuzzy, kde-format
+#| msgid "Search"
+msgid "Search Web"
+msgstr "Keresés"
 
 #~ msgid "Accept"
 #~ msgstr "Elfogadás"

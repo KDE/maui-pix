@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-26 00:40+0000\n"
+"POT-Creation-Date: 2025-03-07 00:41+0000\n"
 "PO-Revision-Date: 2025-01-24 09:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -28,27 +28,27 @@ msgstr "סידור, עיון ועריכת התמונות שלך."
 msgid "Developer"
 msgstr "מפתח"
 
-#: src/main.qml:133
+#: src/main.qml:135
 #, kde-format
 msgid "Open images"
 msgstr "פתיחת תמונות"
 
-#: src/main.qml:134
+#: src/main.qml:136
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "אפשר לגרור לכאן תמונות."
 
-#: src/main.qml:184
+#: src/main.qml:186
 #, kde-format
 msgid "Tagged"
 msgstr "מתויג"
 
-#: src/main.qml:185
+#: src/main.qml:187
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "הקובץ תויג בהצלחה"
 
-#: src/main.qml:237 src/view_models/PixMenu.qml:40
+#: src/main.qml:239 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -57,7 +57,7 @@ msgstr[1] "למחוק שני קבצים?"
 msgstr[2] "למחוק %1 קבצים?"
 msgstr[3] "למחוק %1 קבצים?"
 
-#: src/main.qml:238 src/view_models/PixMenu.qml:41
+#: src/main.qml:240 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -67,13 +67,13 @@ msgstr[1] "למחוק את הקבצים האלה? זאת פעולה בלתי ה�
 msgstr[2] "למחוק את הקבצים האלה? זאת פעולה בלתי הפיכה."
 msgstr[3] "למחוק את הקבצים האלה? זאת פעולה בלתי הפיכה."
 
-#: src/main.qml:244 src/view_models/PixMenu.qml:47
+#: src/main.qml:246 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/main.qml:250 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:194 src/widgets/SelectionBar.qml:113
+#: src/main.qml:252 src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "הסרה"
@@ -110,7 +110,6 @@ msgid "Collection"
 msgstr "אוסף"
 
 #: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
-#: src/view_models/PixMenu.qml:77
 #, kde-format
 msgid "Tags"
 msgstr "תגיות"
@@ -188,37 +187,47 @@ msgstr "טקסט בתמונה (זיהוי תווים אופטי)"
 msgid "UnFav it"
 msgstr "הוצאה מהמועדפים"
 
-#: src/view_models/PixMenu.qml:89
+#: src/view_models/PixMenu.qml:78
 #, kde-format
 msgid "Info"
 msgstr "פרטים"
 
-#: src/view_models/PixMenu.qml:99 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:88 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "שיתוף"
 
-#: src/view_models/PixMenu.qml:112
+#: src/view_models/PixMenu.qml:101
 #, kde-format
 msgid "Select"
 msgstr "בחירה"
 
-#: src/view_models/PixMenu.qml:127 src/widgets/views/Viewer/PixViewer.qml:69
+#: src/view_models/PixMenu.qml:118
+#, kde-format
+msgid "Add to '%1'"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:128
+#, kde-format
+msgid "Add to Album"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
 msgid "Save as"
 msgstr "שמירה בשם"
 
-#: src/view_models/PixMenu.qml:148
+#: src/view_models/PixMenu.qml:163
 #, kde-format
 msgid "Open with"
 msgstr "פתיחה עם"
 
-#: src/view_models/PixMenu.qml:165
+#: src/view_models/PixMenu.qml:180
 #, kde-format
 msgid "Go to Folder"
 msgstr "מעבר לתיקייה"
 
-#: src/view_models/PixMenu.qml:182
+#: src/view_models/PixMenu.qml:197
 #, kde-format
 msgid "Open Location"
 msgstr "פתיחת מקום"
@@ -596,6 +605,7 @@ msgid "There're no pics associated with the tag"
 msgstr "אין תמונות שמשויכות לתגית הזאת"
 
 #: src/widgets/views/Viewer/PixViewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:82
 #, kde-format
 msgid "Save"
 msgstr "שמירה"
@@ -614,3 +624,25 @@ msgstr "הקודם"
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "פתיחת תמונה מהאוסף שלך"
+
+#: src/widgets/views/Viewer/Viewer.qml:67
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:72
+#, kde-format
+msgid "Call"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:77
+#, kde-format
+msgid "Message"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:87
+#, fuzzy, kde-format
+#| msgid "Search image"
+#| msgid_plural "Search %1 images"
+msgid "Search Web"
+msgstr "חיפוש תמונה"
