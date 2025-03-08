@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:41+0000\n"
-"PO-Revision-Date: 2025-01-09 00:28+0100\n"
+"PO-Revision-Date: 2025-03-07 13:07+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -201,12 +201,12 @@ msgstr "Selecteren"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "Aan '%1' toevoegen"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "Aan Album toevoegen"
 
 #: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -621,24 +621,22 @@ msgstr "Een afbeelding openen uit uw verzameling"
 #: src/widgets/views/Viewer/Viewer.qml:67
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "Kopiëren"
 
 #: src/widgets/views/Viewer/Viewer.qml:72
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Aanroep"
 
 #: src/widgets/views/Viewer/Viewer.qml:77
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 #: src/widgets/views/Viewer/Viewer.qml:87
-#, fuzzy, kde-format
-#| msgid "Search image"
-#| msgid_plural "Search %1 images"
+#, kde-format
 msgid "Search Web"
-msgstr "Afbeelding zoeken"
+msgstr "Web doorzoeken"
 
 #~ msgid "Accept"
 #~ msgstr "Accepteren"

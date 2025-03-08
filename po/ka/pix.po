@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:41+0000\n"
-"PO-Revision-Date: 2025-01-08 03:59+0100\n"
+"PO-Revision-Date: 2025-03-07 05:59+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -202,12 +202,12 @@ msgstr "აირჩიეთ"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "'%1'-ში დამატება"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "ალბომში ჩამატება"
 
 #: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -621,24 +621,22 @@ msgstr "თქენი კოლექციიდან სურათის 
 #: src/widgets/views/Viewer/Viewer.qml:67
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "კოპირება"
 
 #: src/widgets/views/Viewer/Viewer.qml:72
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "ზარი"
 
 #: src/widgets/views/Viewer/Viewer.qml:77
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "შეტყობინება"
 
 #: src/widgets/views/Viewer/Viewer.qml:87
-#, fuzzy, kde-format
-#| msgid "Search image"
-#| msgid_plural "Search %1 images"
+#, kde-format
 msgid "Search Web"
-msgstr "გამოსახულების ძებნა"
+msgstr "ინტერნეტში ძებნა"
 
 #~ msgid "Accept"
 #~ msgstr "დასტური"

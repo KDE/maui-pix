@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:41+0000\n"
-"PO-Revision-Date: 2025-01-08 15:16+0300\n"
+"PO-Revision-Date: 2025-03-07 15:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -201,12 +201,12 @@ msgstr "Seç"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "Şuraya Ekle: “%1”"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "Albüme Ekle"
 
 #: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -620,24 +620,22 @@ msgstr "Koleksiyonunuzdan bir görsel açın"
 #: src/widgets/views/Viewer/Viewer.qml:67
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "Kopyala"
 
 #: src/widgets/views/Viewer/Viewer.qml:72
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Ara"
 
 #: src/widgets/views/Viewer/Viewer.qml:77
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "İleti Gönder"
 
 #: src/widgets/views/Viewer/Viewer.qml:87
-#, fuzzy, kde-format
-#| msgid "Search image"
-#| msgid_plural "Search %1 images"
+#, kde-format
 msgid "Search Web"
-msgstr "Görsel ara"
+msgstr "Web’de Ara"
 
 #~ msgid "Accept"
 #~ msgstr "Kabul Et"
