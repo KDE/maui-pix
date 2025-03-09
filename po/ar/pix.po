@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:41+0000\n"
-"PO-Revision-Date: 2025-01-17 11:45+0400\n"
+"PO-Revision-Date: 2025-03-08 22:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -211,12 +211,12 @@ msgstr "اختر"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "أضف إلى '%1'"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "أضف إلى الألبوم"
 
 #: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -640,24 +640,22 @@ msgstr "افتح صورة من مجموعتك"
 #: src/widgets/views/Viewer/Viewer.qml:67
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "انسخ"
 
 #: src/widgets/views/Viewer/Viewer.qml:72
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "اتصل"
 
 #: src/widgets/views/Viewer/Viewer.qml:77
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "الرسالة"
 
 #: src/widgets/views/Viewer/Viewer.qml:87
-#, fuzzy, kde-format
-#| msgid "Search image"
-#| msgid_plural "Search %1 images"
+#, kde-format
 msgid "Search Web"
-msgstr "لا شيء"
+msgstr "ابحث في الوِب"
 
 #, fuzzy
 #~| msgid "Accept"
