@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:41+0000\n"
-"PO-Revision-Date: 2025-01-09 12:11+0100\n"
+"PO-Revision-Date: 2025-03-08 10:24+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -200,12 +200,12 @@ msgstr "Sélectionner"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "Ajouter à « %1 »."
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "Ajouter à l'album"
 
 #: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -622,24 +622,22 @@ msgstr "Ouvrir une image à partir de votre collection"
 #: src/widgets/views/Viewer/Viewer.qml:67
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "uCopier"
 
 #: src/widgets/views/Viewer/Viewer.qml:72
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Appel"
 
 #: src/widgets/views/Viewer/Viewer.qml:77
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 #: src/widgets/views/Viewer/Viewer.qml:87
-#, fuzzy, kde-format
-#| msgid "Search image"
-#| msgid_plural "Search %1 images"
+#, kde-format
 msgid "Search Web"
-msgstr "Rechercher une image"
+msgstr "Rechercher sur Internet"
 
 #~ msgid "Accept"
 #~ msgstr "Accepter"
