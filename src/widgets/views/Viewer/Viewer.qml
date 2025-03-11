@@ -65,6 +65,7 @@ Item
         MenuItem
         {
             text: i18n("Copy")
+            onTriggered: Maui.Handy.copyTextToClipboard(_selectionMenu.text)
         }
 
         MenuItem
@@ -120,9 +121,17 @@ Item
         highlightResizeVelocity: -1
 
         maximumFlickVelocity: 4 * (viewerList.orientation === Qt.Horizontal ? width : height)
+        property bool ctrlPressed : false
 
         Keys.onPressed: (event) =>
                         {
+                            console.log("key pressed", event.key, event.key == Qt.Key_Control )
+                            if(event.key == Qt.Key_Control)
+                            {
+                                console.log("ctrl pressed")
+                                ctrlPressed = true
+                            }
+
                             if((event.key == Qt.Key_Right))
                             {
                                 next()
@@ -132,7 +141,23 @@ Item
                             {
                                 previous()
                             }
+
+
+                            event.accepted = false
                         }
+
+        Keys.onReleased:(event)=>
+                        {
+                            if(event.key == Qt.Key_Control)
+                            {
+                                console.log("ctrl released")
+
+                                ctrlPressed = false
+                            }
+                            event.accepted = false
+
+                        }
+
 
         onCurrentIndexChanged: viewerList.forceActiveFocus()
 
@@ -187,46 +212,174 @@ Item
                         {
                             opacity: 0.5
 
-                            Repeater
+                            Item
                             {
-                                // model: _ocr.wordBoxes
-                                model: _ocr.paragraphBoxes
-                                // model: _ocr.lineBoxes
+                                id: _boxes
+                                anchors.fill: parent
 
-                                delegate: MouseArea
+                                signal resetSelection();
+                                Repeater
                                 {
-                                    id: _mouseArea
-                                    hoverEnabled: !Maui.Handy.isMobile
-                                    x: parent.width * modelData.rect.x / _imgV.image.implicitWidth
-                                    y: parent.height * modelData.rect.y / _imgV.image.implicitHeight
-                                    width: parent.width * modelData.rect.width / _imgV.image.implicitWidth
-                                    height: parent.height * modelData.rect.height / _imgV.image.implicitHeight
-                                    cursorShape: Qt.PointingHandCursor
-                                    acceptedButtons: Qt.RightButton
-                                    Rectangle
+                                    id: _repeater
+                                    // model: _ocr.wordBoxes
+                                    model: switch(viewerSettings.ocrBlockType)
+                                           {
+                                           case 0: return _ocr.wordBoxes;
+                                           case 1: return _ocr.paragraphBoxes;
+                                           case 2: return _ocr.lineBoxes;
+                                           default: return _ocr.wordBoxes;
+                                           }
+
+                                    // model: _ocr.lineBoxes
+
+                                    delegate: MouseArea
                                     {
-                                        anchors.fill: parent
-                                        radius: 2
-                                        color: Maui.Theme.linkBackgroundColor
-                                        opacity: 0.7
-                                        visible: _mouseArea.containsMouse
-                                    }
+                                        id: _mouseArea
+                                        clip: false
+                                        hoverEnabled: !Maui.Handy.isMobile
+                                        x: parent.width * modelData.rect.x / _imgV.image.implicitWidth
+                                        y: parent.height * modelData.rect.y / _imgV.image.implicitHeight
+                                        width: parent.width * modelData.rect.width / _imgV.image.implicitWidth
+                                        height: parent.height * modelData.rect.height / _imgV.image.implicitHeight
+                                        cursorShape: Qt.PointingHandCursor
+                                        acceptedButtons: Qt.RightButton
 
-                                    onClicked: (mouse) =>
-                                               {
-                                                   if(mouse.button == Qt.RightButton)
+                                        property bool selected  : false
+                                        property string text : modelData.text
+
+                                        Connections
+                                        {
+                                            target: _boxes
+                                            function onResetSelection()
+                                            {
+                                                selected = false
+                                            }
+                                        }
+
+                                        Rectangle
+                                        {
+                                            height: parent.height + 6
+                                            width: parent.width+6
+                                            anchors.centerIn: parent
+                                            radius: 0
+                                            color: Maui.Theme.linkBackgroundColor
+                                            opacity: 0.7
+                                            visible: _mouseArea.containsMouse || parent.selected
+                                        }
+
+                                        onClicked: (mouse) =>
                                                    {
-                                                       _selectionMenu.text = modelData.text
-                                                       _selectionMenu.show()
+                                                       if(mouse.button == Qt.RightButton)
+                                                       {
+                                                           selected = true
+                                                           _selectionMenu.text = _selectionArea.selectedText.length > 0 ? _selectionArea.selectedText.join(" ") : modelData.text
+                                                           _selectionMenu.show()
+                                                       }
                                                    }
-                                               }
 
-                                    ToolTip.delay: 1000
-                                    ToolTip.timeout: 5000
-                                    ToolTip.visible: _mouseArea.containsMouse
-                                    ToolTip.text: modelData.text
+                                        // Connections
+                                        // {
+                                        // }
+
+                                        ToolTip.delay: 1000
+                                        ToolTip.timeout: 5000
+                                        ToolTip.visible: _mouseArea.containsMouse
+                                        ToolTip.text: index
+                                    }
                                 }
                             }
+
+                            MouseArea
+                            {
+                                id: _selectionArea
+                                enabled: !Maui.Handy.isMobile
+                                anchors.fill: parent
+                                preventStealing: false
+                                cursorShape: viewerList.ctrlPressed ? Qt.IBeamCursor : undefined
+                                acceptedButtons: Qt.LeftButton
+
+                                property var pressedPosition
+                                property var selectedText: []
+                                property var selectedIndexes: []
+
+                                onClicked:(mouse) => mouse.accepted= false
+
+                                onPressed: (mouse) =>
+                                           {
+                                               console.log(mouse.modifiers === Qt.NoModifier)
+                                               if (mouse.modifiers === Qt.NoModifier)
+                                               {
+                                                   _boxes.resetSelection()
+                                                   selectedText = []
+                                                   selectedIndexes = []
+                                               }
+
+                                               pressedPosition = Qt.point(mouse.x, mouse.y)
+                                           }
+
+                                onReleased:
+                                {
+                                    selectedText = []
+                                    selectedIndexes.sort(function(a, b) {
+                                        return a - b;
+                                      })
+                                    console.log("Selected indexes sorted", selectedIndexes)
+                                    for(var i of selectedIndexes)
+                                    {
+                                        selectedText.push(_repeater.itemAt(i).text)
+                                    }
+                                }
+
+                                onPositionChanged: (mouse) =>
+                                                   {
+                                                       if(Math.round(mouse.x)%2 === 0 || Math.round(mouse.y)%2 === 0)
+                                                       {
+                                                           // if(_selectionArea.containsPress && mouse.modifiers === Qt.ControlModifier)
+                                                           // {
+                                                           //     _boxes.resetSelection()
+                                                           //     let point2 = mapPoint(Qt.point(mouse.x, mouse.y))
+                                                           //     let point1 = mapPoint(_selectionArea.pressedPosition)
+
+                                                           //     let rect = Qt.rect(point1.x, point1.y, Math.abs(point2.x-point1.x), Math.abs(point2.y-point1.y))
+
+                                                           //     selectedIndexes = _ocr.wordBoxesAt(rect)
+                                                           //     console.log("Selected rect:" , rect, selectedIndexes)
+
+                                                           //     for(var i of selectedIndexes)
+                                                           //     {
+                                                           //         var box = _repeater.itemAt(i)
+                                                           //         if(box)
+                                                           //         {
+                                                           //             box.selected = true
+                                                           //         }
+                                                           //     }
+                                                           // }
+
+                                                           if(_selectionArea.containsPress && mouse.modifiers === Qt.ControlModifier)
+                                                           {
+                                                               console.log("Selection tool",pressedPosition, mouse.x, mouse.y)
+                                                               let point = mapPoint(Qt.point(mouse.x, mouse.y))
+                                                               let index = _ocr.wordBoxAt(point)
+                                                               let box = _repeater.itemAt(index)
+                                                               if(box)
+                                                               {
+                                                                   if(selectedIndexes.indexOf(index) < 0)
+                                                                   {
+                                                                       box.selected = true
+                                                                       selectedIndexes.push(index)
+                                                                   }
+                                                               }
+                                                               console.log(index, box.text, box.selected)
+                                                           }
+                                                       }
+                                                   }
+
+                                function mapPoint(point)
+                                {
+                                    return Qt.point(_imgV.image.implicitWidth * point.x / _selectionArea.width, _imgV.image.implicitHeight * point.y/ _selectionArea.height);
+                                }
+                            }
+
 
 
                             IT.OCR
@@ -234,7 +387,15 @@ Item
                                 id: _ocr
                                 filePath: model.url
                                 autoRead: true
-                                boxesType: IT.OCR.Paragraph
+                                boxesType: switch(viewerSettings.ocrBlockType)
+                                           {
+                                           case 0: return IT.OCR.Word;
+                                           case 1: return IT.OCR.Line;
+                                           case 2: return IT.OCR.Paragraph;
+                                           default: return IT.OCR.Word;
+                                           }
+
+                                confidenceThreshold: 40
                             }
                         }
                     }

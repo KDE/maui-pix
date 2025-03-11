@@ -79,6 +79,8 @@ Maui.ApplicationWindow
         property bool tagBarVisible : true
         property bool previewBarVisible : false
         property bool enableOCR: Maui.Handy.isLinux
+        property int ocrConfidenceThreshold: 40
+        property int ocrBlockType : 0
     }
 
     StackView

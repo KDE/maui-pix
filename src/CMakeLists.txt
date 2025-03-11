@@ -16,7 +16,7 @@ set(pix_SRCS
     # models/thumbnailer.cpp
     pixserver.cpp )
 
-    qt_add_resources(pix_ASSETS imgs.qrc)
+qt_add_resources(pix_ASSETS imgs.qrc)
 
 if(ANDROID)
     qt_add_executable(${PROJECT_NAME}
@@ -52,6 +52,7 @@ qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     widgets/views/Cloud/CloudView.qml
     view_models/PixPicList.qml
     widgets/SettingsDialog.qml
+    widgets/OCRSettingsPage.qml
     widgets/Sidebar.qml
     widgets/views/Viewer/OCRPage.qml
     widgets/views/CollectionView.qml
@@ -68,7 +69,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt6::Core
     Qt6::Qml
     Qt6::Positioning
-    Qt6::Concurrent   
+    Qt6::Concurrent
     KF6::I18n)
 
 if(ANDROID)

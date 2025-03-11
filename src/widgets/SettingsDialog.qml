@@ -229,6 +229,20 @@ Maui.SettingsDialog
                 onToggled: tooglePreviewBar()
             }
         }
+
+        Maui.FlexSectionItem
+        {
+            label1.text: i18n("Text Detection")
+            label2.text: i18n("Configure settings for text detection in images.")
+            enabled: viewerSettings.enableOCR
+
+            ToolButton
+            {
+                checkable: true
+                icon.name: "go-next"
+                onToggled: control.addPage(_ocrPageComponent)
+            }
+        }
     }
 
     Maui.SectionGroup
@@ -286,5 +300,11 @@ Maui.SettingsDialog
                 }
             }
         }
+    }
+
+    Component
+    {
+        id: _ocrPageComponent
+        OCRSettingsPage {}
     }
 }

@@ -128,6 +128,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     const auto ITData = MauiKitImageTools::aboutData();
     about.addComponent(ITData.name(), MauiKitImageTools::buildVersion(), ITData.version(), ITData.webAddress());
 
+    const auto OCRData = MauiKitImageTools::tesseractData();
+    about.addComponent(OCRData.name(), OCRData.description(), OCRData.version(), OCRData.webAddress());
+
     KAboutData::setApplicationData(about);
     MauiApp::instance()->setIconName("qrc:/assets/pix.png");
 
