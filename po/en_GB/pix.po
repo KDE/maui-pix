@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:41+0000\n"
+"POT-Creation-Date: 2025-03-12 00:41+0000\n"
 "PO-Revision-Date: 2024-11-16 15:28+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -27,34 +27,34 @@ msgstr "Organise, browse, and edit your images."
 msgid "Developer"
 msgstr "Developer"
 
-#: src/main.qml:135
+#: src/main.qml:137
 #, kde-format
 msgid "Open images"
 msgstr "Open images"
 
-#: src/main.qml:136
+#: src/main.qml:138
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Drag and drop images here."
 
-#: src/main.qml:186
+#: src/main.qml:188
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:187
+#: src/main.qml:189
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:239 src/view_models/PixMenu.qml:40
+#: src/main.qml:241 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Delete %1 file?"
 msgstr[1] "Delete %1 files?"
 
-#: src/main.qml:240 src/view_models/PixMenu.qml:41
+#: src/main.qml:242 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -64,12 +64,12 @@ msgstr[0] ""
 msgstr[1] ""
 "Are sure you want to delete these files? This action can not be undone."
 
-#: src/main.qml:246 src/view_models/PixMenu.qml:47
+#: src/main.qml:248 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/main.qml:252 src/view_models/PixMenu.qml:53
+#: src/main.qml:254 src/view_models/PixMenu.qml:53
 #: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
@@ -226,6 +226,56 @@ msgstr "Go to Folder"
 #, kde-format
 msgid "Open Location"
 msgstr "Open Location"
+
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
+#, kde-format
+msgid "Text Detection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:83
+#, kde-format
+msgid "Enable Auto Detection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:94
+#, kde-format
+msgid "Confidence Threshold"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:110
+#, kde-format
+msgid "Text Block Detection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:118
+#, kde-format
+msgid "Word"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:125
+#, kde-format
+msgid "Line"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:132
+#, kde-format
+msgid "Paragraph"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:141
+#, kde-format
+msgid "Text Block Selection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:149
+#, kde-format
+msgid "Free"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:156
+#, kde-format
+msgid "Rectangular"
+msgstr ""
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -399,10 +449,15 @@ msgstr "Preview Bar"
 
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
+msgid "Configure settings for text detection in images."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:250
+#, kde-format
 msgid "Sources"
 msgstr "Sources"
 
-#: src/widgets/SettingsDialog.qml:275
+#: src/widgets/SettingsDialog.qml:289
 #, kde-format
 msgid "Add"
 msgstr "Add"
@@ -594,7 +649,7 @@ msgid "There're no pics associated with the tag"
 msgstr "There are no pictures associated with the tag"
 
 #: src/widgets/views/Viewer/PixViewer.qml:90
-#: src/widgets/views/Viewer/Viewer.qml:82
+#: src/widgets/views/Viewer/Viewer.qml:83
 #, kde-format
 msgid "Save"
 msgstr "Save"
@@ -619,17 +674,17 @@ msgstr "Open an image from your collection"
 msgid "Copy"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:72
+#: src/widgets/views/Viewer/Viewer.qml:73
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:77
+#: src/widgets/views/Viewer/Viewer.qml:78
 #, kde-format
 msgid "Message"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:87
+#: src/widgets/views/Viewer/Viewer.qml:88
 #, fuzzy, kde-format
 #| msgid "Search image"
 #| msgid_plural "Search %1 images"

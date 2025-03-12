@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:41+0000\n"
+"POT-Creation-Date: 2025-03-12 00:41+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -28,35 +28,35 @@ msgstr "ਪਿਕਸ ਐਪ ਤੁਹਾਨੂੰ ਚਿੱਤਰ ਭੰਡਾ�
 msgid "Developer"
 msgstr "ਡਿਵੈਲਪਰ"
 
-#: src/main.qml:135
+#: src/main.qml:137
 #, kde-format
 msgid "Open images"
 msgstr "ਚਿੱਤਰਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: src/main.qml:136
+#: src/main.qml:138
 #, fuzzy, kde-format
 #| msgid "Drag and drop images here"
 msgid "Drag and drop images here."
 msgstr "ਚਿੱਤਰ ਚੁੱਕ ਕੇ ਇੱਥੇ ਸੁੱਟੋ"
 
-#: src/main.qml:186
+#: src/main.qml:188
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:187
+#: src/main.qml:189
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:239 src/view_models/PixMenu.qml:40
+#: src/main.qml:241 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "%1 ਫਾਇਲ ਹਟਾਉਣੀ ਹੈ?"
 msgstr[1] "%1 ਫ਼ਾਇਲਾਂ ਹਟਾਉਣੀਆਂ ਹਨ?"
 
-#: src/main.qml:240 src/view_models/PixMenu.qml:41
+#: src/main.qml:242 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -64,12 +64,12 @@ msgid_plural ""
 msgstr[0] "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।"
 msgstr[1] "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।"
 
-#: src/main.qml:246 src/view_models/PixMenu.qml:47
+#: src/main.qml:248 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/main.qml:252 src/view_models/PixMenu.qml:53
+#: src/main.qml:254 src/view_models/PixMenu.qml:53
 #: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
@@ -231,6 +231,56 @@ msgstr "ਫੋਲਡਰ ਵਿੱਚ ਵੇਖੋ"
 #: src/view_models/PixMenu.qml:197
 #, kde-format
 msgid "Open Location"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
+#, kde-format
+msgid "Text Detection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:83
+#, kde-format
+msgid "Enable Auto Detection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:94
+#, kde-format
+msgid "Confidence Threshold"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:110
+#, kde-format
+msgid "Text Block Detection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:118
+#, kde-format
+msgid "Word"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:125
+#, kde-format
+msgid "Line"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:132
+#, kde-format
+msgid "Paragraph"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:141
+#, kde-format
+msgid "Text Block Selection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:149
+#, kde-format
+msgid "Free"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:156
+#, kde-format
+msgid "Rectangular"
 msgstr ""
 
 #: src/widgets/SelectionBar.qml:55
@@ -409,10 +459,15 @@ msgstr "ਝਲਕ ਪੱਟੀ"
 
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
+msgid "Configure settings for text detection in images."
+msgstr ""
+
+#: src/widgets/SettingsDialog.qml:250
+#, kde-format
 msgid "Sources"
 msgstr "ਸਰੋਤ"
 
-#: src/widgets/SettingsDialog.qml:275
+#: src/widgets/SettingsDialog.qml:289
 #, kde-format
 msgid "Add"
 msgstr "ਜੋੜੋ"
@@ -615,7 +670,7 @@ msgid "There're no pics associated with the tag"
 msgstr "ਟੈਗ ਨਾਲ ਸੰਬੰਧਿਤ ਕੋਈ ਵੀ ਤਸਵੀਰ ਨਹੀਂ ਹੈ।"
 
 #: src/widgets/views/Viewer/PixViewer.qml:90
-#: src/widgets/views/Viewer/Viewer.qml:82
+#: src/widgets/views/Viewer/Viewer.qml:83
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
@@ -640,17 +695,17 @@ msgstr "ਆਪਣੇ ਭੰਡਾਰ ਤੋਂ ਚਿੱਤਰ ਖੋਲ੍ਹ�
 msgid "Copy"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:72
+#: src/widgets/views/Viewer/Viewer.qml:73
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:77
+#: src/widgets/views/Viewer/Viewer.qml:78
 #, kde-format
 msgid "Message"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:87
+#: src/widgets/views/Viewer/Viewer.qml:88
 #, fuzzy, kde-format
 #| msgid "Search"
 msgid "Search Web"
