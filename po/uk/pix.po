@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-12 00:41+0000\n"
-"PO-Revision-Date: 2025-03-07 16:16+0200\n"
+"PO-Revision-Date: 2025-03-12 11:26+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -241,52 +241,52 @@ msgstr "Відкрити адресу"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Виявлення тексту"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Увімкнути автовизначення"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "Пороговий рівень довіри"
 
 #: src/widgets/OCRSettingsPage.qml:110
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Виявлення блоків тексту"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Слово"
 
 #: src/widgets/OCRSettingsPage.qml:125
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Рядок"
 
 #: src/widgets/OCRSettingsPage.qml:132
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Абзац"
 
 #: src/widgets/OCRSettingsPage.qml:141
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Позначення блоку тексту"
 
 #: src/widgets/OCRSettingsPage.qml:149
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Довільний"
 
 #: src/widgets/OCRSettingsPage.qml:156
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Прямокутна"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -462,7 +462,7 @@ msgstr "Панель перегляду"
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Налаштувати параметри виявлення тексту на зображеннях."
 
 #: src/widgets/SettingsDialog.qml:250
 #, kde-format

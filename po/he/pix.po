@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-12 00:41+0000\n"
-"PO-Revision-Date: 2025-03-07 10:12+0200\n"
+"PO-Revision-Date: 2025-03-12 07:48+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -235,52 +235,52 @@ msgstr "פתיחת מקום"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "זיהוי טקסט"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "הפעלת זיהוי אוטומטי;"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "סף ביטחון"
 
 #: src/widgets/OCRSettingsPage.qml:110
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "זיהוי מקטע טקסט"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "מילה"
 
 #: src/widgets/OCRSettingsPage.qml:125
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "שורה"
 
 #: src/widgets/OCRSettingsPage.qml:132
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "פסקה"
 
 #: src/widgets/OCRSettingsPage.qml:141
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "בחירת מקטע טקסט"
 
 #: src/widgets/OCRSettingsPage.qml:149
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "חופשי"
 
 #: src/widgets/OCRSettingsPage.qml:156
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "מרובע"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -455,7 +455,7 @@ msgstr "סרגל תצוגה מקדימה"
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "הגדרת תצורת זיהוי טקסט בתמונות."
 
 #: src/widgets/SettingsDialog.qml:250
 #, kde-format

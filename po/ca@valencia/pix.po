@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-12 00:41+0000\n"
-"PO-Revision-Date: 2025-03-07 09:35+0100\n"
+"PO-Revision-Date: 2025-03-12 09:51+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -233,52 +233,52 @@ msgstr "Obri la ubicació"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Detecció de text"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Activa la detecció automàtica"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "Llindar de confiança"
 
 #: src/widgets/OCRSettingsPage.qml:110
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Detecció de bloc de text"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Word"
 
 #: src/widgets/OCRSettingsPage.qml:125
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Línia"
 
 #: src/widgets/OCRSettingsPage.qml:132
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Paràgraf"
 
 #: src/widgets/OCRSettingsPage.qml:141
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Selecció de bloc de text"
 
 #: src/widgets/OCRSettingsPage.qml:149
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Lliure"
 
 #: src/widgets/OCRSettingsPage.qml:156
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Rectangular"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -455,7 +455,7 @@ msgstr "Barra de vista prèvia"
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Configura els paràmetres de detecció de text en les imatges."
 
 #: src/widgets/SettingsDialog.qml:250
 #, kde-format

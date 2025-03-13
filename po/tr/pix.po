@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-12 00:41+0000\n"
-"PO-Revision-Date: 2025-03-07 15:19+0300\n"
+"PO-Revision-Date: 2025-03-12 12:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -231,52 +231,52 @@ msgstr "Konum Aç"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Metin Algılama"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Kendiliğinden algılamayı etkinleştir"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "Güven Eşiği"
 
 #: src/widgets/OCRSettingsPage.qml:110
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Metin Bloku Algılama"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Sözcük"
 
 #: src/widgets/OCRSettingsPage.qml:125
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Satır"
 
 #: src/widgets/OCRSettingsPage.qml:132
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Paragraf"
 
 #: src/widgets/OCRSettingsPage.qml:141
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Metin Bloku Seçimi"
 
 #: src/widgets/OCRSettingsPage.qml:149
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Boş"
 
 #: src/widgets/OCRSettingsPage.qml:156
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Dörtgen"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -452,7 +452,7 @@ msgstr "Önizleme Çubuğu"
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Görsellerdeki metin algılama için olan ayarları yapılandırın."
 
 #: src/widgets/SettingsDialog.qml:250
 #, kde-format

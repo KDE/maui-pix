@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-12 00:41+0000\n"
-"PO-Revision-Date: 2025-03-07 05:59+0100\n"
+"PO-Revision-Date: 2025-03-12 04:38+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -232,52 +232,52 @@ msgstr "მდებარეობის გახსნა"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "ტექსტის აღმოჩენა"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "ავტოაღმოჩენის ჩართვა"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "ნდობის ზღვარი"
 
 #: src/widgets/OCRSettingsPage.qml:110
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "ტექსტური ბლოკის აღმოჩენა"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "სიტყვა"
 
 #: src/widgets/OCRSettingsPage.qml:125
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "ხაზი"
 
 #: src/widgets/OCRSettingsPage.qml:132
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "აბზაცი"
 
 #: src/widgets/OCRSettingsPage.qml:141
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "ტექსტური ბლოკის მონიშვნა"
 
 #: src/widgets/OCRSettingsPage.qml:149
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "თავისუფალი"
 
 #: src/widgets/OCRSettingsPage.qml:156
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "მართკუთხედი"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -453,7 +453,7 @@ msgstr "გადახედვის ზოლი"
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "პარამეტრების მორგება გამოსახულებებში ტექსტის აღმოსაჩენად."
 
 #: src/widgets/SettingsDialog.qml:250
 #, kde-format
