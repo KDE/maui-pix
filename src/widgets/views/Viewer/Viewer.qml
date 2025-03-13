@@ -322,7 +322,7 @@ Item
                                     selectedText = []
                                     selectedIndexes.sort(function(a, b) {
                                         return a - b;
-                                      })
+                                    })
                                     console.log("Selected indexes sorted", selectedIndexes)
                                     for(var i of selectedIndexes)
                                     {
@@ -334,42 +334,44 @@ Item
                                                    {
                                                        if(Math.round(mouse.x)%2 === 0 || Math.round(mouse.y)%2 === 0)
                                                        {
-                                                           // if(_selectionArea.containsPress && mouse.modifiers === Qt.ControlModifier)
-                                                           // {
-                                                           //     _boxes.resetSelection()
-                                                           //     let point2 = mapPoint(Qt.point(mouse.x, mouse.y))
-                                                           //     let point1 = mapPoint(_selectionArea.pressedPosition)
-
-                                                           //     let rect = Qt.rect(point1.x, point1.y, Math.abs(point2.x-point1.x), Math.abs(point2.y-point1.y))
-
-                                                           //     selectedIndexes = _ocr.wordBoxesAt(rect)
-                                                           //     console.log("Selected rect:" , rect, selectedIndexes)
-
-                                                           //     for(var i of selectedIndexes)
-                                                           //     {
-                                                           //         var box = _repeater.itemAt(i)
-                                                           //         if(box)
-                                                           //         {
-                                                           //             box.selected = true
-                                                           //         }
-                                                           //     }
-                                                           // }
 
                                                            if(_selectionArea.containsPress && mouse.modifiers === Qt.ControlModifier)
                                                            {
-                                                               console.log("Selection tool",pressedPosition, mouse.x, mouse.y)
-                                                               let point = mapPoint(Qt.point(mouse.x, mouse.y))
-                                                               let index = _ocr.wordBoxAt(point)
-                                                               let box = _repeater.itemAt(index)
-                                                               if(box)
+                                                               if(viewerSettings.ocrSelectionType === 0)
                                                                {
-                                                                   if(selectedIndexes.indexOf(index) < 0)
+                                                                   console.log("Selection tool",pressedPosition, mouse.x, mouse.y)
+                                                                   let point = mapPoint(Qt.point(mouse.x, mouse.y))
+                                                                   let index = _ocr.wordBoxAt(point)
+                                                                   let box = _repeater.itemAt(index)
+                                                                   if(box)
                                                                    {
-                                                                       box.selected = true
-                                                                       selectedIndexes.push(index)
+                                                                       if(selectedIndexes.indexOf(index) < 0)
+                                                                       {
+                                                                           box.selected = true
+                                                                           selectedIndexes.push(index)
+                                                                       }
+                                                                   }
+                                                                   console.log(index, box.text, box.selected)
+                                                               }else
+                                                               {
+                                                                   _boxes.resetSelection()
+                                                                   let point2 = mapPoint(Qt.point(mouse.x, mouse.y))
+                                                                   let point1 = mapPoint(_selectionArea.pressedPosition)
+
+                                                                   let rect = Qt.rect(point1.x, point1.y, Math.abs(point2.x-point1.x), Math.abs(point2.y-point1.y))
+
+                                                                   selectedIndexes = _ocr.wordBoxesAt(rect)
+                                                                   console.log("Selected rect:" , rect, selectedIndexes)
+
+                                                                   for(var i of selectedIndexes)
+                                                                   {
+                                                                       let box = _repeater.itemAt(i)
+                                                                       if(box)
+                                                                       {
+                                                                           box.selected = true
+                                                                       }
                                                                    }
                                                                }
-                                                               console.log(index, box.text, box.selected)
                                                            }
                                                        }
                                                    }
@@ -379,8 +381,6 @@ Item
                                     return Qt.point(_imgV.image.implicitWidth * point.x / _selectionArea.width, _imgV.image.implicitHeight * point.y/ _selectionArea.height);
                                 }
                             }
-
-
 
                             IT.OCR
                             {
@@ -396,6 +396,8 @@ Item
                                            }
 
                                 confidenceThreshold: 40
+                                preprocessImage: viewerSettings.ocrPreprocessing
+                                pageSegMode: viewerSettings.ocrSegMode
                             }
                         }
                     }

@@ -169,32 +169,38 @@ StackView
                 }
             },
 
-            Loader
-            {
-                active: Maui.Handy.isLinux
-                asynchronous: true
-                sourceComponent: ToolButton
-                {
-                    icon.name: "format-text-bold"
-                    onClicked:
-                    {
-                        var component = Qt.createComponent("qrc:/app/maui/pix/widgets/views/Viewer/OCRPage.qml")
-                        if (component.status == Component.Ready)
-                            var object = component.createObject()
-                        // else
-                        //     component.statusChanged.connect(finishCreation);
+            // Loader
+            // {
+            //     active: Maui.Handy.isLinux
+            //     asynchronous: true
+            //     sourceComponent: ToolButton
+            //     {
+            //         icon.name: "format-text-bold"
+            //         onClicked:
+            //         {
+            //             var component = Qt.createComponent("qrc:/app/maui/pix/widgets/views/Viewer/OCRPage.qml")
+            //             if (component.status == Component.Ready)
+            //                 var object = component.createObject()
+            //             // else
+            //             //     component.statusChanged.connect(finishCreation);
 
-                        control.push(object)
-                    }
+            //             control.push(object)
+            //         }
 
-                }
-            },
+            //     }
+            // },
 
             ToolButton
             {
                 icon.name: "view-fullscreen"
                 onClicked: toogleFullscreen()
                 checked: fullScreen
+            },
+
+            Loader
+            {
+                asynchronous: true
+                sourceComponent: _mainMenuComponent
             }
         ]
 

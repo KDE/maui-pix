@@ -125,37 +125,10 @@ Maui.SideBarView
         ]
 
         rightContent: [
-
             Loader
             {
                 asynchronous: true
-                sourceComponent: Maui.ToolButtonMenu
-                {
-                    icon.name: "overflow-menu"
-
-                    MenuItem
-                    {
-                        text: i18n("Open")
-                        icon.name: "folder-open"
-                        onTriggered: openFileDialog()
-                    }
-
-                    MenuSeparator {}
-
-                    MenuItem
-                    {
-                        text: i18n("Settings")
-                        icon.name: "settings-configure"
-                        onTriggered: openSettingsDialog()
-                    }
-
-                    MenuItem
-                    {
-                        text: i18n("About")
-                        icon.name: "documentinfo"
-                        onTriggered: Maui.App.aboutDialog()
-                    }
-                }
+                sourceComponent: _mainMenuComponent
             }]
 
         FoldersView

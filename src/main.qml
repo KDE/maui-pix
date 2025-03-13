@@ -80,7 +80,42 @@ Maui.ApplicationWindow
         property bool previewBarVisible : false
         property bool enableOCR: Maui.Handy.isLinux
         property int ocrConfidenceThreshold: 40
-        property int ocrBlockType : 0
+        property int ocrBlockType : 0 // 0-word 1-line 2-paragraph
+        property int ocrSelectionType: 0 //0-free 1-rectangular
+        property bool ocrPreprocessing : false
+        property int ocrSegMode: IT.OCS.Auto
+    }
+
+    Component
+    {
+        id: _mainMenuComponent
+        Maui.ToolButtonMenu
+        {
+            icon.name: "overflow-menu"
+
+            MenuItem
+            {
+                text: i18n("Open")
+                icon.name: "folder-open"
+                onTriggered: openFileDialog()
+            }
+
+            MenuSeparator {}
+
+            MenuItem
+            {
+                text: i18n("Settings")
+                icon.name: "settings-configure"
+                onTriggered: openSettingsDialog()
+            }
+
+            MenuItem
+            {
+                text: i18n("About")
+                icon.name: "documentinfo"
+                onTriggered: Maui.App.aboutDialog()
+            }
+        }
     }
 
     StackView
@@ -164,7 +199,7 @@ Maui.ApplicationWindow
                            }
 
                            if(!_pixViewer.visible)
-                            _stackView.push(_pixViewer)
+                           _stackView.push(_pixViewer)
                        }
         }
     }
@@ -344,7 +379,7 @@ Maui.ApplicationWindow
         dialog.callback = function(paths)
         {
             Pix.Collection.openPics(paths)
-        }	
+        }
         dialog.open()
     }
 

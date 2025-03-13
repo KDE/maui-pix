@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 import org.mauikit.controls as Maui
-
+import org.mauikit.imagetools as IT
 
 Maui.SettingsPage
 {
@@ -91,6 +91,40 @@ Maui.SettingsPage
 
     Maui.FlexSectionItem
     {
+        label1.text: i18n("Image Preprocessing")
+        label2.text: i18n("Enable image preprocessing.")
+        Switch
+        {
+            checked: viewerSettings.ocrPreprocessing
+            onToggled: viewerSettings.ocrPreprocessing = !viewerSettings.ocrPreprocessing
+        }
+    }
+
+    Maui.FlexSectionItem
+    {
+        label1.text: i18n("Page Segmentation")
+        ComboBox
+        {
+            editable: false
+            textRole: "text"
+            valueRole: "value"
+            // When an item is selected, update the backend.
+            onActivated: viewerSettings.ocrSegMode = currentValue
+            // Set the initial currentIndex to the value stored in the backend.
+            Component.onCompleted: currentIndex = indexOfValue(viewerSettings.ocrSegMode)
+            model: [
+                { value: IT.OCR.Auto, text: i18n("Auto") },
+                { value: IT.OCR.Auto_OSD, text: i18n("Auto OSD") },
+                { value: IT.OCR.SingleColumn, text: i18n("Single Column") },
+                { value: IT.OCR.SingleLine, text: i18n("Single Line") },
+                { value: IT.OCR.SingleBlock, text: i18n("Single Block") },
+                { value: IT.OCR.SingleWord, text: i18n("Single Word") }
+            ]
+        }
+    }
+
+    Maui.FlexSectionItem
+    {
         label1.text: i18n("Confidence Threshold")
 
         SpinBox
@@ -147,15 +181,15 @@ Maui.SettingsPage
             Action
             {
                 text: i18n("Free")
-                checked: viewerSettings.ocrBlockType === 0
-                onTriggered: viewerSettings.ocrBlockType = 0
+                checked: viewerSettings.ocrSelectionType === 0
+                onTriggered: viewerSettings.ocrSelectionType = 0
             }
 
             Action
             {
                 text: i18n("Rectangular")
-                checked: viewerSettings.ocrBlockType === 1
-                onTriggered: viewerSettings.ocrBlockType = 1
+                checked: viewerSettings.ocrSelectionType === 1
+                onTriggered: viewerSettings.ocrSelectionType = 1
             }
         }
     }
