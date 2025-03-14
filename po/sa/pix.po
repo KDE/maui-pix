@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-12 00:41+0000\n"
+"POT-Creation-Date: 2025-03-14 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 22:59+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -29,34 +29,49 @@ msgstr "स्वचित्रं व्यवस्थितं कुर्�
 msgid "Developer"
 msgstr "विकासकः"
 
-#: src/main.qml:137
+#: src/main.qml:98 src/widgets/views/Gallery/GalleryView.qml:25
+#, kde-format
+msgid "Open"
+msgstr "उद्घाटित"
+
+#: src/main.qml:107
+#, kde-format
+msgid "Settings"
+msgstr "सेटिंग्स्"
+
+#: src/main.qml:114
+#, kde-format
+msgid "About"
+msgstr "विषये"
+
+#: src/main.qml:172
 #, kde-format
 msgid "Open images"
 msgstr "चित्राणि उद्घाटयन्तु"
 
-#: src/main.qml:138
+#: src/main.qml:173
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "अत्र चित्राणि कर्षयन्तु, पातयन्तु च ।"
 
-#: src/main.qml:188
+#: src/main.qml:223
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:189
+#: src/main.qml:224
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:241 src/view_models/PixMenu.qml:40
+#: src/main.qml:276 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "%1 सञ्चिकां विलोपयतु?"
 msgstr[1] "%1 सञ्चिकाः विलोपयन्तु?"
 
-#: src/main.qml:242 src/view_models/PixMenu.qml:41
+#: src/main.qml:277 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -66,12 +81,12 @@ msgstr[0] ""
 msgstr[1] ""
 "किं भवन्तः एताः सञ्चिकाः विलोपयितुम् इच्छन्ति इति निश्चितम्? एतत् कर्म न निवर्तयितुं शक्यते।"
 
-#: src/main.qml:248 src/view_models/PixMenu.qml:47
+#: src/main.qml:283 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: src/main.qml:254 src/view_models/PixMenu.qml:53
+#: src/main.qml:289 src/view_models/PixMenu.qml:53
 #: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
@@ -241,40 +256,85 @@ msgstr ""
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
-msgid "Confidence Threshold"
+msgid "Image Preprocessing"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:110
+#: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
-msgid "Text Block Detection"
+msgid "Enable image preprocessing."
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:105
+#, kde-format
+msgid "Page Segmentation"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:116
+#, kde-format
+msgid "Auto"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:117
+#, kde-format
+msgid "Auto OSD"
 msgstr ""
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
+msgid "Single Column"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:119
+#, kde-format
+msgid "Single Line"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:120
+#, kde-format
+msgid "Single Block"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:121
+#, kde-format
+msgid "Single Word"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:128
+#, kde-format
+msgid "Confidence Threshold"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:144
+#, kde-format
+msgid "Text Block Detection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:152
+#, kde-format
 msgid "Word"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:125
+#: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:132
+#: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:141
+#: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:149
+#: src/widgets/OCRSettingsPage.qml:183
 #, kde-format
 msgid "Free"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:156
+#: src/widgets/OCRSettingsPage.qml:190
 #, kde-format
 msgid "Rectangular"
 msgstr ""
@@ -499,22 +559,6 @@ msgstr "सुनिश्चितं कुरुत यत् भवान्
 msgid "Toggle sidebar"
 msgstr "पार्श्वपट्टिकां टॉगलं कुर्वन्तु"
 
-#: src/widgets/views/CollectionView.qml:138
-#: src/widgets/views/Gallery/GalleryView.qml:25
-#, kde-format
-msgid "Open"
-msgstr "उद्घाटित"
-
-#: src/widgets/views/CollectionView.qml:147
-#, kde-format
-msgid "Settings"
-msgstr "सेटिंग्स्"
-
-#: src/widgets/views/CollectionView.qml:154
-#, kde-format
-msgid "About"
-msgstr "विषये"
-
 #: src/widgets/views/Folders/FoldersView.qml:45
 #, kde-format
 msgid "Filter %1 folder"
@@ -561,7 +605,7 @@ msgstr[1] "%1 चित्राणि"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:208
+#: src/widgets/views/Viewer/PixViewer.qml:214
 #, kde-format
 msgid "No Pics!"
 msgstr "न Pics!"
@@ -666,7 +710,7 @@ msgstr "गैलरी"
 msgid "Previous"
 msgstr "पूर्वतनम्‌"
 
-#: src/widgets/views/Viewer/PixViewer.qml:209
+#: src/widgets/views/Viewer/PixViewer.qml:215
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "स्वसङ्ग्रहात् एकं चित्रं उद्घाटयन्तु"

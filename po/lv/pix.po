@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-12 00:41+0000\n"
-"PO-Revision-Date: 2025-02-03 17:14+0200\n"
+"POT-Creation-Date: 2025-03-14 00:41+0000\n"
+"PO-Revision-Date: 2025-03-12 17:22+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -28,27 +28,42 @@ msgstr "Kārtojiet, pārlūkojiet un rediģējiet savus attēlus."
 msgid "Developer"
 msgstr "Izstrādātājs"
 
-#: src/main.qml:137
+#: src/main.qml:98 src/widgets/views/Gallery/GalleryView.qml:25
+#, kde-format
+msgid "Open"
+msgstr "Atvērt"
+
+#: src/main.qml:107
+#, kde-format
+msgid "Settings"
+msgstr "Iestatījumi"
+
+#: src/main.qml:114
+#, kde-format
+msgid "About"
+msgstr "Par"
+
+#: src/main.qml:172
 #, kde-format
 msgid "Open images"
 msgstr "Atvērt attēlus"
 
-#: src/main.qml:138
+#: src/main.qml:173
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Velciet no nometiet attēlus te."
 
-#: src/main.qml:188
+#: src/main.qml:223
 #, kde-format
 msgid "Tagged"
 msgstr "Satur birkas"
 
-#: src/main.qml:189
+#: src/main.qml:224
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Datnei ir pievienota birka"
 
-#: src/main.qml:241 src/view_models/PixMenu.qml:40
+#: src/main.qml:276 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -56,7 +71,7 @@ msgstr[0] "Vai dzēst %1 datni?"
 msgstr[1] "Vai dzēst %1 datnes?"
 msgstr[2] "Vai dzēst %1 datņu?"
 
-#: src/main.qml:242 src/view_models/PixMenu.qml:41
+#: src/main.qml:277 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -67,12 +82,12 @@ msgstr[1] ""
 msgstr[2] ""
 "Vai tiešām vēlaties dzēst šīs datnes? Šo darbību atsaukt nevarēsiet."
 
-#: src/main.qml:248 src/view_models/PixMenu.qml:47
+#: src/main.qml:283 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: src/main.qml:254 src/view_models/PixMenu.qml:53
+#: src/main.qml:289 src/view_models/PixMenu.qml:53
 #: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
@@ -204,12 +219,12 @@ msgstr "Atlasīt"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "Pievienot pie „%1“"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "Pievienot albumam"
 
 #: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -234,52 +249,97 @@ msgstr "Atvērt atrašanās vietu"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Teksta atpazīšana"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Ieslēgt automātisku atpazīšanu"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
-msgid "Confidence Threshold"
+msgid "Image Preprocessing"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:110
+#: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
-msgid "Text Block Detection"
+msgid "Enable image preprocessing."
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:105
+#, kde-format
+msgid "Page Segmentation"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:116
+#, kde-format
+msgid "Auto"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:117
+#, kde-format
+msgid "Auto OSD"
 msgstr ""
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
-msgid "Word"
+msgid "Single Column"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:125
+#: src/widgets/OCRSettingsPage.qml:119
+#, kde-format
+msgid "Single Line"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:120
+#, kde-format
+msgid "Single Block"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:121
+#, kde-format
+msgid "Single Word"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:128
+#, kde-format
+msgid "Confidence Threshold"
+msgstr "Pārliecības slieksnis"
+
+#: src/widgets/OCRSettingsPage.qml:144
+#, kde-format
+msgid "Text Block Detection"
+msgstr "Teksta bloka atpazīšana"
+
+#: src/widgets/OCRSettingsPage.qml:152
+#, kde-format
+msgid "Word"
+msgstr "Vārds"
+
+#: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Rinda"
 
-#: src/widgets/OCRSettingsPage.qml:132
+#: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Rindkopa"
 
-#: src/widgets/OCRSettingsPage.qml:141
+#: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Teksta bloka atlase"
 
-#: src/widgets/OCRSettingsPage.qml:149
+#: src/widgets/OCRSettingsPage.qml:183
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Brīvs"
 
-#: src/widgets/OCRSettingsPage.qml:156
+#: src/widgets/OCRSettingsPage.qml:190
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Četrstūris"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -456,7 +516,7 @@ msgstr "Priekšskatījuma josla"
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Konfigurēt iestatījumu teksta atpazīšanai attēlos."
 
 #: src/widgets/SettingsDialog.qml:250
 #, kde-format
@@ -502,22 +562,6 @@ msgstr "Pārliecinieties, ka esat tiešsaistē un ka jūsu mākoņa konts darboj
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Pārslēgt sānu joslu"
-
-#: src/widgets/views/CollectionView.qml:138
-#: src/widgets/views/Gallery/GalleryView.qml:25
-#, kde-format
-msgid "Open"
-msgstr "Atvērt"
-
-#: src/widgets/views/CollectionView.qml:147
-#, kde-format
-msgid "Settings"
-msgstr "Iestatījumi"
-
-#: src/widgets/views/CollectionView.qml:154
-#, kde-format
-msgid "About"
-msgstr "Par"
 
 #: src/widgets/views/Folders/FoldersView.qml:45
 #, kde-format
@@ -567,7 +611,7 @@ msgstr[2] "%1 attēlu"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:208
+#: src/widgets/views/Viewer/PixViewer.qml:214
 #, kde-format
 msgid "No Pics!"
 msgstr "Attēlu nav!"
@@ -673,7 +717,7 @@ msgstr "Galerija"
 msgid "Previous"
 msgstr "Iepriekšējais"
 
-#: src/widgets/views/Viewer/PixViewer.qml:209
+#: src/widgets/views/Viewer/PixViewer.qml:215
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Atvērt attēlu no jūsu kolekcijas"
@@ -681,21 +725,19 @@ msgstr "Atvērt attēlu no jūsu kolekcijas"
 #: src/widgets/views/Viewer/Viewer.qml:67
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "Kopēt"
 
 #: src/widgets/views/Viewer/Viewer.qml:73
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Zvans"
 
 #: src/widgets/views/Viewer/Viewer.qml:78
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Ziņa"
 
 #: src/widgets/views/Viewer/Viewer.qml:88
-#, fuzzy, kde-format
-#| msgid "Search image"
-#| msgid_plural "Search %1 images"
+#, kde-format
 msgid "Search Web"
-msgstr "Meklēt %1 attēlu"
+msgstr "Meklēt tīmeklī"

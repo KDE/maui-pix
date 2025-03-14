@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-12 00:41+0000\n"
+"POT-Creation-Date: 2025-03-14 00:41+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -29,34 +29,49 @@ msgstr ""
 msgid "Developer"
 msgstr "Utviklar"
 
-#: src/main.qml:137
+#: src/main.qml:98 src/widgets/views/Gallery/GalleryView.qml:25
+#, kde-format
+msgid "Open"
+msgstr "Opna"
+
+#: src/main.qml:107
+#, kde-format
+msgid "Settings"
+msgstr "Innstillingar"
+
+#: src/main.qml:114
+#, kde-format
+msgid "About"
+msgstr ""
+
+#: src/main.qml:172
 #, kde-format
 msgid "Open images"
 msgstr "Opna bilete"
 
-#: src/main.qml:138
+#: src/main.qml:173
 #, kde-format
 msgid "Drag and drop images here."
 msgstr ""
 
-#: src/main.qml:188
+#: src/main.qml:223
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:189
+#: src/main.qml:224
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:241 src/view_models/PixMenu.qml:40
+#: src/main.qml:276 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Sletta %1 fil?"
 msgstr[1] "Sletta %1 filer?"
 
-#: src/main.qml:242 src/view_models/PixMenu.qml:41
+#: src/main.qml:277 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -66,12 +81,12 @@ msgstr[0] ""
 msgstr[1] ""
 "Er du sikker på at du vil sletta desse filene? Du kan ikkje angra slettinga."
 
-#: src/main.qml:248 src/view_models/PixMenu.qml:47
+#: src/main.qml:283 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/main.qml:254 src/view_models/PixMenu.qml:53
+#: src/main.qml:289 src/view_models/PixMenu.qml:53
 #: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
@@ -241,40 +256,85 @@ msgstr ""
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
-msgid "Confidence Threshold"
+msgid "Image Preprocessing"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:110
+#: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
-msgid "Text Block Detection"
+msgid "Enable image preprocessing."
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:105
+#, kde-format
+msgid "Page Segmentation"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:116
+#, kde-format
+msgid "Auto"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:117
+#, kde-format
+msgid "Auto OSD"
 msgstr ""
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
+msgid "Single Column"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:119
+#, kde-format
+msgid "Single Line"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:120
+#, kde-format
+msgid "Single Block"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:121
+#, kde-format
+msgid "Single Word"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:128
+#, kde-format
+msgid "Confidence Threshold"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:144
+#, kde-format
+msgid "Text Block Detection"
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:152
+#, kde-format
 msgid "Word"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:125
+#: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:132
+#: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:141
+#: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:149
+#: src/widgets/OCRSettingsPage.qml:183
 #, kde-format
 msgid "Free"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:156
+#: src/widgets/OCRSettingsPage.qml:190
 #, kde-format
 msgid "Rectangular"
 msgstr ""
@@ -500,22 +560,6 @@ msgstr "Kontroller at du er tilkopla og at skykontoen verkar"
 msgid "Toggle sidebar"
 msgstr ""
 
-#: src/widgets/views/CollectionView.qml:138
-#: src/widgets/views/Gallery/GalleryView.qml:25
-#, kde-format
-msgid "Open"
-msgstr "Opna"
-
-#: src/widgets/views/CollectionView.qml:147
-#, kde-format
-msgid "Settings"
-msgstr "Innstillingar"
-
-#: src/widgets/views/CollectionView.qml:154
-#, kde-format
-msgid "About"
-msgstr ""
-
 #: src/widgets/views/Folders/FoldersView.qml:45
 #, kde-format
 msgid "Filter %1 folder"
@@ -562,7 +606,7 @@ msgstr[1] ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:208
+#: src/widgets/views/Viewer/PixViewer.qml:214
 #, kde-format
 msgid "No Pics!"
 msgstr "Ingen bilete"
@@ -667,7 +711,7 @@ msgstr "Galleri"
 msgid "Previous"
 msgstr "Førre"
 
-#: src/widgets/views/Viewer/PixViewer.qml:209
+#: src/widgets/views/Viewer/PixViewer.qml:215
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Opna eit bilete i samlinga"
