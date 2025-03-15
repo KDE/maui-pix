@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-14 00:41+0000\n"
-"PO-Revision-Date: 2025-03-08 10:24+0100\n"
+"PO-Revision-Date: 2025-03-13 07:35+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -245,12 +245,12 @@ msgstr "Ouvrir un emplacement"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Détection de texte"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Activer la détection automatique"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
@@ -300,42 +300,42 @@ msgstr ""
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "Seuil de confiance"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Détection de bloc de texte"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Mot"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Ligne"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Paragraphe"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Sélection de bloc de texte"
 
 #: src/widgets/OCRSettingsPage.qml:183
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Libre"
 
 #: src/widgets/OCRSettingsPage.qml:190
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Rectangulaire"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -512,7 +512,7 @@ msgstr "Barre d'aperçu"
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Configurez les paramètres de détection de texte dans les images."
 
 #: src/widgets/SettingsDialog.qml:250
 #, kde-format
