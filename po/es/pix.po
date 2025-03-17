@@ -1,14 +1,15 @@
-# Copyright (C) YEAR This file is copyright:
+# Spanish translations for pix.po package.
+# Copyright (C) 2020-2025 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
 # SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 # SPDX-FileCopyrightText: 2023 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: maui-pix\n"
+"Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-14 00:41+0000\n"
-"PO-Revision-Date: 2025-01-11 19:30+0100\n"
+"PO-Revision-Date: 2025-03-15 20:15+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -218,12 +219,12 @@ msgstr "Seleccionar"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "Añadir a «%1»"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "Añadir a álbum"
 
 #: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -248,97 +249,97 @@ msgstr "Abrir localización"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Detección de texto"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Activar auto detección"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "Pre-procesado de imágenes"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "Activar pre-procesado de imágenes."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "Segmentación de página"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "Auto visualización en pantalla"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "Columna única"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "Línea única"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "Bloque único"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "Palabra única"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "Umbral de confianza"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Detección de bloque de texto"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Palabra"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Línea"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Parrafo"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Selección de bloque de texto"
 
 #: src/widgets/OCRSettingsPage.qml:183
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Libre"
 
 #: src/widgets/OCRSettingsPage.qml:190
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Rectangular"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -515,7 +516,7 @@ msgstr "Barra de vista previa"
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Configurar preferencias para la detección de texto en imágenes."
 
 #: src/widgets/SettingsDialog.qml:250
 #, kde-format
@@ -721,21 +722,19 @@ msgstr "Abrir una imagen de su colección"
 #: src/widgets/views/Viewer/Viewer.qml:67
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #: src/widgets/views/Viewer/Viewer.qml:73
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Llamada"
 
 #: src/widgets/views/Viewer/Viewer.qml:78
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 #: src/widgets/views/Viewer/Viewer.qml:88
-#, fuzzy, kde-format
-#| msgid "Search image"
-#| msgid_plural "Search %1 images"
+#, kde-format
 msgid "Search Web"
-msgstr "Buscar imagen"
+msgstr "Búsqueda web"
