@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-14 00:41+0000\n"
-"PO-Revision-Date: 2025-03-13 07:35+0100\n"
+"PO-Revision-Date: 2025-03-15 09:28+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -255,47 +255,47 @@ msgstr "Activer la détection automatique"
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "Prétraitement d'image"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "Activer le prétraitement d'image."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "Segmentation de page"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "Incrustation Vidéo Auto"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "Colonne unique"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "Ligne unique"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "Bloc unique"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "Mot unique"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
