@@ -102,7 +102,7 @@ StackView
         showTitle: root.isWide
         altHeader: Maui.Handy.isMobile
         floatingHeader: true
-        autoHideHeader: true
+        autoHideHeader: viewer.imageZooming
         Maui.Controls.showCSD: control.Maui.Controls.showCSD
         headBar.visible: true
 
@@ -176,16 +176,19 @@ StackView
             //     sourceComponent: ToolButton
             //     {
             //         icon.name: "format-text-bold"
-            //         onClicked:
-            //         {
-            //             var component = Qt.createComponent("qrc:/app/maui/pix/widgets/views/Viewer/OCRPage.qml")
-            //             if (component.status == Component.Ready)
-            //                 var object = component.createObject()
-            //             // else
-            //             //     component.statusChanged.connect(finishCreation);
+            //         checked: viewerSettings.enableOCR
+            //         enabled: !viewer.isAnimated
+            //         onClicked: viewerSettings.enableOCR = !viewerSettings.enableOCR
+            //         // onClicked:
+            //         // {
+            //         //     var component = Qt.createComponent("qrc:/app/maui/pix/widgets/views/Viewer/OCRPage.qml")
+            //         //     if (component.status == Component.Ready)
+            //         //         var object = component.createObject()
+            //         //     // else
+            //         //     //     component.statusChanged.connect(finishCreation);
 
-            //             control.push(object)
-            //         }
+            //         //     control.push(object)
+            //         // }
 
             //     }
             // },
@@ -234,7 +237,7 @@ StackView
                     width: parent.width
                     anchors.bottom: parent.bottom
                     height: Math.min(100, Math.max(parent.height * 0.12, 60))
-                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
+                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1 && !viewer.imageZooming
                     color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.7)
 
                     opacity: visible ? 1 : 0

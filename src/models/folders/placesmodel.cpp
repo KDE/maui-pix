@@ -82,7 +82,7 @@ FMH::MODEL_LIST PlacesModel::locations()
 
         item[FMH::MODEL_KEY::ICON] = "gps";
         item[FMH::MODEL_KEY::TYPE] = i18n("Locations");
-        item[FMH::MODEL_KEY::PATH] = "collection:///"+id;
+        item[FMH::MODEL_KEY::PATH] = "gps:///"+id;
         item[FMH::MODEL_KEY::KEY] = id;
 
         item[FMH::MODEL_KEY::COUNTRY] = city.country();

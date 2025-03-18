@@ -45,9 +45,10 @@ Loader
                         {
                             root.openFolder(path, filters.split(","))
 
-
                             if(sideBar.collapsed)
-                            sideBar.close()
+                            {
+                                sideBar.close()
+                            }
                         }
 
         flickable.topMargin: Maui.Style.contentMargins
@@ -96,8 +97,6 @@ Loader
                             onClicked: (mouse) =>
                                        {
                                            _listBrowser.placeClicked(modelData.path, modelData.filters, mouse)
-                                           if(sideBar.collapsed)
-                                           sideBar.close()
                                        }
                         }
 
@@ -131,8 +130,6 @@ Loader
             onClicked: (mouse) =>
                        {
                            _listBrowser.placeClicked(model.path, model.key, mouse)
-                           if(sideBar.collapsed)
-                           sideBar.close()
                        }
         }
 

@@ -30,6 +30,17 @@ Item
     readonly property alias currentIndex : viewerList.currentIndex
     readonly property alias currentItem: viewerList.currentItem
 
+    property string textSelected
+    /**
+      * Whether the current image is zomming in
+      **/
+    readonly property bool imageZooming : currentItem ? currentItem.zooming : false
+
+    /**
+      *Whether the current image is an animated image such as a gid or avif format
+      **/
+    readonly property bool isAnimated : currentItem ? currentItem.isAnimated : false
+
     clip: false
     focus: true
 
@@ -55,39 +66,97 @@ Item
     }
 
 
+    Action
+    {
+        id: _copyAction
+        shortcut: "Ctrl+c"
+        text: "Copy"
+        onTriggered:
+        {
+            if(control.textSelected.length>0)
+            {
+                Maui.Handy.copyTextToClipboard(control.textSelected)
+                Maui.App.rootComponent.notify("dialog-info", i18n("Text copied!"), control.textSelected)
+            }else
+            {
+                Maui.Handy.copyToClipboard({"urls": [currentPic.url]}, false)
+                Maui.App.rootComponent.notify(currentPic.url, i18n("Image file copied!"))
+            }
+        }
+    }
 
     Maui.ContextualMenu
     {
         id: _selectionMenu
 
-        property string text
-
         MenuItem
         {
-            text: i18n("Copy")
-            onTriggered: Maui.Handy.copyTextToClipboard(_selectionMenu.text)
+            action: _copyAction
         }
 
         MenuItem
         {
             text: i18n("Call")
+            enabled: Maui.Handy.isPhoneNumber(control.textSelected)
+            visible: enabled
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            onTriggered: Qt.openUrlExternally("tel:"+control.textSelected)
+        }
+
+        MenuItem
+        {
+            enabled: Maui.Handy.isPhoneNumber(control.textSelected) || Maui.Handy.isEmail(control.textSelected)
+            visible: enabled
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            text: i18n("Save as Contact")
+            icon.name: "contact-new-symbolic"
+            onTriggered: Qt.openUrlExternally("tel:"+control.textSelected)
         }
 
         MenuItem
         {
             text: i18n("Message")
+            enabled: Maui.Handy.isPhoneNumber(control.textSelected) || Maui.Handy.isEmail(control.textSelected)
+            visible: enabled
+            icon.name: "mail-message-new"
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            onTriggered: Qt.openUrlExternally("mailto:"+control.textSelected)
         }
 
         MenuItem
         {
-            text: i18n("Save")
+            enabled: Maui.Handy.isWebLink(control.textSelected)
+            visible: enabled
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            text: i18n("Open Link")
+            icon.name: "website-symbolic"
+            onTriggered: Qt.openUrlExternally(control.textSelected)
         }
 
         MenuItem
         {
-            text: i18n("Search Web")
+            enabled: Maui.Handy.isTimeDate(control.textSelected)
+            visible: enabled
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            text: i18n("Create Event")
+            icon.name: "tag-events"
+            onTriggered: Qt.openUrlExternally(control.textSelected)
         }
 
+        MenuItem
+        {
+            text: i18n("Save to Note")
+            icon.name:"note"
+        }
+
+        MenuItem
+        {
+            text: i18n("Search Selected Text on Google...")
+            visible: enabled
+            icon.name: "find"
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            onTriggered: Qt.openUrlExternally("https://www.google.com/search?q="+control.textSelected)
+        }
     }
 
     ListView
@@ -121,15 +190,15 @@ Item
         highlightResizeVelocity: -1
 
         maximumFlickVelocity: 4 * (viewerList.orientation === Qt.Horizontal ? width : height)
-        property bool ctrlPressed : false
+        property bool shiftPressed : false
 
         Keys.onPressed: (event) =>
                         {
                             console.log("key pressed", event.key, event.key == Qt.Key_Control )
-                            if(event.key == Qt.Key_Control)
+                            if(event.key == Qt.Key_Shift)
                             {
-                                console.log("ctrl pressed")
-                                ctrlPressed = true
+                                console.log("shift pressed")
+                                shiftPressed = true
                             }
 
                             if((event.key == Qt.Key_Right))
@@ -142,17 +211,16 @@ Item
                                 previous()
                             }
 
-
                             event.accepted = false
                         }
 
         Keys.onReleased:(event)=>
                         {
-                            if(event.key == Qt.Key_Control)
+                            if(event.key == Qt.Key_Shift)
                             {
-                                console.log("ctrl released")
+                                console.log("shift released")
 
-                                ctrlPressed = false
+                                shiftPressed = false
                             }
                             event.accepted = false
 
@@ -174,17 +242,20 @@ Item
 
             height: ListView.view.height
             width: ListView.view.width
-            readonly property bool preloadInfo: ListView.isCurrentItem
+            readonly property bool isCurrentItem: ListView.isCurrentItem
+            readonly property bool zooming: item.zooming
+            readonly property bool isAnimated : model.format === "gif" || model.format === "avif"
             //            active : ListView.isCurrentItem
             asynchronous: true
 
-            sourceComponent: model.format === "gif" || model.format === "avif" ? _animatedImgComponent : _imgComponent
+            sourceComponent: isAnimated ? _animatedImgComponent : _imgComponent
 
             Component
             {
                 id: _animatedImgComponent
                 Maui.AnimatedImageViewer
                 {
+                    property bool zooming : false
                     source: model.url
                 }
             }
@@ -200,9 +271,24 @@ Item
                     image.autoTransform: true
                     image.cache: true
 
+                    readonly property bool imageReady: _imgV.image.status == Image.Ready
+
+                    Timer
+                    {
+                        id: _timer
+                        property bool ready : false
+                        interval: 1500
+                        running: imageReady && _viewerLoaderDelegate.isCurrentItem && !ready && viewerSettings.enableOCR
+                        onTriggered:
+                        {
+                            console.log("Start OCR")
+                            ready = true
+                        }
+                    }
+
                     Loader
                     {
-                        active: (_viewerLoaderDelegate.preloadInfo && viewerSettings.enableOCR) || item
+                        active: (_viewerLoaderDelegate.isCurrentItem && viewerSettings.enableOCR && _timer.ready) || item
                         parent:  _imgV.image
                         height: _imgV.image.paintedHeight
                         width:  _imgV.image.paintedWidth
@@ -211,13 +297,27 @@ Item
                         sourceComponent: Item
                         {
                             opacity: 0.5
+                            Keys.enabled: true
+                            Keys.onEscapePressed: _boxes.reset()
 
                             Item
                             {
                                 id: _boxes
                                 anchors.fill: parent
 
+                                property var selectedText: []
+                                property var selectedIndexes: []
+
                                 signal resetSelection();
+
+                                function reset()
+                                {
+                                    _boxes.resetSelection()
+                                    _boxes.selectedText = []
+                                    _boxes.selectedIndexes = []
+                                    control.textSelected = ""
+                                }
+
                                 Repeater
                                 {
                                     id: _repeater
@@ -245,7 +345,7 @@ Item
                                         acceptedButtons: Qt.RightButton
 
                                         property bool selected  : false
-                                        property string text : modelData.text
+                                        readonly property string text : modelData.text
 
                                         Connections
                                         {
@@ -271,8 +371,11 @@ Item
                                                    {
                                                        if(mouse.button == Qt.RightButton)
                                                        {
+                                                           if(_boxes.selectedIndexes.indexOf(index) < 0)
+                                                           _boxes.reset()
+
                                                            selected = true
-                                                           _selectionMenu.text = _selectionArea.selectedText.length > 0 ? _selectionArea.selectedText.join(" ") : modelData.text
+                                                           control.textSelected = control.textSelected.length > 0 ? control.textSelected : modelData.text
                                                            _selectionMenu.show()
                                                        }
                                                    }
@@ -284,7 +387,7 @@ Item
                                         ToolTip.delay: 1000
                                         ToolTip.timeout: 5000
                                         ToolTip.visible: _mouseArea.containsMouse
-                                        ToolTip.text: index
+                                        ToolTip.text: control.textSelected .length && _boxes.selectedIndexes.indexOf(index) >= 0 ? control.textSelected : modelData.text
                                     }
                                 }
                             }
@@ -292,50 +395,55 @@ Item
                             MouseArea
                             {
                                 id: _selectionArea
-                                enabled: !Maui.Handy.isMobile
+                                enabled: !Maui.Handy.isMobile && viewerList.shiftPressed && !_imgV.zooming && _repeater.count > 0
+                                visible: enabled
                                 anchors.fill: parent
+
                                 preventStealing: false
-                                cursorShape: viewerList.ctrlPressed ? Qt.IBeamCursor : undefined
+                                propagateComposedEvents: true
+                                cursorShape: viewerList.shiftPressed && enabled ? Qt.IBeamCursor : undefined
                                 acceptedButtons: Qt.LeftButton
 
                                 property var pressedPosition
-                                property var selectedText: []
-                                property var selectedIndexes: []
+
 
                                 onClicked:(mouse) => mouse.accepted= false
+
+                                onEnabledChanged: if(enabled) _boxes.reset()
 
                                 onPressed: (mouse) =>
                                            {
                                                console.log(mouse.modifiers === Qt.NoModifier)
                                                if (mouse.modifiers === Qt.NoModifier)
                                                {
-                                                   _boxes.resetSelection()
-                                                   selectedText = []
-                                                   selectedIndexes = []
+                                                   _boxes.reset()
                                                }
 
                                                pressedPosition = Qt.point(mouse.x, mouse.y)
                                            }
 
-                                onReleased:
-                                {
-                                    selectedText = []
-                                    selectedIndexes.sort(function(a, b) {
-                                        return a - b;
-                                    })
-                                    console.log("Selected indexes sorted", selectedIndexes)
-                                    for(var i of selectedIndexes)
-                                    {
-                                        selectedText.push(_repeater.itemAt(i).text)
-                                    }
-                                }
+                                onReleased: (mouse) =>
+                                            {
+                                                _boxes.selectedText = []
+                                                _boxes.selectedIndexes.sort(function(a, b) {
+                                                    return a - b;
+                                                })
+                                                console.log("Selected indexes sorted", _boxes.selectedIndexes)
+                                                for(var i of _boxes.selectedIndexes)
+                                                {
+                                                    _boxes.selectedText.push(_repeater.itemAt(i).text)
+                                                }
+
+                                                control.textSelected = _boxes.selectedText.length > 0 ? _boxes.selectedText.join(" ") : ""
+                                                mouse.accepted = false
+                                            }
 
                                 onPositionChanged: (mouse) =>
                                                    {
                                                        if(Math.round(mouse.x)%2 === 0 || Math.round(mouse.y)%2 === 0)
                                                        {
 
-                                                           if(_selectionArea.containsPress && mouse.modifiers === Qt.ControlModifier)
+                                                           if(_selectionArea.containsPress && mouse.modifiers === Qt.ShiftModifier)
                                                            {
                                                                if(viewerSettings.ocrSelectionType === 0)
                                                                {
@@ -345,13 +453,13 @@ Item
                                                                    let box = _repeater.itemAt(index)
                                                                    if(box)
                                                                    {
-                                                                       if(selectedIndexes.indexOf(index) < 0)
+                                                                       if(_boxes.selectedIndexes.indexOf(index) < 0)
                                                                        {
                                                                            box.selected = true
-                                                                           selectedIndexes.push(index)
+                                                                           _boxes.selectedIndexes.push(index)
                                                                        }
+                                                                       console.log(index, box.text, box.selected)
                                                                    }
-                                                                   console.log(index, box.text, box.selected)
                                                                }else
                                                                {
                                                                    _boxes.resetSelection()
@@ -360,10 +468,10 @@ Item
 
                                                                    let rect = Qt.rect(point1.x, point1.y, Math.abs(point2.x-point1.x), Math.abs(point2.y-point1.y))
 
-                                                                   selectedIndexes = _ocr.wordBoxesAt(rect)
-                                                                   console.log("Selected rect:" , rect, selectedIndexes)
+                                                                   _boxes.selectedIndexes = _ocr.wordBoxesAt(rect)
+                                                                   console.log("Selected rect:" , rect, _boxes.selectedIndexes)
 
-                                                                   for(var i of selectedIndexes)
+                                                                   for(var i of _boxes.selectedIndexes)
                                                                    {
                                                                        let box = _repeater.itemAt(i)
                                                                        if(box)
@@ -406,27 +514,6 @@ Item
         }
     }
 
-    Button
-    {
-        Maui.Theme.inherit: false
-        Maui.Theme.colorSet: Maui.Theme.Complementary
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.margins: Maui.Style.space.big
-
-        icon.name:  "draw-text"
-
-        checked: viewerSettings.enableOCR
-
-        onClicked: viewerSettings.enableOCR = !viewerSettings.enableOCR
-
-        background: Rectangle
-        {
-            opacity: 0.7
-            color: checked ? Maui.Theme.highlightColor : Maui.Theme.backgroundColor
-            radius: Maui.Style.radiusV
-        }
-    }
 
     // MouseArea
     // {

@@ -173,6 +173,7 @@ Maui.SettingsPage
     Maui.FlexSectionItem
     {
         label1.text: i18n("Text Block Selection")
+        label2.text: i18n("For selecting multiple blocks in the free mode, hold down the Shift key while moving around.")
 
         Maui.ToolActions
         {

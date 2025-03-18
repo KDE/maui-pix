@@ -5,7 +5,6 @@
 #include <QDebug>
 #include <QDir>
 #include <QTimer>
-
 #include <QtConcurrent/QtConcurrent>
 #include <QFuture>
 
@@ -17,15 +16,12 @@
 #include <MauiKit4/ImageTools/exiv2extractor.h>
 #include <MauiKit4/ImageTools/textscanner.h>
 
+#include <MauiKit4/ImageTools/cities.h>
+#include <MauiKit4/ImageTools/city.h>
+
 #include "pix.h"
 
 static QHash<QString, QString> TextInImages; //[url:text] //global cache of text in images
-
-static QHash<QString, QString> GpsInImages()
-{
-    static QHash<QString, QString> value;
-    return value;
-}
 
 static FMH::MODEL picInfo(const QUrl &url)
 {
@@ -71,8 +67,8 @@ void Gallery::setUrls(const QList<QUrl> &urls)
 {
     qDebug() << "setting urls" << this->m_urls << urls;
 
-           	if(this->m_urls == urls)
-           		return;
+    if(this->m_urls == urls)
+        return;
 
     this->m_urls = urls;
     Q_EMIT this->urlsChanged();
@@ -126,6 +122,27 @@ void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &li
     }
 
     this->setStatus(Status::Loading);
+    for(const auto &url : urls)
+    {
+        if(url.scheme() == "gps")
+        {
+            const auto gpsId = url.toString().replace("gps:///", "");
+            qDebug() << "Collection images from GPS Tags" << gpsId;
+
+            FMH::MODEL_LIST images;
+            const auto urls = GpsImages::getInstance()->urls(gpsId);
+            for (const auto &url : urls)
+            {
+                images << picInfo(url);
+            }
+
+            Q_EMIT preItemsAppended(images.size());
+            this->list << images;
+            Q_EMIT postItemAppended();
+            Q_EMIT this->countChanged();
+        }
+    }
+
     m_fileLoader->requestPath(urls, recursive, QStringList() << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, limit);
 }
 
@@ -139,21 +156,24 @@ void Gallery::scanGpsTags()
             return;
 
         QString cityId;
-
         const auto urlId = url.toString();
-        if(GpsInImages().contains(urlId))
+
+        if(GpsImages::getInstance()->contains(urlId))
         {
-            cityId = GpsInImages().value(urlId);
+            cityId = GpsImages::getInstance()->gpsTag(urlId);
         }else
         {
             qDebug() << "CREATING A NEW CITY";
             const Exiv2Extractor exiv2(url);
             cityId = exiv2.cityId();
-            GpsInImages().insert(urlId, cityId);
+            if(!cityId.isEmpty())
+            {
+                GpsImages::getInstance()->insert(urlId, cityId);
+            }
         }
-
-        item[FMH::MODEL_KEY::CITY] = cityId;
-    } ;
+        if(!cityId.isEmpty())
+            item[FMH::MODEL_KEY::CITY] = cityId;
+    };
 
     m_futureWatcher = new QFutureWatcher<void>;
     auto future = QtConcurrent::map(list, functor);
@@ -161,7 +181,7 @@ void Gallery::scanGpsTags()
 
     connect(m_futureWatcher, &QFutureWatcher<void>::finished, [this]()
             {
-                qDebug() << "FINISHED SCANNING GPS TAGS";
+                qDebug() << "FINISHED SCANNING GPS TAGS" << GpsImages::getInstance()->values();
 
                 for(const auto &item : list)
                 {
@@ -200,7 +220,6 @@ void Gallery::setStatus(const Gallery::Status &status, const QString &error)
     qDebug() << "Setting up status" << status;
     this->m_status = status;
     Q_EMIT this->statusChanged();
-
 
     if(error != m_error)
     {
@@ -416,4 +435,77 @@ void Gallery::scanImagesText()
         this->updateModel(i, {FMH::MODEL_KEY::CONTEXT});
         i++;
     }
+}
+
+QVariantMap Gallery::getFolderInfo(const QUrl &url)
+{
+    if(url.scheme() == "gps")
+    {
+        const auto id = url.toString().replace("gps:///", "");
+
+         City city = Cities::getInstance()->city(id);
+        return QVariantMap {{"label", QString(city.name() + " - " + city.country())}, {"icon", "gps"}, {"url", url.toString()}};
+    }
+
+    return FMStatic::getFileInfo(url);
+}
+
+Q_GLOBAL_STATIC(GpsImages, gpsInstance)
+GpsImages *GpsImages::getInstance()
+{
+    return gpsInstance();
+
+}
+
+GpsImages::GpsImages() : QObject()
+{
+    connect(qApp, &QCoreApplication::aboutToQuit, [this]()
+            {
+                qDebug() << "Lets remove Tagging singleton instance and all opened Tagging DB connections.";
+                this->deleteLater();
+            });
+}
+
+GpsHash GpsImages::data() const
+{
+    return m_data;
+}
+
+void GpsImages::insert(const QString &url, const QString &gpsId)
+{
+    m_data.insert(url, gpsId);
+}
+
+QStringList GpsImages::urls(const QString &gpsId)
+{
+    QStringList res;
+    for (auto i = m_data.constBegin(), end = m_data.constEnd(); i != end; ++i)
+    {
+        if(i.value() == gpsId)
+        {
+            res << i.key();
+        }
+    }
+
+    return res;
+}
+
+QString GpsImages::gpsTag(const QString &url)
+{
+    if(m_data.contains(url))
+    {
+        return m_data.value(url);
+    }
+
+    return QString();
+}
+
+bool GpsImages::contains(const QString &url)
+{
+    return m_data.contains(url);
+}
+
+QStringList GpsImages::values()
+{
+    return m_data.values();
 }

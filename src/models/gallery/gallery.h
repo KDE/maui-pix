@@ -3,8 +3,10 @@
 #include <QObject>
 #include <QStringList>
 #include <QFutureWatcher>
+#include <QUrl>
 
 #include <MauiKit4/Core/mauilist.h>
+#include <qt6/QtCore/qobject.h>
 
 #define PIX_QUERY_MAX_LIMIT 20000
 
@@ -15,6 +17,23 @@ class FileLoader;
 
 class QFileSystemWatcher;
 class QTimer;
+
+typedef QHash<QString, QString> GpsHash;
+class GpsImages : public QObject
+{
+    Q_OBJECT
+public:
+    static GpsImages *getInstance();
+    GpsImages();
+    GpsHash data() const;
+    void insert(const QString &url, const QString &gpsId);
+    QStringList urls(const QString &gpsId);
+    QString gpsTag(const QString &url);
+    bool contains(const QString &url);
+    QStringList values();
+private:
+    GpsHash m_data;
+};
 
 class Gallery : public MauiList
 {
@@ -136,5 +155,7 @@ public Q_SLOTS:
     int indexOfName(const QString &);
     void setActiveGeolocationTags(bool activeGeolocationTags);
     void scanImagesText();
+
+    static QVariantMap getFolderInfo(const QUrl &url);
 
 };

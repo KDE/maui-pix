@@ -153,14 +153,14 @@ Component
     {
         id: _picsView
         property string currentFolder
-        readonly property var folderInfo : FB.FM.getFileInfo(currentFolder)
+        readonly property var folderInfo : list.getFolderInfo(currentFolder)
 
         headBar.visible: false
         title: control.folderInfo ? control.folderInfo.label : ""
 
         list.recursive: false
         list.urls: [currentFolder]
-        list.activeGeolocationTags: browserSettings.gpsTags
+        list.activeGeolocationTags: browserSettings.gpsTags && !currentFolder.startsWith("gps:///")
 
         holder.emoji: "qrc:/assets/add-image.svg"
         holder.title : i18n("Folder is empty!")
@@ -169,65 +169,74 @@ Component
         Keys.enabled: true
         Keys.onEscapePressed: control.pop()
 
-        gridView.header: Column
+        gridView.header: Loader
         {
             width: parent.width
-            spacing: Maui.Style.space.medium
-
-            Maui.SectionHeader
-            {
-                width: parent.width
-                label1.text: folderInfo.label
-                label2.text: folderInfo.url ? (folderInfo.url).replace(FB.FM.homePath(), "") : ""
-                template.label3.text: i18np("No images.", "%1 images", _picsView.gridView.count)
-                template.label4.text: Qt.formatDateTime(new Date(folderInfo.modified), "d MMM yyyy")
-                template.iconSource: folderInfo.icon
-
-                template.content: ToolButton
-                {
-                    icon.name: "folder-open"
-                    onClicked: Qt.openUrlExternally(currentFolder)
-                }
-            }
-
-            Flow
+            asynchronous: true
+            sourceComponent: Column
             {
                 spacing: Maui.Style.space.medium
-                width: parent.width
-                Repeater
-                {
-                    model: Maui.BaseModel
-                    {
-                        list: CitiesList
-                        {
-                            cities:  _picsView.list.cities
-                        }
-                    }
 
-                    delegate: Maui.Chip
+                Maui.SectionHeader
+                {
+                    width: parent.width
+                    label1.text: folderInfo.label
+                    label2.text: folderInfo.url ? (folderInfo.url).replace(FB.FM.homePath(), "") : ""
+                    template.label3.text: i18np("No images.", "%1 images", _picsView.gridView.count)
+                    template.label4.text: Qt.formatDateTime(new Date(folderInfo.modified), "d MMM yyyy")
+                    template.iconSource: folderInfo.icon
+
+                    template.content: ToolButton
                     {
-                        text: model.name
-                        iconSource: "gps"
-                        checked:  _picsView.model.filters.indexOf(model.id) === 0
-                        checkable: true
-                        onClicked:
+                        icon.name: "folder-open"
+                        onClicked: Qt.openUrlExternally(currentFolder)
+                    }
+                }
+
+                Loader
+                {
+                    active: _picsView.list.activeGeolocationTags
+                    asynchronous: true
+                    width: parent.width
+
+                    sourceComponent:  Flow
+                    {
+                        spacing: Maui.Style.space.medium
+                        Repeater
                         {
-                            if( _picsView.model.filters.indexOf(model.id) === 0)
+                            model: Maui.BaseModel
                             {
-                                _picsView.model.clearFilters()
-                            }else
+                                list: CitiesList
+                                {
+                                    cities:  _picsView.list.cities
+                                }
+                            }
+
+                            delegate: Maui.Chip
                             {
-                                _picsView.model.filters = [model.id]
+                                text: model.name
+                                iconSource: "gps"
+                                checked:  _picsView.model.filters.indexOf(model.id) === 0
+                                checkable: true
+                                onClicked:
+                                {
+                                    if( _picsView.model.filters.indexOf(model.id) === 0)
+                                    {
+                                        _picsView.model.clearFilters()
+                                    }else
+                                    {
+                                        _picsView.model.filters = [model.id]
+                                    }
+                                }
+
                             }
                         }
-
                     }
                 }
             }
         }
     }
 }
-
 
 function refresh()
 {
@@ -270,8 +279,5 @@ function openFolder(url, filters)
             }
         }
     }
-
-    control.currentItem.model.clearFilters()
-    control.currentItem.model.filters = filters
 }
 }

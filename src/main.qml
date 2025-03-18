@@ -141,7 +141,7 @@ Maui.ApplicationWindow
         {
             id: _pixViewer
             visible: StackView.status === StackView.Active
-            Maui.Controls.showCSD: initModule === "viewer"
+            Maui.Controls.showCSD: true
         }
     }
 
