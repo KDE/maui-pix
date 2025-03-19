@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-14 00:41+0000\n"
+"POT-Creation-Date: 2025-03-19 00:40+0000\n"
 "PO-Revision-Date: 2025-03-12 09:51+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -178,7 +178,7 @@ msgstr "Vectors"
 msgid "Paintings"
 msgstr "Pintures"
 
-#: src/models/gallery/gallery.cpp:124
+#: src/models/gallery/gallery.cpp:120
 #, kde-format
 msgid "No sources found to scan."
 msgstr "No s'ha trobat cap font que s'haja d'explorar."
@@ -330,12 +330,19 @@ msgstr "Paràgraf"
 msgid "Text Block Selection"
 msgstr "Selecció de bloc de text"
 
-#: src/widgets/OCRSettingsPage.qml:183
+#: src/widgets/OCRSettingsPage.qml:176
+#, kde-format
+msgid ""
+"For selecting multiple blocks in the free mode, hold down the Shift key "
+"while moving around."
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
 msgstr "Lliure"
 
-#: src/widgets/OCRSettingsPage.qml:190
+#: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
 msgstr "Rectangular"
@@ -600,7 +607,7 @@ msgstr "La carpeta està buida!"
 msgid "There're no images in this folder. %1"
 msgstr "No hi ha cap imatge en esta carpeta. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:182
+#: src/widgets/views/Folders/FoldersView.qml:185
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -609,7 +616,7 @@ msgstr[1] "%1 imatges"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:217
 #, kde-format
 msgid "No Pics!"
 msgstr "Sense imatges!"
@@ -699,7 +706,6 @@ msgid "There're no pics associated with the tag"
 msgstr "No hi ha cap imatge associada amb l'etiqueta"
 
 #: src/widgets/views/Viewer/PixViewer.qml:90
-#: src/widgets/views/Viewer/Viewer.qml:83
 #, kde-format
 msgid "Save"
 msgstr "Guarda"
@@ -714,27 +720,61 @@ msgstr "Galeria"
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/widgets/views/Viewer/PixViewer.qml:215
+#: src/widgets/views/Viewer/PixViewer.qml:218
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obri una imatge de la col·lecció"
 
-#: src/widgets/views/Viewer/Viewer.qml:67
+#: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
-msgid "Copy"
-msgstr "Copia"
+msgid "Text copied!"
+msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:73
+#: src/widgets/views/Viewer/Viewer.qml:83
+#, fuzzy, kde-format
+#| msgid "Image Titles"
+msgid "Image file copied!"
+msgstr "Títols de les imatges"
+
+#: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
 msgstr "Toca"
 
-#: src/widgets/views/Viewer/Viewer.qml:78
+#: src/widgets/views/Viewer/Viewer.qml:111
+#, fuzzy, kde-format
+#| msgid "Save as"
+msgid "Save as Contact"
+msgstr "Anomena i guarda"
+
+#: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
 
-#: src/widgets/views/Viewer/Viewer.qml:88
+#: src/widgets/views/Viewer/Viewer.qml:131
+#, fuzzy, kde-format
+#| msgid "Open Location"
+msgid "Open Link"
+msgstr "Obri la ubicació"
+
+#: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
-msgid "Search Web"
-msgstr "Busca al web"
+msgid "Create Event"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:148
+#, kde-format
+msgid "Save to Note"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:154
+#, kde-format
+msgid "Search Selected Text on Google..."
+msgstr ""
+
+#~ msgid "Copy"
+#~ msgstr "Copia"
+
+#~ msgid "Search Web"
+#~ msgstr "Busca al web"

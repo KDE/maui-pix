@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-14 00:41+0000\n"
+"POT-Creation-Date: 2025-03-19 00:40+0000\n"
 "PO-Revision-Date: 2025-01-08 17:58+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -174,7 +174,7 @@ msgstr "向量圖"
 msgid "Paintings"
 msgstr "畫作"
 
-#: src/models/gallery/gallery.cpp:124
+#: src/models/gallery/gallery.cpp:120
 #, kde-format
 msgid "No sources found to scan."
 msgstr "找不到要掃描的來源。"
@@ -325,12 +325,19 @@ msgstr ""
 msgid "Text Block Selection"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:183
+#: src/widgets/OCRSettingsPage.qml:176
+#, kde-format
+msgid ""
+"For selecting multiple blocks in the free mode, hold down the Shift key "
+"while moving around."
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:190
+#: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
 msgstr ""
@@ -591,7 +598,7 @@ msgstr "資料夾是空的！"
 msgid "There're no images in this folder. %1"
 msgstr "這個資料夾裡沒有影像。%1"
 
-#: src/widgets/views/Folders/FoldersView.qml:182
+#: src/widgets/views/Folders/FoldersView.qml:185
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -599,7 +606,7 @@ msgstr[0] "%1 張影像"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:217
 #, kde-format
 msgid "No Pics!"
 msgstr "沒有圖片！"
@@ -688,7 +695,6 @@ msgid "There're no pics associated with the tag"
 msgstr "沒有含有該標籤的圖片"
 
 #: src/widgets/views/Viewer/PixViewer.qml:90
-#: src/widgets/views/Viewer/Viewer.qml:83
 #, kde-format
 msgid "Save"
 msgstr "儲存"
@@ -703,32 +709,64 @@ msgstr "相簿"
 msgid "Previous"
 msgstr "上一個"
 
-#: src/widgets/views/Viewer/PixViewer.qml:215
+#: src/widgets/views/Viewer/PixViewer.qml:218
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "從您的收藏裡開啟影像"
 
-#: src/widgets/views/Viewer/Viewer.qml:67
+#: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
-msgid "Copy"
+msgid "Text copied!"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:73
+#: src/widgets/views/Viewer/Viewer.qml:83
+#, fuzzy, kde-format
+#| msgid "Image Titles"
+msgid "Image file copied!"
+msgstr "影像標題"
+
+#: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:78
+#: src/widgets/views/Viewer/Viewer.qml:111
+#, fuzzy, kde-format
+#| msgid "Save as"
+msgid "Save as Contact"
+msgstr "另存為"
+
+#: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:88
+#: src/widgets/views/Viewer/Viewer.qml:131
 #, fuzzy, kde-format
-#| msgid "Search image"
-#| msgid_plural "Search %1 images"
-msgid "Search Web"
-msgstr "搜尋 %1 張影像"
+#| msgid "Open Location"
+msgid "Open Link"
+msgstr "開啟位置"
+
+#: src/widgets/views/Viewer/Viewer.qml:141
+#, kde-format
+msgid "Create Event"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:148
+#, kde-format
+msgid "Save to Note"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:154
+#, kde-format
+msgid "Search Selected Text on Google..."
+msgstr ""
+
+#, fuzzy
+#~| msgid "Search image"
+#~| msgid_plural "Search %1 images"
+#~ msgid "Search Web"
+#~ msgstr "搜尋 %1 張影像"
 
 #~ msgid "Accept"
 #~ msgstr "接受"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-14 00:41+0000\n"
+"POT-Creation-Date: 2025-03-19 00:40+0000\n"
 "PO-Revision-Date: 2021-11-15 17:54+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -177,7 +177,7 @@ msgstr ""
 msgid "Paintings"
 msgstr ""
 
-#: src/models/gallery/gallery.cpp:124
+#: src/models/gallery/gallery.cpp:120
 #, kde-format
 msgid "No sources found to scan."
 msgstr ""
@@ -333,12 +333,19 @@ msgstr ""
 msgid "Text Block Selection"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:183
+#: src/widgets/OCRSettingsPage.qml:176
+#, kde-format
+msgid ""
+"For selecting multiple blocks in the free mode, hold down the Shift key "
+"while moving around."
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:190
+#: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
 msgstr ""
@@ -607,7 +614,7 @@ msgstr "Priečinok je prázdny"
 msgid "There're no images in this folder. %1"
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:182
+#: src/widgets/views/Folders/FoldersView.qml:185
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "No images."
@@ -618,7 +625,7 @@ msgstr[2] "Otvoriť obrázky"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:217
 #, kde-format
 msgid "No Pics!"
 msgstr ""
@@ -710,7 +717,6 @@ msgid "There're no pics associated with the tag"
 msgstr ""
 
 #: src/widgets/views/Viewer/PixViewer.qml:90
-#: src/widgets/views/Viewer/Viewer.qml:83
 #, fuzzy, kde-format
 msgid "Save"
 msgstr "Uložiť"
@@ -725,31 +731,62 @@ msgstr "Galéria"
 msgid "Previous"
 msgstr "Predchádzajúci"
 
-#: src/widgets/views/Viewer/PixViewer.qml:215
+#: src/widgets/views/Viewer/PixViewer.qml:218
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:67
+#: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
-msgid "Copy"
+msgid "Text copied!"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:73
+#: src/widgets/views/Viewer/Viewer.qml:83
+#, kde-format
+msgid "Image file copied!"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:78
+#: src/widgets/views/Viewer/Viewer.qml:111
+#, fuzzy, kde-format
+#| msgid "Save as"
+msgid "Save as Contact"
+msgstr "Uložiť ako"
+
+#: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:88
+#: src/widgets/views/Viewer/Viewer.qml:131
 #, fuzzy, kde-format
-#| msgid "Search"
-msgid "Search Web"
-msgstr "Hľadať"
+#| msgid "Open"
+msgid "Open Link"
+msgstr "Otvoriť s"
+
+#: src/widgets/views/Viewer/Viewer.qml:141
+#, kde-format
+msgid "Create Event"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:148
+#, kde-format
+msgid "Save to Note"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:154
+#, kde-format
+msgid "Search Selected Text on Google..."
+msgstr ""
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Search Web"
+#~ msgstr "Hľadať"
 
 #~ msgid "Accept"
 #~ msgstr "Prijať"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-14 00:41+0000\n"
+"POT-Creation-Date: 2025-03-19 00:40+0000\n"
 "PO-Revision-Date: 2025-03-08 22:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -182,7 +182,7 @@ msgstr "المتجهات"
 msgid "Paintings"
 msgstr "الرسمات"
 
-#: src/models/gallery/gallery.cpp:124
+#: src/models/gallery/gallery.cpp:120
 #, kde-format
 msgid "No sources found to scan."
 msgstr "لم يعثر على مصادر للمسح."
@@ -338,12 +338,19 @@ msgstr ""
 msgid "Text Block Selection"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:183
+#: src/widgets/OCRSettingsPage.qml:176
+#, kde-format
+msgid ""
+"For selecting multiple blocks in the free mode, hold down the Shift key "
+"while moving around."
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:190
+#: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
 msgstr ""
@@ -609,7 +616,7 @@ msgstr "المجلد فارغ!"
 msgid "There're no images in this folder. %1"
 msgstr "لا توجد صور في هذا المجلد. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:182
+#: src/widgets/views/Folders/FoldersView.qml:185
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -622,7 +629,7 @@ msgstr[5] "%1 صورة"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:217
 #, kde-format
 msgid "No Pics!"
 msgstr "لا توجد صور!"
@@ -716,7 +723,6 @@ msgid "There're no pics associated with the tag"
 msgstr "لا توجد صور مرتبطة بالوسم"
 
 #: src/widgets/views/Viewer/PixViewer.qml:90
-#: src/widgets/views/Viewer/Viewer.qml:83
 #, kde-format
 msgid "Save"
 msgstr "احفظ"
@@ -731,30 +737,64 @@ msgstr "المعرض"
 msgid "Previous"
 msgstr "السابق"
 
-#: src/widgets/views/Viewer/PixViewer.qml:215
+#: src/widgets/views/Viewer/PixViewer.qml:218
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "افتح صورة من مجموعتك"
 
-#: src/widgets/views/Viewer/Viewer.qml:67
+#: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
-msgid "Copy"
-msgstr "انسخ"
+msgid "Text copied!"
+msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:73
+#: src/widgets/views/Viewer/Viewer.qml:83
+#, fuzzy, kde-format
+#| msgid "Image Titles"
+msgid "Image file copied!"
+msgstr "عناوين الصور"
+
+#: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
 msgstr "اتصل"
 
-#: src/widgets/views/Viewer/Viewer.qml:78
+#: src/widgets/views/Viewer/Viewer.qml:111
+#, fuzzy, kde-format
+#| msgid "Save as"
+msgid "Save as Contact"
+msgstr "حفظ باسم"
+
+#: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
 msgstr "الرسالة"
 
-#: src/widgets/views/Viewer/Viewer.qml:88
+#: src/widgets/views/Viewer/Viewer.qml:131
+#, fuzzy, kde-format
+#| msgid "Open Location"
+msgid "Open Link"
+msgstr "افتح موقعًا"
+
+#: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
-msgid "Search Web"
-msgstr "ابحث في الوِب"
+msgid "Create Event"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:148
+#, kde-format
+msgid "Save to Note"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:154
+#, kde-format
+msgid "Search Selected Text on Google..."
+msgstr ""
+
+#~ msgid "Copy"
+#~ msgstr "انسخ"
+
+#~ msgid "Search Web"
+#~ msgstr "ابحث في الوِب"
 
 #, fuzzy
 #~| msgid "Accept"

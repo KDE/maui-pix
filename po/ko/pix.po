@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-14 00:41+0000\n"
+"POT-Creation-Date: 2025-03-19 00:40+0000\n"
 "PO-Revision-Date: 2024-11-29 00:30+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -171,7 +171,7 @@ msgstr "벡터"
 msgid "Paintings"
 msgstr "그리기"
 
-#: src/models/gallery/gallery.cpp:124
+#: src/models/gallery/gallery.cpp:120
 #, kde-format
 msgid "No sources found to scan."
 msgstr "스캔할 원본을 찾을 수 없습니다."
@@ -322,12 +322,19 @@ msgstr ""
 msgid "Text Block Selection"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:183
+#: src/widgets/OCRSettingsPage.qml:176
+#, kde-format
+msgid ""
+"For selecting multiple blocks in the free mode, hold down the Shift key "
+"while moving around."
+msgstr ""
+
+#: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:190
+#: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
 msgstr ""
@@ -588,7 +595,7 @@ msgstr "폴더가 비어 있습니다!"
 msgid "There're no images in this folder. %1"
 msgstr "이 폴더에 그림이 없습니다. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:182
+#: src/widgets/views/Folders/FoldersView.qml:185
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -596,7 +603,7 @@ msgstr[0] "그림 %1개"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:214
+#: src/widgets/views/Viewer/PixViewer.qml:217
 #, kde-format
 msgid "No Pics!"
 msgstr "그림이 없습니다!"
@@ -685,7 +692,6 @@ msgid "There're no pics associated with the tag"
 msgstr "태그와 연결된 그림 없음"
 
 #: src/widgets/views/Viewer/PixViewer.qml:90
-#: src/widgets/views/Viewer/Viewer.qml:83
 #, kde-format
 msgid "Save"
 msgstr "저장"
@@ -700,32 +706,64 @@ msgstr "갤러리"
 msgid "Previous"
 msgstr "이전"
 
-#: src/widgets/views/Viewer/PixViewer.qml:215
+#: src/widgets/views/Viewer/PixViewer.qml:218
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "모음집에서 그림 열기"
 
-#: src/widgets/views/Viewer/Viewer.qml:67
+#: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
-msgid "Copy"
+msgid "Text copied!"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:73
+#: src/widgets/views/Viewer/Viewer.qml:83
+#, fuzzy, kde-format
+#| msgid "Image Titles"
+msgid "Image file copied!"
+msgstr "그림 제목"
+
+#: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:78
+#: src/widgets/views/Viewer/Viewer.qml:111
+#, fuzzy, kde-format
+#| msgid "Save as"
+msgid "Save as Contact"
+msgstr "다른 이름으로 저장"
+
+#: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:88
+#: src/widgets/views/Viewer/Viewer.qml:131
 #, fuzzy, kde-format
-#| msgid "Search image"
-#| msgid_plural "Search %1 images"
-msgid "Search Web"
-msgstr "그림 %1개 검색"
+#| msgid "Open Location"
+msgid "Open Link"
+msgstr "위치 열기"
+
+#: src/widgets/views/Viewer/Viewer.qml:141
+#, kde-format
+msgid "Create Event"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:148
+#, kde-format
+msgid "Save to Note"
+msgstr ""
+
+#: src/widgets/views/Viewer/Viewer.qml:154
+#, kde-format
+msgid "Search Selected Text on Google..."
+msgstr ""
+
+#, fuzzy
+#~| msgid "Search image"
+#~| msgid_plural "Search %1 images"
+#~ msgid "Search Web"
+#~ msgstr "그림 %1개 검색"
 
 #~ msgid "Accept"
 #~ msgstr "수락"
