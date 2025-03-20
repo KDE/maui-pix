@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-19 00:40+0000\n"
-"PO-Revision-Date: 2025-01-16 14:35+0100\n"
+"PO-Revision-Date: 2025-03-12 18:07+0100\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -217,12 +217,12 @@ msgstr "Seleziona"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "Aggiungi a «%1»"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "Aggiungi a Album"
 
 #: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -247,12 +247,12 @@ msgstr "Apri posizione"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Direzione del testo"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Abilita rilevamento automatico"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
@@ -307,27 +307,27 @@ msgstr ""
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Rilevamento dei blocchi di testo"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Parola"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Riga"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Paragrafo"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Selezione dei blocchi di testo"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
@@ -339,12 +339,12 @@ msgstr ""
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Libero"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Rettangolare"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -521,7 +521,7 @@ msgstr "Barra delle anteprime"
 #: src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Configura le impostazioni per il rilevamento del testo nelle immagini."
 
 #: src/widgets/SettingsDialog.qml:250
 #, kde-format
@@ -738,7 +738,7 @@ msgstr "Titoli delle immagini"
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Chiamata"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
 #, fuzzy, kde-format
@@ -749,7 +749,7 @@ msgstr "Salva come"
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Messaggio"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
 #, fuzzy, kde-format

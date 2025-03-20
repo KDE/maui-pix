@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-19 00:40+0000\n"
-"PO-Revision-Date: 2025-03-14 07:29+0100\n"
+"PO-Revision-Date: 2025-03-19 07:21+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -273,7 +273,7 @@ msgstr "Predobdelava slike"
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr "Omogoči predobdelavo slike"
+msgstr "Omogoči predobdelavo slike."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
@@ -345,7 +345,7 @@ msgstr "Izbor bloka besedila"
 msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
-msgstr ""
+msgstr "Za izbiro več blokov v prostem načinu med premikanjem držite dvigalko."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
@@ -743,13 +743,12 @@ msgstr "Odprite sliko iz svoje zbirke"
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "Besedilo kopirano!"
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "Naslovi slik"
+msgstr "Datoteka slike kopirana!"
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
@@ -757,10 +756,9 @@ msgid "Call"
 msgstr "Klic"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Shrani kot"
+msgstr "Shrani kot stik"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
@@ -768,25 +766,24 @@ msgid "Message"
 msgstr "Sporočilo"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "Odpri lokacijo"
+msgstr "Odpri povezavo"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "ustvari dogodek"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "Shrani v zabeležko"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "Iskanje izbranega besedila v Googlu..."
 
 #~ msgid "Copy"
 #~ msgstr "Kopiraj"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-19 00:40+0000\n"
-"PO-Revision-Date: 2025-03-12 17:22+0200\n"
+"PO-Revision-Date: 2025-03-15 19:36+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -259,47 +259,47 @@ msgstr "Ieslēgt automātisku atpazīšanu"
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "Attēla priekšapstrāde"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "Ieslēgt attēlu priekšapstrādi."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "Lapas segmentācija"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "Automātiski"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "Automātisks OSD"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "Viena kolonna"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "Viena rinda"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "Viens bloks"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "Viens vārds"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format

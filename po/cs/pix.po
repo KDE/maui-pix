@@ -271,7 +271,7 @@ msgstr ""
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "Automaticky"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
@@ -286,7 +286,7 @@ msgstr ""
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "Jednoduchá čára"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
@@ -311,17 +311,17 @@ msgstr ""
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Slovo"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Čára"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Odstavec"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
@@ -338,12 +338,12 @@ msgstr ""
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Volné"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Obdélníkově"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -736,7 +736,7 @@ msgstr ""
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Volání"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
 #, fuzzy, kde-format
@@ -747,18 +747,17 @@ msgstr "Uložit jako"
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Zpráva"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "Otevřít umístění"
+msgstr "Otevřít odkaz"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "Vytvořit událost"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format

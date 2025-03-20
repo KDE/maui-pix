@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-19 00:40+0000\n"
-"PO-Revision-Date: 2025-03-14 12:11+0100\n"
+"PO-Revision-Date: 2025-03-19 14:41+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -334,6 +334,8 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"Voor het selecteren van meerdere blokken in de vrije modus, houd de toets "
+"Shift ingedrukt terwijl er rond gegaan wordt."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
@@ -726,13 +728,12 @@ msgstr "Een afbeelding openen uit uw verzameling"
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "Tekst gekopieerd!"
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "Titels van afbeeldingen"
+msgstr "Afbeeldingsbestand gekopieerd!"
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
@@ -740,10 +741,9 @@ msgid "Call"
 msgstr "Aanroep"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Opslaan als"
+msgstr "Als contactpersoon opslaan"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
@@ -751,25 +751,24 @@ msgid "Message"
 msgstr "Bericht"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "Locatie openen"
+msgstr "Koppeling openen"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "Gebeurtenis aanmaken"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "Als notitie opslaan"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "Geselecteerde tekst on Google zoeken..."
 
 #~ msgid "Copy"
 #~ msgstr "Kopiëren"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-19 00:40+0000\n"
-"PO-Revision-Date: 2025-03-14 13:44+0200\n"
+"PO-Revision-Date: 2025-03-19 08:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -344,6 +344,8 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"Щоб позначити декілька блоків у довільному режимі, утримуйте натиснутою "
+"клавішу Shift під час пересування вказівника миші."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
@@ -743,13 +745,12 @@ msgstr "Відкрити зображення з вашої збірки"
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "Текст скопійовано!"
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "Заголовки зображень"
+msgstr "Файл зображення скопійовано!"
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
@@ -757,10 +758,9 @@ msgid "Call"
 msgstr "Виклик"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Зберегти як"
+msgstr "Зберегти як контакт"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
@@ -768,25 +768,24 @@ msgid "Message"
 msgstr "Повідомлення"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "Відкрити адресу"
+msgstr "Відкрити посилання"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "Створити запис події"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "Зберегти до нотатки"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "Шукати позначений текст у Google..."
 
 #~ msgid "Copy"
 #~ msgstr "Копіювати"
