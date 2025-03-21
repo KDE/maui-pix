@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-19 00:40+0000\n"
-"PO-Revision-Date: 2025-03-14 09:31+0200\n"
+"PO-Revision-Date: 2025-03-19 10:54+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -338,6 +338,7 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"כדי לבחור כמה אזורים במצב החופשי, יש להחזיק את מקש Shift תוך תנועה במרחב."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
@@ -733,13 +734,12 @@ msgstr "פתיחת תמונה מהאוסף שלך"
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "הטקסט הועתק!"
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "כותרות תמונות"
+msgstr "קובץ התמונה הועתק!"
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
@@ -747,10 +747,9 @@ msgid "Call"
 msgstr "חיוג"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "שמירה בשם"
+msgstr "שמירה כאיש קשר"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
@@ -758,25 +757,24 @@ msgid "Message"
 msgstr "הודעה"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "פתיחת מקום"
+msgstr "פתיחת קישור"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "יצירת אירוע"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "שמירה לפתקית"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "חיפוש הטקסט הנבחר ב־Google…"
 
 #~ msgid "Copy"
 #~ msgstr "העתקה"

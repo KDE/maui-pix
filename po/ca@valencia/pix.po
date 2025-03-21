@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-19 00:40+0000\n"
-"PO-Revision-Date: 2025-03-12 09:51+0100\n"
+"PO-Revision-Date: 2025-03-19 08:52+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -258,47 +258,47 @@ msgstr "Activa la detecció automàtica"
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "Preprocessament d'imatges"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "Activa el preprocessament d'imatges."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "Segmentació de les pàgines"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "Automàtica"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "Automàtica OSD"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "Columna única"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "Línia única"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "Bloc únic"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "Paraula única"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
@@ -336,6 +336,8 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"Per a seleccionar múltiples blocs en el mode lliure, manteniu premuda la "
+"tecla «Majús» mentre es mou."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
@@ -728,13 +730,12 @@ msgstr "Obri una imatge de la col·lecció"
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "S'ha copiat el text!"
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "Títols de les imatges"
+msgstr "S'ha copiat el fitxer d'imatge!"
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
@@ -742,10 +743,9 @@ msgid "Call"
 msgstr "Toca"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Anomena i guarda"
+msgstr "Anomena i guarda com a contacte"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
@@ -753,28 +753,21 @@ msgid "Message"
 msgstr "Missatge"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "Obri la ubicació"
+msgstr "Obri l'enllaç"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "Crea un esdeveniment"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "Guarda a una nota"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
-
-#~ msgid "Copy"
-#~ msgstr "Copia"
-
-#~ msgid "Search Web"
-#~ msgstr "Busca al web"
+msgstr "Busca en Google el text seleccionat…"

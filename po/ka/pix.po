@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-19 00:40+0000\n"
-"PO-Revision-Date: 2025-03-14 04:20+0100\n"
+"PO-Revision-Date: 2025-03-20 03:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -335,6 +335,8 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"თავისუფალ რეჟიმში ერთზე მეტი ბლოკის მოსანიშნად, გადაადგილებისას, Shift "
+"ღილაკზე გეჭიროთ."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
@@ -726,13 +728,12 @@ msgstr "თქენი კოლექციიდან სურათის 
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "ტექსტი დაკოპირდა!"
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "გამოსახულების სათაურები"
+msgstr "გამოსახულების ფაილი დაკოპირდა!"
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
@@ -740,10 +741,9 @@ msgid "Call"
 msgstr "ზარი"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "შენახვა როგორც"
+msgstr "შენახვა, როგორც კონტაქტის"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
@@ -751,25 +751,24 @@ msgid "Message"
 msgstr "შეტყობინება"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "მდებარეობის გახსნა"
+msgstr "ბმულის გახსნა"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "მოვლენის შექმნა"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "შენახვა შენიშვნაში"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "მონიშნული ტექსტის Google-ში მოძებნა..."
 
 #~ msgid "Copy"
 #~ msgstr "კოპირება"
