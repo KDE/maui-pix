@@ -29,10 +29,10 @@ void PlacesModel::setList()
 {
     Q_EMIT this->preListChanged();
     m_list.clear();
-    m_list << this->tags();
-    m_list << this->collectionPaths();
+    // m_list << this->collectionPaths();
     m_list << this->locations();
-    m_list << this->categories();
+    m_list << this->tags();
+    // m_list << this->categories();
     Q_EMIT this->postListChanged();
     Q_EMIT this->countChanged();
 }

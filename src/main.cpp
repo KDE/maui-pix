@@ -125,6 +125,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     const auto exiv2Data = MauiKitImageTools::exiv2Data();
     about.addComponent(exiv2Data.name(), "", exiv2Data.version(), exiv2Data.webAddress());
 
+    const auto kexiv2Data = MauiKitImageTools::libKexiv2Data();
+    about.addComponent(kexiv2Data.name(), kexiv2Data.description(), kexiv2Data.version(), kexiv2Data.webAddress());
+
     const auto ITData = MauiKitImageTools::aboutData();
     about.addComponent(ITData.name(), MauiKitImageTools::buildVersion(), ITData.version(), ITData.webAddress());
 

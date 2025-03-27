@@ -74,7 +74,6 @@ Maui.GridBrowserDelegate
 
             isMask: true
             image.autoTransform: true
-            Component.onCompleted: control.label2.text =  Qt.binding(function () { return _iconItem.image.implicitWidth + " x " + _iconItem.image.implicitHeight})
         }
     }
 

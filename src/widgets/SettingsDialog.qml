@@ -71,6 +71,7 @@ Maui.SettingsDialog
                 expanded: true
                 autoExclusive: true
                 display: ToolButton.TextOnly
+                font.bold: true
 
                 Action
                 {
@@ -234,7 +235,7 @@ Maui.SettingsDialog
         {
             label1.text: i18n("Text Detection")
             label2.text: i18n("Configure settings for text detection in images.")
-            enabled: viewerSettings.enableOCR
+            // enabled: viewerSettings.enableOCR
 
             ToolButton
             {

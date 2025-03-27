@@ -128,6 +128,11 @@ Maui.ApplicationWindow
 
         initialItem: initModule === "viewer" ? _pixViewer : _collectionViewComponent
 
+        background: Rectangle
+        {
+            color: Maui.Theme.backgroundColor
+        }
+
         Loader
         {
             id: _collectionViewComponent
