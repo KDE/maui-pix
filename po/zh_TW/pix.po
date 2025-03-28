@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-19 00:40+0000\n"
-"PO-Revision-Date: 2025-01-08 17:58+0900\n"
+"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"PO-Revision-Date: 2025-03-27 22:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -45,45 +45,45 @@ msgstr "設定"
 msgid "About"
 msgstr "關於"
 
-#: src/main.qml:172
+#: src/main.qml:177
 #, kde-format
 msgid "Open images"
 msgstr "開啟影像"
 
-#: src/main.qml:173
+#: src/main.qml:178
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "拖放影像到這裡。"
 
-#: src/main.qml:223
+#: src/main.qml:228
 #, kde-format
 msgid "Tagged"
 msgstr "已加上標籤"
 
-#: src/main.qml:224
+#: src/main.qml:229
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "檔案已成功加上標籤"
 
-#: src/main.qml:276 src/view_models/PixMenu.qml:40
+#: src/main.qml:281 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "刪除 %1 個檔案？"
 
-#: src/main.qml:277 src/view_models/PixMenu.qml:41
+#: src/main.qml:282 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
 msgstr[0] "您確定要移除這些檔案嗎？這個動作無法復原。"
 
-#: src/main.qml:283 src/view_models/PixMenu.qml:47
+#: src/main.qml:288 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: src/main.qml:289 src/view_models/PixMenu.qml:53
+#: src/main.qml:294 src/view_models/PixMenu.qml:53
 #: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
@@ -213,12 +213,12 @@ msgstr "選取"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "加入「%1」"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "加入專輯"
 
 #: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
 #, kde-format
@@ -240,107 +240,107 @@ msgstr "跳至資料夾"
 msgid "Open Location"
 msgstr "開啟位置"
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:235
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "文字偵測"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "啟用自動偵測"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "影像預處理"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "啟用影像預處理"
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "分頁"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "自動"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "自動 OSD"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "單一欄"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "單一行"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "單一方塊"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "單一單字"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "自信閥值"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "文字方塊偵測"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "單字"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "行"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "段落"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "文字方塊選取"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
 msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
-msgstr ""
+msgstr "要在自由模式選擇多個方塊的話，請在移動時按住 Shift 鍵。"
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "自由"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "矩形"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -407,122 +407,122 @@ msgstr "預覽大小"
 msgid "Size of the thumbnails in the collection views."
 msgstr "收藏檢視中的縮圖大小。"
 
-#: src/widgets/SettingsDialog.qml:77
+#: src/widgets/SettingsDialog.qml:78
 #, kde-format
 msgid "S"
 msgstr "小"
 
-#: src/widgets/SettingsDialog.qml:84
+#: src/widgets/SettingsDialog.qml:85
 #, kde-format
 msgid "M"
 msgstr "中"
 
-#: src/widgets/SettingsDialog.qml:92
+#: src/widgets/SettingsDialog.qml:93
 #, kde-format
 msgid "X"
 msgstr "巨大"
 
-#: src/widgets/SettingsDialog.qml:100
+#: src/widgets/SettingsDialog.qml:101
 #, kde-format
 msgid "XL"
 msgstr "非常大"
 
-#: src/widgets/SettingsDialog.qml:110
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Sort by"
 msgstr "排序方式"
 
-#: src/widgets/SettingsDialog.qml:111
+#: src/widgets/SettingsDialog.qml:112
 #, kde-format
 msgid "Change the sorting key."
 msgstr "變更排序依據。"
 
-#: src/widgets/SettingsDialog.qml:121
+#: src/widgets/SettingsDialog.qml:122
 #, kde-format
 msgid "Title"
 msgstr "標題"
 
-#: src/widgets/SettingsDialog.qml:128
+#: src/widgets/SettingsDialog.qml:129
 #, kde-format
 msgid "Modified"
 msgstr "修改時間"
 
-#: src/widgets/SettingsDialog.qml:136
+#: src/widgets/SettingsDialog.qml:137
 #, kde-format
 msgid "Size"
 msgstr "大小"
 
-#: src/widgets/SettingsDialog.qml:144
+#: src/widgets/SettingsDialog.qml:145
 #, kde-format
 msgid "Date"
 msgstr "日期"
 
-#: src/widgets/SettingsDialog.qml:154
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Sort Order"
 msgstr "排序方向"
 
-#: src/widgets/SettingsDialog.qml:155
+#: src/widgets/SettingsDialog.qml:156
 #, kde-format
 msgid "Change the sorting order."
 msgstr "變更排序方向。"
 
-#: src/widgets/SettingsDialog.qml:166
+#: src/widgets/SettingsDialog.qml:167
 #, kde-format
 msgid "Ascending"
 msgstr "遞增"
 
-#: src/widgets/SettingsDialog.qml:174
+#: src/widgets/SettingsDialog.qml:175
 #, kde-format
 msgid "Descending"
 msgstr "遞減"
 
-#: src/widgets/SettingsDialog.qml:185
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "GPS Tags"
 msgstr "GPS 標籤"
 
-#: src/widgets/SettingsDialog.qml:186
+#: src/widgets/SettingsDialog.qml:187
 #, kde-format
 msgid "Show GPS tags."
 msgstr "顯示 GPS 標籤。"
 
-#: src/widgets/SettingsDialog.qml:197
+#: src/widgets/SettingsDialog.qml:198
 #, kde-format
 msgid "Experimental feature."
 msgstr "實驗性功能。"
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:206
 #, kde-format
 msgid "Viewer"
 msgstr "檢視器"
 
-#: src/widgets/SettingsDialog.qml:210
+#: src/widgets/SettingsDialog.qml:211
 #, kde-format
 msgid "Tag Bar"
 msgstr "標籤列"
 
-#: src/widgets/SettingsDialog.qml:211
+#: src/widgets/SettingsDialog.qml:212
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "新增、移除或修改目前影像標籤的簡單方式。"
 
-#: src/widgets/SettingsDialog.qml:223
+#: src/widgets/SettingsDialog.qml:224
 #, kde-format
 msgid "Preview Bar"
 msgstr "預覽列"
 
-#: src/widgets/SettingsDialog.qml:236
+#: src/widgets/SettingsDialog.qml:237
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "設定影像的文字偵測。"
 
-#: src/widgets/SettingsDialog.qml:250
+#: src/widgets/SettingsDialog.qml:251
 #, kde-format
 msgid "Sources"
 msgstr "來源"
 
-#: src/widgets/SettingsDialog.qml:289
+#: src/widgets/SettingsDialog.qml:290
 #, kde-format
 msgid "Add"
 msgstr "新增"
@@ -717,50 +717,47 @@ msgstr "從您的收藏裡開啟影像"
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "文字已複製！"
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "影像標題"
+msgstr "影像檔案已複製！"
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "撥打電話"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "另存為"
+msgstr "另存為聯絡人"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "傳送訊息"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "開啟位置"
+msgstr "開啟連結"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "建立事件"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "儲存到筆記"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "在 Google 上搜尋選取的文字…"
 
 #, fuzzy
 #~| msgid "Search image"
