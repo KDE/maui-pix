@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2025-03-15 19:36+0200\n"
+"PO-Revision-Date: 2025-03-29 16:13+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -337,11 +337,13 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"Lai atlasīto vairākus blokus brīvajā režīmā, pārvietojoties turiet nospiestu "
+"„Shift“ taustiņu."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr "Brīvs"
+msgstr "Brīvais"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
@@ -731,13 +733,12 @@ msgstr "Atvērt attēlu no jūsu kolekcijas"
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "Teksts ir nokopēts!"
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "Attēlu nosaukumi"
+msgstr "Attēla datne ir nokopēta!"
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
@@ -745,10 +746,9 @@ msgid "Call"
 msgstr "Zvans"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Saglabāt kā"
+msgstr "Saglabāt kā kontaktu"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
@@ -756,25 +756,24 @@ msgid "Message"
 msgstr "Ziņa"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "Atvērt atrašanās vietu"
+msgstr "Atvērt saiti"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "Izveidot notikumu"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "Saglabāt kā piezīmi"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "Meklēt atlasīto tekstu ar „Google“..."
 
 #~ msgid "Copy"
 #~ msgstr "Kopēt"
