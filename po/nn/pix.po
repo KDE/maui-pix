@@ -729,7 +729,6 @@ msgstr ""
 
 #: src/widgets/views/Viewer/Viewer.qml:83
 #, fuzzy, kde-format
-#| msgid "Image Titles"
 msgid "Image file copied!"
 msgstr "Bilettitlar"
 
@@ -750,7 +749,6 @@ msgstr ""
 
 #: src/widgets/views/Viewer/Viewer.qml:131
 #, fuzzy, kde-format
-#| msgid "Open"
 msgid "Open Link"
 msgstr "Opna"
 
