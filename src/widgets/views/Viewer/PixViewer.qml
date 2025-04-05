@@ -12,7 +12,7 @@ import QtQuick.Window
 import org.mauikit.controls as Maui
 import org.mauikit.filebrowsing as FB
 import org.mauikit.imagetools as IT
-import org.kde.kquickimageeditor as KQuickImageEditor
+import org.mauikit.imagetools.editor as ITEditor
 
 import org.maui.pix as Pix
 
@@ -37,6 +37,7 @@ StackView
     PixMenu
     {
         id: _picMenu
+
         index: control.currentPicIndex
         model: viewer.model
     }
@@ -45,51 +46,89 @@ StackView
     {
         id: _editorComponent
 
-        IT.ImageEditor
+        ITEditor.ImageItem
         {
-            objectName: "imageEditor"
-            url: control.currentPic.url
-            onGoBackTriggered: control.pop()
 
-            headBar.farLeftContent: ToolButton
+            image: _doc.image
+            fillMode: Image.PreserveAspectFit
+
+            ITEditor.ImageDocument
             {
-                icon.name: "go-previous"
-                onClicked:
-                {
-                    control.pop()
-                }
+                id: _doc
+                path: control.currentPic.url
             }
 
-            headBar.rightContent: Maui.ToolButtonMenu
+            Row
             {
-                icon.name: "document-save"
+                anchors.centerIn: parent
 
-                MenuItem
+                Slider
                 {
-                    text: i18n("Save as")
-                    icon.name: "document-save-as"
-                    onTriggered:
+                    id: _slider
+                   from: -100
+                   to: 100
+                    value: _doc.brightness
+                    live: false
+                    stepSize: 1
+
+                   onMoved: _doc.adjustBrightness(value)
+                }
+
+                Button
+                {
+                   text: "brightness at " + _doc.brightness
+
+                   onClicked: _doc.adjustBrightness(60)
+                }
+
+                Button
+                {
+                   text: "brightness at " + _doc.brightness
+
+                   onClicked: _doc.adjustBrightness(-87)
+                }
+
+                Button
+                {
+                   text: "brightness at " + _doc.brightness
+
+                   onClicked: _doc.adjustBrightness(20)
+                }
+
+                Button
+                {
+                   text: "contrast at " + _doc.contrast
+
+                   onClicked: _doc.adjustContrast(2.2)
+                }
+
+
+                Button
+                {
+                   text: "saturation at " + _doc.contrast
+
+                   onClicked: _doc.adjustSaturation(150)
+                }
+
+                Button
+                {
+                    text: "undo" - "brightness at " + _doc.brightness
+                    onClicked:
                     {
-                        dialogLoader.sourceComponent = null
-                        dialogLoader.sourceComponent = fmDialogComponent
-                        dialog.mode = FB.FileDialog.Save
-                        dialog.browser.settings.filterType = FB.FMList.IMAGE
-                        dialog.singleSelection = true
-                        dialog.suggestedFileName = FB.FM.getFileInfo(url).label
-                        dialog.callback = function(paths)
-                        {
-                            console.log("Save edit to", paths)
-                            editor.saveAs(paths[0])
-                        }
-                        dialog.open()
+                        _doc.undo()
+                        _slider.value =  _doc.brightness
+
                     }
                 }
 
-                MenuItem
+                Button
                 {
-                    text: i18n("Save")
-                    icon.name: "document-save"
-                    onTriggered: editor.save()
+                    text: "apply"
+                    onClicked:
+                    {
+                        _doc.applyChanges()
+
+                    }
                 }
             }
         }
