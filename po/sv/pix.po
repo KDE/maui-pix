@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2025-01-11 12:22+0100\n"
+"POT-Creation-Date: 2025-04-06 00:41+0000\n"
+"PO-Revision-Date: 2025-04-05 12:47+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -214,14 +214,14 @@ msgstr "Markera"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "Lägg till i '%1'"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "Lägg till i album"
 
-#: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
+#: src/view_models/PixMenu.qml:142
 #, kde-format
 msgid "Save as"
 msgstr "Spara som"
@@ -244,87 +244,87 @@ msgstr "Öppna plats"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Textdetektering"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Aktivera automatiskt detektering"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "Bildförbehandling"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "Aktivera bildförbehandling."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "Siduppdelning"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "Automatisk"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "Automatisk optisk teckendetektering"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "En kolumn"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "En rad"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "Ett block"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "Ett ord"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "Konfidenströskel"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Textblockdetektering"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Ord"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Rad"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Stycke"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Textblockmarkering"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
@@ -332,16 +332,18 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"För att markera flera block i fritt läge, håll nere skifttangenten under "
+"rörelse"
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Fritt"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Rektangulärt"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -518,7 +520,7 @@ msgstr "Förhandsgranskningsrad"
 #: src/widgets/SettingsDialog.qml:237
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Anpassa inställningar för textdetektering i bilder."
 
 #: src/widgets/SettingsDialog.qml:251
 #, kde-format
@@ -611,7 +613,7 @@ msgstr[1] "%1 bilder"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:217
+#: src/widgets/views/Viewer/PixViewer.qml:256
 #, kde-format
 msgid "No Pics!"
 msgstr "Inga bilder."
@@ -700,22 +702,17 @@ msgstr "Inga bilder i %1."
 msgid "There're no pics associated with the tag"
 msgstr "Det finns inga bilder som hör ihop med etiketten"
 
-#: src/widgets/views/Viewer/PixViewer.qml:90
-#, kde-format
-msgid "Save"
-msgstr "Spara"
-
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:154
 #, kde-format
 msgid "Gallery"
 msgstr "Galleri"
 
-#: src/widgets/views/Viewer/PixViewer.qml:134
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Previous"
 msgstr "Föregående"
 
-#: src/widgets/views/Viewer/PixViewer.qml:218
+#: src/widgets/views/Viewer/PixViewer.qml:257
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Öppna en bild från din samling"
@@ -723,50 +720,50 @@ msgstr "Öppna en bild från din samling"
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "Text kopierad."
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "Bildrubriker"
+msgstr "Bildfil kopierad."
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Ring upp"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Spara som"
+msgstr "Spara som kontakt"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Meddelande"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "Öppna plats"
+msgstr "Öppna länk"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "Skapa händelse"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "Spara i anteckning"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "Sök i markerad text eller med Google..."
+
+#~ msgid "Save"
+#~ msgstr "Spara"
 
 #, fuzzy
 #~| msgid "Search image"

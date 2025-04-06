@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"POT-Creation-Date: 2025-04-06 00:41+0000\n"
 "PO-Revision-Date: 2025-03-15 09:23+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -224,7 +224,7 @@ msgstr "Lisää kohteeseen ”%1”"
 msgid "Add to Album"
 msgstr "Lisää albumiin"
 
-#: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
+#: src/view_models/PixMenu.qml:142
 #, kde-format
 msgid "Save as"
 msgstr "Tallenna nimellä"
@@ -612,7 +612,7 @@ msgstr[1] "%1 kuvaa"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:217
+#: src/widgets/views/Viewer/PixViewer.qml:256
 #, kde-format
 msgid "No Pics!"
 msgstr "Ei kuvia!"
@@ -702,22 +702,17 @@ msgstr "Ei kuvia kansiossa %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Tähän luokitukseen ei ole kytketty kuvia"
 
-#: src/widgets/views/Viewer/PixViewer.qml:90
-#, kde-format
-msgid "Save"
-msgstr "Tallenna"
-
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:154
 #, kde-format
 msgid "Gallery"
 msgstr "Galleria"
 
-#: src/widgets/views/Viewer/PixViewer.qml:134
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Previous"
 msgstr "Edellinen"
 
-#: src/widgets/views/Viewer/PixViewer.qml:218
+#: src/widgets/views/Viewer/PixViewer.qml:257
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Avaa kokoelmasta kuva"
@@ -769,6 +764,9 @@ msgstr ""
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
+
+#~ msgid "Save"
+#~ msgstr "Tallenna"
 
 #, fuzzy
 #~| msgid "Search image"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"POT-Creation-Date: 2025-04-06 00:41+0000\n"
 "PO-Revision-Date: 2025-03-27 22:34+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -220,7 +220,7 @@ msgstr "加入「%1」"
 msgid "Add to Album"
 msgstr "加入專輯"
 
-#: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
+#: src/view_models/PixMenu.qml:142
 #, kde-format
 msgid "Save as"
 msgstr "另存為"
@@ -606,7 +606,7 @@ msgstr[0] "%1 張影像"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:217
+#: src/widgets/views/Viewer/PixViewer.qml:256
 #, kde-format
 msgid "No Pics!"
 msgstr "沒有圖片！"
@@ -694,22 +694,17 @@ msgstr "%1 裡沒有圖片！"
 msgid "There're no pics associated with the tag"
 msgstr "沒有含有該標籤的圖片"
 
-#: src/widgets/views/Viewer/PixViewer.qml:90
-#, kde-format
-msgid "Save"
-msgstr "儲存"
-
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:154
 #, kde-format
 msgid "Gallery"
 msgstr "相簿"
 
-#: src/widgets/views/Viewer/PixViewer.qml:134
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Previous"
 msgstr "上一個"
 
-#: src/widgets/views/Viewer/PixViewer.qml:218
+#: src/widgets/views/Viewer/PixViewer.qml:257
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "從您的收藏裡開啟影像"
@@ -758,6 +753,9 @@ msgstr "儲存到筆記"
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "在 Google 上搜尋選取的文字…"
+
+#~ msgid "Save"
+#~ msgstr "儲存"
 
 #, fuzzy
 #~| msgid "Search image"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"POT-Creation-Date: 2025-04-06 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 16:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Add to Album"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
+#: src/view_models/PixMenu.qml:142
 #, kde-format
 msgid "Save as"
 msgstr "另存为"
@@ -603,7 +603,7 @@ msgstr[0] ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:217
+#: src/widgets/views/Viewer/PixViewer.qml:256
 #, kde-format
 msgid "No Pics!"
 msgstr "没有图像"
@@ -691,22 +691,17 @@ msgstr "%1 中没有图像"
 msgid "There're no pics associated with the tag"
 msgstr "该标签没有关联图像"
 
-#: src/widgets/views/Viewer/PixViewer.qml:90
-#, kde-format
-msgid "Save"
-msgstr "保存"
-
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:154
 #, kde-format
 msgid "Gallery"
 msgstr "相册"
 
-#: src/widgets/views/Viewer/PixViewer.qml:134
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Previous"
 msgstr "返回"
 
-#: src/widgets/views/Viewer/PixViewer.qml:218
+#: src/widgets/views/Viewer/PixViewer.qml:257
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"
@@ -755,3 +750,6 @@ msgstr ""
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
+
+#~ msgid "Save"
+#~ msgstr "保存"

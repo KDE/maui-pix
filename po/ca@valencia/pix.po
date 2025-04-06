@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"POT-Creation-Date: 2025-04-06 00:41+0000\n"
 "PO-Revision-Date: 2025-03-19 08:52+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -225,7 +225,7 @@ msgstr "Afig a «%1»"
 msgid "Add to Album"
 msgstr "Afig a l'àlbum"
 
-#: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
+#: src/view_models/PixMenu.qml:142
 #, kde-format
 msgid "Save as"
 msgstr "Anomena i guarda"
@@ -618,7 +618,7 @@ msgstr[1] "%1 imatges"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:217
+#: src/widgets/views/Viewer/PixViewer.qml:256
 #, kde-format
 msgid "No Pics!"
 msgstr "Sense imatges!"
@@ -707,22 +707,17 @@ msgstr "Cap imatge a %1!"
 msgid "There're no pics associated with the tag"
 msgstr "No hi ha cap imatge associada amb l'etiqueta"
 
-#: src/widgets/views/Viewer/PixViewer.qml:90
-#, kde-format
-msgid "Save"
-msgstr "Guarda"
-
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:154
 #, kde-format
 msgid "Gallery"
 msgstr "Galeria"
 
-#: src/widgets/views/Viewer/PixViewer.qml:134
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/widgets/views/Viewer/PixViewer.qml:218
+#: src/widgets/views/Viewer/PixViewer.qml:257
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obri una imatge de la col·lecció"
@@ -771,3 +766,6 @@ msgstr "Guarda a una nota"
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Busca en Google el text seleccionat…"
+
+#~ msgid "Save"
+#~ msgstr "Guarda"

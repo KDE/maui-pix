@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"POT-Creation-Date: 2025-04-06 00:41+0000\n"
 "PO-Revision-Date: 2025-03-19 10:54+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -227,7 +227,7 @@ msgstr "הוספה אל ‚%1’"
 msgid "Add to Album"
 msgstr "הוספה לאלבום"
 
-#: src/view_models/PixMenu.qml:142 src/widgets/views/Viewer/PixViewer.qml:69
+#: src/view_models/PixMenu.qml:142
 #, kde-format
 msgid "Save as"
 msgstr "שמירה בשם"
@@ -620,7 +620,7 @@ msgstr[3] "%1 תמונות"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:217
+#: src/widgets/views/Viewer/PixViewer.qml:256
 #, kde-format
 msgid "No Pics!"
 msgstr "אין תמונות!"
@@ -711,22 +711,17 @@ msgstr "אין תמונות ב־%1!"
 msgid "There're no pics associated with the tag"
 msgstr "אין תמונות שמשויכות לתגית הזאת"
 
-#: src/widgets/views/Viewer/PixViewer.qml:90
-#, kde-format
-msgid "Save"
-msgstr "שמירה"
-
-#: src/widgets/views/Viewer/PixViewer.qml:115
+#: src/widgets/views/Viewer/PixViewer.qml:154
 #, kde-format
 msgid "Gallery"
 msgstr "גלריה"
 
-#: src/widgets/views/Viewer/PixViewer.qml:134
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Previous"
 msgstr "הקודם"
 
-#: src/widgets/views/Viewer/PixViewer.qml:218
+#: src/widgets/views/Viewer/PixViewer.qml:257
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "פתיחת תמונה מהאוסף שלך"
@@ -775,6 +770,9 @@ msgstr "שמירה לפתקית"
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "חיפוש הטקסט הנבחר ב־Google…"
+
+#~ msgid "Save"
+#~ msgstr "שמירה"
 
 #~ msgid "Copy"
 #~ msgstr "העתקה"
