@@ -62,52 +62,6 @@ Maui.SettingsDialog
 
         Maui.FlexSectionItem
         {
-            label1.text: i18n("Preview Size")
-            label2.text: i18n("Size of the thumbnails in the collection views.")
-
-            Maui.ToolActions
-            {
-                id: _gridIconSizesGroup
-                expanded: true
-                autoExclusive: true
-                display: ToolButton.TextOnly
-                font.bold: true
-
-                Action
-                {
-                    text: i18n("S")
-                    onTriggered: setPreviewSize(previewSizes.small)
-                    checked: previewSizes.small === browserSettings.previewSize
-                }
-
-                Action
-                {
-                    text: i18n("M")
-                    onTriggered: setPreviewSize(previewSizes.medium)
-                    checked: previewSizes.medium === browserSettings.previewSize
-
-                }
-
-                Action
-                {
-                    text: i18n("X")
-                    onTriggered: setPreviewSize(previewSizes.large)
-                    checked: previewSizes.large === browserSettings.previewSize
-
-                }
-
-                Action
-                {
-                    text: i18n("XL")
-                    onTriggered: setPreviewSize(previewSizes.extralarge)
-                    checked: previewSizes.extralarge === browserSettings.previewSize
-
-                }
-            }
-        }
-
-        Maui.FlexSectionItem
-        {
             label1.text: i18n("Sort by")
             label2.text: i18n("Change the sorting key.")
 

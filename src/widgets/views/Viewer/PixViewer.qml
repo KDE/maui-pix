@@ -46,91 +46,12 @@ StackView
     {
         id: _editorComponent
 
-        ITEditor.ImageItem
+        ITEditor.ImageEditor
         {
 
-            image: _doc.image
-            fillMode: Image.PreserveAspectFit
-
-            ITEditor.ImageDocument
-            {
-                id: _doc
-                path: control.currentPic.url
-            }
-
-            Row
-            {
-                anchors.centerIn: parent
-
-                Slider
-                {
-                    id: _slider
-                   from: -100
-                   to: 100
-                    value: _doc.brightness
-                    live: false
-                    stepSize: 1
-
-                   onMoved: _doc.adjustBrightness(value)
-                }
-
-                Button
-                {
-                   text: "brightness at " + _doc.brightness
-
-                   onClicked: _doc.adjustBrightness(60)
-                }
-
-                Button
-                {
-                   text: "brightness at " + _doc.brightness
-
-                   onClicked: _doc.adjustBrightness(-87)
-                }
-
-                Button
-                {
-                   text: "brightness at " + _doc.brightness
-
-                   onClicked: _doc.adjustBrightness(20)
-                }
-
-                Button
-                {
-                   text: "contrast at " + _doc.contrast
-
-                   onClicked: _doc.adjustContrast(2.2)
-                }
+            url: control.currentPic.url
 
 
-                Button
-                {
-                   text: "saturation at " + _doc.contrast
-
-                   onClicked: _doc.adjustSaturation(150)
-                }
-
-                Button
-                {
-                    text: "undo" - "brightness at " + _doc.brightness
-                    onClicked:
-                    {
-                        _doc.undo()
-                        _slider.value =  _doc.brightness
-
-                    }
-                }
-
-                Button
-                {
-                    text: "apply"
-                    onClicked:
-                    {
-                        _doc.applyChanges()
-
-                    }
-                }
-            }
         }
     }
 
