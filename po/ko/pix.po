@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-06 00:41+0000\n"
-"PO-Revision-Date: 2024-11-29 00:30+0100\n"
+"PO-Revision-Date: 2025-04-08 00:03+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -55,12 +55,12 @@ msgstr "여기로 그림을 드래그하십시오."
 #: src/main.qml:228
 #, kde-format
 msgid "Tagged"
-msgstr ""
+msgstr "태그됨"
 
 #: src/main.qml:229
 #, kde-format
 msgid "File was tagged successfully"
-msgstr ""
+msgstr "파일에 태그를 붙임"
 
 #: src/main.qml:281 src/view_models/PixMenu.qml:40
 #, kde-format
@@ -210,12 +210,12 @@ msgstr "선택"
 #: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "'%1'에 추가"
 
 #: src/view_models/PixMenu.qml:128
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "앨범에 추가"
 
 #: src/view_models/PixMenu.qml:142
 #, kde-format
@@ -240,87 +240,87 @@ msgstr "위치 열기"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:236
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "텍스트 감지"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "자동 감지 활성화"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "그림 전처리"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "그림 전처리를 활성화합니다."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "쪽 구분"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "자동"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "자동 OSD"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "단일 단"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "단일 줄"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "단일 블록"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "단일 단어"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "확신도 임곗값"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "텍스트 블록 감지"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "단어"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "줄"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "문단"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "텍스트 블록 선택"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
@@ -328,16 +328,17 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"자유형 모드에서 여러 블록을 선택하려면 Shift 키를 누르면서 이동하십시오."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "자유형"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "직사각형"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -512,7 +513,7 @@ msgstr "미리 보기 표시줄"
 #: src/widgets/SettingsDialog.qml:237
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "그림의 텍스트 감지 설정을 변경합니다."
 
 #: src/widgets/SettingsDialog.qml:251
 #, kde-format
@@ -709,50 +710,47 @@ msgstr "모음집에서 그림 열기"
 #: src/widgets/views/Viewer/Viewer.qml:79
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "텍스트를 복사했습니다!"
 
 #: src/widgets/views/Viewer/Viewer.qml:83
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "그림 제목"
+msgstr "그림 파일을 복사했습니다!"
 
 #: src/widgets/views/Viewer/Viewer.qml:99
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "통화"
 
 #: src/widgets/views/Viewer/Viewer.qml:111
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "다른 이름으로 저장"
+msgstr "연락처로 저장"
 
 #: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "메시지"
 
 #: src/widgets/views/Viewer/Viewer.qml:131
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "위치 열기"
+msgstr "링크 열기"
 
 #: src/widgets/views/Viewer/Viewer.qml:141
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "이벤트 만들기"
 
 #: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "노트에 저장"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "Google로 선택한 텍스트 검색..."
 
 #~ msgid "Save"
 #~ msgstr "저장"

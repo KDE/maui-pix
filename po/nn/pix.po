@@ -761,6 +761,3 @@ msgstr ""
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
-
-#~ msgid "Save"
-#~ msgstr "Lagra"
