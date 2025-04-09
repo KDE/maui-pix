@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-06 00:41+0000\n"
+"POT-Creation-Date: 2025-04-09 00:41+0000\n"
 "PO-Revision-Date: 2025-03-20 03:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -35,42 +35,72 @@ msgstr "გახსნა"
 
 #: src/main.qml:107
 #, kde-format
+msgid "Preview Size"
+msgstr "მინიატურის ზომა"
+
+#: src/main.qml:108
+#, kde-format
+msgid "Size of the thumbnails in the collection views."
+msgstr "კოლექციის ხედებში მინიატურების ზომების ჩვენება."
+
+#: src/main.qml:120
+#, kde-format
+msgid "S"
+msgstr "პ"
+
+#: src/main.qml:127
+#, kde-format
+msgid "M"
+msgstr "ს"
+
+#: src/main.qml:135
+#, kde-format
+msgid "X"
+msgstr "დ"
+
+#: src/main.qml:143
+#, kde-format
+msgid "XL"
+msgstr "XL"
+
+#: src/main.qml:155
+#, kde-format
 msgid "Settings"
 msgstr "მორგება"
 
-#: src/main.qml:114
+#: src/main.qml:162
 #, kde-format
 msgid "About"
 msgstr "შესახებ"
 
-#: src/main.qml:177
+#: src/main.qml:225
 #, kde-format
 msgid "Open images"
 msgstr "გამოსახულების გახსნა"
 
-#: src/main.qml:178
+#: src/main.qml:226
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "გადმოათრიეთ და დაყარეთ სურათები აქ."
 
-#: src/main.qml:228
+#: src/main.qml:276
 #, kde-format
 msgid "Tagged"
 msgstr "ჭდეებიანი"
 
-#: src/main.qml:229
+#: src/main.qml:277
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "ფაილს ჭდეები წარმატებით დაესვა"
 
-#: src/main.qml:281 src/view_models/PixMenu.qml:40
+#: src/main.qml:329 src/view_models/PixMenu.qml:40
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "წავშალო %1 ფაილი?"
 msgstr[1] "წავშალო %1 ფაილი?"
 
-#: src/main.qml:282 src/view_models/PixMenu.qml:41
+#: src/main.qml:330 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -81,12 +111,12 @@ msgstr[1] ""
 "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ ეს ფაილები? ქმედება "
 "შეუქცევადია."
 
-#: src/main.qml:288 src/view_models/PixMenu.qml:47
+#: src/main.qml:336 src/view_models/PixMenu.qml:47
 #, kde-format
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/main.qml:294 src/view_models/PixMenu.qml:53
+#: src/main.qml:342 src/view_models/PixMenu.qml:53
 #: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
@@ -244,7 +274,7 @@ msgstr "საქაღალდეზე გადასვლა"
 msgid "Open Location"
 msgstr "მდებარეობის გახსნა"
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:236
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:190
 #, kde-format
 msgid "Text Detection"
 msgstr "ტექსტის აღმოჩენა"
@@ -405,131 +435,101 @@ msgstr "გამოსახულების ფაილის სახე�
 
 #: src/widgets/SettingsDialog.qml:65
 #, kde-format
-msgid "Preview Size"
-msgstr "მინიატურის ზომა"
-
-#: src/widgets/SettingsDialog.qml:66
-#, kde-format
-msgid "Size of the thumbnails in the collection views."
-msgstr "კოლექციის ხედებში მინიატურების ზომების ჩვენება."
-
-#: src/widgets/SettingsDialog.qml:78
-#, kde-format
-msgid "S"
-msgstr "პ"
-
-#: src/widgets/SettingsDialog.qml:85
-#, kde-format
-msgid "M"
-msgstr "ს"
-
-#: src/widgets/SettingsDialog.qml:93
-#, kde-format
-msgid "X"
-msgstr "დ"
-
-#: src/widgets/SettingsDialog.qml:101
-#, kde-format
-msgid "XL"
-msgstr "XL"
-
-#: src/widgets/SettingsDialog.qml:111
-#, kde-format
 msgid "Sort by"
 msgstr "დალაგების პირობა"
 
-#: src/widgets/SettingsDialog.qml:112
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Change the sorting key."
 msgstr "დახარისხების გასაღების შეცვლა."
 
-#: src/widgets/SettingsDialog.qml:122
+#: src/widgets/SettingsDialog.qml:76
 #, kde-format
 msgid "Title"
 msgstr "სათაური"
 
-#: src/widgets/SettingsDialog.qml:129
+#: src/widgets/SettingsDialog.qml:83
 #, kde-format
 msgid "Modified"
 msgstr "შეცვლილია"
 
-#: src/widgets/SettingsDialog.qml:137
+#: src/widgets/SettingsDialog.qml:91
 #, kde-format
 msgid "Size"
 msgstr "ზომა"
 
-#: src/widgets/SettingsDialog.qml:145
+#: src/widgets/SettingsDialog.qml:99
 #, kde-format
 msgid "Date"
 msgstr "თარიღი"
 
-#: src/widgets/SettingsDialog.qml:155
+#: src/widgets/SettingsDialog.qml:109
 #, kde-format
 msgid "Sort Order"
 msgstr "დალაგების წესი"
 
-#: src/widgets/SettingsDialog.qml:156
+#: src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Change the sorting order."
 msgstr "დახარისხების გასაღების შეცვლა."
 
-#: src/widgets/SettingsDialog.qml:167
+#: src/widgets/SettingsDialog.qml:121
 #, kde-format
 msgid "Ascending"
 msgstr "ზრდის მიხედვით"
 
-#: src/widgets/SettingsDialog.qml:175
+#: src/widgets/SettingsDialog.qml:129
 #, kde-format
 msgid "Descending"
 msgstr "დაღმავალი"
 
-#: src/widgets/SettingsDialog.qml:186
+#: src/widgets/SettingsDialog.qml:140
 #, kde-format
 msgid "GPS Tags"
 msgstr "GPS ჭდეები"
 
-#: src/widgets/SettingsDialog.qml:187
+#: src/widgets/SettingsDialog.qml:141
 #, kde-format
 msgid "Show GPS tags."
 msgstr "GPS ჭდეების ჩვენება."
 
-#: src/widgets/SettingsDialog.qml:198
+#: src/widgets/SettingsDialog.qml:152
 #, kde-format
 msgid "Experimental feature."
 msgstr "ექსპერიმენტული ფუნქცია."
 
-#: src/widgets/SettingsDialog.qml:206
+#: src/widgets/SettingsDialog.qml:160
 #, kde-format
 msgid "Viewer"
 msgstr "მაყურებელი"
 
-#: src/widgets/SettingsDialog.qml:211
+#: src/widgets/SettingsDialog.qml:165
 #, kde-format
 msgid "Tag Bar"
 msgstr "ჭდის ზოლი"
 
-#: src/widgets/SettingsDialog.qml:212
+#: src/widgets/SettingsDialog.qml:166
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 "უადვილესი საშუალება დაამატოთ, წაშალოთ და შეცვალოთ მიმდინარე სურათის ჭდეები."
 
-#: src/widgets/SettingsDialog.qml:224
+#: src/widgets/SettingsDialog.qml:178
 #, kde-format
 msgid "Preview Bar"
 msgstr "გადახედვის ზოლი"
 
-#: src/widgets/SettingsDialog.qml:237
+#: src/widgets/SettingsDialog.qml:191
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr "პარამეტრების მორგება გამოსახულებებში ტექსტის აღმოსაჩენად."
 
-#: src/widgets/SettingsDialog.qml:251
+#: src/widgets/SettingsDialog.qml:205
 #, kde-format
 msgid "Sources"
 msgstr "წყაროები"
 
-#: src/widgets/SettingsDialog.qml:290
+#: src/widgets/SettingsDialog.qml:244
 #, kde-format
 msgid "Add"
 msgstr "დამატება"
@@ -615,7 +615,7 @@ msgstr[1] "%1 გამოსახულება"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:256
+#: src/widgets/views/Viewer/PixViewer.qml:177
 #, kde-format
 msgid "No Pics!"
 msgstr "სურათების გარეშე!"
@@ -705,17 +705,17 @@ msgstr "%1-ში სურათები არა!"
 msgid "There're no pics associated with the tag"
 msgstr "ამ ჭდესთან ასოცირებული სურათები ვერ ვიპოვე"
 
-#: src/widgets/views/Viewer/PixViewer.qml:154
+#: src/widgets/views/Viewer/PixViewer.qml:75
 #, kde-format
 msgid "Gallery"
 msgstr "გალერეა"
 
-#: src/widgets/views/Viewer/PixViewer.qml:173
+#: src/widgets/views/Viewer/PixViewer.qml:94
 #, kde-format
 msgid "Previous"
 msgstr "წინა"
 
-#: src/widgets/views/Viewer/PixViewer.qml:257
+#: src/widgets/views/Viewer/PixViewer.qml:178
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "თქენი კოლექციიდან სურათის გახსნა"
