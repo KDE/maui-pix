@@ -50,8 +50,26 @@ StackView
         {
 
             url: control.currentPic.url
+            onSaved:
+            {
+                control.pop()
+                viewer.reloadCurrentItem()
+            }
 
+            onCanceled:
+            {
+                if(!editor.edited)
+                {
+                    control.pop()
+                    return
+                }
+            }
 
+            // headBar.farLeftContent: ToolButton
+            // {
+            //     icon.name: "go-previous"
+            //     onClicked: control.pop()
+            // }
         }
     }
 

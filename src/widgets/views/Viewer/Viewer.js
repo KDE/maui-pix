@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
-.import org.mauikit.filebrowsing 1.2 as FB
+.import org.mauikit.filebrowsing as FB
 
 function open(model, index, recursive = false)
 {
@@ -33,7 +33,4 @@ function fav(urls)
     for(const i in urls)
         FB.Tagging.toggleFav(urls[i])
 }
-
-
-
 

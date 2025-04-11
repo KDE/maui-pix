@@ -123,10 +123,12 @@ Maui.ContextualMenu
         }
     }
 
-    Action
+    MenuItem
     {
         text: i18n("Add to Album")
         icon.name: "tag"
+        Maui.Controls.badgeText: filterSelection(item.url).length
+
         onTriggered:
         {
             dialogLoader.sourceComponent = tagsDialogComponent
@@ -162,6 +164,7 @@ Maui.ContextualMenu
     {
         text: i18n("Open with")
         icon.name: "document-open"
+        Maui.Controls.badgeText: filterSelection(item.url).length
         onTriggered:
         {            
             if(Maui.Handy.isAndroid)
@@ -208,6 +211,7 @@ Maui.ContextualMenu
     {
         text: i18n("Remove")
         icon.name: "edit-delete"
+        Maui.Controls.badgeText: filterSelection(item.url).length
         Maui.Controls.status: Maui.Controls.Negative
         onTriggered:
         {

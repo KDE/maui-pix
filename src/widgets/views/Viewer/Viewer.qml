@@ -65,6 +65,12 @@ Item
         viewerList.forceActiveFocus()
     }
 
+    function reloadCurrentItem()
+    {
+        control.currentItem.active = false
+        control.currentItem.active = true
+    }
+
 
     Action
     {
@@ -269,7 +275,7 @@ Item
                     id: _imgV
                     source: model.url
                     image.autoTransform: true
-                    image.cache: true
+                    image.cache: false
 
                     readonly property bool imageReady: _imgV.image.status == Image.Ready
 
