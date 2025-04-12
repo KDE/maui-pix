@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-09 00:41+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2025-03-20 03:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -117,7 +117,7 @@ msgid "Cancel"
 msgstr "გაუქმება"
 
 #: src/main.qml:342 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
+#: src/view_models/PixMenu.qml:212 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "წაშლა"
@@ -254,22 +254,22 @@ msgstr "'%1'-ში დამატება"
 msgid "Add to Album"
 msgstr "ალბომში ჩამატება"
 
-#: src/view_models/PixMenu.qml:142
+#: src/view_models/PixMenu.qml:144
 #, kde-format
 msgid "Save as"
 msgstr "შენახვა როგორც"
 
-#: src/view_models/PixMenu.qml:163
+#: src/view_models/PixMenu.qml:165
 #, kde-format
 msgid "Open with"
 msgstr "გამხსნელი პროგრამა"
 
-#: src/view_models/PixMenu.qml:180
+#: src/view_models/PixMenu.qml:183
 #, kde-format
 msgid "Go to Folder"
 msgstr "საქაღალდეზე გადასვლა"
 
-#: src/view_models/PixMenu.qml:197
+#: src/view_models/PixMenu.qml:200
 #, kde-format
 msgid "Open Location"
 msgstr "მდებარეობის გახსნა"
@@ -615,7 +615,7 @@ msgstr[1] "%1 გამოსახულება"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:177
+#: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
 msgid "No Pics!"
 msgstr "სურათების გარეშე!"
@@ -705,62 +705,62 @@ msgstr "%1-ში სურათები არა!"
 msgid "There're no pics associated with the tag"
 msgstr "ამ ჭდესთან ასოცირებული სურათები ვერ ვიპოვე"
 
-#: src/widgets/views/Viewer/PixViewer.qml:75
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "Gallery"
 msgstr "გალერეა"
 
-#: src/widgets/views/Viewer/PixViewer.qml:94
+#: src/widgets/views/Viewer/PixViewer.qml:112
 #, kde-format
 msgid "Previous"
 msgstr "წინა"
 
-#: src/widgets/views/Viewer/PixViewer.qml:178
+#: src/widgets/views/Viewer/PixViewer.qml:196
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "თქენი კოლექციიდან სურათის გახსნა"
 
-#: src/widgets/views/Viewer/Viewer.qml:79
+#: src/widgets/views/Viewer/Viewer.qml:85
 #, kde-format
 msgid "Text copied!"
 msgstr "ტექსტი დაკოპირდა!"
 
-#: src/widgets/views/Viewer/Viewer.qml:83
+#: src/widgets/views/Viewer/Viewer.qml:89
 #, kde-format
 msgid "Image file copied!"
 msgstr "გამოსახულების ფაილი დაკოპირდა!"
 
-#: src/widgets/views/Viewer/Viewer.qml:99
+#: src/widgets/views/Viewer/Viewer.qml:105
 #, kde-format
 msgid "Call"
 msgstr "ზარი"
 
-#: src/widgets/views/Viewer/Viewer.qml:111
+#: src/widgets/views/Viewer/Viewer.qml:117
 #, kde-format
 msgid "Save as Contact"
 msgstr "შენახვა, როგორც კონტაქტის"
 
-#: src/widgets/views/Viewer/Viewer.qml:118
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Message"
 msgstr "შეტყობინება"
 
-#: src/widgets/views/Viewer/Viewer.qml:131
+#: src/widgets/views/Viewer/Viewer.qml:137
 #, kde-format
 msgid "Open Link"
 msgstr "ბმულის გახსნა"
 
-#: src/widgets/views/Viewer/Viewer.qml:141
+#: src/widgets/views/Viewer/Viewer.qml:147
 #, kde-format
 msgid "Create Event"
 msgstr "მოვლენის შექმნა"
 
-#: src/widgets/views/Viewer/Viewer.qml:148
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Save to Note"
 msgstr "შენახვა შენიშვნაში"
 
-#: src/widgets/views/Viewer/Viewer.qml:154
+#: src/widgets/views/Viewer/Viewer.qml:160
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "მონიშნული ტექსტის Google-ში მოძებნა..."

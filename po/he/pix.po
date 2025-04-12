@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-09 00:41+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2025-03-19 10:54+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -118,7 +118,7 @@ msgid "Cancel"
 msgstr "ביטול"
 
 #: src/main.qml:342 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
+#: src/view_models/PixMenu.qml:212 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "הסרה"
@@ -257,22 +257,22 @@ msgstr "הוספה אל ‚%1’"
 msgid "Add to Album"
 msgstr "הוספה לאלבום"
 
-#: src/view_models/PixMenu.qml:142
+#: src/view_models/PixMenu.qml:144
 #, kde-format
 msgid "Save as"
 msgstr "שמירה בשם"
 
-#: src/view_models/PixMenu.qml:163
+#: src/view_models/PixMenu.qml:165
 #, kde-format
 msgid "Open with"
 msgstr "פתיחה עם"
 
-#: src/view_models/PixMenu.qml:180
+#: src/view_models/PixMenu.qml:183
 #, kde-format
 msgid "Go to Folder"
 msgstr "מעבר לתיקייה"
 
-#: src/view_models/PixMenu.qml:197
+#: src/view_models/PixMenu.qml:200
 #, kde-format
 msgid "Open Location"
 msgstr "פתיחת מקום"
@@ -620,7 +620,7 @@ msgstr[3] "%1 תמונות"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:177
+#: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
 msgid "No Pics!"
 msgstr "אין תמונות!"
@@ -711,62 +711,62 @@ msgstr "אין תמונות ב־%1!"
 msgid "There're no pics associated with the tag"
 msgstr "אין תמונות שמשויכות לתגית הזאת"
 
-#: src/widgets/views/Viewer/PixViewer.qml:75
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "Gallery"
 msgstr "גלריה"
 
-#: src/widgets/views/Viewer/PixViewer.qml:94
+#: src/widgets/views/Viewer/PixViewer.qml:112
 #, kde-format
 msgid "Previous"
 msgstr "הקודם"
 
-#: src/widgets/views/Viewer/PixViewer.qml:178
+#: src/widgets/views/Viewer/PixViewer.qml:196
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "פתיחת תמונה מהאוסף שלך"
 
-#: src/widgets/views/Viewer/Viewer.qml:79
+#: src/widgets/views/Viewer/Viewer.qml:85
 #, kde-format
 msgid "Text copied!"
 msgstr "הטקסט הועתק!"
 
-#: src/widgets/views/Viewer/Viewer.qml:83
+#: src/widgets/views/Viewer/Viewer.qml:89
 #, kde-format
 msgid "Image file copied!"
 msgstr "קובץ התמונה הועתק!"
 
-#: src/widgets/views/Viewer/Viewer.qml:99
+#: src/widgets/views/Viewer/Viewer.qml:105
 #, kde-format
 msgid "Call"
 msgstr "חיוג"
 
-#: src/widgets/views/Viewer/Viewer.qml:111
+#: src/widgets/views/Viewer/Viewer.qml:117
 #, kde-format
 msgid "Save as Contact"
 msgstr "שמירה כאיש קשר"
 
-#: src/widgets/views/Viewer/Viewer.qml:118
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Message"
 msgstr "הודעה"
 
-#: src/widgets/views/Viewer/Viewer.qml:131
+#: src/widgets/views/Viewer/Viewer.qml:137
 #, kde-format
 msgid "Open Link"
 msgstr "פתיחת קישור"
 
-#: src/widgets/views/Viewer/Viewer.qml:141
+#: src/widgets/views/Viewer/Viewer.qml:147
 #, kde-format
 msgid "Create Event"
 msgstr "יצירת אירוע"
 
-#: src/widgets/views/Viewer/Viewer.qml:148
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Save to Note"
 msgstr "שמירה לפתקית"
 
-#: src/widgets/views/Viewer/Viewer.qml:154
+#: src/widgets/views/Viewer/Viewer.qml:160
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "חיפוש הטקסט הנבחר ב־Google…"

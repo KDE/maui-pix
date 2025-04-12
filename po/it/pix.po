@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-09 00:41+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2025-03-23 15:11+0100\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -117,7 +117,7 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: src/main.qml:342 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
+#: src/view_models/PixMenu.qml:212 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Rimuovi"
@@ -254,22 +254,22 @@ msgstr "Aggiungi a «%1»"
 msgid "Add to Album"
 msgstr "Aggiungi a Album"
 
-#: src/view_models/PixMenu.qml:142
+#: src/view_models/PixMenu.qml:144
 #, kde-format
 msgid "Save as"
 msgstr "Salva come"
 
-#: src/view_models/PixMenu.qml:163
+#: src/view_models/PixMenu.qml:165
 #, kde-format
 msgid "Open with"
 msgstr "Apri con"
 
-#: src/view_models/PixMenu.qml:180
+#: src/view_models/PixMenu.qml:183
 #, kde-format
 msgid "Go to Folder"
 msgstr "Vai alla cartella"
 
-#: src/view_models/PixMenu.qml:197
+#: src/view_models/PixMenu.qml:200
 #, kde-format
 msgid "Open Location"
 msgstr "Apri posizione"
@@ -617,7 +617,7 @@ msgstr[1] "%1 Immagini"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:177
+#: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
 msgid "No Pics!"
 msgstr "Nessuna immagine."
@@ -706,62 +706,62 @@ msgstr "Nessuna immagine in %1."
 msgid "There're no pics associated with the tag"
 msgstr "Non ci sono immagini associate a quest'etichetta"
 
-#: src/widgets/views/Viewer/PixViewer.qml:75
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "Gallery"
 msgstr "Galleria"
 
-#: src/widgets/views/Viewer/PixViewer.qml:94
+#: src/widgets/views/Viewer/PixViewer.qml:112
 #, kde-format
 msgid "Previous"
 msgstr "Precedente"
 
-#: src/widgets/views/Viewer/PixViewer.qml:178
+#: src/widgets/views/Viewer/PixViewer.qml:196
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Apri un'immagine della tua collezione"
 
-#: src/widgets/views/Viewer/Viewer.qml:79
+#: src/widgets/views/Viewer/Viewer.qml:85
 #, kde-format
 msgid "Text copied!"
 msgstr "Testo copiato."
 
-#: src/widgets/views/Viewer/Viewer.qml:83
+#: src/widgets/views/Viewer/Viewer.qml:89
 #, kde-format
 msgid "Image file copied!"
 msgstr "File immagine copiato."
 
-#: src/widgets/views/Viewer/Viewer.qml:99
+#: src/widgets/views/Viewer/Viewer.qml:105
 #, kde-format
 msgid "Call"
 msgstr "Chiamata"
 
-#: src/widgets/views/Viewer/Viewer.qml:111
+#: src/widgets/views/Viewer/Viewer.qml:117
 #, kde-format
 msgid "Save as Contact"
 msgstr "Salva come contatto"
 
-#: src/widgets/views/Viewer/Viewer.qml:118
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Message"
 msgstr "Messaggio"
 
-#: src/widgets/views/Viewer/Viewer.qml:131
+#: src/widgets/views/Viewer/Viewer.qml:137
 #, kde-format
 msgid "Open Link"
 msgstr "Apri collegamento"
 
-#: src/widgets/views/Viewer/Viewer.qml:141
+#: src/widgets/views/Viewer/Viewer.qml:147
 #, kde-format
 msgid "Create Event"
 msgstr "Crea evento"
 
-#: src/widgets/views/Viewer/Viewer.qml:148
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Save to Note"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:154
+#: src/widgets/views/Viewer/Viewer.qml:160
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Cerca in Google il testo selezionato..."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-09 00:41+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2025-03-20 08:25+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -115,7 +115,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: src/main.qml:342 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
+#: src/view_models/PixMenu.qml:212 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Retirar"
@@ -253,22 +253,22 @@ msgstr "Engadir a «%1»"
 msgid "Add to Album"
 msgstr "Engadir ao álbum"
 
-#: src/view_models/PixMenu.qml:142
+#: src/view_models/PixMenu.qml:144
 #, kde-format
 msgid "Save as"
 msgstr "Gardar como"
 
-#: src/view_models/PixMenu.qml:163
+#: src/view_models/PixMenu.qml:165
 #, kde-format
 msgid "Open with"
 msgstr "Abrir con"
 
-#: src/view_models/PixMenu.qml:180
+#: src/view_models/PixMenu.qml:183
 #, kde-format
 msgid "Go to Folder"
 msgstr "Ir ao cartafol"
 
-#: src/view_models/PixMenu.qml:197
+#: src/view_models/PixMenu.qml:200
 #, kde-format
 msgid "Open Location"
 msgstr "Abrir a localización"
@@ -616,7 +616,7 @@ msgstr[1] "Hai %1 imaxes."
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:177
+#: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
 msgid "No Pics!"
 msgstr "Non hai imaxes!"
@@ -705,62 +705,62 @@ msgstr "Non hai imaxes en %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Non hai imaxes asociadas coa etiqueta."
 
-#: src/widgets/views/Viewer/PixViewer.qml:75
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "Gallery"
 msgstr "Galería"
 
-#: src/widgets/views/Viewer/PixViewer.qml:94
+#: src/widgets/views/Viewer/PixViewer.qml:112
 #, kde-format
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/widgets/views/Viewer/PixViewer.qml:178
+#: src/widgets/views/Viewer/PixViewer.qml:196
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir unha imaxes da colección."
 
-#: src/widgets/views/Viewer/Viewer.qml:79
+#: src/widgets/views/Viewer/Viewer.qml:85
 #, kde-format
 msgid "Text copied!"
 msgstr "Copiouse o texto."
 
-#: src/widgets/views/Viewer/Viewer.qml:83
+#: src/widgets/views/Viewer/Viewer.qml:89
 #, kde-format
 msgid "Image file copied!"
 msgstr "Copiouse o ficheiro de imaxe."
 
-#: src/widgets/views/Viewer/Viewer.qml:99
+#: src/widgets/views/Viewer/Viewer.qml:105
 #, kde-format
 msgid "Call"
 msgstr "Chamar"
 
-#: src/widgets/views/Viewer/Viewer.qml:111
+#: src/widgets/views/Viewer/Viewer.qml:117
 #, kde-format
 msgid "Save as Contact"
 msgstr "Gardar como contacto"
 
-#: src/widgets/views/Viewer/Viewer.qml:118
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Message"
 msgstr "Enviar unha mensaxe"
 
-#: src/widgets/views/Viewer/Viewer.qml:131
+#: src/widgets/views/Viewer/Viewer.qml:137
 #, kde-format
 msgid "Open Link"
 msgstr "Abrir a ligazón"
 
-#: src/widgets/views/Viewer/Viewer.qml:141
+#: src/widgets/views/Viewer/Viewer.qml:147
 #, kde-format
 msgid "Create Event"
 msgstr "Crear un evento"
 
-#: src/widgets/views/Viewer/Viewer.qml:148
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Save to Note"
 msgstr "Gardar nunha nota"
 
-#: src/widgets/views/Viewer/Viewer.qml:154
+#: src/widgets/views/Viewer/Viewer.qml:160
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Buscar o texto seleccionado en Google…"

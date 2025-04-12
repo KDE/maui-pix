@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-09 00:41+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2025-04-08 00:03+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -111,7 +111,7 @@ msgid "Cancel"
 msgstr "취소"
 
 #: src/main.qml:342 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:209 src/widgets/SelectionBar.qml:113
+#: src/view_models/PixMenu.qml:212 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "삭제"
@@ -247,22 +247,22 @@ msgstr "'%1'에 추가"
 msgid "Add to Album"
 msgstr "앨범에 추가"
 
-#: src/view_models/PixMenu.qml:142
+#: src/view_models/PixMenu.qml:144
 #, kde-format
 msgid "Save as"
 msgstr "다른 이름으로 저장"
 
-#: src/view_models/PixMenu.qml:163
+#: src/view_models/PixMenu.qml:165
 #, kde-format
 msgid "Open with"
 msgstr "다음으로 열기"
 
-#: src/view_models/PixMenu.qml:180
+#: src/view_models/PixMenu.qml:183
 #, kde-format
 msgid "Go to Folder"
 msgstr "폴더로 이동"
 
-#: src/view_models/PixMenu.qml:197
+#: src/view_models/PixMenu.qml:200
 #, kde-format
 msgid "Open Location"
 msgstr "위치 열기"
@@ -604,7 +604,7 @@ msgstr[0] "그림 %1개"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:177
+#: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
 msgid "No Pics!"
 msgstr "그림이 없습니다!"
@@ -692,62 +692,62 @@ msgstr "%1에 그림이 없습니다!"
 msgid "There're no pics associated with the tag"
 msgstr "태그와 연결된 그림 없음"
 
-#: src/widgets/views/Viewer/PixViewer.qml:75
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "Gallery"
 msgstr "갤러리"
 
-#: src/widgets/views/Viewer/PixViewer.qml:94
+#: src/widgets/views/Viewer/PixViewer.qml:112
 #, kde-format
 msgid "Previous"
 msgstr "이전"
 
-#: src/widgets/views/Viewer/PixViewer.qml:178
+#: src/widgets/views/Viewer/PixViewer.qml:196
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "모음집에서 그림 열기"
 
-#: src/widgets/views/Viewer/Viewer.qml:79
+#: src/widgets/views/Viewer/Viewer.qml:85
 #, kde-format
 msgid "Text copied!"
 msgstr "텍스트를 복사했습니다!"
 
-#: src/widgets/views/Viewer/Viewer.qml:83
+#: src/widgets/views/Viewer/Viewer.qml:89
 #, kde-format
 msgid "Image file copied!"
 msgstr "그림 파일을 복사했습니다!"
 
-#: src/widgets/views/Viewer/Viewer.qml:99
+#: src/widgets/views/Viewer/Viewer.qml:105
 #, kde-format
 msgid "Call"
 msgstr "통화"
 
-#: src/widgets/views/Viewer/Viewer.qml:111
+#: src/widgets/views/Viewer/Viewer.qml:117
 #, kde-format
 msgid "Save as Contact"
 msgstr "연락처로 저장"
 
-#: src/widgets/views/Viewer/Viewer.qml:118
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Message"
 msgstr "메시지"
 
-#: src/widgets/views/Viewer/Viewer.qml:131
+#: src/widgets/views/Viewer/Viewer.qml:137
 #, kde-format
 msgid "Open Link"
 msgstr "링크 열기"
 
-#: src/widgets/views/Viewer/Viewer.qml:141
+#: src/widgets/views/Viewer/Viewer.qml:147
 #, kde-format
 msgid "Create Event"
 msgstr "이벤트 만들기"
 
-#: src/widgets/views/Viewer/Viewer.qml:148
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Save to Note"
 msgstr "노트에 저장"
 
-#: src/widgets/views/Viewer/Viewer.qml:154
+#: src/widgets/views/Viewer/Viewer.qml:160
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Google로 선택한 텍스트 검색..."
