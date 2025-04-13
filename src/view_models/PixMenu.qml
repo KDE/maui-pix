@@ -15,6 +15,7 @@ Maui.ContextualMenu
     property int index : -1
     property Maui.BaseModel model : null
     readonly property var item : control.model.get(index)
+    readonly property string totalCount : filterSelection(item.url).length > 1 ? filterSelection(item.url).length : ""
 
     onOpened: isFav = FB.Tagging.isFav(item.url)
 
@@ -127,7 +128,7 @@ Maui.ContextualMenu
     {
         text: i18n("Add to Album")
         icon.name: "tag"
-        Maui.Controls.badgeText: filterSelection(item.url).length
+        Maui.Controls.badgeText: control.totalCount
 
         onTriggered:
         {
@@ -138,6 +139,16 @@ Maui.ContextualMenu
     }
 
     MenuSeparator{}
+
+    MenuItem
+    {
+        text: i18n("Edit")
+        icon.name: "document-edit"
+        onTriggered:
+        {
+            openEditor(item.url)
+        }
+    }
 
     MenuItem
     {
@@ -164,7 +175,7 @@ Maui.ContextualMenu
     {
         text: i18n("Open with")
         icon.name: "document-open"
-        Maui.Controls.badgeText: filterSelection(item.url).length
+        Maui.Controls.badgeText: control.totalCount
         onTriggered:
         {            
             if(Maui.Handy.isAndroid)
@@ -211,7 +222,7 @@ Maui.ContextualMenu
     {
         text: i18n("Remove")
         icon.name: "edit-delete"
-        Maui.Controls.badgeText: filterSelection(item.url).length
+        Maui.Controls.badgeText: control.totalCount
         Maui.Controls.status: Maui.Controls.Negative
         onTriggered:
         {

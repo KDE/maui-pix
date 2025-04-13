@@ -35,6 +35,7 @@ import org.mauikit.controls as Maui
 import org.mauikit.filebrowsing as FB
 import org.mauikit.imagetools as IT
 import org.maui.pix as Pix
+import org.mauikit.imagetools.editor as ITEditor
 
 import "widgets"
 import "widgets/views"
@@ -58,6 +59,9 @@ Maui.ApplicationWindow
                                              large: 120,
                                              extralarge: 160})
     property bool selectionMode : false
+
+    readonly property bool editing : control.currentItem.objectName === "imageEditor"
+
 
     Settings
     {
@@ -195,6 +199,31 @@ Maui.ApplicationWindow
             id: _pixViewer
             visible: StackView.status === StackView.Active
             Maui.Controls.showCSD: true
+        }
+    }
+
+
+    Component
+    {
+        id: _editorComponent
+
+        ITEditor.ImageEditor
+        {
+            id: _editor
+            onSaved:
+            {
+                _stackView.pop()
+                // viewer.reloadCurrentItem()
+            }
+
+            onCanceled:
+            {
+                if(!_editor.edited)
+                {
+                    _stackView.pop()
+                    return
+                }
+            }
         }
     }
 
@@ -450,5 +479,10 @@ Maui.ApplicationWindow
         }
 
         _collectionViewComponent.item.openFolder(url, filters)
+    }
+
+    function openEditor(url)
+    {
+        _stackView.push(_editorComponent, ({url: url}))
     }
 }
