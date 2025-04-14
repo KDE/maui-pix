@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-14 00:40+0000\n"
 "PO-Revision-Date: 2025-03-19 14:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -28,79 +28,79 @@ msgstr "Görsellerinize göz atın, organize edin ve onları düzenleyin."
 msgid "Developer"
 msgstr "Geliştirici"
 
-#: src/main.qml:98 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/main.qml:102 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Aç"
 
-#: src/main.qml:107
+#: src/main.qml:111
 #, kde-format
 msgid "Preview Size"
 msgstr "Önizleme Boyutu"
 
-#: src/main.qml:108
+#: src/main.qml:112
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Koleksiyon görünümlerindeki küçük görsel boyutunu ayarlayın."
 
-#: src/main.qml:120
+#: src/main.qml:124
 #, kde-format
 msgid "S"
 msgstr "K"
 
-#: src/main.qml:127
+#: src/main.qml:131
 #, kde-format
 msgid "M"
 msgstr "O"
 
-#: src/main.qml:135
+#: src/main.qml:139
 #, kde-format
 msgid "X"
 msgstr "B"
 
-#: src/main.qml:143
+#: src/main.qml:147
 #, kde-format
 msgid "XL"
 msgstr "ÇB"
 
-#: src/main.qml:155
+#: src/main.qml:159
 #, kde-format
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: src/main.qml:162
+#: src/main.qml:166
 #, kde-format
 msgid "About"
 msgstr "Hakkında"
 
-#: src/main.qml:225
+#: src/main.qml:254
 #, kde-format
 msgid "Open images"
 msgstr "Görsel Aç"
 
-#: src/main.qml:226
+#: src/main.qml:255
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Görselleri buraya sürükleyip bırakın."
 
-#: src/main.qml:276
+#: src/main.qml:305
 #, kde-format
 msgid "Tagged"
 msgstr "Künyelendi"
 
-#: src/main.qml:277
+#: src/main.qml:306
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Dosya başarıyla künyelendi"
 
-#: src/main.qml:329 src/view_models/PixMenu.qml:40
+#: src/main.qml:358 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "%1 dosya silinsin mi?"
 msgstr[1] "%1 dosya silinsin mi?"
 
-#: src/main.qml:330 src/view_models/PixMenu.qml:41
+#: src/main.qml:359 src/view_models/PixMenu.qml:42
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -110,13 +110,13 @@ msgstr[0] ""
 msgstr[1] ""
 "Bu dosyaları silmek istediğinizden emin misiniz? Bu eylem geri alınamaz."
 
-#: src/main.qml:336 src/view_models/PixMenu.qml:47
+#: src/main.qml:365 src/view_models/PixMenu.qml:48
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/main.qml:342 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:212 src/widgets/SelectionBar.qml:113
+#: src/main.qml:371 src/view_models/PixMenu.qml:54
+#: src/view_models/PixMenu.qml:223 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Kaldır"
@@ -223,52 +223,57 @@ msgstr[1] "%1 görsel ara"
 msgid "Image Text (OCR)"
 msgstr "Görsel Metni (OCR)"
 
-#: src/view_models/PixMenu.qml:68
+#: src/view_models/PixMenu.qml:69
 #, kde-format
 msgid "UnFav it"
 msgstr "Yer İmlerinden Çıkar"
 
-#: src/view_models/PixMenu.qml:78
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Info"
 msgstr "Bilgi"
 
-#: src/view_models/PixMenu.qml:88 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Paylaş"
 
-#: src/view_models/PixMenu.qml:101
+#: src/view_models/PixMenu.qml:102
 #, kde-format
 msgid "Select"
 msgstr "Seç"
 
-#: src/view_models/PixMenu.qml:118
+#: src/view_models/PixMenu.qml:119
 #, kde-format
 msgid "Add to '%1'"
 msgstr "Şuraya Ekle: “%1”"
 
-#: src/view_models/PixMenu.qml:128
+#: src/view_models/PixMenu.qml:129
 #, kde-format
 msgid "Add to Album"
 msgstr "Albüme Ekle"
 
-#: src/view_models/PixMenu.qml:144
+#: src/view_models/PixMenu.qml:145
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:155
 #, kde-format
 msgid "Save as"
 msgstr "Farklı Kaydet"
 
-#: src/view_models/PixMenu.qml:165
+#: src/view_models/PixMenu.qml:176
 #, kde-format
 msgid "Open with"
 msgstr "Birlikte Aç"
 
-#: src/view_models/PixMenu.qml:183
+#: src/view_models/PixMenu.qml:194
 #, kde-format
 msgid "Go to Folder"
 msgstr "Klasöre Git"
 
-#: src/view_models/PixMenu.qml:200
+#: src/view_models/PixMenu.qml:211
 #, kde-format
 msgid "Open Location"
 msgstr "Konum Aç"
@@ -614,7 +619,7 @@ msgstr[1] "%1 görsel"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:195
+#: src/widgets/views/Viewer/PixViewer.qml:137
 #, kde-format
 msgid "No Pics!"
 msgstr "Resim Yok!"
@@ -704,17 +709,17 @@ msgstr "%1 İçinde Resim Yok!"
 msgid "There're no pics associated with the tag"
 msgstr "Bu künyeyle ilişkilendirilmiş resim yok"
 
-#: src/widgets/views/Viewer/PixViewer.qml:93
+#: src/widgets/views/Viewer/PixViewer.qml:59
 #, kde-format
 msgid "Gallery"
 msgstr "Galeri"
 
-#: src/widgets/views/Viewer/PixViewer.qml:112
+#: src/widgets/views/Viewer/PixViewer.qml:78
 #, kde-format
 msgid "Previous"
 msgstr "Önceki"
 
-#: src/widgets/views/Viewer/PixViewer.qml:196
+#: src/widgets/views/Viewer/PixViewer.qml:138
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Koleksiyonunuzdan bir görsel açın"

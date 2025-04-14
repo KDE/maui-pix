@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-14 00:40+0000\n"
 "PO-Revision-Date: 2025-03-29 16:13+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -28,72 +28,72 @@ msgstr "Kārtojiet, pārlūkojiet un rediģējiet savus attēlus."
 msgid "Developer"
 msgstr "Izstrādātājs"
 
-#: src/main.qml:98 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/main.qml:102 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/main.qml:107
+#: src/main.qml:111
 #, kde-format
 msgid "Preview Size"
 msgstr "Priekšskatījuma izmērs"
 
-#: src/main.qml:108
+#: src/main.qml:112
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Sīktēlu lielums kolekciju skatos."
 
-#: src/main.qml:120
+#: src/main.qml:124
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/main.qml:127
+#: src/main.qml:131
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/main.qml:135
+#: src/main.qml:139
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/main.qml:143
+#: src/main.qml:147
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/main.qml:155
+#: src/main.qml:159
 #, kde-format
 msgid "Settings"
 msgstr "Iestatījumi"
 
-#: src/main.qml:162
+#: src/main.qml:166
 #, kde-format
 msgid "About"
 msgstr "Par"
 
-#: src/main.qml:225
+#: src/main.qml:254
 #, kde-format
 msgid "Open images"
 msgstr "Atvērt attēlus"
 
-#: src/main.qml:226
+#: src/main.qml:255
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Velciet no nometiet attēlus te."
 
-#: src/main.qml:276
+#: src/main.qml:305
 #, kde-format
 msgid "Tagged"
 msgstr "Satur birkas"
 
-#: src/main.qml:277
+#: src/main.qml:306
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Datnei ir pievienota birka"
 
-#: src/main.qml:329 src/view_models/PixMenu.qml:40
+#: src/main.qml:358 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -101,7 +101,7 @@ msgstr[0] "Vai dzēst %1 datni?"
 msgstr[1] "Vai dzēst %1 datnes?"
 msgstr[2] "Vai dzēst %1 datņu?"
 
-#: src/main.qml:330 src/view_models/PixMenu.qml:41
+#: src/main.qml:359 src/view_models/PixMenu.qml:42
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -112,13 +112,13 @@ msgstr[1] ""
 msgstr[2] ""
 "Vai tiešām vēlaties dzēst šīs datnes? Šo darbību atsaukt nevarēsiet."
 
-#: src/main.qml:336 src/view_models/PixMenu.qml:47
+#: src/main.qml:365 src/view_models/PixMenu.qml:48
 #, kde-format
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: src/main.qml:342 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:212 src/widgets/SelectionBar.qml:113
+#: src/main.qml:371 src/view_models/PixMenu.qml:54
+#: src/view_models/PixMenu.qml:223 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Noņemt"
@@ -226,52 +226,57 @@ msgstr[2] "Meklēt %1 attēlu"
 msgid "Image Text (OCR)"
 msgstr "Teksts attēlā (OCR)"
 
-#: src/view_models/PixMenu.qml:68
+#: src/view_models/PixMenu.qml:69
 #, kde-format
 msgid "UnFav it"
 msgstr "Noņemt no iecienītajiem"
 
-#: src/view_models/PixMenu.qml:78
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Info"
 msgstr "Informācija"
 
-#: src/view_models/PixMenu.qml:88 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Kopīgot"
 
-#: src/view_models/PixMenu.qml:101
+#: src/view_models/PixMenu.qml:102
 #, kde-format
 msgid "Select"
 msgstr "Atlasīt"
 
-#: src/view_models/PixMenu.qml:118
+#: src/view_models/PixMenu.qml:119
 #, kde-format
 msgid "Add to '%1'"
 msgstr "Pievienot pie „%1“"
 
-#: src/view_models/PixMenu.qml:128
+#: src/view_models/PixMenu.qml:129
 #, kde-format
 msgid "Add to Album"
 msgstr "Pievienot albumam"
 
-#: src/view_models/PixMenu.qml:144
+#: src/view_models/PixMenu.qml:145
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:155
 #, kde-format
 msgid "Save as"
 msgstr "Saglabāt kā"
 
-#: src/view_models/PixMenu.qml:165
+#: src/view_models/PixMenu.qml:176
 #, kde-format
 msgid "Open with"
 msgstr "Atvērt ar"
 
-#: src/view_models/PixMenu.qml:183
+#: src/view_models/PixMenu.qml:194
 #, kde-format
 msgid "Go to Folder"
 msgstr "Iet uz mapi"
 
-#: src/view_models/PixMenu.qml:200
+#: src/view_models/PixMenu.qml:211
 #, kde-format
 msgid "Open Location"
 msgstr "Atvērt atrašanās vietu"
@@ -620,7 +625,7 @@ msgstr[2] "%1 attēlu"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:195
+#: src/widgets/views/Viewer/PixViewer.qml:137
 #, kde-format
 msgid "No Pics!"
 msgstr "Attēlu nav!"
@@ -710,17 +715,17 @@ msgstr "„%1“ nesatur bildes!"
 msgid "There're no pics associated with the tag"
 msgstr "Saistībā ar šo birku nav bilžu"
 
-#: src/widgets/views/Viewer/PixViewer.qml:93
+#: src/widgets/views/Viewer/PixViewer.qml:59
 #, kde-format
 msgid "Gallery"
 msgstr "Galerija"
 
-#: src/widgets/views/Viewer/PixViewer.qml:112
+#: src/widgets/views/Viewer/PixViewer.qml:78
 #, kde-format
 msgid "Previous"
 msgstr "Iepriekšējais"
 
-#: src/widgets/views/Viewer/PixViewer.qml:196
+#: src/widgets/views/Viewer/PixViewer.qml:138
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Atvērt attēlu no jūsu kolekcijas"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-14 00:40+0000\n"
 "PO-Revision-Date: 2025-03-15 09:23+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -27,79 +27,79 @@ msgstr "Järjestä, selaa ja muokkaa kuvia."
 msgid "Developer"
 msgstr "Kehittäjä"
 
-#: src/main.qml:98 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/main.qml:102 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Avaa"
 
-#: src/main.qml:107
+#: src/main.qml:111
 #, kde-format
 msgid "Preview Size"
 msgstr "Esikatselun koko"
 
-#: src/main.qml:108
+#: src/main.qml:112
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Pienoiskuvien koko kokoelmanäkymissä."
 
-#: src/main.qml:120
+#: src/main.qml:124
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/main.qml:127
+#: src/main.qml:131
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/main.qml:135
+#: src/main.qml:139
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/main.qml:143
+#: src/main.qml:147
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/main.qml:155
+#: src/main.qml:159
 #, kde-format
 msgid "Settings"
 msgstr "Asetukset"
 
-#: src/main.qml:162
+#: src/main.qml:166
 #, kde-format
 msgid "About"
 msgstr "Tietoa"
 
-#: src/main.qml:225
+#: src/main.qml:254
 #, kde-format
 msgid "Open images"
 msgstr "Avaa kuvia"
 
-#: src/main.qml:226
+#: src/main.qml:255
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Vedä ja pudota kuvia tähän."
 
-#: src/main.qml:276
+#: src/main.qml:305
 #, kde-format
 msgid "Tagged"
 msgstr "Luokiteltu"
 
-#: src/main.qml:277
+#: src/main.qml:306
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Tiedosto luokiteltiin onnistuneesti"
 
-#: src/main.qml:329 src/view_models/PixMenu.qml:40
+#: src/main.qml:358 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Poistetaanko %1 tiedosto?"
 msgstr[1] "Poistetaanko %1 tiedostoa?"
 
-#: src/main.qml:330 src/view_models/PixMenu.qml:41
+#: src/main.qml:359 src/view_models/PixMenu.qml:42
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -107,13 +107,13 @@ msgid_plural ""
 msgstr[0] "Haluatko varmasti poistaa tämän tiedoston? Toimintoa ei voi kumota."
 msgstr[1] "Haluatko varmasti poistaa nämä tiedostot? Toimintoa ei voi kumota."
 
-#: src/main.qml:336 src/view_models/PixMenu.qml:47
+#: src/main.qml:365 src/view_models/PixMenu.qml:48
 #, kde-format
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/main.qml:342 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:212 src/widgets/SelectionBar.qml:113
+#: src/main.qml:371 src/view_models/PixMenu.qml:54
+#: src/view_models/PixMenu.qml:223 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Poista"
@@ -223,53 +223,58 @@ msgstr[1] "Etsi %1 kuvaa"
 msgid "Image Text (OCR)"
 msgstr "Luettu teksti (OCR)"
 
-#: src/view_models/PixMenu.qml:68
+#: src/view_models/PixMenu.qml:69
 #, kde-format
 msgid "UnFav it"
 msgstr "Poista suosikeista"
 
-#: src/view_models/PixMenu.qml:78
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Info"
 msgstr "Tietoa"
 
-#: src/view_models/PixMenu.qml:88 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Jaa"
 
-#: src/view_models/PixMenu.qml:101
+#: src/view_models/PixMenu.qml:102
 #, kde-format
 msgid "Select"
 msgstr "Valitse"
 
 # *** TARKISTA: Tässä olisi hyvä tietää, mikä ”%1” on – tiedosto, kansio, albumi, osoitekirja…?
-#: src/view_models/PixMenu.qml:118
+#: src/view_models/PixMenu.qml:119
 #, kde-format
 msgid "Add to '%1'"
 msgstr "Lisää kohteeseen ”%1”"
 
-#: src/view_models/PixMenu.qml:128
+#: src/view_models/PixMenu.qml:129
 #, kde-format
 msgid "Add to Album"
 msgstr "Lisää albumiin"
 
-#: src/view_models/PixMenu.qml:144
+#: src/view_models/PixMenu.qml:145
+#, kde-format
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: src/view_models/PixMenu.qml:155
 #, kde-format
 msgid "Save as"
 msgstr "Tallenna nimellä"
 
-#: src/view_models/PixMenu.qml:165
+#: src/view_models/PixMenu.qml:176
 #, kde-format
 msgid "Open with"
 msgstr "Avaa ohjelmalla"
 
-#: src/view_models/PixMenu.qml:183
+#: src/view_models/PixMenu.qml:194
 #, kde-format
 msgid "Go to Folder"
 msgstr "Siirry kansioon"
 
-#: src/view_models/PixMenu.qml:200
+#: src/view_models/PixMenu.qml:211
 #, kde-format
 msgid "Open Location"
 msgstr "Avaa sijainti"
@@ -612,7 +617,7 @@ msgstr[1] "%1 kuvaa"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:195
+#: src/widgets/views/Viewer/PixViewer.qml:137
 #, kde-format
 msgid "No Pics!"
 msgstr "Ei kuvia!"
@@ -702,17 +707,17 @@ msgstr "Ei kuvia kansiossa %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Tähän luokitukseen ei ole kytketty kuvia"
 
-#: src/widgets/views/Viewer/PixViewer.qml:93
+#: src/widgets/views/Viewer/PixViewer.qml:59
 #, kde-format
 msgid "Gallery"
 msgstr "Galleria"
 
-#: src/widgets/views/Viewer/PixViewer.qml:112
+#: src/widgets/views/Viewer/PixViewer.qml:78
 #, kde-format
 msgid "Previous"
 msgstr "Edellinen"
 
-#: src/widgets/views/Viewer/PixViewer.qml:196
+#: src/widgets/views/Viewer/PixViewer.qml:138
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Avaa kokoelmasta kuva"
@@ -894,9 +899,6 @@ msgstr ""
 
 #~ msgid "Grid"
 #~ msgstr "Ruudukko"
-
-#~ msgid "Edit"
-#~ msgstr "Muokkaa"
 
 #~ msgctxt "@action:button Rotate an image to the right"
 #~ msgid "Rotate right"

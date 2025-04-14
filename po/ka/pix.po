@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-14 00:40+0000\n"
 "PO-Revision-Date: 2025-03-20 03:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,79 +28,79 @@ msgstr "დაალაგეთ, მოძებნეთ და ჩაას�
 msgid "Developer"
 msgstr "პროგრამისტი"
 
-#: src/main.qml:98 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/main.qml:102 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/main.qml:107
+#: src/main.qml:111
 #, kde-format
 msgid "Preview Size"
 msgstr "მინიატურის ზომა"
 
-#: src/main.qml:108
+#: src/main.qml:112
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "კოლექციის ხედებში მინიატურების ზომების ჩვენება."
 
-#: src/main.qml:120
+#: src/main.qml:124
 #, kde-format
 msgid "S"
 msgstr "პ"
 
-#: src/main.qml:127
+#: src/main.qml:131
 #, kde-format
 msgid "M"
 msgstr "ს"
 
-#: src/main.qml:135
+#: src/main.qml:139
 #, kde-format
 msgid "X"
 msgstr "დ"
 
-#: src/main.qml:143
+#: src/main.qml:147
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/main.qml:155
+#: src/main.qml:159
 #, kde-format
 msgid "Settings"
 msgstr "მორგება"
 
-#: src/main.qml:162
+#: src/main.qml:166
 #, kde-format
 msgid "About"
 msgstr "შესახებ"
 
-#: src/main.qml:225
+#: src/main.qml:254
 #, kde-format
 msgid "Open images"
 msgstr "გამოსახულების გახსნა"
 
-#: src/main.qml:226
+#: src/main.qml:255
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "გადმოათრიეთ და დაყარეთ სურათები აქ."
 
-#: src/main.qml:276
+#: src/main.qml:305
 #, kde-format
 msgid "Tagged"
 msgstr "ჭდეებიანი"
 
-#: src/main.qml:277
+#: src/main.qml:306
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "ფაილს ჭდეები წარმატებით დაესვა"
 
-#: src/main.qml:329 src/view_models/PixMenu.qml:40
+#: src/main.qml:358 src/view_models/PixMenu.qml:41
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "წავშალო %1 ფაილი?"
 msgstr[1] "წავშალო %1 ფაილი?"
 
-#: src/main.qml:330 src/view_models/PixMenu.qml:41
+#: src/main.qml:359 src/view_models/PixMenu.qml:42
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -111,13 +111,13 @@ msgstr[1] ""
 "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ ეს ფაილები? ქმედება "
 "შეუქცევადია."
 
-#: src/main.qml:336 src/view_models/PixMenu.qml:47
+#: src/main.qml:365 src/view_models/PixMenu.qml:48
 #, kde-format
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/main.qml:342 src/view_models/PixMenu.qml:53
-#: src/view_models/PixMenu.qml:212 src/widgets/SelectionBar.qml:113
+#: src/main.qml:371 src/view_models/PixMenu.qml:54
+#: src/view_models/PixMenu.qml:223 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "წაშლა"
@@ -224,52 +224,57 @@ msgstr[1] "%1 გამოსახულების ძებნა"
 msgid "Image Text (OCR)"
 msgstr "გამოსახულების ტექსტი (OCR)"
 
-#: src/view_models/PixMenu.qml:68
+#: src/view_models/PixMenu.qml:69
 #, kde-format
 msgid "UnFav it"
 msgstr "რჩეულებიდან ამოღება"
 
-#: src/view_models/PixMenu.qml:78
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Info"
 msgstr "ინფორმაცია"
 
-#: src/view_models/PixMenu.qml:88 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "გაზიარება"
 
-#: src/view_models/PixMenu.qml:101
+#: src/view_models/PixMenu.qml:102
 #, kde-format
 msgid "Select"
 msgstr "აირჩიეთ"
 
-#: src/view_models/PixMenu.qml:118
+#: src/view_models/PixMenu.qml:119
 #, kde-format
 msgid "Add to '%1'"
 msgstr "'%1'-ში დამატება"
 
-#: src/view_models/PixMenu.qml:128
+#: src/view_models/PixMenu.qml:129
 #, kde-format
 msgid "Add to Album"
 msgstr "ალბომში ჩამატება"
 
-#: src/view_models/PixMenu.qml:144
+#: src/view_models/PixMenu.qml:145
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:155
 #, kde-format
 msgid "Save as"
 msgstr "შენახვა როგორც"
 
-#: src/view_models/PixMenu.qml:165
+#: src/view_models/PixMenu.qml:176
 #, kde-format
 msgid "Open with"
 msgstr "გამხსნელი პროგრამა"
 
-#: src/view_models/PixMenu.qml:183
+#: src/view_models/PixMenu.qml:194
 #, kde-format
 msgid "Go to Folder"
 msgstr "საქაღალდეზე გადასვლა"
 
-#: src/view_models/PixMenu.qml:200
+#: src/view_models/PixMenu.qml:211
 #, kde-format
 msgid "Open Location"
 msgstr "მდებარეობის გახსნა"
@@ -615,7 +620,7 @@ msgstr[1] "%1 გამოსახულება"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:195
+#: src/widgets/views/Viewer/PixViewer.qml:137
 #, kde-format
 msgid "No Pics!"
 msgstr "სურათების გარეშე!"
@@ -705,17 +710,17 @@ msgstr "%1-ში სურათები არა!"
 msgid "There're no pics associated with the tag"
 msgstr "ამ ჭდესთან ასოცირებული სურათები ვერ ვიპოვე"
 
-#: src/widgets/views/Viewer/PixViewer.qml:93
+#: src/widgets/views/Viewer/PixViewer.qml:59
 #, kde-format
 msgid "Gallery"
 msgstr "გალერეა"
 
-#: src/widgets/views/Viewer/PixViewer.qml:112
+#: src/widgets/views/Viewer/PixViewer.qml:78
 #, kde-format
 msgid "Previous"
 msgstr "წინა"
 
-#: src/widgets/views/Viewer/PixViewer.qml:196
+#: src/widgets/views/Viewer/PixViewer.qml:138
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "თქენი კოლექციიდან სურათის გახსნა"
