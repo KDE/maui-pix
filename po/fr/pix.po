@@ -253,7 +253,8 @@ msgid "Add to Album"
 msgstr "Ajouter à l'album"
 
 #: src/view_models/PixMenu.qml:145
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit"
 msgid "Edit"
 msgstr "Modifier"
 

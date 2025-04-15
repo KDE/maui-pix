@@ -256,7 +256,7 @@ msgstr "Albüme Ekle"
 #: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Düzenle"
 
 #: src/view_models/PixMenu.qml:155
 #, kde-format
@@ -768,81 +768,3 @@ msgstr "Nota Kaydet"
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Seçili Metni Google’da Ara…"
-
-#~ msgid "Save"
-#~ msgstr "Kaydet"
-
-#~ msgid "Copy"
-#~ msgstr "Kopyala"
-
-#~ msgid "Search Web"
-#~ msgstr "Web’de Ara"
-
-#~ msgid "Accept"
-#~ msgstr "Kabul Et"
-
-#~ msgid "Delete File?"
-#~ msgstr "Dosyayı Sil?"
-
-#~ msgctxt "Remove one file"
-#~ msgid ""
-#~ "Are sure you want to delete this file? This action can not be undone."
-#~ msgstr ""
-#~ "Bu dosyayı silmek istediğinizden emin misiniz? Bu eylem geri alınamaz."
-
-#~ msgid "Dark Mode"
-#~ msgstr "Koyu Kip"
-
-#~ msgid "Switch between light and dark colorscheme."
-#~ msgstr "Açık ve koyu renk şeması arasında geçiş yapın."
-
-#~ msgid "Pix"
-#~ msgstr "Piks"
-
-#~ msgid "© 2019-2023 Maui Development Team"
-#~ msgstr "© 2019-2023 Maui Geliştirme Takımı"
-
-#~ msgid "Camilo Higuita"
-#~ msgstr "Camilo Higuita"
-
-#~ msgid "Configure the app behaviour."
-#~ msgstr "Uygulama davranışını yapılandırın."
-
-#~ msgid "Configure the app plugins and look & feel."
-#~ msgstr "Uygulama eklentilerini ve uygulama görünüm ve hisini yapılandırın."
-
-#~ msgid "Adjust the viewer panels and settings."
-#~ msgstr "Görüntüleyici panellerini ve ayarlarını değiştirin."
-
-#~ msgid "Show small thumbnail previews in the image viewer."
-#~ msgstr "Görsel görüntüleyicisinde küçük görseller gösterir."
-
-#~ msgid "Add new sources to manage and browse your image collection."
-#~ msgstr "Görsel koleksiyonunuza yeni kaynaklar ekleyin ve onları yönetin."
-
-#~ msgid "Collections"
-#~ msgstr "Koleksiyonlar"
-
-#~ msgid "Documents"
-#~ msgstr "Belgeler"
-
-#~ msgid "Filter"
-#~ msgstr "Süzgeç"
-
-#~ msgid "Places Sidebar"
-#~ msgstr "Yerler Kenar Çubuğu"
-
-#~ msgid "Enable places navigation in the folders view."
-#~ msgstr "Klasör görünümünde yerlerde dolaşmayı etkinleştir"
-
-#~ msgid "Fit the previews"
-#~ msgstr "Önizlemeleri Sığdır"
-
-#~ msgid "Folders"
-#~ msgstr "Klasörler"
-
-#~ msgid "GIMP"
-#~ msgstr "GIMP"
-
-#~ msgid "EMpty filter"
-#~ msgstr "Boş süzgeç"
