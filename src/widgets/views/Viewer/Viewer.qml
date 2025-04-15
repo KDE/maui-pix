@@ -364,13 +364,35 @@ Item
 
                                         Rectangle
                                         {
+                                            id: _highlightRec
                                             height: parent.height + 6
                                             width: parent.width+6
                                             anchors.centerIn: parent
                                             radius: 0
-                                            color: Maui.Theme.linkBackgroundColor
-                                            opacity: 0.7
-                                            visible: _mouseArea.containsMouse || parent.selected
+                                            // color: Maui.Theme.linkBackgroundColor
+                                            visible: opacity > 0
+
+                                            Behavior on opacity
+                                            {
+                                                NumberAnimation
+                                                {
+                                                    duration: Maui.Style.units.longDuration
+                                                    easing.type: Easing.InOutQuad
+                                                }
+                                            }
+
+                                            ColorAnimation on color
+                                            {
+                                                from: "transparent"
+                                                to: Maui.Theme.linkBackgroundColor
+                                                duration: Maui.Style.units.longDuration
+                                                // running: _ocr.ready
+                                                easing.type: Easing.InOutQuad
+                                                onFinished:
+                                                {
+                                                    _highlightRec.opacity = Qt.binding( ()=>{ return _mouseArea.containsMouse || _mouseArea.selected ? 0.7 : 0} )
+                                                }
+                                            }
                                         }
 
                                         onClicked: (mouse) =>
@@ -495,6 +517,7 @@ Item
                                     return Qt.point(_imgV.image.implicitWidth * point.x / _selectionArea.width, _imgV.image.implicitHeight * point.y/ _selectionArea.height);
                                 }
                             }
+
 
                             IT.OCR
                             {

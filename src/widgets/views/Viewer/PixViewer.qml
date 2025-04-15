@@ -8,6 +8,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
+import QtQuick.Effects
 
 import org.mauikit.controls as Maui
 import org.mauikit.filebrowsing as FB
@@ -89,29 +90,7 @@ Maui.Page
         }
     ]
 
-    headBar.rightContent: [
-        FB.FavButton
-        {
-            url: currentPic.url
-        },
-
-        ToolButton
-        {
-            icon.name: "document-share"
-            onClicked:
-            {
-                Maui.Platform.shareFiles([control.currentPic.url])
-            }
-        },
-
-        ToolButton
-        {
-            icon.name: "draw-freehand"
-            onClicked:
-            {
-                openEditor(control.currentPic.url)
-            }
-        },
+    headBar.rightContent: [     
 
         ToolButton
         {
@@ -151,16 +130,108 @@ Maui.Page
             Layout.fillHeight: true
             Layout.fillWidth: true
 
-            Rectangle
+
+
+            Loader
+            {
+                id: _actionsBarLoader
+                // active: settings.showActionsBar
+                visible: status == Loader.Ready
+                asynchronous: true
+
+                anchors.bottom: galleryRollBg.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.margins: Maui.Style.space.big
+
+                sourceComponent: Pane
+                {
+                    id: _pane
+                    Maui.Theme.colorSet: Maui.Theme.Complementary
+                    Maui.Theme.inherit: false
+
+                    background: Rectangle
+                    {
+                        radius: Maui.Style.radiusV
+                        color: Maui.Theme.alternateBackgroundColor
+
+                        layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
+                        layer.effect: MultiEffect
+                        {
+                            autoPaddingEnabled: true
+                            shadowEnabled: true
+                            shadowColor: "#000000"
+                        }
+                    }
+
+                    ScaleAnimator on scale
+                    {
+                        from: 0
+                        to: 1
+                        duration: Maui.Style.units.longDuration
+                        running: visible
+                        easing.type: Easing.OutInQuad
+                    }
+
+                    OpacityAnimator on opacity
+                    {
+                        from: 0
+                        to: 1
+                        duration: Maui.Style.units.longDuration
+                        running: visible
+                    }
+
+                    contentItem:  Row
+                    {
+                        spacing: Maui.Style.defaultSpacing
+
+                        FB.FavButton
+                        {
+                            url: currentPic.url
+                            flat: false
+                        }
+
+                        ToolButton
+                        {
+                            icon.name: "document-share"
+                            flat: false
+                            onClicked:
+                            {
+                                Maui.Platform.shareFiles([control.currentPic.url])
+                            }
+                        }
+
+                        ToolButton
+                        {
+                            icon.name: "draw-freehand"
+                            flat: false
+                            onClicked:
+                            {
+                                openEditor(control.currentPic.url)
+                            }
+                        }
+                    }
+                }
+            }
+
+            Item
             {
                 id: galleryRollBg
                 width: parent.width
-                anchors.bottom: parent.bottom
-                height: Math.min(100, Math.max(parent.height * 0.12, 60))
-                visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1 && !viewer.imageZooming
-                color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.7)
+                clip: true
 
-                opacity: visible ? 1 : 0
+                y: !viewer.imageZooming ? parent.height - height : parent.height
+                Behavior on y
+                {
+                    NumberAnimation
+                    {
+                        duration: Maui.Style.units.longDuration
+                        easing.type: Easing.InOutQuad
+                    }
+                }
+
+                height: visible ? Math.min(60, Math.max(parent.height * 0.12, 60)) : 0
+                visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
+
                 Behavior on opacity
                 {
                     NumberAnimation

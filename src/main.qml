@@ -209,7 +209,6 @@ Maui.ApplicationWindow
 
         ITEditor.ImageEditor
         {
-            id: _editor
             onSaved:
             {
                 _stackView.pop()
@@ -218,7 +217,8 @@ Maui.ApplicationWindow
 
             onCanceled:
             {
-                if(!_editor.edited)
+                console.log("Image edited? ", editor.edited)
+                if(!editor.edited)
                 {
                     _stackView.pop()
                     return

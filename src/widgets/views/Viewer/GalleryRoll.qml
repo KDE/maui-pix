@@ -27,7 +27,8 @@ ScrollView
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical.policy: ScrollBar.AlwaysOff
 
-Maui.Controls.orientation: Qt.Horizontal
+    Maui.Controls.orientation: Qt.Horizontal
+
     ListView
     {
         id: rollList
@@ -44,7 +45,9 @@ Maui.Controls.orientation: Qt.Horizontal
         delegate: PixPic
         {
             height: ListView.view.height
-            width: height * (isCurrentItem ? 2 : 1)
+            width: height
+
+            imageWidth: height
 
             isCurrentItem: ListView.isCurrentItem
 
@@ -61,16 +64,6 @@ Maui.Controls.orientation: Qt.Horizontal
 
             onPressAndHold: _picMenu.show()
             onRightClicked: _picMenu.show()
-
-            Behavior on width
-            {
-                NumberAnimation
-                {
-                    duration: Maui.Style.units.longDuration
-                    easing.type: Easing.InQuad
-                }
-            }
-
         }
     }
 
