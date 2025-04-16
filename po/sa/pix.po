@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:40+0000\n"
+"POT-Creation-Date: 2025-04-16 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 22:59+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -617,7 +617,7 @@ msgstr[1] "%1 चित्राणि"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:137
+#: src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "No Pics!"
 msgstr "न Pics!"
@@ -706,17 +706,17 @@ msgstr "%1 मध्ये कोऽपि Pics नास्ति!"
 msgid "There're no pics associated with the tag"
 msgstr "टैग् इत्यनेन सह सम्बद्धाः कोऽपि चित्रः नास्ति"
 
-#: src/widgets/views/Viewer/PixViewer.qml:59
+#: src/widgets/views/Viewer/PixViewer.qml:60
 #, kde-format
 msgid "Gallery"
 msgstr "गैलरी"
 
-#: src/widgets/views/Viewer/PixViewer.qml:78
+#: src/widgets/views/Viewer/PixViewer.qml:79
 #, kde-format
 msgid "Previous"
 msgstr "पूर्वतनम्‌"
 
-#: src/widgets/views/Viewer/PixViewer.qml:138
+#: src/widgets/views/Viewer/PixViewer.qml:117
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "स्वसङ्ग्रहात् एकं चित्रं उद्घाटयन्तु"

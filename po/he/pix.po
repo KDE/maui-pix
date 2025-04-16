@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:40+0000\n"
+"POT-Creation-Date: 2025-04-16 00:41+0000\n"
 "PO-Revision-Date: 2025-04-14 08:08+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -625,7 +625,7 @@ msgstr[3] "%1 תמונות"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:137
+#: src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "No Pics!"
 msgstr "אין תמונות!"
@@ -716,17 +716,17 @@ msgstr "אין תמונות ב־%1!"
 msgid "There're no pics associated with the tag"
 msgstr "אין תמונות שמשויכות לתגית הזאת"
 
-#: src/widgets/views/Viewer/PixViewer.qml:59
+#: src/widgets/views/Viewer/PixViewer.qml:60
 #, kde-format
 msgid "Gallery"
 msgstr "גלריה"
 
-#: src/widgets/views/Viewer/PixViewer.qml:78
+#: src/widgets/views/Viewer/PixViewer.qml:79
 #, kde-format
 msgid "Previous"
 msgstr "הקודם"
 
-#: src/widgets/views/Viewer/PixViewer.qml:138
+#: src/widgets/views/Viewer/PixViewer.qml:117
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "פתיחת תמונה מהאוסף שלך"

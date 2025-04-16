@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:40+0000\n"
+"POT-Creation-Date: 2025-04-16 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 16:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -608,7 +608,7 @@ msgstr[0] ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:137
+#: src/widgets/views/Viewer/PixViewer.qml:116
 #, kde-format
 msgid "No Pics!"
 msgstr "没有图像"
@@ -696,17 +696,17 @@ msgstr "%1 中没有图像"
 msgid "There're no pics associated with the tag"
 msgstr "该标签没有关联图像"
 
-#: src/widgets/views/Viewer/PixViewer.qml:59
+#: src/widgets/views/Viewer/PixViewer.qml:60
 #, kde-format
 msgid "Gallery"
 msgstr "相册"
 
-#: src/widgets/views/Viewer/PixViewer.qml:78
+#: src/widgets/views/Viewer/PixViewer.qml:79
 #, kde-format
 msgid "Previous"
 msgstr "返回"
 
-#: src/widgets/views/Viewer/PixViewer.qml:138
+#: src/widgets/views/Viewer/PixViewer.qml:117
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"
