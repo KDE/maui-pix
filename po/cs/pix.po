@@ -256,7 +256,7 @@ msgstr ""
 #: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 #: src/view_models/PixMenu.qml:155
 #, kde-format
