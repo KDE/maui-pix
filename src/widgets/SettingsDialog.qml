@@ -139,18 +139,13 @@ Maui.SettingsDialog
         {
             label1.text: i18n("GPS Tags")
             label2.text: i18n("Show GPS tags.")
+            Maui.Controls.badgeText: "!"
 
             Switch
             {
                 checkable: true
                 checked: browserSettings.gpsTags
                 onToggled: browserSettings.gpsTags = !browserSettings.gpsTags
-            }
-
-            Maui.Chip
-            {
-                text: i18n("Experimental feature.")
-
             }
         }
     }
