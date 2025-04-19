@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 16:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Open Location"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:190
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Text Detection"
 msgstr ""
@@ -489,42 +489,37 @@ msgstr ""
 msgid "Show GPS tags."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:152
-#, kde-format
-msgid "Experimental feature."
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:160
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Viewer"
 msgstr "查看器"
 
-#: src/widgets/SettingsDialog.qml:165
+#: src/widgets/SettingsDialog.qml:160
 #, kde-format
 msgid "Tag Bar"
 msgstr "标签栏"
 
-#: src/widgets/SettingsDialog.qml:166
+#: src/widgets/SettingsDialog.qml:161
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "显示标签栏，以便快速添加、移除和修改当前图像的标签。"
 
-#: src/widgets/SettingsDialog.qml:178
+#: src/widgets/SettingsDialog.qml:173
 #, kde-format
 msgid "Preview Bar"
 msgstr "缩略图栏"
 
-#: src/widgets/SettingsDialog.qml:191
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:200
 #, kde-format
 msgid "Sources"
 msgstr "图像来源位置"
 
-#: src/widgets/SettingsDialog.qml:244
+#: src/widgets/SettingsDialog.qml:239
 #, kde-format
 msgid "Add"
 msgstr "添加"

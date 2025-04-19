@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:40+0000\n"
 "PO-Revision-Date: 2025-04-14 06:50+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -290,7 +290,7 @@ msgstr "Pojdi v mapo"
 msgid "Open Location"
 msgstr "Odpri lokacijo"
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:190
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Text Detection"
 msgstr "Zaznavanje besedila"
@@ -507,44 +507,39 @@ msgstr "GPS značke"
 msgid "Show GPS tags."
 msgstr "Prikaži GPS značke."
 
-#: src/widgets/SettingsDialog.qml:152
-#, kde-format
-msgid "Experimental feature."
-msgstr "Eksperimentalna zmožnost."
-
-#: src/widgets/SettingsDialog.qml:160
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Viewer"
 msgstr "Vpogledovalnik"
 
-#: src/widgets/SettingsDialog.qml:165
+#: src/widgets/SettingsDialog.qml:160
 #, kde-format
 msgid "Tag Bar"
 msgstr "Vrstica značk"
 
-#: src/widgets/SettingsDialog.qml:166
+#: src/widgets/SettingsDialog.qml:161
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 "Preprost način dodajanja, odstranjevanja in spreminjanja značk trenutne "
 "slike."
 
-#: src/widgets/SettingsDialog.qml:178
+#: src/widgets/SettingsDialog.qml:173
 #, kde-format
 msgid "Preview Bar"
 msgstr "Vrstica predogleda"
 
-#: src/widgets/SettingsDialog.qml:191
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr "Konfiguriraj nastavitve za zaznavanje besedila na slikah."
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:200
 #, kde-format
 msgid "Sources"
 msgstr "Viri"
 
-#: src/widgets/SettingsDialog.qml:244
+#: src/widgets/SettingsDialog.qml:239
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
@@ -784,6 +779,9 @@ msgstr "Shrani v zabeležko"
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Iskanje izbranega besedila v Googlu..."
+
+#~ msgid "Experimental feature."
+#~ msgstr "Eksperimentalna zmožnost."
 
 #~ msgid "Save"
 #~ msgstr "Shrani"

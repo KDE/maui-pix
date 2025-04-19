@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:40+0000\n"
 "PO-Revision-Date: 2021-01-17 14:58+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -286,7 +286,7 @@ msgstr "Megjelenítés mappában"
 msgid "Open Location"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:190
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Text Detection"
 msgstr ""
@@ -507,42 +507,37 @@ msgstr "Címkék"
 msgid "Show GPS tags."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:152
-#, kde-format
-msgid "Experimental feature."
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:160
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Viewer"
 msgstr "Megjelenítő"
 
-#: src/widgets/SettingsDialog.qml:165
+#: src/widgets/SettingsDialog.qml:160
 #, kde-format
 msgid "Tag Bar"
 msgstr "Címkesáv"
 
-#: src/widgets/SettingsDialog.qml:166
+#: src/widgets/SettingsDialog.qml:161
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "Egyszerű módszer a jelenlegi kép címkéinek kezeléséhez."
 
-#: src/widgets/SettingsDialog.qml:178
+#: src/widgets/SettingsDialog.qml:173
 #, kde-format
 msgid "Preview Bar"
 msgstr "Előnézeti sáv"
 
-#: src/widgets/SettingsDialog.qml:191
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:200
 #, kde-format
 msgid "Sources"
 msgstr "Források"
 
-#: src/widgets/SettingsDialog.qml:244
+#: src/widgets/SettingsDialog.qml:239
 #, kde-format
 msgid "Add"
 msgstr "Hozzáadás"

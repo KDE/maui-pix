@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:40+0000\n"
 "PO-Revision-Date: 2023-04-20 19:45+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -281,7 +281,7 @@ msgstr "In Ordner wechseln"
 msgid "Open Location"
 msgstr "Adresse öffnen"
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:190
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Text Detection"
 msgstr ""
@@ -499,44 +499,39 @@ msgstr "GPS-Tags"
 msgid "Show GPS tags."
 msgstr "GPS-Tags anzeigen."
 
-#: src/widgets/SettingsDialog.qml:152
-#, kde-format
-msgid "Experimental feature."
-msgstr "Experimentelle Funktion."
-
-#: src/widgets/SettingsDialog.qml:160
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Viewer"
 msgstr "Betrachter"
 
-#: src/widgets/SettingsDialog.qml:165
+#: src/widgets/SettingsDialog.qml:160
 #, kde-format
 msgid "Tag Bar"
 msgstr "Stichwortleiste"
 
-#: src/widgets/SettingsDialog.qml:166
+#: src/widgets/SettingsDialog.qml:161
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 "Einfache Möglichkeit zum Hinzufügen, Entfernen und Ändern der Stichwörter "
 "des aktuellen Bildes."
 
-#: src/widgets/SettingsDialog.qml:178
+#: src/widgets/SettingsDialog.qml:173
 #, kde-format
 msgid "Preview Bar"
 msgstr "Vorschauleiste"
 
-#: src/widgets/SettingsDialog.qml:191
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:200
 #, kde-format
 msgid "Sources"
 msgstr "Quellen"
 
-#: src/widgets/SettingsDialog.qml:244
+#: src/widgets/SettingsDialog.qml:239
 #, kde-format
 msgid "Add"
 msgstr "Hinzufügen"
@@ -776,6 +771,9 @@ msgstr ""
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
+
+#~ msgid "Experimental feature."
+#~ msgstr "Experimentelle Funktion."
 
 #~ msgid "Save"
 #~ msgstr "Speichern"

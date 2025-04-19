@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:40+0000\n"
 "PO-Revision-Date: 2024-11-16 15:28+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -277,7 +277,7 @@ msgstr "Go to Folder"
 msgid "Open Location"
 msgstr "Open Location"
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:190
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Text Detection"
 msgstr ""
@@ -494,42 +494,37 @@ msgstr "GPS Tags"
 msgid "Show GPS tags."
 msgstr "Show GPS tags."
 
-#: src/widgets/SettingsDialog.qml:152
-#, kde-format
-msgid "Experimental feature."
-msgstr "Experimental feature."
-
-#: src/widgets/SettingsDialog.qml:160
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Viewer"
 msgstr "Viewer"
 
-#: src/widgets/SettingsDialog.qml:165
+#: src/widgets/SettingsDialog.qml:160
 #, kde-format
 msgid "Tag Bar"
 msgstr "Tag Bar"
 
-#: src/widgets/SettingsDialog.qml:166
+#: src/widgets/SettingsDialog.qml:161
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "Easy way to add, remove and modify the tags of the current image."
 
-#: src/widgets/SettingsDialog.qml:178
+#: src/widgets/SettingsDialog.qml:173
 #, kde-format
 msgid "Preview Bar"
 msgstr "Preview Bar"
 
-#: src/widgets/SettingsDialog.qml:191
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:200
 #, kde-format
 msgid "Sources"
 msgstr "Sources"
 
-#: src/widgets/SettingsDialog.qml:244
+#: src/widgets/SettingsDialog.qml:239
 #, kde-format
 msgid "Add"
 msgstr "Add"
@@ -766,6 +761,9 @@ msgstr ""
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
+
+#~ msgid "Experimental feature."
+#~ msgstr "Experimental feature."
 
 #~ msgid "Save"
 #~ msgstr "Save"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:40+0000\n"
 "PO-Revision-Date: 2025-04-14 03:41+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -279,7 +279,7 @@ msgstr "საქაღალდეზე გადასვლა"
 msgid "Open Location"
 msgstr "მდებარეობის გახსნა"
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:190
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Text Detection"
 msgstr "ტექსტის აღმოჩენა"
@@ -498,43 +498,38 @@ msgstr "GPS ჭდეები"
 msgid "Show GPS tags."
 msgstr "GPS ჭდეების ჩვენება."
 
-#: src/widgets/SettingsDialog.qml:152
-#, kde-format
-msgid "Experimental feature."
-msgstr "ექსპერიმენტული ფუნქცია."
-
-#: src/widgets/SettingsDialog.qml:160
+#: src/widgets/SettingsDialog.qml:155
 #, kde-format
 msgid "Viewer"
 msgstr "მაყურებელი"
 
-#: src/widgets/SettingsDialog.qml:165
+#: src/widgets/SettingsDialog.qml:160
 #, kde-format
 msgid "Tag Bar"
 msgstr "ჭდის ზოლი"
 
-#: src/widgets/SettingsDialog.qml:166
+#: src/widgets/SettingsDialog.qml:161
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 "უადვილესი საშუალება დაამატოთ, წაშალოთ და შეცვალოთ მიმდინარე სურათის ჭდეები."
 
-#: src/widgets/SettingsDialog.qml:178
+#: src/widgets/SettingsDialog.qml:173
 #, kde-format
 msgid "Preview Bar"
 msgstr "გადახედვის ზოლი"
 
-#: src/widgets/SettingsDialog.qml:191
+#: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr "პარამეტრების მორგება გამოსახულებებში ტექსტის აღმოსაჩენად."
 
-#: src/widgets/SettingsDialog.qml:205
+#: src/widgets/SettingsDialog.qml:200
 #, kde-format
 msgid "Sources"
 msgstr "წყაროები"
 
-#: src/widgets/SettingsDialog.qml:244
+#: src/widgets/SettingsDialog.qml:239
 #, kde-format
 msgid "Add"
 msgstr "დამატება"
@@ -769,6 +764,9 @@ msgstr "შენახვა შენიშვნაში"
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "მონიშნული ტექსტის Google-ში მოძებნა..."
+
+#~ msgid "Experimental feature."
+#~ msgstr "ექსპერიმენტული ფუნქცია."
 
 #~ msgid "Save"
 #~ msgstr "შენახვა"
