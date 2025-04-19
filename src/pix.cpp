@@ -28,7 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 #include <QCoreApplication>
 #include <QSettings>
-
+#include <QProcess>
 #include <MauiKit4/Core/fmh.h>
 
 #include <MauiKit4/FileBrowsing/tagging.h>
@@ -154,6 +154,17 @@ void Pix::showInFolder(const QStringList &urls)
 {
     for (const auto &url : urls)
         QDesktopServices::openUrl(FMStatic::fileDir(url));
+}
+
+void Pix::createNote(const QString &text)
+{
+    QString program = "buho";
+    QStringList arguments;
+    arguments << "-n" << "-c" << text.toUtf8();
+
+    QProcess *myProcess = new QProcess();
+    myProcess->startDetached(program, arguments);
+    // myProcess->deleteLater();
 }
 
 void Pix::addSources(const QStringList &paths)

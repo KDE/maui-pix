@@ -61,6 +61,7 @@ public Q_SLOTS:
 
     /*File actions*/
     static void showInFolder(const QStringList &);
+    static void createNote(const QString &text);
 
 private:
     mutable Gallery* m_allImagesModel;

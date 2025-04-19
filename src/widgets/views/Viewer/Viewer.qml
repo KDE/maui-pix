@@ -153,6 +153,7 @@ Item
         {
             text: i18n("Save to Note")
             icon.name:"note"
+            onTriggered: Collection.createNote(control.textSelected)
         }
 
         MenuItem
