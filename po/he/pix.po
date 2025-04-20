@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:40+0000\n"
+"POT-Creation-Date: 2025-04-20 00:40+0000\n"
 "PO-Revision-Date: 2025-04-14 08:08+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -766,7 +766,7 @@ msgstr "יצירת אירוע"
 msgid "Save to Note"
 msgstr "שמירה לפתקית"
 
-#: src/widgets/views/Viewer/Viewer.qml:160
+#: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "חיפוש הטקסט הנבחר ב־Google…"

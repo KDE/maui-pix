@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:40+0000\n"
-"PO-Revision-Date: 2025-03-27 22:34+0900\n"
+"POT-Creation-Date: 2025-04-20 00:40+0000\n"
+"PO-Revision-Date: 2025-04-19 14:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -253,7 +253,7 @@ msgstr "加入專輯"
 #: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 #: src/view_models/PixMenu.qml:155
 #, kde-format
@@ -749,7 +749,7 @@ msgstr "建立事件"
 msgid "Save to Note"
 msgstr "儲存到筆記"
 
-#: src/widgets/views/Viewer/Viewer.qml:160
+#: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "在 Google 上搜尋選取的文字…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:40+0000\n"
+"POT-Creation-Date: 2025-04-20 00:40+0000\n"
 "PO-Revision-Date: 2025-03-19 14:41+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -760,7 +760,7 @@ msgstr "Gebeurtenis aanmaken"
 msgid "Save to Note"
 msgstr "Als notitie opslaan"
 
-#: src/widgets/views/Viewer/Viewer.qml:160
+#: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Geselecteerde tekst on Google zoeken..."
