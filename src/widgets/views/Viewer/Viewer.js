@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-
+// .pragma library
 .import org.mauikit.filebrowsing as FB
 
 function open(model, index, recursive = false)

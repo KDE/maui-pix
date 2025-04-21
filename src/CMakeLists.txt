@@ -33,6 +33,9 @@ else()
         ${pix_ASSETS})
 endif()
 
+set_source_files_properties(widgets/views/Viewer/Viewer.js PROPERTIES
+    QT_QML_SKIP_QMLDIR_ENTRY TRUE)
+
 qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     NO_PLUGIN
     QML_FILES
@@ -57,6 +60,7 @@ qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     widgets/views/Viewer/OCRPage.qml
     widgets/views/CollectionView.qml
     widgets/views/FloatingViewer.qml)
+
 
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)

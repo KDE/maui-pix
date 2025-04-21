@@ -79,6 +79,9 @@ ecm_setup_version(${PIX_VERSION}
 
 kde_enable_exceptions()
 
+qt_policy(SET QTP0001 OLD)
+qt_policy(SET QTP0004 NEW)
+
 add_subdirectory(src)
 
 ki18n_install(po)
