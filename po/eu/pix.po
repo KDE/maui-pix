@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-20 00:40+0000\n"
-"PO-Revision-Date: 2025-01-08 22:59+0100\n"
+"PO-Revision-Date: 2025-04-22 12:07+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/main.cpp:114
 #, kde-format
@@ -250,17 +250,17 @@ msgstr "Hautatu"
 #: src/view_models/PixMenu.qml:119
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "Gehitu '%1'(e)(a)n"
 
 #: src/view_models/PixMenu.qml:129
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "Gehitu albumera"
 
 #: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Editatu"
 
 #: src/view_models/PixMenu.qml:155
 #, kde-format
@@ -285,87 +285,87 @@ msgstr "Ireki kokalekua"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Testua antzematea"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Gaitu automatikoki antzematea"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "Irudia aurreprozesatzea"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "Gaitu irudia aurreprozesatzea."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "Orrialdearen segmentazioa"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "Automatikoa"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "Automatiko OSD"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "Zutabe bakarra"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "Lerro bakarra"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "Bloke bakarra"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "Hitz bakarra"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "Konfiantza-atalasea"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Testu-blokea antzematea"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Hitza"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Lerroa"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Paragrafoa"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Testu-bloke hautapena"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
@@ -373,16 +373,18 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"Modu askean bloke bat baino gehiago hautatzeko, mugitu bitartean Maius. "
+"tekla sakatu."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Askea"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Laukizuzena"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -522,7 +524,7 @@ msgstr "Aurreikuspegi-barra"
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Konfiguratu irudietan testua antzemateko ezarpenak."
 
 #: src/widgets/SettingsDialog.qml:200
 #, kde-format
@@ -722,50 +724,47 @@ msgstr "Ireki zure bildumako irudi bat"
 #: src/widgets/views/Viewer/Viewer.qml:85
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "Testua kopiatu da!"
 
 #: src/widgets/views/Viewer/Viewer.qml:89
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "Irudien tituluak"
+msgstr "Irudi-fitxategia kopiatu da!"
 
 #: src/widgets/views/Viewer/Viewer.qml:105
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Deitu"
 
 #: src/widgets/views/Viewer/Viewer.qml:117
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Gorde honela"
+msgstr "Gorde kontaktu gisa"
 
 #: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Mezua"
 
 #: src/widgets/views/Viewer/Viewer.qml:137
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "Ireki kokalekua"
+msgstr "Ireki esteka"
 
 #: src/widgets/views/Viewer/Viewer.qml:147
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "Sortu ekitaldia"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "Gorde ohar batean"
 
 #: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "Bilatu hautatutako testua Googlen..."
 
 #~ msgid "Experimental feature."
 #~ msgstr "Ezaugarri esperimentala."
