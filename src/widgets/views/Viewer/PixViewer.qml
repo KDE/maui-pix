@@ -19,13 +19,14 @@ import org.maui.pix as Pix
 import "../../../view_models"
 
 
-Maui.Page
+StackView
 {
     id: control
 
     readonly property alias viewer : viewer
     readonly property alias holder : holder
     readonly property alias roll : galleryRoll
+    readonly property alias page : _page
 
     readonly property alias model : viewer.model
 
@@ -34,37 +35,30 @@ Maui.Page
     property int currentPicIndex : 0
     property bool doodle : false
 
-    PixMenu
+    initialItem : Maui.Page
     {
-        id: _picMenu
-
-        index: control.currentPicIndex
-        model: viewer.model
-    }
-
-    padding: 0
-    title: currentPic.title
-    showTitle: root.isWide
-    altHeader: Maui.Handy.isMobile
-    floatingHeader: true
-    autoHideHeader: viewer.imageZooming
-    Maui.Controls.showCSD: control.Maui.Controls.showCSD
-    headBar.visible: true
-
-    onGoBackTriggered: _stackView.pop()
-
-    headBar.farLeftContent: [
-        ToolButton
+        id: _page
+        PixMenu
         {
-            icon.name: "go-previous"
-            text: i18n("Gallery")
-            display: ToolButton.TextBesideIcon
-            onClicked: toggleViewer()
-        },
+            id: _picMenu
 
-        Loader
+            index: control.currentPicIndex
+            model: viewer.model
+        }
+
+        padding: 0
+        title: currentPic.title
+        showTitle: root.isWide
+        altHeader: Maui.Handy.isMobile
+        floatingHeader: true
+        autoHideHeader: viewer.imageZooming
+        headBar.visible: true
+        Maui.Controls.showCSD: control.Maui.Controls.showCSD
+        onGoBackTriggered: control.pop()
+
+        headBar.leftContent: Loader
         {
-            active: !holder.visible && (!Maui.Handy.isMobile) && control.viewer.count > 1 //only show footbar control for desktop mode
+            active: (!Maui.Handy.isMobile) && control.viewer.count > 1 //only show footbar control for desktop mode
             asynchronous: true
             sourceComponent:  Maui.ToolActions
             {
@@ -88,186 +82,168 @@ Maui.Page
                 }
             }
         }
-    ]
 
-    headBar.rightContent: [     
-
-        ToolButton
+        Maui.Holder
         {
-            icon.name: "view-fullscreen"
-            onClicked: toogleFullscreen()
-            checked: fullScreen
-        },
-
-        Loader
-        {
-            asynchronous: true
-            sourceComponent: _mainMenuComponent
+            id: holder
+            visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
+            anchors.fill: parent
+            emoji: "qrc:/assets/add-image.svg"
+            isMask: true
+            title : i18n("No Pics!")
+            body: i18n("Open an image from your collection")
         }
-    ]
 
-    Maui.Holder
-    {
-        id: holder
-        visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
-        anchors.fill: parent
-        emoji: "qrc:/assets/add-image.svg"
-        isMask: true
-        title : i18n("No Pics!")
-        body: i18n("Open an image from your collection")
-    }
-
-    ColumnLayout
-    {
-        height: parent.height
-        width: parent.width
-        spacing: 0
-
-        Viewer
+        ColumnLayout
         {
-            id: viewer
-            visible: !holder.visible
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            height: parent.height
+            width: parent.width
+            spacing: 0
 
+            Viewer
+            {
+                id: viewer
+                visible: !holder.visible
+                Layout.fillHeight: true
+                Layout.fillWidth: true
 
+                Loader
+                {
+                    id: _actionsBarLoader
+                    // active: settings.showActionsBar
+                    visible: status == Loader.Ready
+                    asynchronous: true
+
+                    anchors.bottom: galleryRollBg.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: Maui.Style.space.big
+
+                    sourceComponent: Pane
+                    {
+                        id: _pane
+                        Maui.Theme.colorSet: Maui.Theme.Complementary
+                        Maui.Theme.inherit: false
+
+                        background: Rectangle
+                        {
+                            radius: Maui.Style.radiusV
+                            color: Maui.Theme.alternateBackgroundColor
+
+                            layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
+                            layer.effect: MultiEffect
+                            {
+                                autoPaddingEnabled: true
+                                shadowEnabled: true
+                                shadowColor: "#000000"
+                            }
+                        }
+
+                        ScaleAnimator on scale
+                        {
+                            from: 0
+                            to: 1
+                            duration: Maui.Style.units.longDuration
+                            running: visible
+                            easing.type: Easing.OutInQuad
+                        }
+
+                        OpacityAnimator on opacity
+                        {
+                            from: 0
+                            to: 1
+                            duration: Maui.Style.units.longDuration
+                            running: visible
+                        }
+
+                        contentItem:  Row
+                        {
+                            spacing: Maui.Style.defaultSpacing
+
+                            FB.FavButton
+                            {
+                                url: currentPic.url
+                                flat: false
+                            }
+
+                            ToolButton
+                            {
+                                icon.name: "document-share"
+                                flat: false
+                                onClicked:
+                                {
+                                    Maui.Platform.shareFiles([control.currentPic.url])
+                                }
+                            }
+
+                            ToolButton
+                            {
+                                icon.name: "draw-freehand"
+                                flat: false
+                                onClicked:
+                                {
+                                    openEditor(control.currentPic.url, control)
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Item
+                {
+                    id: galleryRollBg
+                    width: parent.width
+                    clip: true
+
+                    y: !viewer.imageZooming ? parent.height - height : parent.height
+                    Behavior on y
+                    {
+                        NumberAnimation
+                        {
+                            duration: Maui.Style.units.longDuration
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+
+                    height: visible ? Math.min(60, Math.max(parent.height * 0.12, 60)) : 0
+                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
+
+                    Behavior on opacity
+                    {
+                        NumberAnimation
+                        {
+                            duration: Maui.Style.units.longDuration
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+
+                    GalleryRoll
+                    {
+                        id: galleryRoll
+                        height: parent.height -Maui.Style.space.small
+                        width: parent.width
+                        anchors.centerIn: parent
+                        model: control.model
+                        onPicClicked: (index) => view(index)
+                    }
+                }
+            }
 
             Loader
             {
-                id: _actionsBarLoader
-                // active: settings.showActionsBar
-                visible: status == Loader.Ready
                 asynchronous: true
+                active: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
+                Layout.fillWidth: true
 
-                anchors.bottom: galleryRollBg.top
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.margins: Maui.Style.space.big
-
-                sourceComponent: Pane
+                sourceComponent: FB.TagsBar
                 {
-                    id: _pane
-                    Maui.Theme.colorSet: Maui.Theme.Complementary
-                    Maui.Theme.inherit: false
+                    allowEditMode: true
+                    list.urls: [currentPic.url]
+                    list.strict: false
 
-                    background: Rectangle
-                    {
-                        radius: Maui.Style.radiusV
-                        color: Maui.Theme.alternateBackgroundColor
-
-                        layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
-                        layer.effect: MultiEffect
-                        {
-                            autoPaddingEnabled: true
-                            shadowEnabled: true
-                            shadowColor: "#000000"
-                        }
-                    }
-
-                    ScaleAnimator on scale
-                    {
-                        from: 0
-                        to: 1
-                        duration: Maui.Style.units.longDuration
-                        running: visible
-                        easing.type: Easing.OutInQuad
-                    }
-
-                    OpacityAnimator on opacity
-                    {
-                        from: 0
-                        to: 1
-                        duration: Maui.Style.units.longDuration
-                        running: visible
-                    }
-
-                    contentItem:  Row
-                    {
-                        spacing: Maui.Style.defaultSpacing
-
-                        FB.FavButton
-                        {
-                            url: currentPic.url
-                            flat: false
-                        }
-
-                        ToolButton
-                        {
-                            icon.name: "document-share"
-                            flat: false
-                            onClicked:
-                            {
-                                Maui.Platform.shareFiles([control.currentPic.url])
-                            }
-                        }
-
-                        ToolButton
-                        {
-                            icon.name: "draw-freehand"
-                            flat: false
-                            onClicked:
-                            {
-                                openEditor(control.currentPic.url)
-                            }
-                        }
-                    }
+                    onTagRemovedClicked: (index) => list.removeFromUrls(index)
+                    onTagsEdited: (tags) => list.updateToUrls(tags)
+                    onTagClicked: (tag) => openFolder("tags:///"+tag)
                 }
-            }
-
-            Item
-            {
-                id: galleryRollBg
-                width: parent.width
-                clip: true
-
-                y: !viewer.imageZooming ? parent.height - height : parent.height
-                Behavior on y
-                {
-                    NumberAnimation
-                    {
-                        duration: Maui.Style.units.longDuration
-                        easing.type: Easing.InOutQuad
-                    }
-                }
-
-                height: visible ? Math.min(60, Math.max(parent.height * 0.12, 60)) : 0
-                visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
-
-                Behavior on opacity
-                {
-                    NumberAnimation
-                    {
-                        duration: Maui.Style.units.longDuration
-                        easing.type: Easing.InOutQuad
-                    }
-                }
-
-                GalleryRoll
-                {
-                    id: galleryRoll
-                    height: parent.height -Maui.Style.space.small
-                    width: parent.width
-                    anchors.centerIn: parent
-                    model: control.model
-                    onPicClicked: (index) => view(index)
-                }
-            }
-        }
-
-        Loader
-        {
-            asynchronous: true
-            active: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
-            Layout.fillWidth: true
-
-            sourceComponent: FB.TagsBar
-            {
-                allowEditMode: true
-                list.urls: [currentPic.url]
-                list.strict: false
-
-                onTagRemovedClicked: (index) => list.removeFromUrls(index)
-                onTagsEdited: (tags) => list.updateToUrls(tags)
-                onTagClicked: (tag) => openFolder("tags:///"+tag)
             }
         }
     }

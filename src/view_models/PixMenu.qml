@@ -19,10 +19,10 @@ Maui.ContextualMenu
 
     onOpened: isFav = FB.Tagging.isFav(item.url)
 
-//     title: control.item.title
-// //    subtitle: Maui.Handy.formatSize(control.item.size)
-//     titleImageSource: control.item.url
-//     titleIconSource: control.item.icon
+    //     title: control.item.title
+    // //    subtitle: Maui.Handy.formatSize(control.item.size)
+    //     titleImageSource: control.item.url
+    //     titleIconSource: control.item.icon
 
     Maui.Controls.component: Maui.IconItem
     {
@@ -32,34 +32,40 @@ Maui.ContextualMenu
         maskRadius: Maui.Style.radiusV
     }
 
-    FB.FileListingDialog
+    Component
     {
-        id: removeDialog
-        parent: control.parent
-        urls: filterSelection(item.url)
+        id: removeDialogComponent
 
-        title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
-        message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
+        FB.FileListingDialog
+        {
+            id: removeDialog
+            parent: control.parent
+            urls: filterSelection(item.url)
 
-        actions:
-            [
-            Action
-            {
-                text: i18n("Cancel")
-                onTriggered: removeDialog.close()
-            },
+            title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
+            message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
 
-            Action
-            {
-                text: i18n("Remove")
-                Maui.Controls.status: Maui.Controls.Negative
-                onTriggered:
+            onClosed: destroy()
+            actions:
+                [
+                Action
                 {
-                    control.model.list.deleteAt(model.mappedToSource(control.index))
-                    removeDialog.close()
+                    text: i18n("Cancel")
+                    onTriggered: removeDialog.close()
+                },
+
+                Action
+                {
+                    text: i18n("Remove")
+                    Maui.Controls.status: Maui.Controls.Negative
+                    onTriggered:
+                    {
+                        control.model.list.deleteAt(model.mappedToSource(control.index))
+                        removeDialog.close()
+                    }
                 }
-            }
-        ]
+            ]
+        }
     }
 
     Maui.MenuItemActionRow
@@ -110,6 +116,17 @@ Maui.ContextualMenu
         }
     }
 
+    MenuItem
+    {
+        text: i18n("Open in New Window")
+        icon.name: "window-new"
+        onTriggered:
+        {
+            view(filterSelection(item.url))
+        }
+    }
+
+
     MenuSeparator{}
 
     MenuItem
@@ -132,9 +149,9 @@ Maui.ContextualMenu
 
         onTriggered:
         {
-            dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.composerList.urls = filterSelection(item.url)
-            dialog.open()
+            var obj = tagsDialogComponent.createObject(root, {'composerList.urls' : filterSelection(item.url)})
+            obj.open()
+            _selectionBar.clear()
         }
     }
 
@@ -146,7 +163,7 @@ Maui.ContextualMenu
         icon.name: "document-edit"
         onTriggered:
         {
-            openEditor(item.url)
+            openEditor(item.url, _stackView)
         }
     }
 
@@ -177,7 +194,7 @@ Maui.ContextualMenu
         icon.name: "document-open"
         Maui.Controls.badgeText: control.totalCount
         onTriggered:
-        {            
+        {
             if(Maui.Handy.isAndroid)
             {
                 FB.FM.openUrl(item.url)
@@ -201,7 +218,7 @@ Maui.ContextualMenu
             }
 
             var url = FB.FM.fileDir(item.url)
-           openFolder(url)
+            openFolder(url)
         }
     }
 
@@ -226,7 +243,8 @@ Maui.ContextualMenu
         Maui.Controls.status: Maui.Controls.Negative
         onTriggered:
         {
-            removeDialog.open()
+           var obj = removeDialogComponent.createObject()
+            obj.open()
         }
     }
 }

@@ -30,6 +30,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QQmlContext>
 #include <QDirIterator>
 #include <QPair>
+#include <QImageReader>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -56,6 +57,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "models/gallery/gallery.h"
 #include "models/tags/tagsmodel.h"
 #include "models/cities/citiesmodel.h"
+#include "pixserver.h"
 
 #include "pix.h"
 
@@ -102,6 +104,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #else
     QApplication app(argc, argv);
 #endif
+
+    QImageReader::setAllocationLimit(2000);
 
     app.setOrganizationName(QStringLiteral("Maui"));
     app.setWindowIcon(QIcon(":/assets/pix.png"));
@@ -165,15 +169,29 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         qWarning() << "Failed to get WRITE and READ permissions";
 #endif
 
+#if (defined Q_OS_LINUX || defined Q_OS_FREEBSD) && !defined Q_OS_ANDROID
+    if (AppInstance::attachToExistingInstance(arguments))
+    {
+        // Successfully attached to existing instance of Nota
+        return 0;
+    }
+
+    AppInstance::registerService();
+#endif
+
+    auto server = std::make_unique<Server>();
+
     QQmlApplicationEngine engine;
     QUrl url(QStringLiteral("qrc:/app/maui/pix/main.qml"));
     QObject::connect(
                 &engine,
                 &QQmlApplicationEngine::objectCreated,
                 &app,
-                [url, arguments](QObject *obj, const QUrl &objUrl) {
+                [url, arguments, &server](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
+
+        server->setQmlObject(obj);
 
         auto module = arguments.first;
         auto data = arguments.second;

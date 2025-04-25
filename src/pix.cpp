@@ -9,7 +9,7 @@ This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
 This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 
- This program is free software: you can redistribute it and/or modify
+This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
@@ -27,6 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDesktopServices>
 #include <QDebug>
 #include <QCoreApplication>
+#include <QGuiApplication>
 #include <QSettings>
 #include <QProcess>
 #include <MauiKit4/Core/fmh.h>
@@ -39,7 +40,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Q_GLOBAL_STATIC(Pix, pixInstance)
 
 Pix::Pix(QObject *parent) : QObject(parent)
-  , m_allImagesModel(nullptr)
+    , m_allImagesModel(nullptr)
 {
 }
 
@@ -80,9 +81,9 @@ Gallery *Pix::allImagesModel()
         m_allImagesModel->setRecursive(true);
         m_allImagesModel->componentComplete(); //call this to actually get the data
         connect(this, &Pix::sourcesChanged, [this]()
-        {
-            m_allImagesModel->setUrls(QUrl::fromStringList(sources()));
-        });
+                {
+                    m_allImagesModel->setUrls(QUrl::fromStringList(sources()));
+                });
     }
 
     qDebug() << "REQUEST ALL IMAGES MODEL & EXISTING ONE";
@@ -92,7 +93,7 @@ Gallery *Pix::allImagesModel()
 
 Pix *Pix::instance()
 {
-   return pixInstance();
+    return pixInstance();
 }
 
 const QStringList Pix::getSourcePaths()

@@ -62,6 +62,38 @@ Maui.ApplicationWindow
 
     readonly property bool editing : control.currentItem.objectName === "imageEditor"
 
+    Maui.InfoDialog
+    {
+        id: _confirmCloseDialog
+        property bool prevent : true
+        template.iconSource: "dialog-warning"
+        message: i18n("There are multiple windows still open. Are you sure you want to close the application?")
+        standardButtons: Dialog.Yes | Dialog.Cancel
+        onAccepted:
+        {
+            prevent = false
+            root.close()
+        }
+
+        onRejected:
+        {
+            prevent = true
+            close()
+        }
+    }
+
+    onClosing: (close) =>
+               {
+                   console.log("Inwdows opened" , Maui.App.windowsOpened())
+                   if(Maui.App.windowsOpened() > 1 && _confirmCloseDialog.prevent)
+                   {
+                       _confirmCloseDialog.open()
+                       close.accepted = false
+                       return
+                   }
+
+                   close.accepted = true
+               }
 
     Settings
     {
@@ -117,7 +149,6 @@ Maui.ApplicationWindow
                     expanded: true
                     autoExclusive: true
                     display: ToolButton.TextOnly
-                    font.bold: true
 
                     Action
                     {
@@ -151,8 +182,6 @@ Maui.ApplicationWindow
                     }
                 }
             }
-
-
 
             MenuItem
             {
@@ -199,9 +228,49 @@ Maui.ApplicationWindow
             id: _pixViewer
             visible: StackView.status === StackView.Active
             Maui.Controls.showCSD: true
+            page.headBar.farLeftContent: ToolButton
+            {
+                icon.name: "go-previous"
+                text: i18n("Gallery")
+                display: ToolButton.TextBesideIcon
+                onClicked: toggleViewer()
+            }
+
+            page.headBar.rightContent: [
+
+                ToolButton
+                {
+                    icon.name: "view-fullscreen"
+                    onClicked: toogleFullscreen()
+                    checked: fullScreen
+                },
+
+                Loader
+                {
+                    asynchronous: true
+                    sourceComponent: _mainMenuComponent
+                }
+            ]
         }
     }
 
+    Component
+    {
+        id: _windowViewerComponent
+
+        Maui.ApplicationWindow
+        {
+            transientParent: null
+            readonly property alias viewer: _viewer
+            onClosing: destroy()
+            PixViewer
+            {
+                id: _viewer
+                Maui.Controls.showCSD: true
+                anchors.fill: parent
+            }
+        }
+    }
 
     Component
     {
@@ -209,9 +278,10 @@ Maui.ApplicationWindow
 
         ITEditor.ImageEditor
         {
+            id: _editor
             onSaved:
             {
-                _stackView.pop()
+                _editor.StackView.view.pop()
                 // viewer.reloadCurrentItem()
             }
 
@@ -220,7 +290,7 @@ Maui.ApplicationWindow
                 console.log("Image edited? ", editor.edited)
                 if(!editor.edited)
                 {
-                    _stackView.pop()
+                    _editor.StackView.view.pop()
                     return
                 }
             }
@@ -298,6 +368,8 @@ Maui.ApplicationWindow
 
         FB.TagsDialog
         {
+            // onClosed: destroy()
+
             Maui.Notification
             {
                 id: _taggedNotification
@@ -481,8 +553,24 @@ Maui.ApplicationWindow
         _collectionViewComponent.item.openFolder(url, filters)
     }
 
-    function openEditor(url)
+    function openEditor(url, stack)
     {
-        _stackView.push(_editorComponent, ({url: url}))
+        stack.push(_editorComponent, ({url: url}))
+    }
+
+    function view(urls : var)
+    {
+        if(Maui.Handy.isLinux && !Maui.Handy.isMobile)
+        {
+            var win = _windowViewerComponent.createObject(root)
+            var viewer = win.viewer
+            var oldIndex = viewer.viewer.count
+            viewer.viewer.appendPics(urls)
+            viewer.view(Math.max(oldIndex, 0))
+            win.requestActivate()
+        }else
+        {
+            VIEWER.openExternalPics(urls)
+        }
     }
 }

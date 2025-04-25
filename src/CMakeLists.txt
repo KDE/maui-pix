@@ -16,6 +16,12 @@ set(pix_SRCS
     # models/thumbnailer.cpp
     pixserver.cpp )
 
+if(UNIX AND NOT ANDROID)
+    qt_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/pixserver.h org.kde.Pix.xml)
+    qt_add_dbus_adaptor(pix_dbus_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.Pix.xml pixserver.h Server)
+    qt_add_dbus_interface(pix_dbus_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.Pix.xml pixinterface)
+endif()
+
 qt_add_resources(pix_ASSETS imgs.qrc)
 
 if(ANDROID)
@@ -30,6 +36,7 @@ if(ANDROID)
 else()
     qt_add_executable(${PROJECT_NAME}
         ${pix_SRCS}
+        ${pix_dbus_SRCS}
         ${pix_ASSETS})
 endif()
 
@@ -61,7 +68,6 @@ qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     widgets/views/CollectionView.qml
     widgets/views/FloatingViewer.qml)
 
-
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
@@ -88,6 +94,7 @@ if(ANDROID)
 else()
     target_link_libraries(${PROJECT_NAME}
         PRIVATE
+        Qt6::Quick
         Qt6::Widgets
         KF6::KIOCore
         KF6::KIOWidgets)
