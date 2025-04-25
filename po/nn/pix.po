@@ -257,7 +257,7 @@ msgstr ""
 #: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 #: src/view_models/PixMenu.qml:155
 #, kde-format
