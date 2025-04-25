@@ -56,7 +56,7 @@ QVector<QPair<QSharedPointer<OrgKdePixActionsInterface>, QStringList>> AppInstan
     return dolphinInterfaces;
 }
 
-bool AppInstance::attachToExistingInstance(const QPair<QString, QList<QUrl>> &data)
+bool AppInstance::attachToExistingInstance(const QPair<QString, QList<QUrl>> &data, bool windowed)
 {
     bool attached = false;
 
@@ -66,11 +66,33 @@ bool AppInstance::attachToExistingInstance(const QPair<QString, QList<QUrl>> &da
         return attached;
     }
 
-    for (const auto& interface: qAsConst(dolphinInterfaces))
+    for (const auto& interface: std::as_const(dolphinInterfaces))
     {
         if(data.first == "viewer" && !data.second.isEmpty())
         {
-            auto reply = interface.first->view(QUrl::toStringList(data.second));
+            auto reply = interface.first->view(QUrl::toStringList(data.second), windowed);
+            reply.waitForFinished();
+
+            if (!reply.isError())
+            {
+                interface.first->activateWindow();
+                attached = true;
+                break;
+            }
+        }else if(data.first =="folder" && !data.second.isEmpty())
+        {
+            auto reply = interface.first->openFolder(data.second.first().toString());
+            reply.waitForFinished();
+
+            if (!reply.isError())
+            {
+                interface.first->activateWindow();
+                attached = true;
+                break;
+            }
+        }else if(data.first =="editor" && !data.second.isEmpty())
+        {
+            auto reply = interface.first->openEditor(data.second.first().toString(), windowed);
             reply.waitForFinished();
 
             if (!reply.isError())
@@ -159,11 +181,29 @@ void Server::quit()
     QCoreApplication::quit();
 }
 
-void Server::view(const QStringList &urls)
+void Server::view(const QStringList &urls, bool windowed)
 {
     if(m_qmlObject)
     {
         QMetaObject::invokeMethod(m_qmlObject, "view",
-                                  Q_ARG(QVariant, urls));
+                                  Q_ARG(QVariant, urls), Q_ARG(bool, windowed));
+    }
+}
+
+void Server::openFolder(const QString &url)
+{
+    if(m_qmlObject)
+    {
+        QMetaObject::invokeMethod(m_qmlObject, "openFolder",
+                                  Q_ARG(QString, url), Q_ARG(QVariant, ""));
+    }
+}
+
+void Server::openEditor(const QString &url, bool windowed)
+{
+    if(m_qmlObject)
+    {
+        QMetaObject::invokeMethod(m_qmlObject, "openEditorWindow",
+                                  Q_ARG(QString, url), Q_ARG(bool, windowed));
     }
 }

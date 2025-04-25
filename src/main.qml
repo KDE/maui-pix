@@ -543,7 +543,7 @@ Maui.ApplicationWindow
         dialog.open()
     }
 
-    function openFolder(url, filters)
+    function openFolder(url : string, filters : var)
     {
         if(!_collectionViewComponent.visible)
         {
@@ -558,9 +558,9 @@ Maui.ApplicationWindow
         stack.push(_editorComponent, ({url: url}))
     }
 
-    function view(urls : var)
+    function openEditorWindow(url : string, windowed : bool)
     {
-        if(Maui.Handy.isLinux && !Maui.Handy.isMobile)
+        if(windowed)
         {
             var win = _windowViewerComponent.createObject(root)
             var viewer = win.viewer
@@ -568,6 +568,27 @@ Maui.ApplicationWindow
             viewer.viewer.appendPics(urls)
             viewer.view(Math.max(oldIndex, 0))
             win.requestActivate()
+            openEditor(url, viewer)
+
+        }else
+        {
+            openEditor(url, _stackView)
+        }
+    }
+
+    function view(urls : var, windowed : bool)
+    {
+        if(windowed)
+        {
+            if(Maui.Handy.isLinux && !Maui.Handy.isMobile)
+            {
+                var win = _windowViewerComponent.createObject(root)
+                var viewer = win.viewer
+                var oldIndex = viewer.viewer.count
+                viewer.viewer.appendPics(urls)
+                viewer.view(Math.max(oldIndex, 0))
+                win.requestActivate()
+            }
         }else
         {
             VIEWER.openExternalPics(urls)

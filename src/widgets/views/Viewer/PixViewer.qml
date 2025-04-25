@@ -18,7 +18,6 @@ import org.maui.pix as Pix
 
 import "../../../view_models"
 
-
 StackView
 {
     id: control
@@ -38,6 +37,7 @@ StackView
     initialItem : Maui.Page
     {
         id: _page
+
         PixMenu
         {
             id: _picMenu

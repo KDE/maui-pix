@@ -8,7 +8,7 @@ namespace AppInstance
 {
 QVector<QPair<QSharedPointer<OrgKdePixActionsInterface>, QStringList>> appInstances(const QString& preferredService);
 
-bool attachToExistingInstance(const QPair<QString, QList<QUrl> > &data);
+bool attachToExistingInstance(const QPair<QString, QList<QUrl> > &data, bool windowed);
 
 bool registerService();
 }
@@ -32,8 +32,9 @@ public Q_SLOTS:
     /** Stores all settings and quits Dolphin. */
     void quit();
 
-    void view(const QStringList &urls);
-
+    void view(const QStringList &urls, bool windowed);
+    void openFolder(const QString &url);
+    void openEditor(const QString &url, bool windowed);
 
 private:
     QObject* m_qmlObject = nullptr;
