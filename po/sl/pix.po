@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-20 00:40+0000\n"
+"POT-Creation-Date: 2025-04-26 00:41+0000\n"
 "PO-Revision-Date: 2025-04-14 06:50+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -18,82 +18,94 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.6\n"
 
-#: src/main.cpp:114
+#: src/main.cpp:118
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organizirajte, brskajte in urejajte svoje slike."
 
-#: src/main.cpp:118
+#: src/main.cpp:122
 #, kde-format
 msgid "Developer"
 msgstr "Razvijalec"
 
-#: src/main.qml:102 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/main.qml:70
+#, kde-format
+msgid ""
+"There are multiple windows still open. Are you sure you want to close the "
+"application?"
+msgstr ""
+
+#: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
 
-#: src/main.qml:111
+#: src/main.qml:143
 #, kde-format
 msgid "Preview Size"
 msgstr "Velikost predogleda"
 
-#: src/main.qml:112
+#: src/main.qml:144
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Velikost predoglednih sličic v pogledih zbirke."
 
-#: src/main.qml:124
+#: src/main.qml:155
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/main.qml:131
+#: src/main.qml:162
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/main.qml:139
+#: src/main.qml:170
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/main.qml:147
+#: src/main.qml:178
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/main.qml:159
+#: src/main.qml:188
 #, kde-format
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: src/main.qml:166
+#: src/main.qml:195
 #, kde-format
 msgid "About"
 msgstr "O programu"
 
-#: src/main.qml:254
+#: src/main.qml:234
+#, kde-format
+msgid "Gallery"
+msgstr "Galerija"
+
+#: src/main.qml:324
 #, kde-format
 msgid "Open images"
 msgstr "Odpri slike"
 
-#: src/main.qml:255
+#: src/main.qml:325
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Povlecite in spustite slike tu."
 
-#: src/main.qml:305
+#: src/main.qml:377
 #, kde-format
 msgid "Tagged"
 msgstr "Označeno"
 
-#: src/main.qml:306
+#: src/main.qml:378
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Datoteka je bila uspešno označena"
 
-#: src/main.qml:358 src/view_models/PixMenu.qml:41
+#: src/main.qml:430 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -102,7 +114,7 @@ msgstr[1] "Zbrišem %1 datoteki?"
 msgstr[2] "Zbrišem %1 datoteke?"
 msgstr[3] "Zbrišem %1 datotek?"
 
-#: src/main.qml:359 src/view_models/PixMenu.qml:42
+#: src/main.qml:431 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -120,13 +132,13 @@ msgstr[3] ""
 "Ali ste prepričani, da želite zbrisati to datoteko? Tega dejanja ni mogoče "
 "razveljaviti."
 
-#: src/main.qml:365 src/view_models/PixMenu.qml:48
+#: src/main.qml:437 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/main.qml:371 src/view_models/PixMenu.qml:54
-#: src/view_models/PixMenu.qml:223 src/widgets/SelectionBar.qml:113
+#: src/main.qml:443 src/view_models/PixMenu.qml:59
+#: src/view_models/PixMenu.qml:240 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Odstrani"
@@ -235,57 +247,62 @@ msgstr[3] "Išči %1 slik"
 msgid "Image Text (OCR)"
 msgstr "Besedilo slike (OCR)"
 
-#: src/view_models/PixMenu.qml:69
+#: src/view_models/PixMenu.qml:75
 #, kde-format
 msgid "UnFav it"
 msgstr "Ne-prilj"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:85
 #, kde-format
 msgid "Info"
 msgstr "Informacije"
 
-#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Deli"
 
-#: src/view_models/PixMenu.qml:102
+#: src/view_models/PixMenu.qml:108
 #, kde-format
 msgid "Select"
 msgstr "Izberi"
 
-#: src/view_models/PixMenu.qml:119
+#: src/view_models/PixMenu.qml:121
+#, kde-format
+msgid "Open in New Window"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:136
 #, kde-format
 msgid "Add to '%1'"
 msgstr "Dodaj k '%1'"
 
-#: src/view_models/PixMenu.qml:129
+#: src/view_models/PixMenu.qml:146
 #, kde-format
 msgid "Add to Album"
 msgstr "Dodaj v album"
 
-#: src/view_models/PixMenu.qml:145
+#: src/view_models/PixMenu.qml:162
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
 
-#: src/view_models/PixMenu.qml:155
+#: src/view_models/PixMenu.qml:172
 #, kde-format
 msgid "Save as"
 msgstr "Shrani kot"
 
-#: src/view_models/PixMenu.qml:176
+#: src/view_models/PixMenu.qml:193
 #, kde-format
 msgid "Open with"
 msgstr "Odpri z"
 
-#: src/view_models/PixMenu.qml:194
+#: src/view_models/PixMenu.qml:211
 #, kde-format
 msgid "Go to Folder"
 msgstr "Pojdi v mapo"
 
-#: src/view_models/PixMenu.qml:211
+#: src/view_models/PixMenu.qml:228
 #, kde-format
 msgid "Open Location"
 msgstr "Odpri lokacijo"
@@ -629,7 +646,7 @@ msgstr[3] "%1 slik"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:116
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "No Pics!"
 msgstr "Ni slik!"
@@ -720,17 +737,12 @@ msgstr "Ni slik v %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Ni nobene slike, ki bi bila povezana to oznako"
 
-#: src/widgets/views/Viewer/PixViewer.qml:60
-#, kde-format
-msgid "Gallery"
-msgstr "Galerija"
-
-#: src/widgets/views/Viewer/PixViewer.qml:79
+#: src/widgets/views/Viewer/PixViewer.qml:73
 #, kde-format
 msgid "Previous"
 msgstr "Prejšnja"
 
-#: src/widgets/views/Viewer/PixViewer.qml:117
+#: src/widgets/views/Viewer/PixViewer.qml:94
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Odprite sliko iz svoje zbirke"

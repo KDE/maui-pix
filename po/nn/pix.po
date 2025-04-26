@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-20 00:40+0000\n"
+"POT-Creation-Date: 2025-04-26 00:41+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -19,89 +19,101 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/main.cpp:114
+#: src/main.cpp:118
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr ""
 
-#: src/main.cpp:118
+#: src/main.cpp:122
 #, kde-format
 msgid "Developer"
 msgstr "Utviklar"
 
-#: src/main.qml:102 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/main.qml:70
+#, kde-format
+msgid ""
+"There are multiple windows still open. Are you sure you want to close the "
+"application?"
+msgstr ""
+
+#: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Opna"
 
-#: src/main.qml:111
+#: src/main.qml:143
 #, kde-format
 msgid "Preview Size"
 msgstr "Storleik på førehandsvising"
 
-#: src/main.qml:112
+#: src/main.qml:144
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Storleiken på miniatyr­bilete i samlingsvisingar."
 
-#: src/main.qml:124
+#: src/main.qml:155
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/main.qml:131
+#: src/main.qml:162
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/main.qml:139
+#: src/main.qml:170
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/main.qml:147
+#: src/main.qml:178
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/main.qml:159
+#: src/main.qml:188
 #, kde-format
 msgid "Settings"
 msgstr "Innstillingar"
 
-#: src/main.qml:166
+#: src/main.qml:195
 #, kde-format
 msgid "About"
 msgstr ""
 
-#: src/main.qml:254
+#: src/main.qml:234
+#, kde-format
+msgid "Gallery"
+msgstr "Galleri"
+
+#: src/main.qml:324
 #, kde-format
 msgid "Open images"
 msgstr "Opna bilete"
 
-#: src/main.qml:255
+#: src/main.qml:325
 #, kde-format
 msgid "Drag and drop images here."
 msgstr ""
 
-#: src/main.qml:305
+#: src/main.qml:377
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:306
+#: src/main.qml:378
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:358 src/view_models/PixMenu.qml:41
+#: src/main.qml:430 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Sletta %1 fil?"
 msgstr[1] "Sletta %1 filer?"
 
-#: src/main.qml:359 src/view_models/PixMenu.qml:42
+#: src/main.qml:431 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -111,13 +123,13 @@ msgstr[0] ""
 msgstr[1] ""
 "Er du sikker på at du vil sletta desse filene? Du kan ikkje angra slettinga."
 
-#: src/main.qml:365 src/view_models/PixMenu.qml:48
+#: src/main.qml:437 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/main.qml:371 src/view_models/PixMenu.qml:54
-#: src/view_models/PixMenu.qml:223 src/widgets/SelectionBar.qml:113
+#: src/main.qml:443 src/view_models/PixMenu.qml:59
+#: src/view_models/PixMenu.qml:240 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Fjern"
@@ -224,57 +236,62 @@ msgstr[1] ""
 msgid "Image Text (OCR)"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:69
+#: src/view_models/PixMenu.qml:75
 #, kde-format
 msgid "UnFav it"
 msgstr "Fjern som favoritt"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:85
 #, kde-format
 msgid "Info"
 msgstr "Info"
 
-#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Del"
 
-#: src/view_models/PixMenu.qml:102
+#: src/view_models/PixMenu.qml:108
 #, kde-format
 msgid "Select"
 msgstr "Vel"
 
-#: src/view_models/PixMenu.qml:119
+#: src/view_models/PixMenu.qml:121
+#, kde-format
+msgid "Open in New Window"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:136
 #, kde-format
 msgid "Add to '%1'"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:129
+#: src/view_models/PixMenu.qml:146
 #, kde-format
 msgid "Add to Album"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:145
+#: src/view_models/PixMenu.qml:162
 #, kde-format
 msgid "Edit"
 msgstr "Rediger"
 
-#: src/view_models/PixMenu.qml:155
+#: src/view_models/PixMenu.qml:172
 #, kde-format
 msgid "Save as"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:176
+#: src/view_models/PixMenu.qml:193
 #, kde-format
 msgid "Open with"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:194
+#: src/view_models/PixMenu.qml:211
 #, kde-format
 msgid "Go to Folder"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:211
+#: src/view_models/PixMenu.qml:228
 #, kde-format
 msgid "Open Location"
 msgstr ""
@@ -613,7 +630,7 @@ msgstr[1] ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:116
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "No Pics!"
 msgstr "Ingen bilete"
@@ -702,17 +719,12 @@ msgstr ""
 msgid "There're no pics associated with the tag"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:60
-#, kde-format
-msgid "Gallery"
-msgstr "Galleri"
-
-#: src/widgets/views/Viewer/PixViewer.qml:79
+#: src/widgets/views/Viewer/PixViewer.qml:73
 #, kde-format
 msgid "Previous"
 msgstr "Førre"
 
-#: src/widgets/views/Viewer/PixViewer.qml:117
+#: src/widgets/views/Viewer/PixViewer.qml:94
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Opna eit bilete i samlinga"

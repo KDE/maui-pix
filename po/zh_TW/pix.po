@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-20 00:40+0000\n"
+"POT-Creation-Date: 2025-04-26 00:41+0000\n"
 "PO-Revision-Date: 2025-04-19 14:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -20,101 +20,113 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 24.12.3\n"
 
-#: src/main.cpp:114
+#: src/main.cpp:118
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "管理、瀏覽並編輯您的影像。"
 
-#: src/main.cpp:118
+#: src/main.cpp:122
 #, kde-format
 msgid "Developer"
 msgstr "開發者"
 
-#: src/main.qml:102 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/main.qml:70
+#, kde-format
+msgid ""
+"There are multiple windows still open. Are you sure you want to close the "
+"application?"
+msgstr ""
+
+#: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: src/main.qml:111
+#: src/main.qml:143
 #, kde-format
 msgid "Preview Size"
 msgstr "預覽大小"
 
-#: src/main.qml:112
+#: src/main.qml:144
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "收藏檢視中的縮圖大小。"
 
-#: src/main.qml:124
+#: src/main.qml:155
 #, kde-format
 msgid "S"
 msgstr "小"
 
-#: src/main.qml:131
+#: src/main.qml:162
 #, kde-format
 msgid "M"
 msgstr "中"
 
-#: src/main.qml:139
+#: src/main.qml:170
 #, kde-format
 msgid "X"
 msgstr "巨大"
 
-#: src/main.qml:147
+#: src/main.qml:178
 #, kde-format
 msgid "XL"
 msgstr "非常大"
 
-#: src/main.qml:159
+#: src/main.qml:188
 #, kde-format
 msgid "Settings"
 msgstr "設定"
 
-#: src/main.qml:166
+#: src/main.qml:195
 #, kde-format
 msgid "About"
 msgstr "關於"
 
-#: src/main.qml:254
+#: src/main.qml:234
+#, kde-format
+msgid "Gallery"
+msgstr "相簿"
+
+#: src/main.qml:324
 #, kde-format
 msgid "Open images"
 msgstr "開啟影像"
 
-#: src/main.qml:255
+#: src/main.qml:325
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "拖放影像到這裡。"
 
-#: src/main.qml:305
+#: src/main.qml:377
 #, kde-format
 msgid "Tagged"
 msgstr "已加上標籤"
 
-#: src/main.qml:306
+#: src/main.qml:378
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "檔案已成功加上標籤"
 
-#: src/main.qml:358 src/view_models/PixMenu.qml:41
+#: src/main.qml:430 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "刪除 %1 個檔案？"
 
-#: src/main.qml:359 src/view_models/PixMenu.qml:42
+#: src/main.qml:431 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
 msgstr[0] "您確定要移除這些檔案嗎？這個動作無法復原。"
 
-#: src/main.qml:365 src/view_models/PixMenu.qml:48
+#: src/main.qml:437 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: src/main.qml:371 src/view_models/PixMenu.qml:54
-#: src/view_models/PixMenu.qml:223 src/widgets/SelectionBar.qml:113
+#: src/main.qml:443 src/view_models/PixMenu.qml:59
+#: src/view_models/PixMenu.qml:240 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "移除"
@@ -220,57 +232,62 @@ msgstr[0] "搜尋 %1 張影像"
 msgid "Image Text (OCR)"
 msgstr "影像文字 (OCR)"
 
-#: src/view_models/PixMenu.qml:69
+#: src/view_models/PixMenu.qml:75
 #, kde-format
 msgid "UnFav it"
 msgstr "從最愛中移除它"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:85
 #, kde-format
 msgid "Info"
 msgstr "資訊"
 
-#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "分享"
 
-#: src/view_models/PixMenu.qml:102
+#: src/view_models/PixMenu.qml:108
 #, kde-format
 msgid "Select"
 msgstr "選取"
 
-#: src/view_models/PixMenu.qml:119
+#: src/view_models/PixMenu.qml:121
+#, kde-format
+msgid "Open in New Window"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:136
 #, kde-format
 msgid "Add to '%1'"
 msgstr "加入「%1」"
 
-#: src/view_models/PixMenu.qml:129
+#: src/view_models/PixMenu.qml:146
 #, kde-format
 msgid "Add to Album"
 msgstr "加入專輯"
 
-#: src/view_models/PixMenu.qml:145
+#: src/view_models/PixMenu.qml:162
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: src/view_models/PixMenu.qml:155
+#: src/view_models/PixMenu.qml:172
 #, kde-format
 msgid "Save as"
 msgstr "另存為"
 
-#: src/view_models/PixMenu.qml:176
+#: src/view_models/PixMenu.qml:193
 #, kde-format
 msgid "Open with"
 msgstr "開啟方式"
 
-#: src/view_models/PixMenu.qml:194
+#: src/view_models/PixMenu.qml:211
 #, kde-format
 msgid "Go to Folder"
 msgstr "跳至資料夾"
 
-#: src/view_models/PixMenu.qml:211
+#: src/view_models/PixMenu.qml:228
 #, kde-format
 msgid "Open Location"
 msgstr "開啟位置"
@@ -606,7 +623,7 @@ msgstr[0] "%1 張影像"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:116
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "No Pics!"
 msgstr "沒有圖片！"
@@ -694,17 +711,12 @@ msgstr "%1 裡沒有圖片！"
 msgid "There're no pics associated with the tag"
 msgstr "沒有含有該標籤的圖片"
 
-#: src/widgets/views/Viewer/PixViewer.qml:60
-#, kde-format
-msgid "Gallery"
-msgstr "相簿"
-
-#: src/widgets/views/Viewer/PixViewer.qml:79
+#: src/widgets/views/Viewer/PixViewer.qml:73
 #, kde-format
 msgid "Previous"
 msgstr "上一個"
 
-#: src/widgets/views/Viewer/PixViewer.qml:117
+#: src/widgets/views/Viewer/PixViewer.qml:94
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "從您的收藏裡開啟影像"

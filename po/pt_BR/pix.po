@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-20 00:40+0000\n"
+"POT-Creation-Date: 2025-04-26 00:41+0000\n"
 "PO-Revision-Date: 2023-12-01 16:59-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -18,89 +18,101 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/main.cpp:114
+#: src/main.cpp:118
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Organize, navegue e edite suas imagens."
 
-#: src/main.cpp:118
+#: src/main.cpp:122
 #, kde-format
 msgid "Developer"
 msgstr "Desenvolvedor"
 
-#: src/main.qml:102 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/main.qml:70
+#, kde-format
+msgid ""
+"There are multiple windows still open. Are you sure you want to close the "
+"application?"
+msgstr ""
+
+#: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/main.qml:111
+#: src/main.qml:143
 #, kde-format
 msgid "Preview Size"
 msgstr "Tamanho das pré-visualizações"
 
-#: src/main.qml:112
+#: src/main.qml:144
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Tamanho das miniaturas ao visualizar coleções."
 
-#: src/main.qml:124
+#: src/main.qml:155
 #, kde-format
 msgid "S"
 msgstr "P"
 
-#: src/main.qml:131
+#: src/main.qml:162
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/main.qml:139
+#: src/main.qml:170
 #, kde-format
 msgid "X"
 msgstr "GG"
 
-#: src/main.qml:147
+#: src/main.qml:178
 #, kde-format
 msgid "XL"
 msgstr "XG"
 
-#: src/main.qml:159
+#: src/main.qml:188
 #, kde-format
 msgid "Settings"
 msgstr "Configurações"
 
-#: src/main.qml:166
+#: src/main.qml:195
 #, kde-format
 msgid "About"
 msgstr "Sobre"
 
-#: src/main.qml:254
+#: src/main.qml:234
+#, kde-format
+msgid "Gallery"
+msgstr "Galeria"
+
+#: src/main.qml:324
 #, kde-format
 msgid "Open images"
 msgstr "Abrir imagens"
 
-#: src/main.qml:255
+#: src/main.qml:325
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Arraste e solte imagens aqui."
 
-#: src/main.qml:305
+#: src/main.qml:377
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:306
+#: src/main.qml:378
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:358 src/view_models/PixMenu.qml:41
+#: src/main.qml:430 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Deletar %1 arquivo?"
 msgstr[1] "Deletar %1 arquivos?"
 
-#: src/main.qml:359 src/view_models/PixMenu.qml:42
+#: src/main.qml:431 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -110,13 +122,13 @@ msgstr[0] ""
 msgstr[1] ""
 "Você realmente quer excluir estes arquivos? Esta ação não pode ser desfeita."
 
-#: src/main.qml:365 src/view_models/PixMenu.qml:48
+#: src/main.qml:437 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/main.qml:371 src/view_models/PixMenu.qml:54
-#: src/view_models/PixMenu.qml:223 src/widgets/SelectionBar.qml:113
+#: src/main.qml:443 src/view_models/PixMenu.qml:59
+#: src/view_models/PixMenu.qml:240 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Remover"
@@ -223,57 +235,62 @@ msgstr[1] "Pesquisar %1 imagens"
 msgid "Image Text (OCR)"
 msgstr "Texto da imagem (OCR)"
 
-#: src/view_models/PixMenu.qml:69
+#: src/view_models/PixMenu.qml:75
 #, kde-format
 msgid "UnFav it"
 msgstr "Desfavoritar"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:85
 #, kde-format
 msgid "Info"
 msgstr "Info"
 
-#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Compartilhar"
 
-#: src/view_models/PixMenu.qml:102
+#: src/view_models/PixMenu.qml:108
 #, kde-format
 msgid "Select"
 msgstr "Selecionar"
 
-#: src/view_models/PixMenu.qml:119
+#: src/view_models/PixMenu.qml:121
+#, kde-format
+msgid "Open in New Window"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:136
 #, kde-format
 msgid "Add to '%1'"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:129
+#: src/view_models/PixMenu.qml:146
 #, kde-format
 msgid "Add to Album"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:145
+#: src/view_models/PixMenu.qml:162
 #, kde-format
 msgid "Edit"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:155
+#: src/view_models/PixMenu.qml:172
 #, kde-format
 msgid "Save as"
 msgstr "Salvar como"
 
-#: src/view_models/PixMenu.qml:176
+#: src/view_models/PixMenu.qml:193
 #, kde-format
 msgid "Open with"
 msgstr "Abrir com"
 
-#: src/view_models/PixMenu.qml:194
+#: src/view_models/PixMenu.qml:211
 #, kde-format
 msgid "Go to Folder"
 msgstr "Ir para a pasta"
 
-#: src/view_models/PixMenu.qml:211
+#: src/view_models/PixMenu.qml:228
 #, kde-format
 msgid "Open Location"
 msgstr "Abrir localização"
@@ -614,7 +631,7 @@ msgstr[1] "%1 imagens"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:116
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "No Pics!"
 msgstr "Nenhuma imagem!"
@@ -703,17 +720,12 @@ msgstr "Nenhuma imagem em %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Não há imagens associadas a esta etiqueta"
 
-#: src/widgets/views/Viewer/PixViewer.qml:60
-#, kde-format
-msgid "Gallery"
-msgstr "Galeria"
-
-#: src/widgets/views/Viewer/PixViewer.qml:79
+#: src/widgets/views/Viewer/PixViewer.qml:73
 #, kde-format
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/widgets/views/Viewer/PixViewer.qml:117
+#: src/widgets/views/Viewer/PixViewer.qml:94
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Abrir uma imagem da sua coleção"

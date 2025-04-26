@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-20 00:40+0000\n"
+"POT-Creation-Date: 2025-04-26 00:41+0000\n"
 "PO-Revision-Date: 2025-04-22 12:07+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,89 +20,101 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: src/main.cpp:114
+#: src/main.cpp:118
 #, kde-format
 msgid "Organize, browse, and edit your images."
 msgstr "Antolatu, arakatu eta editatu zure irudiak."
 
-#: src/main.cpp:118
+#: src/main.cpp:122
 #, kde-format
 msgid "Developer"
 msgstr "Garatzailea"
 
-#: src/main.qml:102 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/main.qml:70
+#, kde-format
+msgid ""
+"There are multiple windows still open. Are you sure you want to close the "
+"application?"
+msgstr ""
+
+#: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Ireki"
 
-#: src/main.qml:111
+#: src/main.qml:143
 #, kde-format
 msgid "Preview Size"
 msgstr "Aurreikuspegiaren neurria"
 
-#: src/main.qml:112
+#: src/main.qml:144
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Bilduma ikuspegietako koadro-txikien neurria."
 
-#: src/main.qml:124
+#: src/main.qml:155
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/main.qml:131
+#: src/main.qml:162
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/main.qml:139
+#: src/main.qml:170
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/main.qml:147
+#: src/main.qml:178
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/main.qml:159
+#: src/main.qml:188
 #, kde-format
 msgid "Settings"
 msgstr "Ezarpenak"
 
-#: src/main.qml:166
+#: src/main.qml:195
 #, kde-format
 msgid "About"
 msgstr "Honi buruz"
 
-#: src/main.qml:254
+#: src/main.qml:234
+#, kde-format
+msgid "Gallery"
+msgstr "Galeria"
+
+#: src/main.qml:324
 #, kde-format
 msgid "Open images"
 msgstr "Ireki irudiak"
 
-#: src/main.qml:255
+#: src/main.qml:325
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Arrastatu eta jaregin irudia hona."
 
-#: src/main.qml:305
+#: src/main.qml:377
 #, kde-format
 msgid "Tagged"
 msgstr "Etiketatuta"
 
-#: src/main.qml:306
+#: src/main.qml:378
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Fitxategia ondo etiketatu da"
 
-#: src/main.qml:358 src/view_models/PixMenu.qml:41
+#: src/main.qml:430 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Fitxategi %1 ezabatu?"
 msgstr[1] "%1 fitxategi ezabatu?"
 
-#: src/main.qml:359 src/view_models/PixMenu.qml:42
+#: src/main.qml:431 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -114,13 +126,13 @@ msgstr[1] ""
 "Ziur zaude fitxategi hauek ezabatu nahi dituzula? Ekintza honek ez dauka "
 "atzera bueltarik."
 
-#: src/main.qml:365 src/view_models/PixMenu.qml:48
+#: src/main.qml:437 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/main.qml:371 src/view_models/PixMenu.qml:54
-#: src/view_models/PixMenu.qml:223 src/widgets/SelectionBar.qml:113
+#: src/main.qml:443 src/view_models/PixMenu.qml:59
+#: src/view_models/PixMenu.qml:240 src/widgets/SelectionBar.qml:113
 #, kde-format
 msgid "Remove"
 msgstr "Kendu"
@@ -227,57 +239,62 @@ msgstr[1] "Bilatu %1 irudi"
 msgid "Image Text (OCR)"
 msgstr "Irudiaren testua (OCR)"
 
-#: src/view_models/PixMenu.qml:69
+#: src/view_models/PixMenu.qml:75
 #, kde-format
 msgid "UnFav it"
 msgstr "Gogokotik kendu"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:85
 #, kde-format
 msgid "Info"
 msgstr "Informazioa"
 
-#: src/view_models/PixMenu.qml:89 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:75
 #, kde-format
 msgid "Share"
 msgstr "Partekatu"
 
-#: src/view_models/PixMenu.qml:102
+#: src/view_models/PixMenu.qml:108
 #, kde-format
 msgid "Select"
 msgstr "Hautatu"
 
-#: src/view_models/PixMenu.qml:119
+#: src/view_models/PixMenu.qml:121
+#, kde-format
+msgid "Open in New Window"
+msgstr ""
+
+#: src/view_models/PixMenu.qml:136
 #, kde-format
 msgid "Add to '%1'"
 msgstr "Gehitu '%1'(e)(a)n"
 
-#: src/view_models/PixMenu.qml:129
+#: src/view_models/PixMenu.qml:146
 #, kde-format
 msgid "Add to Album"
 msgstr "Gehitu albumera"
 
-#: src/view_models/PixMenu.qml:145
+#: src/view_models/PixMenu.qml:162
 #, kde-format
 msgid "Edit"
 msgstr "Editatu"
 
-#: src/view_models/PixMenu.qml:155
+#: src/view_models/PixMenu.qml:172
 #, kde-format
 msgid "Save as"
 msgstr "Gorde honela"
 
-#: src/view_models/PixMenu.qml:176
+#: src/view_models/PixMenu.qml:193
 #, kde-format
 msgid "Open with"
 msgstr "Ireki honekin"
 
-#: src/view_models/PixMenu.qml:194
+#: src/view_models/PixMenu.qml:211
 #, kde-format
 msgid "Go to Folder"
 msgstr "Joan karpetara"
 
-#: src/view_models/PixMenu.qml:211
+#: src/view_models/PixMenu.qml:228
 #, kde-format
 msgid "Open Location"
 msgstr "Ireki kokalekua"
@@ -617,7 +634,7 @@ msgstr[1] "%1 irudi"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:116
+#: src/widgets/views/Viewer/PixViewer.qml:93
 #, kde-format
 msgid "No Pics!"
 msgstr "Irudirik ez!"
@@ -706,17 +723,12 @@ msgstr "Irudirik ez %1(e)an!"
 msgid "There're no pics associated with the tag"
 msgstr "Ez dago etiketarekin lotutako irudirik"
 
-#: src/widgets/views/Viewer/PixViewer.qml:60
-#, kde-format
-msgid "Gallery"
-msgstr "Galeria"
-
-#: src/widgets/views/Viewer/PixViewer.qml:79
+#: src/widgets/views/Viewer/PixViewer.qml:73
 #, kde-format
 msgid "Previous"
 msgstr "Aurrekoa"
 
-#: src/widgets/views/Viewer/PixViewer.qml:117
+#: src/widgets/views/Viewer/PixViewer.qml:94
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Ireki zure bildumako irudi bat"
