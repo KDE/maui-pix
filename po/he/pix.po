@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-26 00:41+0000\n"
-"PO-Revision-Date: 2025-04-14 08:08+0300\n"
+"PO-Revision-Date: 2025-04-26 13:32+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -33,7 +33,7 @@ msgstr "מפתח"
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
-msgstr ""
+msgstr "יש מספר חלונות פתוחים עדיין. לסגור את היישום הזה?"
 
 #: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
@@ -262,7 +262,7 @@ msgstr "בחירה"
 #: src/view_models/PixMenu.qml:121
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "פתיחה בחלון חדש"
 
 #: src/view_models/PixMenu.qml:136
 #, kde-format

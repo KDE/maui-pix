@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-26 00:41+0000\n"
-"PO-Revision-Date: 2025-04-14 03:41+0200\n"
+"PO-Revision-Date: 2025-04-26 04:49+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -33,7 +33,7 @@ msgstr "პროგრამისტი"
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
-msgstr ""
+msgstr "ჯერ კიდევ ღიაა ერთზე მეტი ფანჯარა. მართლა გნებავთ აპლიკაციის დახურვა?"
 
 #: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
@@ -259,7 +259,7 @@ msgstr "აირჩიეთ"
 #: src/view_models/PixMenu.qml:121
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "ახალ ფანჯარაში გახსნა"
 
 #: src/view_models/PixMenu.qml:136
 #, kde-format

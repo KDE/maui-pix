@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-26 00:41+0000\n"
-"PO-Revision-Date: 2025-03-08 22:54+0400\n"
+"PO-Revision-Date: 2025-04-26 17:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -142,23 +142,23 @@ msgstr "أزل"
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
 msgid "Favorites"
-msgstr "المفضّلة"
+msgstr "مفضّلة"
 
 #: src/models/folders/placesmodel.cpp:16
 #, kde-format
 msgid "Downloads"
-msgstr "التنزيلات"
+msgstr "تنزيلات"
 
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr "الصور"
+msgstr "صور"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:103
 #: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
-msgstr "اللقطات"
+msgstr "لقطات"
 
 #: src/models/folders/placesmodel.cpp:19
 #, kde-format
@@ -168,23 +168,23 @@ msgstr "كاميرا"
 #: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
-msgstr "التّجميعة"
+msgstr "تجميعة"
 
 #: src/models/folders/placesmodel.cpp:47 src/models/folders/placesmodel.cpp:125
 #, kde-format
 msgid "Tags"
-msgstr "الوسوم"
+msgstr "وسوم"
 
 #: src/models/folders/placesmodel.cpp:62
 #: src/widgets/views/Tags/TagsSidebar.qml:165
 #, kde-format
 msgid "Places"
-msgstr "الأماكن"
+msgstr "أماكن"
 
 #: src/models/folders/placesmodel.cpp:84
 #, kde-format
 msgid "Locations"
-msgstr "المواقع"
+msgstr "مواقع"
 
 #: src/models/folders/placesmodel.cpp:101
 #: src/widgets/views/Tags/TagsSidebar.qml:218
@@ -205,7 +205,7 @@ msgstr "الأصناف"
 #: src/models/folders/placesmodel.cpp:105
 #, kde-format
 msgid "PNG"
-msgstr "PNG"
+msgstr "بي إن جي"
 
 #: src/models/folders/placesmodel.cpp:107
 #: src/widgets/views/Tags/TagsSidebar.qml:255
@@ -217,7 +217,7 @@ msgstr "PSD"
 #: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
-msgstr "المتجهات"
+msgstr "متجهات"
 
 #: src/models/folders/placesmodel.cpp:111
 #, kde-format
@@ -283,7 +283,7 @@ msgstr "أضف إلى الألبوم"
 #: src/view_models/PixMenu.qml:162
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "حرّر"
 
 #: src/view_models/PixMenu.qml:172
 #, kde-format
@@ -308,87 +308,87 @@ msgstr "افتح موقعًا"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "اكتشاف النص"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "مكّن الاكتشاف الآلي"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "معالجة أولية للصورة"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "مكن المعالجة الأولية للصورة."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "تقسيم الصفحة"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "آليّ"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "اكتشاف النصوص والاتجاه آليًا"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "عمود فردي"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "سطر مفرد"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "كتلة فردية"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "كلمة فردية"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "عتبة الثقة"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "اكتشاف كتلة النص"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "الكلمة"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "السّطر"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "الفقرة"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "تحديد كتلة النص"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
@@ -396,16 +396,17 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"لتحديد كتل متعددة في الوضع الحر، اضغط باستمرار على مفتاح Shift أثناء التنقل."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "حر"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "مستطيل"
 
 #: src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -515,12 +516,12 @@ msgstr "تنازليًّا"
 #: src/widgets/SettingsDialog.qml:140
 #, kde-format
 msgid "GPS Tags"
-msgstr "وسم نظام تحديد المواقع العالمي (GPS)."
+msgstr "وسوم نظام تحديد المواقع العالمي (GPS)."
 
 #: src/widgets/SettingsDialog.qml:141
 #, kde-format
 msgid "Show GPS tags."
-msgstr "أظهر وسوم جي بي اس."
+msgstr "أظهر وسوم نظام تحديد المواقع العالمي."
 
 #: src/widgets/SettingsDialog.qml:155
 #, kde-format
@@ -545,7 +546,7 @@ msgstr "شريط المعاينة"
 #: src/widgets/SettingsDialog.qml:186
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "اضبط الإعدادات لاكتشاف النص في الصور."
 
 #: src/widgets/SettingsDialog.qml:200
 #, kde-format
@@ -717,12 +718,12 @@ msgstr "الأحد"
 #: src/widgets/views/Tags/TagsSidebar.qml:247
 #, kde-format
 msgid "PNGs"
-msgstr "PNG"
+msgstr "بي إن جي"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:271
 #, kde-format
 msgid "Paint"
-msgstr "لوّن"
+msgstr "رسم"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:279
 #, kde-format
@@ -752,13 +753,12 @@ msgstr "افتح صورة من مجموعتك"
 #: src/widgets/views/Viewer/Viewer.qml:85
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "نُسخ  النص!"
 
 #: src/widgets/views/Viewer/Viewer.qml:89
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "عناوين الصور"
+msgstr "نُسخ ملف الصورة!"
 
 #: src/widgets/views/Viewer/Viewer.qml:105
 #, kde-format
@@ -766,10 +766,9 @@ msgid "Call"
 msgstr "اتصل"
 
 #: src/widgets/views/Viewer/Viewer.qml:117
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "حفظ باسم"
+msgstr "احفظ كمتراسل"
 
 #: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
@@ -777,25 +776,24 @@ msgid "Message"
 msgstr "الرسالة"
 
 #: src/widgets/views/Viewer/Viewer.qml:137
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "افتح موقعًا"
+msgstr "افتح الرابط"
 
 #: src/widgets/views/Viewer/Viewer.qml:147
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "أنشئ حدثاً"
 
 #: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "احفظ في الملاحظات"
 
 #: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "ابحث في النص المحدد على غوغل…"
 
 #~ msgid "Experimental feature."
 #~ msgstr "ميزة تجريبية."

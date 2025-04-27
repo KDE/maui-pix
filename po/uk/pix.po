@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-26 00:41+0000\n"
-"PO-Revision-Date: 2025-03-19 08:52+0200\n"
+"PO-Revision-Date: 2025-04-26 15:47+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -35,7 +35,7 @@ msgstr "Розробник"
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
-msgstr ""
+msgstr "Відкрито декілька вікон. Ви справді хочете завершити роботу програми?"
 
 #: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
@@ -268,7 +268,7 @@ msgstr "Вибрати"
 #: src/view_models/PixMenu.qml:121
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "Відкрити у новому вікні"
 
 #: src/view_models/PixMenu.qml:136
 #, kde-format

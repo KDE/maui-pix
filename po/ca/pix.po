@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-26 00:41+0000\n"
-"PO-Revision-Date: 2025-04-14 11:35+0200\n"
+"PO-Revision-Date: 2025-04-26 09:59+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/main.cpp:118
 #, kde-format
@@ -36,6 +36,8 @@ msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
 msgstr ""
+"Encara hi ha diverses finestres obertes. Esteu segur que voleu tancar "
+"l'aplicació?"
 
 #: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
@@ -260,7 +262,7 @@ msgstr "Selecciona"
 #: src/view_models/PixMenu.qml:121
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "Obre en una finestra nova"
 
 #: src/view_models/PixMenu.qml:136
 #, kde-format
