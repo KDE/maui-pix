@@ -50,7 +50,7 @@ Maui.ApplicationWindow
 
     Maui.Style.styleType: _pixViewer.visible ? Maui.Style.Dark : undefined
 
-    readonly property alias dialog : dialogLoader.item
+    property QtObject tagsDialog : null
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
 
@@ -359,7 +359,7 @@ Maui.ApplicationWindow
     Component
     {
         id: _infoDialogComponent
-        IT.ImageInfoDialog {}
+        IT.ImageInfoDialog {onClosed: destroy()}
     }
 
     Component
@@ -368,8 +368,6 @@ Maui.ApplicationWindow
 
         FB.TagsDialog
         {
-            // onClosed: destroy()
-
             Maui.Notification
             {
                 id: _taggedNotification
@@ -411,13 +409,14 @@ Maui.ApplicationWindow
         FB.FileDialog
         {
             mode: FB.FileDialog.Open
+            onClosed: destroy()
         }
     }
 
     Component
     {
         id: _settingsDialogComponent
-        SettingsDialog {}
+        SettingsDialog {onClosed: destroy()}
     }
 
     Component
@@ -429,7 +428,7 @@ Maui.ApplicationWindow
             id: removeDialog
             title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
             message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
-
+            onClosed: destroy()
             actions:
                 [
                 Action
@@ -452,8 +451,6 @@ Maui.ApplicationWindow
             ]
         }
     }
-
-    Loader { id: dialogLoader }
 
     FB.OpenWithDialog
     {
@@ -478,8 +475,7 @@ Maui.ApplicationWindow
 
     function getFileInfo(url)
     {
-        dialogLoader.sourceComponent= _infoDialogComponent
-        dialog.url = url
+        var dialog = _infoDialogComponent.createObject(root, ({'url': url}))
         dialog.open()
     }
 
@@ -527,19 +523,18 @@ Maui.ApplicationWindow
 
     function openFileDialog()
     {
-        dialogLoader.sourceComponent = null
-        dialogLoader.sourceComponent = fmDialogComponent
-        dialog.browser.settings.filterType = FB.FMList.IMAGE
-        dialog.callback = function(paths)
-        {
-            Pix.Collection.openPics(paths)
-        }
+        let props = ({ 'browser.settings.filterType' : FB.FMList.IMAGE,
+                         'callback' : function(paths)
+                         {
+                             Pix.Collection.openPics(paths)
+                         }})
+        var dialog = fmDialogComponent.createObject(root, props)
         dialog.open()
     }
 
     function openSettingsDialog()
     {
-        dialogLoader.sourceComponent = _settingsDialogComponent
+        var dialog = _settingsDialogComponent.createObject(root)
         dialog.open()
     }
 
@@ -593,5 +588,18 @@ Maui.ApplicationWindow
         {
             VIEWER.openExternalPics(urls)
         }
+    }
+
+    function openTagsDialog(urls)
+    {
+        if(root.tagsDialog)
+        {
+            root.tagsDialog.composerList.urls = urls
+        }else
+        {
+            root.tagsDialog = tagsDialogComponent.createObject(root, ({'composerList.urls' : urls}))
+        }
+
+        root.tagsDialog.open()
     }
 }

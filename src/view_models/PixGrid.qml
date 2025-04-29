@@ -159,29 +159,43 @@ Maui.Page
                             typingQuery += event.text
                             _typingTimer.restart()
                             event.accepted = true
+                            return
                         }
 
                         if((event.key == Qt.Key_Left || event.key == Qt.Key_Right || event.key == Qt.Key_Down || event.key == Qt.Key_Up) && (event.modifiers & Qt.ControlModifier) && (event.modifiers & Qt.ShiftModifier))
                         {
                             _gridView.itemsSelected([index])
+                            event.accepted = true
+                            return
                         }
 
                         if(event.key === Qt.Key_Space)
                         {
                             getFileInfo(item.url)
                             event.accepted = true
+                            return
+                        }
+
+                        if(event.key === Qt.Key_Escape)
+                        {
+
+                            selectionBox.clear()
+                            event.accepted = true
+                            return
                         }
 
                         if(event.key === Qt.Key_Return)
                         {
                             openPic(index)
                             event.accepted = true
+                            return
                         }
 
                         if(event.key === Qt.Key_A && (event.modifiers & Qt.ControlModifier))
                         {
                             selectAll()
                             event.accepted = true
+                            return
                         }
                     }
 
@@ -212,14 +226,17 @@ Maui.Page
 
             onClicked: (mouse) =>
                        {
-                           control.currentIndex = index
                            if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
                            {
                                _gridView.itemsSelected([index])
+                           }else if((mouse.button == Qt.LeftButton) && (mouse.modifiers & Qt.ShiftModifier))
+                           {
+                               _gridView.itemsSelected(control.range(control.currentIndex, index))
                            }else if(Maui.Handy.singleClick)
                            {
                                openPic(index)
                            }
+                           control.currentIndex = index
                        }
 
             onDoubleClicked:
@@ -247,11 +264,11 @@ Maui.Page
             }
 
             onToggled: (state) =>
-            {
+                       {
                            console.log("ITEM TOGGLED!!", state)
-                control.currentIndex = index
-                selectItem(pixModel.get(index))
-            }
+                           control.currentIndex = index
+                           selectItem(pixModel.get(index))
+                       }
         }
 
         Connections
@@ -283,7 +300,6 @@ Maui.Page
     }
 }
 
-
 function filterSelectedItems(path)
 {
     if(selectionBox && selectionBox.count > 0 && selectionBox.contains(path))
@@ -306,5 +322,21 @@ function selectAll()
 function openPic(index)
 {
     VIEWER.open(pixModel, index)
+}
+
+/**
+ * @private
+ */
+function range(start, end)
+{
+    const isReverse = (start > end);
+    const targetLength = isReverse ? (start - end) + 1 : (end - start ) + 1;
+    const arr = new Array(targetLength);
+    const b = Array.apply(null, arr);
+    const result = b.map((discard, n) => {
+                             return (isReverse) ? n + end : n + start;
+                         });
+
+    return (isReverse) ? result.reverse() : result;
 }
 }

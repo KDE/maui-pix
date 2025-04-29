@@ -13,7 +13,7 @@ Maui.SettingsDialog
     Maui.SectionGroup
     {
         title: i18n("Behavior")
-//        description: i18n("Configure the app behaviour.")
+        //        description: i18n("Configure the app behaviour.")
 
         Maui.FlexSectionItem
         {
@@ -32,7 +32,7 @@ Maui.SettingsDialog
     Maui.SectionGroup
     {
         title: i18n("Collection")
-//        description: i18n("Configure the app plugins and look & feel.")
+        //        description: i18n("Configure the app plugins and look & feel.")
 
         Maui.FlexSectionItem
         {
@@ -153,7 +153,7 @@ Maui.SettingsDialog
     Maui.SectionGroup
     {
         title: i18n("Viewer")
-//        description: i18n("Adjust the viewer panels and settings.")
+        //        description: i18n("Adjust the viewer panels and settings.")
 
         Maui.FlexSectionItem
         {
@@ -171,7 +171,7 @@ Maui.SettingsDialog
         Maui.FlexSectionItem
         {
             label1.text: i18n("Preview Bar")
-//            label2.text: i18n("Show small thumbnail previews in the image viewer.")
+            //            label2.text: i18n("Show small thumbnail previews in the image viewer.")
             Switch
             {
                 checkable: true
@@ -198,7 +198,7 @@ Maui.SettingsDialog
     Maui.SectionGroup
     {
         title: i18n("Sources")
-//        description: i18n("Add new sources to manage and browse your image collection.")
+        //        description: i18n("Add new sources to manage and browse your image collection.")
 
         ColumnLayout
         {
@@ -239,13 +239,13 @@ Maui.SettingsDialog
                 text: i18n("Add")
                 onClicked:
                 {
-                    dialogLoader.sourceComponent = null
-                    dialogLoader.sourceComponent = fmDialogComponent
-                    dialog.browser.settings.onlyDirs = true
-                    dialog.callback = function(urls)
-                    {
-                        Pix.Collection.addSources(urls)
-                    }
+                    let props = ({'browser.settings.onlyDirs' : true,
+                                     'callback' : function(urls)
+                                     {
+                                         Pix.Collection.addSources(urls)
+                                     }
+                                 })
+                    var dialog = fmDialogComponent.createObject(root, props)
                     dialog.open()
                 }
             }

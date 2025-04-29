@@ -149,8 +149,7 @@ Maui.ContextualMenu
 
         onTriggered:
         {
-            var obj = tagsDialogComponent.createObject(root, {'composerList.urls' : filterSelection(item.url)})
-            obj.open()
+            openTagsDialog(filterSelection(item.url))
             _selectionBar.clear()
         }
     }
@@ -173,17 +172,17 @@ Maui.ContextualMenu
         icon.name: "document-save-as"
         onTriggered:
         {
-            var pic = item.url
-            dialogLoader.sourceComponent = null
-            dialogLoader.sourceComponent = fmDialogComponent
-            dialog.mode = FB.FileDialog.Save
-            dialog.browser.settings.filterType = FB.FMList.IMAGE
-            dialog.singleSelection = true
-            dialog.suggestedFileName = FB.FM.getFileInfo(item.url).label
-            dialog.callback = function(paths)
+            let pic = item.url
+            let props = ({'mode' : FB.FileDialog.Save,
+            'browser.settings.filterType' : FB.FMList.IMAGE,
+            'singleSelection' : true,
+            'suggestedFileName' : FB.FM.getFileInfo(item.url).label,
+            'callback' : function(paths)
             {
                 FB.FM.copy([pic], paths[0])
-            }
+            }})
+            var dialog = fmDialogComponent.createObject(root, props)
+
             dialog.open()
         }
     }

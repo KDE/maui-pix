@@ -64,9 +64,7 @@ Maui.SelectionBar
         icon.name: "tag"
         onTriggered:
         {
-            dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.composerList.urls = control.uris
-            dialog.open()
+            openTagsDialog(control.uris)
         }
     }
 
@@ -96,14 +94,13 @@ Maui.SelectionBar
             onTriggered:
             {
                 const pics = control.uris
-                dialogLoader.sourceComponent = null
-                dialogLoader.sourceComponent = fmDialogComponent
-                dialog.browser.settings.onlyDirs = true
-                dialog.singleSelection = true
-                dialog.callback = function(paths)
-                {
-                    FB.FM.copy(pics, paths[0])
-                }
+                let props = ({ 'browser.settings.onlyDirs' : true,
+                                 'singleSelection' : true,
+                                 'callback' : function(paths)
+                                 {
+                                     FB.FM.copy(pics, paths[0])
+                                 }})
+                var dialog = fmDialogComponent.createObject(root, props)
                 dialog.open()
             }
         },
@@ -116,8 +113,7 @@ Maui.SelectionBar
 
             onTriggered:
             {
-                dialogLoader.sourceComponent = _removeDialogComponent
-                dialog.urls = control.uris
+                var dialog = _removeDialogComponent.createObject(root, ({'urls' : control.uris}))
                 dialog.open()
             }
         }
