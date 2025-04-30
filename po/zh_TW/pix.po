@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-26 00:41+0000\n"
-"PO-Revision-Date: 2025-04-19 14:57+0900\n"
+"POT-Creation-Date: 2025-04-30 00:41+0000\n"
+"PO-Revision-Date: 2025-04-30 01:56+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: src/main.cpp:118
 #, kde-format
@@ -35,7 +35,7 @@ msgstr "開發者"
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
-msgstr ""
+msgstr "有多個尚未關閉的視窗。您確定要關閉本應用程式嗎？"
 
 #: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
@@ -97,36 +97,36 @@ msgstr "開啟影像"
 msgid "Drag and drop images here."
 msgstr "拖放影像到這裡。"
 
-#: src/main.qml:377
+#: src/main.qml:375
 #, kde-format
 msgid "Tagged"
 msgstr "已加上標籤"
 
-#: src/main.qml:378
+#: src/main.qml:376
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "檔案已成功加上標籤"
 
-#: src/main.qml:430 src/view_models/PixMenu.qml:45
+#: src/main.qml:429 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "刪除 %1 個檔案？"
 
-#: src/main.qml:431 src/view_models/PixMenu.qml:46
+#: src/main.qml:430 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
 msgstr[0] "您確定要移除這些檔案嗎？這個動作無法復原。"
 
-#: src/main.qml:437 src/view_models/PixMenu.qml:53
+#: src/main.qml:436 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: src/main.qml:443 src/view_models/PixMenu.qml:59
-#: src/view_models/PixMenu.qml:240 src/widgets/SelectionBar.qml:113
+#: src/main.qml:442 src/view_models/PixMenu.qml:59
+#: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "移除"
@@ -242,7 +242,7 @@ msgstr "從最愛中移除它"
 msgid "Info"
 msgstr "資訊"
 
-#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "分享"
@@ -255,7 +255,7 @@ msgstr "選取"
 #: src/view_models/PixMenu.qml:121
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "在新視窗開啟"
 
 #: src/view_models/PixMenu.qml:136
 #, kde-format
@@ -267,27 +267,27 @@ msgstr "加入「%1」"
 msgid "Add to Album"
 msgstr "加入專輯"
 
-#: src/view_models/PixMenu.qml:162
+#: src/view_models/PixMenu.qml:161
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: src/view_models/PixMenu.qml:172
+#: src/view_models/PixMenu.qml:171
 #, kde-format
 msgid "Save as"
 msgstr "另存為"
 
-#: src/view_models/PixMenu.qml:193
+#: src/view_models/PixMenu.qml:192
 #, kde-format
 msgid "Open with"
 msgstr "開啟方式"
 
-#: src/view_models/PixMenu.qml:211
+#: src/view_models/PixMenu.qml:210
 #, kde-format
 msgid "Go to Folder"
 msgstr "跳至資料夾"
 
-#: src/view_models/PixMenu.qml:228
+#: src/view_models/PixMenu.qml:227
 #, kde-format
 msgid "Open Location"
 msgstr "開啟位置"
@@ -404,12 +404,12 @@ msgstr "檢視"
 msgid "Tag"
 msgstr "標籤"
 
-#: src/widgets/SelectionBar.qml:87
+#: src/widgets/SelectionBar.qml:85
 #, kde-format
 msgid "Un/Fav"
 msgstr "切換最愛"
 
-#: src/widgets/SelectionBar.qml:94
+#: src/widgets/SelectionBar.qml:92
 #, kde-format
 msgid "Export"
 msgstr "匯出"

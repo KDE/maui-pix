@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-26 00:41+0000\n"
+"POT-Creation-Date: 2025-04-30 00:41+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -96,24 +96,24 @@ msgstr "Opna bilete"
 msgid "Drag and drop images here."
 msgstr ""
 
-#: src/main.qml:377
+#: src/main.qml:375
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:378
+#: src/main.qml:376
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:430 src/view_models/PixMenu.qml:45
+#: src/main.qml:429 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Sletta %1 fil?"
 msgstr[1] "Sletta %1 filer?"
 
-#: src/main.qml:431 src/view_models/PixMenu.qml:46
+#: src/main.qml:430 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -123,13 +123,13 @@ msgstr[0] ""
 msgstr[1] ""
 "Er du sikker på at du vil sletta desse filene? Du kan ikkje angra slettinga."
 
-#: src/main.qml:437 src/view_models/PixMenu.qml:53
+#: src/main.qml:436 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/main.qml:443 src/view_models/PixMenu.qml:59
-#: src/view_models/PixMenu.qml:240 src/widgets/SelectionBar.qml:113
+#: src/main.qml:442 src/view_models/PixMenu.qml:59
+#: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "Fjern"
@@ -246,7 +246,7 @@ msgstr "Fjern som favoritt"
 msgid "Info"
 msgstr "Info"
 
-#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:75
+#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "Del"
@@ -271,27 +271,27 @@ msgstr ""
 msgid "Add to Album"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:162
+#: src/view_models/PixMenu.qml:161
 #, kde-format
 msgid "Edit"
 msgstr "Rediger"
 
-#: src/view_models/PixMenu.qml:172
+#: src/view_models/PixMenu.qml:171
 #, kde-format
 msgid "Save as"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:193
+#: src/view_models/PixMenu.qml:192
 #, kde-format
 msgid "Open with"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:211
+#: src/view_models/PixMenu.qml:210
 #, kde-format
 msgid "Go to Folder"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:228
+#: src/view_models/PixMenu.qml:227
 #, kde-format
 msgid "Open Location"
 msgstr ""
@@ -408,12 +408,12 @@ msgstr "Vis"
 msgid "Tag"
 msgstr "Merkelapp"
 
-#: src/widgets/SelectionBar.qml:87
+#: src/widgets/SelectionBar.qml:85
 #, kde-format
 msgid "Un/Fav"
 msgstr "(Av)fav"
 
-#: src/widgets/SelectionBar.qml:94
+#: src/widgets/SelectionBar.qml:92
 #, kde-format
 msgid "Export"
 msgstr "Eksporter"
