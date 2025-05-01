@@ -245,6 +245,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<Folders>(PIX_URI, 1, 0, "FoldersList");
     qmlRegisterType<CitiesModel>(PIX_URI, 1, 0, "CitiesList");
     qmlRegisterType<TagsModel>(PIX_URI, 1, 0, "TagsList");
+    qmlRegisterType<FileWatcher>(PIX_URI, 1, 0, "FileWatcher");
 
     engine.load(url);
 

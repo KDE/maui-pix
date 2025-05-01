@@ -6,6 +6,7 @@
 import QtQuick
 import QtQml
 import QtQuick.Controls
+import QtQuick.Layouts
 
 import org.mauikit.controls as Maui
 import org.mauikit.imagetools as IT
@@ -543,8 +544,6 @@ Item
             }
         }
     }
-
-
     // MouseArea
     // {
     //     enabled: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1

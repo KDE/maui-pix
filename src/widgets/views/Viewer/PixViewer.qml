@@ -83,6 +83,85 @@ StackView
             }
         }
 
+        headerColumn: Maui.ToolBar
+            {
+                id: _alertBar
+                visible: _watcher.modified || _watcher.deleted
+                width: parent.width
+
+
+                Pix.FileWatcher
+                {
+                    id: _watcher
+                    property bool modified:false
+                    property bool deleted :false
+                    property bool autoRefresh : false
+
+                    url: currentPic.url
+                    onFileModified:
+                    {
+                        if(autoRefresh)
+                        {
+                            viewer.reloadCurrentItem()
+                            _watcher.modified = false
+                        }else
+                        {
+                            modified = true
+                        }
+                    }
+                    onFileDeleted: deleted = true
+                }
+
+                forceCenterMiddleContent: false
+                middleContent: Maui.ListItemTemplate
+                {
+                    Maui.Theme.inherit: true
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    iconSource: "dialog-warning"
+                    label1.text: i18n("The current image file has been modified or removed externally")
+                    label2.text: _watcher.deleted ? i18n("The image was deleted") : i18n("The image was modified")
+                }
+
+                rightContent: [
+                    Button
+                    {
+                        text: i18n("Reload")
+                        visible: _watcher.modified
+                        Maui.Controls.status: Maui.Controls.Negative
+                        onClicked:
+                        {
+                            viewer.reloadCurrentItem()
+                            _watcher.modified = false
+                        }
+                    },
+
+                    Button
+                    {
+                        text: i18n("Auto Reload")
+                        Maui.Controls.status: Maui.Controls.Neutral
+
+                        visible: _watcher.modified
+                        onClicked:
+                        {
+                            viewer.reloadCurrentItem()
+                            _watcher.autoRefresh = true
+                            _watcher.modified = false
+                        }
+                    },
+
+
+                    Button
+                    {
+                        text: i18n("Save")
+                        visible: _watcher.deleted
+                        Maui.Controls.status: Maui.Controls.Positive
+
+                        // onClicked: reloadCurrentItem()
+                    }
+                ]
+            }
+
         Maui.Holder
         {
             id: holder

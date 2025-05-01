@@ -26,10 +26,13 @@ public:
     static GpsImages *getInstance();
     GpsImages();
     GpsHash data() const;
+    QList<QString> cities() const;
     void insert(const QString &url, const QString &gpsId);
     QStringList urls(const QString &gpsId);
     QString gpsTag(const QString &url);
     bool contains(const QString &url);
+    void clear();
+    bool remove(const QString &url);
     QStringList values();
 private:
     GpsHash m_data;
@@ -118,6 +121,7 @@ private:
 
     void insertFolder(const QUrl &);
     void insertCity(const QString &);
+    void setCitiesModel();
 
     void setStatus(const Gallery::Status &, const QString& = QString());
 
@@ -154,6 +158,8 @@ public Q_SLOTS:
 
     int indexOfName(const QString &);
     void setActiveGeolocationTags(bool activeGeolocationTags);
+    void reloadGpsTags();
+    void updateGpsTag(const QString &url);
     void scanImagesText();
 
     static QVariantMap getFolderInfo(const QUrl &url);

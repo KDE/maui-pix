@@ -27,6 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QString>
 #include <QUrl>
 #include <QVariantList>
+#include <QFileSystemWatcher>
 
 class Gallery;
 class Pix : public QObject
@@ -69,4 +70,27 @@ private:
 Q_SIGNALS:
     void viewPics(QStringList pics);
     void sourcesChanged();
+};
+
+class FileWatcher : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(QString url READ url WRITE setUrl NOTIFY urlChanged)
+
+public:
+    explicit FileWatcher(QObject * parent = nullptr);
+    QString url() const;
+    void setUrl(const QString &newUrl);
+
+private Q_SLOTS:
+    void onFileChanged(const QString &url);
+
+Q_SIGNALS:
+    void urlChanged();
+    void fileModified();
+    void fileDeleted();
+
+private:
+    QString m_url;
+    QFileSystemWatcher *m_watcher;
 };

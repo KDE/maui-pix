@@ -146,6 +146,13 @@ void Gallery::scan(const QList<QUrl> &urls, const bool &recursive, const int &li
     m_fileLoader->requestPath(urls, recursive, QStringList() << FMStatic::FILTER_LIST[FMStatic::FILTER_TYPE::IMAGE], QDir::Files, limit);
 }
 
+QString getCityId(const QUrl &url)
+{
+    const Exiv2Extractor exiv2(url);
+    QString cityId = exiv2.cityId();
+    return cityId;
+}
+
 void Gallery::scanGpsTags()
 {
     auto functor = [](FMH::MODEL &item)
@@ -164,8 +171,7 @@ void Gallery::scanGpsTags()
         }else
         {
             qDebug() << "CREATING A NEW CITY";
-            const Exiv2Extractor exiv2(url);
-            cityId = exiv2.cityId();
+            cityId = getCityId(url);
             if(!cityId.isEmpty())
             {
                 GpsImages::getInstance()->insert(urlId, cityId);
@@ -182,16 +188,7 @@ void Gallery::scanGpsTags()
     connect(m_futureWatcher, &QFutureWatcher<void>::finished, [this]()
             {
                 qDebug() << "FINISHED SCANNING GPS TAGS" << GpsImages::getInstance()->values();
-
-                for(const auto &item : list)
-                {
-                    if(m_activeGeolocationTags)
-                    {
-                        this->insertCity(item[FMH::MODEL_KEY::CITY]);
-                    }
-                }
-
-                Q_EMIT citiesChanged();
+                setCitiesModel();
             });
 }
 
@@ -213,6 +210,21 @@ void Gallery::insertCity(const QString & cityId)
         qDebug() << "FOUND CITY <<" << cityId;
         m_cities << cityId;
     }
+}
+
+void Gallery::setCitiesModel()
+{
+    m_cities.clear();
+
+    for(const auto &city : GpsImages::getInstance()->cities())
+    {
+        if(m_activeGeolocationTags)
+        {
+            this->insertCity(city);
+        }
+    }
+
+    Q_EMIT citiesChanged();
 }
 
 void Gallery::setStatus(const Gallery::Status &status, const QString &error)
@@ -272,6 +284,8 @@ void Gallery::clear()
     this->m_folders.clear();
     this->m_cities.clear();
 
+    // GpsImages::getInstance()->clear();
+
     Q_EMIT citiesChanged();
     Q_EMIT foldersChanged();
     Q_EMIT filesChanged();
@@ -325,6 +339,29 @@ void Gallery::setActiveGeolocationTags(bool activeGeolocationTags)
 
     m_activeGeolocationTags = activeGeolocationTags;
     Q_EMIT activeGeolocationTagsChanged(m_activeGeolocationTags);
+}
+
+void Gallery::reloadGpsTags()
+{
+    GpsImages::getInstance()->clear();
+    if(m_activeGeolocationTags)
+        scanGpsTags();
+}
+
+void Gallery::updateGpsTag(const QString &url)
+{
+    if(GpsImages::getInstance()->contains(url))
+    {
+       if(GpsImages::getInstance()->remove(url))
+        {
+            auto cityId = getCityId(QUrl::fromLocalFile(url));
+            if(!cityId.isEmpty())
+            {
+                GpsImages::getInstance()->insert(url, cityId);
+                setCitiesModel();
+            }
+       }
+    }
 }
 
 void Gallery::componentComplete()
@@ -443,7 +480,7 @@ QVariantMap Gallery::getFolderInfo(const QUrl &url)
     {
         const auto id = url.toString().replace("gps:///", "");
 
-         City city = Cities::getInstance()->city(id);
+        City city = Cities::getInstance()->city(id);
         return QVariantMap {{"label", QString(city.name() + " - " + city.country())}, {"icon", "gps"}, {"url", url.toString()}};
     }
 
@@ -469,6 +506,13 @@ GpsImages::GpsImages() : QObject()
 GpsHash GpsImages::data() const
 {
     return m_data;
+}
+
+QList<QString> GpsImages::cities() const
+{
+    auto data = m_data.values();
+    data.removeDuplicates();
+    return data;
 }
 
 void GpsImages::insert(const QString &url, const QString &gpsId)
@@ -503,6 +547,16 @@ QString GpsImages::gpsTag(const QString &url)
 bool GpsImages::contains(const QString &url)
 {
     return m_data.contains(url);
+}
+
+void GpsImages::clear()
+{
+    m_data.clear();
+}
+
+bool GpsImages::remove(const QString &url)
+{
+    return m_data.remove(url);
 }
 
 QStringList GpsImages::values()

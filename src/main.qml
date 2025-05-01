@@ -359,7 +359,11 @@ Maui.ApplicationWindow
     Component
     {
         id: _infoDialogComponent
-        IT.ImageInfoDialog {onClosed: destroy()}
+        IT.ImageInfoDialog
+        {
+            onGpsEdited:(url) => Pix.Collection.allImagesModel.updateGpsTag(url)
+            onClosed: destroy()
+        }
     }
 
     Component

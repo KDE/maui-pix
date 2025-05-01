@@ -179,3 +179,43 @@ void Pix::removeSources(const QString &path)
     removeSourcePath(path);
     Q_EMIT sourcesChanged();
 }
+
+FileWatcher::FileWatcher(QObject *parent) : QObject(parent)
+    ,m_watcher(new QFileSystemWatcher(this))
+{
+    connect(m_watcher, &QFileSystemWatcher::fileChanged, this, &FileWatcher::onFileChanged);
+}
+
+QString FileWatcher::url() const
+{
+    return m_url;
+}
+
+void FileWatcher::setUrl(const QString &newUrl)
+{
+    if (m_url == newUrl)
+        return;
+    m_url = newUrl;
+    qDebug()  << "new file to watch" << m_url;
+    m_watcher->removePaths(m_watcher->files());
+    m_watcher->addPath(QUrl(m_url).toLocalFile());
+
+    Q_EMIT urlChanged();
+}
+
+void FileWatcher::onFileChanged(const QString &url)
+{
+    if(FMH::fileExists(QUrl::fromLocalFile(url)))
+    {
+        qDebug() << "The watched file was removed" << url;
+
+        Q_EMIT fileModified();
+    }else
+    {
+        qDebug() << "The watched file was changed" << url;
+
+        m_watcher->removePaths(m_watcher->files());
+        setUrl({});
+        Q_EMIT fileDeleted();
+    }
+}
