@@ -84,7 +84,7 @@ Maui.SideBarView
         Maui.Controls.showCSD: true
         headBar.forceCenterMiddleContent: false
         split: width < 600 && (_goBackButton.visible)
-
+        headerMargins: Maui.Style.defaultPadding
         middleContent: Loader
         {
             Layout.fillWidth: true

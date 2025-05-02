@@ -228,6 +228,13 @@ Maui.ApplicationWindow
             id: _pixViewer
             visible: StackView.status === StackView.Active
             Maui.Controls.showCSD: true
+            page.headerMargins: Maui.Style.defaultPadding
+            // page.headBar.background: Rectangle
+            // {
+            //     color: Maui.Theme.backgroundColor
+            //     opacity: 0.8
+            //     radius: Maui.Style.radiusV
+            // }
             page.headBar.farLeftContent: ToolButton
             {
                 icon.name: "go-previous"
