@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:41+0000\n"
-"PO-Revision-Date: 2025-03-20 07:24+0100\n"
+"POT-Creation-Date: 2025-05-02 00:41+0000\n"
+"PO-Revision-Date: 2025-04-30 15:00+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -31,6 +31,8 @@ msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
 msgstr ""
+"Plusieurs fenêtres sont encore ouvertes. Voulez-vous vraiment fermer la "
+"fenêtre  de l'application ?"
 
 #: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
@@ -92,24 +94,24 @@ msgstr "Ouvrir des images"
 msgid "Drag and drop images here."
 msgstr "Glisser et déposer des images ici."
 
-#: src/main.qml:375
+#: src/main.qml:379
 #, kde-format
 msgid "Tagged"
 msgstr "Étiqueté"
 
-#: src/main.qml:376
+#: src/main.qml:380
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Le fichier a été étiqueté avec succès."
 
-#: src/main.qml:429 src/view_models/PixMenu.qml:45
+#: src/main.qml:433 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Supprimer le fichier %1 ?"
 msgstr[1] "Supprimer les %1 fichiers ?"
 
-#: src/main.qml:430 src/view_models/PixMenu.qml:46
+#: src/main.qml:434 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -121,12 +123,12 @@ msgstr[1] ""
 "Voulez-vous vraiment supprimer ces fichiers ? Cette action ne peut être "
 "annulée."
 
-#: src/main.qml:436 src/view_models/PixMenu.qml:53
+#: src/main.qml:440 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/main.qml:442 src/view_models/PixMenu.qml:59
+#: src/main.qml:446 src/view_models/PixMenu.qml:59
 #: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -257,7 +259,7 @@ msgstr "Sélectionner"
 #: src/view_models/PixMenu.qml:121
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "Ouvrir dans une nouvelle fenêtre"
 
 #: src/view_models/PixMenu.qml:136
 #, kde-format
@@ -423,7 +425,7 @@ msgstr "Exporter"
 msgid "Behavior"
 msgstr "Comportement"
 
-#: src/widgets/SettingsDialog.qml:20
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:141
 #, kde-format
 msgid "Auto Reload"
 msgstr "Recharger automatiquement"
@@ -633,7 +635,7 @@ msgstr[1] "%1 images."
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:93
+#: src/widgets/views/Viewer/PixViewer.qml:172
 #, kde-format
 msgid "No Pics!"
 msgstr "Aucune image !"
@@ -728,61 +730,84 @@ msgstr "Aucune image n'est associée à cette étiquette."
 msgid "Previous"
 msgstr "Précédent"
 
-#: src/widgets/views/Viewer/PixViewer.qml:94
+#: src/widgets/views/Viewer/PixViewer.qml:122
+#, kde-format
+msgid "The current image file has been modified or removed externally"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:123
+#, kde-format
+msgid "The image was deleted"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:123
+#, kde-format
+msgid "The image was modified"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:129
+#, fuzzy, kde-format
+#| msgid "Auto Reload"
+msgid "Reload"
+msgstr "Recharger automatiquement"
+
+#: src/widgets/views/Viewer/PixViewer.qml:156
+#, kde-format
+msgid "Save"
+msgstr "Enregistrer"
+
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Ouvrir une image à partir de votre collection"
 
-#: src/widgets/views/Viewer/Viewer.qml:85
+#: src/widgets/views/Viewer/Viewer.qml:86
 #, kde-format
 msgid "Text copied!"
 msgstr "Texte copié !"
 
-#: src/widgets/views/Viewer/Viewer.qml:89
+#: src/widgets/views/Viewer/Viewer.qml:90
 #, kde-format
 msgid "Image file copied!"
 msgstr "Fichier d'image copié !"
 
-#: src/widgets/views/Viewer/Viewer.qml:105
+#: src/widgets/views/Viewer/Viewer.qml:106
 #, kde-format
 msgid "Call"
 msgstr "Appel"
 
-#: src/widgets/views/Viewer/Viewer.qml:117
+#: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Save as Contact"
 msgstr "Enregistrer comme contact"
 
-#: src/widgets/views/Viewer/Viewer.qml:124
+#: src/widgets/views/Viewer/Viewer.qml:125
 #, kde-format
 msgid "Message"
 msgstr "Message"
 
-#: src/widgets/views/Viewer/Viewer.qml:137
+#: src/widgets/views/Viewer/Viewer.qml:138
 #, kde-format
 msgid "Open Link"
 msgstr "Ouvrir un lien"
 
-#: src/widgets/views/Viewer/Viewer.qml:147
+#: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Create Event"
 msgstr "Créer un évènement"
 
-#: src/widgets/views/Viewer/Viewer.qml:154
+#: src/widgets/views/Viewer/Viewer.qml:155
 #, kde-format
 msgid "Save to Note"
 msgstr "Enregistrer dans une note"
 
-#: src/widgets/views/Viewer/Viewer.qml:161
+#: src/widgets/views/Viewer/Viewer.qml:162
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Rechercher le texte sélectionné sur Google..."
 
 #~ msgid "Experimental feature."
 #~ msgstr "Fonctionnement expérimental."
-
-#~ msgid "Save"
-#~ msgstr "Enregistrer"
 
 #~ msgid "Copy"
 #~ msgstr "uCopier"

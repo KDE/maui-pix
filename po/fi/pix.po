@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:41+0000\n"
+"POT-Creation-Date: 2025-05-02 00:41+0000\n"
 "PO-Revision-Date: 2025-03-15 09:23+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -94,24 +94,24 @@ msgstr "Avaa kuvia"
 msgid "Drag and drop images here."
 msgstr "Vedä ja pudota kuvia tähän."
 
-#: src/main.qml:375
+#: src/main.qml:379
 #, kde-format
 msgid "Tagged"
 msgstr "Luokiteltu"
 
-#: src/main.qml:376
+#: src/main.qml:380
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Tiedosto luokiteltiin onnistuneesti"
 
-#: src/main.qml:429 src/view_models/PixMenu.qml:45
+#: src/main.qml:433 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Poistetaanko %1 tiedosto?"
 msgstr[1] "Poistetaanko %1 tiedostoa?"
 
-#: src/main.qml:430 src/view_models/PixMenu.qml:46
+#: src/main.qml:434 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -119,12 +119,12 @@ msgid_plural ""
 msgstr[0] "Haluatko varmasti poistaa tämän tiedoston? Toimintoa ei voi kumota."
 msgstr[1] "Haluatko varmasti poistaa nämä tiedostot? Toimintoa ei voi kumota."
 
-#: src/main.qml:436 src/view_models/PixMenu.qml:53
+#: src/main.qml:440 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/main.qml:442 src/view_models/PixMenu.qml:59
+#: src/main.qml:446 src/view_models/PixMenu.qml:59
 #: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -423,7 +423,7 @@ msgstr "Vie"
 msgid "Behavior"
 msgstr "Toiminta"
 
-#: src/widgets/SettingsDialog.qml:20
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:141
 #, kde-format
 msgid "Auto Reload"
 msgstr "Lataa automaattisesti uudelleen"
@@ -629,7 +629,7 @@ msgstr[1] "%1 kuvaa"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:93
+#: src/widgets/views/Viewer/PixViewer.qml:172
 #, kde-format
 msgid "No Pics!"
 msgstr "Ei kuvia!"
@@ -724,64 +724,87 @@ msgstr "Tähän luokitukseen ei ole kytketty kuvia"
 msgid "Previous"
 msgstr "Edellinen"
 
-#: src/widgets/views/Viewer/PixViewer.qml:94
+#: src/widgets/views/Viewer/PixViewer.qml:122
+#, kde-format
+msgid "The current image file has been modified or removed externally"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:123
+#, kde-format
+msgid "The image was deleted"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:123
+#, kde-format
+msgid "The image was modified"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:129
+#, fuzzy, kde-format
+#| msgid "Auto Reload"
+msgid "Reload"
+msgstr "Lataa automaattisesti uudelleen"
+
+#: src/widgets/views/Viewer/PixViewer.qml:156
+#, kde-format
+msgid "Save"
+msgstr "Tallenna"
+
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Avaa kokoelmasta kuva"
 
-#: src/widgets/views/Viewer/Viewer.qml:85
+#: src/widgets/views/Viewer/Viewer.qml:86
 #, kde-format
 msgid "Text copied!"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:89
+#: src/widgets/views/Viewer/Viewer.qml:90
 #, fuzzy, kde-format
 #| msgid "Image Titles"
 msgid "Image file copied!"
 msgstr "Kuvaotsikot"
 
-#: src/widgets/views/Viewer/Viewer.qml:105
+#: src/widgets/views/Viewer/Viewer.qml:106
 #, kde-format
 msgid "Call"
 msgstr "Soita"
 
-#: src/widgets/views/Viewer/Viewer.qml:117
+#: src/widgets/views/Viewer/Viewer.qml:118
 #, fuzzy, kde-format
 #| msgid "Save as"
 msgid "Save as Contact"
 msgstr "Tallenna nimellä"
 
-#: src/widgets/views/Viewer/Viewer.qml:124
+#: src/widgets/views/Viewer/Viewer.qml:125
 #, kde-format
 msgid "Message"
 msgstr "Viesti"
 
-#: src/widgets/views/Viewer/Viewer.qml:137
+#: src/widgets/views/Viewer/Viewer.qml:138
 #, fuzzy, kde-format
 #| msgid "Open Location"
 msgid "Open Link"
 msgstr "Avaa sijainti"
 
-#: src/widgets/views/Viewer/Viewer.qml:147
+#: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Create Event"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:154
+#: src/widgets/views/Viewer/Viewer.qml:155
 #, kde-format
 msgid "Save to Note"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:161
+#: src/widgets/views/Viewer/Viewer.qml:162
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
 
 #~ msgid "Experimental feature."
 #~ msgstr "Kokeellinen ominaisuus."
-
-#~ msgid "Save"
-#~ msgstr "Tallenna"
 
 #, fuzzy
 #~| msgid "Search image"

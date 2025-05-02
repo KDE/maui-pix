@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:41+0000\n"
+"POT-Creation-Date: 2025-05-02 00:41+0000\n"
 "PO-Revision-Date: 2025-04-26 13:32+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -95,17 +95,17 @@ msgstr "פתיחת תמונות"
 msgid "Drag and drop images here."
 msgstr "אפשר לגרור לכאן תמונות."
 
-#: src/main.qml:375
+#: src/main.qml:379
 #, kde-format
 msgid "Tagged"
 msgstr "מתויג"
 
-#: src/main.qml:376
+#: src/main.qml:380
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "הקובץ תויג בהצלחה"
 
-#: src/main.qml:429 src/view_models/PixMenu.qml:45
+#: src/main.qml:433 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -114,7 +114,7 @@ msgstr[1] "למחוק שני קבצים?"
 msgstr[2] "למחוק %1 קבצים?"
 msgstr[3] "למחוק %1 קבצים?"
 
-#: src/main.qml:430 src/view_models/PixMenu.qml:46
+#: src/main.qml:434 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -124,12 +124,12 @@ msgstr[1] "למחוק את הקבצים האלה? זאת פעולה בלתי ה�
 msgstr[2] "למחוק את הקבצים האלה? זאת פעולה בלתי הפיכה."
 msgstr[3] "למחוק את הקבצים האלה? זאת פעולה בלתי הפיכה."
 
-#: src/main.qml:436 src/view_models/PixMenu.qml:53
+#: src/main.qml:440 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/main.qml:442 src/view_models/PixMenu.qml:59
+#: src/main.qml:446 src/view_models/PixMenu.qml:59
 #: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -427,7 +427,7 @@ msgstr "ייצוא"
 msgid "Behavior"
 msgstr "התנהגות"
 
-#: src/widgets/SettingsDialog.qml:20
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:141
 #, kde-format
 msgid "Auto Reload"
 msgstr "ריענון אוטומטי"
@@ -637,7 +637,7 @@ msgstr[3] "%1 תמונות"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:93
+#: src/widgets/views/Viewer/PixViewer.qml:172
 #, kde-format
 msgid "No Pics!"
 msgstr "אין תמונות!"
@@ -733,61 +733,84 @@ msgstr "אין תמונות שמשויכות לתגית הזאת"
 msgid "Previous"
 msgstr "הקודם"
 
-#: src/widgets/views/Viewer/PixViewer.qml:94
+#: src/widgets/views/Viewer/PixViewer.qml:122
+#, kde-format
+msgid "The current image file has been modified or removed externally"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:123
+#, kde-format
+msgid "The image was deleted"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:123
+#, kde-format
+msgid "The image was modified"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:129
+#, fuzzy, kde-format
+#| msgid "Auto Reload"
+msgid "Reload"
+msgstr "ריענון אוטומטי"
+
+#: src/widgets/views/Viewer/PixViewer.qml:156
+#, kde-format
+msgid "Save"
+msgstr "שמירה"
+
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "פתיחת תמונה מהאוסף שלך"
 
-#: src/widgets/views/Viewer/Viewer.qml:85
+#: src/widgets/views/Viewer/Viewer.qml:86
 #, kde-format
 msgid "Text copied!"
 msgstr "הטקסט הועתק!"
 
-#: src/widgets/views/Viewer/Viewer.qml:89
+#: src/widgets/views/Viewer/Viewer.qml:90
 #, kde-format
 msgid "Image file copied!"
 msgstr "קובץ התמונה הועתק!"
 
-#: src/widgets/views/Viewer/Viewer.qml:105
+#: src/widgets/views/Viewer/Viewer.qml:106
 #, kde-format
 msgid "Call"
 msgstr "חיוג"
 
-#: src/widgets/views/Viewer/Viewer.qml:117
+#: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Save as Contact"
 msgstr "שמירה כאיש קשר"
 
-#: src/widgets/views/Viewer/Viewer.qml:124
+#: src/widgets/views/Viewer/Viewer.qml:125
 #, kde-format
 msgid "Message"
 msgstr "הודעה"
 
-#: src/widgets/views/Viewer/Viewer.qml:137
+#: src/widgets/views/Viewer/Viewer.qml:138
 #, kde-format
 msgid "Open Link"
 msgstr "פתיחת קישור"
 
-#: src/widgets/views/Viewer/Viewer.qml:147
+#: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Create Event"
 msgstr "יצירת אירוע"
 
-#: src/widgets/views/Viewer/Viewer.qml:154
+#: src/widgets/views/Viewer/Viewer.qml:155
 #, kde-format
 msgid "Save to Note"
 msgstr "שמירה לפתקית"
 
-#: src/widgets/views/Viewer/Viewer.qml:161
+#: src/widgets/views/Viewer/Viewer.qml:162
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "חיפוש הטקסט הנבחר ב־Google…"
 
 #~ msgid "Experimental feature."
 #~ msgstr "יכולת ניסיונית."
-
-#~ msgid "Save"
-#~ msgstr "שמירה"
 
 #~ msgid "Copy"
 #~ msgstr "העתקה"

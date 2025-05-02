@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:41+0000\n"
+"POT-Creation-Date: 2025-05-02 00:41+0000\n"
 "PO-Revision-Date: 2025-04-26 09:59+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -99,24 +99,24 @@ msgstr "Obre imatges"
 msgid "Drag and drop images here."
 msgstr "Arrossegueu i deixeu anar aquí les imatges."
 
-#: src/main.qml:375
+#: src/main.qml:379
 #, kde-format
 msgid "Tagged"
 msgstr "Amb etiqueta"
 
-#: src/main.qml:376
+#: src/main.qml:380
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "El fitxer s'ha etiquetat correctament"
 
-#: src/main.qml:429 src/view_models/PixMenu.qml:45
+#: src/main.qml:433 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Suprimeixo %1 fitxer?"
 msgstr[1] "Suprimeixo %1 fitxers?"
 
-#: src/main.qml:430 src/view_models/PixMenu.qml:46
+#: src/main.qml:434 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -126,12 +126,12 @@ msgstr[0] ""
 msgstr[1] ""
 "Segur que voleu suprimir aquests fitxers? Aquesta acció no es pot desfer."
 
-#: src/main.qml:436 src/view_models/PixMenu.qml:53
+#: src/main.qml:440 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/main.qml:442 src/view_models/PixMenu.qml:59
+#: src/main.qml:446 src/view_models/PixMenu.qml:59
 #: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -428,7 +428,7 @@ msgstr "Exporta"
 msgid "Behavior"
 msgstr "Comportament"
 
-#: src/widgets/SettingsDialog.qml:20
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:141
 #, kde-format
 msgid "Auto Reload"
 msgstr "Recàrrega automàtica"
@@ -637,7 +637,7 @@ msgstr[1] "%1 imatges"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:93
+#: src/widgets/views/Viewer/PixViewer.qml:172
 #, kde-format
 msgid "No Pics!"
 msgstr "Sense imatges!"
@@ -731,58 +731,81 @@ msgstr "No hi ha cap imatge associada amb l'etiqueta"
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/widgets/views/Viewer/PixViewer.qml:94
+#: src/widgets/views/Viewer/PixViewer.qml:122
+#, kde-format
+msgid "The current image file has been modified or removed externally"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:123
+#, kde-format
+msgid "The image was deleted"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:123
+#, kde-format
+msgid "The image was modified"
+msgstr ""
+
+#: src/widgets/views/Viewer/PixViewer.qml:129
+#, fuzzy, kde-format
+#| msgid "Auto Reload"
+msgid "Reload"
+msgstr "Recàrrega automàtica"
+
+#: src/widgets/views/Viewer/PixViewer.qml:156
+#, kde-format
+msgid "Save"
+msgstr "Desa"
+
+#: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Obre una imatge de la col·lecció"
 
-#: src/widgets/views/Viewer/Viewer.qml:85
+#: src/widgets/views/Viewer/Viewer.qml:86
 #, kde-format
 msgid "Text copied!"
 msgstr "S'ha copiat el text!"
 
-#: src/widgets/views/Viewer/Viewer.qml:89
+#: src/widgets/views/Viewer/Viewer.qml:90
 #, kde-format
 msgid "Image file copied!"
 msgstr "S'ha copiat el fitxer d'imatge!"
 
-#: src/widgets/views/Viewer/Viewer.qml:105
+#: src/widgets/views/Viewer/Viewer.qml:106
 #, kde-format
 msgid "Call"
 msgstr "Truca"
 
-#: src/widgets/views/Viewer/Viewer.qml:117
+#: src/widgets/views/Viewer/Viewer.qml:118
 #, kde-format
 msgid "Save as Contact"
 msgstr "Desa com a contacte"
 
-#: src/widgets/views/Viewer/Viewer.qml:124
+#: src/widgets/views/Viewer/Viewer.qml:125
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
 
-#: src/widgets/views/Viewer/Viewer.qml:137
+#: src/widgets/views/Viewer/Viewer.qml:138
 #, kde-format
 msgid "Open Link"
 msgstr "Obre l'enllaç"
 
-#: src/widgets/views/Viewer/Viewer.qml:147
+#: src/widgets/views/Viewer/Viewer.qml:148
 #, kde-format
 msgid "Create Event"
 msgstr "Crea un esdeveniment"
 
-#: src/widgets/views/Viewer/Viewer.qml:154
+#: src/widgets/views/Viewer/Viewer.qml:155
 #, kde-format
 msgid "Save to Note"
 msgstr "Desa a una nota"
 
-#: src/widgets/views/Viewer/Viewer.qml:161
+#: src/widgets/views/Viewer/Viewer.qml:162
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Cerca a Google el text seleccionat..."
 
 #~ msgid "Experimental feature."
 #~ msgstr "Característica experimental."
-
-#~ msgid "Save"
-#~ msgstr "Desa"
