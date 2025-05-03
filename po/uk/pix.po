@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-02 00:41+0000\n"
-"PO-Revision-Date: 2025-04-26 15:47+0300\n"
+"POT-Creation-Date: 2025-05-03 00:41+0000\n"
+"PO-Revision-Date: 2025-05-02 09:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -82,32 +82,32 @@ msgstr "Параметри"
 msgid "About"
 msgstr "Про програму"
 
-#: src/main.qml:234
+#: src/main.qml:241
 #, kde-format
 msgid "Gallery"
 msgstr "Галерея"
 
-#: src/main.qml:324
+#: src/main.qml:331
 #, kde-format
 msgid "Open images"
 msgstr "Відкриття зображень"
 
-#: src/main.qml:325
+#: src/main.qml:332
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Перетягніть і скиньте сюди зображення."
 
-#: src/main.qml:379
+#: src/main.qml:386
 #, kde-format
 msgid "Tagged"
 msgstr "З міткою"
 
-#: src/main.qml:380
+#: src/main.qml:387
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Файлу було успішно надано мітку"
 
-#: src/main.qml:433 src/view_models/PixMenu.qml:45
+#: src/main.qml:440 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -116,7 +116,7 @@ msgstr[1] "Вилучити %1 файли?"
 msgstr[2] "Вилучити %1 файлів?"
 msgstr[3] "Вилучити файл?"
 
-#: src/main.qml:434 src/view_models/PixMenu.qml:46
+#: src/main.qml:441 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -130,12 +130,12 @@ msgstr[2] ""
 msgstr[3] ""
 "Ви справді хочете вилучити ці файли? Результат дії не можна буде скасувати."
 
-#: src/main.qml:440 src/view_models/PixMenu.qml:53
+#: src/main.qml:447 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/main.qml:446 src/view_models/PixMenu.qml:59
+#: src/main.qml:453 src/view_models/PixMenu.qml:59
 #: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -748,22 +748,22 @@ msgstr "Назад"
 #, kde-format
 msgid "The current image file has been modified or removed externally"
 msgstr ""
+"Файл поточного зображення було змінено або вилучено сторонньою програмою"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "Зображення було вилучено"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "До зображення було внесено зміни"
 
 #: src/widgets/views/Viewer/PixViewer.qml:129
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "Автоматичне перезавантаження"
+msgstr "Перезавантажити"
 
 #: src/widgets/views/Viewer/PixViewer.qml:156
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-02 00:41+0000\n"
+"POT-Creation-Date: 2025-05-03 00:41+0000\n"
 "PO-Revision-Date: 2024-11-16 15:28+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -79,39 +79,39 @@ msgstr "Settings"
 msgid "About"
 msgstr "About"
 
-#: src/main.qml:234
+#: src/main.qml:241
 #, kde-format
 msgid "Gallery"
 msgstr "Gallery"
 
-#: src/main.qml:324
+#: src/main.qml:331
 #, kde-format
 msgid "Open images"
 msgstr "Open images"
 
-#: src/main.qml:325
+#: src/main.qml:332
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Drag and drop images here."
 
-#: src/main.qml:379
+#: src/main.qml:386
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:380
+#: src/main.qml:387
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:433 src/view_models/PixMenu.qml:45
+#: src/main.qml:440 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Delete %1 file?"
 msgstr[1] "Delete %1 files?"
 
-#: src/main.qml:434 src/view_models/PixMenu.qml:46
+#: src/main.qml:441 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -121,12 +121,12 @@ msgstr[0] ""
 msgstr[1] ""
 "Are sure you want to delete these files? This action can not be undone."
 
-#: src/main.qml:440 src/view_models/PixMenu.qml:53
+#: src/main.qml:447 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/main.qml:446 src/view_models/PixMenu.qml:59
+#: src/main.qml:453 src/view_models/PixMenu.qml:59
 #: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"

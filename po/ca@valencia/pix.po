@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-02 00:41+0000\n"
-"PO-Revision-Date: 2025-04-26 09:59+0200\n"
+"POT-Creation-Date: 2025-05-03 00:41+0000\n"
+"PO-Revision-Date: 2025-05-02 13:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -83,39 +83,39 @@ msgstr "Configuració"
 msgid "About"
 msgstr "Quant a"
 
-#: src/main.qml:234
+#: src/main.qml:241
 #, kde-format
 msgid "Gallery"
 msgstr "Galeria"
 
-#: src/main.qml:324
+#: src/main.qml:331
 #, kde-format
 msgid "Open images"
 msgstr "Obri imatges"
 
-#: src/main.qml:325
+#: src/main.qml:332
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Arrossegueu i deixeu anar ací les imatges."
 
-#: src/main.qml:379
+#: src/main.qml:386
 #, kde-format
 msgid "Tagged"
 msgstr "Amb etiqueta"
 
-#: src/main.qml:380
+#: src/main.qml:387
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "El fitxer s'ha etiquetat correctament"
 
-#: src/main.qml:433 src/view_models/PixMenu.qml:45
+#: src/main.qml:440 src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Voleu suprimir %1 fitxer?"
 msgstr[1] "Voleu suprimir %1 fitxers?"
 
-#: src/main.qml:434 src/view_models/PixMenu.qml:46
+#: src/main.qml:441 src/view_models/PixMenu.qml:46
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -125,12 +125,12 @@ msgstr[0] ""
 msgstr[1] ""
 "Segur que voleu suprimir estos fitxers? Esta acció no es podrà desfer."
 
-#: src/main.qml:440 src/view_models/PixMenu.qml:53
+#: src/main.qml:447 src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/main.qml:446 src/view_models/PixMenu.qml:59
+#: src/main.qml:453 src/view_models/PixMenu.qml:59
 #: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -733,29 +733,27 @@ msgstr "Anterior"
 #: src/widgets/views/Viewer/PixViewer.qml:122
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr ""
+msgstr "El fitxer de la imatge actual s'ha modificat o eliminat externament"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "S'ha suprimit la imatge"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "S'ha modificat la imatge"
 
 #: src/widgets/views/Viewer/PixViewer.qml:129
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "Recàrrega automàtica"
+msgstr "Torna a carregar"
 
 #: src/widgets/views/Viewer/PixViewer.qml:156
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save"
-msgstr "Anomena i guarda"
+msgstr "Guarda"
 
 #: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format
