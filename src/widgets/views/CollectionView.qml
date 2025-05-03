@@ -82,8 +82,9 @@ Maui.SideBarView
         floatingFooter: true
         flickable: _foldersView.currentItem.flickable
         Maui.Controls.showCSD: true
-        headBar.forceCenterMiddleContent: false
+
         split: width < 600 && (_goBackButton.visible)
+        // splitIn: ToolBar.Footer
         headerMargins: Maui.Style.defaultPadding
         middleContent: Loader
         {
