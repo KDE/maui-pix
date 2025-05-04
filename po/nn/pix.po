@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -579,7 +579,7 @@ msgstr "Snart klar …"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Kontroller at du er tilkopla og at skykontoen verkar"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr ""
@@ -748,7 +748,7 @@ msgstr "Last automatisk inn på nytt"
 #: src/widgets/views/Viewer/PixViewer.qml:156
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Lagra"
 
 #: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format

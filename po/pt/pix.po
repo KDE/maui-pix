@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
 "PO-Revision-Date: 2023-03-20 11:14+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -581,7 +581,7 @@ msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 "Certifique-se que está 'online' e que a sua conta na 'cloud' está funcional"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Comutar a barra lateral"

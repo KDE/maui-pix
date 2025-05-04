@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
-"PO-Revision-Date: 2025-04-26 19:36+0300\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
+"PO-Revision-Date: 2025-05-03 20:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -582,7 +582,7 @@ msgstr "Neredeyse hazır!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Çevrimiçi olduğunuzdan ve bulut hesabınızın çalıştığından emin olun"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Kenar çubuğunu aç/kapat"
@@ -731,29 +731,27 @@ msgstr "Önceki"
 #: src/widgets/views/Viewer/PixViewer.qml:122
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr ""
+msgstr "Geçerli görsel, dışarıdan değiştirilmiş veya kaldırılmış"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "Görsel silinmiş"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "Görselde değişiklik yapılmış"
 
 #: src/widgets/views/Viewer/PixViewer.qml:129
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "Otomatik Yeniden Yükle"
+msgstr "Yeniden Yükle"
 
 #: src/widgets/views/Viewer/PixViewer.qml:156
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save"
-msgstr "Farklı Kaydet"
+msgstr "Kaydet"
 
 #: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format

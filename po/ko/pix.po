@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
 "PO-Revision-Date: 2025-04-16 00:09+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -572,7 +572,7 @@ msgstr "거의 준비되었습니다!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "온라인 상태와 클라우드 계정을 확인하십시오"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "사이드바 전환"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
-"PO-Revision-Date: 2025-04-27 05:10+0100\n"
-"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
+"PO-Revision-Date: 2025-05-03 18:28+0100\n"
+"Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -584,7 +584,7 @@ msgstr "¡Casi preparado!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Asegúrese que esté en línea y que su cuenta en la nube funciona"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Activar/desactivar barra lateral"
@@ -732,29 +732,27 @@ msgstr "Previa"
 #: src/widgets/views/Viewer/PixViewer.qml:122
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr ""
+msgstr "La imagen actual ha sido modificada o eliminada de manera externa"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "La imagen fue borrada"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "La imagen fue modificada"
 
 #: src/widgets/views/Viewer/PixViewer.qml:129
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "Auto recargar"
+msgstr "Recargar"
 
 #: src/widgets/views/Viewer/PixViewer.qml:156
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save"
-msgstr "Guardar como"
+msgstr "Guardar"
 
 #: src/widgets/views/Viewer/PixViewer.qml:173
 #, kde-format

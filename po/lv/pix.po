@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
 "PO-Revision-Date: 2025-03-29 16:13+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -584,7 +584,7 @@ msgstr "Gandrīz gatavs!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Pārliecinieties, ka esat tiešsaistē un ka jūsu mākoņa konts darbojas"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Pārslēgt sānu joslu"

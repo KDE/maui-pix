@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 22:59+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -578,7 +578,7 @@ msgstr "प्रायः सज्जः !"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "सुनिश्चितं कुरुत यत् भवान् ऑनलाइन अस्ति तथा च भवतः मेघखातं कार्यं करोति"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "पार्श्वपट्टिकां टॉगलं कुर्वन्तु"

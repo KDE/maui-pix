@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
 "PO-Revision-Date: 2025-04-30 15:00+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -584,7 +584,7 @@ msgstr ""
 "Veuillez vous assurer que vous êtes connecté et que votre compte sur le "
 "« Cloud » est en fonctionnement"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Afficher / Masquer le panneau latéral"
@@ -752,8 +752,7 @@ msgid "Reload"
 msgstr "Recharger automatiquement"
 
 #: src/widgets/views/Viewer/PixViewer.qml:156
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Save"
 msgstr "Enregistrer"
 

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
-"PO-Revision-Date: 2025-04-30 01:56+0900\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
+"PO-Revision-Date: 2025-05-03 14:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -574,7 +574,7 @@ msgstr "即將就緒！"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "請確認您已連線至網際網路且您的雲端帳號是正常運作中的"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "切換側邊欄"
@@ -719,23 +719,22 @@ msgstr "上一個"
 #: src/widgets/views/Viewer/PixViewer.qml:122
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr ""
+msgstr "目前影像檔已被外部修改或刪除"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "影像已刪除"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "影像已修改"
 
 #: src/widgets/views/Viewer/PixViewer.qml:129
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "自動重新載入"
+msgstr "重新載入"
 
 #: src/widgets/views/Viewer/PixViewer.qml:156
 #, kde-format

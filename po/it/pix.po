@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
-"PO-Revision-Date: 2025-04-08 17:12+0200\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
+"PO-Revision-Date: 2025-04-30 14:54+0200\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/main.cpp:118
 #, kde-format
@@ -33,6 +33,8 @@ msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
 msgstr ""
+"Ci sono ancora aperte diverse finestre. Sei sicuro di voler chiudere "
+"l'applicazione?"
 
 #: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
@@ -259,7 +261,7 @@ msgstr "Seleziona"
 #: src/view_models/PixMenu.qml:121
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "Apri in una nuova finestra"
 
 #: src/view_models/PixMenu.qml:136
 #, kde-format
@@ -583,7 +585,7 @@ msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 "Assicurati di essere in linea e di avere l'account del cloud funzionante"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Attiva/disattiva la barra laterale"

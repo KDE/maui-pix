@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-03 00:41+0000\n"
-"PO-Revision-Date: 2025-04-26 13:32+0300\n"
+"POT-Creation-Date: 2025-05-04 00:41+0000\n"
+"PO-Revision-Date: 2025-05-03 14:31+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/main.cpp:118
 #, kde-format
@@ -582,7 +582,7 @@ msgstr "כמעט מוכן!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "נא לוודא שיש לך חיבור תקין לאינטרנט ושחשבון הענן שלך מתפקד"
 
-#: src/widgets/views/CollectionView.qml:108
+#: src/widgets/views/CollectionView.qml:109
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "הצגת/הסתרת סרגל צד"
@@ -736,23 +736,22 @@ msgstr "הקודם"
 #: src/widgets/views/Viewer/PixViewer.qml:122
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr ""
+msgstr "קובץ התמונה נערך או שהוסר חיצונית."
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "התמונה נמחקה"
 
 #: src/widgets/views/Viewer/PixViewer.qml:123
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "התמונה נערכה"
 
 #: src/widgets/views/Viewer/PixViewer.qml:129
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "ריענון אוטומטי"
+msgstr "רענון"
 
 #: src/widgets/views/Viewer/PixViewer.qml:156
 #, kde-format
