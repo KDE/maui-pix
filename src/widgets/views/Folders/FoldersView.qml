@@ -15,17 +15,42 @@ import"../Gallery"
 StackView
 {
     id: control
+    objectName: "FoldersView"
+
+    Keys.enabled: true
+    Keys.forwardTo: currentItem
+    Keys.onPressed: (event) =>
+                    {
+                        if(event.key === Qt.Key_Escape)
+                        {
+                            if(selectionBox.visible)
+                            {
+                                selectionBox.clear()
+                            }else
+                            {
+                                control.pop()
+                            }
+                            event.accepted = true
+                        }
+
+                        if(event.key == Qt.Key_F && (event.modifiers & Qt.ControlModifier))
+                        {
+                            focusSearchField()
+                            event.accepted = true
+                        }
+                    }
 
     readonly property string currentFolder : currentItem.currentFolder
     readonly property alias picsView : control.currentItem
     readonly property Flickable flickable : picsView.flickable
 
+    readonly property string pendingFolder : initModule === "folder" ? initData[0] : ""
     Component.onCompleted:
     {
-        if(_collectionViewComponent.pendingFolder.length > 0)
+        if(pendingFolder.length > 0)
         {
-            console.log("PENDING FOLDER TO BROWSE", _collectionViewComponent.pendingFolder)
-            openFolder(_collectionViewComponent.pendingFolder)
+            console.log("PENDING FOLDER TO BROWSE", pendingFolder)
+            openFolder(pendingFolder)
         }
     }
 
@@ -36,12 +61,18 @@ StackView
 
         Maui.Theme.inherit: false
         Maui.Theme.colorGroup: Maui.Theme.View
-
         flickable: _foldersGrid.flickable
         headBar.visible: false
 
+        property Component extraOptions : ToolButton
+        {
+            text: i18n("New Folder")
+            onClicked: newFolder()
+        }
+
         property Component searchFieldComponent : Maui.SearchField
         {
+            id: _searchField
             placeholderText: i18np("Filter %1 folder", "Filter %1 folders", foldersList.count)
             onAccepted:
             {
@@ -49,7 +80,13 @@ StackView
             }
 
             onCleared: folderModel.clearFilters()
+
+            Keys.enabled: true
+            Keys.onEscapePressed: _foldersGrid.forceActiveFocus()
         }
+
+        Keys.enabled: true
+        Keys.forwardTo: _foldersGrid
 
         StackView.onDeactivated:
         {
@@ -71,13 +108,25 @@ StackView
             holder.body: foldersList.count === 0 ? i18n("Add new image sources.") : i18n("Try something different.")
             holder.visible: _foldersGrid.count === 0
 
-            onKeyPress: (event) =>
-                        {
-                            if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
+            Keys.enabled: true
+            Keys.priority: Keys.AfterItem
+            Keys.onPressed: (event) =>
                             {
-                                openFolder(_foldersGrid.currentItem.path)
+
+                                if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
+                                {
+                                    openFolder(_foldersGrid.currentItem.path)
+                                    event.accepted = true
+                                    return
+                                }
+
+                                if(event.key === Qt.Key_F2)
+                                {
+                                    renameFolder()
+                                    event.accepted = true
+                                    return
+                                }
                             }
-                        }
 
             model: Maui.BaseModel
             {
@@ -165,9 +214,6 @@ Component
         holder.emoji: "qrc:/assets/add-image.svg"
         holder.title : i18n("Folder is empty!")
         holder.body: i18n("There're no images in this folder. %1", list.urls)
-
-        Keys.enabled: true
-        Keys.onEscapePressed: control.pop()
 
         gridView.header: Loader
         {
@@ -279,5 +325,7 @@ function openFolder(url, filters)
             }
         }
     }
+
+    control.forceActiveFocus()
 }
 }

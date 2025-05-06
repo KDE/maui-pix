@@ -23,13 +23,13 @@ Maui.SelectionBar
         clear()
     }
 
-    onVisibleChanged:
-    {
-        if(!visible)
-        {
-            root.selectionMode = false
-        }
-    }
+    // onVisibleChanged:
+    // {
+    //     if(!visible)
+    //     {
+    //         root.selectionMode = false
+    //     }
+    // }
 
     listDelegate: Maui.ListBrowserDelegate
     {
@@ -111,11 +111,8 @@ Maui.SelectionBar
             icon.name: "edit-delete"
             Maui.Controls.status: Maui.Controls.Negative
 
-            onTriggered:
-            {
-                var dialog = _removeDialogComponent.createObject(root, ({'urls' : control.uris}))
-                dialog.open()
-            }
+            onTriggered: removeFiles(control.uris)
+
         }
     ]
 }

@@ -19,6 +19,9 @@ ScrollView
 
     readonly property alias rollList : rollList
     property alias model: rollList.model
+    property alias currentIndex : rollList.currentIndex
+
+    onCurrentIndexChanged: position(currentIndex)
 
     signal picClicked(int index)
 
@@ -32,7 +35,6 @@ ScrollView
     ListView
     {
         id: rollList
-        currentIndex: currentPicIndex
         orientation: ListView.Horizontal
         clip: true
         spacing: 0
@@ -48,6 +50,7 @@ ScrollView
             width: height
 
             imageWidth: height
+            imageHeight: height
 
             isCurrentItem: ListView.isCurrentItem
 
@@ -58,18 +61,14 @@ ScrollView
 
             onClicked:
             {
-                rollList.currentIndex = index
                 picClicked(index)
             }
-
-            onPressAndHold: _picMenu.show()
-            onRightClicked: _picMenu.show()
         }
     }
 
     function position(index)
     {
-        rollList.currentIndex = index
+        // rollList.setCurrentIndex(index)
         rollList.positionViewAtIndex(index, ListView.Center)
     }
 }

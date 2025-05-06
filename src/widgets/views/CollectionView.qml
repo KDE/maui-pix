@@ -44,8 +44,13 @@ Maui.SideBarView
 {
     id: control
 
+    focus: true
+    focusPolicy: Qt.StrongFocus
+
+    Keys.enabled: true
+    Keys.forwardTo: _foldersView
+
     readonly property var mainGalleryList : Pix.Collection.allImagesModel
-    property alias selectionBox : _selectionBar
     property alias currentFolder :_foldersView.currentFolder
 
     Binding
@@ -78,21 +83,49 @@ Maui.SideBarView
         id: swipeView
         anchors.fill: parent
 
-        altHeader: Maui.Handy.isMobile
-        floatingFooter: true
+        focus: false
+
+        altHeader: width < 300
+
         flickable: _foldersView.currentItem.flickable
+
+        Binding
+        {
+            when: selectionBox.visible
+            target: swipeView.flickable
+            property: "bottomMargin"
+            value: selectionBox.implicitHeight
+            restoreMode: Binding.RestoreBindingOrValue
+        }
+
         Maui.Controls.showCSD: true
 
-        split: width < 600 && (_goBackButton.visible)
-        // splitIn: ToolBar.Footer
+        split: width < 600
+        splitSection: Maui.PageLayout.Section.Middle
         headerMargins: Maui.Style.defaultPadding
         middleContent: Loader
         {
+            id: _searchFieldLoader
             Layout.fillWidth: true
             Layout.maximumWidth: 500
             Layout.alignment: Qt.AlignCenter
             sourceComponent: _foldersView.currentItem && _foldersView.currentItem.hasOwnProperty("searchFieldComponent") ? _foldersView.currentItem.searchFieldComponent : null
         }
+
+        rightContent: [
+            Loader
+            {
+                Layout.fillWidth: true
+                Layout.maximumWidth: 500
+                Layout.alignment: Qt.AlignCenter
+                sourceComponent: _foldersView.currentItem && _foldersView.currentItem.hasOwnProperty("extraOptions") ? _foldersView.currentItem.extraOptions : null
+            },
+
+            Loader
+            {
+                asynchronous: true
+                sourceComponent: _mainMenuComponent
+            }]
 
         leftContent: [
             ToolButton
@@ -125,29 +158,10 @@ Maui.SideBarView
             }
         ]
 
-        rightContent: [
-            Loader
-            {
-                asynchronous: true
-                sourceComponent: _mainMenuComponent
-            }]
-
         FoldersView
         {
             id: _foldersView
             anchors.fill: parent
-        }
-
-        property string pendingFolder : initModule === "folder" ? initData[0] : ""
-
-        footer: SelectionBar
-        {
-            id: _selectionBar
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
-
-            maxListHeight: swipeView.height - Maui.Style.space.medium
-            display: ToolButton.IconOnly
         }
 
         FloatingViewer
@@ -176,30 +190,22 @@ Maui.SideBarView
         }
     }
 
+    Rectangle
+    {
+        height: 60
+        width: 60
+        anchors.centerIn: parent
+        visible: control.activeFocus
+        color: "green"
+    }
+
     function openFolder(url, filters)
     {
         _foldersView.openFolder(url, filters)
     }
 
-    function filterSelection(url)
+    function focusSearchField()
     {
-        if(selectionBox.contains(url))
-        {
-            return selectionBox.uris
-        }else
-        {
-            return [url]
-        }
-    }
-
-    function selectItem(item)
-    {
-        if(selectionBox.contains(item.url))
-        {
-            selectionBox.removeAtUri(item.url)
-            return
-        }
-
-        selectionBox.append(item.url, item)
+        _searchFieldLoader.item.forceActiveFocus()
     }
 }

@@ -10,6 +10,7 @@ import QtQuick.Layouts
 
 import org.mauikit.controls as Maui
 import org.mauikit.imagetools as IT
+import org.mauikit.filebrowsing as FB
 
 import org.maui.pix
 
@@ -44,6 +45,10 @@ Item
 
     clip: false
     focus: true
+    focusPolicy: Qt.StrongFocus
+
+    Keys.enabled: true
+    Keys.forwardTo: viewerList
 
     Maui.BaseModel
     {
@@ -71,7 +76,6 @@ Item
         control.currentItem.active = false
         control.currentItem.active = true
     }
-
 
     Action
     {
@@ -200,23 +204,78 @@ Item
         maximumFlickVelocity: 4 * (viewerList.orientation === Qt.Horizontal ? width : height)
         property bool shiftPressed : false
 
+        Keys.enabled: true
         Keys.onPressed: (event) =>
                         {
                             console.log("key pressed", event.key, event.key == Qt.Key_Control )
-                            if(event.key == Qt.Key_Shift)
+                            if(event.key === Qt.Key_Shift)
                             {
                                 console.log("shift pressed")
                                 shiftPressed = true
+                                event.accepted = true
+                                return
                             }
 
-                            if((event.key == Qt.Key_Right))
+                            if((event.key === Qt.Key_Right))
                             {
                                 next()
+                                event.accepted = true
+                                return
                             }
 
-                            if((event.key == Qt.Key_Left))
+                            if((event.key === Qt.Key_Left))
                             {
                                 previous()
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_E && (event.modifiers & Qt.ControlModifier))
+                            {
+                                openEditor(currentPic.url, _stackView)
+                                event.accepted = true
+                            }
+
+                            if(event.key === Qt.Key_S && (event.modifiers & Qt.ControlModifier))
+                            {
+                                saveAs([currentPic.url])
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_O && (event.modifiers & Qt.ControlModifier))
+                            {
+                                openFileWith([currentPic.url])
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_Space)
+                            {
+                                getFileInfo(currentPic.url)
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_D && (event.modifiers & Qt.ControlModifier))
+                            {
+                                removeFiles([currentPic.url])
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_S)
+                            {
+                                selectItem(currentPic)
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_F)
+                            {
+                                FB.Tagging.toggleFav(currentPic.url)
+                                event.accepted = true
+                                return
                             }
 
                             event.accepted = false
@@ -229,9 +288,10 @@ Item
                                 console.log("shift released")
 
                                 shiftPressed = false
+                                event.accepted = true
+                                return
                             }
                             event.accepted = false
-
                         }
 
 

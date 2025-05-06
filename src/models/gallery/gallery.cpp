@@ -216,13 +216,21 @@ void Gallery::setCitiesModel()
 {
     m_cities.clear();
 
-    for(const auto &city : GpsImages::getInstance()->cities())
+    for(const auto &url : files())
     {
-        if(m_activeGeolocationTags)
+        if(m_activeGeolocationTags && GpsImages::getInstance()->contains(url))
         {
-            this->insertCity(city);
+            this->insertCity( GpsImages::getInstance()->gpsTag(url));
         }
     }
+
+    // for(const auto &city : GpsImages::getInstance()->cities())
+    // {
+    //     if(m_activeGeolocationTags && m_urls(GpsImages::getInstance()->urls(city)))
+    //     {
+    //         this->insertCity(city);
+    //     }
+    // }
 
     Q_EMIT citiesChanged();
 }

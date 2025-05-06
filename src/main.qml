@@ -53,6 +53,7 @@ Maui.ApplicationWindow
     property QtObject tagsDialog : null
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
+    readonly property alias selectionBox : _selectionBar
 
     readonly property var previewSizes: ({small: 72,
                                              medium: 90,
@@ -60,7 +61,6 @@ Maui.ApplicationWindow
                                              extralarge: 160})
     property bool selectionMode : false
 
-    readonly property bool editing : control.currentItem.objectName === "imageEditor"
 
     Maui.InfoDialog
     {
@@ -122,11 +122,21 @@ Maui.ApplicationWindow
         property int ocrSegMode: IT.OCR.Auto
     }
 
+    Action
+    {
+        id: _openSettingsAction
+        text: i18n("Settings")
+        icon.name: "settings-configure"
+        onTriggered: openSettingsDialog()
+    }
+
     Component
     {
         id: _mainMenuComponent
+
         Maui.ToolButtonMenu
         {
+            id: _menu
             icon.name: "overflow-menu"
 
             MenuItem
@@ -138,56 +148,10 @@ Maui.ApplicationWindow
 
             MenuSeparator {}
 
-            Maui.FlexSectionItem
-            {
-                label1.text: i18n("Preview Size")
-                label2.text: i18n("Size of the thumbnails in the collection views.")
-                wide: false
-                Maui.ToolActions
-                {
-                    id: _gridIconSizesGroup
-                    expanded: true
-                    autoExclusive: true
-                    display: ToolButton.TextOnly
-
-                    Action
-                    {
-                        text: i18n("S")
-                        onTriggered: setPreviewSize(previewSizes.small)
-                        checked: previewSizes.small === browserSettings.previewSize
-                    }
-
-                    Action
-                    {
-                        text: i18n("M")
-                        onTriggered: setPreviewSize(previewSizes.medium)
-                        checked: previewSizes.medium === browserSettings.previewSize
-
-                    }
-
-                    Action
-                    {
-                        text: i18n("X")
-                        onTriggered: setPreviewSize(previewSizes.large)
-                        checked: previewSizes.large === browserSettings.previewSize
-
-                    }
-
-                    Action
-                    {
-                        text: i18n("XL")
-                        onTriggered: setPreviewSize(previewSizes.extralarge)
-                        checked: previewSizes.extralarge === browserSettings.previewSize
-
-                    }
-                }
-            }
 
             MenuItem
             {
-                text: i18n("Settings")
-                icon.name: "settings-configure"
-                onTriggered: openSettingsDialog()
+                action: _openSettingsAction
             }
 
             MenuItem
@@ -203,54 +167,71 @@ Maui.ApplicationWindow
     {
         id: _stackView
         anchors.fill: parent
+        anchors.bottomMargin: _selectionBar.visible && _pixViewer.visible ? _selectionBar.height : 0
+        objectName: "MainView"
+
+        focus: false
+        focusPolicy: Qt.NoFocus
 
         Keys.enabled: true
-        Keys.onEscapePressed: _stackView.pop()
+        Keys.onEscapePressed:
+        {
+            if(selectionBox.visible)
+            {
+                selectionBox.clear()
+                return
+            }
+             _stackView.pop()
+        }
+
+        Keys.forwardTo: [currentItem]
+
+        function forceActiveFocus()
+        {
+            _stackView.currentItem.forceActiveFocus()
+        }
 
         initialItem: initModule === "viewer" ? _pixViewer : _collectionViewComponent
-
-        background: Rectangle
-        {
-            color: Maui.Theme.backgroundColor
-        }
 
         Loader
         {
             id: _collectionViewComponent
-            active:  StackView.status === StackView.Active || item
-            property string pendingFolder : initModule === "folder" ? initData[0] : ""
-
+            active: StackView.status === StackView.Active || item
+            onLoaded: item.forceActiveFocus()
             sourceComponent: CollectionView {}
         }
 
         PixViewer
         {
             id: _pixViewer
+
+            Keys.enabled: true
+            Keys.onPressed: (event) =>
+                            {
+
+                                if((event.key == Qt.Key_F && (event.modifiers & Qt.ControlModifier) ) || event.key === Qt.Key_F4)
+                                {
+                                    showFullScreen()
+                                    event.accepted = true
+                                }
+
+                                if((event.key == Qt.Key_Escape) && root.isFullScreen)
+                                {
+                                    toggleFullscreen()
+                                    event.accepted = true
+                                }
+
+
+                                if((event.key == Qt.Key_T && (event.modifiers & Qt.ControlModifier) ))
+                                {
+                                    focusTagsBar()
+                                    event.accepted = true
+                                }
+                            }
+
             visible: StackView.status === StackView.Active
             Maui.Controls.showCSD: true
-            page.headerMargins: Maui.Style.defaultPadding
-            // page.headBar.background: Rectangle
-            // {
-            //     color: Maui.Theme.backgroundColor
-            //     opacity: 0.8
-            //     radius: Maui.Style.radiusV
-            // }
-            page.headBar.farLeftContent: ToolButton
-            {
-                icon.name: "go-previous"
-                text: i18n("Gallery")
-                display: ToolButton.TextBesideIcon
-                onClicked: toggleViewer()
-            }
-
-            page.headBar.rightContent: [
-
-                ToolButton
-                {
-                    icon.name: "view-fullscreen"
-                    onClicked: toogleFullscreen()
-                    checked: fullScreen
-                },
+            headBar.farRightContent: [
 
                 Loader
                 {
@@ -258,7 +239,49 @@ Maui.ApplicationWindow
                     sourceComponent: _mainMenuComponent
                 }
             ]
+
+            headBar.farLeftContent: ToolButton
+            {
+                icon.name: "go-previous"
+                text: i18n("Gallery")
+                display: ToolButton.TextBesideIcon
+                onClicked: toggleViewer()
+            }
         }
+    }
+
+    SelectionBar
+    {
+        id: _selectionBar
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
+
+        maxListHeight: root.height - Maui.Style.space.medium
+        display: ToolButton.IconOnly
+    }
+
+    background: Rectangle
+    {
+        Maui.Theme.colorSet:Maui.Theme.View
+        color: Maui.Theme.backgroundColor
+    }
+
+    Rectangle
+    {
+        height: 60
+        width: 60
+        color: "red"
+        anchors.centerIn: parent
+        visible: _stackView.activeFocus
+    }
+
+    Label
+    {
+        background:Rectangle{ color: "green"}
+        color: "red"
+        text: root.activeFocusItem + " / " + root.activeFocusControl + " / " + root.activeFocusControl.objectName
+
     }
 
     Component
@@ -289,7 +312,6 @@ Maui.ApplicationWindow
             onSaved:
             {
                 _editor.StackView.view.pop()
-                // viewer.reloadCurrentItem()
             }
 
             onCanceled:
@@ -369,7 +391,12 @@ Maui.ApplicationWindow
         IT.ImageInfoDialog
         {
             onGpsEdited:(url) => Pix.Collection.allImagesModel.updateGpsTag(url)
-            onClosed: destroy()
+            onClosed:
+            {
+                console.log(root.activeFocusItem, root.activeFocusControl)
+
+                destroy()
+            }
         }
     }
 
@@ -427,7 +454,13 @@ Maui.ApplicationWindow
     Component
     {
         id: _settingsDialogComponent
-        SettingsDialog {onClosed: destroy()}
+        SettingsDialog
+        {
+            onClosed:
+            {
+                destroy()
+            }
+        }
     }
 
     Component
@@ -455,7 +488,7 @@ Maui.ApplicationWindow
                     onTriggered:
                     {
                         FB.FM.removeFiles(removeDialog.urls)
-                        _collectionViewComponent.item.selectionBox.clear()
+                       selectionBox.clear()
                         close()
                     }
                 }
@@ -612,5 +645,66 @@ Maui.ApplicationWindow
         }
 
         root.tagsDialog.open()
+    }
+
+    function saveAs(urls)
+    {
+        let pic = urls[0]
+        let props = ({'mode' : FB.FileDialog.Save,
+                         'browser.settings.filterType' : FB.FMList.IMAGE,
+                         'singleSelection' : true,
+                         'suggestedFileName' : FB.FM.getFileInfo(pic).label,
+                         'callback' : function(paths)
+                         {
+                             console.log("Sate to ", paths)
+                             FB.FM.copy(urls, paths[0])
+
+                         }})
+        var dialog = fmDialogComponent.createObject(root, props)
+        dialog.open()
+    }
+
+    function selectItem(item)
+    {
+        if(selectionBox.contains(item.url))
+        {
+            selectionBox.removeAtUri(item.url)
+            return
+        }
+
+        selectionBox.append(item.url, item)
+    }
+
+    function removeFiles(urls)
+    {
+        var dialog = _removeDialogComponent.createObject(root, ({'urls' : urls}))
+        dialog.open()
+    }
+
+    function openFileWith(urls)
+    {
+        if(Maui.Handy.isAndroid)
+        {
+            FB.FM.openUrl(item.url)
+            return
+        }
+
+        _openWithDialog.urls = urls
+        _openWithDialog.open()
+    }
+
+
+    function filterSelection(url)
+    {
+        if(!selectionBox)
+            return [url]
+
+        if(selectionBox.contains(url))
+        {
+            return selectionBox.uris
+        }else
+        {
+            return [url]
+        }
     }
 }

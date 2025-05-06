@@ -10,7 +10,8 @@ function open(model, index, recursive = false)
 {
     _pixViewer.model.list.recursive = model.list.recursive
     _pixViewer.model.list.urls = model.list.urls
-    _pixViewer.view(index)
+    console.log("FOM VIEWER", index,  _pixViewer.model.mappedFromSource(index))
+    _pixViewer.view( _pixViewer.model.mappedFromSource(index))
     if(!_pixViewer.visible)
     {
         toggleViewer()
