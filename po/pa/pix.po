@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:41+0000\n"
+"POT-Creation-Date: 2025-05-07 00:41+0000\n"
 "PO-Revision-Date: 2021-10-07 18:07-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -35,85 +35,55 @@ msgid ""
 "application?"
 msgstr ""
 
-#: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
-#, kde-format
-msgid "Open"
-msgstr "ਖੋਲ੍ਹੋ"
-
-#: src/main.qml:143
-#, kde-format
-msgid "Preview Size"
-msgstr "ਝਲਕ ਦਾ ਆਕਾਰ"
-
-#: src/main.qml:144
-#, kde-format
-msgid "Size of the thumbnails in the collection views."
-msgstr ""
-
-#: src/main.qml:155
-#, kde-format
-msgid "S"
-msgstr "ਛੋ"
-
-#: src/main.qml:162
-#, kde-format
-msgid "M"
-msgstr "ਵੱ"
-
-#: src/main.qml:170
-#, kde-format
-msgid "X"
-msgstr "ਹੋ-ਵੱ"
-
-#: src/main.qml:178
-#, kde-format
-msgid "XL"
-msgstr "ਬ-ਵੱ"
-
-#: src/main.qml:188
+#: src/main.qml:128
 #, kde-format
 msgid "Settings"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/main.qml:195
+#: src/main.qml:144 src/widgets/views/Gallery/GalleryView.qml:25
+#, kde-format
+msgid "Open"
+msgstr "ਖੋਲ੍ਹੋ"
+
+#: src/main.qml:159
 #, kde-format
 msgid "About"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: src/main.qml:241
+#: src/main.qml:246
 #, kde-format
 msgid "Gallery"
 msgstr "ਗੈਲਰੀ"
 
-#: src/main.qml:331
+#: src/main.qml:353
 #, kde-format
 msgid "Open images"
 msgstr "ਚਿੱਤਰਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: src/main.qml:332
+#: src/main.qml:354
 #, fuzzy, kde-format
 #| msgid "Drag and drop images here"
 msgid "Drag and drop images here."
 msgstr "ਚਿੱਤਰ ਚੁੱਕ ਕੇ ਇੱਥੇ ਸੁੱਟੋ"
 
-#: src/main.qml:386
+#: src/main.qml:413
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:387
+#: src/main.qml:414
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:440 src/view_models/PixMenu.qml:45
+#: src/main.qml:473
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "%1 ਫਾਇਲ ਹਟਾਉਣੀ ਹੈ?"
 msgstr[1] "%1 ਫ਼ਾਇਲਾਂ ਹਟਾਉਣੀਆਂ ਹਨ?"
 
-#: src/main.qml:441 src/view_models/PixMenu.qml:46
+#: src/main.qml:474
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -121,13 +91,13 @@ msgid_plural ""
 msgstr[0] "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।"
 msgstr[1] "ਕੀ ਤੁਸੀਂ ਇਹ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਲਈ ਜਾ ਸਕਦੀ ਹੈ।"
 
-#: src/main.qml:447 src/view_models/PixMenu.qml:53
+#: src/main.qml:480
 #, kde-format
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/main.qml:453 src/view_models/PixMenu.qml:59
-#: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
+#: src/main.qml:486 src/view_models/PixMenu.qml:186
+#: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "ਹਟਾਓ"
@@ -224,7 +194,7 @@ msgstr ""
 msgid "No sources found to scan."
 msgstr ""
 
-#: src/view_models/PixGrid.qml:44
+#: src/view_models/PixGrid.qml:47
 #, fuzzy, kde-format
 #| msgid "Search"
 msgid "Search image"
@@ -232,75 +202,135 @@ msgid_plural "Search %1 images"
 msgstr[0] "ਖੋਜੋ"
 msgstr[1] "ਖੋਜੋ"
 
-#: src/view_models/PixGrid.qml:71
+#: src/view_models/PixGrid.qml:87
 #, fuzzy, kde-format
 #| msgid "Image Titles"
 msgid "Image Text (OCR)"
 msgstr "ਚਿੱਤਰਾਂ ਦੇ ਟਾਈਟਲ"
 
-#: src/view_models/PixMenu.qml:75
+#: src/view_models/PixGrid.qml:99
+#, kde-format
+msgid "Preview Size"
+msgstr "ਝਲਕ ਦਾ ਆਕਾਰ"
+
+#: src/view_models/PixGrid.qml:100
+#, kde-format
+msgid "Size of the thumbnails in the collection views."
+msgstr ""
+
+#: src/view_models/PixGrid.qml:111
+#, kde-format
+msgid "S"
+msgstr "ਛੋ"
+
+#: src/view_models/PixGrid.qml:118
+#, kde-format
+msgid "M"
+msgstr "ਵੱ"
+
+#: src/view_models/PixGrid.qml:126
+#, kde-format
+msgid "X"
+msgstr "ਹੋ-ਵੱ"
+
+#: src/view_models/PixGrid.qml:134
+#, kde-format
+msgid "XL"
+msgstr "ਬ-ਵੱ"
+
+#: src/view_models/PixGrid.qml:146
+#, kde-format
+msgid "Title"
+msgstr "ਟਾਈਟਲ"
+
+#: src/view_models/PixGrid.qml:155
+#, kde-format
+msgid "Modified"
+msgstr ""
+
+#: src/view_models/PixGrid.qml:165
+#, kde-format
+msgid "Size"
+msgstr "ਆਕਾਰ"
+
+#: src/view_models/PixGrid.qml:175
+#, kde-format
+msgid "Date"
+msgstr "ਤਾਰੀਖ"
+
+#: src/view_models/PixGrid.qml:187
+#, kde-format
+msgid "Ascending"
+msgstr "ਵੱਧਦਾ-ਕ੍ਰਮ"
+
+#: src/view_models/PixGrid.qml:197
+#, kde-format
+msgid "Descending"
+msgstr "ਘੱਟਦਾ-ਕ੍ਰਮ"
+
+#: src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "UnFav it"
 msgstr "ਇਹ ਨਾ-ਪਸੰਦ"
 
-#: src/view_models/PixMenu.qml:85
+#: src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Info"
 msgstr "ਜਾਣਕਾਰੀ"
 
-#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:73
+#: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"
 
-#: src/view_models/PixMenu.qml:108
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Select"
 msgstr "ਚੁਣੋ"
 
-#: src/view_models/PixMenu.qml:121
+#: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:136
+#: src/view_models/PixMenu.qml:107
 #, kde-format
 msgid "Add to '%1'"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:146
+#: src/view_models/PixMenu.qml:117
 #, kde-format
 msgid "Add to Album"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:161
+#: src/view_models/PixMenu.qml:132
 #, kde-format
 msgid "Edit"
 msgstr "ਸੋਧੋ"
 
-#: src/view_models/PixMenu.qml:171
+#: src/view_models/PixMenu.qml:142
 #, kde-format
 msgid "Save as"
 msgstr "ਇੰਞ ਸੰਭਾਲੋ"
 
-#: src/view_models/PixMenu.qml:192
+#: src/view_models/PixMenu.qml:149
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgid "Open with"
 msgstr "ਇਸ ਨਾਲ ਖੋਲ੍ਹੋ"
 
-#: src/view_models/PixMenu.qml:210
+#: src/view_models/PixMenu.qml:157
 #, fuzzy, kde-format
 #| msgid "Show in folder"
 msgid "Go to Folder"
 msgstr "ਫੋਲਡਰ ਵਿੱਚ ਵੇਖੋ"
 
-#: src/view_models/PixMenu.qml:227
+#: src/view_models/PixMenu.qml:174
 #, kde-format
 msgid "Open Location"
 msgstr ""
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Text Detection"
 msgstr ""
@@ -427,7 +457,7 @@ msgstr "ਐਕਸਪੋਰਟ ਕਰੋ"
 msgid "Behavior"
 msgstr "ਰਵੱਈਆ"
 
-#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:141
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:158
 #, kde-format
 msgid "Auto Reload"
 msgstr "ਆਪਣੇ-ਆਪ ਮੁੜ-ਲੋਡ ਕਰੋ"
@@ -460,98 +490,46 @@ msgstr "ਚਿੱਤਰਾਂ ਦੇ ਸਿਰਲੇਖਾਂ ਨੰ ਵੇਖ�
 
 #: src/widgets/SettingsDialog.qml:65
 #, fuzzy, kde-format
-#| msgid "Sorting by"
-msgid "Sort by"
-msgstr "ਲੜੀਬੱਧ"
-
-#: src/widgets/SettingsDialog.qml:66
-#, kde-format
-msgid "Change the sorting key."
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:76
-#, kde-format
-msgid "Title"
-msgstr "ਟਾਈਟਲ"
-
-#: src/widgets/SettingsDialog.qml:83
-#, kde-format
-msgid "Modified"
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:91
-#, kde-format
-msgid "Size"
-msgstr "ਆਕਾਰ"
-
-#: src/widgets/SettingsDialog.qml:99
-#, kde-format
-msgid "Date"
-msgstr "ਤਾਰੀਖ"
-
-#: src/widgets/SettingsDialog.qml:109
-#, fuzzy, kde-format
-#| msgid "Sort order"
-msgid "Sort Order"
-msgstr "ਲੜੀਬੱਧ ਕ੍ਰਮ"
-
-#: src/widgets/SettingsDialog.qml:110
-#, kde-format
-msgid "Change the sorting order."
-msgstr "ਲੜੀਬੱਧ ਕਰਨ ਦਾ ਢੰਗ ਬਦਲੋ।"
-
-#: src/widgets/SettingsDialog.qml:121
-#, kde-format
-msgid "Ascending"
-msgstr "ਵੱਧਦਾ-ਕ੍ਰਮ"
-
-#: src/widgets/SettingsDialog.qml:129
-#, kde-format
-msgid "Descending"
-msgstr "ਘੱਟਦਾ-ਕ੍ਰਮ"
-
-#: src/widgets/SettingsDialog.qml:140
-#, fuzzy, kde-format
 #| msgid "Tags"
 msgid "GPS Tags"
 msgstr "ਟੈਗ"
 
-#: src/widgets/SettingsDialog.qml:141
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Show GPS tags."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:155
+#: src/widgets/SettingsDialog.qml:80
 #, kde-format
 msgid "Viewer"
 msgstr "ਦਰਸ਼ਕ"
 
-#: src/widgets/SettingsDialog.qml:160
+#: src/widgets/SettingsDialog.qml:85
 #, kde-format
 msgid "Tag Bar"
 msgstr "ਟੈਗ ਪੱਟੀ"
 
-#: src/widgets/SettingsDialog.qml:161
+#: src/widgets/SettingsDialog.qml:86
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:173
+#: src/widgets/SettingsDialog.qml:98
 #, kde-format
 msgid "Preview Bar"
 msgstr "ਝਲਕ ਪੱਟੀ"
 
-#: src/widgets/SettingsDialog.qml:186
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:200
+#: src/widgets/SettingsDialog.qml:125
 #, kde-format
 msgid "Sources"
 msgstr "ਸਰੋਤ"
 
-#: src/widgets/SettingsDialog.qml:239
+#: src/widgets/SettingsDialog.qml:164
 #, kde-format
 msgid "Add"
 msgstr "ਜੋੜੋ"
@@ -586,12 +564,18 @@ msgstr "ਲਗਭਗ ਹੋ ਗਿਆ!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਆਨਲਾਈਨ ਹੋ ਅਤੇ ਤੁਹਾਡਾ ਕਲਾਉਂਡ ਖਾਤਾ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ"
 
-#: src/widgets/views/CollectionView.qml:109
+#: src/widgets/views/CollectionView.qml:142
 #, kde-format
 msgid "Toggle sidebar"
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:45
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, fuzzy, kde-format
+#| msgid "No Folders!"
+msgid "New Folder"
+msgstr "ਕੋਈ ਫੋਲਡਰ ਨਹੀਂ ਹੈ"
+
+#: src/widgets/views/Folders/FoldersView.qml:76
 #, fuzzy, kde-format
 #| msgid "Delete %1 file?"
 #| msgid_plural "Delete %1 files?"
@@ -600,40 +584,40 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "%1 ਫਾਇਲ ਹਟਾਉਣੀ ਹੈ?"
 msgstr[1] "%1 ਫ਼ਾਇਲਾਂ ਹਟਾਉਣੀਆਂ ਹਨ?"
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:107
 #, kde-format
 msgid "No Folders!"
 msgstr "ਕੋਈ ਫੋਲਡਰ ਨਹੀਂ ਹੈ"
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:107
 #, fuzzy, kde-format
 #| msgid "Nothing here"
 msgid "Nothing Here!"
 msgstr "ਇੱਥੇ ਕੁਝ ਨਹੀਂ ਹੈ"
 
-#: src/widgets/views/Folders/FoldersView.qml:71
+#: src/widgets/views/Folders/FoldersView.qml:108
 #, fuzzy, kde-format
 #| msgid "Add new image sources"
 msgid "Add new image sources."
 msgstr "ਨਵੇਂ ਚਿੱਤਰ ਸਰੋਤ ਜੋੜੋ"
 
-#: src/widgets/views/Folders/FoldersView.qml:71
+#: src/widgets/views/Folders/FoldersView.qml:108
 #, kde-format
 msgid "Try something different."
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:166
+#: src/widgets/views/Folders/FoldersView.qml:215
 #, kde-format
 msgid "Folder is empty!"
 msgstr "ਫੋਲਡਰ ਖਾਲੀ ਹੈ!"
 
-#: src/widgets/views/Folders/FoldersView.qml:167
+#: src/widgets/views/Folders/FoldersView.qml:216
 #, fuzzy, kde-format
 #| msgid "There's not images in this folder"
 msgid "There're no images in this folder. %1"
 msgstr "ਇਸ ਫੋਲਡਰ ਵਿੱਚ ਕੋਈ ਚਿੱਤਰ ਨਹੀਂ ਹੈ"
 
-#: src/widgets/views/Folders/FoldersView.qml:185
+#: src/widgets/views/Folders/FoldersView.qml:231
 #, fuzzy, kde-format
 #| msgid "Open images"
 msgid "No images."
@@ -643,7 +627,7 @@ msgstr[1] "ਚਿੱਤਰਾਂ ਨੂੰ ਖੋਲ੍ਹੋ"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:172
+#: src/widgets/views/Viewer/PixViewer.qml:188
 #, kde-format
 msgid "No Pics!"
 msgstr "ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ!"
@@ -737,89 +721,102 @@ msgstr "ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ!"
 msgid "There're no pics associated with the tag"
 msgstr "ਟੈਗ ਨਾਲ ਸੰਬੰਧਿਤ ਕੋਈ ਵੀ ਤਸਵੀਰ ਨਹੀਂ ਹੈ।"
 
-#: src/widgets/views/Viewer/PixViewer.qml:73
+#: src/widgets/views/Viewer/PixViewer.qml:92
 #, kde-format
 msgid "Previous"
 msgstr "ਪਿੱਛੇ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:122
+#: src/widgets/views/Viewer/PixViewer.qml:139
 #, kde-format
 msgid "The current image file has been modified or removed externally"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:123
+#: src/widgets/views/Viewer/PixViewer.qml:140
 #, kde-format
 msgid "The image was deleted"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:123
+#: src/widgets/views/Viewer/PixViewer.qml:140
 #, kde-format
 msgid "The image was modified"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:129
+#: src/widgets/views/Viewer/PixViewer.qml:146
 #, fuzzy, kde-format
 #| msgid "Auto Reload"
 msgid "Reload"
 msgstr "ਆਪਣੇ-ਆਪ ਮੁੜ-ਲੋਡ ਕਰੋ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:156
+#: src/widgets/views/Viewer/PixViewer.qml:172
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: src/widgets/views/Viewer/PixViewer.qml:173
+#: src/widgets/views/Viewer/PixViewer.qml:189
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "ਆਪਣੇ ਭੰਡਾਰ ਤੋਂ ਚਿੱਤਰ ਖੋਲ੍ਹੋ"
 
-#: src/widgets/views/Viewer/Viewer.qml:86
+#: src/widgets/views/Viewer/Viewer.qml:90
 #, kde-format
 msgid "Text copied!"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:94
 #, fuzzy, kde-format
 #| msgid "Image Titles"
 msgid "Image file copied!"
 msgstr "ਚਿੱਤਰਾਂ ਦੇ ਟਾਈਟਲ"
 
-#: src/widgets/views/Viewer/Viewer.qml:106
+#: src/widgets/views/Viewer/Viewer.qml:110
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:118
+#: src/widgets/views/Viewer/Viewer.qml:122
 #, fuzzy, kde-format
 #| msgid "Save as"
 msgid "Save as Contact"
 msgstr "ਇੰਞ ਸੰਭਾਲੋ"
 
-#: src/widgets/views/Viewer/Viewer.qml:125
+#: src/widgets/views/Viewer/Viewer.qml:129
 #, kde-format
 msgid "Message"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:138
+#: src/widgets/views/Viewer/Viewer.qml:142
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgid "Open Link"
 msgstr "ਇਸ ਨਾਲ ਖੋਲ੍ਹੋ"
 
-#: src/widgets/views/Viewer/Viewer.qml:148
+#: src/widgets/views/Viewer/Viewer.qml:152
 #, kde-format
 msgid "Create Event"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:155
+#: src/widgets/views/Viewer/Viewer.qml:159
 #, kde-format
 msgid "Save to Note"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:162
+#: src/widgets/views/Viewer/Viewer.qml:166
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Sorting by"
+#~ msgid "Sort by"
+#~ msgstr "ਲੜੀਬੱਧ"
+
+#, fuzzy
+#~| msgid "Sort order"
+#~ msgid "Sort Order"
+#~ msgstr "ਲੜੀਬੱਧ ਕ੍ਰਮ"
+
+#~ msgid "Change the sorting order."
+#~ msgstr "ਲੜੀਬੱਧ ਕਰਨ ਦਾ ਢੰਗ ਬਦਲੋ।"
 
 #, fuzzy
 #~| msgid "Search"

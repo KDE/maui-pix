@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:41+0000\n"
+"POT-Creation-Date: 2025-05-07 00:41+0000\n"
 "PO-Revision-Date: 2025-05-03 14:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -37,96 +37,66 @@ msgid ""
 "application?"
 msgstr "有多個尚未關閉的視窗。您確定要關閉本應用程式嗎？"
 
-#: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
-#, kde-format
-msgid "Open"
-msgstr "開啟"
-
-#: src/main.qml:143
-#, kde-format
-msgid "Preview Size"
-msgstr "預覽大小"
-
-#: src/main.qml:144
-#, kde-format
-msgid "Size of the thumbnails in the collection views."
-msgstr "收藏檢視中的縮圖大小。"
-
-#: src/main.qml:155
-#, kde-format
-msgid "S"
-msgstr "小"
-
-#: src/main.qml:162
-#, kde-format
-msgid "M"
-msgstr "中"
-
-#: src/main.qml:170
-#, kde-format
-msgid "X"
-msgstr "巨大"
-
-#: src/main.qml:178
-#, kde-format
-msgid "XL"
-msgstr "非常大"
-
-#: src/main.qml:188
+#: src/main.qml:128
 #, kde-format
 msgid "Settings"
 msgstr "設定"
 
-#: src/main.qml:195
+#: src/main.qml:144 src/widgets/views/Gallery/GalleryView.qml:25
+#, kde-format
+msgid "Open"
+msgstr "開啟"
+
+#: src/main.qml:159
 #, kde-format
 msgid "About"
 msgstr "關於"
 
-#: src/main.qml:241
+#: src/main.qml:246
 #, kde-format
 msgid "Gallery"
 msgstr "相簿"
 
-#: src/main.qml:331
+#: src/main.qml:353
 #, kde-format
 msgid "Open images"
 msgstr "開啟影像"
 
-#: src/main.qml:332
+#: src/main.qml:354
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "拖放影像到這裡。"
 
-#: src/main.qml:386
+#: src/main.qml:413
 #, kde-format
 msgid "Tagged"
 msgstr "已加上標籤"
 
-#: src/main.qml:387
+#: src/main.qml:414
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "檔案已成功加上標籤"
 
-#: src/main.qml:440 src/view_models/PixMenu.qml:45
+#: src/main.qml:473
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "刪除 %1 個檔案？"
 
-#: src/main.qml:441 src/view_models/PixMenu.qml:46
+#: src/main.qml:474
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
 msgstr[0] "您確定要移除這些檔案嗎？這個動作無法復原。"
 
-#: src/main.qml:447 src/view_models/PixMenu.qml:53
+#: src/main.qml:480
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: src/main.qml:453 src/view_models/PixMenu.qml:59
-#: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
+#: src/main.qml:486 src/view_models/PixMenu.qml:186
+#: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "移除"
@@ -221,78 +191,138 @@ msgstr "畫作"
 msgid "No sources found to scan."
 msgstr "找不到要掃描的來源。"
 
-#: src/view_models/PixGrid.qml:44
+#: src/view_models/PixGrid.qml:47
 #, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
 msgstr[0] "搜尋 %1 張影像"
 
-#: src/view_models/PixGrid.qml:71
+#: src/view_models/PixGrid.qml:87
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "影像文字 (OCR)"
 
-#: src/view_models/PixMenu.qml:75
+#: src/view_models/PixGrid.qml:99
+#, kde-format
+msgid "Preview Size"
+msgstr "預覽大小"
+
+#: src/view_models/PixGrid.qml:100
+#, kde-format
+msgid "Size of the thumbnails in the collection views."
+msgstr "收藏檢視中的縮圖大小。"
+
+#: src/view_models/PixGrid.qml:111
+#, kde-format
+msgid "S"
+msgstr "小"
+
+#: src/view_models/PixGrid.qml:118
+#, kde-format
+msgid "M"
+msgstr "中"
+
+#: src/view_models/PixGrid.qml:126
+#, kde-format
+msgid "X"
+msgstr "巨大"
+
+#: src/view_models/PixGrid.qml:134
+#, kde-format
+msgid "XL"
+msgstr "非常大"
+
+#: src/view_models/PixGrid.qml:146
+#, kde-format
+msgid "Title"
+msgstr "標題"
+
+#: src/view_models/PixGrid.qml:155
+#, kde-format
+msgid "Modified"
+msgstr "修改時間"
+
+#: src/view_models/PixGrid.qml:165
+#, kde-format
+msgid "Size"
+msgstr "大小"
+
+#: src/view_models/PixGrid.qml:175
+#, kde-format
+msgid "Date"
+msgstr "日期"
+
+#: src/view_models/PixGrid.qml:187
+#, kde-format
+msgid "Ascending"
+msgstr "遞增"
+
+#: src/view_models/PixGrid.qml:197
+#, kde-format
+msgid "Descending"
+msgstr "遞減"
+
+#: src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "UnFav it"
 msgstr "從最愛中移除它"
 
-#: src/view_models/PixMenu.qml:85
+#: src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Info"
 msgstr "資訊"
 
-#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:73
+#: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "分享"
 
-#: src/view_models/PixMenu.qml:108
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Select"
 msgstr "選取"
 
-#: src/view_models/PixMenu.qml:121
+#: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
 msgstr "在新視窗開啟"
 
-#: src/view_models/PixMenu.qml:136
+#: src/view_models/PixMenu.qml:107
 #, kde-format
 msgid "Add to '%1'"
 msgstr "加入「%1」"
 
-#: src/view_models/PixMenu.qml:146
+#: src/view_models/PixMenu.qml:117
 #, kde-format
 msgid "Add to Album"
 msgstr "加入專輯"
 
-#: src/view_models/PixMenu.qml:161
+#: src/view_models/PixMenu.qml:132
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: src/view_models/PixMenu.qml:171
+#: src/view_models/PixMenu.qml:142
 #, kde-format
 msgid "Save as"
 msgstr "另存為"
 
-#: src/view_models/PixMenu.qml:192
+#: src/view_models/PixMenu.qml:149
 #, kde-format
 msgid "Open with"
 msgstr "開啟方式"
 
-#: src/view_models/PixMenu.qml:210
+#: src/view_models/PixMenu.qml:157
 #, kde-format
 msgid "Go to Folder"
 msgstr "跳至資料夾"
 
-#: src/view_models/PixMenu.qml:227
+#: src/view_models/PixMenu.qml:174
 #, kde-format
 msgid "Open Location"
 msgstr "開啟位置"
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Text Detection"
 msgstr "文字偵測"
@@ -419,7 +449,7 @@ msgstr "匯出"
 msgid "Behavior"
 msgstr "行為"
 
-#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:141
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:158
 #, kde-format
 msgid "Auto Reload"
 msgstr "自動重新載入"
@@ -451,95 +481,45 @@ msgstr "顯示影像的檔案名稱。"
 
 #: src/widgets/SettingsDialog.qml:65
 #, kde-format
-msgid "Sort by"
-msgstr "排序方式"
-
-#: src/widgets/SettingsDialog.qml:66
-#, kde-format
-msgid "Change the sorting key."
-msgstr "變更排序依據。"
-
-#: src/widgets/SettingsDialog.qml:76
-#, kde-format
-msgid "Title"
-msgstr "標題"
-
-#: src/widgets/SettingsDialog.qml:83
-#, kde-format
-msgid "Modified"
-msgstr "修改時間"
-
-#: src/widgets/SettingsDialog.qml:91
-#, kde-format
-msgid "Size"
-msgstr "大小"
-
-#: src/widgets/SettingsDialog.qml:99
-#, kde-format
-msgid "Date"
-msgstr "日期"
-
-#: src/widgets/SettingsDialog.qml:109
-#, kde-format
-msgid "Sort Order"
-msgstr "排序方向"
-
-#: src/widgets/SettingsDialog.qml:110
-#, kde-format
-msgid "Change the sorting order."
-msgstr "變更排序方向。"
-
-#: src/widgets/SettingsDialog.qml:121
-#, kde-format
-msgid "Ascending"
-msgstr "遞增"
-
-#: src/widgets/SettingsDialog.qml:129
-#, kde-format
-msgid "Descending"
-msgstr "遞減"
-
-#: src/widgets/SettingsDialog.qml:140
-#, kde-format
 msgid "GPS Tags"
 msgstr "GPS 標籤"
 
-#: src/widgets/SettingsDialog.qml:141
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Show GPS tags."
 msgstr "顯示 GPS 標籤。"
 
-#: src/widgets/SettingsDialog.qml:155
+#: src/widgets/SettingsDialog.qml:80
 #, kde-format
 msgid "Viewer"
 msgstr "檢視器"
 
-#: src/widgets/SettingsDialog.qml:160
+#: src/widgets/SettingsDialog.qml:85
 #, kde-format
 msgid "Tag Bar"
 msgstr "標籤列"
 
-#: src/widgets/SettingsDialog.qml:161
+#: src/widgets/SettingsDialog.qml:86
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr "新增、移除或修改目前影像標籤的簡單方式。"
 
-#: src/widgets/SettingsDialog.qml:173
+#: src/widgets/SettingsDialog.qml:98
 #, kde-format
 msgid "Preview Bar"
 msgstr "預覽列"
 
-#: src/widgets/SettingsDialog.qml:186
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr "設定影像的文字偵測。"
 
-#: src/widgets/SettingsDialog.qml:200
+#: src/widgets/SettingsDialog.qml:125
 #, kde-format
 msgid "Sources"
 msgstr "來源"
 
-#: src/widgets/SettingsDialog.qml:239
+#: src/widgets/SettingsDialog.qml:164
 #, kde-format
 msgid "Add"
 msgstr "新增"
@@ -574,48 +554,54 @@ msgstr "即將就緒！"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "請確認您已連線至網際網路且您的雲端帳號是正常運作中的"
 
-#: src/widgets/views/CollectionView.qml:109
+#: src/widgets/views/CollectionView.qml:142
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "切換側邊欄"
 
-#: src/widgets/views/Folders/FoldersView.qml:45
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, fuzzy, kde-format
+#| msgid "No Folders!"
+msgid "New Folder"
+msgstr "沒有資料夾！"
+
+#: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
 msgstr[0] "過濾 %1 個資料夾"
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:107
 #, kde-format
 msgid "No Folders!"
 msgstr "沒有資料夾！"
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:107
 #, kde-format
 msgid "Nothing Here!"
 msgstr "這裡什麼都沒有！"
 
-#: src/widgets/views/Folders/FoldersView.qml:71
+#: src/widgets/views/Folders/FoldersView.qml:108
 #, kde-format
 msgid "Add new image sources."
 msgstr "新增影像來源。"
 
-#: src/widgets/views/Folders/FoldersView.qml:71
+#: src/widgets/views/Folders/FoldersView.qml:108
 #, kde-format
 msgid "Try something different."
 msgstr "試試看不同的東西。"
 
-#: src/widgets/views/Folders/FoldersView.qml:166
+#: src/widgets/views/Folders/FoldersView.qml:215
 #, kde-format
 msgid "Folder is empty!"
 msgstr "資料夾是空的！"
 
-#: src/widgets/views/Folders/FoldersView.qml:167
+#: src/widgets/views/Folders/FoldersView.qml:216
 #, kde-format
 msgid "There're no images in this folder. %1"
 msgstr "這個資料夾裡沒有影像。%1"
 
-#: src/widgets/views/Folders/FoldersView.qml:185
+#: src/widgets/views/Folders/FoldersView.qml:231
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -623,7 +609,7 @@ msgstr[0] "%1 張影像"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:172
+#: src/widgets/views/Viewer/PixViewer.qml:188
 #, kde-format
 msgid "No Pics!"
 msgstr "沒有圖片！"
@@ -711,85 +697,97 @@ msgstr "%1 裡沒有圖片！"
 msgid "There're no pics associated with the tag"
 msgstr "沒有含有該標籤的圖片"
 
-#: src/widgets/views/Viewer/PixViewer.qml:73
+#: src/widgets/views/Viewer/PixViewer.qml:92
 #, kde-format
 msgid "Previous"
 msgstr "上一個"
 
-#: src/widgets/views/Viewer/PixViewer.qml:122
+#: src/widgets/views/Viewer/PixViewer.qml:139
 #, kde-format
 msgid "The current image file has been modified or removed externally"
 msgstr "目前影像檔已被外部修改或刪除"
 
-#: src/widgets/views/Viewer/PixViewer.qml:123
+#: src/widgets/views/Viewer/PixViewer.qml:140
 #, kde-format
 msgid "The image was deleted"
 msgstr "影像已刪除"
 
-#: src/widgets/views/Viewer/PixViewer.qml:123
+#: src/widgets/views/Viewer/PixViewer.qml:140
 #, kde-format
 msgid "The image was modified"
 msgstr "影像已修改"
 
-#: src/widgets/views/Viewer/PixViewer.qml:129
+#: src/widgets/views/Viewer/PixViewer.qml:146
 #, kde-format
 msgid "Reload"
 msgstr "重新載入"
 
-#: src/widgets/views/Viewer/PixViewer.qml:156
+#: src/widgets/views/Viewer/PixViewer.qml:172
 #, kde-format
 msgid "Save"
 msgstr "儲存"
 
-#: src/widgets/views/Viewer/PixViewer.qml:173
+#: src/widgets/views/Viewer/PixViewer.qml:189
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "從您的收藏裡開啟影像"
 
-#: src/widgets/views/Viewer/Viewer.qml:86
+#: src/widgets/views/Viewer/Viewer.qml:90
 #, kde-format
 msgid "Text copied!"
 msgstr "文字已複製！"
 
-#: src/widgets/views/Viewer/Viewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:94
 #, kde-format
 msgid "Image file copied!"
 msgstr "影像檔案已複製！"
 
-#: src/widgets/views/Viewer/Viewer.qml:106
+#: src/widgets/views/Viewer/Viewer.qml:110
 #, kde-format
 msgid "Call"
 msgstr "撥打電話"
 
-#: src/widgets/views/Viewer/Viewer.qml:118
+#: src/widgets/views/Viewer/Viewer.qml:122
 #, kde-format
 msgid "Save as Contact"
 msgstr "另存為聯絡人"
 
-#: src/widgets/views/Viewer/Viewer.qml:125
+#: src/widgets/views/Viewer/Viewer.qml:129
 #, kde-format
 msgid "Message"
 msgstr "傳送訊息"
 
-#: src/widgets/views/Viewer/Viewer.qml:138
+#: src/widgets/views/Viewer/Viewer.qml:142
 #, kde-format
 msgid "Open Link"
 msgstr "開啟連結"
 
-#: src/widgets/views/Viewer/Viewer.qml:148
+#: src/widgets/views/Viewer/Viewer.qml:152
 #, kde-format
 msgid "Create Event"
 msgstr "建立事件"
 
-#: src/widgets/views/Viewer/Viewer.qml:155
+#: src/widgets/views/Viewer/Viewer.qml:159
 #, kde-format
 msgid "Save to Note"
 msgstr "儲存到筆記"
 
-#: src/widgets/views/Viewer/Viewer.qml:162
+#: src/widgets/views/Viewer/Viewer.qml:166
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "在 Google 上搜尋選取的文字…"
+
+#~ msgid "Sort by"
+#~ msgstr "排序方式"
+
+#~ msgid "Change the sorting key."
+#~ msgstr "變更排序依據。"
+
+#~ msgid "Sort Order"
+#~ msgstr "排序方向"
+
+#~ msgid "Change the sorting order."
+#~ msgstr "變更排序方向。"
 
 #~ msgid "Experimental feature."
 #~ msgstr "實驗性功能。"

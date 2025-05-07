@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:41+0000\n"
+"POT-Creation-Date: 2025-05-07 00:41+0000\n"
 "PO-Revision-Date: 2024-11-14 14:10+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -34,77 +34,47 @@ msgid ""
 "application?"
 msgstr ""
 
-#: src/main.qml:134 src/widgets/views/Gallery/GalleryView.qml:25
-#, kde-format
-msgid "Open"
-msgstr "Otevřít"
-
-#: src/main.qml:143
-#, kde-format
-msgid "Preview Size"
-msgstr "Velikost náhledu"
-
-#: src/main.qml:144
-#, kde-format
-msgid "Size of the thumbnails in the collection views."
-msgstr ""
-
-#: src/main.qml:155
-#, kde-format
-msgid "S"
-msgstr "S"
-
-#: src/main.qml:162
-#, kde-format
-msgid "M"
-msgstr "M"
-
-#: src/main.qml:170
-#, kde-format
-msgid "X"
-msgstr "X"
-
-#: src/main.qml:178
-#, kde-format
-msgid "XL"
-msgstr "XL"
-
-#: src/main.qml:188
+#: src/main.qml:128
 #, kde-format
 msgid "Settings"
 msgstr "Nastavení"
 
-#: src/main.qml:195
+#: src/main.qml:144 src/widgets/views/Gallery/GalleryView.qml:25
+#, kde-format
+msgid "Open"
+msgstr "Otevřít"
+
+#: src/main.qml:159
 #, kde-format
 msgid "About"
 msgstr "O aplikaci"
 
-#: src/main.qml:241
+#: src/main.qml:246
 #, kde-format
 msgid "Gallery"
 msgstr "Galerie"
 
-#: src/main.qml:331
+#: src/main.qml:353
 #, kde-format
 msgid "Open images"
 msgstr "Otevřít obrázky"
 
-#: src/main.qml:332
+#: src/main.qml:354
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Sem přetáhněte obrázky."
 
-#: src/main.qml:386
+#: src/main.qml:413
 #, kde-format
 msgid "Tagged"
 msgstr "Označkováno"
 
-#: src/main.qml:387
+#: src/main.qml:414
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:440 src/view_models/PixMenu.qml:45
+#: src/main.qml:473
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -112,7 +82,7 @@ msgstr[0] "Smazat %1 soubor?"
 msgstr[1] "Smazat %1 soubory?"
 msgstr[2] "Smazat %1 souborů?"
 
-#: src/main.qml:441 src/view_models/PixMenu.qml:46
+#: src/main.qml:474
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -121,13 +91,13 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/main.qml:447 src/view_models/PixMenu.qml:53
+#: src/main.qml:480
 #, kde-format
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: src/main.qml:453 src/view_models/PixMenu.qml:59
-#: src/view_models/PixMenu.qml:239 src/widgets/SelectionBar.qml:110
+#: src/main.qml:486 src/view_models/PixMenu.qml:186
+#: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "Odstranit"
@@ -222,7 +192,7 @@ msgstr "Malby"
 msgid "No sources found to scan."
 msgstr "Pro skenování nebyly nalezeny žádné zdroje."
 
-#: src/view_models/PixGrid.qml:44
+#: src/view_models/PixGrid.qml:47
 #, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
@@ -230,72 +200,132 @@ msgstr[0] "Hledat obrázek"
 msgstr[1] "Hledat %1 obrázky"
 msgstr[2] "Hledat %1 obrázků"
 
-#: src/view_models/PixGrid.qml:71
+#: src/view_models/PixGrid.qml:87
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "Text obrázku (OCR)"
 
-#: src/view_models/PixMenu.qml:75
+#: src/view_models/PixGrid.qml:99
+#, kde-format
+msgid "Preview Size"
+msgstr "Velikost náhledu"
+
+#: src/view_models/PixGrid.qml:100
+#, kde-format
+msgid "Size of the thumbnails in the collection views."
+msgstr ""
+
+#: src/view_models/PixGrid.qml:111
+#, kde-format
+msgid "S"
+msgstr "S"
+
+#: src/view_models/PixGrid.qml:118
+#, kde-format
+msgid "M"
+msgstr "M"
+
+#: src/view_models/PixGrid.qml:126
+#, kde-format
+msgid "X"
+msgstr "X"
+
+#: src/view_models/PixGrid.qml:134
+#, kde-format
+msgid "XL"
+msgstr "XL"
+
+#: src/view_models/PixGrid.qml:146
+#, kde-format
+msgid "Title"
+msgstr "Název"
+
+#: src/view_models/PixGrid.qml:155
+#, kde-format
+msgid "Modified"
+msgstr "Změněno"
+
+#: src/view_models/PixGrid.qml:165
+#, kde-format
+msgid "Size"
+msgstr "Velikost"
+
+#: src/view_models/PixGrid.qml:175
+#, kde-format
+msgid "Date"
+msgstr "Datum"
+
+#: src/view_models/PixGrid.qml:187
+#, kde-format
+msgid "Ascending"
+msgstr "Vzestupně"
+
+#: src/view_models/PixGrid.qml:197
+#, kde-format
+msgid "Descending"
+msgstr "Sestupně"
+
+#: src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "UnFav it"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:85
+#: src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Info"
 msgstr "Informace"
 
-#: src/view_models/PixMenu.qml:95 src/widgets/SelectionBar.qml:73
+#: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "Sdílet"
 
-#: src/view_models/PixMenu.qml:108
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Select"
 msgstr "Vybrat"
 
-#: src/view_models/PixMenu.qml:121
+#: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:136
+#: src/view_models/PixMenu.qml:107
 #, kde-format
 msgid "Add to '%1'"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:146
+#: src/view_models/PixMenu.qml:117
 #, kde-format
 msgid "Add to Album"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:161
+#: src/view_models/PixMenu.qml:132
 #, kde-format
 msgid "Edit"
 msgstr "Upravit"
 
-#: src/view_models/PixMenu.qml:171
+#: src/view_models/PixMenu.qml:142
 #, kde-format
 msgid "Save as"
 msgstr "Uložit jako"
 
-#: src/view_models/PixMenu.qml:192
+#: src/view_models/PixMenu.qml:149
 #, kde-format
 msgid "Open with"
 msgstr "Otevřít pomocí"
 
-#: src/view_models/PixMenu.qml:210
+#: src/view_models/PixMenu.qml:157
 #, kde-format
 msgid "Go to Folder"
 msgstr "Přejít na složku"
 
-#: src/view_models/PixMenu.qml:227
+#: src/view_models/PixMenu.qml:174
 #, kde-format
 msgid "Open Location"
 msgstr "Otevřít umístění"
 
-#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:185
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Text Detection"
 msgstr ""
@@ -422,7 +452,7 @@ msgstr "Exportovat"
 msgid "Behavior"
 msgstr "Chování"
 
-#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:141
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:158
 #, kde-format
 msgid "Auto Reload"
 msgstr "Automatické opětovné načtení"
@@ -454,95 +484,45 @@ msgstr "Zobrazit název souborů a obrázků."
 
 #: src/widgets/SettingsDialog.qml:65
 #, kde-format
-msgid "Sort by"
-msgstr "Řadit dle"
-
-#: src/widgets/SettingsDialog.qml:66
-#, kde-format
-msgid "Change the sorting key."
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:76
-#, kde-format
-msgid "Title"
-msgstr "Název"
-
-#: src/widgets/SettingsDialog.qml:83
-#, kde-format
-msgid "Modified"
-msgstr "Změněno"
-
-#: src/widgets/SettingsDialog.qml:91
-#, kde-format
-msgid "Size"
-msgstr "Velikost"
-
-#: src/widgets/SettingsDialog.qml:99
-#, kde-format
-msgid "Date"
-msgstr "Datum"
-
-#: src/widgets/SettingsDialog.qml:109
-#, kde-format
-msgid "Sort Order"
-msgstr "Pořadí řazení"
-
-#: src/widgets/SettingsDialog.qml:110
-#, kde-format
-msgid "Change the sorting order."
-msgstr ""
-
-#: src/widgets/SettingsDialog.qml:121
-#, kde-format
-msgid "Ascending"
-msgstr "Vzestupně"
-
-#: src/widgets/SettingsDialog.qml:129
-#, kde-format
-msgid "Descending"
-msgstr "Sestupně"
-
-#: src/widgets/SettingsDialog.qml:140
-#, kde-format
 msgid "GPS Tags"
 msgstr "Značky GPS"
 
-#: src/widgets/SettingsDialog.qml:141
+#: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Show GPS tags."
 msgstr "Zobrazit značky GPS."
 
-#: src/widgets/SettingsDialog.qml:155
+#: src/widgets/SettingsDialog.qml:80
 #, kde-format
 msgid "Viewer"
 msgstr "Prohlížeč"
 
-#: src/widgets/SettingsDialog.qml:160
+#: src/widgets/SettingsDialog.qml:85
 #, kde-format
 msgid "Tag Bar"
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:161
+#: src/widgets/SettingsDialog.qml:86
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:173
+#: src/widgets/SettingsDialog.qml:98
 #, kde-format
 msgid "Preview Bar"
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:186
+#: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Configure settings for text detection in images."
 msgstr ""
 
-#: src/widgets/SettingsDialog.qml:200
+#: src/widgets/SettingsDialog.qml:125
 #, kde-format
 msgid "Sources"
 msgstr "Zdroje"
 
-#: src/widgets/SettingsDialog.qml:239
+#: src/widgets/SettingsDialog.qml:164
 #, kde-format
 msgid "Add"
 msgstr "Přidat"
@@ -577,12 +557,18 @@ msgstr "´"
 msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 
-#: src/widgets/views/CollectionView.qml:109
+#: src/widgets/views/CollectionView.qml:142
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Přepnout postranní panel"
 
-#: src/widgets/views/Folders/FoldersView.qml:45
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, fuzzy, kde-format
+#| msgid "No Folders!"
+msgid "New Folder"
+msgstr "Žádné složky."
+
+#: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
@@ -590,37 +576,37 @@ msgstr[0] "Filtrovat %1 složku"
 msgstr[1] "Filtrovat %1 složky"
 msgstr[2] "Filtrovat %1 složek"
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:107
 #, kde-format
 msgid "No Folders!"
 msgstr "Žádné složky."
 
-#: src/widgets/views/Folders/FoldersView.qml:70
+#: src/widgets/views/Folders/FoldersView.qml:107
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Zde nic není!"
 
-#: src/widgets/views/Folders/FoldersView.qml:71
+#: src/widgets/views/Folders/FoldersView.qml:108
 #, kde-format
 msgid "Add new image sources."
 msgstr "Přidat nový zdroj obrázků."
 
-#: src/widgets/views/Folders/FoldersView.qml:71
+#: src/widgets/views/Folders/FoldersView.qml:108
 #, kde-format
 msgid "Try something different."
 msgstr "Zkusit něco jiného."
 
-#: src/widgets/views/Folders/FoldersView.qml:166
+#: src/widgets/views/Folders/FoldersView.qml:215
 #, kde-format
 msgid "Folder is empty!"
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:167
+#: src/widgets/views/Folders/FoldersView.qml:216
 #, kde-format
 msgid "There're no images in this folder. %1"
 msgstr "V této složce nejsou žádné obrázky. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:185
+#: src/widgets/views/Folders/FoldersView.qml:231
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -630,7 +616,7 @@ msgstr[2] "%1 obrázků"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:172
+#: src/widgets/views/Viewer/PixViewer.qml:188
 #, kde-format
 msgid "No Pics!"
 msgstr ""
@@ -720,87 +706,93 @@ msgstr ""
 msgid "There're no pics associated with the tag"
 msgstr "Zde nejsou žádné obrázky spojené se značkou"
 
-#: src/widgets/views/Viewer/PixViewer.qml:73
+#: src/widgets/views/Viewer/PixViewer.qml:92
 #, kde-format
 msgid "Previous"
 msgstr "Předchozí"
 
-#: src/widgets/views/Viewer/PixViewer.qml:122
+#: src/widgets/views/Viewer/PixViewer.qml:139
 #, kde-format
 msgid "The current image file has been modified or removed externally"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:123
+#: src/widgets/views/Viewer/PixViewer.qml:140
 #, kde-format
 msgid "The image was deleted"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:123
+#: src/widgets/views/Viewer/PixViewer.qml:140
 #, kde-format
 msgid "The image was modified"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:129
+#: src/widgets/views/Viewer/PixViewer.qml:146
 #, fuzzy, kde-format
 #| msgid "Auto Reload"
 msgid "Reload"
 msgstr "Automatické opětovné načtení"
 
-#: src/widgets/views/Viewer/PixViewer.qml:156
+#: src/widgets/views/Viewer/PixViewer.qml:172
 #, kde-format
 msgid "Save"
 msgstr "Uložit"
 
-#: src/widgets/views/Viewer/PixViewer.qml:173
+#: src/widgets/views/Viewer/PixViewer.qml:189
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:86
+#: src/widgets/views/Viewer/Viewer.qml:90
 #, kde-format
 msgid "Text copied!"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:94
 #, kde-format
 msgid "Image file copied!"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:106
+#: src/widgets/views/Viewer/Viewer.qml:110
 #, kde-format
 msgid "Call"
 msgstr "Volání"
 
-#: src/widgets/views/Viewer/Viewer.qml:118
+#: src/widgets/views/Viewer/Viewer.qml:122
 #, fuzzy, kde-format
 #| msgid "Save as"
 msgid "Save as Contact"
 msgstr "Uložit jako"
 
-#: src/widgets/views/Viewer/Viewer.qml:125
+#: src/widgets/views/Viewer/Viewer.qml:129
 #, kde-format
 msgid "Message"
 msgstr "Zpráva"
 
-#: src/widgets/views/Viewer/Viewer.qml:138
+#: src/widgets/views/Viewer/Viewer.qml:142
 #, kde-format
 msgid "Open Link"
 msgstr "Otevřít odkaz"
 
-#: src/widgets/views/Viewer/Viewer.qml:148
+#: src/widgets/views/Viewer/Viewer.qml:152
 #, kde-format
 msgid "Create Event"
 msgstr "Vytvořit událost"
 
-#: src/widgets/views/Viewer/Viewer.qml:155
+#: src/widgets/views/Viewer/Viewer.qml:159
 #, kde-format
 msgid "Save to Note"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:162
+#: src/widgets/views/Viewer/Viewer.qml:166
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
+
+#~ msgid "Sort by"
+#~ msgstr "Řadit dle"
+
+#~ msgid "Sort Order"
+#~ msgstr "Pořadí řazení"
 
 #~ msgid "Experimental feature."
 #~ msgstr "Experimentální funkce."
