@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-07 00:41+0000\n"
-"PO-Revision-Date: 2025-05-04 06:39+0400\n"
+"PO-Revision-Date: 2025-05-07 17:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -574,10 +574,9 @@ msgid "Toggle sidebar"
 msgstr "تبديل الشريط الجانبي"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "لا يوجد  مجلّدات!"
+msgstr "مجلّد جديد"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format

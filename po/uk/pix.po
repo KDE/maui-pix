@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-07 00:41+0000\n"
-"PO-Revision-Date: 2025-05-02 09:57+0300\n"
+"PO-Revision-Date: 2025-05-07 13:45+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -578,10 +578,9 @@ msgid "Toggle sidebar"
 msgstr "Увімкнути/Вимкнути бічну панель"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "Немає тек!"
+msgstr "Нова тека"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format

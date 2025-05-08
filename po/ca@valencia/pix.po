@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-07 00:41+0000\n"
-"PO-Revision-Date: 2025-05-02 13:32+0200\n"
+"PO-Revision-Date: 2025-05-07 10:35+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -571,10 +571,9 @@ msgid "Toggle sidebar"
 msgstr "Mostra o oculta la barra lateral"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "Sense carpetes!"
+msgstr "Carpeta nova"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
@@ -790,15 +789,3 @@ msgstr "Guarda a una nota"
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Busca en Google el text seleccionat…"
-
-#~ msgid "Sort by"
-#~ msgstr "Ordena per"
-
-#~ msgid "Change the sorting key."
-#~ msgstr "Canvia la clau d'ordenació."
-
-#~ msgid "Sort Order"
-#~ msgstr "Sentit d'ordenació"
-
-#~ msgid "Change the sorting order."
-#~ msgstr "Canvia el sentit d'ordenació."

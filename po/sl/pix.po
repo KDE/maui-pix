@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-07 00:41+0000\n"
-"PO-Revision-Date: 2025-05-02 07:36+0200\n"
+"PO-Revision-Date: 2025-05-07 06:33+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -577,10 +577,9 @@ msgid "Toggle sidebar"
 msgstr "Preklopi stransko vrstico"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "Ni map!"
+msgstr "Nova mapa"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format

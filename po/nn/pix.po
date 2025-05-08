@@ -785,9 +785,3 @@ msgstr ""
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
-
-#~ msgid "Change the sorting key."
-#~ msgstr "Endra sorteringsnøkkel."
-
-#~ msgid "Change the sorting order."
-#~ msgstr "Endra sorteringsrekkjefølgje."
