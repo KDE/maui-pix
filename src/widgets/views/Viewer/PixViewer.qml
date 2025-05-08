@@ -215,8 +215,7 @@ Maui.Page
                 sourceComponent: Pane
                 {
                     id: _pane
-                    Maui.Theme.colorSet: Maui.Theme.Complementary
-                    Maui.Theme.inherit: false
+                    Maui.Theme.colorSet: Maui.Theme.Header
 
                     background: Rectangle
                     {

@@ -265,23 +265,7 @@ Maui.ApplicationWindow
     {
         Maui.Theme.colorSet:Maui.Theme.View
         color: Maui.Theme.backgroundColor
-    }
-
-    Rectangle
-    {
-        height: 60
-        width: 60
-        color: "red"
-        anchors.centerIn: parent
-        visible: _stackView.activeFocus
-    }
-
-    Label
-    {
-        background:Rectangle{ color: "green"}
-        color: "red"
-        text: root.activeFocusItem + " / " + root.activeFocusControl + " / " + root.activeFocusControl.objectName
-
+        radius: Maui.Style.radiusV
     }
 
     Component

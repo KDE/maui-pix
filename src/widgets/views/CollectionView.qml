@@ -78,6 +78,7 @@ Maui.SideBarView
         anchors.fill: parent
     }
 
+
     Maui.PageLayout
     {
         id: swipeView
@@ -85,7 +86,7 @@ Maui.SideBarView
 
         focus: false
 
-        altHeader: width < 300
+        altHeader: Maui.Handy.isMobile
 
         flickable: _foldersView.currentItem.flickable
 

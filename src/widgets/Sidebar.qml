@@ -31,6 +31,9 @@ Loader
     sourceComponent: Maui.ListBrowser
     {
         id: _listBrowser
+        Keys.enabled: false
+        focus: no
+        focusPolicy: Qt.NoFocus
         topPadding: 0
         bottomPadding: 0
         verticalScrollBarPolicy: ScrollBar.AlwaysOff
