@@ -78,7 +78,6 @@ Maui.SideBarView
         anchors.fill: parent
     }
 
-
     Maui.PageLayout
     {
         id: swipeView
@@ -189,15 +188,6 @@ Maui.SideBarView
                 }
             }
         }
-    }
-
-    Rectangle
-    {
-        height: 60
-        width: 60
-        anchors.centerIn: parent
-        visible: control.activeFocus
-        color: "green"
     }
 
     function openFolder(url, filters)

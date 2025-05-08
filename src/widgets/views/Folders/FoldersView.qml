@@ -67,7 +67,7 @@ StackView
         property Component extraOptions : ToolButton
         {
             text: i18n("New Folder")
-            onClicked: newFolder()
+            onClicked:  _foldersPage.headBar.Maui.Theme.printColorTable()
         }
 
         property Component searchFieldComponent : Maui.SearchField
