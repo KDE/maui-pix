@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-07 00:41+0000\n"
+"POT-Creation-Date: 2025-05-09 00:40+0000\n"
 "PO-Revision-Date: 2025-05-07 10:35+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -59,34 +59,34 @@ msgstr "Quant al"
 msgid "Gallery"
 msgstr "Galeria"
 
-#: src/main.qml:353
+#: src/main.qml:337
 #, kde-format
 msgid "Open images"
 msgstr "Obre imatges"
 
-#: src/main.qml:354
+#: src/main.qml:338
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Arrossegueu i deixeu anar aquí les imatges."
 
-#: src/main.qml:413
+#: src/main.qml:397
 #, kde-format
 msgid "Tagged"
 msgstr "Amb etiqueta"
 
-#: src/main.qml:414
+#: src/main.qml:398
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "El fitxer s'ha etiquetat correctament"
 
-#: src/main.qml:473
+#: src/main.qml:457
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Suprimeixo %1 fitxer?"
 msgstr[1] "Suprimeixo %1 fitxers?"
 
-#: src/main.qml:474
+#: src/main.qml:458
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -96,12 +96,12 @@ msgstr[0] ""
 msgstr[1] ""
 "Segur que voleu suprimir aquests fitxers? Aquesta acció no es pot desfer."
 
-#: src/main.qml:480
+#: src/main.qml:464
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/main.qml:486 src/view_models/PixMenu.qml:186
+#: src/main.qml:470 src/view_models/PixMenu.qml:186
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -535,12 +535,12 @@ msgstr "Fonts"
 msgid "Add"
 msgstr "Afegeix"
 
-#: src/widgets/Sidebar.qml:41
+#: src/widgets/Sidebar.qml:44
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Adreces d'interès!"
 
-#: src/widgets/Sidebar.qml:42
+#: src/widgets/Sidebar.qml:45
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Aquí es llistaran les vostres adreces d'interès"

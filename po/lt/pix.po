@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-07 00:41+0000\n"
+"POT-Creation-Date: 2025-05-09 00:40+0000\n"
 "PO-Revision-Date: 2021-09-10 14:15+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -56,28 +56,28 @@ msgstr "Apie"
 msgid "Gallery"
 msgstr "Galerija"
 
-#: src/main.qml:353
+#: src/main.qml:337
 #, kde-format
 msgid "Open images"
 msgstr "Atverti paveikslus"
 
-#: src/main.qml:354
+#: src/main.qml:338
 #, fuzzy, kde-format
 #| msgid "Drag and drop images here"
 msgid "Drag and drop images here."
 msgstr "Tempkite paveikslus čia"
 
-#: src/main.qml:413
+#: src/main.qml:397
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:414
+#: src/main.qml:398
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:473
+#: src/main.qml:457
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -86,7 +86,7 @@ msgstr[1] "Ištrinti %1 failus?"
 msgstr[2] "Ištrinti %1 failų?"
 msgstr[3] "Ištrinti %1 failą?"
 
-#: src/main.qml:474
+#: src/main.qml:458
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -100,12 +100,12 @@ msgstr[2] ""
 msgstr[3] ""
 "Ar tikrai norite ištrinti šiuos failus? Šio veiksmo nebegalėsite atšaukti."
 
-#: src/main.qml:480
+#: src/main.qml:464
 #, kde-format
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/main.qml:486 src/view_models/PixMenu.qml:186
+#: src/main.qml:470 src/view_models/PixMenu.qml:186
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -542,12 +542,12 @@ msgstr ""
 msgid "Add"
 msgstr "Pridėti"
 
-#: src/widgets/Sidebar.qml:41
+#: src/widgets/Sidebar.qml:44
 #, kde-format
 msgid "Bookmarks!"
 msgstr ""
 
-#: src/widgets/Sidebar.qml:42
+#: src/widgets/Sidebar.qml:45
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr ""

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-07 00:41+0000\n"
-"PO-Revision-Date: 2025-05-03 14:31+0300\n"
+"POT-Creation-Date: 2025-05-09 00:40+0000\n"
+"PO-Revision-Date: 2025-05-07 08:59+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -55,27 +55,27 @@ msgstr "על אודות"
 msgid "Gallery"
 msgstr "גלריה"
 
-#: src/main.qml:353
+#: src/main.qml:337
 #, kde-format
 msgid "Open images"
 msgstr "פתיחת תמונות"
 
-#: src/main.qml:354
+#: src/main.qml:338
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "אפשר לגרור לכאן תמונות."
 
-#: src/main.qml:413
+#: src/main.qml:397
 #, kde-format
 msgid "Tagged"
 msgstr "מתויג"
 
-#: src/main.qml:414
+#: src/main.qml:398
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "הקובץ תויג בהצלחה"
 
-#: src/main.qml:473
+#: src/main.qml:457
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -84,7 +84,7 @@ msgstr[1] "למחוק שני קבצים?"
 msgstr[2] "למחוק %1 קבצים?"
 msgstr[3] "למחוק %1 קבצים?"
 
-#: src/main.qml:474
+#: src/main.qml:458
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -94,12 +94,12 @@ msgstr[1] "למחוק את הקבצים האלה? זאת פעולה בלתי ה�
 msgstr[2] "למחוק את הקבצים האלה? זאת פעולה בלתי הפיכה."
 msgstr[3] "למחוק את הקבצים האלה? זאת פעולה בלתי הפיכה."
 
-#: src/main.qml:480
+#: src/main.qml:464
 #, kde-format
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/main.qml:486 src/view_models/PixMenu.qml:186
+#: src/main.qml:470 src/view_models/PixMenu.qml:186
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -532,12 +532,12 @@ msgstr "מקורות"
 msgid "Add"
 msgstr "הוספה"
 
-#: src/widgets/Sidebar.qml:41
+#: src/widgets/Sidebar.qml:44
 #, kde-format
 msgid "Bookmarks!"
 msgstr "סימניות!"
 
-#: src/widgets/Sidebar.qml:42
+#: src/widgets/Sidebar.qml:45
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "הסימניות שלך תופענה כאן"
@@ -568,10 +568,9 @@ msgid "Toggle sidebar"
 msgstr "הצגת/הסתרת סרגל צד"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "אין תיקיות!"
+msgstr "תיקייה חדשה"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format

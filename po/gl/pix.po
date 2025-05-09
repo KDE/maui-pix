@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-07 00:41+0000\n"
+"POT-Creation-Date: 2025-05-09 00:40+0000\n"
 "PO-Revision-Date: 2025-03-20 08:25+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -54,34 +54,34 @@ msgstr "Sobre"
 msgid "Gallery"
 msgstr "Galería"
 
-#: src/main.qml:353
+#: src/main.qml:337
 #, kde-format
 msgid "Open images"
 msgstr "Abrir imaxes"
 
-#: src/main.qml:354
+#: src/main.qml:338
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Arrastre e deixe aquí as imaxes."
 
-#: src/main.qml:413
+#: src/main.qml:397
 #, kde-format
 msgid "Tagged"
 msgstr "Etiquetado"
 
-#: src/main.qml:414
+#: src/main.qml:398
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Etiquetouse o ficheiro."
 
-#: src/main.qml:473
+#: src/main.qml:457
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Quere eliminar %1 ficheiro?"
 msgstr[1] "Quere eliminar %1 ficheiros?"
 
-#: src/main.qml:474
+#: src/main.qml:458
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -91,12 +91,12 @@ msgstr[0] ""
 msgstr[1] ""
 "Seguro que quere eliminar os ficheiros? Esta acción non se pode desfacer."
 
-#: src/main.qml:480
+#: src/main.qml:464
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/main.qml:486 src/view_models/PixMenu.qml:186
+#: src/main.qml:470 src/view_models/PixMenu.qml:186
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -530,12 +530,12 @@ msgstr "Fontes"
 msgid "Add"
 msgstr "Engadir"
 
-#: src/widgets/Sidebar.qml:41
+#: src/widgets/Sidebar.qml:44
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Marcadores!"
 
-#: src/widgets/Sidebar.qml:42
+#: src/widgets/Sidebar.qml:45
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Os seus marcadores listaranse aquí."
