@@ -624,4 +624,9 @@ Item
                 control.model.list.append(pics[i])
 
     }
+
+    function clear()
+    {
+        control.model.list.clear()
+    }
 }

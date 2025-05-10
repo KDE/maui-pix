@@ -20,9 +20,10 @@ function open(model, index, recursive = false)
 
 function openExternalPics(pics, index)
 {
-    var oldIndex = _pixViewer.viewer.count
+    var oldIndex = pics.lenght-1
+    _pixViewer.viewer.clear()
     _pixViewer.viewer.appendPics(pics)
-    _pixViewer.view(Math.max(oldIndex, 0))
+    _pixViewer.view(Math.max(oldIndex, index, 0))
     if(!_pixViewer.visible)
     {
         toggleViewer()

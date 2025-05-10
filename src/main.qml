@@ -181,7 +181,7 @@ Maui.ApplicationWindow
                 selectionBox.clear()
                 return
             }
-             _stackView.pop()
+            _stackView.pop()
         }
 
         Keys.forwardTo: [currentItem]
@@ -299,7 +299,11 @@ Maui.ApplicationWindow
             onSaved:
             {
                 lastEditorAction = getCurrentActionType()
+                _saveNotification.url = url
                 _editor.StackView.view.pop()
+
+                if(_collectionViewComponent.visible)
+                    _saveNotification.dispatch()
             }
 
             onCanceled:
@@ -313,6 +317,20 @@ Maui.ApplicationWindow
                     return
                 }
             }
+        }
+    }
+
+    Maui.Notification
+    {
+        id: _saveNotification
+        iconSource: url
+        title: i18n("Saved")
+        message: i18n("The image has been saved correctly.")
+        property string url
+        Action
+        {
+            text: i18n("View")
+            onTriggered: VIEWER.openExternalPics([_saveNotification.url], 0)
         }
     }
 
@@ -478,7 +496,7 @@ Maui.ApplicationWindow
                     onTriggered:
                     {
                         FB.FM.removeFiles(removeDialog.urls)
-                       selectionBox.clear()
+                        selectionBox.clear()
                         close()
                     }
                 }
