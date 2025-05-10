@@ -41,19 +41,6 @@ Maui.Page
 
         index: control.currentPicIndex
         model: viewer.model
-
-        MenuItem
-        {
-            text: _picMenu.index
-        }
-
-        MenuItem
-        {
-            text: control.currentPicIndex
-        }
-
-        onClosed: console.log(root.activeFocusItem, root.activeFocusControl)
-
     }
 
     onGoBackTriggered: control.pop()
