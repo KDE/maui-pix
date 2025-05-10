@@ -17,6 +17,7 @@ Maui.ContextualMenu
     property var item : ({})
     readonly property string totalCount : filterSelection(item.url).length > 1 ? filterSelection(item.url).length : ""
 
+    property alias editMenuItem : _editMenuItem
     onOpened:
     {
         if(control.model &&  control.index >= 0 )
@@ -129,10 +130,13 @@ Maui.ContextualMenu
 
     MenuItem
     {
+        id: _editMenuItem
         text: i18n("Edit")
         icon.name: "document-edit"
         onTriggered:
         {
+            if(action)
+                return
             openEditor(item.url, _stackView)
         }
     }

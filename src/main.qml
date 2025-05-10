@@ -286,6 +286,7 @@ Maui.ApplicationWindow
         }
     }
 
+    property int lastEditorAction : ITEditor.ImageEditor.ActionType.Colors
     Component
     {
         id: _editorComponent
@@ -293,14 +294,19 @@ Maui.ApplicationWindow
         ITEditor.ImageEditor
         {
             id: _editor
+            Maui.Controls.showCSD: true
+            initialActionType: lastEditorAction
             onSaved:
             {
+                lastEditorAction = getCurrentActionType()
                 _editor.StackView.view.pop()
             }
 
             onCanceled:
             {
                 console.log("Image edited? ", editor.edited)
+                lastEditorAction = getCurrentActionType()
+
                 if(!editor.edited)
                 {
                     _editor.StackView.view.pop()

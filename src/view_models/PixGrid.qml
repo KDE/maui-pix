@@ -201,7 +201,6 @@ Maui.Page
             onTriggered: browserSettings.sortOrder = Qt.DescendingOrder
             checked: browserSettings.sortOrder === Qt.DescendingOrder
         }
-
     }
 
     Maui.GridBrowser
@@ -270,6 +269,12 @@ Maui.Page
             id: _picMenu
             index: control.currentIndex
             model: pixModel
+
+            editMenuItem.action: Action
+            {
+                shortcut: "Ctrl+E"
+                onTriggered: openEditor(pixModel.get(currentIndex).url, _stackView)
+            }
         }
 
         onItemsSelected: (indexes) =>
