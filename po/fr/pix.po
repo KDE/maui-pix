@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:40+0000\n"
-"PO-Revision-Date: 2025-05-04 11:55+0200\n"
+"POT-Creation-Date: 2025-05-10 00:41+0000\n"
+"PO-Revision-Date: 2025-05-08 08:01+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -455,7 +455,7 @@ msgstr "Exporter"
 msgid "Behavior"
 msgstr "Comportement"
 
-#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:158
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:145
 #, kde-format
 msgid "Auto Reload"
 msgstr "Recharger automatiquement"
@@ -570,10 +570,9 @@ msgid "Toggle sidebar"
 msgstr "Afficher / Masquer le panneau latéral"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "Aucun dossier !"
+msgstr "Nouveau dossier"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
@@ -621,7 +620,7 @@ msgstr[1] "%1 images."
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:188
+#: src/widgets/views/Viewer/PixViewer.qml:175
 #, kde-format
 msgid "No Pics!"
 msgstr "Aucune image !"
@@ -711,37 +710,37 @@ msgstr "Aucune image dans %1 !"
 msgid "There're no pics associated with the tag"
 msgstr "Aucune image n'est associée à cette étiquette."
 
-#: src/widgets/views/Viewer/PixViewer.qml:92
+#: src/widgets/views/Viewer/PixViewer.qml:79
 #, kde-format
 msgid "Previous"
 msgstr "Précédent"
 
-#: src/widgets/views/Viewer/PixViewer.qml:139
+#: src/widgets/views/Viewer/PixViewer.qml:126
 #, kde-format
 msgid "The current image file has been modified or removed externally"
 msgstr "Le fichier courant d'image a été modifié ou supprimé de l'extérieur."
 
-#: src/widgets/views/Viewer/PixViewer.qml:140
+#: src/widgets/views/Viewer/PixViewer.qml:127
 #, kde-format
 msgid "The image was deleted"
 msgstr "L’image a été supprimée."
 
-#: src/widgets/views/Viewer/PixViewer.qml:140
+#: src/widgets/views/Viewer/PixViewer.qml:127
 #, kde-format
 msgid "The image was modified"
 msgstr "L'image a été modifiée."
 
-#: src/widgets/views/Viewer/PixViewer.qml:146
+#: src/widgets/views/Viewer/PixViewer.qml:133
 #, kde-format
 msgid "Reload"
 msgstr "Recharger"
 
-#: src/widgets/views/Viewer/PixViewer.qml:172
+#: src/widgets/views/Viewer/PixViewer.qml:159
 #, kde-format
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/widgets/views/Viewer/PixViewer.qml:189
+#: src/widgets/views/Viewer/PixViewer.qml:176
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Ouvrir une image à partir de votre collection"

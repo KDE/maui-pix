@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:40+0000\n"
+"POT-Creation-Date: 2025-05-10 00:41+0000\n"
 "PO-Revision-Date: 2025-05-07 12:07+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -454,7 +454,7 @@ msgstr "Exporteren"
 msgid "Behavior"
 msgstr "Gedrag"
 
-#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:158
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:145
 #, kde-format
 msgid "Auto Reload"
 msgstr "Automatisch herladen"
@@ -617,7 +617,7 @@ msgstr[1] "%1 afbeeldingen"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:188
+#: src/widgets/views/Viewer/PixViewer.qml:175
 #, kde-format
 msgid "No Pics!"
 msgstr "Geen plaatjes!"
@@ -707,37 +707,37 @@ msgstr "Geen plaatjes in %1!"
 msgid "There're no pics associated with the tag"
 msgstr "Er zijn geen plaatjes verbonden met de tag"
 
-#: src/widgets/views/Viewer/PixViewer.qml:92
+#: src/widgets/views/Viewer/PixViewer.qml:79
 #, kde-format
 msgid "Previous"
 msgstr "Vorige"
 
-#: src/widgets/views/Viewer/PixViewer.qml:139
+#: src/widgets/views/Viewer/PixViewer.qml:126
 #, kde-format
 msgid "The current image file has been modified or removed externally"
 msgstr "Het huidige afbeeldingsbestand is extern gewijzigd of verwijderd"
 
-#: src/widgets/views/Viewer/PixViewer.qml:140
+#: src/widgets/views/Viewer/PixViewer.qml:127
 #, kde-format
 msgid "The image was deleted"
 msgstr "De afbeelding was verwijderd"
 
-#: src/widgets/views/Viewer/PixViewer.qml:140
+#: src/widgets/views/Viewer/PixViewer.qml:127
 #, kde-format
 msgid "The image was modified"
 msgstr "Een afbeelding was gewijzigd"
 
-#: src/widgets/views/Viewer/PixViewer.qml:146
+#: src/widgets/views/Viewer/PixViewer.qml:133
 #, kde-format
 msgid "Reload"
 msgstr "Herladen"
 
-#: src/widgets/views/Viewer/PixViewer.qml:172
+#: src/widgets/views/Viewer/PixViewer.qml:159
 #, kde-format
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/widgets/views/Viewer/PixViewer.qml:189
+#: src/widgets/views/Viewer/PixViewer.qml:176
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Een afbeelding openen uit uw verzameling"

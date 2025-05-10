@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:40+0000\n"
+"POT-Creation-Date: 2025-05-10 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 16:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -446,7 +446,7 @@ msgstr "导出"
 msgid "Behavior"
 msgstr "行为"
 
-#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:158
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:145
 #, kde-format
 msgid "Auto Reload"
 msgstr "自动重新加载"
@@ -606,7 +606,7 @@ msgstr[0] ""
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:188
+#: src/widgets/views/Viewer/PixViewer.qml:175
 #, kde-format
 msgid "No Pics!"
 msgstr "没有图像"
@@ -694,39 +694,39 @@ msgstr "%1 中没有图像"
 msgid "There're no pics associated with the tag"
 msgstr "该标签没有关联图像"
 
-#: src/widgets/views/Viewer/PixViewer.qml:92
+#: src/widgets/views/Viewer/PixViewer.qml:79
 #, kde-format
 msgid "Previous"
 msgstr "返回"
 
-#: src/widgets/views/Viewer/PixViewer.qml:139
+#: src/widgets/views/Viewer/PixViewer.qml:126
 #, kde-format
 msgid "The current image file has been modified or removed externally"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:140
+#: src/widgets/views/Viewer/PixViewer.qml:127
 #, kde-format
 msgid "The image was deleted"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:140
+#: src/widgets/views/Viewer/PixViewer.qml:127
 #, kde-format
 msgid "The image was modified"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:146
+#: src/widgets/views/Viewer/PixViewer.qml:133
 #, fuzzy, kde-format
 #| msgid "Auto Reload"
 msgid "Reload"
 msgstr "自动重新加载"
 
-#: src/widgets/views/Viewer/PixViewer.qml:172
+#: src/widgets/views/Viewer/PixViewer.qml:159
 #, fuzzy, kde-format
 #| msgid "Save as"
 msgid "Save"
 msgstr "另存为"
 
-#: src/widgets/views/Viewer/PixViewer.qml:189
+#: src/widgets/views/Viewer/PixViewer.qml:176
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "打开相册中的一张图像"
