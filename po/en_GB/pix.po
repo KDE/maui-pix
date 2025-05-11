@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:41+0000\n"
+"POT-Creation-Date: 2025-05-11 00:41+0000\n"
 "PO-Revision-Date: 2024-11-16 15:28+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -54,34 +54,50 @@ msgstr "About"
 msgid "Gallery"
 msgstr "Gallery"
 
-#: src/main.qml:337
+#: src/main.qml:327
+#, fuzzy, kde-format
+#| msgid "Save"
+msgid "Saved"
+msgstr "Save"
+
+#: src/main.qml:328
+#, kde-format
+msgid "The image has been saved correctly."
+msgstr ""
+
+#: src/main.qml:332 src/widgets/SelectionBar.qml:55
+#, kde-format
+msgid "View"
+msgstr "View"
+
+#: src/main.qml:361
 #, kde-format
 msgid "Open images"
 msgstr "Open images"
 
-#: src/main.qml:338
+#: src/main.qml:362
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Drag and drop images here."
 
-#: src/main.qml:397
+#: src/main.qml:421
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/main.qml:398
+#: src/main.qml:422
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/main.qml:457
+#: src/main.qml:481
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Delete %1 file?"
 msgstr[1] "Delete %1 files?"
 
-#: src/main.qml:458
+#: src/main.qml:482
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -91,12 +107,12 @@ msgstr[0] ""
 msgstr[1] ""
 "Are sure you want to delete these files? This action can not be undone."
 
-#: src/main.qml:464
+#: src/main.qml:488
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/main.qml:470 src/view_models/PixMenu.qml:186
+#: src/main.qml:494 src/view_models/PixMenu.qml:190
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -264,62 +280,62 @@ msgstr "Ascending"
 msgid "Descending"
 msgstr "Descending"
 
-#: src/view_models/PixMenu.qml:44
+#: src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "UnFav it"
 msgstr "UnFav it"
 
-#: src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:54
 #, kde-format
 msgid "Info"
 msgstr "Info"
 
-#: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
+#: src/view_models/PixMenu.qml:64 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "Share"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:80
 #, kde-format
 msgid "Select"
 msgstr "Select"
 
-#: src/view_models/PixMenu.qml:92
+#: src/view_models/PixMenu.qml:93
 #, kde-format
 msgid "Open in New Window"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:107
+#: src/view_models/PixMenu.qml:108
 #, kde-format
 msgid "Add to '%1'"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:117
+#: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to Album"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:132
+#: src/view_models/PixMenu.qml:134
 #, kde-format
 msgid "Edit"
 msgstr "Edit"
 
-#: src/view_models/PixMenu.qml:142
+#: src/view_models/PixMenu.qml:146
 #, kde-format
 msgid "Save as"
 msgstr "Save as"
 
-#: src/view_models/PixMenu.qml:149
+#: src/view_models/PixMenu.qml:153
 #, kde-format
 msgid "Open with"
 msgstr "Open with"
 
-#: src/view_models/PixMenu.qml:157
+#: src/view_models/PixMenu.qml:161
 #, kde-format
 msgid "Go to Folder"
 msgstr "Go to Folder"
 
-#: src/view_models/PixMenu.qml:174
+#: src/view_models/PixMenu.qml:178
 #, kde-format
 msgid "Open Location"
 msgstr "Open Location"
@@ -425,11 +441,6 @@ msgstr ""
 #, kde-format
 msgid "Rectangular"
 msgstr ""
-
-#: src/widgets/SelectionBar.qml:55
-#, kde-format
-msgid "View"
-msgstr "View"
 
 #: src/widgets/SelectionBar.qml:63
 #, kde-format

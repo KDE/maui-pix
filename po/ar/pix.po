@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:41+0000\n"
+"POT-Creation-Date: 2025-05-11 00:41+0000\n"
 "PO-Revision-Date: 2025-05-07 17:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -55,27 +55,44 @@ msgstr "عن"
 msgid "Gallery"
 msgstr "المعرض"
 
-#: src/main.qml:337
+#: src/main.qml:327
+#, fuzzy, kde-format
+#| msgid "Save"
+msgid "Saved"
+msgstr "احفظ"
+
+#: src/main.qml:328
+#, fuzzy, kde-format
+#| msgid "The image was deleted"
+msgid "The image has been saved correctly."
+msgstr "حُذفت الصورة"
+
+#: src/main.qml:332 src/widgets/SelectionBar.qml:55
+#, kde-format
+msgid "View"
+msgstr "اعرض"
+
+#: src/main.qml:361
 #, kde-format
 msgid "Open images"
 msgstr "افتح الصور"
 
-#: src/main.qml:338
+#: src/main.qml:362
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "اسحب صورًا وأسقطها هنا."
 
-#: src/main.qml:397
+#: src/main.qml:421
 #, kde-format
 msgid "Tagged"
 msgstr "موسومة"
 
-#: src/main.qml:398
+#: src/main.qml:422
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "وُسِمَ الملف بنجاح"
 
-#: src/main.qml:457
+#: src/main.qml:481
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
@@ -86,7 +103,7 @@ msgstr[3] "أأحذف %1 ملفّات؟"
 msgstr[4] "أأحذف %1 ملفًّا؟"
 msgstr[5] "أأحذف %1 ملف؟"
 
-#: src/main.qml:458
+#: src/main.qml:482
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -98,12 +115,12 @@ msgstr[3] "هل أنت متأكد من حذف هذه الملفات؟ لا يم�
 msgstr[4] "هل أنت متأكد من حذف هذه الملفات؟ لا يمكن التراجع عن هذا الإجراء."
 msgstr[5] "هل أنت متأكد من حذف هذه الملفات؟ لا يمكن التراجع عن هذا الإجراء."
 
-#: src/main.qml:464
+#: src/main.qml:488
 #, kde-format
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: src/main.qml:470 src/view_models/PixMenu.qml:186
+#: src/main.qml:494 src/view_models/PixMenu.qml:190
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -275,62 +292,62 @@ msgstr "تصاعديًّا"
 msgid "Descending"
 msgstr "تنازليًّا"
 
-#: src/view_models/PixMenu.qml:44
+#: src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "UnFav it"
 msgstr "أزل التفضيل"
 
-#: src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:54
 #, kde-format
 msgid "Info"
 msgstr "معلومات"
 
-#: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
+#: src/view_models/PixMenu.qml:64 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "شارك"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:80
 #, kde-format
 msgid "Select"
 msgstr "اختر"
 
-#: src/view_models/PixMenu.qml:92
+#: src/view_models/PixMenu.qml:93
 #, kde-format
 msgid "Open in New Window"
 msgstr "افتح في نافذة جديدة"
 
-#: src/view_models/PixMenu.qml:107
+#: src/view_models/PixMenu.qml:108
 #, kde-format
 msgid "Add to '%1'"
 msgstr "أضف إلى '%1'"
 
-#: src/view_models/PixMenu.qml:117
+#: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to Album"
 msgstr "أضف إلى الألبوم"
 
-#: src/view_models/PixMenu.qml:132
+#: src/view_models/PixMenu.qml:134
 #, kde-format
 msgid "Edit"
 msgstr "حرّر"
 
-#: src/view_models/PixMenu.qml:142
+#: src/view_models/PixMenu.qml:146
 #, kde-format
 msgid "Save as"
 msgstr "حفظ باسم"
 
-#: src/view_models/PixMenu.qml:149
+#: src/view_models/PixMenu.qml:153
 #, kde-format
 msgid "Open with"
 msgstr "افتح في"
 
-#: src/view_models/PixMenu.qml:157
+#: src/view_models/PixMenu.qml:161
 #, kde-format
 msgid "Go to Folder"
 msgstr "اذهب إلى المجلد"
 
-#: src/view_models/PixMenu.qml:174
+#: src/view_models/PixMenu.qml:178
 #, kde-format
 msgid "Open Location"
 msgstr "افتح موقعًا"
@@ -437,11 +454,6 @@ msgstr "حر"
 #, kde-format
 msgid "Rectangular"
 msgstr "مستطيل"
-
-#: src/widgets/SelectionBar.qml:55
-#, kde-format
-msgid "View"
-msgstr "اعرض"
 
 #: src/widgets/SelectionBar.qml:63
 #, kde-format

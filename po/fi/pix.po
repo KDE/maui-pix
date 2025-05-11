@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:41+0000\n"
+"POT-Creation-Date: 2025-05-11 00:41+0000\n"
 "PO-Revision-Date: 2025-03-15 09:23+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -54,34 +54,50 @@ msgstr "Tietoa"
 msgid "Gallery"
 msgstr "Galleria"
 
-#: src/main.qml:337
+#: src/main.qml:327
+#, fuzzy, kde-format
+#| msgid "Save"
+msgid "Saved"
+msgstr "Tallenna"
+
+#: src/main.qml:328
+#, kde-format
+msgid "The image has been saved correctly."
+msgstr ""
+
+#: src/main.qml:332 src/widgets/SelectionBar.qml:55
+#, kde-format
+msgid "View"
+msgstr "Näkymä"
+
+#: src/main.qml:361
 #, kde-format
 msgid "Open images"
 msgstr "Avaa kuvia"
 
-#: src/main.qml:338
+#: src/main.qml:362
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Vedä ja pudota kuvia tähän."
 
-#: src/main.qml:397
+#: src/main.qml:421
 #, kde-format
 msgid "Tagged"
 msgstr "Luokiteltu"
 
-#: src/main.qml:398
+#: src/main.qml:422
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "Tiedosto luokiteltiin onnistuneesti"
 
-#: src/main.qml:457
+#: src/main.qml:481
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Poistetaanko %1 tiedosto?"
 msgstr[1] "Poistetaanko %1 tiedostoa?"
 
-#: src/main.qml:458
+#: src/main.qml:482
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -89,12 +105,12 @@ msgid_plural ""
 msgstr[0] "Haluatko varmasti poistaa tämän tiedoston? Toimintoa ei voi kumota."
 msgstr[1] "Haluatko varmasti poistaa nämä tiedostot? Toimintoa ei voi kumota."
 
-#: src/main.qml:464
+#: src/main.qml:488
 #, kde-format
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/main.qml:470 src/view_models/PixMenu.qml:186
+#: src/main.qml:494 src/view_models/PixMenu.qml:190
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -265,63 +281,63 @@ msgstr "Nouseva"
 msgid "Descending"
 msgstr "Laskeva"
 
-#: src/view_models/PixMenu.qml:44
+#: src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "UnFav it"
 msgstr "Poista suosikeista"
 
-#: src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:54
 #, kde-format
 msgid "Info"
 msgstr "Tietoa"
 
-#: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
+#: src/view_models/PixMenu.qml:64 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "Jaa"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:80
 #, kde-format
 msgid "Select"
 msgstr "Valitse"
 
-#: src/view_models/PixMenu.qml:92
+#: src/view_models/PixMenu.qml:93
 #, kde-format
 msgid "Open in New Window"
 msgstr ""
 
 # *** TARKISTA: Tässä olisi hyvä tietää, mikä ”%1” on – tiedosto, kansio, albumi, osoitekirja…?
-#: src/view_models/PixMenu.qml:107
+#: src/view_models/PixMenu.qml:108
 #, kde-format
 msgid "Add to '%1'"
 msgstr "Lisää kohteeseen ”%1”"
 
-#: src/view_models/PixMenu.qml:117
+#: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to Album"
 msgstr "Lisää albumiin"
 
-#: src/view_models/PixMenu.qml:132
+#: src/view_models/PixMenu.qml:134
 #, kde-format
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: src/view_models/PixMenu.qml:142
+#: src/view_models/PixMenu.qml:146
 #, kde-format
 msgid "Save as"
 msgstr "Tallenna nimellä"
 
-#: src/view_models/PixMenu.qml:149
+#: src/view_models/PixMenu.qml:153
 #, kde-format
 msgid "Open with"
 msgstr "Avaa ohjelmalla"
 
-#: src/view_models/PixMenu.qml:157
+#: src/view_models/PixMenu.qml:161
 #, kde-format
 msgid "Go to Folder"
 msgstr "Siirry kansioon"
 
-#: src/view_models/PixMenu.qml:174
+#: src/view_models/PixMenu.qml:178
 #, kde-format
 msgid "Open Location"
 msgstr "Avaa sijainti"
@@ -427,11 +443,6 @@ msgstr ""
 #, kde-format
 msgid "Rectangular"
 msgstr ""
-
-#: src/widgets/SelectionBar.qml:55
-#, kde-format
-msgid "View"
-msgstr "Näkymä"
 
 #: src/widgets/SelectionBar.qml:63
 #, kde-format

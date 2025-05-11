@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the maui-pix package.
 #
 # SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
-# SPDX-FileCopyrightText: 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:41+0000\n"
-"PO-Revision-Date: 2025-05-03 18:28+0100\n"
+"POT-Creation-Date: 2025-05-11 00:41+0000\n"
+"PO-Revision-Date: 2025-05-10 19:53+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -56,34 +55,51 @@ msgstr "Acerca de"
 msgid "Gallery"
 msgstr "Galería"
 
-#: src/main.qml:337
+#: src/main.qml:327
+#, fuzzy, kde-format
+#| msgid "Save"
+msgid "Saved"
+msgstr "Guardar"
+
+#: src/main.qml:328
+#, fuzzy, kde-format
+#| msgid "The image was deleted"
+msgid "The image has been saved correctly."
+msgstr "La imagen fue borrada"
+
+#: src/main.qml:332 src/widgets/SelectionBar.qml:55
+#, kde-format
+msgid "View"
+msgstr "Ver"
+
+#: src/main.qml:361
 #, kde-format
 msgid "Open images"
 msgstr "Abrir imágenes"
 
-#: src/main.qml:338
+#: src/main.qml:362
 #, kde-format
 msgid "Drag and drop images here."
 msgstr "Arrastrar y soltar imágenes aquí."
 
-#: src/main.qml:397
+#: src/main.qml:421
 #, kde-format
 msgid "Tagged"
 msgstr "Etiquetado"
 
-#: src/main.qml:398
+#: src/main.qml:422
 #, kde-format
 msgid "File was tagged successfully"
 msgstr "El archivo fue etiquetado con éxito"
 
-#: src/main.qml:457
+#: src/main.qml:481
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "¿Borrar %1 archivo?"
 msgstr[1] "¿Borrar %1 archivos?"
 
-#: src/main.qml:458
+#: src/main.qml:482
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -95,12 +111,12 @@ msgstr[1] ""
 "¿Está seguro de que quiere borrar estos archivos? Esta acción no se puede "
 "deshacer."
 
-#: src/main.qml:464
+#: src/main.qml:488
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/main.qml:470 src/view_models/PixMenu.qml:186
+#: src/main.qml:494 src/view_models/PixMenu.qml:190
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
@@ -268,62 +284,62 @@ msgstr "Ascendiente"
 msgid "Descending"
 msgstr "Descendiente"
 
-#: src/view_models/PixMenu.qml:44
+#: src/view_models/PixMenu.qml:45
 #, kde-format
 msgid "UnFav it"
 msgstr "Desmarcarlo como favorito"
 
-#: src/view_models/PixMenu.qml:53
+#: src/view_models/PixMenu.qml:54
 #, kde-format
 msgid "Info"
 msgstr "Información"
 
-#: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
+#: src/view_models/PixMenu.qml:64 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "Compartir"
 
-#: src/view_models/PixMenu.qml:79
+#: src/view_models/PixMenu.qml:80
 #, kde-format
 msgid "Select"
 msgstr "Seleccionar"
 
-#: src/view_models/PixMenu.qml:92
+#: src/view_models/PixMenu.qml:93
 #, kde-format
 msgid "Open in New Window"
 msgstr "Abrir en ventana nueva"
 
-#: src/view_models/PixMenu.qml:107
+#: src/view_models/PixMenu.qml:108
 #, kde-format
 msgid "Add to '%1'"
 msgstr "Añadir a «%1»"
 
-#: src/view_models/PixMenu.qml:117
+#: src/view_models/PixMenu.qml:118
 #, kde-format
 msgid "Add to Album"
 msgstr "Añadir a álbum"
 
-#: src/view_models/PixMenu.qml:132
+#: src/view_models/PixMenu.qml:134
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
 
-#: src/view_models/PixMenu.qml:142
+#: src/view_models/PixMenu.qml:146
 #, kde-format
 msgid "Save as"
 msgstr "Guardar como"
 
-#: src/view_models/PixMenu.qml:149
+#: src/view_models/PixMenu.qml:153
 #, kde-format
 msgid "Open with"
 msgstr "Abrir con"
 
-#: src/view_models/PixMenu.qml:157
+#: src/view_models/PixMenu.qml:161
 #, kde-format
 msgid "Go to Folder"
 msgstr "Ir a carpeta"
 
-#: src/view_models/PixMenu.qml:174
+#: src/view_models/PixMenu.qml:178
 #, kde-format
 msgid "Open Location"
 msgstr "Abrir localización"
@@ -431,11 +447,6 @@ msgstr "Libre"
 #, kde-format
 msgid "Rectangular"
 msgstr "Rectangular"
-
-#: src/widgets/SelectionBar.qml:55
-#, kde-format
-msgid "View"
-msgstr "Ver"
 
 #: src/widgets/SelectionBar.qml:63
 #, kde-format
@@ -570,10 +581,9 @@ msgid "Toggle sidebar"
 msgstr "Activar/desactivar barra lateral"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "¡Sin carpetas!"
+msgstr "Carpeta nueva"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
@@ -789,15 +799,3 @@ msgstr "Guardar como nota"
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Buscar texto seleccionado en Google…"
-
-#~ msgid "Sort by"
-#~ msgstr "Ordenar por"
-
-#~ msgid "Change the sorting key."
-#~ msgstr "Cambiar la clave de ordenación."
-
-#~ msgid "Sort Order"
-#~ msgstr "Orden de clasificación"
-
-#~ msgid "Change the sorting order."
-#~ msgstr "Cambiar el orden de clasificación."
