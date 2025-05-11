@@ -30,13 +30,12 @@ Maui.ContextualMenu
 
     Maui.Controls.component: Maui.IconItem
     {
-        visible: !_pixViewer.visible
+        visible: !pixViewer.visible
         imageSource: control.item.url
         fillMode: Image.PreserveAspectCrop
         implicitHeight: visible ? 50 : 0
         maskRadius: Maui.Style.radiusV
     }
-
 
     Maui.MenuItemActionRow
     {
@@ -162,7 +161,7 @@ Maui.ContextualMenu
         icon.name: "folder-open"
         onTriggered:
         {
-            if(_pixViewer.visible)
+            if(pixViewer.visible)
             {
                 toggleViewer()
             }

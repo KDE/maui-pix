@@ -64,6 +64,7 @@ qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     widgets/SettingsDialog.qml
     widgets/OCRSettingsPage.qml
     widgets/Sidebar.qml
+    widgets/AppView.qml
     widgets/views/Viewer/OCRPage.qml
     widgets/views/CollectionView.qml
     widgets/views/FloatingViewer.qml)

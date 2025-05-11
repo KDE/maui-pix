@@ -24,6 +24,29 @@ Maui.Page
     id: control
 
     Keys.forwardTo: viewer
+    Keys.enabled: true
+    Keys.onPressed: (event) =>
+                    {
+
+                        if((event.key == Qt.Key_F && (event.modifiers & Qt.ControlModifier) ) || event.key === Qt.Key_F4)
+                        {
+                            showFullScreen()
+                            event.accepted = true
+                        }
+
+                        if((event.key == Qt.Key_Escape) && root.isFullScreen)
+                        {
+                            toggleFullscreen()
+                            event.accepted = true
+                        }
+
+
+                        if((event.key == Qt.Key_T && (event.modifiers & Qt.ControlModifier) ))
+                        {
+                            focusTagsBar()
+                            event.accepted = true
+                        }
+                    }
 
     readonly property alias viewer : viewer
     readonly property alias holder : holder
@@ -369,6 +392,36 @@ Maui.Page
             index = control.viewer.count-1
 
         view(index)
+    }
+
+    function incrementCurrentIndex()
+    {
+        control.currentPicIndex++
+        control.currentPic = control.model.get(control.currentPicIndex)
+
+        control.currentPicFav = FB.Tagging.isFav(control.currentPic.url)
+        root.title = control.currentPic.title
+    }
+
+    function decrementCurrentIndex()
+    {
+        control.currentPicIndex--
+        control.currentPic = control.model.get(control.currentPicIndex)
+
+        control.currentPicFav = FB.Tagging.isFav(control.currentPic.url)
+        root.title = control.currentPic.title
+    }
+
+    function nextUrl() : string
+    {
+        incrementCurrentIndex()
+        return currentPic.url
+    }
+
+    function previousUrl() : string
+    {
+        decrementCurrentIndex()
+        return currentPic.url
     }
 
     function view(index : int)

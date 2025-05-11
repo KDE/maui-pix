@@ -77,6 +77,7 @@ StackView
             onAccepted:
             {
                 folderModel.filters = text.split(",")
+                _foldersGrid.forceActiveFocus()
             }
 
             onCleared: folderModel.clearFilters()

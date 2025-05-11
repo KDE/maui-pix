@@ -6,33 +6,20 @@
 // .pragma library
 .import org.mauikit.filebrowsing as FB
 
-function open(model, index, recursive = false)
-{
-    _pixViewer.model.list.recursive = model.list.recursive
-    _pixViewer.model.list.urls = model.list.urls
-    console.log("FOM VIEWER", index,  _pixViewer.model.mappedFromSource(index))
-    _pixViewer.view( _pixViewer.model.mappedFromSource(index))
-    if(!_pixViewer.visible)
-    {
-        toggleViewer()
-    }
-}
-
-function openExternalPics(pics, index)
-{
-    var oldIndex = pics.lenght-1
-    _pixViewer.viewer.clear()
-    _pixViewer.viewer.appendPics(pics)
-    _pixViewer.view(Math.max(oldIndex, index, 0))
-    if(!_pixViewer.visible)
-    {
-        toggleViewer()
-    }
-}
 
 function fav(urls)
 {
     for(const i in urls)
         FB.Tagging.toggleFav(urls[i])
+}
+
+function openExternalPics(pics, index)
+{
+    appView.openExternalPics(pics, index)
+}
+
+function open(model, index, recursive = false)
+{
+    appView.open(model, index, recursive)
 }
 
