@@ -46,7 +46,7 @@ Loader
 
         onPlaceClicked: (path, filters, mouse) =>
                         {
-                            root.openFolder(path, filters.split(","))
+                            openFolder(path, filters.split(","))
 
                             if(sideBar.collapsed)
                             {
