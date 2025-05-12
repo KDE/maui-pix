@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-11 00:41+0000\n"
+"POT-Creation-Date: 2025-05-12 00:40+0000\n"
 "PO-Revision-Date: 2025-05-08 08:01+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -25,7 +25,7 @@ msgstr "Organiser, naviguer et modifier vos images."
 msgid "Developer"
 msgstr "Développeur"
 
-#: src/main.qml:70
+#: src/main.qml:67
 #, kde-format
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
@@ -34,92 +34,10 @@ msgstr ""
 "Plusieurs fenêtres sont encore ouvertes. Voulez-vous vraiment fermer la "
 "fenêtre  de l'application ?"
 
-#: src/main.qml:128
-#, kde-format
-msgid "Settings"
-msgstr "Configuration"
-
-#: src/main.qml:144 src/widgets/views/Gallery/GalleryView.qml:25
-#, kde-format
-msgid "Open"
-msgstr "Ouvrir"
-
-#: src/main.qml:159
-#, kde-format
-msgid "About"
-msgstr "À propos"
-
-#: src/main.qml:246
+#: src/main.qml:132
 #, kde-format
 msgid "Gallery"
 msgstr "Galerie"
-
-#: src/main.qml:327
-#, fuzzy, kde-format
-#| msgid "Save"
-msgid "Saved"
-msgstr "Enregistrer"
-
-#: src/main.qml:328
-#, fuzzy, kde-format
-#| msgid "The image was deleted"
-msgid "The image has been saved correctly."
-msgstr "L’image a été supprimée."
-
-#: src/main.qml:332 src/widgets/SelectionBar.qml:55
-#, kde-format
-msgid "View"
-msgstr "Affichage"
-
-#: src/main.qml:361
-#, kde-format
-msgid "Open images"
-msgstr "Ouvrir des images"
-
-#: src/main.qml:362
-#, kde-format
-msgid "Drag and drop images here."
-msgstr "Glisser et déposer des images ici."
-
-#: src/main.qml:421
-#, kde-format
-msgid "Tagged"
-msgstr "Étiqueté"
-
-#: src/main.qml:422
-#, kde-format
-msgid "File was tagged successfully"
-msgstr "Le fichier a été étiqueté avec succès."
-
-#: src/main.qml:481
-#, kde-format
-msgid "Delete %1 file?"
-msgid_plural "Delete %1 files?"
-msgstr[0] "Supprimer le fichier %1 ?"
-msgstr[1] "Supprimer les %1 fichiers ?"
-
-#: src/main.qml:482
-#, kde-format
-msgid "Are sure you want to delete this file? This action can not be undone."
-msgid_plural ""
-"Are sure you want to delete these files? This action can not be undone."
-msgstr[0] ""
-"Voulez-vous vraiment supprimer ce fichier ? Cette action ne peut être "
-"annulée."
-msgstr[1] ""
-"Voulez-vous vraiment supprimer ces fichiers ? Cette action ne peut être "
-"annulée."
-
-#: src/main.qml:488
-#, kde-format
-msgid "Cancel"
-msgstr "Annuler"
-
-#: src/main.qml:494 src/view_models/PixMenu.qml:190
-#: src/widgets/SelectionBar.qml:110
-#, kde-format
-msgid "Remove"
-msgstr "Supprimer"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
@@ -283,65 +201,164 @@ msgstr "Croissant"
 msgid "Descending"
 msgstr "Décroissant"
 
-#: src/view_models/PixMenu.qml:45
+#: src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "UnFav it"
 msgstr "Retirer des signets"
 
-#: src/view_models/PixMenu.qml:54
+#: src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Info"
 msgstr "Informations"
 
-#: src/view_models/PixMenu.qml:64 src/widgets/SelectionBar.qml:73
+#: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
 msgstr "Partager"
 
-#: src/view_models/PixMenu.qml:80
+#: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Select"
 msgstr "Sélectionner"
 
-#: src/view_models/PixMenu.qml:93
+#: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
 msgstr "Ouvrir dans une nouvelle fenêtre"
 
-#: src/view_models/PixMenu.qml:108
+#: src/view_models/PixMenu.qml:107
 #, kde-format
 msgid "Add to '%1'"
 msgstr "Ajouter à « %1 »."
 
-#: src/view_models/PixMenu.qml:118
+#: src/view_models/PixMenu.qml:117
 #, kde-format
 msgid "Add to Album"
 msgstr "Ajouter à l'album"
 
-#: src/view_models/PixMenu.qml:134
+#: src/view_models/PixMenu.qml:133
 #, kde-format
 msgid "Edit"
 msgstr "Modifier"
 
-#: src/view_models/PixMenu.qml:146
+#: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Save as"
 msgstr "Enregistrer sous"
 
-#: src/view_models/PixMenu.qml:153
+#: src/view_models/PixMenu.qml:152
 #, kde-format
 msgid "Open with"
 msgstr "Ouvrir avec"
 
-#: src/view_models/PixMenu.qml:161
+#: src/view_models/PixMenu.qml:160
 #, kde-format
 msgid "Go to Folder"
 msgstr "Se déplacer dans un dossier"
 
-#: src/view_models/PixMenu.qml:178
+#: src/view_models/PixMenu.qml:177
 #, kde-format
 msgid "Open Location"
 msgstr "Ouvrir un emplacement"
+
+#: src/view_models/PixMenu.qml:189 src/widgets/AppView.qml:418
+#: src/widgets/SelectionBar.qml:110
+#, kde-format
+msgid "Remove"
+msgstr "Supprimer"
+
+#: src/widgets/AppView.qml:32
+#, kde-format
+msgid "Settings"
+msgstr "Configuration"
+
+#: src/widgets/AppView.qml:56 src/widgets/views/Gallery/GalleryView.qml:25
+#, kde-format
+msgid "Open"
+msgstr "Ouvrir"
+
+#: src/widgets/AppView.qml:71
+#, kde-format
+msgid "About"
+msgstr "À propos"
+
+#: src/widgets/AppView.qml:140
+#, fuzzy, kde-format
+#| msgid "Modified"
+msgid "Image Modified"
+msgstr "Modifié"
+
+#: src/widgets/AppView.qml:141
+#, kde-format
+msgid ""
+"The image has been edited. Save or discard the changes before continuing"
+msgstr ""
+
+#: src/widgets/AppView.qml:145
+#, kde-format
+msgid "Discard"
+msgstr ""
+
+#: src/widgets/AppView.qml:256
+#, fuzzy, kde-format
+#| msgid "Save"
+msgid "Saved"
+msgstr "Enregistrer"
+
+#: src/widgets/AppView.qml:257
+#, fuzzy, kde-format
+#| msgid "The image was deleted"
+msgid "The image has been saved correctly."
+msgstr "L’image a été supprimée."
+
+#: src/widgets/AppView.qml:261 src/widgets/SelectionBar.qml:55
+#, kde-format
+msgid "View"
+msgstr "Affichage"
+
+#: src/widgets/AppView.qml:290
+#, kde-format
+msgid "Open images"
+msgstr "Ouvrir des images"
+
+#: src/widgets/AppView.qml:291
+#, kde-format
+msgid "Drag and drop images here."
+msgstr "Glisser et déposer des images ici."
+
+#: src/widgets/AppView.qml:345
+#, kde-format
+msgid "Tagged"
+msgstr "Étiqueté"
+
+#: src/widgets/AppView.qml:346
+#, kde-format
+msgid "File was tagged successfully"
+msgstr "Le fichier a été étiqueté avec succès."
+
+#: src/widgets/AppView.qml:405
+#, kde-format
+msgid "Delete %1 file?"
+msgid_plural "Delete %1 files?"
+msgstr[0] "Supprimer le fichier %1 ?"
+msgstr[1] "Supprimer les %1 fichiers ?"
+
+#: src/widgets/AppView.qml:406
+#, kde-format
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgid_plural ""
+"Are sure you want to delete these files? This action can not be undone."
+msgstr[0] ""
+"Voulez-vous vraiment supprimer ce fichier ? Cette action ne peut être "
+"annulée."
+msgstr[1] ""
+"Voulez-vous vraiment supprimer ces fichiers ? Cette action ne peut être "
+"annulée."
+
+#: src/widgets/AppView.qml:412
+#, kde-format
+msgid "Cancel"
+msgstr "Annuler"
 
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:110
 #, kde-format
@@ -467,7 +484,7 @@ msgstr "Exporter"
 msgid "Behavior"
 msgstr "Comportement"
 
-#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:145
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:168
 #, kde-format
 msgid "Auto Reload"
 msgstr "Recharger automatiquement"
@@ -593,37 +610,37 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "Filtrer le dossier %1"
 msgstr[1] "Filtrer les %1 dossiers"
 
-#: src/widgets/views/Folders/FoldersView.qml:107
+#: src/widgets/views/Folders/FoldersView.qml:108
 #, kde-format
 msgid "No Folders!"
 msgstr "Aucun dossier !"
 
-#: src/widgets/views/Folders/FoldersView.qml:107
+#: src/widgets/views/Folders/FoldersView.qml:108
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Rien ici !"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:109
 #, kde-format
 msgid "Add new image sources."
 msgstr "Ajouter de nouvelles sources d'images."
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:109
 #, kde-format
 msgid "Try something different."
 msgstr "Veuillez essayer quelque chose de différent."
 
-#: src/widgets/views/Folders/FoldersView.qml:215
+#: src/widgets/views/Folders/FoldersView.qml:216
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Le dossier est vide !"
 
-#: src/widgets/views/Folders/FoldersView.qml:216
+#: src/widgets/views/Folders/FoldersView.qml:217
 #, kde-format
 msgid "There're no images in this folder. %1"
 msgstr "Il n'y a aucune image dans ce dossier. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:231
+#: src/widgets/views/Folders/FoldersView.qml:232
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -632,7 +649,7 @@ msgstr[1] "%1 images."
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:175
+#: src/widgets/views/Viewer/PixViewer.qml:198
 #, kde-format
 msgid "No Pics!"
 msgstr "Aucune image !"
@@ -722,37 +739,37 @@ msgstr "Aucune image dans %1 !"
 msgid "There're no pics associated with the tag"
 msgstr "Aucune image n'est associée à cette étiquette."
 
-#: src/widgets/views/Viewer/PixViewer.qml:79
+#: src/widgets/views/Viewer/PixViewer.qml:102
 #, kde-format
 msgid "Previous"
 msgstr "Précédent"
 
-#: src/widgets/views/Viewer/PixViewer.qml:126
+#: src/widgets/views/Viewer/PixViewer.qml:149
 #, kde-format
 msgid "The current image file has been modified or removed externally"
 msgstr "Le fichier courant d'image a été modifié ou supprimé de l'extérieur."
 
-#: src/widgets/views/Viewer/PixViewer.qml:127
+#: src/widgets/views/Viewer/PixViewer.qml:150
 #, kde-format
 msgid "The image was deleted"
 msgstr "L’image a été supprimée."
 
-#: src/widgets/views/Viewer/PixViewer.qml:127
+#: src/widgets/views/Viewer/PixViewer.qml:150
 #, kde-format
 msgid "The image was modified"
 msgstr "L'image a été modifiée."
 
-#: src/widgets/views/Viewer/PixViewer.qml:133
+#: src/widgets/views/Viewer/PixViewer.qml:156
 #, kde-format
 msgid "Reload"
 msgstr "Recharger"
 
-#: src/widgets/views/Viewer/PixViewer.qml:159
+#: src/widgets/views/Viewer/PixViewer.qml:182
 #, kde-format
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/widgets/views/Viewer/PixViewer.qml:176
+#: src/widgets/views/Viewer/PixViewer.qml:199
 #, kde-format
 msgid "Open an image from your collection"
 msgstr "Ouvrir une image à partir de votre collection"
