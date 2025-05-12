@@ -270,11 +270,11 @@ Maui.Page
             index: control.currentIndex
             model: pixModel
 
-            editMenuItem.action: Action
-            {
-                shortcut: "Ctrl+E"
-                onTriggered: openEditor(pixModel.get(currentIndex).url, _stackView)
-            }
+            // editMenuItem.action: Action
+            // {
+            //     shortcut: "Ctrl+E"
+            //     onTriggered: openEditor(pixModel.get(currentIndex).url, _stackView)
+            // }
         }
 
         onItemsSelected: (indexes) =>

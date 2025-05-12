@@ -232,8 +232,10 @@ Item
 
                             if(event.key === Qt.Key_E && (event.modifiers & Qt.ControlModifier))
                             {
+                                console.log("Current pic is", currentPic)
                                 openEditor(currentPic.url, _stackView)
                                 event.accepted = true
+                                return
                             }
 
                             if(event.key === Qt.Key_S && (event.modifiers & Qt.ControlModifier))

@@ -15,6 +15,8 @@ import org.mauikit.imagetools.editor as ITEditor
 Item
 {
     id: control
+    Keys.enabled: true
+    Keys.forwardTo: _stackView
 
     property QtObject tagsDialog : null
 
@@ -32,7 +34,6 @@ Item
         onTriggered: openSettingsDialog()
     }
 
-
     Loader
     {
         id: _collectionViewComponent
@@ -40,7 +41,6 @@ Item
         onLoaded: item.forceActiveFocus()
         sourceComponent: CollectionView {}
     }
-
 
     Component
     {
@@ -151,12 +151,30 @@ Item
                 }
             }
 
+            Keys.enabled: true
+            Keys.onPressed: (event) => {
+                if(event.key === Qt.Key_Left)
+                {
+                    _goPreviousAction.trigger()
+                    event.accepted = true
+                    return
+                }
+
+                if(event.key === Qt.Key_Right)
+                {
+                    _goNextAction.trigger()
+                    event.accepted = true
+                    return
+                }
+            }
+
             function editNextImage()
             {
                 var index = _editor.StackView.view.depth - 2
                 var item = _editor.StackView.view.get(index, StackView.DontLoad)
                 var url = item.nextUrl()
                 _editor.url = url
+                _editor.forceActiveFocus()
             }
 
             function editPreviousImage()
@@ -165,6 +183,7 @@ Item
                 var item = _editor.StackView.view.get(index, StackView.DontLoad)
                 var url = item.previousUrl()
                 _editor.url = url
+                _editor.forceActiveFocus()
             }
 
             headBar.leftContent: Maui.ToolActions
@@ -174,6 +193,7 @@ Item
 
                 Action
                 {
+                    id: _goPreviousAction
                     icon.name: "go-previous"
                     onTriggered:
                     {
@@ -189,6 +209,7 @@ Item
 
                 Action
                 {
+                    id: _goNextAction
                     icon.name: "go-next"
                     onTriggered:
                     {
@@ -198,7 +219,7 @@ Item
                             _confirmNotification.dispatch()
                             return
                         }
-                      _editor.editNextImage()
+                        _editor.editNextImage()
                     }
                 }
 
@@ -460,7 +481,7 @@ Item
         let props = ({ 'browser.settings.filterType' : FB.FMList.IMAGE,
                          'callback' : function(paths)
                          {
-                            openExternalPics(paths)
+                             openExternalPics(paths)
                          }})
         var dialog = fmDialogComponent.createObject(control, props)
         dialog.open()
