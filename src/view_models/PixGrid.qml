@@ -365,7 +365,7 @@ Maui.Page
                 checked: selectionBox.contains(model.url)
 
                 Drag.keys: ["text/uri-list"]
-                Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
+                Drag.mimeData: Drag.active ? { "text/uri-list": filterSelection(model.url) } : {}
 
             onClicked: (mouse) =>
                        {
@@ -441,17 +441,6 @@ Maui.Page
             }
         }
     }
-}
-
-function filterSelectedItems(path)
-{
-    if(selectionBox && selectionBox.count > 0 && selectionBox.contains(path))
-    {
-        const uris = selectionBox.uris
-        return uris.join("\n")
-    }
-
-    return path
 }
 
 function selectAll()
