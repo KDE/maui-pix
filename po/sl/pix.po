@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-12 00:40+0000\n"
-"PO-Revision-Date: 2025-05-11 08:05+0200\n"
+"PO-Revision-Date: 2025-05-12 07:18+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -286,21 +286,21 @@ msgid "About"
 msgstr "O programu"
 
 #: src/widgets/AppView.qml:140
-#, fuzzy, kde-format
-#| msgid "Modified"
+#, kde-format
 msgid "Image Modified"
-msgstr "Spremenjeno"
+msgstr "Slika spremenjena"
 
 #: src/widgets/AppView.qml:141
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
 msgstr ""
+"Slika je bila urejena. Pred nadaljevanjem shranite ali zavrzite spremembe."
 
 #: src/widgets/AppView.qml:145
 #, kde-format
 msgid "Discard"
-msgstr ""
+msgstr "Zavrzi"
 
 #: src/widgets/AppView.qml:256
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-12 00:40+0000\n"
-"PO-Revision-Date: 2025-04-30 14:54+0200\n"
+"PO-Revision-Date: 2025-05-10 08:12+0200\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -599,10 +599,9 @@ msgid "Toggle sidebar"
 msgstr "Attiva/disattiva la barra laterale"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "Nessuna cartella."
+msgstr "Nuova cartella"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
@@ -747,23 +746,22 @@ msgstr "Precedente"
 #: src/widgets/views/Viewer/PixViewer.qml:149
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr ""
+msgstr "L'immagine corrente è stata modificata o rimossa esternamente"
 
 #: src/widgets/views/Viewer/PixViewer.qml:150
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "L'immagine è stata eliminata"
 
 #: src/widgets/views/Viewer/PixViewer.qml:150
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "L'immagine corrente è stata modificata"
 
 #: src/widgets/views/Viewer/PixViewer.qml:156
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "Ricarica automaticamente"
+msgstr "Ricarica"
 
 #: src/widgets/views/Viewer/PixViewer.qml:182
 #, kde-format

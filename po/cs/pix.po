@@ -284,10 +284,9 @@ msgid "About"
 msgstr "O aplikaci"
 
 #: src/widgets/AppView.qml:140
-#, fuzzy, kde-format
-#| msgid "Modified"
+#, kde-format
 msgid "Image Modified"
-msgstr "Změněno"
+msgstr ""
 
 #: src/widgets/AppView.qml:141
 #, kde-format
@@ -298,13 +297,12 @@ msgstr ""
 #: src/widgets/AppView.qml:145
 #, kde-format
 msgid "Discard"
-msgstr ""
+msgstr "Zahodit"
 
 #: src/widgets/AppView.qml:256
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Saved"
-msgstr "Uložit"
+msgstr "Uloženo"
 
 #: src/widgets/AppView.qml:257
 #, kde-format
@@ -784,10 +782,9 @@ msgid "Call"
 msgstr "Volání"
 
 #: src/widgets/views/Viewer/Viewer.qml:122
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Uložit jako"
+msgstr ""
 
 #: src/widgets/views/Viewer/Viewer.qml:129
 #, kde-format
@@ -813,18 +810,3 @@ msgstr ""
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
-
-#~ msgid "Sort by"
-#~ msgstr "Řadit dle"
-
-#~ msgid "Sort Order"
-#~ msgstr "Pořadí řazení"
-
-#~ msgid "Experimental feature."
-#~ msgstr "Experimentální funkce."
-
-#, fuzzy
-#~| msgid "Search image"
-#~| msgid_plural "Search %1 images"
-#~ msgid "Search Web"
-#~ msgstr "Hledat obrázek"

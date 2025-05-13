@@ -282,10 +282,9 @@ msgid "About"
 msgstr "关于"
 
 #: src/widgets/AppView.qml:140
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image Modified"
-msgstr "图像标题"
+msgstr ""
 
 #: src/widgets/AppView.qml:141
 #, kde-format
@@ -299,10 +298,9 @@ msgid "Discard"
 msgstr ""
 
 #: src/widgets/AppView.qml:256
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Saved"
-msgstr "另存为"
+msgstr ""
 
 #: src/widgets/AppView.qml:257
 #, kde-format
@@ -585,10 +583,9 @@ msgid "Toggle sidebar"
 msgstr ""
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "没有文件夹"
+msgstr ""
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
@@ -743,16 +740,14 @@ msgid "The image was modified"
 msgstr ""
 
 #: src/widgets/views/Viewer/PixViewer.qml:156
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "自动重新加载"
+msgstr ""
 
 #: src/widgets/views/Viewer/PixViewer.qml:182
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save"
-msgstr "另存为"
+msgstr "保存"
 
 #: src/widgets/views/Viewer/PixViewer.qml:199
 #, kde-format
@@ -803,9 +798,3 @@ msgstr ""
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""
-
-#~ msgid "Change the sorting key."
-#~ msgstr "选择排序依据的条件。"
-
-#~ msgid "Change the sorting order."
-#~ msgstr "选择排序顺序。"
