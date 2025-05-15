@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-12 00:40+0000\n"
-"PO-Revision-Date: 2025-05-11 18:54+0300\n"
+"PO-Revision-Date: 2025-05-13 21:00+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -286,21 +286,20 @@ msgid "About"
 msgstr "על אודות"
 
 #: src/widgets/AppView.qml:140
-#, fuzzy, kde-format
-#| msgid "Modified"
+#, kde-format
 msgid "Image Modified"
-msgstr "מועד עריכה"
+msgstr "תמונה נערכה"
 
 #: src/widgets/AppView.qml:141
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
-msgstr ""
+msgstr "התמונה נערכה. יש לשמור או להתעלם מהשינויים לפני בחירה להמשיך"
 
 #: src/widgets/AppView.qml:145
 #, kde-format
 msgid "Discard"
-msgstr ""
+msgstr "התעלמות"
 
 #: src/widgets/AppView.qml:256
 #, kde-format
@@ -763,7 +762,7 @@ msgstr "התמונה נערכה"
 #: src/widgets/views/Viewer/PixViewer.qml:156
 #, kde-format
 msgid "Reload"
-msgstr "רענון"
+msgstr "ריענון"
 
 #: src/widgets/views/Viewer/PixViewer.qml:182
 #, kde-format
