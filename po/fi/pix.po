@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-12 00:40+0000\n"
-"PO-Revision-Date: 2025-03-15 09:23+0200\n"
+"PO-Revision-Date: 2025-04-20 16:41+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -241,7 +241,8 @@ msgid "Add to Album"
 msgstr "Lisää albumiin"
 
 #: src/view_models/PixMenu.qml:133
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit"
 msgid "Edit"
 msgstr "Muokkaa"
 
@@ -362,87 +363,87 @@ msgstr "Peru"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Tekstin havaitseminen"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Käytä automaattista havaitsemista"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "Kuvan esikäsittely"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "Käytä kuvan esikäsittelyä."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "Sivun osioiminen"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "Automaattinen"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr ""
+msgstr "Automaattinen ruutunäyttö"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr ""
+msgstr "Yksi sarake"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr ""
+msgstr "Yksi rivi"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr ""
+msgstr "Yksi lohko"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr ""
+msgstr "Yksi sana"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr ""
+msgstr "Luottamuskynnys"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Tekstilohkon havaitseminen"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Sana"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Rivi"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Kappale"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Tekstilohkon valinta"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
@@ -450,16 +451,18 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"Pidä liikkuessasi vaihtonäppäin pohjassa valitaksesi vapaassa tilassa useita "
+"lohkoja."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Vapaa"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Suorakulmainen"
 
 #: src/widgets/SelectionBar.qml:63
 #, kde-format
@@ -544,7 +547,7 @@ msgstr "Esikatselurivi"
 #: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Määritä asetukset tekstin havaitsemiseksi kuvista."
 
 #: src/widgets/SettingsDialog.qml:125
 #, kde-format
@@ -772,13 +775,12 @@ msgstr "Avaa kokoelmasta kuva"
 #: src/widgets/views/Viewer/Viewer.qml:90
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "Teksti kopioitu!"
 
 #: src/widgets/views/Viewer/Viewer.qml:94
-#, fuzzy, kde-format
-#| msgid "Image Titles"
+#, kde-format
 msgid "Image file copied!"
-msgstr "Kuvaotsikot"
+msgstr "Kuvatiedosto kopioitu!"
 
 #: src/widgets/views/Viewer/Viewer.qml:110
 #, kde-format
@@ -786,10 +788,9 @@ msgid "Call"
 msgstr "Soita"
 
 #: src/widgets/views/Viewer/Viewer.qml:122
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Tallenna nimellä"
+msgstr "Tallenna yhteystiedoksi"
 
 #: src/widgets/views/Viewer/Viewer.qml:129
 #, kde-format
@@ -797,25 +798,24 @@ msgid "Message"
 msgstr "Viesti"
 
 #: src/widgets/views/Viewer/Viewer.qml:142
-#, fuzzy, kde-format
-#| msgid "Open Location"
+#, kde-format
 msgid "Open Link"
-msgstr "Avaa sijainti"
+msgstr "Avaa linkki"
 
 #: src/widgets/views/Viewer/Viewer.qml:152
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "Luo tapahtuma"
 
 #: src/widgets/views/Viewer/Viewer.qml:159
 #, kde-format
 msgid "Save to Note"
-msgstr ""
+msgstr "Tallenna muistiinpanoon"
 
 #: src/widgets/views/Viewer/Viewer.qml:166
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "Etsi valittua tekstiä Googlella…"
 
 #~ msgid "Sort by"
 #~ msgstr "Lajittelu"
