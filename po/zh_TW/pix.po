@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-12 00:40+0000\n"
-"PO-Revision-Date: 2025-05-03 14:50+0900\n"
+"PO-Revision-Date: 2025-05-17 09:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -285,33 +285,30 @@ msgid "About"
 msgstr "關於"
 
 #: src/widgets/AppView.qml:140
-#, fuzzy, kde-format
-#| msgid "Modified"
+#, kde-format
 msgid "Image Modified"
-msgstr "修改時間"
+msgstr "影像已修改"
 
 #: src/widgets/AppView.qml:141
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
-msgstr ""
+msgstr "影像已被編輯。繼續進行前請儲存或捨棄變更"
 
 #: src/widgets/AppView.qml:145
 #, kde-format
 msgid "Discard"
-msgstr ""
+msgstr "捨棄"
 
 #: src/widgets/AppView.qml:256
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Saved"
-msgstr "儲存"
+msgstr "已儲存"
 
 #: src/widgets/AppView.qml:257
-#, fuzzy, kde-format
-#| msgid "The image was deleted"
+#, kde-format
 msgid "The image has been saved correctly."
-msgstr "影像已刪除"
+msgstr "影像已正確儲存。"
 
 #: src/widgets/AppView.qml:261 src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -589,10 +586,9 @@ msgid "Toggle sidebar"
 msgstr "切換側邊欄"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "沒有資料夾！"
+msgstr "新資料夾"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
