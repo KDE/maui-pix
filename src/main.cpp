@@ -135,12 +135,13 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     const auto ITData = MauiKitImageTools::aboutData();
     about.addComponent(ITData.name(), MauiKitImageTools::buildVersion(), ITData.version(), ITData.webAddress());
 
+#ifndef Q_OS_ANDROID
     const auto OCRData = MauiKitImageTools::tesseractData();
     about.addComponent(OCRData.name(), OCRData.description(), OCRData.version(), OCRData.webAddress());
 
     const auto openCVData = MauiKitImageTools::opencvData();
     about.addComponent(openCVData.name(), openCVData.description(), openCVData.version(), openCVData.webAddress());
-
+#endif
     KAboutData::setApplicationData(about);
     MauiApp::instance()->setIconName("qrc:/assets/pix.png");
 
@@ -159,8 +160,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     about.processCommandLine(&parser);
     const QStringList args = parser.positionalArguments();
-
-    bool windowed = parser.isSet(newWindow);
 
     QPair<QString, QList<QUrl>> arguments;
     arguments.first = "folder";
@@ -190,6 +189,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #endif
 
 #if (defined Q_OS_LINUX || defined Q_OS_FREEBSD) && !defined Q_OS_ANDROID
+    bool windowed = parser.isSet(newWindow);
+
     if (AppInstance::attachToExistingInstance(arguments, windowed))
     {
         // Successfully attached to existing instance of Nota

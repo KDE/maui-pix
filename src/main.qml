@@ -44,7 +44,7 @@ Maui.ApplicationWindow
     id: root
     title: initData
 
-    Maui.Style.styleType: _appView.pixViewer.visible ? Maui.Style.Dark : undefined
+    Maui.Style.styleType: pixViewer.active ? Maui.Style.Dark : undefined
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     readonly property alias selectionBox : _selectionBar
@@ -124,7 +124,7 @@ Maui.ApplicationWindow
         id: _appView
         anchors.fill: parent
         stackView.initialItem: initModule === "viewer" ? pixViewer : collectionViewComponent
-        anchors.bottomMargin: _selectionBar.visible && pixViewer.visible ? _selectionBar.height : 0
+        anchors.bottomMargin: _selectionBar.visible && pixViewer.active ? _selectionBar.height : 0
 
         pixViewer.headBar.farLeftContent: ToolButton
         {
@@ -133,7 +133,6 @@ Maui.ApplicationWindow
             display: ToolButton.TextBesideIcon
             onClicked: _appView.toggleViewer()
         }
-
     }
 
     SelectionBar

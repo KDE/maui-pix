@@ -53,6 +53,7 @@ qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     widgets/views/Gallery/GalleryView.qml
     widgets/views/Tags/TagsView.qml
     widgets/views/Viewer/PixViewer.qml
+    widgets/views/Viewer/OCROverlay.qml
     widgets/views/Viewer/Viewer.qml
     widgets/views/Viewer/Viewer.js
     widgets/views/Viewer/GalleryRoll.qml
@@ -84,13 +85,11 @@ target_link_libraries(${PROJECT_NAME}
     KF6::I18n)
 
 if(ANDROID)
-    find_package(OpenSSL REQUIRED)
     target_link_libraries(${PROJECT_NAME}
         PRIVATE
         Qt6::Sql
         Qt6::Multimedia
-        Qt6::QuickControls2
-        OpenSSL::SSL)
+        Qt6::QuickControls2)
     kde_source_files_enable_exceptions(pix pix.cpp)
 else()
     target_link_libraries(${PROJECT_NAME}

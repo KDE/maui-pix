@@ -20,7 +20,6 @@ Item
 
     property QtObject tagsDialog : null
 
-
     readonly property alias pixViewer : _pixViewer
     readonly property alias viewer : _pixViewer.viewer
     readonly property alias stackView : _stackView
@@ -32,14 +31,6 @@ Item
         text: i18n("Settings")
         icon.name: "settings-configure"
         onTriggered: openSettingsDialog()
-    }
-
-    Loader
-    {
-        id: _collectionViewComponent
-        active:(StackView.view && StackView.status === StackView.Active) || item
-        onLoaded: item.forceActiveFocus()
-        sourceComponent: CollectionView {}
     }
 
     Component
@@ -75,7 +66,6 @@ Item
         }
     }
 
-
     StackView
     {
         id: _stackView
@@ -109,18 +99,21 @@ Item
         {
             id: _pixViewer
 
-            visible: StackView.status === StackView.Active
+            readonly property bool active: StackView.status === StackView.Active
             Maui.Controls.showCSD: true
 
-            headBar.farRightContent: [
-
-                Loader
-                {
-                    asynchronous: true
-                    sourceComponent: _mainMenuComponent
-                }
-            ]
+            headBar.farRightContent: Loader
+            {
+                asynchronous: true
+                sourceComponent: _mainMenuComponent
+            }
         }
+    }
+
+    Component
+    {
+        id: _collectionViewComponent
+        CollectionView {}
     }
 
     property int lastEditorAction : ITEditor.ImageEditor.ActionType.Colors
@@ -222,7 +215,6 @@ Item
                         _editor.editNextImage()
                     }
                 }
-
             }
 
             onSaved:
@@ -231,8 +223,10 @@ Item
                 _saveNotification.url = url
                 _editor.StackView.view.pop()
 
-                if(_collectionViewComponent.visible)
-                _saveNotification.dispatch()
+                if(!pixViewer.active)
+                {
+                    _saveNotification.dispatch()
+                }
             }
 
             onCanceled:
@@ -316,8 +310,10 @@ Item
                     return
                 }
 
-                if(!_pixViewer.visible)
-                _stackView.push(_pixViewer)
+                if(!_pixViewer.active)
+                {
+                    _stackView.push(_pixViewer)
+                }
             }
         }
     }
@@ -457,7 +453,7 @@ Item
 
     function toggleViewer()
     {
-        if(_pixViewer.visible)
+        if(_pixViewer.active)
         {
             if(_stackView.depth === 1)
             {
@@ -495,12 +491,12 @@ Item
 
     function openFolder(url : string, filters : var)
     {
-        if(!_collectionViewComponent.visible)
+        if(pixViewer.active)
         {
             toggleViewer()
         }
 
-        _collectionViewComponent.item.openFolder(url, filters)
+        _stackView.currentItem.openFolder(url, filters)
     }
 
     function openEditor(url, stack)
@@ -514,7 +510,7 @@ Item
         pixViewer.viewer.clear()
         pixViewer.viewer.appendPics(pics)
         pixViewer.view(Math.max(oldIndex, index, 0))
-        if(!pixViewer.visible)
+        if(!pixViewer.active)
         {
             toggleViewer()
         }
@@ -526,7 +522,7 @@ Item
         pixViewer.model.list.urls = model.list.urls
 
         pixViewer.view( pixViewer.model.mappedFromSource(index))
-        if(!pixViewer.visible)
+        if(!pixViewer.active)
         {
             toggleViewer()
         }

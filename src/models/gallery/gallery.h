@@ -6,7 +6,6 @@
 #include <QUrl>
 
 #include <MauiKit4/Core/mauilist.h>
-#include <qt6/QtCore/qobject.h>
 
 #define PIX_QUERY_MAX_LIMIT 20000
 
