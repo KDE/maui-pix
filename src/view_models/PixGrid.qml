@@ -356,7 +356,7 @@ Maui.Page
                 template.imageWidth: _gridView.itemSize
                 template.imageHeight: _gridView.itemSize
                 anchors.fill: parent
-                // anchors.margins: Maui.Handy.isMobile ? 0 : Maui.Style.space.medium
+                anchors.margins: Maui.Handy.isMobile ? 0 : Maui.Style.space.medium
 
                 fit: browserSettings.fitPreviews
                 labelsVisible: browserSettings.showLabels
