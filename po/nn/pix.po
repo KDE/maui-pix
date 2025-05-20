@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-12 00:40+0000\n"
+"POT-Creation-Date: 2025-05-20 00:41+0000\n"
 "PO-Revision-Date: 2021-01-18 20:17+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -263,88 +263,88 @@ msgstr ""
 msgid "Open Location"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:189 src/widgets/AppView.qml:418
+#: src/view_models/PixMenu.qml:189 src/widgets/AppView.qml:414
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "Fjern"
 
-#: src/widgets/AppView.qml:32
+#: src/widgets/AppView.qml:31
 #, kde-format
 msgid "Settings"
 msgstr "Innstillingar"
 
-#: src/widgets/AppView.qml:56 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/widgets/AppView.qml:47 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Opna"
 
-#: src/widgets/AppView.qml:71
+#: src/widgets/AppView.qml:62
 #, kde-format
 msgid "About"
 msgstr ""
 
-#: src/widgets/AppView.qml:140
+#: src/widgets/AppView.qml:133
 #, fuzzy, kde-format
 #| msgid "Modified"
 msgid "Image Modified"
 msgstr "Endra"
 
-#: src/widgets/AppView.qml:141
+#: src/widgets/AppView.qml:134
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
 msgstr ""
 
-#: src/widgets/AppView.qml:145
+#: src/widgets/AppView.qml:138
 #, kde-format
 msgid "Discard"
 msgstr ""
 
-#: src/widgets/AppView.qml:256
+#: src/widgets/AppView.qml:250
 #, fuzzy, kde-format
 #| msgid "Save"
 msgid "Saved"
 msgstr "Lagra"
 
-#: src/widgets/AppView.qml:257
+#: src/widgets/AppView.qml:251
 #, kde-format
 msgid "The image has been saved correctly."
 msgstr ""
 
-#: src/widgets/AppView.qml:261 src/widgets/SelectionBar.qml:55
+#: src/widgets/AppView.qml:255 src/widgets/SelectionBar.qml:55
 #, kde-format
 msgid "View"
 msgstr "Vis"
 
-#: src/widgets/AppView.qml:290
+#: src/widgets/AppView.qml:284
 #, kde-format
 msgid "Open images"
 msgstr "Opna bilete"
 
-#: src/widgets/AppView.qml:291
+#: src/widgets/AppView.qml:285
 #, kde-format
 msgid "Drag and drop images here."
 msgstr ""
 
-#: src/widgets/AppView.qml:345
+#: src/widgets/AppView.qml:341
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/widgets/AppView.qml:346
+#: src/widgets/AppView.qml:342
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/widgets/AppView.qml:405
+#: src/widgets/AppView.qml:401
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
 msgstr[0] "Sletta %1 fil?"
 msgstr[1] "Sletta %1 filer?"
 
-#: src/widgets/AppView.qml:406
+#: src/widgets/AppView.qml:402
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -354,7 +354,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Er du sikker på at du vil sletta desse filene? Du kan ikkje angra slettinga."
 
-#: src/widgets/AppView.qml:412
+#: src/widgets/AppView.qml:408
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
