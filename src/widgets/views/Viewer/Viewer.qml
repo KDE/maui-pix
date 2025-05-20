@@ -28,6 +28,8 @@ Item
     property real picLightness : 0
     readonly property alias model : pixModel
 
+    property bool focusedMode : false
+
     readonly property alias count : viewerList.count
     readonly property alias currentIndex : viewerList.currentIndex
     readonly property alias currentItem: viewerList.currentItem
@@ -342,6 +344,11 @@ Item
                     image.cache: false
 
                     readonly property bool imageReady: _imgV.image.status == Image.Ready
+                    onClicked: (mouse) =>
+                               {
+                                   control.focusedMode = !control.focusedMode
+                                   mouse.accepted = false
+                               }
 
                     Timer
                     {
@@ -369,10 +376,30 @@ Item
 
                         }
                     }
+
+
+                    TapHandler
+                    {
+                        grabPermissions: PointerHandler.CanTakeOverFromAnything |PointerHandler.ApprovesTakeOverByAnything
+                        onTapped: (eventPoint) =>
+                                  {
+                                      console.log("Viewer tapped", focusedMode)
+                                      eventPoint.accepted = false
+                                  }
+                    }
+                    Item
+                    {
+                        anchors.fill: parent
+
+                    }
+
+
                 }
             }
         }
     }
+
+
     // MouseArea
     // {
     //     enabled: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1

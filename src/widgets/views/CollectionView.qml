@@ -76,6 +76,7 @@ Maui.SideBarView
     sideBar.content: Sidebar
     {
         anchors.fill: parent
+        anchors.margins: Maui.Style.contentMargins
     }
 
     Maui.PageLayout

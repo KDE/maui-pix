@@ -39,6 +39,7 @@ Maui.Page
 
     flickable: _gridView.flickable
     showTitle: false
+    padding: 0
 
     property Component searchFieldComponent : Maui.SearchField
     {
@@ -209,6 +210,7 @@ Maui.Page
         anchors.fill: parent
         enableLassoSelection: true
         holder.visible: _gridView.count === 0
+        // padding: 0
 
         itemSize : control.itemSize
         itemHeight: browserSettings.showLabels ? _gridView.itemSize * 1.5 : _gridView.itemSize
@@ -354,7 +356,7 @@ Maui.Page
                 template.imageWidth: _gridView.itemSize
                 template.imageHeight: _gridView.itemSize
                 anchors.fill: parent
-                anchors.margins: Maui.Handy.isMobile ? 0 : Maui.Style.space.medium
+                // anchors.margins: Maui.Handy.isMobile ? 0 : Maui.Style.space.medium
 
                 fit: browserSettings.fitPreviews
                 labelsVisible: browserSettings.showLabels

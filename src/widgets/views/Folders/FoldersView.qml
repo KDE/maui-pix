@@ -103,6 +103,8 @@ StackView
             currentIndex: -1
             flickable.reuseItems: true
 
+            padding: 0
+
             holder.emoji: "qrc:/assets/view-preview.svg"
             holder.title : foldersList.count === 0 ?
                                i18n("No Folders!") : i18n("Nothing Here!")

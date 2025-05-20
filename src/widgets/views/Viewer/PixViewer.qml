@@ -73,15 +73,15 @@ Maui.Page
 
     altHeader: Maui.Handy.isMobile
     floatingHeader: true
-    autoHideHeader: viewer.imageZooming
-    headerMargins: Maui.Style.defaultPadding
+    autoHideHeader: viewer.imageZooming || viewer.focusedMode
+    headerMargins: Maui.Style.contentMargins
 
     headBar.rightContent: [
 
         ToolButton
         {
             icon.name: "view-fullscreen"
-            onClicked: toogleFullscreen()
+            onClicked: toggleFullscreen()
             checked: fullScreen
         }
     ]
@@ -297,16 +297,25 @@ Maui.Page
                 }
             }
 
-
             Loader
             {
                 id: galleryRoll
 
                 asynchronous: true
                 active: viewerSettings.previewBarVisible
-                anchors.bottom: parent.bottom
+                // anchors.bottom: parent.bottom
                 width: parent.width
                 height: active ? Math.min(60, Math.max(parent.height * 0.12, 60)) : 0
+                y: viewer.imageZooming || viewer.focusedMode ? parent.height :  parent.height - height
+
+                Behavior on y
+                {
+                    NumberAnimation
+                    {
+                        duration: Maui.Style.units.longDuration
+                        easing.type: Easing.InOutQuad
+                    }
+                }
                 sourceComponent:  GalleryRoll
                 {
                     visible: rollList.count > 1
@@ -315,15 +324,6 @@ Maui.Page
                     onPicClicked: (index) => view(index)
                     currentIndex: control.currentPicIndex
 
-                    y: !viewer.imageZooming ? parent.height - height : parent.height
-                    Behavior on y
-                    {
-                        NumberAnimation
-                        {
-                            duration: Maui.Style.units.longDuration
-                            easing.type: Easing.InOutQuad
-                        }
-                    }
 
                     Behavior on opacity
                     {
