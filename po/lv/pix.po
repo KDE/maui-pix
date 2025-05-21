@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:41+0000\n"
 "PO-Revision-Date: 2025-03-29 16:13+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -130,7 +130,7 @@ msgstr "Zīmējumi"
 msgid "No sources found to scan."
 msgstr "Nav atrasts avots, ko skenēt."
 
-#: src/view_models/PixGrid.qml:47
+#: src/view_models/PixGrid.qml:48
 #, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
@@ -138,67 +138,67 @@ msgstr[0] "Meklēt %1 attēlu"
 msgstr[1] "Meklēt %1 attēlus"
 msgstr[2] "Meklēt %1 attēlu"
 
-#: src/view_models/PixGrid.qml:87
+#: src/view_models/PixGrid.qml:88
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "Teksts attēlā (OCR)"
 
-#: src/view_models/PixGrid.qml:99
+#: src/view_models/PixGrid.qml:100
 #, kde-format
 msgid "Preview Size"
 msgstr "Priekšskatījuma izmērs"
 
-#: src/view_models/PixGrid.qml:100
+#: src/view_models/PixGrid.qml:101
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Sīktēlu lielums kolekciju skatos."
 
-#: src/view_models/PixGrid.qml:111
+#: src/view_models/PixGrid.qml:112
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/view_models/PixGrid.qml:118
+#: src/view_models/PixGrid.qml:119
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/view_models/PixGrid.qml:126
+#: src/view_models/PixGrid.qml:127
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/view_models/PixGrid.qml:134
+#: src/view_models/PixGrid.qml:135
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/view_models/PixGrid.qml:146
+#: src/view_models/PixGrid.qml:147
 #, kde-format
 msgid "Title"
 msgstr "Nosaukums"
 
-#: src/view_models/PixGrid.qml:155
+#: src/view_models/PixGrid.qml:156
 #, kde-format
 msgid "Modified"
 msgstr "Modificēts"
 
-#: src/view_models/PixGrid.qml:165
+#: src/view_models/PixGrid.qml:166
 #, kde-format
 msgid "Size"
 msgstr "Izmērs"
 
-#: src/view_models/PixGrid.qml:175
+#: src/view_models/PixGrid.qml:176
 #, kde-format
 msgid "Date"
 msgstr "Datums"
 
-#: src/view_models/PixGrid.qml:187
+#: src/view_models/PixGrid.qml:188
 #, kde-format
 msgid "Ascending"
 msgstr "Augoši"
 
-#: src/view_models/PixGrid.qml:197
+#: src/view_models/PixGrid.qml:198
 #, kde-format
 msgid "Descending"
 msgstr "Dilstoši"
@@ -562,12 +562,12 @@ msgstr "Avoti"
 msgid "Add"
 msgstr "Pievienot"
 
-#: src/widgets/Sidebar.qml:44
+#: src/widgets/Sidebar.qml:55
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Grāmatzīmes!"
 
-#: src/widgets/Sidebar.qml:45
+#: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Te būs redzamas jūsu grāmatzīmes"
@@ -592,7 +592,7 @@ msgstr "Gandrīz gatavs!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "Pārliecinieties, ka esat tiešsaistē un ka jūsu mākoņa konts darbojas"
 
-#: src/widgets/views/CollectionView.qml:142
+#: src/widgets/views/CollectionView.qml:143
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Pārslēgt sānu joslu"
@@ -611,37 +611,37 @@ msgstr[0] "Filtrēt %1 mapi"
 msgstr[1] "Filtrēt %1 mapes"
 msgstr[2] "Filtrēt %1 mapju"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "No Folders!"
 msgstr "Nav mapju!"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Te nekā nav!"
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Add new image sources."
 msgstr "Pievienojiet jaunus attēlu avotus."
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Try something different."
 msgstr "Mēģiniet kaut ko savādāk."
 
-#: src/widgets/views/Folders/FoldersView.qml:216
+#: src/widgets/views/Folders/FoldersView.qml:218
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Mape ir tukša!"
 
-#: src/widgets/views/Folders/FoldersView.qml:217
+#: src/widgets/views/Folders/FoldersView.qml:219
 #, kde-format
 msgid "There're no images in this folder. %1"
 msgstr "Šajā mapē attēlu nav. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:232
+#: src/widgets/views/Folders/FoldersView.qml:234
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -777,47 +777,47 @@ msgstr "Saglabāt"
 msgid "Open an image from your collection"
 msgstr "Atvērt attēlu no jūsu kolekcijas"
 
-#: src/widgets/views/Viewer/Viewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:92
 #, kde-format
 msgid "Text copied!"
 msgstr "Teksts ir nokopēts!"
 
-#: src/widgets/views/Viewer/Viewer.qml:94
+#: src/widgets/views/Viewer/Viewer.qml:96
 #, kde-format
 msgid "Image file copied!"
 msgstr "Attēla datne ir nokopēta!"
 
-#: src/widgets/views/Viewer/Viewer.qml:110
+#: src/widgets/views/Viewer/Viewer.qml:112
 #, kde-format
 msgid "Call"
 msgstr "Zvans"
 
-#: src/widgets/views/Viewer/Viewer.qml:122
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Save as Contact"
 msgstr "Saglabāt kā kontaktu"
 
-#: src/widgets/views/Viewer/Viewer.qml:129
+#: src/widgets/views/Viewer/Viewer.qml:131
 #, kde-format
 msgid "Message"
 msgstr "Ziņa"
 
-#: src/widgets/views/Viewer/Viewer.qml:142
+#: src/widgets/views/Viewer/Viewer.qml:144
 #, kde-format
 msgid "Open Link"
 msgstr "Atvērt saiti"
 
-#: src/widgets/views/Viewer/Viewer.qml:152
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Create Event"
 msgstr "Izveidot notikumu"
 
-#: src/widgets/views/Viewer/Viewer.qml:159
+#: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Save to Note"
 msgstr "Saglabāt kā piezīmi"
 
-#: src/widgets/views/Viewer/Viewer.qml:166
+#: src/widgets/views/Viewer/Viewer.qml:168
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Meklēt atlasīto tekstu ar „Google“..."

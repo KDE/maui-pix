@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:41+0000\n"
 "PO-Revision-Date: 2023-03-20 11:14+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -129,7 +129,7 @@ msgstr "Pinturas"
 msgid "No sources found to scan."
 msgstr "Não foram encontradas fontes para analisar."
 
-#: src/view_models/PixGrid.qml:47
+#: src/view_models/PixGrid.qml:48
 #, fuzzy, kde-format
 #| msgid "Search"
 msgid "Search image"
@@ -137,67 +137,67 @@ msgid_plural "Search %1 images"
 msgstr[0] "Procurar"
 msgstr[1] "Procurar"
 
-#: src/view_models/PixGrid.qml:87
+#: src/view_models/PixGrid.qml:88
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "Texto da Imagem (OCR)"
 
-#: src/view_models/PixGrid.qml:99
+#: src/view_models/PixGrid.qml:100
 #, kde-format
 msgid "Preview Size"
 msgstr "Tamanho da Antevisão"
 
-#: src/view_models/PixGrid.qml:100
+#: src/view_models/PixGrid.qml:101
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Tamanho das miniaturas nas áreas da colecção."
 
-#: src/view_models/PixGrid.qml:111
+#: src/view_models/PixGrid.qml:112
 #, kde-format
 msgid "S"
 msgstr "P"
 
-#: src/view_models/PixGrid.qml:118
+#: src/view_models/PixGrid.qml:119
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/view_models/PixGrid.qml:126
+#: src/view_models/PixGrid.qml:127
 #, kde-format
 msgid "X"
 msgstr "G"
 
-#: src/view_models/PixGrid.qml:134
+#: src/view_models/PixGrid.qml:135
 #, kde-format
 msgid "XL"
 msgstr "MG"
 
-#: src/view_models/PixGrid.qml:146
+#: src/view_models/PixGrid.qml:147
 #, kde-format
 msgid "Title"
 msgstr "Título"
 
-#: src/view_models/PixGrid.qml:155
+#: src/view_models/PixGrid.qml:156
 #, kde-format
 msgid "Modified"
 msgstr "Modificado"
 
-#: src/view_models/PixGrid.qml:165
+#: src/view_models/PixGrid.qml:166
 #, kde-format
 msgid "Size"
 msgstr "Tamanho"
 
-#: src/view_models/PixGrid.qml:175
+#: src/view_models/PixGrid.qml:176
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
-#: src/view_models/PixGrid.qml:187
+#: src/view_models/PixGrid.qml:188
 #, kde-format
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: src/view_models/PixGrid.qml:197
+#: src/view_models/PixGrid.qml:198
 #, kde-format
 msgid "Descending"
 msgstr "Descendente"
@@ -558,12 +558,12 @@ msgstr "Fontes"
 msgid "Add"
 msgstr "Adicionar"
 
-#: src/widgets/Sidebar.qml:44
+#: src/widgets/Sidebar.qml:55
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Favoritos!"
 
-#: src/widgets/Sidebar.qml:45
+#: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Os seus favoritos irão aparecer aqui"
@@ -589,7 +589,7 @@ msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 "Certifique-se que está 'online' e que a sua conta na 'cloud' está funcional"
 
-#: src/widgets/views/CollectionView.qml:142
+#: src/widgets/views/CollectionView.qml:143
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Comutar a barra lateral"
@@ -607,40 +607,40 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "Filtrar %1 pasta"
 msgstr[1] "Filtrar %1 pastas"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "No Folders!"
 msgstr "Sem Pastas!"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, fuzzy, kde-format
 #| msgid "Nothing here"
 msgid "Nothing Here!"
 msgstr "Nada aqui"
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, fuzzy, kde-format
 #| msgid "Add new image sources"
 msgid "Add new image sources."
 msgstr "Adicionar novas fontes de imagens"
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Try something different."
 msgstr ""
 
-#: src/widgets/views/Folders/FoldersView.qml:216
+#: src/widgets/views/Folders/FoldersView.qml:218
 #, kde-format
 msgid "Folder is empty!"
 msgstr "A pasta está vazia!"
 
-#: src/widgets/views/Folders/FoldersView.qml:217
+#: src/widgets/views/Folders/FoldersView.qml:219
 #, fuzzy, kde-format
 #| msgid "There're no images in this folder"
 msgid "There're no images in this folder. %1"
 msgstr "Não existem imagens nesta pasta"
 
-#: src/widgets/views/Folders/FoldersView.qml:232
+#: src/widgets/views/Folders/FoldersView.qml:234
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -774,50 +774,50 @@ msgstr "Gravar"
 msgid "Open an image from your collection"
 msgstr "Abrir uma imagem da sua colecção"
 
-#: src/widgets/views/Viewer/Viewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:92
 #, kde-format
 msgid "Text copied!"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:94
+#: src/widgets/views/Viewer/Viewer.qml:96
 #, fuzzy, kde-format
 #| msgid "Image Titles"
 msgid "Image file copied!"
 msgstr "Títulos das Imagens"
 
-#: src/widgets/views/Viewer/Viewer.qml:110
+#: src/widgets/views/Viewer/Viewer.qml:112
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:122
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, fuzzy, kde-format
 #| msgid "Save as"
 msgid "Save as Contact"
 msgstr "Gravar como"
 
-#: src/widgets/views/Viewer/Viewer.qml:129
+#: src/widgets/views/Viewer/Viewer.qml:131
 #, kde-format
 msgid "Message"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:142
+#: src/widgets/views/Viewer/Viewer.qml:144
 #, fuzzy, kde-format
 #| msgid "Open Location"
 msgid "Open Link"
 msgstr "Abrir a Localização"
 
-#: src/widgets/views/Viewer/Viewer.qml:152
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Create Event"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:159
+#: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Save to Note"
 msgstr ""
 
-#: src/widgets/views/Viewer/Viewer.qml:166
+#: src/widgets/views/Viewer/Viewer.qml:168
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr ""

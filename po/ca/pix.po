@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:41+0000\n"
 "PO-Revision-Date: 2025-05-12 12:41+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -134,74 +134,74 @@ msgstr "Pintures"
 msgid "No sources found to scan."
 msgstr "No s'ha trobat cap font a explorar."
 
-#: src/view_models/PixGrid.qml:47
+#: src/view_models/PixGrid.qml:48
 #, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
 msgstr[0] "Cerca una imatge"
 msgstr[1] "Cerca %1 imatges"
 
-#: src/view_models/PixGrid.qml:87
+#: src/view_models/PixGrid.qml:88
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "Text de les imatges (OCR)"
 
-#: src/view_models/PixGrid.qml:99
+#: src/view_models/PixGrid.qml:100
 #, kde-format
 msgid "Preview Size"
 msgstr "Mida de la vista prèvia"
 
-#: src/view_models/PixGrid.qml:100
+#: src/view_models/PixGrid.qml:101
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Mida de les miniatures a les vistes de col·lecció."
 
-#: src/view_models/PixGrid.qml:111
+#: src/view_models/PixGrid.qml:112
 #, kde-format
 msgid "S"
 msgstr "P"
 
-#: src/view_models/PixGrid.qml:118
+#: src/view_models/PixGrid.qml:119
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/view_models/PixGrid.qml:126
+#: src/view_models/PixGrid.qml:127
 #, kde-format
 msgid "X"
 msgstr "G"
 
-#: src/view_models/PixGrid.qml:134
+#: src/view_models/PixGrid.qml:135
 #, kde-format
 msgid "XL"
 msgstr "SG"
 
-#: src/view_models/PixGrid.qml:146
+#: src/view_models/PixGrid.qml:147
 #, kde-format
 msgid "Title"
 msgstr "Títol"
 
-#: src/view_models/PixGrid.qml:155
+#: src/view_models/PixGrid.qml:156
 #, kde-format
 msgid "Modified"
 msgstr "Modificat"
 
-#: src/view_models/PixGrid.qml:165
+#: src/view_models/PixGrid.qml:166
 #, kde-format
 msgid "Size"
 msgstr "Mida"
 
-#: src/view_models/PixGrid.qml:175
+#: src/view_models/PixGrid.qml:176
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
-#: src/view_models/PixGrid.qml:187
+#: src/view_models/PixGrid.qml:188
 #, kde-format
 msgid "Ascending"
 msgstr "Ascendent"
 
-#: src/view_models/PixGrid.qml:197
+#: src/view_models/PixGrid.qml:198
 #, kde-format
 msgid "Descending"
 msgstr "Descendent"
@@ -561,12 +561,12 @@ msgstr "Fonts"
 msgid "Add"
 msgstr "Afegeix"
 
-#: src/widgets/Sidebar.qml:44
+#: src/widgets/Sidebar.qml:55
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Adreces d'interès!"
 
-#: src/widgets/Sidebar.qml:45
+#: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Aquí es llistaran les vostres adreces d'interès"
@@ -592,7 +592,7 @@ msgid "Make sure you're online and your cloud account is working"
 msgstr ""
 "Assegureu-vos que estigueu connectat i que funcioni el vostre compte al núvol"
 
-#: src/widgets/views/CollectionView.qml:142
+#: src/widgets/views/CollectionView.qml:143
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Mostra o oculta la barra lateral"
@@ -609,37 +609,37 @@ msgid_plural "Filter %1 folders"
 msgstr[0] "Filtra %1 carpeta"
 msgstr[1] "Filtra %1 carpetes"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "No Folders!"
 msgstr "Sense carpetes!"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Res aquí!"
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Add new image sources."
 msgstr "Afegeix fonts noves d'imatges."
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Try something different."
 msgstr "Intenteu quelcom diferent."
 
-#: src/widgets/views/Folders/FoldersView.qml:216
+#: src/widgets/views/Folders/FoldersView.qml:218
 #, kde-format
 msgid "Folder is empty!"
 msgstr "La carpeta està buida!"
 
-#: src/widgets/views/Folders/FoldersView.qml:217
+#: src/widgets/views/Folders/FoldersView.qml:219
 #, kde-format
 msgid "There're no images in this folder. %1"
 msgstr "No hi ha cap imatge en aquesta carpeta. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:232
+#: src/widgets/views/Folders/FoldersView.qml:234
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -772,47 +772,47 @@ msgstr "Desa"
 msgid "Open an image from your collection"
 msgstr "Obre una imatge de la col·lecció"
 
-#: src/widgets/views/Viewer/Viewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:92
 #, kde-format
 msgid "Text copied!"
 msgstr "S'ha copiat el text!"
 
-#: src/widgets/views/Viewer/Viewer.qml:94
+#: src/widgets/views/Viewer/Viewer.qml:96
 #, kde-format
 msgid "Image file copied!"
 msgstr "S'ha copiat el fitxer d'imatge!"
 
-#: src/widgets/views/Viewer/Viewer.qml:110
+#: src/widgets/views/Viewer/Viewer.qml:112
 #, kde-format
 msgid "Call"
 msgstr "Truca"
 
-#: src/widgets/views/Viewer/Viewer.qml:122
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Save as Contact"
 msgstr "Desa com a contacte"
 
-#: src/widgets/views/Viewer/Viewer.qml:129
+#: src/widgets/views/Viewer/Viewer.qml:131
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
 
-#: src/widgets/views/Viewer/Viewer.qml:142
+#: src/widgets/views/Viewer/Viewer.qml:144
 #, kde-format
 msgid "Open Link"
 msgstr "Obre l'enllaç"
 
-#: src/widgets/views/Viewer/Viewer.qml:152
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Create Event"
 msgstr "Crea un esdeveniment"
 
-#: src/widgets/views/Viewer/Viewer.qml:159
+#: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Save to Note"
 msgstr "Desa a una nota"
 
-#: src/widgets/views/Viewer/Viewer.qml:166
+#: src/widgets/views/Viewer/Viewer.qml:168
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Cerca a Google el text seleccionat..."

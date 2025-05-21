@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:41+0000\n"
 "PO-Revision-Date: 2025-05-12 09:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -132,7 +132,7 @@ msgstr "Малюнки"
 msgid "No sources found to scan."
 msgstr "Не знайдено джерел для сканування."
 
-#: src/view_models/PixGrid.qml:47
+#: src/view_models/PixGrid.qml:48
 #, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
@@ -141,67 +141,67 @@ msgstr[1] "Шукати %1 зображення"
 msgstr[2] "Шукати %1 зображень"
 msgstr[3] "Шукати зображення"
 
-#: src/view_models/PixGrid.qml:87
+#: src/view_models/PixGrid.qml:88
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "Текст зображення (розпізнавання)"
 
-#: src/view_models/PixGrid.qml:99
+#: src/view_models/PixGrid.qml:100
 #, kde-format
 msgid "Preview Size"
 msgstr "Розмір перегляду"
 
-#: src/view_models/PixGrid.qml:100
+#: src/view_models/PixGrid.qml:101
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "Розмір мініатюр на панелях перегляду збірки."
 
-#: src/view_models/PixGrid.qml:111
+#: src/view_models/PixGrid.qml:112
 #, kde-format
 msgid "S"
 msgstr "S"
 
-#: src/view_models/PixGrid.qml:118
+#: src/view_models/PixGrid.qml:119
 #, kde-format
 msgid "M"
 msgstr "M"
 
-#: src/view_models/PixGrid.qml:126
+#: src/view_models/PixGrid.qml:127
 #, kde-format
 msgid "X"
 msgstr "X"
 
-#: src/view_models/PixGrid.qml:134
+#: src/view_models/PixGrid.qml:135
 #, kde-format
 msgid "XL"
 msgstr "XL"
 
-#: src/view_models/PixGrid.qml:146
+#: src/view_models/PixGrid.qml:147
 #, kde-format
 msgid "Title"
 msgstr "Заголовок"
 
-#: src/view_models/PixGrid.qml:155
+#: src/view_models/PixGrid.qml:156
 #, kde-format
 msgid "Modified"
 msgstr "Змінено"
 
-#: src/view_models/PixGrid.qml:165
+#: src/view_models/PixGrid.qml:166
 #, kde-format
 msgid "Size"
 msgstr "Розмір"
 
-#: src/view_models/PixGrid.qml:175
+#: src/view_models/PixGrid.qml:176
 #, kde-format
 msgid "Date"
 msgstr "Дата"
 
-#: src/view_models/PixGrid.qml:187
+#: src/view_models/PixGrid.qml:188
 #, kde-format
 msgid "Ascending"
 msgstr "За зростанням"
 
-#: src/view_models/PixGrid.qml:197
+#: src/view_models/PixGrid.qml:198
 #, kde-format
 msgid "Descending"
 msgstr "За спаданням"
@@ -568,12 +568,12 @@ msgstr "Джерела"
 msgid "Add"
 msgstr "Додати"
 
-#: src/widgets/Sidebar.qml:44
+#: src/widgets/Sidebar.qml:55
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Закладки!"
 
-#: src/widgets/Sidebar.qml:45
+#: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Тут буде наведено список ваших закладок"
@@ -600,7 +600,7 @@ msgstr ""
 "Переконайтеся у працездатності з'єднання з мережею та вашого «хмарного» "
 "облікового запису"
 
-#: src/widgets/views/CollectionView.qml:142
+#: src/widgets/views/CollectionView.qml:143
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "Увімкнути/Вимкнути бічну панель"
@@ -619,37 +619,37 @@ msgstr[1] "Фільтрувати %1 теки"
 msgstr[2] "Фільтрувати %1 тек"
 msgstr[3] "Фільтрувати теку"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "No Folders!"
 msgstr "Немає тек!"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "Nothing Here!"
 msgstr "Тут нічого немає!"
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Add new image sources."
 msgstr "Додайте нові джерела зображень."
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Try something different."
 msgstr "Спробуйте щось інше."
 
-#: src/widgets/views/Folders/FoldersView.qml:216
+#: src/widgets/views/Folders/FoldersView.qml:218
 #, kde-format
 msgid "Folder is empty!"
 msgstr "Тека порожня!"
 
-#: src/widgets/views/Folders/FoldersView.qml:217
+#: src/widgets/views/Folders/FoldersView.qml:219
 #, kde-format
 msgid "There're no images in this folder. %1"
 msgstr "У цій теці немає зображень. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:232
+#: src/widgets/views/Folders/FoldersView.qml:234
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -788,47 +788,47 @@ msgstr "Зберегти"
 msgid "Open an image from your collection"
 msgstr "Відкрити зображення з вашої збірки"
 
-#: src/widgets/views/Viewer/Viewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:92
 #, kde-format
 msgid "Text copied!"
 msgstr "Текст скопійовано!"
 
-#: src/widgets/views/Viewer/Viewer.qml:94
+#: src/widgets/views/Viewer/Viewer.qml:96
 #, kde-format
 msgid "Image file copied!"
 msgstr "Файл зображення скопійовано!"
 
-#: src/widgets/views/Viewer/Viewer.qml:110
+#: src/widgets/views/Viewer/Viewer.qml:112
 #, kde-format
 msgid "Call"
 msgstr "Виклик"
 
-#: src/widgets/views/Viewer/Viewer.qml:122
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Save as Contact"
 msgstr "Зберегти як контакт"
 
-#: src/widgets/views/Viewer/Viewer.qml:129
+#: src/widgets/views/Viewer/Viewer.qml:131
 #, kde-format
 msgid "Message"
 msgstr "Повідомлення"
 
-#: src/widgets/views/Viewer/Viewer.qml:142
+#: src/widgets/views/Viewer/Viewer.qml:144
 #, kde-format
 msgid "Open Link"
 msgstr "Відкрити посилання"
 
-#: src/widgets/views/Viewer/Viewer.qml:152
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Create Event"
 msgstr "Створити запис події"
 
-#: src/widgets/views/Viewer/Viewer.qml:159
+#: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Save to Note"
 msgstr "Зберегти до нотатки"
 
-#: src/widgets/views/Viewer/Viewer.qml:166
+#: src/widgets/views/Viewer/Viewer.qml:168
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "Шукати позначений текст у Google..."

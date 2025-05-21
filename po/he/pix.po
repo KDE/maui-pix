@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:41+0000\n"
 "PO-Revision-Date: 2025-05-13 21:00+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -130,7 +130,7 @@ msgstr "ציורים"
 msgid "No sources found to scan."
 msgstr "לא נמצאו מקורות לסריקה"
 
-#: src/view_models/PixGrid.qml:47
+#: src/view_models/PixGrid.qml:48
 #, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
@@ -139,67 +139,67 @@ msgstr[1] "חיפוש שתי תמונות"
 msgstr[2] "חיפוש %1 תמונות"
 msgstr[3] "חיפוש %1 תמונות"
 
-#: src/view_models/PixGrid.qml:87
+#: src/view_models/PixGrid.qml:88
 #, kde-format
 msgid "Image Text (OCR)"
 msgstr "טקסט בתמונה (זיהוי תווים אופטי)"
 
-#: src/view_models/PixGrid.qml:99
+#: src/view_models/PixGrid.qml:100
 #, kde-format
 msgid "Preview Size"
 msgstr "גודל תצוגה מקדימה"
 
-#: src/view_models/PixGrid.qml:100
+#: src/view_models/PixGrid.qml:101
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
 msgstr "גודל התמונות המוקטנות בתצוגות האוסף."
 
-#: src/view_models/PixGrid.qml:111
+#: src/view_models/PixGrid.qml:112
 #, kde-format
 msgid "S"
 msgstr "ק"
 
-#: src/view_models/PixGrid.qml:118
+#: src/view_models/PixGrid.qml:119
 #, kde-format
 msgid "M"
 msgstr "ב"
 
-#: src/view_models/PixGrid.qml:126
+#: src/view_models/PixGrid.qml:127
 #, kde-format
 msgid "X"
 msgstr "ג"
 
-#: src/view_models/PixGrid.qml:134
+#: src/view_models/PixGrid.qml:135
 #, kde-format
 msgid "XL"
 msgstr "גמ"
 
-#: src/view_models/PixGrid.qml:146
+#: src/view_models/PixGrid.qml:147
 #, kde-format
 msgid "Title"
 msgstr "כותרת"
 
-#: src/view_models/PixGrid.qml:155
+#: src/view_models/PixGrid.qml:156
 #, kde-format
 msgid "Modified"
 msgstr "מועד עריכה"
 
-#: src/view_models/PixGrid.qml:165
+#: src/view_models/PixGrid.qml:166
 #, kde-format
 msgid "Size"
 msgstr "גודל"
 
-#: src/view_models/PixGrid.qml:175
+#: src/view_models/PixGrid.qml:176
 #, kde-format
 msgid "Date"
 msgstr "תאריך"
 
-#: src/view_models/PixGrid.qml:187
+#: src/view_models/PixGrid.qml:188
 #, kde-format
 msgid "Ascending"
 msgstr "עולה"
 
-#: src/view_models/PixGrid.qml:197
+#: src/view_models/PixGrid.qml:198
 #, kde-format
 msgid "Descending"
 msgstr "יורד"
@@ -558,12 +558,12 @@ msgstr "מקורות"
 msgid "Add"
 msgstr "הוספה"
 
-#: src/widgets/Sidebar.qml:44
+#: src/widgets/Sidebar.qml:55
 #, kde-format
 msgid "Bookmarks!"
 msgstr "סימניות!"
 
-#: src/widgets/Sidebar.qml:45
+#: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "הסימניות שלך תופענה כאן"
@@ -588,7 +588,7 @@ msgstr "כמעט מוכן!"
 msgid "Make sure you're online and your cloud account is working"
 msgstr "נא לוודא שיש לך חיבור תקין לאינטרנט ושחשבון הענן שלך מתפקד"
 
-#: src/widgets/views/CollectionView.qml:142
+#: src/widgets/views/CollectionView.qml:143
 #, kde-format
 msgid "Toggle sidebar"
 msgstr "הצגת/הסתרת סרגל צד"
@@ -607,37 +607,37 @@ msgstr[1] "סינון שתי תיקיות"
 msgstr[2] "סינון %1 תיקיות"
 msgstr[3] "סינון %1 תיקיות"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "No Folders!"
 msgstr "אין תיקיות!"
 
-#: src/widgets/views/Folders/FoldersView.qml:108
+#: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "Nothing Here!"
 msgstr "אין כאן כלום!"
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Add new image sources."
 msgstr "הוספת מקורות תמונות חדשים."
 
-#: src/widgets/views/Folders/FoldersView.qml:109
+#: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Try something different."
 msgstr "לנסות משהו אחר."
 
-#: src/widgets/views/Folders/FoldersView.qml:216
+#: src/widgets/views/Folders/FoldersView.qml:218
 #, kde-format
 msgid "Folder is empty!"
 msgstr "התיקייה ריקה!"
 
-#: src/widgets/views/Folders/FoldersView.qml:217
+#: src/widgets/views/Folders/FoldersView.qml:219
 #, kde-format
 msgid "There're no images in this folder. %1"
 msgstr "אין תמונות בתיקייה הזאת. %1"
 
-#: src/widgets/views/Folders/FoldersView.qml:232
+#: src/widgets/views/Folders/FoldersView.qml:234
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
@@ -774,47 +774,47 @@ msgstr "שמירה"
 msgid "Open an image from your collection"
 msgstr "פתיחת תמונה מהאוסף שלך"
 
-#: src/widgets/views/Viewer/Viewer.qml:90
+#: src/widgets/views/Viewer/Viewer.qml:92
 #, kde-format
 msgid "Text copied!"
 msgstr "הטקסט הועתק!"
 
-#: src/widgets/views/Viewer/Viewer.qml:94
+#: src/widgets/views/Viewer/Viewer.qml:96
 #, kde-format
 msgid "Image file copied!"
 msgstr "קובץ התמונה הועתק!"
 
-#: src/widgets/views/Viewer/Viewer.qml:110
+#: src/widgets/views/Viewer/Viewer.qml:112
 #, kde-format
 msgid "Call"
 msgstr "חיוג"
 
-#: src/widgets/views/Viewer/Viewer.qml:122
+#: src/widgets/views/Viewer/Viewer.qml:124
 #, kde-format
 msgid "Save as Contact"
 msgstr "שמירה כאיש קשר"
 
-#: src/widgets/views/Viewer/Viewer.qml:129
+#: src/widgets/views/Viewer/Viewer.qml:131
 #, kde-format
 msgid "Message"
 msgstr "הודעה"
 
-#: src/widgets/views/Viewer/Viewer.qml:142
+#: src/widgets/views/Viewer/Viewer.qml:144
 #, kde-format
 msgid "Open Link"
 msgstr "פתיחת קישור"
 
-#: src/widgets/views/Viewer/Viewer.qml:152
+#: src/widgets/views/Viewer/Viewer.qml:154
 #, kde-format
 msgid "Create Event"
 msgstr "יצירת אירוע"
 
-#: src/widgets/views/Viewer/Viewer.qml:159
+#: src/widgets/views/Viewer/Viewer.qml:161
 #, kde-format
 msgid "Save to Note"
 msgstr "שמירה לפתקית"
 
-#: src/widgets/views/Viewer/Viewer.qml:166
+#: src/widgets/views/Viewer/Viewer.qml:168
 #, kde-format
 msgid "Search Selected Text on Google..."
 msgstr "חיפוש הטקסט הנבחר ב־Google…"
