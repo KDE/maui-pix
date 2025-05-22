@@ -25,6 +25,9 @@ Item
     readonly property alias stackView : _stackView
     readonly property alias collectionViewComponent : _collectionViewComponent
 
+    readonly property bool editorVisible : _stackView.currentItem.objectName === "ImageEditor"
+    readonly property bool viewerVisible : _stackView.currentItem.objectName === "Viewer"
+
     Action
     {
         id: _openSettingsAction
@@ -76,6 +79,7 @@ Item
         focusPolicy: Qt.NoFocus
 
         Keys.enabled: true
+        Keys.forwardTo: [currentItem]
         Keys.onEscapePressed:
         {
             if(selectionBox.visible)
@@ -85,8 +89,6 @@ Item
             }
             _stackView.pop()
         }
-
-        Keys.forwardTo: [currentItem]
 
         function forceActiveFocus()
         {
@@ -98,7 +100,7 @@ Item
         PixViewer
         {
             id: _pixViewer
-
+            objectName: "Viewer"
             readonly property bool active: StackView.status === StackView.Active
             Maui.Controls.showCSD: true
 
@@ -124,8 +126,10 @@ Item
         ITEditor.ImageEditor
         {
             id: _editor
+            objectName: "ImageEditor"
             Maui.Controls.showCSD: true
             initialActionType: lastEditorAction
+
             Maui.Notification
             {
                 id: _confirmNotification
@@ -190,7 +194,8 @@ Item
                     icon.name: "go-previous"
                     onTriggered:
                     {
-                        if(_editor.editor.edited)
+                        console.log("Changes saved vs applied", _editor.editor.changesSaved, _editor.editor.changesApplied)
+                        if(!_editor.editor.changesSaved)
                         {
                             _confirmNotification.func = _editor.editPreviousImage
                             _confirmNotification.dispatch()
@@ -206,7 +211,9 @@ Item
                     icon.name: "go-next"
                     onTriggered:
                     {
-                        if(_editor.editor.edited)
+                        console.log("Changes saved vs applied", _editor.editor.changesSaved, _editor.editor.changesApplied)
+
+                        if(!_editor.editor.changesSaved)
                         {
                             _confirmNotification.func = _editor.editNextImage
                             _confirmNotification.dispatch()
@@ -223,7 +230,7 @@ Item
                 _saveNotification.url = url
                 _editor.StackView.view.pop()
 
-                if(!pixViewer.active)
+                if(!control.viewerVisible)
                 {
                     _saveNotification.dispatch()
                 }

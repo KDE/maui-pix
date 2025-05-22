@@ -44,14 +44,14 @@ Maui.ApplicationWindow
     id: root
     title: initData
 
-    Maui.Style.styleType: pixViewer.active ? Maui.Style.Dark : undefined
+    Maui.Style.styleType: _appView.viewerVisible || _appView.editorVisible ? Maui.Style.Dark : undefined
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     readonly property alias selectionBox : _selectionBar
     property bool selectionMode : false
 
-    property alias appView: _appView
-    property alias pixViewer: _appView.pixViewer
+    readonly property alias appView: _appView
+    readonly property alias pixViewer: _appView.pixViewer
 
     readonly property var previewSizes: ({small: 72,
                                              medium: 90,

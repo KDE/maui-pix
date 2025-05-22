@@ -115,8 +115,15 @@ Maui.Page
     headerColumn: Maui.ToolBar
     {
         id: _alertBar
-        visible: _watcher.modified || _watcher.deleted
+        visible: (_watcher.modified || _watcher.deleted)
         width: parent.width
+
+        background: Rectangle
+        {
+            color: Maui.Theme.alternateBackgroundColor
+            opacity: 0.75
+            radius: Maui.Style.radiusV
+        }
 
         Pix.FileWatcher
         {
@@ -139,6 +146,12 @@ Maui.Page
                 }
             }
             onFileDeleted: deleted = true
+
+            onUrlChanged:
+            {
+                deleted = false
+                modified = false
+            }
         }
 
         middleContent: Maui.ListItemTemplate

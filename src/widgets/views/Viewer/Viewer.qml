@@ -98,81 +98,6 @@ Item
         }
     }
 
-    Maui.ContextualMenu
-    {
-        id: _selectionMenu
-
-        MenuItem
-        {
-            action: _copyAction
-        }
-
-        MenuItem
-        {
-            text: i18n("Call")
-            enabled: Maui.Handy.isPhoneNumber(control.textSelected)
-            visible: enabled
-            height: visible ? implicitHeight : -_selectionMenu.spacing
-            onTriggered: Qt.openUrlExternally("tel:"+control.textSelected)
-        }
-
-        MenuItem
-        {
-            enabled: Maui.Handy.isPhoneNumber(control.textSelected) || Maui.Handy.isEmail(control.textSelected)
-            visible: enabled
-            height: visible ? implicitHeight : -_selectionMenu.spacing
-            text: i18n("Save as Contact")
-            icon.name: "contact-new-symbolic"
-            onTriggered: Qt.openUrlExternally("tel:"+control.textSelected)
-        }
-
-        MenuItem
-        {
-            text: i18n("Message")
-            enabled: Maui.Handy.isPhoneNumber(control.textSelected) || Maui.Handy.isEmail(control.textSelected)
-            visible: enabled
-            icon.name: "mail-message-new"
-            height: visible ? implicitHeight : -_selectionMenu.spacing
-            onTriggered: Qt.openUrlExternally("mailto:"+control.textSelected)
-        }
-
-        MenuItem
-        {
-            enabled: Maui.Handy.isWebLink(control.textSelected)
-            visible: enabled
-            height: visible ? implicitHeight : -_selectionMenu.spacing
-            text: i18n("Open Link")
-            icon.name: "website-symbolic"
-            onTriggered: Qt.openUrlExternally(control.textSelected)
-        }
-
-        MenuItem
-        {
-            enabled: Maui.Handy.isTimeDate(control.textSelected)
-            visible: enabled
-            height: visible ? implicitHeight : -_selectionMenu.spacing
-            text: i18n("Create Event")
-            icon.name: "tag-events"
-            onTriggered: Qt.openUrlExternally(control.textSelected)
-        }
-
-        MenuItem
-        {
-            text: i18n("Save to Note")
-            icon.name:"note"
-            onTriggered: Collection.createNote(control.textSelected)
-        }
-
-        MenuItem
-        {
-            text: i18n("Search Selected Text on Google...")
-            visible: enabled
-            icon.name: "find"
-            height: visible ? implicitHeight : -_selectionMenu.spacing
-            onTriggered: Qt.openUrlExternally("https://www.google.com/search?q="+control.textSelected)
-        }
-    }
-
     ListView
     {
         id: viewerList
@@ -207,6 +132,7 @@ Item
         property bool shiftPressed : false
 
         Keys.enabled: true
+        Keys.forwardTo: currentItem
         Keys.onPressed: (event) =>
                         {
                             console.log("key pressed", event.key, event.key == Qt.Key_Control )
@@ -312,6 +238,9 @@ Item
         {
             id: _viewerLoaderDelegate
 
+            Keys.enabled: true
+            Keys.forwardTo: item
+
             height: ListView.view.height
             width: ListView.view.width
             readonly property bool isCurrentItem: ListView.isCurrentItem
@@ -343,6 +272,8 @@ Item
                     image.autoTransform: true
                     image.cache: false
 
+                    Keys.forwardTo: _ocrLoader.item
+
                     readonly property bool imageReady: _imgV.image.status == Image.Ready
                     onClicked: (mouse) =>
                                {
@@ -365,6 +296,7 @@ Item
 
                     Loader
                     {
+                        id: _ocrLoader
                         active: (_viewerLoaderDelegate.isCurrentItem && viewerSettings.enableOCR && _timer.ready)
                         parent:  _imgV.image
                         height: _imgV.image.paintedHeight
@@ -376,24 +308,6 @@ Item
 
                         }
                     }
-
-
-                    TapHandler
-                    {
-                        grabPermissions: PointerHandler.CanTakeOverFromAnything |PointerHandler.ApprovesTakeOverByAnything
-                        onTapped: (eventPoint) =>
-                                  {
-                                      console.log("Viewer tapped", focusedMode)
-                                      eventPoint.accepted = false
-                                  }
-                    }
-                    Item
-                    {
-                        anchors.fill: parent
-
-                    }
-
-
                 }
             }
         }

@@ -11,7 +11,108 @@ Item
 {
     opacity: 0.5
     Keys.enabled: true
-    Keys.onEscapePressed: _boxes.reset()
+    Keys.onPressed: (event) =>
+                    {
+                        if(event.key === Qt.Key_Escape && _boxes.selectedIndexes.length > 0)
+                        {
+                            _boxes.reset()
+                            event.accepted = true
+                        }
+
+                        if(event.key === Qt.Key_A && (event.modifiers & Qt.ControlModifier))
+                        {
+                            selectAll()
+                            event.accepted = true
+                        }
+                    }
+
+    function selectAll()
+    {
+        _boxes.selectedIndexes = _ocr.allWordBoxes()
+        setSelectedIndexes()
+        _boxes.selectAll()
+    }
+
+    Maui.ContextualMenu
+    {
+        id: _selectionMenu
+
+        MenuItem
+        {
+            action: _copyAction
+        }
+
+        Action
+        {
+            text: i18n("Select All")
+            onTriggered: selectAll()
+        }
+
+        MenuItem
+        {
+            text: i18n("Call")
+            enabled: Maui.Handy.isPhoneNumber(control.textSelected)
+            visible: enabled
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            onTriggered: Qt.openUrlExternally("tel:"+control.textSelected)
+        }
+
+        MenuItem
+        {
+            enabled: Maui.Handy.isPhoneNumber(control.textSelected) || Maui.Handy.isEmail(control.textSelected)
+            visible: enabled
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            text: i18n("Save as Contact")
+            icon.name: "contact-new-symbolic"
+            onTriggered: Qt.openUrlExternally("tel:"+control.textSelected)
+        }
+
+        MenuItem
+        {
+            text: i18n("Message")
+            enabled: Maui.Handy.isPhoneNumber(control.textSelected) || Maui.Handy.isEmail(control.textSelected)
+            visible: enabled
+            icon.name: "mail-message-new"
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            onTriggered: Qt.openUrlExternally("mailto:"+control.textSelected)
+        }
+
+        MenuItem
+        {
+            enabled: Maui.Handy.isWebLink(control.textSelected)
+            visible: enabled
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            text: i18n("Open Link")
+            icon.name: "website-symbolic"
+            onTriggered: Qt.openUrlExternally(control.textSelected)
+        }
+
+        MenuItem
+        {
+            enabled: Maui.Handy.isTimeDate(control.textSelected)
+            visible: enabled
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            text: i18n("Create Event")
+            icon.name: "tag-events"
+            onTriggered: Qt.openUrlExternally(control.textSelected)
+        }
+
+        MenuItem
+        {
+            text: i18n("Save to Note")
+            icon.name:"note"
+            onTriggered: Collection.createNote(control.textSelected)
+        }
+
+        MenuItem
+        {
+            text: i18n("Search Selected Text on Google...")
+            visible: enabled
+            icon.name: "find"
+            height: visible ? implicitHeight : -_selectionMenu.spacing
+            onTriggered: Qt.openUrlExternally("https://www.google.com/search?q="+control.textSelected)
+        }
+    }
 
     Item
     {
@@ -22,13 +123,14 @@ Item
         property var selectedIndexes: []
 
         signal resetSelection();
+        signal selectAll()
 
         function reset()
         {
             _boxes.resetSelection()
             _boxes.selectedText = []
             _boxes.selectedIndexes = []
-            control.textSelected = ""
+            textSelected = ""
         }
 
         Repeater
@@ -66,6 +168,11 @@ Item
                     function onResetSelection()
                     {
                         selected = false
+                    }
+
+                    function onSelectAll()
+                    {
+                        selected = true
                     }
                 }
 
@@ -107,7 +214,9 @@ Item
                                if(mouse.button == Qt.RightButton)
                                {
                                    if(_boxes.selectedIndexes.indexOf(index) < 0)
-                                   _boxes.reset()
+                                   {
+                                       _boxes.reset()
+                                   }
 
                                    selected = true
                                    control.textSelected = control.textSelected.length > 0 ? control.textSelected : modelData.text
@@ -159,17 +268,7 @@ Item
 
         onReleased: (mouse) =>
                     {
-                        _boxes.selectedText = []
-                        _boxes.selectedIndexes.sort(function(a, b) {
-                            return a - b;
-                        })
-                        console.log("Selected indexes sorted", _boxes.selectedIndexes)
-                        for(var i of _boxes.selectedIndexes)
-                        {
-                            _boxes.selectedText.push(_repeater.itemAt(i).text)
-                        }
-
-                        control.textSelected = _boxes.selectedText.length > 0 ? _boxes.selectedText.join(" ") : ""
+                        setSelectedIndexes()
                         mouse.accepted = false
                     }
 
@@ -177,7 +276,6 @@ Item
                            {
                                if(Math.round(mouse.x)%2 === 0 || Math.round(mouse.y)%2 === 0)
                                {
-
                                    if(_selectionArea.containsPress && mouse.modifiers === Qt.ShiftModifier)
                                    {
                                        if(viewerSettings.ocrSelectionType === 0)
@@ -223,6 +321,20 @@ Item
         {
             return Qt.point(_imgV.image.implicitWidth * point.x / _selectionArea.width, _imgV.image.implicitHeight * point.y/ _selectionArea.height);
         }
+    }
+    function setSelectedIndexes()
+    {
+        _boxes.selectedText = []
+        _boxes.selectedIndexes.sort(function(a, b) {
+            return a - b;
+        })
+        console.log("Selected indexes sorted", _boxes.selectedIndexes)
+        for(var i of _boxes.selectedIndexes)
+        {
+            _boxes.selectedText.push(_repeater.itemAt(i).text)
+        }
+
+        textSelected = _boxes.selectedText.length > 0 ? _boxes.selectedText.join(" ") : ""
     }
 
     IT.OCR
