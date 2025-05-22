@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:41+0000\n"
-"PO-Revision-Date: 2025-05-10 08:12+0200\n"
+"PO-Revision-Date: 2025-05-13 16:14+0200\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: src/main.cpp:118
 #, kde-format
@@ -285,32 +285,32 @@ msgid "About"
 msgstr "Informazioni su"
 
 #: src/widgets/AppView.qml:133
-#, fuzzy, kde-format
-#| msgid "Modified"
+#, kde-format
 msgid "Image Modified"
-msgstr "Modificato"
+msgstr "Immagine modificata"
 
 #: src/widgets/AppView.qml:134
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
 msgstr ""
+"L'immagine è stata modificata. Salvala prima di continuare, oppure scarta le "
+"modifiche"
 
 #: src/widgets/AppView.qml:138
 #, kde-format
 msgid "Discard"
-msgstr ""
+msgstr "Scarta"
 
 #: src/widgets/AppView.qml:250
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Saved"
-msgstr "Salva"
+msgstr "Salvata"
 
 #: src/widgets/AppView.qml:251
 #, kde-format
 msgid "The image has been saved correctly."
-msgstr ""
+msgstr "L'immagine è stata salvata correttamente."
 
 #: src/widgets/AppView.qml:255 src/widgets/SelectionBar.qml:55
 #, kde-format
