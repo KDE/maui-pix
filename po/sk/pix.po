@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-21 00:41+0000\n"
+"POT-Creation-Date: 2025-05-23 00:41+0000\n"
 "PO-Revision-Date: 2021-11-15 17:54+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -265,81 +265,81 @@ msgstr "Zobraziť v priečinku"
 msgid "Open Location"
 msgstr ""
 
-#: src/view_models/PixMenu.qml:189 src/widgets/AppView.qml:414
+#: src/view_models/PixMenu.qml:189 src/widgets/AppView.qml:421
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
 msgstr "Odstrániť"
 
-#: src/widgets/AppView.qml:31
+#: src/widgets/AppView.qml:34
 #, kde-format
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: src/widgets/AppView.qml:47 src/widgets/views/Gallery/GalleryView.qml:25
+#: src/widgets/AppView.qml:50 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/widgets/AppView.qml:62
+#: src/widgets/AppView.qml:65
 #, fuzzy, kde-format
 msgid "About"
 msgstr "O aplikácii"
 
-#: src/widgets/AppView.qml:133
+#: src/widgets/AppView.qml:137
 #, fuzzy, kde-format
 #| msgid "Modified"
 msgid "Image Modified"
 msgstr "Zmenené"
 
-#: src/widgets/AppView.qml:134
+#: src/widgets/AppView.qml:138
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
 msgstr ""
 
-#: src/widgets/AppView.qml:138
+#: src/widgets/AppView.qml:142
 #, kde-format
 msgid "Discard"
 msgstr ""
 
-#: src/widgets/AppView.qml:250
+#: src/widgets/AppView.qml:257
 #, fuzzy, kde-format
 msgid "Saved"
 msgstr "Uložiť"
 
-#: src/widgets/AppView.qml:251
+#: src/widgets/AppView.qml:258
 #, kde-format
 msgid "The image has been saved correctly."
 msgstr ""
 
-#: src/widgets/AppView.qml:255 src/widgets/SelectionBar.qml:55
+#: src/widgets/AppView.qml:262 src/widgets/SelectionBar.qml:55
 #, kde-format
 msgid "View"
 msgstr "Zobraziť"
 
-#: src/widgets/AppView.qml:284
+#: src/widgets/AppView.qml:291
 #, kde-format
 msgid "Open images"
 msgstr "Otvoriť obrázky"
 
-#: src/widgets/AppView.qml:285
+#: src/widgets/AppView.qml:292
 #, fuzzy, kde-format
 #| msgid "Drag and drop images here"
 msgid "Drag and drop images here."
 msgstr "Sem môžete pretiahnuť obrázky"
 
-#: src/widgets/AppView.qml:341
+#: src/widgets/AppView.qml:348
 #, kde-format
 msgid "Tagged"
 msgstr ""
 
-#: src/widgets/AppView.qml:342
+#: src/widgets/AppView.qml:349
 #, kde-format
 msgid "File was tagged successfully"
 msgstr ""
 
-#: src/widgets/AppView.qml:401
+#: src/widgets/AppView.qml:408
 #, fuzzy, kde-format
 #| msgid "Delete files?"
 msgid "Delete %1 file?"
@@ -348,7 +348,7 @@ msgstr[0] "Vymazať súbor?"
 msgstr[1] "Vymazať súbory"
 msgstr[2] "Vymazať súbory"
 
-#: src/widgets/AppView.qml:402
+#: src/widgets/AppView.qml:409
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
@@ -357,7 +357,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/widgets/AppView.qml:408
+#: src/widgets/AppView.qml:415
 #, kde-format
 msgid "Cancel"
 msgstr "Zrušiť"
@@ -484,7 +484,7 @@ msgstr "Exportovať"
 msgid "Behavior"
 msgstr "Správanie"
 
-#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:168
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:181
 #, kde-format
 msgid "Auto Reload"
 msgstr ""
@@ -653,7 +653,7 @@ msgstr[2] "Otvoriť obrázky"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
-#: src/widgets/views/Viewer/PixViewer.qml:198
+#: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "No Pics!"
 msgstr ""
@@ -744,37 +744,80 @@ msgstr ""
 msgid "There're no pics associated with the tag"
 msgstr ""
 
+#: src/widgets/views/Viewer/OCROverlay.qml:47
+#, fuzzy, kde-format
+#| msgid "Select"
+msgid "Select All"
+msgstr "Vybrať"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:53
+#, kde-format
+msgid "Call"
+msgstr ""
+
+#: src/widgets/views/Viewer/OCROverlay.qml:65
+#, fuzzy, kde-format
+#| msgid "Save as"
+msgid "Save as Contact"
+msgstr "Uložiť ako"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:72
+#, kde-format
+msgid "Message"
+msgstr ""
+
+#: src/widgets/views/Viewer/OCROverlay.qml:85
+#, fuzzy, kde-format
+#| msgid "Open"
+msgid "Open Link"
+msgstr "Otvoriť s"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:95
+#, kde-format
+msgid "Create Event"
+msgstr ""
+
+#: src/widgets/views/Viewer/OCROverlay.qml:102
+#, kde-format
+msgid "Save to Note"
+msgstr ""
+
+#: src/widgets/views/Viewer/OCROverlay.qml:109
+#, kde-format
+msgid "Search Selected Text on Google..."
+msgstr ""
+
 #: src/widgets/views/Viewer/PixViewer.qml:102
 #, kde-format
 msgid "Previous"
 msgstr "Predchádzajúci"
 
-#: src/widgets/views/Viewer/PixViewer.qml:149
+#: src/widgets/views/Viewer/PixViewer.qml:162
 #, kde-format
 msgid "The current image file has been modified or removed externally"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:150
+#: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was deleted"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:150
+#: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was modified"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:156
+#: src/widgets/views/Viewer/PixViewer.qml:169
 #, kde-format
 msgid "Reload"
 msgstr ""
 
-#: src/widgets/views/Viewer/PixViewer.qml:182
+#: src/widgets/views/Viewer/PixViewer.qml:195
 #, fuzzy, kde-format
 msgid "Save"
 msgstr "Uložiť"
 
-#: src/widgets/views/Viewer/PixViewer.qml:199
+#: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
 msgstr ""
@@ -787,43 +830,6 @@ msgstr ""
 #: src/widgets/views/Viewer/Viewer.qml:96
 #, kde-format
 msgid "Image file copied!"
-msgstr ""
-
-#: src/widgets/views/Viewer/Viewer.qml:112
-#, kde-format
-msgid "Call"
-msgstr ""
-
-#: src/widgets/views/Viewer/Viewer.qml:124
-#, fuzzy, kde-format
-#| msgid "Save as"
-msgid "Save as Contact"
-msgstr "Uložiť ako"
-
-#: src/widgets/views/Viewer/Viewer.qml:131
-#, kde-format
-msgid "Message"
-msgstr ""
-
-#: src/widgets/views/Viewer/Viewer.qml:144
-#, fuzzy, kde-format
-#| msgid "Open"
-msgid "Open Link"
-msgstr "Otvoriť s"
-
-#: src/widgets/views/Viewer/Viewer.qml:154
-#, kde-format
-msgid "Create Event"
-msgstr ""
-
-#: src/widgets/views/Viewer/Viewer.qml:161
-#, kde-format
-msgid "Save to Note"
-msgstr ""
-
-#: src/widgets/views/Viewer/Viewer.qml:168
-#, kde-format
-msgid "Search Selected Text on Google..."
 msgstr ""
 
 #, fuzzy
