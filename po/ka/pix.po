@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-23 00:41+0000\n"
-"PO-Revision-Date: 2025-05-12 04:11+0200\n"
+"PO-Revision-Date: 2025-05-23 04:04+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -220,7 +220,7 @@ msgstr "გაზიარება"
 #: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Select"
-msgstr "აირჩიეთ"
+msgstr "არჩევა"
 
 #: src/view_models/PixMenu.qml:92
 #, kde-format
@@ -736,10 +736,9 @@ msgid "There're no pics associated with the tag"
 msgstr "ამ ჭდესთან ასოცირებული სურათები ვერ ვიპოვე"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select All"
-msgstr "აირჩიეთ"
+msgstr "ყველას მონიშვნა"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format

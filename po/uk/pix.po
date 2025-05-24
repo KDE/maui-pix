@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-23 00:41+0000\n"
-"PO-Revision-Date: 2025-05-12 09:51+0300\n"
+"PO-Revision-Date: 2025-05-23 09:25+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -753,10 +753,9 @@ msgid "There're no pics associated with the tag"
 msgstr "З цією міткою не пов'язано жодного зображення"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select All"
-msgstr "Вибрати"
+msgstr "Позначити все"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format

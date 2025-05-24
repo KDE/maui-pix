@@ -720,10 +720,9 @@ msgid "There're no pics associated with the tag"
 msgstr "该标签没有关联图像"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select All"
-msgstr "选择"
+msgstr ""
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format

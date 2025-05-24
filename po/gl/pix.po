@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-23 00:41+0000\n"
-"PO-Revision-Date: 2025-03-20 08:25+0100\n"
+"PO-Revision-Date: 2025-05-23 10:07+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: src/main.cpp:118
 #, kde-format
@@ -33,6 +33,7 @@ msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
 msgstr ""
+"Aínda hai varias xanelas abertas. Seguro que quere pechar a aplicación?"
 
 #: src/main.qml:132
 #, kde-format
@@ -225,7 +226,7 @@ msgstr "Seleccionar"
 #: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "Abrir nunha xanela nova"
 
 #: src/view_models/PixMenu.qml:107
 #, kde-format
@@ -240,7 +241,7 @@ msgstr "Engadir ao álbum"
 #: src/view_models/PixMenu.qml:133
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: src/view_models/PixMenu.qml:145
 #, kde-format
@@ -284,32 +285,30 @@ msgid "About"
 msgstr "Sobre"
 
 #: src/widgets/AppView.qml:137
-#, fuzzy, kde-format
-#| msgid "Modified"
+#, kde-format
 msgid "Image Modified"
-msgstr "Modificado"
+msgstr "Modificouse a imaxe"
 
 #: src/widgets/AppView.qml:138
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
-msgstr ""
+msgstr "Editouse a imaxe. Garde ou descarte os cambios para continuar."
 
 #: src/widgets/AppView.qml:142
 #, kde-format
 msgid "Discard"
-msgstr ""
+msgstr "Descartar"
 
 #: src/widgets/AppView.qml:257
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Saved"
-msgstr "Gardar"
+msgstr "Gardouse"
 
 #: src/widgets/AppView.qml:258
 #, kde-format
 msgid "The image has been saved correctly."
-msgstr ""
+msgstr "Gardouse a imaxe."
 
 #: src/widgets/AppView.qml:262 src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -596,10 +595,9 @@ msgid "Toggle sidebar"
 msgstr "Conmutar a barra lateral"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "Non hai cartafoles."
+msgstr "Novo cartafol"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
@@ -785,23 +783,22 @@ msgstr "Anterior"
 #: src/widgets/views/Viewer/PixViewer.qml:162
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr ""
+msgstr "O ficheiro da imaxe actual modificouse ou retirouse externamente."
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "Eliminouse a imaxe."
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "Modificouse a imaxe."
 
 #: src/widgets/views/Viewer/PixViewer.qml:169
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "Cargar de novo automaticamente"
+msgstr "Cargar de novo"
 
 #: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
