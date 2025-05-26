@@ -77,6 +77,7 @@ Maui.SideBarView
     {
         anchors.fill: parent
         anchors.margins: Maui.Style.contentMargins
+        anchors.rightMargin: 0
     }
 
     Maui.PageLayout
@@ -103,7 +104,7 @@ Maui.SideBarView
 
         split: width < 600
         splitSection: Maui.PageLayout.Section.Middle
-        headerMargins: Maui.Style.defaultPadding
+        headerMargins: Maui.Style.contentMargins
         middleContent: Loader
         {
             id: _searchFieldLoader
