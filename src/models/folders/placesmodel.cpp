@@ -20,6 +20,12 @@ PlacesModel::PlacesModel(QObject *parent) : MauiList(parent)
     m_quickPlaces << QVariantMap{{"icon", "view-list-icons"}, {"path", "collection:///"}, {"label", i18n("Collection")}};
 }
 
+PlacesModel::~PlacesModel()
+{
+    m_tagging->disconnect();
+    m_tagging = nullptr;
+}
+
 QVariantList PlacesModel::quickPlaces() const
 {
     return m_quickPlaces;
@@ -78,7 +84,7 @@ FMH::MODEL_LIST PlacesModel::locations()
     return std::accumulate(cities.constBegin(), cities.constEnd(), res, [&db](FMH::MODEL_LIST &list, const QString &id) {
         FMH::MODEL item;
 
-       City city = db->city(id);
+        City city = db->city(id);
 
         item[FMH::MODEL_KEY::ICON] = "gps";
         item[FMH::MODEL_KEY::TYPE] = i18n("Locations");
@@ -119,7 +125,8 @@ void PlacesModel::classBegin()
 
 void PlacesModel::componentComplete()
 {
-    connect(Tagging::getInstance(), &Tagging::tagged, [this](QVariantMap item) {
+    m_tagging = Tagging::getInstance();
+    connect(m_tagging, &Tagging::tagged, [this](QVariantMap item) {
         Q_EMIT this->preItemAppended();
         auto tag = FMH::toModel(item);
         tag[FMH::MODEL_KEY::TYPE] = i18n("Tags");

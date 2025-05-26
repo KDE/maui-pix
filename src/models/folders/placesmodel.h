@@ -4,6 +4,7 @@
 
 #include <MauiKit4/Core/mauilist.h>
 
+class Tagging;
 class PlacesModel : public MauiList
 {
     Q_OBJECT
@@ -11,10 +12,11 @@ class PlacesModel : public MauiList
 
 public:
     explicit PlacesModel(QObject *parent = nullptr);
-
+    ~PlacesModel();
     QVariantList quickPlaces() const;
 
 private:
+    Tagging *m_tagging;
     QVariantList m_quickPlaces;
     FMH::MODEL_LIST m_list;
 
