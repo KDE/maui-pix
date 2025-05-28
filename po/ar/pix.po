@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-27 00:40+0000\n"
-"PO-Revision-Date: 2025-05-14 17:34+0400\n"
+"PO-Revision-Date: 2025-05-27 18:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -752,10 +752,9 @@ msgid "There're no pics associated with the tag"
 msgstr "لا توجد صور مرتبطة بالوسم"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select All"
-msgstr "اختر"
+msgstr "حدّد الكلّ"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format
