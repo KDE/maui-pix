@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-27 00:40+0000\n"
-"PO-Revision-Date: 2025-04-20 16:41+0300\n"
+"PO-Revision-Date: 2025-05-27 23:33+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -32,7 +32,7 @@ msgstr "Kehittäjä"
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
-msgstr ""
+msgstr "Useita ikkunoita on yhä auki. Haluatko varmasti sulkea sovelluksen?"
 
 #: src/main.qml:132
 #, kde-format
@@ -227,7 +227,7 @@ msgstr "Valitse"
 #: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "Avaa uuteen ikkunaan"
 
 # *** TARKISTA: Tässä olisi hyvä tietää, mikä ”%1” on – tiedosto, kansio, albumi, osoitekirja…?
 #: src/view_models/PixMenu.qml:107
@@ -241,8 +241,7 @@ msgid "Add to Album"
 msgstr "Lisää albumiin"
 
 #: src/view_models/PixMenu.qml:133
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgid "Edit"
 msgstr "Muokkaa"
 
@@ -288,32 +287,30 @@ msgid "About"
 msgstr "Tietoa"
 
 #: src/widgets/AppView.qml:137
-#, fuzzy, kde-format
-#| msgid "Modified"
+#, kde-format
 msgid "Image Modified"
-msgstr "Muutettu"
+msgstr "Kuva muuttunut"
 
 #: src/widgets/AppView.qml:138
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
-msgstr ""
+msgstr "Kuvaa on muokattu. Ennen jatkamista tallenna tai hylkää muutokset"
 
 #: src/widgets/AppView.qml:142
 #, kde-format
 msgid "Discard"
-msgstr ""
+msgstr "Hylkää"
 
 #: src/widgets/AppView.qml:257
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Saved"
-msgstr "Tallenna"
+msgstr "Tallennettu"
 
 #: src/widgets/AppView.qml:258
 #, kde-format
 msgid "The image has been saved correctly."
-msgstr ""
+msgstr "Kuvan tallentaminen onnistui."
 
 #: src/widgets/AppView.qml:262 src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -595,10 +592,9 @@ msgid "Toggle sidebar"
 msgstr "Näytä tai piilota sivupaneeli"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "Ei kansioita!"
+msgstr "Uusi kansio"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
@@ -737,10 +733,9 @@ msgid "There're no pics associated with the tag"
 msgstr "Tähän luokitukseen ei ole kytketty kuvia"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select All"
-msgstr "Valitse"
+msgstr "Valitse kaikki"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format
@@ -785,23 +780,22 @@ msgstr "Edellinen"
 #: src/widgets/views/Viewer/PixViewer.qml:162
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr ""
+msgstr "Nykyistä kuvaa on muutettu tai se on poistettu ulkoisesti"
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "Kuva on poistettu"
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "Kuvaa on muutettu"
 
 #: src/widgets/views/Viewer/PixViewer.qml:169
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "Lataa automaattisesti uudelleen"
+msgstr "Virkistä"
 
 #: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
