@@ -129,7 +129,6 @@ StackView
                                     event.accepted = true
                                     return
                                 }
-                            }
 
             model: Maui.BaseModel
             {
