@@ -148,7 +148,8 @@ Maui.Page
                              selectItem(pixModel.get(indexes[i]))
                          }
 
-        onKeyPress: (event) =>
+                         Keys.enabled: true
+        Keys.onPressed: (event) =>
                     {
                         const index = control.currentIndex
                         const item = control.model.get(index)

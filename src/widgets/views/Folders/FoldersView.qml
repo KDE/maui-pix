@@ -71,7 +71,8 @@ StackView
             holder.body: foldersList.count === 0 ? i18n("Add new image sources.") : i18n("Try something different.")
             holder.visible: _foldersGrid.count === 0
 
-            onKeyPress: (event) =>
+            Keys.enabled: true
+            Keys.onPressed: (event) =>
             {
                 if(event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
                 {
