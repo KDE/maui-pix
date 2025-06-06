@@ -79,8 +79,13 @@ ecm_setup_version(${PIX_VERSION}
 
 kde_enable_exceptions()
 
-qt_policy(SET QTP0001 OLD)
-qt_policy(SET QTP0004 NEW)
+if (QT_KNOWN_POLICY_QTP0001)
+    qt_policy(SET QTP0001 OLD)
+endif()
+
+if (QT_KNOWN_POLICY_QTP0004)
+    qt_policy(SET QTP0004 NEW)
+endif()
 
 add_subdirectory(src)
 

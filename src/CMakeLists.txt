@@ -35,6 +35,7 @@ if(ANDROID)
 
 else()
     qt_add_executable(${PROJECT_NAME}
+    MANUAL_FINALIZATION
         ${pix_SRCS}
         ${pix_dbus_SRCS}
         ${pix_ASSETS})
