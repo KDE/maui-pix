@@ -112,7 +112,7 @@ Item
         }
 
         focus: true
-        interactive: Maui.Handy.isTouch
+        interactive: Maui.Handy.hasTransientTouchInput
         cacheBuffer: width * 3
         model: pixModel
         snapMode: ListView.SnapOneItem

@@ -732,10 +732,9 @@ msgid "There're no pics associated with the tag"
 msgstr "Zde nejsou žádné obrázky spojené se značkou"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select All"
-msgstr "Vybrat"
+msgstr "Vybrat vše"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format

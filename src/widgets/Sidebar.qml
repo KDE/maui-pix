@@ -103,8 +103,8 @@ Loader
                                 Layout.columnSpan: modelData.path === "tags:///fav" ? 2 : (modelData.path === "collection:///" ? 3 : 1)
 
                                 checked: currentFolder === modelData.path
-                                icon.name: modelData.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
-                                icon.width: Maui.Style.iconSize
+                                icon.name: modelData.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "-symbolic")
+                                icon.width: Maui.Style.iconSizes.medium
 
                                 ToolTip.text: modelData.label
                                 ToolTip.visible: hovered
@@ -138,7 +138,7 @@ Loader
 
                 iconSize: Maui.Style.iconSize
                 label: model.name
-                iconName: model.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "")
+                iconName: model.icon +  (Qt.platform.os == "android" || Qt.platform.os == "osx" ? ("-sidebar") : "-symbolic")
                 iconVisible: true
                 template.isMask: iconSize <= Maui.Style.iconSizes.medium
 

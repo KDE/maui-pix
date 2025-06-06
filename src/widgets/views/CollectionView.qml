@@ -133,7 +133,7 @@ Maui.SideBarView
             ToolButton
             {
                 id: _sideBarButton
-                visible: control.sideBar.collapsed
+                visible: control.sideBar.collapsed || !control.sideBar.visible
 
                 icon.name: sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
                 onClicked: sideBar.toggle()
