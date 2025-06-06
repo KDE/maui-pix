@@ -6,9 +6,11 @@
 import QtQuick
 import QtQml
 import QtQuick.Controls
+import QtQuick.Layouts
 
 import org.mauikit.controls as Maui
 import org.mauikit.imagetools as IT
+import org.mauikit.filebrowsing as FB
 
 import org.maui.pix
 
@@ -26,12 +28,29 @@ Item
     property real picLightness : 0
     readonly property alias model : pixModel
 
+    property bool focusedMode : false
+
     readonly property alias count : viewerList.count
     readonly property alias currentIndex : viewerList.currentIndex
     readonly property alias currentItem: viewerList.currentItem
 
+    property string textSelected
+    /**
+      * Whether the current image is zomming in
+      **/
+    readonly property bool imageZooming : currentItem ? currentItem.zooming : false
+
+    /**
+      *Whether the current image is an animated image such as a gid or avif format
+      **/
+    readonly property bool isAnimated : currentItem ? currentItem.isAnimated : false
+
     clip: false
     focus: true
+    focusPolicy: Qt.StrongFocus
+
+    Keys.enabled: true
+    Keys.forwardTo: viewerList
 
     Maui.BaseModel
     {
@@ -40,7 +59,6 @@ Item
         {
             autoReload: browserSettings.autoReload
             activeGeolocationTags: false
-            recursive: false
         }
 
         sort: browserSettings.sortBy
@@ -53,6 +71,31 @@ Item
     function forceActiveFocus()
     {
         viewerList.forceActiveFocus()
+    }
+
+    function reloadCurrentItem()
+    {
+        control.currentItem.active = false
+        control.currentItem.active = true
+    }
+
+    Action
+    {
+        id: _copyAction
+        shortcut: "Ctrl+c"
+        text: "Copy"
+        onTriggered:
+        {
+            if(control.textSelected.length>0)
+            {
+                Maui.Handy.copyTextToClipboard(control.textSelected)
+                Maui.App.rootComponent.notify("dialog-info", i18n("Text copied!"), control.textSelected)
+            }else
+            {
+                Maui.Handy.copyToClipboard({"urls": [currentPic.url]}, false)
+                Maui.App.rootComponent.notify(currentPic.url, i18n("Image file copied!"))
+            }
+        }
     }
 
     ListView
@@ -71,7 +114,7 @@ Item
         focus: true
         interactive: Maui.Handy.isTouch
         cacheBuffer: width * 3
-model: pixModel
+        model: pixModel
         snapMode: ListView.SnapOneItem
         boundsBehavior: Flickable.StopAtBounds
 
@@ -86,19 +129,101 @@ model: pixModel
         highlightResizeVelocity: -1
 
         maximumFlickVelocity: 4 * (viewerList.orientation === Qt.Horizontal ? width : height)
+        property bool shiftPressed : false
 
+        Keys.enabled: true
+        Keys.forwardTo: currentItem
         Keys.onPressed: (event) =>
                         {
-                            if((event.key == Qt.Key_Right))
+                            console.log("key pressed", event.key, event.key == Qt.Key_Control )
+                            if(event.key === Qt.Key_Shift)
                             {
-                                next()
+                                console.log("shift pressed")
+                                shiftPressed = true
+                                event.accepted = true
+                                return
                             }
 
-                            if((event.key == Qt.Key_Left))
+                            if((event.key === Qt.Key_Right))
+                            {
+                                next()
+                                event.accepted = true
+                                return
+                            }
+
+                            if((event.key === Qt.Key_Left))
                             {
                                 previous()
+                                event.accepted = true
+                                return
                             }
+
+                            if(event.key === Qt.Key_E && (event.modifiers & Qt.ControlModifier))
+                            {
+                                console.log("Current pic is", currentPic)
+                                openEditor(currentPic.url, _stackView)
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_S && (event.modifiers & Qt.ControlModifier))
+                            {
+                                saveAs([currentPic.url])
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_O && (event.modifiers & Qt.ControlModifier))
+                            {
+                                openFileWith([currentPic.url])
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_Space)
+                            {
+                                getFileInfo(currentPic.url)
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_D && (event.modifiers & Qt.ControlModifier))
+                            {
+                                removeFiles([currentPic.url])
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_S)
+                            {
+                                selectItem(currentPic)
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_F)
+                            {
+                                FB.Tagging.toggleFav(currentPic.url)
+                                event.accepted = true
+                                return
+                            }
+
+                            event.accepted = false
                         }
+
+        Keys.onReleased:(event)=>
+                        {
+                            if(event.key == Qt.Key_Shift)
+                            {
+                                console.log("shift released")
+
+                                shiftPressed = false
+                                event.accepted = true
+                                return
+                            }
+                            event.accepted = false
+                        }
+
 
         onCurrentIndexChanged: viewerList.forceActiveFocus()
 
@@ -111,18 +236,27 @@ model: pixModel
 
         delegate: Loader
         {
+            id: _viewerLoaderDelegate
+
+            Keys.enabled: true
+            Keys.forwardTo: item
+
             height: ListView.view.height
             width: ListView.view.width
+            readonly property bool isCurrentItem: ListView.isCurrentItem
+            readonly property bool zooming: item.zooming
+            readonly property bool isAnimated : model.format === "gif" || model.format === "avif"
             //            active : ListView.isCurrentItem
             asynchronous: true
 
-            sourceComponent: model.format === "gif" || model.format === "avif" ? _animatedImgComponent : _imgComponent
+            sourceComponent: isAnimated ? _animatedImgComponent : _imgComponent
 
             Component
             {
                 id: _animatedImgComponent
                 Maui.AnimatedImageViewer
                 {
+                    property bool zooming : false
                     source: model.url
                 }
             }
@@ -130,28 +264,68 @@ model: pixModel
             Component
             {
                 id: _imgComponent
+
                 IT.ImageViewer
                 {
                     id: _imgV
                     source: model.url
                     image.autoTransform: true
+                    image.cache: false
+
+                    Keys.forwardTo: _ocrLoader.item
+
+                    readonly property bool imageReady: _imgV.image.status == Image.Ready
+                    onClicked: (mouse) =>
+                               {
+                                   control.focusedMode = !control.focusedMode
+                                   mouse.accepted = false
+                               }
+
+                    Timer
+                    {
+                        id: _timer
+                        property bool ready : false
+                        interval: 1500
+                        running: imageReady && _viewerLoaderDelegate.isCurrentItem && !ready && viewerSettings.enableOCR
+                        onTriggered:
+                        {
+                            console.log("Start OCR")
+                            ready = true
+                        }
+                    }
+
+                    Loader
+                    {
+                        id: _ocrLoader
+                        active: (_viewerLoaderDelegate.isCurrentItem && viewerSettings.enableOCR && _timer.ready)
+                        parent:  _imgV.image
+                        height: _imgV.image.paintedHeight
+                        width:  _imgV.image.paintedWidth
+                        anchors.centerIn:  parent
+                        visible: active && viewerSettings.enableOCR
+                        sourceComponent: OCROverlay
+                        {
+
+                        }
+                    }
                 }
             }
         }
     }
 
-    MouseArea
-    {
-        enabled: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
-        anchors.fill: parent
-        onPressed: (mouse) =>
-        {
-            galleryRollBg.visible = !galleryRollBg.visible
-            mouse.accepted = false
-        }
-        propagateComposedEvents: true
-        preventStealing: false
-    }
+
+    // MouseArea
+    // {
+    //     enabled: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1
+    //     anchors.fill: parent
+    //     onPressed: (mouse) =>
+    //                {
+    //                    galleryRollBg.visible = !galleryRollBg.visible
+    //                    mouse.accepted = false
+    //                }
+    //     propagateComposedEvents: true
+    //     preventStealing: false
+    // }
 
     function appendPics(pics)
     {
@@ -159,5 +333,10 @@ model: pixModel
             for(var i in pics)
                 control.model.list.append(pics[i])
 
+    }
+
+    function clear()
+    {
+        control.model.list.clear()
     }
 }

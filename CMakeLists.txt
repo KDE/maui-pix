@@ -5,15 +5,14 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-set(PIX_VERSION 4.0.1)
-add_compile_definitions(APP_COPYRIGHT_NOTICE="© 2019-2024 Maui Development Team")
+set(PIX_VERSION 4.0.2)
+add_compile_definitions(APP_COPYRIGHT_NOTICE="© 2019-2025 Maui Development Team")
 
 set(CMAKE_CXX_STANDARD 17) # to use 17 we need to update exiv2
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
@@ -79,6 +78,9 @@ ecm_setup_version(${PIX_VERSION}
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/pix_version.h")
 
 kde_enable_exceptions()
+
+qt_policy(SET QTP0001 OLD)
+qt_policy(SET QTP0004 NEW)
 
 add_subdirectory(src)
 

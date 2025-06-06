@@ -5,6 +5,7 @@
   <project_license>LGPL-3.0</project_license>
   <launchable type="desktop-id">org.kde.pix.desktop</launchable>
   <name>Pix</name>
+  <name xml:lang="ar">بكس</name>
   <name xml:lang="ca">Pix</name>
   <name xml:lang="ca-valencia">Pix</name>
   <name xml:lang="cs">Pix</name>
@@ -17,6 +18,7 @@
   <name xml:lang="fi">Pix</name>
   <name xml:lang="fr">Pix</name>
   <name xml:lang="gl">Pix</name>
+  <name xml:lang="he">פּיקס</name>
   <name xml:lang="hi">पिक्स (Pix)</name>
   <name xml:lang="hu">Pix</name>
   <name xml:lang="id">Pix</name>
@@ -24,6 +26,7 @@
   <name xml:lang="ka">Pix</name>
   <name xml:lang="ko">Pix</name>
   <name xml:lang="lt">Pix</name>
+  <name xml:lang="lv">Pix</name>
   <name xml:lang="my">ပစ်ဇ်</name>
   <name xml:lang="nl">Pix</name>
   <name xml:lang="nn">Pix</name>
@@ -31,6 +34,7 @@
   <name xml:lang="pl">Pix</name>
   <name xml:lang="pt">Pix</name>
   <name xml:lang="pt-BR">Pix</name>
+  <name xml:lang="sa">पिक्स्</name>
   <name xml:lang="sk">Pix</name>
   <name xml:lang="sl">Pix</name>
   <name xml:lang="sv">Pix</name>
@@ -40,6 +44,7 @@
   <name xml:lang="zh-CN">Pix</name>
   <name xml:lang="zh-TW">Pix</name>
   <summary>Image Gallery</summary>
+  <summary xml:lang="ar">معرض صور</summary>
   <summary xml:lang="ca">Galeria d'imatges</summary>
   <summary xml:lang="ca-valencia">Galeria d'imatges</summary>
   <summary xml:lang="cs">Galerie obrázků</summary>
@@ -50,17 +55,20 @@
   <summary xml:lang="eu">Irudien galeria</summary>
   <summary xml:lang="fi">Kuvagalleria</summary>
   <summary xml:lang="fr">Galerie d'images</summary>
-  <summary xml:lang="gl">Galería de imaxes.</summary>
+  <summary xml:lang="gl">Galería de imaxes</summary>
+  <summary xml:lang="he">גלריית תמונות</summary>
   <summary xml:lang="id">Galeri Gambar</summary>
   <summary xml:lang="it">Galleria d'immagini</summary>
   <summary xml:lang="ka">სურათების გალერეა</summary>
   <summary xml:lang="ko">그림 갤러리</summary>
   <summary xml:lang="lt">Paveikslų galerija</summary>
+  <summary xml:lang="lv">Attēlu galerija</summary>
   <summary xml:lang="my">ပုံရိပ်ခင်းကျင်းပြတိုက်</summary>
   <summary xml:lang="nl">Afbeeldingsgalerij</summary>
   <summary xml:lang="pl">Galeria obrazów</summary>
   <summary xml:lang="pt">Galeria de Imagens</summary>
   <summary xml:lang="pt-BR">Galeria de imagens</summary>
+  <summary xml:lang="sa">चित्रसङ्ग्रहालयः</summary>
   <summary xml:lang="sk">Galéria obrázkov</summary>
   <summary xml:lang="sl">Galerija slik</summary>
   <summary xml:lang="sv">Bildgalleri</summary>
@@ -75,6 +83,7 @@
   </developer>
   <description>
     <p>Pix is an image gallery and image viewer. Pix can be used to open images with other applications like an image editor, add tags to the files, add annotations to pictures, rotate and share them.</p>
+    <p xml:lang="ar">بكس هو معرض صور وعارض صور. يمكن استخدام بكس لفتح الصور باستخدام تطبيقات أخرى مثل محرر الصور وإضافة وسوم إلى الملفات وإضافة تعليقات توضيحية إلى الصور وتدويرها ومشاركتها.</p>
     <p xml:lang="ca">El Pix és una galeria d'imatges i un visualitzador d'imatges. El Pix es pot usar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes als fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
     <p xml:lang="ca-valencia">Pix és una galeria d'imatges i un visor d'imatges. Pix es pot utilitzar per a obrir imatges amb altres aplicacions com un editor d'imatges, afegir etiquetes en els fitxers, afegir anotacions a les imatges, girar-les i compartir-les.</p>
     <p xml:lang="de">Pix ist eine Bildergalerie und ein Bildbetrachter. Pix kann verwendet werden, um Bilder mit anderen Anwendungen wie einem Bildbearbeitungsprogramm zu öffnen, Stichwörter zu Dateien hinzufügen, Bilder drehen und teilen.</p>
@@ -85,15 +94,18 @@
     <p xml:lang="fi">Pix on kuvagalleria ja -katselin. Pixiä voi käyttää avaamaan toisten sovellusten kuten kuvankäsittelyohjelmien kuvat, lisäämään kuviin luokituksia ja merkintöjä sekä kääntämään ja jakamaan kuvia.</p>
     <p xml:lang="fr">Pix est une galerie d'images et un afficheur d'images. Pix peut être utilisé pour ouvrir des images avec d'autres applications comme un éditeur d'images, ajouter des étiquettes aux fichiers, ajouter des annotations aux images, les faire pivoter et les partager.</p>
     <p xml:lang="gl">Pix é unha galería de imaxes e un visor de imaxes. Pode usalo para abrir imaxes con outras aplicacións como editores de imaxes, engadir etiquetas a ficheiros, engadir anotacións a fotos, rotalas e compartilas.</p>
+    <p xml:lang="he">פּיקס היא גלריית ומציג תמונות. אפשר להשתמש בפיקס כדי לפתוח תמונות עם יישומים אחרים כגון עורך תמונות, להוסיף תגיות לקבצים, להוסיף הסברים לתמונות, לסובב ולשתף אותן.</p>
     <p xml:lang="id">Pix adalah galeri gambar dan penampil gambar. Pix bisa digunakan untuk membuka gambar dengan aplikasi lain seperti editor gambar, menambahkan tag ke file, menambahkan anotasi ke gambar, memutar dan membagikannya.</p>
     <p xml:lang="it">Pix è una galleria d'immagini e un visore d'immagini. Può essere utilizzato per aprire immagini con altre applicazioni come un'editor d'immagine, per aggiungere etichette ai file o le annotazioni alle immagini, per ruotarle o per condividerle.</p>
     <p xml:lang="ka">Pix გამოსახულებების გალერეა და სურათების დამთვალიერებელია. ის შეგიძლიათ, გამოიყენოთ, რომ გახსნათ გამოსახულებები სხვა პროგრამებში, მაგალითად რედაქტორში, დაადოთ ჭდეები, ანოტაციები, მოატრიალოთ ან გააზიაროთ ისინი.</p>
     <p xml:lang="ko">Pix는 그림 갤러리이자 뷰어입니다. Pix는 그림 편집기 등 다른 앱으로 그림 열기, 파일에 태그 추가, 그림에 주석 달기, 회전, 공유 등을 지원합니다.</p>
     <p xml:lang="lt">Pix yra paveikslų galerija ir paveikslų žiūryklė. Pix gali būti naudojama, norint atverti paveikslus kitose programėlėse, tokiose kaip paveikslų redaktorius, pridėti žymes į failus, pridėti anotacijas paveikslams, pasukti juos ir bendrinti.</p>
+    <p xml:lang="lv">„Pix“ ir attēlu galeriju un attēlu skatītājs. Šo programmu varat izmantot, lai atvērtu attēlus citās programmās, piemēram, attēlu redaktorā, pievienotu datnēm birkas, pievienotu attēliem anotācijas, attēlus pagrieztu vai kopīgotu.</p>
     <p xml:lang="nl">Pix is een afbeeldingsgalerij en afbeeldingsviewer. Pix kan gebruikt worden om afbeeldingen met andere toepassingen, zoals een afbeeldingsbewerker, te openen, tags aan de bestanden en annotaties aan afbeeldingen toe te voegen, ze te roteren en ze te delen.</p>
     <p xml:lang="pl">Pix jest galerią obrazów i ich przeglądarką. Pix można użyć do otwierania obrazów w innych aplikacjach takich jak edytory obrazów, dodawania znaczników do plików, opisywania obrazów, ich obrotu, a także udostępniania.</p>
     <p xml:lang="pt">O Pix é uma galeria de imagens e um visualizador das mesmas. O Pix pode ser usado para abrir imagens com outras aplicações como um editor de imagens, adicionar marcas aos ficheiros, anotações às imagens, rodá-las e partilhá-las.</p>
     <p xml:lang="pt-BR">O Pix é uma galeria e um visualizador de imagens. O Pix pode ser usado para abrir imagens por meio de outros aplicativos como um editor de imagens, adicionar tags aos seus arquivos, inserir anotações, rotacionar e compartilhar suas imagens.</p>
+    <p xml:lang="sa">पिक्स् इति चित्रसङ्ग्रहालयः, चित्रदर्शकः च अस्ति । Pix इत्यस्य उपयोगेन अन्यैः अनुप्रयोगैः सह चित्राणि उद्घाटयितुं, सञ्चिकासु टैग् योजयितुं, चित्रेषु टिप्पणीं योजयितुं, परिभ्रमितुं, साझां कर्तुं च शक्यते ।</p>
     <p xml:lang="sl">Pix je galerija slik in pregledovalnik slik. Pix lahko uporabite za odpiranje slik z drugimi aplikacijami kot npr. z urejevalniki slik, lahko dodajate oznake datotek, napise k slikam, jih lahko zavrtite in delite z drugimi.</p>
     <p xml:lang="sv">Pix är ett bildgalleri och bildvisare. Pix kan användas för att öppna bilder med andra program som en bildeditor, lägga till taggar i filerna och kommentarer i bilder, samt rotera och dela dem.</p>
     <p xml:lang="tr">Piks, bir görsel galerisi ve görüntüleyicidir. Piks, bir görsel düzenleyici gibi diğer uygulamalarda görsel açmak için kullanılabilir, dosyalara künyeler, resimlere ek açıklamalar ekleyebilir, onları döndürebilir ve paylaşabilir.</p>
@@ -110,6 +122,7 @@
     <screenshot type="default">
       <image type="source">https://cdn.kde.org/screenshots/pix/pix.png</image>
       <caption>The Pix music player</caption>
+      <caption xml:lang="ar">مشغّل الموسيقى بكس</caption>
       <caption xml:lang="ca">El reproductor de música Pix</caption>
       <caption xml:lang="ca-valencia">El reproductor de música Pix</caption>
       <caption xml:lang="cs">Přehrávač hudby Pix</caption>
@@ -122,6 +135,7 @@
       <caption xml:lang="fi">Pix-musiikkisoitin</caption>
       <caption xml:lang="fr">Le lecteur de musique Pix</caption>
       <caption xml:lang="gl">O reprodutor de música Pix.</caption>
+      <caption xml:lang="he">נגן המוזיקה פּיקס</caption>
       <caption xml:lang="hi">पिक्स संगीत चालक</caption>
       <caption xml:lang="hu">A Pix zenelejátszó</caption>
       <caption xml:lang="id">Pemutar musik Pix</caption>
@@ -129,12 +143,14 @@
       <caption xml:lang="ka">Pix მუსიკის დამკვრელი</caption>
       <caption xml:lang="ko">Pix 음악 재생기</caption>
       <caption xml:lang="lt">Pix muzikos grotuvas</caption>
+      <caption xml:lang="lv">„Pix“ mūzikas atskaņotājs</caption>
       <caption xml:lang="nl">De muziekspeler Pix</caption>
       <caption xml:lang="nn">Pix musikkspelar</caption>
       <caption xml:lang="pa">ਪਿਕਸ ਸੰਗੀਤ ਪਲੇਅਰ</caption>
       <caption xml:lang="pl">Odtwarzacz muzyki Pix</caption>
       <caption xml:lang="pt">O leitor de música Pix</caption>
       <caption xml:lang="pt-BR">O reprodutor de músicas Pix</caption>
+      <caption xml:lang="sa">पिक्स संगीतवादकः</caption>
       <caption xml:lang="sk">Hudobný prehrávač Pix</caption>
       <caption xml:lang="sl">Predvajalnik glasbe Pix</caption>
       <caption xml:lang="sv">Musikspelaren Pix</caption>
@@ -167,6 +183,9 @@
   </provides>
   <project_group>KDE</project_group>
   <releases>
+    <release version="4.0.1" date="2024-12-02">
+      <url>https://mauikit.org/blog/maui-release-briefing-7/</url>
+    </release>
     <release version="4.0.0" date="2024-09-09">
       <url>https://mauikit.org/blog/maui-release-briefing-6/</url>
     </release>

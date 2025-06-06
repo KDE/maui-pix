@@ -23,13 +23,13 @@ Maui.SelectionBar
         clear()
     }
 
-    onVisibleChanged:
-    {
-        if(!visible)
-        {
-            root.selectionMode = false
-        }
-    }
+    // onVisibleChanged:
+    // {
+    //     if(!visible)
+    //     {
+    //         root.selectionMode = false
+    //     }
+    // }
 
     listDelegate: Maui.ListBrowserDelegate
     {
@@ -64,9 +64,7 @@ Maui.SelectionBar
         icon.name: "tag"
         onTriggered:
         {
-            dialogLoader.sourceComponent = tagsDialogComponent
-            dialog.composerList.urls = control.uris
-            dialog.open()
+            openTagsDialog(control.uris)
         }
     }
 
@@ -92,19 +90,18 @@ Maui.SelectionBar
         Action
         {
             text: i18n("Export")
-            icon.name: "document-save"
+            icon.name: "document-export"
             onTriggered:
             {
                 const pics = control.uris
-                dialogLoader.sourceComponent = fmDialogComponent
-                dialog.browser.settings.onlyDirs = true
-                dialog.mode = FB.FileDialog.Open
-                dialog.callback = function(paths)
-                {
-                    for(var i in paths)
-                        FB.FM.copy(pics, paths[i])
-                }
-                dialog.open();
+                let props = ({ 'browser.settings.onlyDirs' : true,
+                                 'singleSelection' : true,
+                                 'callback' : function(paths)
+                                 {
+                                     FB.FM.copy(pics, paths[0])
+                                 }})
+                var dialog = fmDialogComponent.createObject(root, props)
+                dialog.open()
             }
         },
 
@@ -114,12 +111,8 @@ Maui.SelectionBar
             icon.name: "edit-delete"
             Maui.Controls.status: Maui.Controls.Negative
 
-            onTriggered:
-            {
-                dialogLoader.sourceComponent = _removeDialogComponent
-                dialog.urls = control.uris
-                dialog.open()
-            }
+            onTriggered: removeFiles(control.uris)
+
         }
     ]
 }

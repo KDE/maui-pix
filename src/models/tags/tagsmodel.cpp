@@ -6,13 +6,14 @@
 TagsModel::TagsModel(QObject *parent)
     : MauiList(parent)
 {
-    connect(Tagging::getInstance(), &Tagging::tagged, [this](QVariantMap tag) {
+    m_tagging = Tagging::getInstance();
+    connect(m_tagging, &Tagging::tagged, [this](QVariantMap tag) {
         Q_EMIT this->preItemAppended();
         this->list << FMH::toModel(tag);
         Q_EMIT this->postItemAppended();
     });
 
-    connect(Tagging::getInstance(), &Tagging::urlTagged, [this](QString url, QString tag) {
+    connect(m_tagging, &Tagging::urlTagged, [this](QString url, QString tag) {
         const auto index = (this->indexOf(FMH::MODEL_KEY::TAG, tag));
         auto item = this->list[index];
         auto previews = item[FMH::MODEL_KEY::PREVIEW].split(",", Qt::SkipEmptyParts);
@@ -28,6 +29,12 @@ TagsModel::TagsModel(QObject *parent)
         this->list[index] = item;
         Q_EMIT this->updateModel(index, {});
     });
+}
+
+TagsModel::~TagsModel()
+{
+    m_tagging->disconnect();
+    m_tagging = nullptr;
 }
 
 void TagsModel::componentComplete()
@@ -51,7 +58,7 @@ void TagsModel::setList()
 FMH::MODEL_LIST TagsModel::tags()
 {
     FMH::MODEL_LIST res;
-    const auto tags = Tagging::getInstance()->getUrlsTags(true);
+    const auto tags = m_tagging->getUrlsTags(true);
 
     return std::accumulate(tags.constBegin(), tags.constEnd(), res, [this](FMH::MODEL_LIST &list, const QVariant &item) {
         auto tag = FMH::toModel(item.toMap());
@@ -64,6 +71,6 @@ FMH::MODEL_LIST TagsModel::tags()
 
 void TagsModel::packPreviewImages(FMH::MODEL &tag)
 {
-    const auto urls = Tagging::getInstance()->getTagUrls(tag[FMH::MODEL_KEY::TAG], {}, true, 4, "image");
+    const auto urls = m_tagging->getTagUrls(tag[FMH::MODEL_KEY::TAG], {}, true, 4, "image");
     tag[FMH::MODEL_KEY::PREVIEW] = QUrl::toStringList(urls).join(",");
 }

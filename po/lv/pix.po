@@ -1,31 +1,32 @@
-# Copyright (C) 2024 This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-27 00:40+0000\n"
-"PO-Revision-Date: 2025-05-26 08:44+0200\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
-"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
-"Language: gl\n"
+"PO-Revision-Date: 2025-03-29 16:13+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/main.cpp:118
 #, kde-format
 msgid "Organize, browse, and edit your images."
-msgstr "Organice, explore e edite as súas imaxes."
+msgstr "Kārtojiet, pārlūkojiet un rediģējiet savus attēlus."
 
 #: src/main.cpp:122
 #, kde-format
 msgid "Developer"
-msgstr "Desenvolvemento."
+msgstr "Izstrādātājs"
 
 #: src/main.qml:67
 #, kde-format
@@ -33,65 +34,64 @@ msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
 msgstr ""
-"Aínda hai varias xanelas abertas. Seguro que quere pechar a aplicación?"
 
 #: src/main.qml:132
 #, kde-format
 msgid "Gallery"
-msgstr "Galería"
+msgstr "Galerija"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
 msgid "Favorites"
-msgstr "Favoritos"
+msgstr "Iecienītākie"
 
 #: src/models/folders/placesmodel.cpp:16
 #, kde-format
 msgid "Downloads"
-msgstr "Descargas"
+msgstr "Lejupielādes"
 
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr "Imaxes"
+msgstr "Attēli"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
-msgstr "Capturas de pantalla"
+msgstr "Ekrānattēli"
 
 #: src/models/folders/placesmodel.cpp:19
 #, kde-format
 msgid "Camera"
-msgstr "Cámara"
+msgstr "Kamera"
 
 #: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
-msgstr "Colección"
+msgstr "Kolekcija"
 
 #: src/models/folders/placesmodel.cpp:53 src/models/folders/placesmodel.cpp:132
 #, kde-format
 msgid "Tags"
-msgstr "Etiquetas"
+msgstr "Birkas"
 
 #: src/models/folders/placesmodel.cpp:68
 #: src/widgets/views/Tags/TagsSidebar.qml:165
 #, kde-format
 msgid "Places"
-msgstr "Lugares"
+msgstr "Vietas"
 
 #: src/models/folders/placesmodel.cpp:90
 #, kde-format
 msgid "Locations"
-msgstr "Localizacións"
+msgstr "Atrašanās vietas"
 
 #: src/models/folders/placesmodel.cpp:107
 #: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
-msgstr "Con animacións"
+msgstr "Kustīgs"
 
 #: src/models/folders/placesmodel.cpp:107
 #: src/models/folders/placesmodel.cpp:109
@@ -101,7 +101,7 @@ msgstr "Con animacións"
 #: src/models/folders/placesmodel.cpp:117
 #, kde-format
 msgid "Categories"
-msgstr "Categorías"
+msgstr "Kategorijas"
 
 #: src/models/folders/placesmodel.cpp:111
 #, kde-format
@@ -118,39 +118,40 @@ msgstr "PSD"
 #: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
-msgstr "Vectores"
+msgstr "Vektori"
 
 #: src/models/folders/placesmodel.cpp:117
 #, kde-format
 msgid "Paintings"
-msgstr "Debuxos"
+msgstr "Zīmējumi"
 
 #: src/models/gallery/gallery.cpp:120
 #, kde-format
 msgid "No sources found to scan."
-msgstr "Non se atoparon orixes que examinar."
+msgstr "Nav atrasts avots, ko skenēt."
 
 #: src/view_models/PixGrid.qml:48
 #, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "Buscar nunha imaxe"
-msgstr[1] "Buscar en %1 imaxes"
+msgstr[0] "Meklēt %1 attēlu"
+msgstr[1] "Meklēt %1 attēlus"
+msgstr[2] "Meklēt %1 attēlu"
 
 #: src/view_models/PixGrid.qml:88
 #, kde-format
 msgid "Image Text (OCR)"
-msgstr "Texto da imaxe (OCR)"
+msgstr "Teksts attēlā (OCR)"
 
 #: src/view_models/PixGrid.qml:100
 #, kde-format
 msgid "Preview Size"
-msgstr "Tamaño da vista previa"
+msgstr "Priekšskatījuma izmērs"
 
 #: src/view_models/PixGrid.qml:101
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
-msgstr "Tamaño das miniaturas nas vistas das coleccións."
+msgstr "Sīktēlu lielums kolekciju skatos."
 
 #: src/view_models/PixGrid.qml:112
 #, kde-format
@@ -175,272 +176,275 @@ msgstr "XL"
 #: src/view_models/PixGrid.qml:147
 #, kde-format
 msgid "Title"
-msgstr "Título"
+msgstr "Nosaukums"
 
 #: src/view_models/PixGrid.qml:156
 #, kde-format
 msgid "Modified"
-msgstr "Modificado"
+msgstr "Modificēts"
 
 #: src/view_models/PixGrid.qml:166
 #, kde-format
 msgid "Size"
-msgstr "Tamaño"
+msgstr "Izmērs"
 
 #: src/view_models/PixGrid.qml:176
 #, kde-format
 msgid "Date"
-msgstr "Data"
+msgstr "Datums"
 
 #: src/view_models/PixGrid.qml:188
 #, kde-format
 msgid "Ascending"
-msgstr "Ascendente"
+msgstr "Augoši"
 
 #: src/view_models/PixGrid.qml:198
 #, kde-format
 msgid "Descending"
-msgstr "Descendente"
+msgstr "Dilstoši"
 
-# skip-rule: trasno-remove_reverse
 #: src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "UnFav it"
-msgstr "Retirar dos favoritos"
+msgstr "Noņemt no iecienītajiem"
 
 #: src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Info"
-msgstr "Información"
+msgstr "Informācija"
 
 #: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
-msgstr "Compartir"
+msgstr "Kopīgot"
 
 #: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Select"
-msgstr "Seleccionar"
+msgstr "Atlasīt"
 
 #: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
-msgstr "Abrir nunha xanela nova"
+msgstr ""
 
 #: src/view_models/PixMenu.qml:107
 #, kde-format
 msgid "Add to '%1'"
-msgstr "Engadir a «%1»"
+msgstr "Pievienot pie „%1“"
 
 #: src/view_models/PixMenu.qml:117
 #, kde-format
 msgid "Add to Album"
-msgstr "Engadir ao álbum"
+msgstr "Pievienot albumam"
 
 #: src/view_models/PixMenu.qml:133
 #, kde-format
 msgid "Edit"
-msgstr "Editar"
+msgstr ""
 
 #: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Save as"
-msgstr "Gardar como"
+msgstr "Saglabāt kā"
 
 #: src/view_models/PixMenu.qml:152
 #, kde-format
 msgid "Open with"
-msgstr "Abrir con"
+msgstr "Atvērt ar"
 
 #: src/view_models/PixMenu.qml:160
 #, kde-format
 msgid "Go to Folder"
-msgstr "Ir ao cartafol"
+msgstr "Iet uz mapi"
 
 #: src/view_models/PixMenu.qml:177
 #, kde-format
 msgid "Open Location"
-msgstr "Abrir a localización"
+msgstr "Atvērt atrašanās vietu"
 
 #: src/view_models/PixMenu.qml:189 src/widgets/AppView.qml:421
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
-msgstr "Retirar"
+msgstr "Noņemt"
 
 #: src/widgets/AppView.qml:34
 #, kde-format
 msgid "Settings"
-msgstr "Configuración"
+msgstr "Iestatījumi"
 
 #: src/widgets/AppView.qml:50 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
-msgstr "Abrir"
+msgstr "Atvērt"
 
 #: src/widgets/AppView.qml:65
 #, kde-format
 msgid "About"
-msgstr "Sobre"
+msgstr "Par"
 
 #: src/widgets/AppView.qml:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Modified"
 msgid "Image Modified"
-msgstr "Modificouse a imaxe"
+msgstr "Modificēts"
 
 #: src/widgets/AppView.qml:138
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
-msgstr "Editouse a imaxe. Garde ou descarte os cambios para continuar."
+msgstr ""
 
 #: src/widgets/AppView.qml:142
 #, kde-format
 msgid "Discard"
-msgstr "Descartar"
+msgstr ""
 
 #: src/widgets/AppView.qml:257
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save"
 msgid "Saved"
-msgstr "Gardouse"
+msgstr "Saglabāt"
 
 #: src/widgets/AppView.qml:258
 #, kde-format
 msgid "The image has been saved correctly."
-msgstr "Gardouse a imaxe."
+msgstr ""
 
 #: src/widgets/AppView.qml:262 src/widgets/SelectionBar.qml:55
 #, kde-format
 msgid "View"
-msgstr "Vista"
+msgstr "Skats"
 
 #: src/widgets/AppView.qml:291
 #, kde-format
 msgid "Open images"
-msgstr "Abrir imaxes"
+msgstr "Atvērt attēlus"
 
 #: src/widgets/AppView.qml:292
 #, kde-format
 msgid "Drag and drop images here."
-msgstr "Arrastre e deixe aquí as imaxes."
+msgstr "Velciet no nometiet attēlus te."
 
 #: src/widgets/AppView.qml:348
 #, kde-format
 msgid "Tagged"
-msgstr "Etiquetado"
+msgstr "Satur birkas"
 
 #: src/widgets/AppView.qml:349
 #, kde-format
 msgid "File was tagged successfully"
-msgstr "Etiquetouse o ficheiro."
+msgstr "Datnei ir pievienota birka"
 
 #: src/widgets/AppView.qml:408
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
-msgstr[0] "Quere eliminar %1 ficheiro?"
-msgstr[1] "Quere eliminar %1 ficheiros?"
+msgstr[0] "Vai dzēst %1 datni?"
+msgstr[1] "Vai dzēst %1 datnes?"
+msgstr[2] "Vai dzēst %1 datņu?"
 
 #: src/widgets/AppView.qml:409
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
-msgstr[0] ""
-"Seguro que quere eliminar o ficheiro? Esta acción non se pode desfacer."
+msgstr[0] "Vai tiešām vēlaties dzēst šo datni? Šo darbību atsaukt nevarēsiet."
 msgstr[1] ""
-"Seguro que quere eliminar os ficheiros? Esta acción non se pode desfacer."
+"Vai tiešām vēlaties dzēst šīs datnes? Šo darbību atsaukt nevarēsiet."
+msgstr[2] ""
+"Vai tiešām vēlaties dzēst šīs datnes? Šo darbību atsaukt nevarēsiet."
 
 #: src/widgets/AppView.qml:415
 #, kde-format
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Atcelt"
 
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Text Detection"
-msgstr "Detección de texto"
+msgstr "Teksta atpazīšana"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr "Activar a detección automática"
+msgstr "Ieslēgt automātisku atpazīšanu"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr "Preprocesamento de imaxes"
+msgstr "Attēla priekšapstrāde"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr "Activar o preprocesamento de imaxes."
+msgstr "Ieslēgt attēlu priekšapstrādi."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr "Segmentación de páxinas"
+msgstr "Lapas segmentācija"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr "Automática"
+msgstr "Automātiski"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr "Visualización en pantalla automática"
+msgstr "Automātisks OSD"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr "Unha columna"
+msgstr "Viena kolonna"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr "Unha liña"
+msgstr "Viena rinda"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr "Un bloque"
+msgstr "Viens bloks"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr "Unha palabra"
+msgstr "Viens vārds"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr "Limiar de confianza"
+msgstr "Pārliecības slieksnis"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr "Detección de bloques de texto"
+msgstr "Teksta bloka atpazīšana"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr "Palabra"
+msgstr "Vārds"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr "Liña"
+msgstr "Rinda"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr "Parágrafo"
+msgstr "Rindkopa"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr "Selección de bloques de texto"
+msgstr "Teksta bloka atlase"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
@@ -448,235 +452,238 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
-"Para seleccionar varios bloques no modo libre, manteña premida a tecla Maiús "
-"mentres se move."
+"Lai atlasīto vairākus blokus brīvajā režīmā, pārvietojoties turiet nospiestu "
+"„Shift“ taustiņu."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr "Libre"
+msgstr "Brīvais"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr "Rectangular"
+msgstr "Četrstūris"
 
 #: src/widgets/SelectionBar.qml:63
 #, kde-format
 msgid "Tag"
-msgstr "Etiquetar"
+msgstr "Birka"
 
 #: src/widgets/SelectionBar.qml:85
 #, kde-format
 msgid "Un/Fav"
-msgstr "Conmutar favorito"
+msgstr "Iecienīta/nav iecienīts"
 
 #: src/widgets/SelectionBar.qml:92
 #, kde-format
 msgid "Export"
-msgstr "Exportar"
+msgstr "Eksportēt"
 
 #: src/widgets/SettingsDialog.qml:15
 #, kde-format
 msgid "Behavior"
-msgstr "Comportamento"
+msgstr "Uzvedība"
 
 #: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:181
 #, kde-format
 msgid "Auto Reload"
-msgstr "Cargar de novo automaticamente"
+msgstr "Pārlādēt automātiski"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Watch for changes in the collection sources."
-msgstr "Vixiar os cambios nas orixes de coleccións."
+msgstr "Pārraudzīt, vai kolekcijas avotos nav izmaiņu."
 
 #: src/widgets/SettingsDialog.qml:39
 #, kde-format
 msgid "Fit"
-msgstr "Axustar"
+msgstr "Ietilpināt"
 
 #: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr "Axustar as vistas previas e manter as proporcións."
+msgstr "Ietilpināt priekšskatījumus un saglabāt malu attiecību."
 
 #: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
-msgstr "Títulos das imaxes"
+msgstr "Attēlu nosaukumi"
 
 #: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Show the file name of the images."
-msgstr "Amosar no nome de ficheiro das imaxes."
+msgstr "Rādīt attēlu datņu nosaukumus."
 
 #: src/widgets/SettingsDialog.qml:65
 #, kde-format
 msgid "GPS Tags"
-msgstr "Etiquetas de GPS"
+msgstr "GPS birkas"
 
 #: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Show GPS tags."
-msgstr "Amosar as etiquetas de GPS."
+msgstr "Rādīt GPS birkas."
 
 #: src/widgets/SettingsDialog.qml:80
 #, kde-format
 msgid "Viewer"
-msgstr "Visor"
+msgstr "Skatītājs"
 
 #: src/widgets/SettingsDialog.qml:85
 #, kde-format
 msgid "Tag Bar"
-msgstr "Barra de etiquetas"
+msgstr "Birku josla"
 
 #: src/widgets/SettingsDialog.qml:86
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
 msgstr ""
-"Unha forma doada de engadir, retirar e modificar etiquetas da imaxe actual."
+"Vienkāršs veids, lai pievienotu, noņemtu un modificētu pašreizējā attēla "
+"birkas."
 
 #: src/widgets/SettingsDialog.qml:98
 #, kde-format
 msgid "Preview Bar"
-msgstr "Barra de vistas previas"
+msgstr "Priekšskatījuma josla"
 
 #: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr "Configurar a detección de texto en imaxes."
+msgstr "Konfigurēt iestatījumu teksta atpazīšanai attēlos."
 
 #: src/widgets/SettingsDialog.qml:125
 #, kde-format
 msgid "Sources"
-msgstr "Fontes"
+msgstr "Avoti"
 
 #: src/widgets/SettingsDialog.qml:164
 #, kde-format
 msgid "Add"
-msgstr "Engadir"
+msgstr "Pievienot"
 
 #: src/widgets/Sidebar.qml:55
 #, kde-format
 msgid "Bookmarks!"
-msgstr "Marcadores!"
+msgstr "Grāmatzīmes!"
 
 #: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr "Os seus marcadores listaranse aquí."
+msgstr "Te būs redzamas jūsu grāmatzīmes"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
 msgid "Loading content!"
-msgstr "Cargando o contido!"
+msgstr "Ielādē saturu!"
 
 #: src/widgets/views/Cloud/CloudView.qml:35
 #, kde-format
 msgid "Nothing here"
-msgstr "Aquí non hai nada."
+msgstr "Te nekā nav"
 
 #: src/widgets/views/Cloud/CloudView.qml:38
 #, kde-format
 msgid "Almost ready!"
-msgstr "Xa case está!"
+msgstr "Gandrīz gatavs!"
 
 #: src/widgets/views/Cloud/CloudView.qml:40
 #, kde-format
 msgid "Make sure you're online and your cloud account is working"
-msgstr ""
-"Asegúrese de que ten conexión a Internet e de que a súa conta da nube "
-"funciona."
+msgstr "Pārliecinieties, ka esat tiešsaistē un ka jūsu mākoņa konts darbojas"
 
 #: src/widgets/views/CollectionView.qml:144
 #, kde-format
 msgid "Toggle sidebar"
-msgstr "Conmutar a barra lateral"
+msgstr "Pārslēgt sānu joslu"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No Folders!"
 msgid "New Folder"
-msgstr "Novo cartafol"
+msgstr "Nav mapju!"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
-msgstr[0] "Filtrar %1 cartafol"
-msgstr[1] "Filtrar %1 cartafoles"
+msgstr[0] "Filtrēt %1 mapi"
+msgstr[1] "Filtrēt %1 mapes"
+msgstr[2] "Filtrēt %1 mapju"
 
 #: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "No Folders!"
-msgstr "Non hai cartafoles."
+msgstr "Nav mapju!"
 
 #: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "Nothing Here!"
-msgstr "Aquí non hai nada."
+msgstr "Te nekā nav!"
 
 #: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Add new image sources."
-msgstr "Engadir novas orixes de imaxes."
+msgstr "Pievienojiet jaunus attēlu avotus."
 
 #: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Try something different."
-msgstr "Probar outra cousa."
+msgstr "Mēģiniet kaut ko savādāk."
 
 #: src/widgets/views/Folders/FoldersView.qml:218
 #, kde-format
 msgid "Folder is empty!"
-msgstr "O cartafol está baleiro!"
+msgstr "Mape ir tukša!"
 
 #: src/widgets/views/Folders/FoldersView.qml:219
 #, kde-format
 msgid "There're no images in this folder. %1"
-msgstr "Non hai imaxes no cartafol. %1"
+msgstr "Šajā mapē attēlu nav. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:234
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Non hai imaxes."
-msgstr[1] "Hai %1 imaxes."
+msgstr[0] "%1 attēls"
+msgstr[1] "%1 attēli"
+msgstr[2] "%1 attēlu"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
 #: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "No Pics!"
-msgstr "Non hai imaxes!"
+msgstr "Attēlu nav!"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
-msgstr "Aquí non hai nada. Pode engadir novas orixes ou abrir unha imaxe."
+msgstr "Te nekā nav. Varat pievienot jaunus avots vai atvērt attēlu."
 
 #: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
-msgstr "Engadir fontes"
+msgstr "Pievienot attēlus"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "No results found."
-msgstr "Non se atopou ningún resultado."
+msgstr "Nekas nav atrasts."
 
 #: src/widgets/views/Tags/TagsSidebar.qml:94
 #, kde-format
 msgid "Filter %1 tag"
 msgid_plural "Filter %1 tags"
-msgstr[0] "Filtrar %1 etiqueta"
-msgstr[1] "Filtrar %1 etiquetas"
+msgstr[0] "Filtrēt %1 birku"
+msgstr[1] "Filtrēt %1 birkas"
+msgstr[2] "Filtrēt %1 birku"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:103
 #, kde-format
 msgid "New tag"
-msgstr "Nova etiqueta"
+msgstr "Jauna birka"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:143
 #, kde-format
@@ -686,28 +693,28 @@ msgstr "qrc:/assets/add-image.svg"
 #: src/widgets/views/Tags/TagsSidebar.qml:144
 #, kde-format
 msgid "No Tags!"
-msgstr "Non hai etiquetas."
+msgstr "Birku nav"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:145
 #, kde-format
 msgid "You can create new tags to organize your gallery"
-msgstr "Pode crear novas etiquetas para organizar a súa galería."
+msgstr "Lai sakārtotu galeriju, varat izveidot jaunas birkas"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:166
 #: src/widgets/views/Tags/TagsSidebar.qml:206
 #, kde-format
 msgid "GPS based locations"
-msgstr "Localizacións baseadas en GPS"
+msgstr "Uz GPS balstītas vietas"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:205
 #, kde-format
 msgid "Filters"
-msgstr "Filtros"
+msgstr "Filtri"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:239
 #, kde-format
 msgid "Sunday"
-msgstr "Domingo"
+msgstr "Svētdiena"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:247
 #, kde-format
@@ -717,137 +724,127 @@ msgstr "PNG"
 #: src/widgets/views/Tags/TagsSidebar.qml:271
 #, kde-format
 msgid "Paint"
-msgstr "Pintar"
+msgstr "Krāsa"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:279
 #, kde-format
 msgid "Animals"
-msgstr "Animais"
+msgstr "Dzīvnieki"
 
 #: src/widgets/views/Tags/TagsView.qml:27
 #, kde-format
 msgid "No Pics in %1!"
-msgstr "Non hai imaxes en %1!"
+msgstr "„%1“ nesatur bildes!"
 
 #: src/widgets/views/Tags/TagsView.qml:28
 #, kde-format
 msgid "There're no pics associated with the tag"
-msgstr "Non hai imaxes asociadas coa etiqueta."
+msgstr "Saistībā ar šo birku nav bilžu"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select"
 msgid "Select All"
-msgstr "Seleccionar todo"
+msgstr "Atlasīt"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format
 msgid "Call"
-msgstr "Chamar"
+msgstr "Zvans"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:65
 #, kde-format
 msgid "Save as Contact"
-msgstr "Gardar como contacto"
+msgstr "Saglabāt kā kontaktu"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:72
 #, kde-format
 msgid "Message"
-msgstr "Enviar unha mensaxe"
+msgstr "Ziņa"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:85
 #, kde-format
 msgid "Open Link"
-msgstr "Abrir a ligazón"
+msgstr "Atvērt saiti"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:95
 #, kde-format
 msgid "Create Event"
-msgstr "Crear un evento"
+msgstr "Izveidot notikumu"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:102
 #, kde-format
 msgid "Save to Note"
-msgstr "Gardar nunha nota"
+msgstr "Saglabāt kā piezīmi"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:109
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr "Buscar o texto seleccionado en Google…"
+msgstr "Meklēt atlasīto tekstu ar „Google“..."
 
 #: src/widgets/views/Viewer/PixViewer.qml:102
 #, kde-format
 msgid "Previous"
-msgstr "Anterior"
+msgstr "Iepriekšējais"
 
 #: src/widgets/views/Viewer/PixViewer.qml:162
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr "O ficheiro da imaxe actual modificouse ou retirouse externamente."
+msgstr ""
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was deleted"
-msgstr "Eliminouse a imaxe."
+msgstr ""
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was modified"
-msgstr "Modificouse a imaxe."
+msgstr ""
 
 #: src/widgets/views/Viewer/PixViewer.qml:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Auto Reload"
 msgid "Reload"
-msgstr "Cargar de novo"
+msgstr "Pārlādēt automātiski"
 
 #: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
 msgid "Save"
-msgstr "Gardar"
+msgstr "Saglabāt"
 
 #: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
-msgstr "Abrir unha imaxes da colección."
+msgstr "Atvērt attēlu no jūsu kolekcijas"
 
 #: src/widgets/views/Viewer/Viewer.qml:92
 #, kde-format
 msgid "Text copied!"
-msgstr "Copiouse o texto."
+msgstr "Teksts ir nokopēts!"
 
 #: src/widgets/views/Viewer/Viewer.qml:96
 #, kde-format
 msgid "Image file copied!"
-msgstr "Copiouse o ficheiro de imaxe."
+msgstr "Attēla datne ir nokopēta!"
 
 #~ msgid "Sort by"
-#~ msgstr "Ordenar por"
+#~ msgstr "Kārtot pēc"
 
 #~ msgid "Change the sorting key."
-#~ msgstr "Cambiar a chave de ordenación."
+#~ msgstr "Mainīt kārtošanas atslēgu."
 
 #~ msgid "Sort Order"
-#~ msgstr "Criterio de ordenación"
+#~ msgstr "Kārtošanas secība"
 
 #~ msgid "Change the sorting order."
-#~ msgstr "Cambiar a dirección de ordenación."
+#~ msgstr "Mainīt kārtošanas secību."
 
 #~ msgid "Experimental feature."
-#~ msgstr "Funcionalidade experimental."
+#~ msgstr "Eksperimentāla iespēja."
 
-#, fuzzy
-#~| msgid "Search image"
-#~| msgid_plural "Search %1 images"
+#~ msgid "Copy"
+#~ msgstr "Kopēt"
+
 #~ msgid "Search Web"
-#~ msgstr "Buscar nunha imaxe"
-
-#~ msgid "Accept"
-#~ msgstr "Aceptar"
-
-#~ msgid "Delete File?"
-#~ msgstr "Desexa eliminar o ficheiro?"
-
-#~ msgctxt "Remove one file"
-#~ msgid ""
-#~ "Are sure you want to delete this file? This action can not be undone."
-#~ msgstr ""
-#~ "Seguro que quere eliminar o ficheiro? Esta acción non se pode desfacer."
+#~ msgstr "Meklēt tīmeklī"

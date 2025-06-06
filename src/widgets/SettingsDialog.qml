@@ -13,7 +13,7 @@ Maui.SettingsDialog
     Maui.SectionGroup
     {
         title: i18n("Behavior")
-//        description: i18n("Configure the app behaviour.")
+        //        description: i18n("Configure the app behaviour.")
 
         Maui.FlexSectionItem
         {
@@ -32,7 +32,7 @@ Maui.SettingsDialog
     Maui.SectionGroup
     {
         title: i18n("Collection")
-//        description: i18n("Configure the app plugins and look & feel.")
+        //        description: i18n("Configure the app plugins and look & feel.")
 
         Maui.FlexSectionItem
         {
@@ -58,132 +58,13 @@ Maui.SettingsDialog
                 checked: browserSettings.showLabels
                 onToggled: browserSettings.showLabels = !browserSettings.showLabels
             }
-        }
-
-        Maui.FlexSectionItem
-        {
-            label1.text: i18n("Preview Size")
-            label2.text: i18n("Size of the thumbnails in the collection views.")
-
-            Maui.ToolActions
-            {
-                id: _gridIconSizesGroup
-                expanded: true
-                autoExclusive: true
-                display: ToolButton.TextOnly
-
-                Action
-                {
-                    text: i18n("S")
-                    onTriggered: setPreviewSize(previewSizes.small)
-                    checked: previewSizes.small === browserSettings.previewSize
-                }
-
-                Action
-                {
-                    text: i18n("M")
-                    onTriggered: setPreviewSize(previewSizes.medium)
-                    checked: previewSizes.medium === browserSettings.previewSize
-
-                }
-
-                Action
-                {
-                    text: i18n("X")
-                    onTriggered: setPreviewSize(previewSizes.large)
-                    checked: previewSizes.large === browserSettings.previewSize
-
-                }
-
-                Action
-                {
-                    text: i18n("XL")
-                    onTriggered: setPreviewSize(previewSizes.extralarge)
-                    checked: previewSizes.extralarge === browserSettings.previewSize
-
-                }
-            }
-        }
-
-        Maui.FlexSectionItem
-        {
-            label1.text: i18n("Sort by")
-            label2.text: i18n("Change the sorting key.")
-
-            Maui.ToolActions
-            {
-                expanded: true
-                autoExclusive: true
-                display: ToolButton.TextOnly
-
-                Action
-                {
-                    text: i18n("Title")
-                    onTriggered: browserSettings.sortBy = "title"
-                    checked: browserSettings.sortBy === "title"
-                }
-
-                Action
-                {
-                    text: i18n("Modified")
-                    onTriggered: browserSettings.sortBy = "modified"
-                    checked: browserSettings.sortBy === "modified"
-
-                }
-
-                Action
-                {
-                    text: i18n("Size")
-                    onTriggered: browserSettings.sortBy = "size"
-                    checked: browserSettings.sortBy === "size"
-
-                }
-
-                Action
-                {
-                    text: i18n("Date")
-                    onTriggered: browserSettings.sortBy = "date"
-                    checked: browserSettings.sortBy === "date"
-
-                }
-            }
-        }
-
-        Maui.FlexSectionItem
-        {
-            label1.text: i18n("Sort Order")
-            label2.text: i18n("Change the sorting order.")
-
-            Maui.ToolActions
-            {
-                expanded: true
-                autoExclusive: true
-                display: ToolButton.IconOnly
-
-
-                Action
-                {
-                    text: i18n("Ascending")
-                    icon.name: "view-sort-ascending"
-                    onTriggered: browserSettings.sortOrder = Qt.AscendingOrder
-                    checked: browserSettings.sortOrder === Qt.AscendingOrder
-                }
-
-                Action
-                {
-                    text: i18n("Descending")
-                    icon.name: "view-sort-descending"
-                    onTriggered: browserSettings.sortOrder = Qt.DescendingOrder
-                    checked: browserSettings.sortOrder === Qt.DescendingOrder
-                }
-            }
-        }
-
+        }      
 
         Maui.FlexSectionItem
         {
             label1.text: i18n("GPS Tags")
             label2.text: i18n("Show GPS tags.")
+            Maui.Controls.badgeText: "!"
 
             Switch
             {
@@ -191,19 +72,13 @@ Maui.SettingsDialog
                 checked: browserSettings.gpsTags
                 onToggled: browserSettings.gpsTags = !browserSettings.gpsTags
             }
-
-            Maui.Chip
-            {
-                text: i18n("Experimental feature.")
-
-            }
         }
     }
 
     Maui.SectionGroup
     {
         title: i18n("Viewer")
-//        description: i18n("Adjust the viewer panels and settings.")
+        //        description: i18n("Adjust the viewer panels and settings.")
 
         Maui.FlexSectionItem
         {
@@ -221,7 +96,7 @@ Maui.SettingsDialog
         Maui.FlexSectionItem
         {
             label1.text: i18n("Preview Bar")
-//            label2.text: i18n("Show small thumbnail previews in the image viewer.")
+            //            label2.text: i18n("Show small thumbnail previews in the image viewer.")
             Switch
             {
                 checkable: true
@@ -229,12 +104,26 @@ Maui.SettingsDialog
                 onToggled: tooglePreviewBar()
             }
         }
+
+        Maui.FlexSectionItem
+        {
+            label1.text: i18n("Text Detection")
+            label2.text: i18n("Configure settings for text detection in images.")
+            // enabled: viewerSettings.enableOCR
+
+            ToolButton
+            {
+                checkable: true
+                icon.name: "go-next"
+                onToggled: control.addPage(_ocrPageComponent)
+            }
+        }
     }
 
     Maui.SectionGroup
     {
         title: i18n("Sources")
-//        description: i18n("Add new sources to manage and browse your image collection.")
+        //        description: i18n("Add new sources to manage and browse your image collection.")
 
         ColumnLayout
         {
@@ -275,15 +164,22 @@ Maui.SettingsDialog
                 text: i18n("Add")
                 onClicked:
                 {
-                    dialogLoader.sourceComponent= fmDialogComponent
-                    dialog.callback = function(urls)
-                    {
-                        Pix.Collection.addSources(urls)
-                    }
-
+                    let props = ({'browser.settings.onlyDirs' : true,
+                                     'callback' : function(urls)
+                                     {
+                                         Pix.Collection.addSources(urls)
+                                     }
+                                 })
+                    var dialog = fmDialogComponent.createObject(root, props)
                     dialog.open()
                 }
             }
         }
+    }
+
+    Component
+    {
+        id: _ocrPageComponent
+        OCRSettingsPage {}
     }
 }

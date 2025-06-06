@@ -38,26 +38,59 @@ import org.maui.pix as Pix
 
 import "widgets"
 import "widgets/views"
-import "widgets/views/Viewer"
-
-import "widgets/views/Viewer/Viewer.js" as VIEWER
 
 Maui.ApplicationWindow
 {
     id: root
     title: initData
 
-    Maui.Style.styleType: _pixViewer.visible ? Maui.Style.Dark : undefined
-
-    readonly property alias dialog : dialogLoader.item
+    Maui.Style.styleType: _appView.viewerVisible || _appView.editorVisible ? Maui.Style.Dark : undefined
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
+    readonly property alias selectionBox : _selectionBar
+    property bool selectionMode : false
+
+    readonly property alias appView: _appView
+    readonly property alias pixViewer: _appView.pixViewer
 
     readonly property var previewSizes: ({small: 72,
                                              medium: 90,
                                              large: 120,
                                              extralarge: 160})
-    property bool selectionMode : false
+
+
+    Maui.InfoDialog
+    {
+        id: _confirmCloseDialog
+        property bool prevent : true
+        template.iconSource: "dialog-warning"
+        message: i18n("There are multiple windows still open. Are you sure you want to close the application?")
+        standardButtons: Dialog.Yes | Dialog.Cancel
+        onAccepted:
+        {
+            prevent = false
+            root.close()
+        }
+
+        onRejected:
+        {
+            prevent = true
+            close()
+        }
+    }
+
+    onClosing: (close) =>
+               {
+                   console.log("Inwdows opened" , Maui.App.windowsOpened())
+                   if(Maui.App.windowsOpened() > 1 && _confirmCloseDialog.prevent)
+                   {
+                       _confirmCloseDialog.open()
+                       close.accepted = false
+                       return
+                   }
+
+                   close.accepted = true
+               }
 
     Settings
     {
@@ -70,6 +103,7 @@ Maui.ApplicationWindow
         property string sortBy : "modified"
         property int sortOrder: Qt.DescendingOrder
         property bool gpsTags : false
+        property string lastUsedTag
     }
 
     Settings
@@ -77,165 +111,66 @@ Maui.ApplicationWindow
         id: viewerSettings
         property bool tagBarVisible : true
         property bool previewBarVisible : false
+        property bool enableOCR: Maui.Handy.isLinux
+        property int ocrConfidenceThreshold: 40
+        property int ocrBlockType : 0 // 0-word 1-line 2-paragraph
+        property int ocrSelectionType: 0 //0-free 1-rectangular
+        property bool ocrPreprocessing : false
+        property int ocrSegMode: IT.OCR.Auto
     }
 
-    StackView
+    AppView
     {
-        id: _stackView
+        id: _appView
         anchors.fill: parent
+        stackView.initialItem: initModule === "viewer" ? pixViewer : collectionViewComponent
+        anchors.bottomMargin: _selectionBar.visible && pixViewer.active ? _selectionBar.height : 0
 
-        Keys.enabled: true
-        Keys.onEscapePressed: _stackView.pop()
-
-        initialItem: initModule === "viewer" ? _pixViewer : _collectionViewComponent
-
-        Loader
+        pixViewer.headBar.farLeftContent: ToolButton
         {
-            id: _collectionViewComponent
-            active:  StackView.status === StackView.Active || item
-            property string pendingFolder : initModule === "folder" ? initData[0] : ""
-
-            sourceComponent: CollectionView {}
-        }
-
-        PixViewer
-        {
-            id: _pixViewer
-            visible: StackView.status === StackView.Active
-            Maui.Controls.showCSD: initModule === "viewer"
+            icon.name: "go-previous"
+            text: i18n("Gallery")
+            display: ToolButton.TextBesideIcon
+            onClicked: _appView.toggleViewer()
         }
     }
 
-    Loader
+    SelectionBar
     {
-        anchors.fill: parent
-        visible: _dropAreaLoader.item.containsDrag
-        asynchronous: true
+        id: _selectionBar
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: Math.min(parent.width-(Maui.Style.space.medium*2), implicitWidth)
 
-        sourceComponent: Rectangle
+        maxListHeight: root.height - Maui.Style.space.medium
+        display: ToolButton.IconOnly
+    }
+
+    background: Rectangle
+    {
+        Maui.Theme.colorSet:Maui.Theme.View
+        color: Maui.Theme.backgroundColor
+        radius: Maui.Style.radiusV
+    }
+
+    Component
+    {
+        id: _windowViewerComponent
+
+        Maui.ApplicationWindow
         {
-            color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.95)
+            transientParent: null
+            readonly property alias viewer: _appView.viewer
+            readonly property alias appView : _appView
 
-            Maui.Rectangle
+            onClosing: destroy()
+            AppView
             {
+                id: _appView
+                Maui.Controls.showCSD: true
                 anchors.fill: parent
-                anchors.margins: Maui.Style.space.medium
-                color: "transparent"
-                borderColor: Maui.Theme.textColor
-                solidBorder: false
-
-                Maui.Holder
-                {
-                    anchors.fill: parent
-                    visible: true
-                    emoji: "qrc:/img/assets/add-image.svg"
-                    emojiSize: Maui.Style.iconSizes.huge
-                    title: i18n("Open images")
-                    body: i18n("Drag and drop images here.")
-                }
             }
         }
-    }
-
-    Loader
-    {
-        id: _dropAreaLoader
-        anchors.fill: parent
-
-        sourceComponent: DropArea
-        {
-            onDropped: (drop) =>
-                       {
-                           if(drop.urls)
-                           {
-                               VIEWER.openExternalPics(drop.urls, 0)
-                           }
-                       }
-
-            onEntered: (drag) =>
-                       {
-                           if(drag.source)
-                           {
-                               return
-                           }
-
-                           if(!_pixViewer.visible)
-                            _stackView.push(_pixViewer)
-                       }
-        }
-    }
-
-    Component
-    {
-        id: _infoDialogComponent
-        IT.ImageInfoDialog {}
-    }
-
-    Component
-    {
-        id: tagsDialogComponent
-        FB.TagsDialog
-        {
-            onTagsReady: (tags) => composerList.updateToUrls(tags)
-            composerList.strict: false
-        }
-    }
-
-    Component
-    {
-        id: fmDialogComponent
-        FB.FileDialog
-        {
-            browser.settings.filterType: FB.FMList.IMAGE
-            browser.settings.onlyDirs: true
-            mode: FB.FileDialog.Open
-        }
-    }
-
-    Component
-    {
-        id: _settingsDialogComponent
-        SettingsDialog {}
-    }
-
-    Component
-    {
-        id: _removeDialogComponent
-
-        FB.FileListingDialog
-        {
-            id: removeDialog
-            title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
-            message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
-
-            actions:
-                [
-                Action
-                {
-                    text: i18n("Cancel")
-                    onTriggered: removeDialog.close()
-                },
-
-                Action
-                {
-                    text: i18n("Remove")
-                    Maui.Controls.status: Maui.Controls.Negative
-                    onTriggered:
-                    {
-                        FB.FM.removeFiles(removeDialog.urls)
-                        _collectionViewComponent.item.selectionBox.clear()
-                        close()
-                    }
-                }
-            ]
-        }
-    }
-
-    Loader { id: dialogLoader }
-
-    FB.OpenWithDialog
-    {
-        id: _openWithDialog
     }
 
     Connections
@@ -244,92 +179,73 @@ Maui.ApplicationWindow
 
         function onViewPics(pics)
         {
-            VIEWER.openExternalPics(pics, 0)
+            _appView.openExternalPics(pics, 0)
         }
     }
 
-    function setPreviewSize(size)
+    function fav(urls)
     {
-        console.log(size)
-        browserSettings.previewSize = size
+        for(const i in urls)
+            FB.Tagging.toggleFav(urls[i])
     }
 
-    function getFileInfo(url)
+    function openEditorWindow(url : string, windowed : bool)
     {
-        dialogLoader.sourceComponent= _infoDialogComponent
-        dialog.url = url
-        dialog.open()
-    }
-
-    function toogleTagbar()
-    {
-        viewerSettings.tagBarVisible = !viewerSettings.tagBarVisible
-    }
-
-    function tooglePreviewBar()
-    {
-        viewerSettings.previewBarVisible = !viewerSettings.previewBarVisible
-    }
-
-    function toogleFullscreen()
-    {
-        if(root.visibility === Window.FullScreen)
+        if(windowed)
         {
-            root.showNormal()
+            var win = _windowViewerComponent.createObject(root)
+            var viewer = win.viewer
+            var oldIndex = viewer.viewer.count
+            viewer.viewer.appendPics(urls)
+            viewer.view(Math.max(oldIndex, 0))
+            win.requestActivate()
+            openEditor(url, viewer)
+
         }else
         {
-            root.showFullScreen()
+            openEditor(url, _stackView)
         }
     }
 
-    function toggleViewer()
+    function view(urls : var, windowed : bool)
     {
-        if(_pixViewer.visible)
+        if(windowed)
         {
-            if(_stackView.depth === 1)
+            if(Maui.Handy.isLinux && !Maui.Handy.isMobile)
             {
-                _stackView.replace(_pixViewer, _collectionViewComponent)
-
-            }else
-            {
-                _stackView.pop()
+                var win = _windowViewerComponent.createObject(root)
+                var appView = win.appView
+                appView.openExternalPics(urls)
+                win.requestActivate()
             }
-
         }else
         {
-            _stackView.push(_pixViewer)
+            _appView.openExternalPics(urls)
+        }
+    }
+
+    function selectItem(item)
+    {
+        if(selectionBox.contains(item.url))
+        {
+            selectionBox.removeAtUri(item.url)
+            return
         }
 
-        _stackView.currentItem.forceActiveFocus()
+        selectionBox.append(item.url, item)
     }
 
-    function openFileDialog()
+    function filterSelection(url)
     {
-        dialogLoader.sourceComponent = fmDialogComponent
-        dialog.mode = FB.FileDialog.Modes.Open
-        dialog.browser.settings.filterType = FB.FMList.IMAGE
-        dialog.browser.settings.onlyDirs= false
-        dialog.callback = function(paths)
+        if(!selectionBox)
+            return [url]
+
+        if(selectionBox.contains(url))
         {
-            Pix.Collection.openPics(paths)
-            //            dialogLoader.sourceComponent = null
-        };
-        dialog.open()
-    }
-
-    function openSettingsDialog()
-    {
-        dialogLoader.sourceComponent = _settingsDialogComponent
-        dialog.open()
-    }
-
-    function openFolder(url, filters)
-    {
-        if(!_collectionViewComponent.visible)
+            return selectionBox.uris
+        }else
         {
-            toggleViewer()
+            return [url]
         }
-
-        _collectionViewComponent.item.openFolder(url, filters)
     }
 }

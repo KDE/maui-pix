@@ -17,6 +17,9 @@ Maui.Page
     Maui.Theme.inherit: false
     Maui.Theme.colorGroup: Maui.Theme.View
 
+    Keys.forwardTo: _gridView
+    Keys.enabled: true
+
     property int itemSize : browserSettings.previewSize
 
     readonly property alias listModel : pixModel
@@ -36,6 +39,7 @@ Maui.Page
 
     flickable: _gridView.flickable
     showTitle: false
+    padding: 0
 
     property Component searchFieldComponent : Maui.SearchField
     {
@@ -56,7 +60,20 @@ Maui.Page
             {
                 model.filter = text
             }
+            _gridView.forceActiveFocus()
         }
+
+        Keys.enabled: true
+        Keys.priority: Keys.AfterItem
+        Keys.onEscapePressed: _gridView.forceActiveFocus()
+        Keys.onPressed: (event)=>
+                        {
+                            if(event.key === Qt.Key_Return)
+                            {
+                                // _gridView.forceActiveFocus()
+                                event.accepted = true
+                            }
+                        }
 
         onCleared: model.clearFilters()
 
@@ -74,12 +91,126 @@ Maui.Page
         }
     }
 
+    property Component extraOptions : Maui.ToolButtonMenu
+    {
+        icon.name: "view-sort"
+
+        Maui.FlexSectionItem
+        {
+            label1.text: i18n("Preview Size")
+            label2.text: i18n("Size of the thumbnails in the collection views.")
+            wide: false
+            Maui.ToolActions
+            {
+                id: _gridIconSizesGroup
+                expanded: true
+                autoExclusive: true
+                display: ToolButton.TextOnly
+
+                Action
+                {
+                    text: i18n("S")
+                    onTriggered: setPreviewSize(previewSizes.small)
+                    checked: previewSizes.small === browserSettings.previewSize
+                }
+
+                Action
+                {
+                    text: i18n("M")
+                    onTriggered: setPreviewSize(previewSizes.medium)
+                    checked: previewSizes.medium === browserSettings.previewSize
+
+                }
+
+                Action
+                {
+                    text: i18n("X")
+                    onTriggered: setPreviewSize(previewSizes.large)
+                    checked: previewSizes.large === browserSettings.previewSize
+
+                }
+
+                Action
+                {
+                    text: i18n("XL")
+                    onTriggered: setPreviewSize(previewSizes.extralarge)
+                    checked: previewSizes.extralarge === browserSettings.previewSize
+
+                }
+            }
+        }
+
+        MenuSeparator{}
+
+        MenuItem
+        {
+            text: i18n("Title")
+            checkable: true
+            autoExclusive: true
+            onTriggered: browserSettings.sortBy = "title"
+            checked: browserSettings.sortBy === "title"
+        }
+
+        MenuItem
+        {
+            text: i18n("Modified")
+            checkable: true
+            autoExclusive: true
+            onTriggered: browserSettings.sortBy = "modified"
+            checked: browserSettings.sortBy === "modified"
+
+        }
+
+        MenuItem
+        {
+            text: i18n("Size")
+            checkable: true
+            autoExclusive: true
+            onTriggered: browserSettings.sortBy = "size"
+            checked: browserSettings.sortBy === "size"
+
+        }
+
+        MenuItem
+        {
+            text: i18n("Date")
+            checkable: true
+            autoExclusive: true
+            onTriggered: browserSettings.sortBy = "date"
+            checked: browserSettings.sortBy === "date"
+
+        }
+
+        MenuSeparator {}
+
+        MenuItem
+        {
+            text: i18n("Ascending")
+            checkable: true
+            // autoExclusive: true
+            icon.name: "view-sort-ascending"
+            onTriggered: browserSettings.sortOrder = Qt.AscendingOrder
+            checked: browserSettings.sortOrder === Qt.AscendingOrder
+        }
+
+        MenuItem
+        {
+            text: i18n("Descending")
+            checkable: true
+            // autoExclusive: true
+            icon.name: "view-sort-descending"
+            onTriggered: browserSettings.sortOrder = Qt.DescendingOrder
+            checked: browserSettings.sortOrder === Qt.DescendingOrder
+        }
+    }
+
     Maui.GridBrowser
     {
         id: _gridView
         anchors.fill: parent
         enableLassoSelection: true
         holder.visible: _gridView.count === 0
+        // padding: 0
 
         itemSize : control.itemSize
         itemHeight: browserSettings.showLabels ? _gridView.itemSize * 1.5 : _gridView.itemSize
@@ -140,6 +271,12 @@ Maui.Page
             id: _picMenu
             index: control.currentIndex
             model: pixModel
+
+            // editMenuItem.action: Action
+            // {
+            //     shortcut: "Ctrl+E"
+            //     onTriggered: openEditor(pixModel.get(currentIndex).url, _stackView)
+            // }
         }
 
         onItemsSelected: (indexes) =>
@@ -148,43 +285,65 @@ Maui.Page
                              selectItem(pixModel.get(indexes[i]))
                          }
 
-                         Keys.enabled: true
+
+        Keys.enabled: true
         Keys.onPressed: (event) =>
-                    {
-                        const index = control.currentIndex
-                        const item = control.model.get(index)
-
-                        var pat = /^([a-zA-Z0-9 _-]+)$/
-                        if(event.count === 1 && pat.test(event.text))
                         {
-                            typingQuery += event.text
-                            _typingTimer.restart()
-                            event.accepted = true
-                        }
+                            const index = control.currentIndex
+                            const item = control.model.get(index)
 
-                        if((event.key == Qt.Key_Left || event.key == Qt.Key_Right || event.key == Qt.Key_Down || event.key == Qt.Key_Up) && (event.modifiers & Qt.ControlModifier) && (event.modifiers & Qt.ShiftModifier))
-                        {
-                            _gridView.itemsSelected([index])
-                        }
+                            var pat = /^([a-zA-Z0-9 _-]+)$/
+                            if(event.count === 1 && pat.test(event.text))
+                            {
+                                typingQuery += event.text
+                                _typingTimer.restart()
+                                event.accepted = true
+                                return
+                            }
 
-                        if(event.key === Qt.Key_Space)
-                        {
-                            getFileInfo(item.url)
-                            event.accepted = true
-                        }
+                            if(event.key == Qt.Key_S && (event.modifiers & Qt.ControlModifier))
+                            {
+                                _gridView.itemsSelected([index])
+                                event.accepted = true
+                            }
 
-                        if(event.key === Qt.Key_Return)
-                        {
-                            openPic(index)
-                            event.accepted = true
-                        }
+                            if((event.key == Qt.Key_Left || event.key == Qt.Key_Right || event.key == Qt.Key_Down || event.key == Qt.Key_Up) && (event.modifiers & Qt.ControlModifier) && (event.modifiers & Qt.ShiftModifier))
+                            {
+                                _gridView.itemsSelected([index])
+                                event.accepted = true
+                                return
+                            }
 
-                        if(event.key === Qt.Key_A && (event.modifiers & Qt.ControlModifier))
-                        {
-                            selectAll()
-                            event.accepted = true
+                            if(event.key === Qt.Key_Space)
+                            {
+                                getFileInfo(item.url)
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_Return)
+                            {
+                                openPic(pixModel.mappedToSource(index))
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_A && (event.modifiers & Qt.ControlModifier))
+                            {
+                                selectAll()
+                                event.accepted = true
+                                return
+                            }
+
+                            if(event.key === Qt.Key_O && (event.modifiers & Qt.ControlModifier))
+                            {
+                                openFileWith(filterSelection(item.url))
+                                event.accepted = true
+                                return
+                            }
+
+                            event.accepted = false
                         }
-                    }
 
         delegate: Item
         {
@@ -209,18 +368,21 @@ Maui.Page
                 checked: selectionBox.contains(model.url)
 
                 Drag.keys: ["text/uri-list"]
-                Drag.mimeData: Drag.active ? { "text/uri-list": control.filterSelectedItems(model.url) } : {}
+                Drag.mimeData: Drag.active ? { "text/uri-list": filterSelection(model.url) } : {}
 
             onClicked: (mouse) =>
                        {
-                           control.currentIndex = index
                            if(root.selectionMode || (mouse.button == Qt.LeftButton && (mouse.modifiers & Qt.ControlModifier)))
                            {
                                _gridView.itemsSelected([index])
+                           }else if((mouse.button == Qt.LeftButton) && (mouse.modifiers & Qt.ShiftModifier))
+                           {
+                               _gridView.itemsSelected(control.range(control.currentIndex, index))
                            }else if(Maui.Handy.singleClick)
                            {
-                               openPic(index)
+                               openPic(pixModel.mappedToSource(index))
                            }
+                           control.currentIndex = index
                        }
 
             onDoubleClicked:
@@ -228,7 +390,7 @@ Maui.Page
                 control.currentIndex = index
                 if(!Maui.Handy.singleClick && !root.selectionMode)
                 {
-                    openPic(index)
+                    openPic(pixModel.mappedToSource(index))
                 }
             }
 
@@ -248,11 +410,11 @@ Maui.Page
             }
 
             onToggled: (state) =>
-            {
+                       {
                            console.log("ITEM TOGGLED!!", state)
-                control.currentIndex = index
-                selectItem(pixModel.get(index))
-            }
+                           control.currentIndex = index
+                           selectItem(pixModel.get(index))
+                       }
         }
 
         Connections
@@ -284,18 +446,6 @@ Maui.Page
     }
 }
 
-
-function filterSelectedItems(path)
-{
-    if(selectionBox && selectionBox.count > 0 && selectionBox.contains(path))
-    {
-        const uris = selectionBox.uris
-        return uris.join("\n")
-    }
-
-    return path
-}
-
 function selectAll()
 {
     for(var item of pixModel.getAll())
@@ -307,5 +457,21 @@ function selectAll()
 function openPic(index)
 {
     VIEWER.open(pixModel, index)
+}
+
+/**
+ * @private
+ */
+function range(start, end)
+{
+    const isReverse = (start > end);
+    const targetLength = isReverse ? (start - end) + 1 : (end - start ) + 1;
+    const arr = new Array(targetLength);
+    const b = Array.apply(null, arr);
+    const result = b.map((discard, n) => {
+                             return (isReverse) ? n + end : n + start;
+                         });
+
+    return (isReverse) ? result.reverse() : result;
 }
 }

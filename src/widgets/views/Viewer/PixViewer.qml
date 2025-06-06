@@ -8,24 +8,48 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
+import QtQuick.Effects
 
 import org.mauikit.controls as Maui
 import org.mauikit.filebrowsing as FB
 import org.mauikit.imagetools as IT
-import org.kde.kquickimageeditor as KQuickImageEditor
 
 import org.maui.pix as Pix
 
 import "../../../view_models"
 
-StackView
+
+Maui.Page
 {
     id: control
 
+    Keys.forwardTo: viewer
+    Keys.enabled: true
+    Keys.onPressed: (event) =>
+                    {
+
+                        if((event.key == Qt.Key_F && (event.modifiers & Qt.ControlModifier) ) || event.key === Qt.Key_F4)
+                        {
+                            showFullScreen()
+                            event.accepted = true
+                        }
+
+                        if((event.key == Qt.Key_Escape) && root.isFullScreen)
+                        {
+                            toggleFullscreen()
+                            event.accepted = true
+                        }
+
+
+                        if((event.key == Qt.Key_T && (event.modifiers & Qt.ControlModifier) ))
+                        {
+                            focusTagsBar()
+                            event.accepted = true
+                        }
+                    }
+
     readonly property alias viewer : viewer
     readonly property alias holder : holder
-    readonly property alias roll : galleryRoll
-    readonly property bool editing : control.currentItem.objectName === "imageEditor"
 
     readonly property alias model : viewer.model
 
@@ -37,197 +61,282 @@ StackView
     PixMenu
     {
         id: _picMenu
+
         index: control.currentPicIndex
         model: viewer.model
     }
 
-    Component
-    {
-        id: _editorComponent
+    onGoBackTriggered: control.pop()
 
-        IT.ImageEditor
+    title: currentPic.title
+    showTitle: root.isWide
+
+    altHeader: Maui.Handy.isMobile
+    floatingHeader: true
+    autoHideHeader: viewer.imageZooming || viewer.focusedMode
+    headerMargins: Maui.Style.contentMargins
+
+    headBar.rightContent: [
+
+        ToolButton
         {
-            objectName: "imageEditor"
-            url: control.currentPic.url
-            onGoBackTriggered: control.pop()
+            icon.name: "view-fullscreen"
+            onClicked: toggleFullscreen()
+            checked: fullScreen
+        }
+    ]
 
-            headBar.farLeftContent: ToolButton
+    headBar.leftContent: Loader
+    {
+        active: (!Maui.Handy.isMobile) && control.viewer.count > 1 //only show footbar control for desktop mode
+        asynchronous: true
+        sourceComponent:  Maui.ToolActions
+        {
+            expanded: true
+            autoExclusive: false
+            checkable: false
+            display: ToolButton.IconOnly
+
+            Action
             {
+                text: i18n("Previous")
                 icon.name: "go-previous"
-                onClicked:
-                {
-                    control.pop()
-                }
+                onTriggered: previous()
             }
 
-            headBar.rightContent: Maui.ToolButtonMenu
+            Action
             {
-                icon.name: "document-save"
-
-                MenuItem
-                {
-                    text: i18n("Save as")
-                    icon.name: "document-save-as"
-                    onTriggered:
-                    {
-                        dialogLoader.sourceComponent= fmDialogComponent
-                        dialog.mode = dialog.modes.SAVE
-                        dialog.settings.onlyDirs= false
-                        dialog.singleSelection = true
-                        dialog.callback = function(paths)
-                        {
-                            console.log("Save edit to", paths)
-                            editor.saveAs(paths[0])
-                        };
-                        dialog.open()
-                    }
-                }
-
-                MenuItem
-                {
-                    text: i18n("Save")
-                    icon.name: "document-save"
-                    onTriggered: editor.save()
-                }
+                icon.name: "go-next"
+                onTriggered: next()
             }
         }
     }
 
-    initialItem: Maui.Page
+    headerColumn: Maui.ToolBar
     {
-        padding: 0
-        title: currentPic.title
-        showTitle: root.isWide
-        altHeader: Maui.Handy.isMobile
-        floatingHeader: true
-        autoHideHeader: true
-        Maui.Controls.showCSD: control.Maui.Controls.showCSD
-        headBar.visible: true
+        id: _alertBar
+        visible: (_watcher.modified || _watcher.deleted)
+        width: parent.width
 
-        onGoBackTriggered: _stackView.pop()
-
-        headBar.farLeftContent: [
-            ToolButton
-            {
-                icon.name: "go-previous"
-                text: i18n("Gallery")
-                display: ToolButton.TextBesideIcon
-                onClicked: toggleViewer()
-            },
-
-            Loader
-            {
-                active: !holder.visible && (!Maui.Handy.isMobile) && control.viewer.count > 1 //only show footbar control for desktop mode
-                asynchronous: true
-                sourceComponent:  Maui.ToolActions
-                {
-
-                    expanded: true
-                    autoExclusive: false
-                    checkable: false
-                    display: ToolButton.IconOnly
-
-                    Action
-                    {
-                        text: i18n("Previous")
-                        icon.name: "go-previous"
-                        onTriggered: previous()
-                    }
-
-                    Action
-                    {
-                        icon.name: "go-next"
-                        onTriggered: next()
-                    }
-                }
-            }
-        ]
-
-        headBar.rightContent: [
-            FB.FavButton
-            {
-                url: currentPic.url
-            },
-
-            ToolButton
-            {
-                icon.name: "document-share"
-                onClicked:
-                {
-                    Maui.Platform.shareFiles([control.currentPic.url])
-                }
-            },
-
-            ToolButton
-            {
-                icon.name: "draw-freehand"
-                onClicked:
-                {
-                    control.push(_editorComponent)
-                }
-            },
-
-            Loader
-            {
-                active: Maui.Handy.isLinux
-                asynchronous: true
-                sourceComponent: ToolButton
-                {
-                    icon.name: "format-text-bold"
-                    onClicked:
-                    {
-                        var component = Qt.createComponent("qrc:/app/maui/pix/widgets/views/Viewer/OCRPage.qml")
-                        if (component.status == Component.Ready)
-                            var object = component.createObject()
-                        // else
-                        //     component.statusChanged.connect(finishCreation);
-
-                        control.push(object)
-                    }
-
-                }
-            },
-
-            ToolButton
-            {
-                icon.name: "view-fullscreen"
-                onClicked: toogleFullscreen()
-                checked: fullScreen
-            }
-        ]
-
-        Maui.Holder
+        background: Rectangle
         {
-            id: holder
-            visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
-            anchors.fill: parent
-            emoji: "qrc:/assets/add-image.svg"
-            isMask: true
-            title : i18n("No Pics!")
-            body: i18n("Open an image from your collection")
+            color: Maui.Theme.alternateBackgroundColor
+            opacity: 0.75
+            radius: Maui.Style.radiusV
         }
 
-        ColumnLayout
+        Pix.FileWatcher
         {
-            height: parent.height
-            width: parent.width
-            spacing: 0
+            id: _watcher
 
-            Viewer
+            property bool modified: false
+            property bool deleted : false
+            property bool autoRefresh : false
+
+            url: currentPic.url
+            onFileModified:
             {
-                id: viewer
-                visible: !holder.visible
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-
-                Rectangle
+                if(autoRefresh)
                 {
-                    id: galleryRollBg
-                    width: parent.width
-                    anchors.bottom: parent.bottom
-                    height: Math.min(100, Math.max(parent.height * 0.12, 60))
-                    visible: viewerSettings.previewBarVisible && galleryRoll.rollList.count > 1 && opacity> 0
-                    color: Qt.rgba(Maui.Theme.backgroundColor.r, Maui.Theme.backgroundColor.g, Maui.Theme.backgroundColor.b, 0.7)
+                    viewer.reloadCurrentItem()
+                    _watcher.modified = false
+                }else
+                {
+                    modified = true
+                }
+            }
+            onFileDeleted: deleted = true
+
+            onUrlChanged:
+            {
+                deleted = false
+                modified = false
+            }
+        }
+
+        middleContent: Maui.ListItemTemplate
+        {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            iconSource: "dialog-warning"
+            label1.text: i18n("The current image file has been modified or removed externally")
+            label2.text: _watcher.deleted ? i18n("The image was deleted") : i18n("The image was modified")
+        }
+
+        rightContent: [
+            Button
+            {
+                text: i18n("Reload")
+                visible: _watcher.modified
+                Maui.Controls.status: Maui.Controls.Negative
+                onClicked:
+                {
+                    viewer.reloadCurrentItem()
+                    _watcher.modified = false
+                }
+            },
+
+            Button
+            {
+                text: i18n("Auto Reload")
+                Maui.Controls.status: Maui.Controls.Neutral
+
+                visible: _watcher.modified
+                onClicked:
+                {
+                    viewer.reloadCurrentItem()
+                    _watcher.autoRefresh = true
+                    _watcher.modified = false
+                }
+            },
+
+            Button
+            {
+                text: i18n("Save")
+                visible: _watcher.deleted
+                Maui.Controls.status: Maui.Controls.Positive
+
+                onClicked: saveAs([currentPic.url])
+            }
+        ]
+    }
+
+    Maui.Holder
+    {
+        id: holder
+        visible: viewer.count === 0 /*|| viewer.currentItem.status !== Image.Ready*/
+        anchors.fill: parent
+        emoji: "qrc:/assets/add-image.svg"
+        isMask: true
+        title : i18n("No Pics!")
+        body: i18n("Open an image from your collection")
+    }
+
+    ColumnLayout
+    {
+        height: parent.height
+        width: parent.width
+        spacing: 0
+
+        Viewer
+        {
+            id: viewer
+            visible: !holder.visible
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            Loader
+            {
+                id: _actionsBarLoader
+                visible: status == Loader.Ready
+                asynchronous: true
+
+                anchors.bottom: galleryRoll.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.margins: Maui.Style.space.big
+
+                sourceComponent: Pane
+                {
+                    id: _pane
+                    Maui.Theme.colorSet: Maui.Theme.Header
+
+                    background: Rectangle
+                    {
+                        radius: Maui.Style.radiusV
+                        color: Maui.Theme.alternateBackgroundColor
+
+                        layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
+                        layer.effect: MultiEffect
+                        {
+                            autoPaddingEnabled: true
+                            shadowEnabled: true
+                            shadowColor: "#000000"
+                        }
+                    }
+
+                    ScaleAnimator on scale
+                    {
+                        from: 0
+                        to: 1
+                        duration: Maui.Style.units.longDuration
+                        running: visible
+                        easing.type: Easing.OutInQuad
+                    }
+
+                    OpacityAnimator on opacity
+                    {
+                        from: 0
+                        to: 1
+                        duration: Maui.Style.units.longDuration
+                        running: visible
+                    }
+
+                    contentItem: Row
+                    {
+                        spacing: Maui.Style.defaultSpacing
+
+                        FB.FavButton
+                        {
+                            url: currentPic.url
+                            flat: false
+                        }
+
+                        ToolButton
+                        {
+                            icon.name: "document-share"
+                            flat: false
+                            onClicked:
+                            {
+                                Maui.Platform.shareFiles([control.currentPic.url])
+                            }
+                        }
+
+                        ToolButton
+                        {
+                            icon.name: "draw-freehand"
+                            flat: false
+                            onClicked:
+                            {
+                                openEditor(control.currentPic.url, _stackView)
+                            }
+                        }
+
+                        ToolButton
+                        {
+                            icon.name: "overflow-menu"
+                            onClicked: _picMenu.show()
+                        }
+                    }
+                }
+            }
+
+            Loader
+            {
+                id: galleryRoll
+
+                asynchronous: true
+                active: viewerSettings.previewBarVisible
+                // anchors.bottom: parent.bottom
+                width: parent.width
+                height: active ? Math.min(60, Math.max(parent.height * 0.12, 60)) : 0
+                y: viewer.imageZooming || viewer.focusedMode ? parent.height :  parent.height - height
+
+                Behavior on y
+                {
+                    NumberAnimation
+                    {
+                        duration: Maui.Style.units.longDuration
+                        easing.type: Easing.InOutQuad
+                    }
+                }
+                sourceComponent:  GalleryRoll
+                {
+                    visible: rollList.count > 1
+
+                    model: control.model
+                    onPicClicked: (index) => view(index)
+                    currentIndex: control.currentPicIndex
+
 
                     Behavior on opacity
                     {
@@ -238,33 +347,38 @@ StackView
                         }
                     }
 
-                    GalleryRoll
+                    padding: Maui.Style.defaultPadding
+                    background: Rectangle
                     {
-                        id: galleryRoll
-                        height: parent.height -Maui.Style.space.small
-                        width: parent.width
-                        anchors.centerIn: parent
-                        model: control.model
-                        onPicClicked: (index) => view(index)
+                        color: "black"
+                        opacity: 0.7
                     }
                 }
             }
 
-            Loader
+        }
+
+        Loader
+        {
+            id: _tagsbarLoader
+            asynchronous: true
+            active: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
+            Layout.fillWidth: true
+
+            sourceComponent: FB.TagsBar
             {
-                asynchronous: true
-                active: !holder.visible && viewerSettings.tagBarVisible && !fullScreen
-                Layout.fillWidth: true
+                allowEditMode: true
+                list.urls: [currentPic.url]
+                list.strict: false
 
-                sourceComponent: FB.TagsBar
-                {
-                    allowEditMode: true
-                    list.urls: [currentPic.url]
-                    list.strict: false
+                onTagRemovedClicked: (index) => list.removeFromUrls(index)
+                onTagsEdited:(tags) =>
+                             {
+                                 list.updateToUrls(tags)
+                                 viewer.forceActiveFocus()
+                             }
 
-                    onTagRemovedClicked: (index) => list.removeFromUrls(index)
-                    onTagsEdited: (tags) => list.updateToUrls(tags)
-                }
+                onTagClicked: (tag) => openFolder("tags:///"+tag)
             }
         }
     }
@@ -293,7 +407,37 @@ StackView
         view(index)
     }
 
-    function view(index)
+    function incrementCurrentIndex()
+    {
+        control.currentPicIndex++
+        control.currentPic = control.model.get(control.currentPicIndex)
+
+        control.currentPicFav = FB.Tagging.isFav(control.currentPic.url)
+        root.title = control.currentPic.title
+    }
+
+    function decrementCurrentIndex()
+    {
+        control.currentPicIndex--
+        control.currentPic = control.model.get(control.currentPicIndex)
+
+        control.currentPicFav = FB.Tagging.isFav(control.currentPic.url)
+        root.title = control.currentPic.title
+    }
+
+    function nextUrl() : string
+    {
+        incrementCurrentIndex()
+        return currentPic.url
+    }
+
+    function previousUrl() : string
+    {
+        decrementCurrentIndex()
+        return currentPic.url
+    }
+
+    function view(index : int)
     {
         // if(control.viewer.count > 0 && index >= 0 && index < control.viewer.count)
         {
@@ -302,9 +446,15 @@ StackView
 
             control.currentPicFav = FB.Tagging.isFav(control.currentPic.url)
             root.title = control.currentPic.title
-            control.roll.position(control.currentPicIndex)
+            viewer.forceActiveFocus()
         }
     }
+
+    function focusTagsBar()
+    {
+        _tagsbarLoader.item.goEditMode()
+    }
+
 }
 
 

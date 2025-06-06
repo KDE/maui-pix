@@ -16,7 +16,13 @@ set(pix_SRCS
     # models/thumbnailer.cpp
     pixserver.cpp )
 
-    qt_add_resources(pix_ASSETS imgs.qrc)
+if(UNIX AND NOT ANDROID)
+    qt_generate_dbus_interface(${CMAKE_CURRENT_SOURCE_DIR}/pixserver.h org.kde.Pix.xml)
+    qt_add_dbus_adaptor(pix_dbus_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.Pix.xml pixserver.h Server)
+    qt_add_dbus_interface(pix_dbus_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.Pix.xml pixinterface)
+endif()
+
+qt_add_resources(pix_ASSETS imgs.qrc)
 
 if(ANDROID)
     qt_add_executable(${PROJECT_NAME}
@@ -30,8 +36,12 @@ if(ANDROID)
 else()
     qt_add_executable(${PROJECT_NAME}
         ${pix_SRCS}
+        ${pix_dbus_SRCS}
         ${pix_ASSETS})
 endif()
+
+set_source_files_properties(widgets/views/Viewer/Viewer.js PROPERTIES
+    QT_QML_SKIP_QMLDIR_ENTRY TRUE)
 
 qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     NO_PLUGIN
@@ -43,6 +53,7 @@ qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     widgets/views/Gallery/GalleryView.qml
     widgets/views/Tags/TagsView.qml
     widgets/views/Viewer/PixViewer.qml
+    widgets/views/Viewer/OCROverlay.qml
     widgets/views/Viewer/Viewer.qml
     widgets/views/Viewer/Viewer.js
     widgets/views/Viewer/GalleryRoll.qml
@@ -52,7 +63,9 @@ qt_add_qml_module(${PROJECT_NAME} URI app.maui.pix
     widgets/views/Cloud/CloudView.qml
     view_models/PixPicList.qml
     widgets/SettingsDialog.qml
+    widgets/OCRSettingsPage.qml
     widgets/Sidebar.qml
+    widgets/AppView.qml
     widgets/views/Viewer/OCRPage.qml
     widgets/views/CollectionView.qml
     widgets/views/FloatingViewer.qml)
@@ -68,21 +81,20 @@ target_link_libraries(${PROJECT_NAME}
     Qt6::Core
     Qt6::Qml
     Qt6::Positioning
-    Qt6::Concurrent   
+    Qt6::Concurrent
     KF6::I18n)
 
 if(ANDROID)
-    find_package(OpenSSL REQUIRED)
     target_link_libraries(${PROJECT_NAME}
         PRIVATE
         Qt6::Sql
         Qt6::Multimedia
-        Qt6::QuickControls2
-        OpenSSL::SSL)
+        Qt6::QuickControls2)
     kde_source_files_enable_exceptions(pix pix.cpp)
 else()
     target_link_libraries(${PROJECT_NAME}
         PRIVATE
+        Qt6::Quick
         Qt6::Widgets
         KF6::KIOCore
         KF6::KIOWidgets)

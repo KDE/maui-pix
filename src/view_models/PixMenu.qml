@@ -14,51 +14,27 @@ Maui.ContextualMenu
     property bool isFav : false
     property int index : -1
     property Maui.BaseModel model : null
-    readonly property var item : control.model.get(index)
+    property var item : ({})
+    readonly property string totalCount : filterSelection(item.url).length > 1 ? filterSelection(item.url).length : ""
 
-    onOpened: isFav = FB.Tagging.isFav(item.url)
+    property alias editMenuItem : _editMenuItem
+    onOpened:
+    {
+        if(control.model &&  control.index >= 0 )
+        {
+         control.item = control.model.get(control.index)
+        }
 
-//     title: control.item.title
-// //    subtitle: Maui.Handy.formatSize(control.item.size)
-//     titleImageSource: control.item.url
-//     titleIconSource: control.item.icon
+        control.isFav = FB.Tagging.isFav(control.item.url)
+    }
 
     Maui.Controls.component: Maui.IconItem
     {
+        visible: !pixViewer.active
         imageSource: control.item.url
         fillMode: Image.PreserveAspectCrop
-        implicitHeight: 50
+        implicitHeight: visible ? 50 : 0
         maskRadius: Maui.Style.radiusV
-    }
-
-    FB.FileListingDialog
-    {
-        id: removeDialog
-        parent: control.parent
-        urls: filterSelection(item.url)
-
-        title: i18np("Delete %1 file?", "Delete %1 files?", urls.length)
-        message: i18np("Are sure you want to delete this file? This action can not be undone.", "Are sure you want to delete these files? This action can not be undone.", urls.length)
-
-        actions:
-            [
-            Action
-            {
-                text: i18n("Cancel")
-                onTriggered: removeDialog.close()
-            },
-
-            Action
-            {
-                text: i18n("Remove")
-                Maui.Controls.status: Maui.Controls.Negative
-                onTriggered:
-                {
-                    control.model.list.deleteAt(model.mappedToSource(control.index))
-                    removeDialog.close()
-                }
-            }
-        ]
     }
 
     Maui.MenuItemActionRow
@@ -70,18 +46,6 @@ Maui.ContextualMenu
             checkable: true
             icon.name: "love"
             onTriggered: FB.Tagging.toggleFav(item.url)
-        }
-
-        Action
-        {
-            text: i18n("Tags")
-            icon.name: "tag"
-            onTriggered:
-            {
-                dialogLoader.sourceComponent = tagsDialogComponent
-                dialog.composerList.urls = filterSelection(item.url)
-                dialog.open()
-            }
         }
 
         Action
@@ -109,6 +73,9 @@ Maui.ContextualMenu
 
     MenuItem
     {
+        enabled: typeof selectionBox !== "undefined"
+        visible: enabled
+        height: visible ? implicitHeight : -control.spacing
         text: i18n("Select")
         icon.name: "item-select"
         onTriggered:
@@ -120,41 +87,72 @@ Maui.ContextualMenu
         }
     }
 
+    MenuItem
+    {
+        text: i18n("Open in New Window")
+        icon.name: "window-new"
+        onTriggered:
+        {
+            root.view(filterSelection(item.url), true)
+        }
+    }
+
+
     MenuSeparator{}
 
     MenuItem
     {
-        text: i18n("Export")
-        icon.name: "document-save-as"
+        visible: browserSettings.lastUsedTag.length > 0
+        height: visible ? implicitHeight : -control.spacing
+        text: i18n("Add to '%1'", browserSettings.lastUsedTag)
+        icon.name: "tag"
         onTriggered:
         {
-            var pic = item.url
-            dialogLoader.sourceComponent= fmDialogComponent
-            dialog.mode = dialog.modes.SAVE
-            dialog.suggestedFileName= FB.FM.getFileInfo(item.url).label
-            dialog.show(function(paths)
-            {
-                for(var i in paths)
-                    FB.FM.copy(pic, paths[i])
-            });
+            FB.Tagging.tagUrl(control.item.url, browserSettings.lastUsedTag)
         }
+    }
+
+    MenuItem
+    {
+        text: i18n("Add to Album")
+        icon.name: "tag"
+        Maui.Controls.badgeText: control.totalCount
+
+        onTriggered:
+        {
+            openTagsDialog(filterSelection(item.url))
+            _selectionBar.clear()
+        }
+    }
+
+    MenuSeparator{}
+
+    MenuItem
+    {
+        id: _editMenuItem
+        text: i18n("Edit")
+        icon.name: "document-edit"
+        onTriggered:
+        {
+            if(action)
+                return
+            openEditor(item.url, _stackView)
+        }
+    }
+
+    MenuItem
+    {
+        text: i18n("Save as")
+        icon.name: "document-save-as"
+        onTriggered: saveAs([item.url])
     }
 
     MenuItem
     {
         text: i18n("Open with")
         icon.name: "document-open"
-        onTriggered:
-        {
-            if(Maui.Handy.isAndroid)
-            {
-                FB.FM.openUrl(item.url)
-                return
-            }
-
-            _openWithDialog.urls = filterSelection(item.url)
-            _openWithDialog.open()
-        }
+        Maui.Controls.badgeText: control.totalCount
+        onTriggered: openFileWith(filterSelection(item.url))
     }
 
     MenuItem
@@ -163,13 +161,13 @@ Maui.ContextualMenu
         icon.name: "folder-open"
         onTriggered:
         {
-            if(_pixViewer.visible)
+            if(pixViewer.active)
             {
                 toggleViewer()
             }
 
             var url = FB.FM.fileDir(item.url)
-           openFolder(url)
+            openFolder(url)
         }
     }
 
@@ -190,10 +188,8 @@ Maui.ContextualMenu
     {
         text: i18n("Remove")
         icon.name: "edit-delete"
+        Maui.Controls.badgeText: control.totalCount
         Maui.Controls.status: Maui.Controls.Negative
-        onTriggered:
-        {
-            removeDialog.open()
-        }
+        onTriggered: removeFiles(filterSelection(item.url))
     }
 }

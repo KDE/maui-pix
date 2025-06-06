@@ -19,6 +19,9 @@ ScrollView
 
     readonly property alias rollList : rollList
     property alias model: rollList.model
+    property alias currentIndex : rollList.currentIndex
+
+    onCurrentIndexChanged: position(currentIndex)
 
     signal picClicked(int index)
 
@@ -27,10 +30,11 @@ ScrollView
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical.policy: ScrollBar.AlwaysOff
 
+    Maui.Controls.orientation: Qt.Horizontal
+
     ListView
     {
         id: rollList
-        currentIndex: currentPicIndex
         orientation: ListView.Horizontal
         clip: true
         spacing: 0
@@ -43,7 +47,10 @@ ScrollView
         delegate: PixPic
         {
             height: ListView.view.height
-            width: height * (isCurrentItem ? 2 : 1)
+            width: height
+
+            imageWidth: height
+            imageHeight: height
 
             isCurrentItem: ListView.isCurrentItem
 
@@ -54,28 +61,14 @@ ScrollView
 
             onClicked:
             {
-                rollList.currentIndex = index
                 picClicked(index)
             }
-
-            onPressAndHold: _picMenu.show()
-            onRightClicked: _picMenu.show()
-
-            Behavior on width
-            {
-                NumberAnimation
-                {
-                    duration: Maui.Style.units.longDuration
-                    easing.type: Easing.InQuad
-                }
-            }
-
         }
     }
 
     function position(index)
     {
-        rollList.currentIndex = index
+        // rollList.setCurrentIndex(index)
         rollList.positionViewAtIndex(index, ListView.Center)
     }
 }

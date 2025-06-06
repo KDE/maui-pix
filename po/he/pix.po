@@ -1,97 +1,97 @@
-# Copyright (C) 2024 This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-27 00:40+0000\n"
-"PO-Revision-Date: 2025-05-26 08:44+0200\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
-"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
-"Language: gl\n"
+"PO-Revision-Date: 2025-05-25 10:16+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 25.04.1\n"
 
 #: src/main.cpp:118
 #, kde-format
 msgid "Organize, browse, and edit your images."
-msgstr "Organice, explore e edite as súas imaxes."
+msgstr "סידור, עיון ועריכת התמונות שלך."
 
 #: src/main.cpp:122
 #, kde-format
 msgid "Developer"
-msgstr "Desenvolvemento."
+msgstr "מפתח"
 
 #: src/main.qml:67
 #, kde-format
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
-msgstr ""
-"Aínda hai varias xanelas abertas. Seguro que quere pechar a aplicación?"
+msgstr "יש מספר חלונות פתוחים עדיין. לסגור את היישום הזה?"
 
 #: src/main.qml:132
 #, kde-format
 msgid "Gallery"
-msgstr "Galería"
+msgstr "גלריה"
 
 #: src/models/folders/placesmodel.cpp:15
 #, kde-format
 msgid "Favorites"
-msgstr "Favoritos"
+msgstr "מועדפים"
 
 #: src/models/folders/placesmodel.cpp:16
 #, kde-format
 msgid "Downloads"
-msgstr "Descargas"
+msgstr "הורדות"
 
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr "Imaxes"
+msgstr "תמונות"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
-msgstr "Capturas de pantalla"
+msgstr "צילומי מסך"
 
 #: src/models/folders/placesmodel.cpp:19
 #, kde-format
 msgid "Camera"
-msgstr "Cámara"
+msgstr "מצלמה"
 
 #: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
 msgid "Collection"
-msgstr "Colección"
+msgstr "אוסף"
 
 #: src/models/folders/placesmodel.cpp:53 src/models/folders/placesmodel.cpp:132
 #, kde-format
 msgid "Tags"
-msgstr "Etiquetas"
+msgstr "תגיות"
 
 #: src/models/folders/placesmodel.cpp:68
 #: src/widgets/views/Tags/TagsSidebar.qml:165
 #, kde-format
 msgid "Places"
-msgstr "Lugares"
+msgstr "מקומות"
 
 #: src/models/folders/placesmodel.cpp:90
 #, kde-format
 msgid "Locations"
-msgstr "Localizacións"
+msgstr "אתרים"
 
 #: src/models/folders/placesmodel.cpp:107
 #: src/widgets/views/Tags/TagsSidebar.qml:218
 #, kde-format
 msgid "Animated"
-msgstr "Con animacións"
+msgstr "הנפשה"
 
 #: src/models/folders/placesmodel.cpp:107
 #: src/models/folders/placesmodel.cpp:109
@@ -101,7 +101,7 @@ msgstr "Con animacións"
 #: src/models/folders/placesmodel.cpp:117
 #, kde-format
 msgid "Categories"
-msgstr "Categorías"
+msgstr "קטגוריות"
 
 #: src/models/folders/placesmodel.cpp:111
 #, kde-format
@@ -118,329 +118,332 @@ msgstr "PSD"
 #: src/widgets/views/Tags/TagsSidebar.qml:263
 #, kde-format
 msgid "Vectors"
-msgstr "Vectores"
+msgstr "וקטורים"
 
 #: src/models/folders/placesmodel.cpp:117
 #, kde-format
 msgid "Paintings"
-msgstr "Debuxos"
+msgstr "ציורים"
 
 #: src/models/gallery/gallery.cpp:120
 #, kde-format
 msgid "No sources found to scan."
-msgstr "Non se atoparon orixes que examinar."
+msgstr "לא נמצאו מקורות לסריקה"
 
 #: src/view_models/PixGrid.qml:48
 #, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "Buscar nunha imaxe"
-msgstr[1] "Buscar en %1 imaxes"
+msgstr[0] "חיפוש תמונה"
+msgstr[1] "חיפוש שתי תמונות"
+msgstr[2] "חיפוש %1 תמונות"
+msgstr[3] "חיפוש %1 תמונות"
 
 #: src/view_models/PixGrid.qml:88
 #, kde-format
 msgid "Image Text (OCR)"
-msgstr "Texto da imaxe (OCR)"
+msgstr "טקסט בתמונה (זיהוי תווים אופטי)"
 
 #: src/view_models/PixGrid.qml:100
 #, kde-format
 msgid "Preview Size"
-msgstr "Tamaño da vista previa"
+msgstr "גודל תצוגה מקדימה"
 
 #: src/view_models/PixGrid.qml:101
 #, kde-format
 msgid "Size of the thumbnails in the collection views."
-msgstr "Tamaño das miniaturas nas vistas das coleccións."
+msgstr "גודל התמונות המוקטנות בתצוגות האוסף."
 
 #: src/view_models/PixGrid.qml:112
 #, kde-format
 msgid "S"
-msgstr "S"
+msgstr "ק"
 
 #: src/view_models/PixGrid.qml:119
 #, kde-format
 msgid "M"
-msgstr "M"
+msgstr "ב"
 
 #: src/view_models/PixGrid.qml:127
 #, kde-format
 msgid "X"
-msgstr "X"
+msgstr "ג"
 
 #: src/view_models/PixGrid.qml:135
 #, kde-format
 msgid "XL"
-msgstr "XL"
+msgstr "גמ"
 
 #: src/view_models/PixGrid.qml:147
 #, kde-format
 msgid "Title"
-msgstr "Título"
+msgstr "כותרת"
 
 #: src/view_models/PixGrid.qml:156
 #, kde-format
 msgid "Modified"
-msgstr "Modificado"
+msgstr "מועד עריכה"
 
 #: src/view_models/PixGrid.qml:166
 #, kde-format
 msgid "Size"
-msgstr "Tamaño"
+msgstr "גודל"
 
 #: src/view_models/PixGrid.qml:176
 #, kde-format
 msgid "Date"
-msgstr "Data"
+msgstr "תאריך"
 
 #: src/view_models/PixGrid.qml:188
 #, kde-format
 msgid "Ascending"
-msgstr "Ascendente"
+msgstr "עולה"
 
 #: src/view_models/PixGrid.qml:198
 #, kde-format
 msgid "Descending"
-msgstr "Descendente"
+msgstr "יורד"
 
-# skip-rule: trasno-remove_reverse
 #: src/view_models/PixMenu.qml:44
 #, kde-format
 msgid "UnFav it"
-msgstr "Retirar dos favoritos"
+msgstr "הוצאה מהמועדפים"
 
 #: src/view_models/PixMenu.qml:53
 #, kde-format
 msgid "Info"
-msgstr "Información"
+msgstr "פרטים"
 
 #: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
-msgstr "Compartir"
+msgstr "שיתוף"
 
 #: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Select"
-msgstr "Seleccionar"
+msgstr "בחירה"
 
 #: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
-msgstr "Abrir nunha xanela nova"
+msgstr "פתיחה בחלון חדש"
 
 #: src/view_models/PixMenu.qml:107
 #, kde-format
 msgid "Add to '%1'"
-msgstr "Engadir a «%1»"
+msgstr "הוספה אל ‚%1’"
 
 #: src/view_models/PixMenu.qml:117
 #, kde-format
 msgid "Add to Album"
-msgstr "Engadir ao álbum"
+msgstr "הוספה לאלבום"
 
 #: src/view_models/PixMenu.qml:133
 #, kde-format
 msgid "Edit"
-msgstr "Editar"
+msgstr "עריכה"
 
 #: src/view_models/PixMenu.qml:145
 #, kde-format
 msgid "Save as"
-msgstr "Gardar como"
+msgstr "שמירה בשם"
 
 #: src/view_models/PixMenu.qml:152
 #, kde-format
 msgid "Open with"
-msgstr "Abrir con"
+msgstr "פתיחה עם"
 
 #: src/view_models/PixMenu.qml:160
 #, kde-format
 msgid "Go to Folder"
-msgstr "Ir ao cartafol"
+msgstr "מעבר לתיקייה"
 
 #: src/view_models/PixMenu.qml:177
 #, kde-format
 msgid "Open Location"
-msgstr "Abrir a localización"
+msgstr "פתיחת מקום"
 
 #: src/view_models/PixMenu.qml:189 src/widgets/AppView.qml:421
 #: src/widgets/SelectionBar.qml:110
 #, kde-format
 msgid "Remove"
-msgstr "Retirar"
+msgstr "הסרה"
 
 #: src/widgets/AppView.qml:34
 #, kde-format
 msgid "Settings"
-msgstr "Configuración"
+msgstr "הגדרות"
 
 #: src/widgets/AppView.qml:50 src/widgets/views/Gallery/GalleryView.qml:25
 #, kde-format
 msgid "Open"
-msgstr "Abrir"
+msgstr "פתיחה"
 
 #: src/widgets/AppView.qml:65
 #, kde-format
 msgid "About"
-msgstr "Sobre"
+msgstr "על אודות"
 
 #: src/widgets/AppView.qml:137
 #, kde-format
 msgid "Image Modified"
-msgstr "Modificouse a imaxe"
+msgstr "תמונה נערכה"
 
 #: src/widgets/AppView.qml:138
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
-msgstr "Editouse a imaxe. Garde ou descarte os cambios para continuar."
+msgstr "התמונה נערכה. יש לשמור או להתעלם מהשינויים לפני בחירה להמשיך"
 
 #: src/widgets/AppView.qml:142
 #, kde-format
 msgid "Discard"
-msgstr "Descartar"
+msgstr "התעלמות"
 
 #: src/widgets/AppView.qml:257
 #, kde-format
 msgid "Saved"
-msgstr "Gardouse"
+msgstr "נשמר"
 
 #: src/widgets/AppView.qml:258
 #, kde-format
 msgid "The image has been saved correctly."
-msgstr "Gardouse a imaxe."
+msgstr "התמונה נשמרה כראוי."
 
 #: src/widgets/AppView.qml:262 src/widgets/SelectionBar.qml:55
 #, kde-format
 msgid "View"
-msgstr "Vista"
+msgstr "תצוגה"
 
 #: src/widgets/AppView.qml:291
 #, kde-format
 msgid "Open images"
-msgstr "Abrir imaxes"
+msgstr "פתיחת תמונות"
 
 #: src/widgets/AppView.qml:292
 #, kde-format
 msgid "Drag and drop images here."
-msgstr "Arrastre e deixe aquí as imaxes."
+msgstr "אפשר לגרור לכאן תמונות."
 
 #: src/widgets/AppView.qml:348
 #, kde-format
 msgid "Tagged"
-msgstr "Etiquetado"
+msgstr "מתויג"
 
 #: src/widgets/AppView.qml:349
 #, kde-format
 msgid "File was tagged successfully"
-msgstr "Etiquetouse o ficheiro."
+msgstr "הקובץ תויג בהצלחה"
 
 #: src/widgets/AppView.qml:408
 #, kde-format
 msgid "Delete %1 file?"
 msgid_plural "Delete %1 files?"
-msgstr[0] "Quere eliminar %1 ficheiro?"
-msgstr[1] "Quere eliminar %1 ficheiros?"
+msgstr[0] "למחוק קובץ?"
+msgstr[1] "למחוק שני קבצים?"
+msgstr[2] "למחוק %1 קבצים?"
+msgstr[3] "למחוק %1 קבצים?"
 
 #: src/widgets/AppView.qml:409
 #, kde-format
 msgid "Are sure you want to delete this file? This action can not be undone."
 msgid_plural ""
 "Are sure you want to delete these files? This action can not be undone."
-msgstr[0] ""
-"Seguro que quere eliminar o ficheiro? Esta acción non se pode desfacer."
-msgstr[1] ""
-"Seguro que quere eliminar os ficheiros? Esta acción non se pode desfacer."
+msgstr[0] "למחוק את הקובץ הזה? זאת פעולה בלתי הפיכה."
+msgstr[1] "למחוק את הקבצים האלה? זאת פעולה בלתי הפיכה."
+msgstr[2] "למחוק את הקבצים האלה? זאת פעולה בלתי הפיכה."
+msgstr[3] "למחוק את הקבצים האלה? זאת פעולה בלתי הפיכה."
 
 #: src/widgets/AppView.qml:415
 #, kde-format
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "ביטול"
 
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Text Detection"
-msgstr "Detección de texto"
+msgstr "זיהוי טקסט"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr "Activar a detección automática"
+msgstr "הפעלת זיהוי אוטומטי;"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr "Preprocesamento de imaxes"
+msgstr "עיבוד תמונות טרומי"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr "Activar o preprocesamento de imaxes."
+msgstr "הפעלת עיבוד תמונות טרומי."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr "Segmentación de páxinas"
+msgstr "חלוקה לעמודים"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
 msgid "Auto"
-msgstr "Automática"
+msgstr "אוטו׳"
 
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr "Visualización en pantalla automática"
+msgstr "חיווי אוטומטי על המסך"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
 msgid "Single Column"
-msgstr "Unha columna"
+msgstr "עמודה אחת"
 
 #: src/widgets/OCRSettingsPage.qml:119
 #, kde-format
 msgid "Single Line"
-msgstr "Unha liña"
+msgstr "שורה אחת"
 
 #: src/widgets/OCRSettingsPage.qml:120
 #, kde-format
 msgid "Single Block"
-msgstr "Un bloque"
+msgstr "מקטע אחד"
 
 #: src/widgets/OCRSettingsPage.qml:121
 #, kde-format
 msgid "Single Word"
-msgstr "Unha palabra"
+msgstr "מילה אחת"
 
 #: src/widgets/OCRSettingsPage.qml:128
 #, kde-format
 msgid "Confidence Threshold"
-msgstr "Limiar de confianza"
+msgstr "סף ביטחון"
 
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr "Detección de bloques de texto"
+msgstr "זיהוי מקטע טקסט"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr "Palabra"
+msgstr "מילה"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr "Liña"
+msgstr "שורה"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr "Parágrafo"
+msgstr "פסקה"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr "Selección de bloques de texto"
+msgstr "בחירת מקטע טקסט"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
@@ -448,235 +451,237 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
-"Para seleccionar varios bloques no modo libre, manteña premida a tecla Maiús "
-"mentres se move."
+"כדי לבחור כמה אזורים במצב החופשי, יש להחזיק את מקש Shift תוך תנועה במרחב."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr "Libre"
+msgstr "חופשי"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr "Rectangular"
+msgstr "מרובע"
 
 #: src/widgets/SelectionBar.qml:63
 #, kde-format
 msgid "Tag"
-msgstr "Etiquetar"
+msgstr "תגית"
 
 #: src/widgets/SelectionBar.qml:85
 #, kde-format
 msgid "Un/Fav"
-msgstr "Conmutar favorito"
+msgstr "הוספה/הוצאה מהמועדפים"
 
 #: src/widgets/SelectionBar.qml:92
 #, kde-format
 msgid "Export"
-msgstr "Exportar"
+msgstr "ייצוא"
 
 #: src/widgets/SettingsDialog.qml:15
 #, kde-format
 msgid "Behavior"
-msgstr "Comportamento"
+msgstr "התנהגות"
 
 #: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:181
 #, kde-format
 msgid "Auto Reload"
-msgstr "Cargar de novo automaticamente"
+msgstr "ריענון אוטומטי"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
 msgid "Watch for changes in the collection sources."
-msgstr "Vixiar os cambios nas orixes de coleccións."
+msgstr "מעקב אחר שינויים במקורות האוסף."
 
 #: src/widgets/SettingsDialog.qml:39
 #, kde-format
 msgid "Fit"
-msgstr "Axustar"
+msgstr "התאמה"
 
 #: src/widgets/SettingsDialog.qml:40
 #, kde-format
 msgid "Fit the previews and preserve the aspect ratio."
-msgstr "Axustar as vistas previas e manter as proporcións."
+msgstr "התאמת התצוגות המקדימות ושימור יחס גובה רוחב."
 
 #: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
-msgstr "Títulos das imaxes"
+msgstr "כותרות תמונות"
 
 #: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Show the file name of the images."
-msgstr "Amosar no nome de ficheiro das imaxes."
+msgstr "הצגת שמות קובצי התמונות."
 
 #: src/widgets/SettingsDialog.qml:65
 #, kde-format
 msgid "GPS Tags"
-msgstr "Etiquetas de GPS"
+msgstr "תגיות GPS"
 
 #: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Show GPS tags."
-msgstr "Amosar as etiquetas de GPS."
+msgstr "הצגת תגיות GPS."
 
 #: src/widgets/SettingsDialog.qml:80
 #, kde-format
 msgid "Viewer"
-msgstr "Visor"
+msgstr "מציג"
 
 #: src/widgets/SettingsDialog.qml:85
 #, kde-format
 msgid "Tag Bar"
-msgstr "Barra de etiquetas"
+msgstr "סרגל תגיות"
 
 #: src/widgets/SettingsDialog.qml:86
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
-msgstr ""
-"Unha forma doada de engadir, retirar e modificar etiquetas da imaxe actual."
+msgstr "דרך קלה להוסיף, להסיר ולשנות את התגיות של התמונה הנוכחית."
 
 #: src/widgets/SettingsDialog.qml:98
 #, kde-format
 msgid "Preview Bar"
-msgstr "Barra de vistas previas"
+msgstr "סרגל תצוגה מקדימה"
 
 #: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr "Configurar a detección de texto en imaxes."
+msgstr "הגדרת תצורת זיהוי טקסט בתמונות."
 
 #: src/widgets/SettingsDialog.qml:125
 #, kde-format
 msgid "Sources"
-msgstr "Fontes"
+msgstr "מקורות"
 
 #: src/widgets/SettingsDialog.qml:164
 #, kde-format
 msgid "Add"
-msgstr "Engadir"
+msgstr "הוספה"
 
 #: src/widgets/Sidebar.qml:55
 #, kde-format
 msgid "Bookmarks!"
-msgstr "Marcadores!"
+msgstr "סימניות!"
 
 #: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr "Os seus marcadores listaranse aquí."
+msgstr "הסימניות שלך תופענה כאן"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
 msgid "Loading content!"
-msgstr "Cargando o contido!"
+msgstr "התוכן נטען!"
 
 #: src/widgets/views/Cloud/CloudView.qml:35
 #, kde-format
 msgid "Nothing here"
-msgstr "Aquí non hai nada."
+msgstr "אין כאן כלום"
 
 #: src/widgets/views/Cloud/CloudView.qml:38
 #, kde-format
 msgid "Almost ready!"
-msgstr "Xa case está!"
+msgstr "כמעט מוכן!"
 
 #: src/widgets/views/Cloud/CloudView.qml:40
 #, kde-format
 msgid "Make sure you're online and your cloud account is working"
-msgstr ""
-"Asegúrese de que ten conexión a Internet e de que a súa conta da nube "
-"funciona."
+msgstr "נא לוודא שיש לך חיבור תקין לאינטרנט ושחשבון הענן שלך מתפקד"
 
 #: src/widgets/views/CollectionView.qml:144
 #, kde-format
 msgid "Toggle sidebar"
-msgstr "Conmutar a barra lateral"
+msgstr "הצגת/הסתרת סרגל צד"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
 #, kde-format
 msgid "New Folder"
-msgstr "Novo cartafol"
+msgstr "תיקייה חדשה"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
-msgstr[0] "Filtrar %1 cartafol"
-msgstr[1] "Filtrar %1 cartafoles"
+msgstr[0] "סינון תיקייה"
+msgstr[1] "סינון שתי תיקיות"
+msgstr[2] "סינון %1 תיקיות"
+msgstr[3] "סינון %1 תיקיות"
 
 #: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "No Folders!"
-msgstr "Non hai cartafoles."
+msgstr "אין תיקיות!"
 
 #: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
 msgid "Nothing Here!"
-msgstr "Aquí non hai nada."
+msgstr "אין כאן כלום!"
 
 #: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Add new image sources."
-msgstr "Engadir novas orixes de imaxes."
+msgstr "הוספת מקורות תמונות חדשים."
 
 #: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Try something different."
-msgstr "Probar outra cousa."
+msgstr "לנסות משהו אחר."
 
 #: src/widgets/views/Folders/FoldersView.qml:218
 #, kde-format
 msgid "Folder is empty!"
-msgstr "O cartafol está baleiro!"
+msgstr "התיקייה ריקה!"
 
 #: src/widgets/views/Folders/FoldersView.qml:219
 #, kde-format
 msgid "There're no images in this folder. %1"
-msgstr "Non hai imaxes no cartafol. %1"
+msgstr "אין תמונות בתיקייה הזאת. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:234
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Non hai imaxes."
-msgstr[1] "Hai %1 imaxes."
+msgstr[0] "אין תמונות."
+msgstr[1] "שתי תמונות"
+msgstr[2] "%1 תמונות"
+msgstr[3] "%1 תמונות"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
 #: src/widgets/views/Viewer/PixViewer.qml:211
 #, kde-format
 msgid "No Pics!"
-msgstr "Non hai imaxes!"
+msgstr "אין תמונות!"
 
 #: src/widgets/views/Gallery/GalleryView.qml:21
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "Nothing here. You can add new sources or open an image."
-msgstr "Aquí non hai nada. Pode engadir novas orixes ou abrir unha imaxe."
+msgstr "אין כאן כלום. אפשר להוסיף מקורות חדשים או לפתוח תמונה."
 
 #: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
-msgstr "Engadir fontes"
+msgstr "הוספת מקורות"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "No results found."
-msgstr "Non se atopou ningún resultado."
+msgstr "לא נמצאו תוצאות."
 
 #: src/widgets/views/Tags/TagsSidebar.qml:94
 #, kde-format
 msgid "Filter %1 tag"
 msgid_plural "Filter %1 tags"
-msgstr[0] "Filtrar %1 etiqueta"
-msgstr[1] "Filtrar %1 etiquetas"
+msgstr[0] "סינון תגית"
+msgstr[1] "סינון שתי תגיות"
+msgstr[2] "סינון %1 תגיות"
+msgstr[3] "סינון %1 תגיות"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:103
 #, kde-format
 msgid "New tag"
-msgstr "Nova etiqueta"
+msgstr "תגית חדשה"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:143
 #, kde-format
@@ -686,168 +691,156 @@ msgstr "qrc:/assets/add-image.svg"
 #: src/widgets/views/Tags/TagsSidebar.qml:144
 #, kde-format
 msgid "No Tags!"
-msgstr "Non hai etiquetas."
+msgstr "אין תגיות!"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:145
 #, kde-format
 msgid "You can create new tags to organize your gallery"
-msgstr "Pode crear novas etiquetas para organizar a súa galería."
+msgstr "אפשר ליצור תגיות חדשות כדי לסדר את הגלריה שלך"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:166
 #: src/widgets/views/Tags/TagsSidebar.qml:206
 #, kde-format
 msgid "GPS based locations"
-msgstr "Localizacións baseadas en GPS"
+msgstr "מקומות מבוססי GPS"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:205
 #, kde-format
 msgid "Filters"
-msgstr "Filtros"
+msgstr "מסננים"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:239
 #, kde-format
 msgid "Sunday"
-msgstr "Domingo"
+msgstr "יום ראשון"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:247
 #, kde-format
 msgid "PNGs"
-msgstr "PNG"
+msgstr "תמונות PNG"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:271
 #, kde-format
 msgid "Paint"
-msgstr "Pintar"
+msgstr "צבע"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:279
 #, kde-format
 msgid "Animals"
-msgstr "Animais"
+msgstr "חיות"
 
 #: src/widgets/views/Tags/TagsView.qml:27
 #, kde-format
 msgid "No Pics in %1!"
-msgstr "Non hai imaxes en %1!"
+msgstr "אין תמונות ב־%1!"
 
 #: src/widgets/views/Tags/TagsView.qml:28
 #, kde-format
 msgid "There're no pics associated with the tag"
-msgstr "Non hai imaxes asociadas coa etiqueta."
+msgstr "אין תמונות שמשויכות לתגית הזאת"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
 #, kde-format
 msgid "Select All"
-msgstr "Seleccionar todo"
+msgstr "בחירה בהכול"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format
 msgid "Call"
-msgstr "Chamar"
+msgstr "חיוג"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:65
 #, kde-format
 msgid "Save as Contact"
-msgstr "Gardar como contacto"
+msgstr "שמירה כאיש קשר"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:72
 #, kde-format
 msgid "Message"
-msgstr "Enviar unha mensaxe"
+msgstr "הודעה"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:85
 #, kde-format
 msgid "Open Link"
-msgstr "Abrir a ligazón"
+msgstr "פתיחת קישור"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:95
 #, kde-format
 msgid "Create Event"
-msgstr "Crear un evento"
+msgstr "יצירת אירוע"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:102
 #, kde-format
 msgid "Save to Note"
-msgstr "Gardar nunha nota"
+msgstr "שמירה לפתקית"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:109
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr "Buscar o texto seleccionado en Google…"
+msgstr "חיפוש הטקסט הנבחר ב־Google…"
 
 #: src/widgets/views/Viewer/PixViewer.qml:102
 #, kde-format
 msgid "Previous"
-msgstr "Anterior"
+msgstr "הקודם"
 
 #: src/widgets/views/Viewer/PixViewer.qml:162
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr "O ficheiro da imaxe actual modificouse ou retirouse externamente."
+msgstr "קובץ התמונה נערך או שהוסר חיצונית."
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was deleted"
-msgstr "Eliminouse a imaxe."
+msgstr "התמונה נמחקה"
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was modified"
-msgstr "Modificouse a imaxe."
+msgstr "התמונה נערכה"
 
 #: src/widgets/views/Viewer/PixViewer.qml:169
 #, kde-format
 msgid "Reload"
-msgstr "Cargar de novo"
+msgstr "ריענון"
 
 #: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
 msgid "Save"
-msgstr "Gardar"
+msgstr "שמירה"
 
 #: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
-msgstr "Abrir unha imaxes da colección."
+msgstr "פתיחת תמונה מהאוסף שלך"
 
 #: src/widgets/views/Viewer/Viewer.qml:92
 #, kde-format
 msgid "Text copied!"
-msgstr "Copiouse o texto."
+msgstr "הטקסט הועתק!"
 
 #: src/widgets/views/Viewer/Viewer.qml:96
 #, kde-format
 msgid "Image file copied!"
-msgstr "Copiouse o ficheiro de imaxe."
+msgstr "קובץ התמונה הועתק!"
 
 #~ msgid "Sort by"
-#~ msgstr "Ordenar por"
+#~ msgstr "מיון לפי"
 
 #~ msgid "Change the sorting key."
-#~ msgstr "Cambiar a chave de ordenación."
+#~ msgstr "החלפת מפתח המיון."
 
 #~ msgid "Sort Order"
-#~ msgstr "Criterio de ordenación"
+#~ msgstr "אופן מיון"
 
 #~ msgid "Change the sorting order."
-#~ msgstr "Cambiar a dirección de ordenación."
+#~ msgstr "שינוי אופן המיון."
 
 #~ msgid "Experimental feature."
-#~ msgstr "Funcionalidade experimental."
+#~ msgstr "יכולת ניסיונית."
 
-#, fuzzy
-#~| msgid "Search image"
-#~| msgid_plural "Search %1 images"
+#~ msgid "Copy"
+#~ msgstr "העתקה"
+
 #~ msgid "Search Web"
-#~ msgstr "Buscar nunha imaxe"
-
-#~ msgid "Accept"
-#~ msgstr "Aceptar"
-
-#~ msgid "Delete File?"
-#~ msgstr "Desexa eliminar o ficheiro?"
-
-#~ msgctxt "Remove one file"
-#~ msgid ""
-#~ "Are sure you want to delete this file? This action can not be undone."
-#~ msgstr ""
-#~ "Seguro que quere eliminar o ficheiro? Esta acción non se pode desfacer."
+#~ msgstr "חיפוש באינטרנט"

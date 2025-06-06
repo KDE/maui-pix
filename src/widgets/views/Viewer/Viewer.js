@@ -3,29 +3,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+// .pragma library
+.import org.mauikit.filebrowsing as FB
 
-.import org.mauikit.filebrowsing 1.2 as FB
-
-function open(model, index)
-{
-    _pixViewer.model.list.urls = model.list.urls
-    _pixViewer.view(index)
-    if(!_pixViewer.visible)
-    {
-        toggleViewer()
-    }
-}
-
-function openExternalPics(pics, index)
-{
-    var oldIndex = _pixViewer.viewer.count
-    _pixViewer.viewer.appendPics(pics)
-    _pixViewer.view(Math.max(oldIndex, 0))
-    if(!_pixViewer.visible)
-    {
-        toggleViewer()
-    }
-}
 
 function fav(urls)
 {
@@ -33,6 +13,13 @@ function fav(urls)
         FB.Tagging.toggleFav(urls[i])
 }
 
+function openExternalPics(pics, index)
+{
+    appView.openExternalPics(pics, index)
+}
 
-
+function open(model, index, recursive = false)
+{
+    appView.open(model, index, recursive)
+}
 
