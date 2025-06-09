@@ -45,6 +45,7 @@ Maui.ApplicationWindow
     title: initData
 
     Maui.Style.styleType: _appView.viewerVisible || _appView.editorVisible ? Maui.Style.Dark : undefined
+    Maui.Handy.singleClick: Maui.Handy.hasTransientTouchInput
 
     readonly property bool fullScreen : root.visibility === Window.FullScreen
     readonly property alias selectionBox : _selectionBar
