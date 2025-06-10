@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-27 00:40+0000\n"
+"POT-Creation-Date: 2025-06-10 00:41+0000\n"
 "PO-Revision-Date: 2021-09-10 14:15+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -29,14 +29,14 @@ msgstr "Tvarkyti, naršyti ir taisyti savo paveikslus."
 msgid "Developer"
 msgstr "Programuotojas"
 
-#: src/main.qml:67
+#: src/main.qml:68
 #, kde-format
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
 msgstr ""
 
-#: src/main.qml:132
+#: src/main.qml:133
 #, kde-format
 msgid "Gallery"
 msgstr "Galerija"

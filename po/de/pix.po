@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-27 00:40+0000\n"
+"POT-Creation-Date: 2025-06-10 00:41+0000\n"
 "PO-Revision-Date: 2023-04-20 19:45+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -28,14 +28,14 @@ msgstr "Bilde organisieren, durchsehen und bearbeiten."
 msgid "Developer"
 msgstr "Entwickler"
 
-#: src/main.qml:67
+#: src/main.qml:68
 #, kde-format
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
 msgstr ""
 
-#: src/main.qml:132
+#: src/main.qml:133
 #, kde-format
 msgid "Gallery"
 msgstr "Galerie"

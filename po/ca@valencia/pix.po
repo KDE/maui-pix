@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-27 00:40+0000\n"
+"POT-Creation-Date: 2025-06-10 00:41+0000\n"
 "PO-Revision-Date: 2025-05-23 12:30+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,7 +30,7 @@ msgstr "Organitzeu, navegueu, i editeu la vostra col·lecció d'imatges."
 msgid "Developer"
 msgstr "Desenvolupador"
 
-#: src/main.qml:67
+#: src/main.qml:68
 #, kde-format
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
@@ -38,7 +38,7 @@ msgid ""
 msgstr ""
 "Encara hi ha múltiples finestres obertes. Segur que voleu tancar l'aplicació?"
 
-#: src/main.qml:132
+#: src/main.qml:133
 #, kde-format
 msgid "Gallery"
 msgstr "Galeria"
