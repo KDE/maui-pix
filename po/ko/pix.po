@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-10 00:41+0000\n"
-"PO-Revision-Date: 2025-04-16 00:09+0200\n"
+"PO-Revision-Date: 2025-06-10 22:44+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/main.cpp:118
 #, kde-format
@@ -32,7 +32,7 @@ msgstr "개발자"
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
-msgstr ""
+msgstr "열려 있는 창이 여러 개 있습니다. 앱을 종료하시겠습니까?"
 
 #: src/main.qml:133
 #, kde-format
@@ -223,7 +223,7 @@ msgstr "선택"
 #: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "새 창으로 열기"
 
 #: src/view_models/PixMenu.qml:107
 #, kde-format
@@ -282,32 +282,31 @@ msgid "About"
 msgstr "정보"
 
 #: src/widgets/AppView.qml:137
-#, fuzzy, kde-format
-#| msgid "Modified"
+#, kde-format
 msgid "Image Modified"
-msgstr "수정한 날짜"
+msgstr "그림 수정됨"
 
 #: src/widgets/AppView.qml:138
 #, kde-format
 msgid ""
 "The image has been edited. Save or discard the changes before continuing"
 msgstr ""
+"그림이 편집되었습니다. 계속 진행하기 전에 변경 사항을 저장하거나 취소하십시오"
 
 #: src/widgets/AppView.qml:142
 #, kde-format
 msgid "Discard"
-msgstr ""
+msgstr "무시"
 
 #: src/widgets/AppView.qml:257
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Saved"
-msgstr "저장"
+msgstr "저장됨"
 
 #: src/widgets/AppView.qml:258
 #, kde-format
 msgid "The image has been saved correctly."
-msgstr ""
+msgstr "그림을 저장했습니다."
 
 #: src/widgets/AppView.qml:262 src/widgets/SelectionBar.qml:55
 #, kde-format
@@ -586,10 +585,9 @@ msgid "Toggle sidebar"
 msgstr "사이드바 전환"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "폴더가 없습니다!"
+msgstr "새 폴더"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
@@ -724,10 +722,9 @@ msgid "There're no pics associated with the tag"
 msgstr "태그와 연결된 그림 없음"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select All"
-msgstr "선택"
+msgstr "모두 선택"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format
@@ -772,23 +769,22 @@ msgstr "이전"
 #: src/widgets/views/Viewer/PixViewer.qml:162
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr ""
+msgstr "현재 그림 파일이 외부에서 수정되거나 삭제됨"
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "그림이 삭제됨"
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "그림이 수정됨"
 
 #: src/widgets/views/Viewer/PixViewer.qml:169
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "자동 새로 고침"
+msgstr "새로 고침"
 
 #: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
