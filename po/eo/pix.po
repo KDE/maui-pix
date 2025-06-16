@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-10 00:41+0000\n"
+"POT-Creation-Date: 2025-06-16 00:41+0000\n"
 "PO-Revision-Date: 2025-03-22 22:36+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -556,12 +556,12 @@ msgstr "Fontoj"
 msgid "Add"
 msgstr "Aldoni"
 
-#: src/widgets/Sidebar.qml:55
+#: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Legosignoj!"
 
-#: src/widgets/Sidebar.qml:56
+#: src/widgets/Sidebar.qml:57
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Viaj legosignoj estos listigitaj ĉi tie"

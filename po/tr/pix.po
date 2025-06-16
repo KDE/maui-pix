@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-10 00:41+0000\n"
+"POT-Creation-Date: 2025-06-16 00:41+0000\n"
 "PO-Revision-Date: 2025-05-24 20:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -558,12 +558,12 @@ msgstr "Kaynaklar"
 msgid "Add"
 msgstr "Ekle"
 
-#: src/widgets/Sidebar.qml:55
+#: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Yer İmleri!"
 
-#: src/widgets/Sidebar.qml:56
+#: src/widgets/Sidebar.qml:57
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Yer imleriniz burada listelenir"

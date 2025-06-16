@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-10 00:41+0000\n"
+"POT-Creation-Date: 2025-06-16 00:41+0000\n"
 "PO-Revision-Date: 2025-02-01 12:26+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -560,12 +560,12 @@ msgstr "Źródła"
 msgid "Add"
 msgstr "Dodaj"
 
-#: src/widgets/Sidebar.qml:55
+#: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Bookmarks!"
 msgstr "Zakładki!"
 
-#: src/widgets/Sidebar.qml:56
+#: src/widgets/Sidebar.qml:57
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "Tutaj będą wypisane twoje zakładki"

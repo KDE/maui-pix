@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-10 00:41+0000\n"
+"POT-Creation-Date: 2025-06-16 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 22:59+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -556,12 +556,12 @@ msgstr "स्रोतः"
 msgid "Add"
 msgstr "संयोजयति"
 
-#: src/widgets/Sidebar.qml:55
+#: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Bookmarks!"
 msgstr "बुकमार्क्स !"
 
-#: src/widgets/Sidebar.qml:56
+#: src/widgets/Sidebar.qml:57
 #, kde-format
 msgid "Your bookmarks will be listed here"
 msgstr "भवतः पुस्तकचिह्नानि अत्र सूचीबद्धानि भविष्यन्ति"
