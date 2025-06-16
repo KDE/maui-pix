@@ -36,6 +36,7 @@ Loader
         {
             color: Maui.Theme.alternateBackgroundColor
             radius: Maui.Style.radiusV
+            border.color: Maui.Theme.backgroundColor
         }
 
         contentItem:  Maui.ListBrowser
