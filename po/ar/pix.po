@@ -374,7 +374,7 @@ msgstr "اكتشاف النص"
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr "مكّن الاكتشاف الآلي"
+msgstr "مكّن الاكتشاف الآليّ"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
@@ -399,7 +399,7 @@ msgstr "آليّ"
 #: src/widgets/OCRSettingsPage.qml:117
 #, kde-format
 msgid "Auto OSD"
-msgstr "اكتشاف النصوص والاتجاه آليًا"
+msgstr "اكتشاف النصوص والاتجاه آليًّا"
 
 #: src/widgets/OCRSettingsPage.qml:118
 #, kde-format
@@ -492,7 +492,7 @@ msgstr "السلوك"
 #: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:181
 #, kde-format
 msgid "Auto Reload"
-msgstr "إعادة التحميل الآلي"
+msgstr "إعادة التحميل الآليّ"
 
 #: src/widgets/SettingsDialog.qml:21
 #, kde-format
