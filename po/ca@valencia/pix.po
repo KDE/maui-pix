@@ -223,7 +223,7 @@ msgstr "Compartix"
 #: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Select"
-msgstr "Selecciona"
+msgstr "Tria"
 
 #: src/view_models/PixMenu.qml:92
 #, kde-format
