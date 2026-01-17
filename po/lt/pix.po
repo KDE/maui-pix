@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2021-09-10 14:15+0300\n"
+"PO-Revision-Date: 2026-01-16 16:10+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.8\n"
 
 #: src/main.cpp:118
 #, kde-format
@@ -34,7 +34,7 @@ msgstr "Programuotojas"
 msgid ""
 "There are multiple windows still open. Are you sure you want to close the "
 "application?"
-msgstr ""
+msgstr "Yra vis dar atverti keli langai. Ar tikrai norite užverti programą?"
 
 #: src/main.qml:133
 #, kde-format
@@ -49,23 +49,23 @@ msgstr ""
 #: src/models/folders/placesmodel.cpp:16
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "Atsiuntimai"
 
 #: src/models/folders/placesmodel.cpp:17
 #, kde-format
 msgid "Pictures"
-msgstr ""
+msgstr "Paveikslai"
 
 #: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:109
 #: src/widgets/views/Tags/TagsSidebar.qml:231
 #, kde-format
 msgid "Screenshots"
-msgstr ""
+msgstr "Ekrano kopijos"
 
 #: src/models/folders/placesmodel.cpp:19
 #, kde-format
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
 #, kde-format
@@ -103,7 +103,7 @@ msgstr ""
 #: src/models/folders/placesmodel.cpp:117
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Kategorijos"
 
 #: src/models/folders/placesmodel.cpp:111
 #, kde-format
@@ -133,14 +133,13 @@ msgid "No sources found to scan."
 msgstr ""
 
 #: src/view_models/PixGrid.qml:48
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search image"
 msgid_plural "Search %1 images"
-msgstr[0] "Ieškoti"
-msgstr[1] "Ieškoti"
-msgstr[2] "Ieškoti"
-msgstr[3] "Ieškoti"
+msgstr[0] "Ieškoti paveikslo"
+msgstr[1] "Ieškoti %1 paveikslų"
+msgstr[2] "Ieškoti %1 paveikslų"
+msgstr[3] "Ieškoti %1 paveikslo"
 
 #: src/view_models/PixGrid.qml:88
 #, kde-format
@@ -230,17 +229,17 @@ msgstr "Pasirinkti"
 #: src/view_models/PixMenu.qml:92
 #, kde-format
 msgid "Open in New Window"
-msgstr ""
+msgstr "Atverti naujame lange"
 
 #: src/view_models/PixMenu.qml:107
 #, kde-format
 msgid "Add to '%1'"
-msgstr ""
+msgstr "Pridėti į „%1“"
 
 #: src/view_models/PixMenu.qml:117
 #, kde-format
 msgid "Add to Album"
-msgstr ""
+msgstr "Pridėti į albumą"
 
 #: src/view_models/PixMenu.qml:133
 #, kde-format
@@ -253,16 +252,14 @@ msgid "Save as"
 msgstr "Įrašyti kaip"
 
 #: src/view_models/PixMenu.qml:152
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open with"
 msgstr "Atverti naudojant"
 
 #: src/view_models/PixMenu.qml:160
-#, fuzzy, kde-format
-#| msgid "Show in folder"
+#, kde-format
 msgid "Go to Folder"
-msgstr "Rodyti aplanke"
+msgstr "Eiti į aplanką"
 
 #: src/view_models/PixMenu.qml:177
 #, kde-format
@@ -307,10 +304,9 @@ msgid "Discard"
 msgstr ""
 
 #: src/widgets/AppView.qml:257
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Saved"
-msgstr "Įrašyti"
+msgstr "Įrašyta"
 
 #: src/widgets/AppView.qml:258
 #, kde-format
@@ -374,27 +370,27 @@ msgstr "Atsisakyti"
 #: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:110
 #, kde-format
 msgid "Text Detection"
-msgstr ""
+msgstr "Teksto aptikimas"
 
 #: src/widgets/OCRSettingsPage.qml:83
 #, kde-format
 msgid "Enable Auto Detection"
-msgstr ""
+msgstr "Įjungti automatinį aptikimą"
 
 #: src/widgets/OCRSettingsPage.qml:94
 #, kde-format
 msgid "Image Preprocessing"
-msgstr ""
+msgstr "Išankstinis paveikslų apdorojimas"
 
 #: src/widgets/OCRSettingsPage.qml:95
 #, kde-format
 msgid "Enable image preprocessing."
-msgstr ""
+msgstr "Įjungti išankstinį paveikslų apdorojimą."
 
 #: src/widgets/OCRSettingsPage.qml:105
 #, kde-format
 msgid "Page Segmentation"
-msgstr ""
+msgstr "Puslapio skaidymas į segmentus"
 
 #: src/widgets/OCRSettingsPage.qml:116
 #, kde-format
@@ -434,27 +430,27 @@ msgstr ""
 #: src/widgets/OCRSettingsPage.qml:144
 #, kde-format
 msgid "Text Block Detection"
-msgstr ""
+msgstr "Teksto bloko aptikimas"
 
 #: src/widgets/OCRSettingsPage.qml:152
 #, kde-format
 msgid "Word"
-msgstr ""
+msgstr "Žodis"
 
 #: src/widgets/OCRSettingsPage.qml:159
 #, kde-format
 msgid "Line"
-msgstr ""
+msgstr "Eilutė"
 
 #: src/widgets/OCRSettingsPage.qml:166
 #, kde-format
 msgid "Paragraph"
-msgstr ""
+msgstr "Pastraipa"
 
 #: src/widgets/OCRSettingsPage.qml:175
 #, kde-format
 msgid "Text Block Selection"
-msgstr ""
+msgstr "Teksto bloko žymėjimas"
 
 #: src/widgets/OCRSettingsPage.qml:176
 #, kde-format
@@ -462,16 +458,18 @@ msgid ""
 "For selecting multiple blocks in the free mode, hold down the Shift key "
 "while moving around."
 msgstr ""
+"Norėdami laisvoje veiksenoje žymėti kelis blokus, laikykite nuspaustą Lyg2 "
+"klavišą, kol judinate pelę."
 
 #: src/widgets/OCRSettingsPage.qml:184
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "Laisvas"
 
 #: src/widgets/OCRSettingsPage.qml:191
 #, kde-format
 msgid "Rectangular"
-msgstr ""
+msgstr "Stačiakampis"
 
 #: src/widgets/SelectionBar.qml:63
 #, kde-format
@@ -524,45 +522,44 @@ msgid "Show the file name of the images."
 msgstr ""
 
 #: src/widgets/SettingsDialog.qml:65
-#, fuzzy, kde-format
-#| msgid "Tags"
+#, kde-format
 msgid "GPS Tags"
-msgstr "Žymės"
+msgstr "GPS žymės"
 
 #: src/widgets/SettingsDialog.qml:66
 #, kde-format
 msgid "Show GPS tags."
-msgstr ""
+msgstr "Rodyti GPS žymes."
 
 #: src/widgets/SettingsDialog.qml:80
 #, kde-format
 msgid "Viewer"
-msgstr ""
+msgstr "Žiūryklė"
 
 #: src/widgets/SettingsDialog.qml:85
 #, kde-format
 msgid "Tag Bar"
-msgstr ""
+msgstr "Žymių juosta"
 
 #: src/widgets/SettingsDialog.qml:86
 #, kde-format
 msgid "Easy way to add, remove and modify the tags of the current image."
-msgstr ""
+msgstr "Lengvas būdas pridėti, šalinti ir modifikuoti esamo paveikslo žymes."
 
 #: src/widgets/SettingsDialog.qml:98
 #, kde-format
 msgid "Preview Bar"
-msgstr ""
+msgstr "Peržiūros juosta"
 
 #: src/widgets/SettingsDialog.qml:111
 #, kde-format
 msgid "Configure settings for text detection in images."
-msgstr ""
+msgstr "Konfigūruoti teksto aptikimo paveiksluose nuostatas."
 
 #: src/widgets/SettingsDialog.qml:125
 #, kde-format
 msgid "Sources"
-msgstr ""
+msgstr "Šaltiniai"
 
 #: src/widgets/SettingsDialog.qml:164
 #, kde-format
@@ -572,12 +569,12 @@ msgstr "Pridėti"
 #: src/widgets/Sidebar.qml:56
 #, kde-format
 msgid "Bookmarks!"
-msgstr ""
+msgstr "Žymelės!"
 
 #: src/widgets/Sidebar.qml:57
 #, kde-format
 msgid "Your bookmarks will be listed here"
-msgstr ""
+msgstr "Čia bus išvardytos žymelės"
 
 #: src/widgets/views/Cloud/CloudView.qml:33
 #, kde-format
@@ -592,32 +589,33 @@ msgstr "Čia nieko nėra"
 #: src/widgets/views/Cloud/CloudView.qml:38
 #, kde-format
 msgid "Almost ready!"
-msgstr ""
+msgstr "Beveik paruošta!"
 
 #: src/widgets/views/Cloud/CloudView.qml:40
 #, kde-format
 msgid "Make sure you're online and your cloud account is working"
 msgstr ""
+"Įsitikinkite, kad esate prisijungę prie interneto ir jūsų debesijos paskyra "
+"veikia"
 
 #: src/widgets/views/CollectionView.qml:144
 #, kde-format
 msgid "Toggle sidebar"
-msgstr ""
+msgstr "Perjungti šoninę juostą"
 
 #: src/widgets/views/Folders/FoldersView.qml:69
-#, fuzzy, kde-format
-#| msgid "No Folders!"
+#, kde-format
 msgid "New Folder"
-msgstr "Nėra aplankų!"
+msgstr "Naujas aplankas"
 
 #: src/widgets/views/Folders/FoldersView.qml:76
 #, kde-format
 msgid "Filter %1 folder"
 msgid_plural "Filter %1 folders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Filtruoti %1 aplanką"
+msgstr[1] "Filtruoti %1 aplankus"
+msgstr[2] "Filtruoti %1 aplankų"
+msgstr[3] "Filtruoti %1 aplanką"
 
 #: src/widgets/views/Folders/FoldersView.qml:110
 #, kde-format
@@ -625,15 +623,14 @@ msgid "No Folders!"
 msgstr "Nėra aplankų!"
 
 #: src/widgets/views/Folders/FoldersView.qml:110
-#, fuzzy, kde-format
-#| msgid "Nothing here"
+#, kde-format
 msgid "Nothing Here!"
-msgstr "Čia nieko nėra"
+msgstr "Čia nieko nėra!"
 
 #: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Add new image sources."
-msgstr ""
+msgstr "Pridėti naujų paveikslų šaltinių."
 
 #: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
@@ -676,12 +673,12 @@ msgstr ""
 #: src/widgets/views/Gallery/GalleryView.qml:31
 #, kde-format
 msgid "Add sources"
-msgstr ""
+msgstr "Pridėti šaltinių"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:68
 #, kde-format
 msgid "No results found."
-msgstr ""
+msgstr "Nerasta jokių rezultatų."
 
 #: src/widgets/views/Tags/TagsSidebar.qml:94
 #, kde-format
@@ -695,17 +692,17 @@ msgstr[3] ""
 #: src/widgets/views/Tags/TagsSidebar.qml:103
 #, kde-format
 msgid "New tag"
-msgstr ""
+msgstr "Nauja žymė"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:143
 #, kde-format
 msgid "qrc:/assets/add-image.svg"
-msgstr ""
+msgstr "qrc:/assets/add-image.svg"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:144
 #, kde-format
 msgid "No Tags!"
-msgstr ""
+msgstr "Nėra žymių!"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:145
 #, kde-format
@@ -721,7 +718,7 @@ msgstr ""
 #: src/widgets/views/Tags/TagsSidebar.qml:205
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "Filtrai"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:239
 #, kde-format
@@ -754,10 +751,9 @@ msgid "There're no pics associated with the tag"
 msgstr ""
 
 #: src/widgets/views/Viewer/OCROverlay.qml:47
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select All"
-msgstr "Pasirinkti"
+msgstr "Žymėti visus"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:53
 #, kde-format
@@ -765,10 +761,9 @@ msgid "Call"
 msgstr ""
 
 #: src/widgets/views/Viewer/OCROverlay.qml:65
-#, fuzzy, kde-format
-#| msgid "Save as"
+#, kde-format
 msgid "Save as Contact"
-msgstr "Įrašyti kaip"
+msgstr "Įrašyti kaip adresatą"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:72
 #, kde-format
@@ -776,10 +771,9 @@ msgid "Message"
 msgstr ""
 
 #: src/widgets/views/Viewer/OCROverlay.qml:85
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open Link"
-msgstr "Atverti naudojant"
+msgstr "Atverti nuorodą"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:95
 #, kde-format
@@ -817,10 +811,9 @@ msgid "The image was modified"
 msgstr ""
 
 #: src/widgets/views/Viewer/PixViewer.qml:169
-#, fuzzy, kde-format
-#| msgid "Auto Reload"
+#, kde-format
 msgid "Reload"
-msgstr "Automatinis įkėlimas iš naujo"
+msgstr "Įkelti iš naujo"
 
 #: src/widgets/views/Viewer/PixViewer.qml:195
 #, kde-format
@@ -830,17 +823,17 @@ msgstr "Įrašyti"
 #: src/widgets/views/Viewer/PixViewer.qml:212
 #, kde-format
 msgid "Open an image from your collection"
-msgstr ""
+msgstr "Atverti paveikslą iš kolekcijos"
 
 #: src/widgets/views/Viewer/Viewer.qml:92
 #, kde-format
 msgid "Text copied!"
-msgstr ""
+msgstr "Tekstas nukopijuotas!"
 
 #: src/widgets/views/Viewer/Viewer.qml:96
 #, kde-format
 msgid "Image file copied!"
-msgstr ""
+msgstr "Paveikslo failas nukopijuotas!"
 
 #, fuzzy
 #~| msgid "Search"
