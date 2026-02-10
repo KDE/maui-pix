@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2026-01-16 16:10+0200\n"
+"PO-Revision-Date: 2026-02-10 01:27+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -27,7 +27,7 @@ msgstr "Tvarkyti, naršyti ir taisyti savo paveikslus."
 #: src/main.cpp:122
 #, kde-format
 msgid "Developer"
-msgstr "Programuotojas"
+msgstr "Plėtotojas"
 
 #: src/main.qml:68
 #, kde-format
@@ -108,13 +108,13 @@ msgstr "Kategorijos"
 #: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "PNG"
-msgstr ""
+msgstr "PNG"
 
 #: src/models/folders/placesmodel.cpp:113
 #: src/widgets/views/Tags/TagsSidebar.qml:255
 #, kde-format
 msgid "PSD"
-msgstr ""
+msgstr "PSD"
 
 #: src/models/folders/placesmodel.cpp:115
 #: src/widgets/views/Tags/TagsSidebar.qml:263
@@ -137,9 +137,9 @@ msgstr ""
 msgid "Search image"
 msgid_plural "Search %1 images"
 msgstr[0] "Ieškoti paveikslo"
-msgstr[1] "Ieškoti %1 paveikslų"
-msgstr[2] "Ieškoti %1 paveikslų"
-msgstr[3] "Ieškoti %1 paveikslo"
+msgstr[1] "Ieškoti tarp %1 paveikslų"
+msgstr[2] "Ieškoti tarp %1 paveikslų"
+msgstr[3] "Ieškoti tarp %1 paveikslo"
 
 #: src/view_models/PixGrid.qml:88
 #, kde-format
@@ -219,12 +219,12 @@ msgstr "Informacija"
 #: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "Bendrinti"
 
 #: src/view_models/PixMenu.qml:79
 #, kde-format
 msgid "Select"
-msgstr "Pasirinkti"
+msgstr "Žymėti"
 
 #: src/view_models/PixMenu.qml:92
 #, kde-format
@@ -244,7 +244,7 @@ msgstr "Pridėti į albumą"
 #: src/view_models/PixMenu.qml:133
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Taisyti"
 
 #: src/view_models/PixMenu.qml:145
 #, kde-format
@@ -264,7 +264,7 @@ msgstr "Eiti į aplanką"
 #: src/view_models/PixMenu.qml:177
 #, kde-format
 msgid "Open Location"
-msgstr ""
+msgstr "Atverti vietą"
 
 #: src/view_models/PixMenu.qml:189 src/widgets/AppView.qml:421
 #: src/widgets/SelectionBar.qml:110
@@ -290,7 +290,7 @@ msgstr "Apie"
 #: src/widgets/AppView.qml:137
 #, kde-format
 msgid "Image Modified"
-msgstr ""
+msgstr "Paveikslas modifikuotas"
 
 #: src/widgets/AppView.qml:138
 #, kde-format
@@ -514,12 +514,12 @@ msgstr ""
 #: src/widgets/SettingsDialog.qml:52
 #, kde-format
 msgid "Image Titles"
-msgstr ""
+msgstr "Paveikslų pavadinimai"
 
 #: src/widgets/SettingsDialog.qml:53
 #, kde-format
 msgid "Show the file name of the images."
-msgstr ""
+msgstr "Rodyti paveikslų failo pavadinimus."
 
 #: src/widgets/SettingsDialog.qml:65
 #, kde-format
@@ -635,7 +635,7 @@ msgstr "Pridėti naujų paveikslų šaltinių."
 #: src/widgets/views/Folders/FoldersView.qml:111
 #, kde-format
 msgid "Try something different."
-msgstr ""
+msgstr "Pamėginkite kažką kito."
 
 #: src/widgets/views/Folders/FoldersView.qml:218
 #, kde-format
@@ -645,17 +645,16 @@ msgstr "Aplankas yra tuščias!"
 #: src/widgets/views/Folders/FoldersView.qml:219
 #, kde-format
 msgid "There're no images in this folder. %1"
-msgstr ""
+msgstr "Šiame aplanke nėra jokių paveikslų. %1"
 
 #: src/widgets/views/Folders/FoldersView.qml:234
-#, fuzzy, kde-format
-#| msgid "Open images"
+#, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "Atverti paveikslus"
-msgstr[1] "Atverti paveikslus"
-msgstr[2] "Atverti paveikslus"
-msgstr[3] "Atverti paveikslus"
+msgstr[0] "Nėra paveikslų."
+msgstr[1] "%1 paveikslai"
+msgstr[2] "%1 paveikslų"
+msgstr[3] "%1 paveikslas"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
@@ -723,7 +722,7 @@ msgstr "Filtrai"
 #: src/widgets/views/Tags/TagsSidebar.qml:239
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "Sekmadienis"
 
 #: src/widgets/views/Tags/TagsSidebar.qml:247
 #, kde-format
@@ -788,7 +787,7 @@ msgstr ""
 #: src/widgets/views/Viewer/OCROverlay.qml:109
 #, kde-format
 msgid "Search Selected Text on Google..."
-msgstr ""
+msgstr "Ieškoti pažymėto teksto „Google“ paieškoje..."
 
 #: src/widgets/views/Viewer/PixViewer.qml:102
 #, kde-format
@@ -803,12 +802,12 @@ msgstr ""
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was deleted"
-msgstr ""
+msgstr "Paveikslas buvo ištrintas"
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
 msgid "The image was modified"
-msgstr ""
+msgstr "Paveikslas buvo modifikuotas"
 
 #: src/widgets/views/Viewer/PixViewer.qml:169
 #, kde-format
