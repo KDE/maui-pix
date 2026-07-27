@@ -1,6 +1,6 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the maui-pix package.
-# SPDX-FileCopyrightText: 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2020-2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2023 Frederik Schwarzer <schwarzer@kde.org>
 msgid ""
 msgstr ""
