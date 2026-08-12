@@ -779,7 +779,7 @@ msgstr "افتح الرابط"
 #: src/widgets/views/Viewer/OCROverlay.qml:95
 #, kde-format
 msgid "Create Event"
-msgstr "أنشئ حدثاً"
+msgstr "أنشئ حدثًا"
 
 #: src/widgets/views/Viewer/OCROverlay.qml:102
 #, kde-format
@@ -799,7 +799,7 @@ msgstr "السابق"
 #: src/widgets/views/Viewer/PixViewer.qml:162
 #, kde-format
 msgid "The current image file has been modified or removed externally"
-msgstr "عُدل ملف الصورة الحالي أو أُزيل خارجياً"
+msgstr "عُدل ملف الصورة الحالي أو أُزيل خارجيًا"
 
 #: src/widgets/views/Viewer/PixViewer.qml:163
 #, kde-format
