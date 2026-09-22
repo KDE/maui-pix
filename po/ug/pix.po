@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: maui-pix\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2026-05-31 20:29-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -106,7 +106,7 @@ msgstr "سەھىپە"
 #: src/models/folders/placesmodel.cpp:111
 #, kde-format
 msgid "PNG"
-msgstr "PNG"
+msgstr ""
 
 #: src/models/folders/placesmodel.cpp:113
 #: src/widgets/views/Tags/TagsSidebar.qml:255
@@ -159,7 +159,7 @@ msgstr "جەنۇب"
 #: src/view_models/PixGrid.qml:119
 #, kde-format
 msgid "M"
-msgstr "M"
+msgstr ""
 
 #: src/view_models/PixGrid.qml:127
 #, kde-format
@@ -628,7 +628,7 @@ msgstr ""
 #, kde-format
 msgid "No images."
 msgid_plural "%1 images"
-msgstr[0] "%1 سۈرەت."
+msgstr[0] "%1 سۈرەت"
 
 #: src/widgets/views/Gallery/GalleryView.qml:20
 #: src/widgets/views/Tags/TagsSidebar.qml:67
