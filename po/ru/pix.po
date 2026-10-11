@@ -1,0 +1,828 @@
+# Translation of pix into Russian.
+# This file is distributed under the same license as the maui-pix package.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pix\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"PO-Revision-Date: 2026-10-10 12:38+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: src/main.cpp:118
+#, kde-format
+msgid "Organize, browse, and edit your images."
+msgstr "Упорядочивание, просмотр и редактирование изображений."
+
+#: src/main.cpp:122
+#, kde-format
+msgid "Developer"
+msgstr "Разработчик"
+
+#: src/main.qml:68
+#, kde-format
+msgid ""
+"There are multiple windows still open. Are you sure you want to close the "
+"application?"
+msgstr "Открыто несколько окон. Закрыть приложение?"
+
+#: src/main.qml:133
+#, kde-format
+msgid "Gallery"
+msgstr "Галерея"
+
+#: src/models/folders/placesmodel.cpp:15
+#, kde-format
+msgid "Favorites"
+msgstr "Избранное"
+
+#: src/models/folders/placesmodel.cpp:16
+#, kde-format
+msgid "Downloads"
+msgstr "Загрузки"
+
+#: src/models/folders/placesmodel.cpp:17
+#, kde-format
+msgid "Pictures"
+msgstr "Изображения"
+
+#: src/models/folders/placesmodel.cpp:18 src/models/folders/placesmodel.cpp:109
+#: src/widgets/views/Tags/TagsSidebar.qml:231
+#, kde-format
+msgid "Screenshots"
+msgstr "Снимки экрана"
+
+#: src/models/folders/placesmodel.cpp:19
+#, kde-format
+msgid "Camera"
+msgstr "Камера"
+
+#: src/models/folders/placesmodel.cpp:20 src/widgets/SettingsDialog.qml:34
+#, kde-format
+msgid "Collection"
+msgstr "Коллекция"
+
+#: src/models/folders/placesmodel.cpp:53 src/models/folders/placesmodel.cpp:132
+#, kde-format
+msgid "Tags"
+msgstr "Метки"
+
+#: src/models/folders/placesmodel.cpp:68
+#: src/widgets/views/Tags/TagsSidebar.qml:165
+#, kde-format
+msgid "Places"
+msgstr "Точки входа"
+
+#: src/models/folders/placesmodel.cpp:90
+#, kde-format
+msgid "Locations"
+msgstr "Местоположения"
+
+#: src/models/folders/placesmodel.cpp:107
+#: src/widgets/views/Tags/TagsSidebar.qml:218
+#, kde-format
+msgid "Animated"
+msgstr "Анимированные"
+
+#: src/models/folders/placesmodel.cpp:107
+#: src/models/folders/placesmodel.cpp:109
+#: src/models/folders/placesmodel.cpp:111
+#: src/models/folders/placesmodel.cpp:113
+#: src/models/folders/placesmodel.cpp:115
+#: src/models/folders/placesmodel.cpp:117
+#, kde-format
+msgid "Categories"
+msgstr "Категории"
+
+#: src/models/folders/placesmodel.cpp:111
+#, kde-format
+msgid "PNG"
+msgstr "PNG"
+
+#: src/models/folders/placesmodel.cpp:113
+#: src/widgets/views/Tags/TagsSidebar.qml:255
+#, kde-format
+msgid "PSD"
+msgstr "PSD"
+
+#: src/models/folders/placesmodel.cpp:115
+#: src/widgets/views/Tags/TagsSidebar.qml:263
+#, kde-format
+msgid "Vectors"
+msgstr "Векторы"
+
+#: src/models/folders/placesmodel.cpp:117
+#, kde-format
+msgid "Paintings"
+msgstr "Картины"
+
+#: src/models/gallery/gallery.cpp:120
+#, kde-format
+msgid "No sources found to scan."
+msgstr "Не найдено источников для сканирования."
+
+#: src/view_models/PixGrid.qml:48
+#, kde-format
+msgid "Search image"
+msgid_plural "Search %1 images"
+msgstr[0] "Поиск среди %1 изображения"
+msgstr[1] "Поиск среди %1 изображений"
+msgstr[2] "Поиск среди %1 изображений"
+msgstr[3] "Поиск изображения"
+
+#: src/view_models/PixGrid.qml:88
+#, kde-format
+msgid "Image Text (OCR)"
+msgstr "Текст изображения (OCR)"
+
+#: src/view_models/PixGrid.qml:100
+#, kde-format
+msgid "Preview Size"
+msgstr "Размер предварительного просмотра"
+
+#: src/view_models/PixGrid.qml:101
+#, kde-format
+msgid "Size of the thumbnails in the collection views."
+msgstr "Размер миниатюр в представлениях коллекции."
+
+#: src/view_models/PixGrid.qml:112
+#, kde-format
+msgid "S"
+msgstr "S"
+
+#: src/view_models/PixGrid.qml:119
+#, kde-format
+msgid "M"
+msgstr "M"
+
+#: src/view_models/PixGrid.qml:127
+#, kde-format
+msgid "X"
+msgstr "X"
+
+#: src/view_models/PixGrid.qml:135
+#, kde-format
+msgid "XL"
+msgstr "XL"
+
+#: src/view_models/PixGrid.qml:147
+#, kde-format
+msgid "Title"
+msgstr "Название"
+
+#: src/view_models/PixGrid.qml:156
+#, kde-format
+msgid "Modified"
+msgstr "Дата изменения"
+
+#: src/view_models/PixGrid.qml:166
+#, kde-format
+msgid "Size"
+msgstr "Размер"
+
+#: src/view_models/PixGrid.qml:176
+#, kde-format
+msgid "Date"
+msgstr "Дата"
+
+#: src/view_models/PixGrid.qml:188
+#, kde-format
+msgid "Ascending"
+msgstr "По возрастанию"
+
+#: src/view_models/PixGrid.qml:198
+#, kde-format
+msgid "Descending"
+msgstr "По убыванию"
+
+#: src/view_models/PixMenu.qml:44
+#, kde-format
+msgid "UnFav it"
+msgstr "Убрать из избранного"
+
+#: src/view_models/PixMenu.qml:53
+#, kde-format
+msgid "Info"
+msgstr "Сведения"
+
+#: src/view_models/PixMenu.qml:63 src/widgets/SelectionBar.qml:73
+#, kde-format
+msgid "Share"
+msgstr "Поделиться"
+
+#: src/view_models/PixMenu.qml:79
+#, kde-format
+msgid "Select"
+msgstr "Выделить"
+
+#: src/view_models/PixMenu.qml:92
+#, kde-format
+msgid "Open in New Window"
+msgstr "Открыть в новом окне"
+
+#: src/view_models/PixMenu.qml:107
+#, kde-format
+msgid "Add to '%1'"
+msgstr "Добавить в «%1»"
+
+#: src/view_models/PixMenu.qml:117
+#, kde-format
+msgid "Add to Album"
+msgstr "Добавить в альбом"
+
+#: src/view_models/PixMenu.qml:133
+#, kde-format
+msgid "Edit"
+msgstr "Редактировать"
+
+#: src/view_models/PixMenu.qml:145
+#, kde-format
+msgid "Save as"
+msgstr "Сохранить как"
+
+#: src/view_models/PixMenu.qml:152
+#, kde-format
+msgid "Open with"
+msgstr "Открыть с помощью"
+
+#: src/view_models/PixMenu.qml:160
+#, kde-format
+msgid "Go to Folder"
+msgstr "Перейти в папку"
+
+#: src/view_models/PixMenu.qml:177
+#, kde-format
+msgid "Open Location"
+msgstr "Открыть расположение"
+
+#: src/view_models/PixMenu.qml:189 src/widgets/AppView.qml:421
+#: src/widgets/SelectionBar.qml:110
+#, kde-format
+msgid "Remove"
+msgstr "Удалить"
+
+#: src/widgets/AppView.qml:34
+#, kde-format
+msgid "Settings"
+msgstr "Параметры"
+
+#: src/widgets/AppView.qml:50 src/widgets/views/Gallery/GalleryView.qml:25
+#, kde-format
+msgid "Open"
+msgstr "Открыть"
+
+#: src/widgets/AppView.qml:65
+#, kde-format
+msgid "About"
+msgstr "О программе"
+
+#: src/widgets/AppView.qml:137
+#, kde-format
+msgid "Image Modified"
+msgstr "Изображение изменено"
+
+#: src/widgets/AppView.qml:138
+#, kde-format
+msgid ""
+"The image has been edited. Save or discard the changes before continuing"
+msgstr ""
+"Изображение изменено. Сохраните или отмените изменения, прежде чем продолжить"
+
+#: src/widgets/AppView.qml:142
+#, kde-format
+msgid "Discard"
+msgstr "Не сохранять"
+
+#: src/widgets/AppView.qml:257
+#, kde-format
+msgid "Saved"
+msgstr "Сохранено"
+
+#: src/widgets/AppView.qml:258
+#, kde-format
+msgid "The image has been saved correctly."
+msgstr "Изображение успешно сохранено."
+
+#: src/widgets/AppView.qml:262 src/widgets/SelectionBar.qml:55
+#, kde-format
+msgid "View"
+msgstr "Вид"
+
+#: src/widgets/AppView.qml:291
+#, kde-format
+msgid "Open images"
+msgstr "Открыть изображения"
+
+#: src/widgets/AppView.qml:292
+#, kde-format
+msgid "Drag and drop images here."
+msgstr "Перетащите изображения сюда."
+
+#: src/widgets/AppView.qml:348
+#, kde-format
+msgid "Tagged"
+msgstr "С меткой"
+
+#: src/widgets/AppView.qml:349
+#, kde-format
+msgid "File was tagged successfully"
+msgstr "Файл успешно помечен"
+
+#: src/widgets/AppView.qml:408
+#, kde-format
+msgid "Delete %1 file?"
+msgid_plural "Delete %1 files?"
+msgstr[0] "Удалить %1 файл?"
+msgstr[1] "Удалить %1 файла?"
+msgstr[2] "Удалить %1 файлов?"
+msgstr[3] "Удалить %1 файл?"
+
+#: src/widgets/AppView.qml:409
+#, kde-format
+msgid "Are sure you want to delete this file? This action can not be undone."
+msgid_plural ""
+"Are sure you want to delete these files? This action can not be undone."
+msgstr[0] "Удалить эти файлы? Это действие нельзя отменить."
+msgstr[1] "Удалить эти файлы? Это действие нельзя отменить."
+msgstr[2] "Удалить эти файлы? Это действие нельзя отменить."
+msgstr[3] "Удалить этот файл? Это действие нельзя отменить."
+
+#: src/widgets/AppView.qml:415
+#, kde-format
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/widgets/OCRSettingsPage.qml:12 src/widgets/SettingsDialog.qml:110
+#, kde-format
+msgid "Text Detection"
+msgstr "Обнаружение текста"
+
+#: src/widgets/OCRSettingsPage.qml:83
+#, kde-format
+msgid "Enable Auto Detection"
+msgstr "Включить автоопределение"
+
+#: src/widgets/OCRSettingsPage.qml:94
+#, kde-format
+msgid "Image Preprocessing"
+msgstr "Предварительная обработка изображения"
+
+#: src/widgets/OCRSettingsPage.qml:95
+#, kde-format
+msgid "Enable image preprocessing."
+msgstr "Включить предварительную обработку изображений."
+
+#: src/widgets/OCRSettingsPage.qml:105
+#, kde-format
+msgid "Page Segmentation"
+msgstr "Сегментация страницы"
+
+#: src/widgets/OCRSettingsPage.qml:116
+#, kde-format
+msgid "Auto"
+msgstr "Автоматически"
+
+#: src/widgets/OCRSettingsPage.qml:117
+#, kde-format
+msgid "Auto OSD"
+msgstr "Автоматически с определением ориентации"
+
+#: src/widgets/OCRSettingsPage.qml:118
+#, kde-format
+msgid "Single Column"
+msgstr "Один столбец"
+
+#: src/widgets/OCRSettingsPage.qml:119
+#, kde-format
+msgid "Single Line"
+msgstr "Одна строка"
+
+#: src/widgets/OCRSettingsPage.qml:120
+#, kde-format
+msgid "Single Block"
+msgstr "Один блок"
+
+#: src/widgets/OCRSettingsPage.qml:121
+#, kde-format
+msgid "Single Word"
+msgstr "Одно слово"
+
+#: src/widgets/OCRSettingsPage.qml:128
+#, kde-format
+msgid "Confidence Threshold"
+msgstr "Порог достоверности"
+
+#: src/widgets/OCRSettingsPage.qml:144
+#, kde-format
+msgid "Text Block Detection"
+msgstr "Обнаружение текстовых блоков"
+
+#: src/widgets/OCRSettingsPage.qml:152
+#, kde-format
+msgid "Word"
+msgstr "Слово"
+
+#: src/widgets/OCRSettingsPage.qml:159
+#, kde-format
+msgid "Line"
+msgstr "Строка"
+
+#: src/widgets/OCRSettingsPage.qml:166
+#, kde-format
+msgid "Paragraph"
+msgstr "Абзац"
+
+#: src/widgets/OCRSettingsPage.qml:175
+#, kde-format
+msgid "Text Block Selection"
+msgstr "Выделение текстового блока"
+
+#: src/widgets/OCRSettingsPage.qml:176
+#, kde-format
+msgid ""
+"For selecting multiple blocks in the free mode, hold down the Shift key "
+"while moving around."
+msgstr ""
+"Чтобы выбрать несколько блоков в свободном режиме, удерживайте нажатой "
+"клавишу Shift при перемещении."
+
+#: src/widgets/OCRSettingsPage.qml:184
+#, kde-format
+msgid "Free"
+msgstr "Свободный"
+
+#: src/widgets/OCRSettingsPage.qml:191
+#, kde-format
+msgid "Rectangular"
+msgstr "Прямоугольный"
+
+#: src/widgets/SelectionBar.qml:63
+#, kde-format
+msgid "Tag"
+msgstr "Пометить"
+
+#: src/widgets/SelectionBar.qml:85
+#, kde-format
+msgid "Un/Fav"
+msgstr "В избранное / из избранного"
+
+#: src/widgets/SelectionBar.qml:92
+#, kde-format
+msgid "Export"
+msgstr "Экспорт"
+
+#: src/widgets/SettingsDialog.qml:15
+#, kde-format
+msgid "Behavior"
+msgstr "Поведение"
+
+#: src/widgets/SettingsDialog.qml:20 src/widgets/views/Viewer/PixViewer.qml:181
+#, kde-format
+msgid "Auto Reload"
+msgstr "Автоматическое обновление"
+
+#: src/widgets/SettingsDialog.qml:21
+#, kde-format
+msgid "Watch for changes in the collection sources."
+msgstr "Следить за изменениями в источниках коллекции."
+
+#: src/widgets/SettingsDialog.qml:39
+#, kde-format
+msgid "Fit"
+msgstr "Вместить"
+
+#: src/widgets/SettingsDialog.qml:40
+#, kde-format
+msgid "Fit the previews and preserve the aspect ratio."
+msgstr "Вписывать миниатюры с сохранением пропорций."
+
+#: src/widgets/SettingsDialog.qml:52
+#, kde-format
+msgid "Image Titles"
+msgstr "Названия изображений"
+
+#: src/widgets/SettingsDialog.qml:53
+#, kde-format
+msgid "Show the file name of the images."
+msgstr "Показывать имена файлов изображений."
+
+#: src/widgets/SettingsDialog.qml:65
+#, kde-format
+msgid "GPS Tags"
+msgstr "Метки GPS"
+
+#: src/widgets/SettingsDialog.qml:66
+#, kde-format
+msgid "Show GPS tags."
+msgstr "Показывать метки GPS."
+
+#: src/widgets/SettingsDialog.qml:80
+#, kde-format
+msgid "Viewer"
+msgstr "Окно просмотра"
+
+#: src/widgets/SettingsDialog.qml:85
+#, kde-format
+msgid "Tag Bar"
+msgstr "Панель меток"
+
+#: src/widgets/SettingsDialog.qml:86
+#, kde-format
+msgid "Easy way to add, remove and modify the tags of the current image."
+msgstr ""
+"Простой способ добавления, удаления и изменения меток текущего изображения."
+
+#: src/widgets/SettingsDialog.qml:98
+#, kde-format
+msgid "Preview Bar"
+msgstr "Панель предварительного просмотра"
+
+#: src/widgets/SettingsDialog.qml:111
+#, kde-format
+msgid "Configure settings for text detection in images."
+msgstr "Настройка параметров обнаружения текста на изображениях."
+
+#: src/widgets/SettingsDialog.qml:125
+#, kde-format
+msgid "Sources"
+msgstr "Источники"
+
+#: src/widgets/SettingsDialog.qml:164
+#, kde-format
+msgid "Add"
+msgstr "Добавить"
+
+#: src/widgets/Sidebar.qml:56
+#, kde-format
+msgid "Bookmarks!"
+msgstr "Закладки"
+
+#: src/widgets/Sidebar.qml:57
+#, kde-format
+msgid "Your bookmarks will be listed here"
+msgstr "Здесь будет показан список закладок"
+
+#: src/widgets/views/Cloud/CloudView.qml:33
+#, kde-format
+msgid "Loading content!"
+msgstr "Загрузка содержимого…"
+
+#: src/widgets/views/Cloud/CloudView.qml:35
+#, kde-format
+msgid "Nothing here"
+msgstr "Здесь ничего нет"
+
+#: src/widgets/views/Cloud/CloudView.qml:38
+#, kde-format
+msgid "Almost ready!"
+msgstr "Почти готово…"
+
+#: src/widgets/views/Cloud/CloudView.qml:40
+#, kde-format
+msgid "Make sure you're online and your cloud account is working"
+msgstr "Проверьте подключение к Интернету и работу облачной учётной записи"
+
+#: src/widgets/views/CollectionView.qml:144
+#, kde-format
+msgid "Toggle sidebar"
+msgstr "Показать или скрыть боковую панель"
+
+#: src/widgets/views/Folders/FoldersView.qml:69
+#, kde-format
+msgid "New Folder"
+msgstr "Создать папку"
+
+#: src/widgets/views/Folders/FoldersView.qml:76
+#, kde-format
+msgid "Filter %1 folder"
+msgid_plural "Filter %1 folders"
+msgstr[0] "Фильтр среди %1 папки"
+msgstr[1] "Фильтр среди %1 папок"
+msgstr[2] "Фильтр среди %1 папок"
+msgstr[3] "Фильтр среди %1 папки"
+
+#: src/widgets/views/Folders/FoldersView.qml:110
+#, kde-format
+msgid "No Folders!"
+msgstr "Нет папок"
+
+#: src/widgets/views/Folders/FoldersView.qml:110
+#, kde-format
+msgid "Nothing Here!"
+msgstr "Здесь ничего нет"
+
+#: src/widgets/views/Folders/FoldersView.qml:111
+#, kde-format
+msgid "Add new image sources."
+msgstr "Добавьте новые источники изображений."
+
+#: src/widgets/views/Folders/FoldersView.qml:111
+#, kde-format
+msgid "Try something different."
+msgstr "Попробуйте что-нибудь другое."
+
+#: src/widgets/views/Folders/FoldersView.qml:218
+#, kde-format
+msgid "Folder is empty!"
+msgstr "Папка пуста"
+
+#: src/widgets/views/Folders/FoldersView.qml:219
+#, kde-format
+msgid "There're no images in this folder. %1"
+msgstr "В этой папке нет изображений. %1"
+
+# BUGME: plural misuse: singular "No images." is shown for n=1 --ayavorsky 2026-10-10
+#: src/widgets/views/Folders/FoldersView.qml:234
+#, kde-format
+msgid "No images."
+msgid_plural "%1 images"
+msgstr[0] "%1 изображение"
+msgstr[1] "%1 изображения"
+msgstr[2] "%1 изображений"
+msgstr[3] "%1 изображение"
+
+#: src/widgets/views/Gallery/GalleryView.qml:20
+#: src/widgets/views/Tags/TagsSidebar.qml:67
+#: src/widgets/views/Viewer/PixViewer.qml:211
+#, kde-format
+msgid "No Pics!"
+msgstr "Нет изображений"
+
+#: src/widgets/views/Gallery/GalleryView.qml:21
+#: src/widgets/views/Tags/TagsSidebar.qml:68
+#, kde-format
+msgid "Nothing here. You can add new sources or open an image."
+msgstr "Здесь ничего нет. Добавьте новые источники или откройте изображение."
+
+#: src/widgets/views/Gallery/GalleryView.qml:31
+#, kde-format
+msgid "Add sources"
+msgstr "Добавить источники"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:68
+#, kde-format
+msgid "No results found."
+msgstr "Ничего не найдено."
+
+#: src/widgets/views/Tags/TagsSidebar.qml:94
+#, kde-format
+msgid "Filter %1 tag"
+msgid_plural "Filter %1 tags"
+msgstr[0] "Фильтр среди %1 метки"
+msgstr[1] "Фильтр среди %1 меток"
+msgstr[2] "Фильтр среди %1 меток"
+msgstr[3] "Фильтр среди %1 метки"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:103
+#, kde-format
+msgid "New tag"
+msgstr "Создать метку"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:143
+#, kde-format
+msgid "qrc:/assets/add-image.svg"
+msgstr "qrc:/assets/add-image.svg"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:144
+#, kde-format
+msgid "No Tags!"
+msgstr "Нет меток"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:145
+#, kde-format
+msgid "You can create new tags to organize your gallery"
+msgstr "Для упорядочивания галереи можно создавать новые метки."
+
+#: src/widgets/views/Tags/TagsSidebar.qml:166
+#: src/widgets/views/Tags/TagsSidebar.qml:206
+#, kde-format
+msgid "GPS based locations"
+msgstr "Местоположения на основе GPS"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:205
+#, kde-format
+msgid "Filters"
+msgstr "Фильтры"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:239
+#, kde-format
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:247
+#, kde-format
+msgid "PNGs"
+msgstr "Файлы PNG"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:271
+#, kde-format
+msgid "Paint"
+msgstr "Рисунки"
+
+#: src/widgets/views/Tags/TagsSidebar.qml:279
+#, kde-format
+msgid "Animals"
+msgstr "Животные"
+
+#: src/widgets/views/Tags/TagsView.qml:27
+#, kde-format
+msgid "No Pics in %1!"
+msgstr "Нет изображений в %1"
+
+#: src/widgets/views/Tags/TagsView.qml:28
+#, kde-format
+msgid "There're no pics associated with the tag"
+msgstr "Нет изображений, связанных с меткой"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:47
+#, kde-format
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:53
+#, kde-format
+msgid "Call"
+msgstr "Позвонить"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:65
+#, kde-format
+msgid "Save as Contact"
+msgstr "Сохранить как контакт"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:72
+#, kde-format
+msgid "Message"
+msgstr "Написать сообщение"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:85
+#, kde-format
+msgid "Open Link"
+msgstr "Открыть ссылку"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:95
+#, kde-format
+msgid "Create Event"
+msgstr "Создать событие"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:102
+#, kde-format
+msgid "Save to Note"
+msgstr "Сохранить в заметку"
+
+#: src/widgets/views/Viewer/OCROverlay.qml:109
+#, kde-format
+msgid "Search Selected Text on Google..."
+msgstr "Найти выделенный текст в Google…"
+
+#: src/widgets/views/Viewer/PixViewer.qml:102
+#, kde-format
+msgid "Previous"
+msgstr "Предыдущее"
+
+#: src/widgets/views/Viewer/PixViewer.qml:162
+#, kde-format
+msgid "The current image file has been modified or removed externally"
+msgstr "Текущий файл изображения изменён или удалён извне"
+
+#: src/widgets/views/Viewer/PixViewer.qml:163
+#, kde-format
+msgid "The image was deleted"
+msgstr "Изображение удалено"
+
+#: src/widgets/views/Viewer/PixViewer.qml:163
+#, kde-format
+msgid "The image was modified"
+msgstr "Изображение изменено"
+
+#: src/widgets/views/Viewer/PixViewer.qml:169
+#, kde-format
+msgid "Reload"
+msgstr "Обновить"
+
+#: src/widgets/views/Viewer/PixViewer.qml:195
+#, kde-format
+msgid "Save"
+msgstr "Сохранить"
+
+#: src/widgets/views/Viewer/PixViewer.qml:212
+#, kde-format
+msgid "Open an image from your collection"
+msgstr "Открыть изображение из коллекции"
+
+#: src/widgets/views/Viewer/Viewer.qml:92
+#, kde-format
+msgid "Text copied!"
+msgstr "Текст скопирован"
+
+#: src/widgets/views/Viewer/Viewer.qml:96
+#, kde-format
+msgid "Image file copied!"
+msgstr "Файл изображения скопирован"
